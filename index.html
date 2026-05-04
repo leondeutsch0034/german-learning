@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<meta name="theme-color" content="#0f172a"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>德语发音对比练习器</title>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script>
+  if (window['pdfjsLib']) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+  }
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  font-family:-apple-system,'Segoe UI',system-ui,sans-serif;
+  background:#0f172a;color:#e2e8f0;
+  min-height:100vh;-webkit-text-size-adjust:100%;
+}
+body{padding:0 0 160px;padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))}
+.container{max-width:720px;margin:0 auto;padding:16px}
+.app-header{text-align:center;padding:32px 16px 20px;padding-top:calc(32px + env(safe-area-inset-top,0px));background:linear-gradient(135deg,#0f172a,#1e1b4b)}
+.app-header h1{
+  font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;
+  background:linear-gradient(100deg,#f6d365,#fda085,#f093fb);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:6px;
+}
+.app-header p{color:rgba(255,255,255,.5);font-size:.9rem}
+.tabs{display:flex;gap:8px;justify-content:center;margin:20px 0 16px;flex-wrap:wrap;padding:0 4px}
+.tab-btn{
+  background:rgba(255,255,255,.08);color:#94a3b8;
+  border:1px solid rgba(255,255,255,.1);
+  padding:10px 24px;border-radius:20px;font-size:.9rem;font-weight:600;
+  cursor:pointer;transition:.2s;min-height:44px;-webkit-tap-highlight-color:transparent;
+}
+.tab-btn:hover{background:rgba(255,255,255,.15)}
+.tab-btn.active{background:linear-gradient(90deg,#f6d365,#fda085);color:#1a1a2e;border-color:transparent}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:16px}
+.card-title{font-size:.85rem;color:#94a3b8;margin-bottom:10px;font-weight:600}
+#article-text{font-size:1.1rem;line-height:1.8;color:#e2e8f0;min-height:80px;white-space:pre-wrap}
+.sentence{cursor:pointer;border-radius:4px;padding:1px 2px;transition:background .15s;-webkit-tap-highlight-color:transparent}
+.sentence:hover{background:rgba(246,211,101,.1)}
+.sentence.selected{background:rgba(246,211,101,.28);color:#fde68a;box-shadow:0 0 0 1px rgba(246,211,101,.4)}
+.sentence-hint{font-size:.78rem;color:#86efac;margin-top:8px;padding:6px 10px;background:rgba(34,197,94,.08);border-radius:8px;border-left:2px solid #86efac}
+.article-nav{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+.small-btn{
+  background:rgba(255,255,255,.1);color:#94a3b8;border:1px solid rgba(255,255,255,.1);
+  padding:8px 20px;border-radius:12px;font-size:.85rem;cursor:pointer;transition:.2s;
+  min-height:44px;-webkit-tap-highlight-color:transparent;
+}
+.small-btn:hover{background:rgba(255,255,255,.2);color:#e2e8f0}
+.small-btn:active{background:rgba(255,255,255,.25)}
+.mic-wrap{text-align:center;margin:24px 0}
+#mic-btn{
+  width:80px;height:80px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#f6d365,#fda085);
+  color:#1a1a2e;font-size:2rem;cursor:pointer;position:relative;transition:.2s;
+  display:inline-flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+#mic-btn:active{transform:scale(0.95)}
+#mic-btn.recording{animation:pulse 1.2s ease infinite;background:linear-gradient(135deg,#ef4444,#f87171)}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}
+  70%{box-shadow:0 0 0 20px rgba(239,68,68,0)}
+  100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}
+}
+#mic-status{color:#94a3b8;font-size:.85rem;margin-top:8px}
+
+/* 5 维评分卡 */
+.scores-grid{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.score-card{flex:1;min-width:90px;background:rgba(0,0,0,.3);border-radius:10px;padding:12px 8px;text-align:center}
+.score-card .v{font-size:1.6rem;font-weight:800;background:linear-gradient(100deg,#f6d365,#fda085);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.score-card .n{font-size:.72rem;color:#94a3b8;margin-top:4px}
+
+/* 逐词高亮 */
+.words-row{font-size:1.15rem;line-height:2.2;padding:14px;background:rgba(0,0,0,.2);border-radius:12px;border-left:3px solid #f6d365;white-space:pre-wrap}
+.word{display:inline-block;margin:3px 4px;padding:3px 8px;border-radius:5px;cursor:pointer;transition:.15s}
+.word:hover{transform:translateY(-1px)}
+.word.good{background:rgba(34,197,94,.18);color:#86efac}
+.word.med{background:rgba(245,158,11,.18);color:#fcd34d}
+.word.bad{background:rgba(239,68,68,.18);color:#fca5a5}
+.word .sc{font-size:.65em;opacity:.7;margin-left:3px}
+.word.unread{background:transparent;color:#64748b;opacity:.55;cursor:default;margin:0;padding:0;font-weight:normal}
+.word.unread:hover{transform:none}
+.word.unread .sc{display:none}
+.word.unread > span[onclick*="speakWord"]{display:none}
+
+/* 音素详情 */
+.phoneme-detail{margin-top:14px;font-size:.92rem;line-height:1.8;padding:14px;background:rgba(0,0,0,.3);border-radius:10px;display:none}
+.phoneme-detail h4{color:#f6d365;font-weight:600;margin-bottom:8px}
+.ph{display:inline-block;margin:3px 4px;padding:4px 10px;border-radius:6px;font-size:.88rem;cursor:default}
+.ph.ok{background:rgba(34,197,94,.18);color:#86efac}
+.ph.med{background:rgba(245,158,11,.18);color:#fcd34d}
+.ph.fail{background:rgba(239,68,68,.18);color:#fca5a5}
+.ph .sc{font-size:.65em;opacity:.7;margin-left:4px}
+.tip{margin-top:8px;font-size:.75rem;color:#64748b;line-height:1.5}
+
+#custom-area{display:none}
+#custom-input{
+  width:100%;min-height:120px;background:rgba(0,0,0,.2);color:#e2e8f0;
+  border:1px solid rgba(255,255,255,.15);border-radius:10px;
+  padding:10px 12px;font-size:15px;font-family:inherit;margin-bottom:8px;resize:vertical;
+  -webkit-appearance:none;
+}
+#custom-input::placeholder{color:#475569}
+#custom-name{
+  width:100%;background:rgba(0,0,0,.2);color:#e2e8f0;
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  padding:8px 12px;font-size:14px;font-family:inherit;margin-bottom:8px;
+  -webkit-appearance:none;
+}
+#custom-name::placeholder{color:#475569}
+.saved-list{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.saved-item{display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;cursor:pointer;transition:.15s}
+.saved-item:hover{background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.15)}
+.saved-item .sn{font-size:.85rem;color:#e2e8f0;flex:1}
+.saved-item .sm{font-size:.7rem;color:#64748b;margin-right:10px}
+.saved-item .sdel{background:none;border:none;color:#f87171;font-size:.85rem;cursor:pointer;padding:4px 8px}
+.upload-zone{
+  border:2px dashed rgba(134,239,172,.35);border-radius:12px;
+  padding:20px;text-align:center;margin-bottom:10px;
+  color:#94a3b8;font-size:.85rem;cursor:pointer;transition:.2s;
+  background:rgba(34,197,94,.04);
+}
+.upload-zone:hover,.upload-zone.dragover{border-color:#86efac;color:#86efac;background:rgba(34,197,94,.08)}
+.upload-zone .dz-icon{font-size:1.6rem;margin-bottom:6px}
+.upload-zone .dz-hint{font-size:.72rem;margin-top:4px;color:#86efac;opacity:.85}
+.action-btn{
+  display:inline-block;
+  background:linear-gradient(90deg,#f6d365,#fda085);color:#1a1a2e;
+  border:none;border-radius:12px;padding:10px 24px;font-size:.88rem;font-weight:700;
+  cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent;
+}
+.action-btn:active{transform:scale(0.97);opacity:.9}
+.setup-input{
+  width:100%;background:rgba(0,0,0,.2);color:#e2e8f0;
+  border:1px solid rgba(255,255,255,.15);border-radius:10px;
+  padding:10px 12px;font-size:16px;font-family:inherit;margin-bottom:8px;
+  -webkit-appearance:none;
+}
+.setup-input::placeholder{color:#475569}
+.warn-text{color:#fbbf24;font-size:.82rem;line-height:1.6}
+
+/* 登录弹窗 */
+.login-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+}
+.login-overlay.show{display:flex}
+.login-box{
+  background:#1e293b;border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:28px 24px;width:90%;max-width:360px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.login-box h2{font-size:1.1rem;font-weight:700;color:#f6d365;margin-bottom:6px;text-align:center}
+.login-box p{font-size:.82rem;color:#64748b;text-align:center;margin-bottom:18px}
+.login-err{color:#f87171;font-size:.82rem;margin-top:8px;min-height:20px;text-align:center}
+.login-close{
+  float:right;background:none;border:none;color:#64748b;
+  font-size:1.2rem;cursor:pointer;margin-top:-4px;
+}
+
+.early-bird{
+  background:linear-gradient(135deg,rgba(246,211,101,.08),rgba(240,147,251,.08));
+  border:1px solid rgba(246,211,101,.25);border-radius:14px;
+  padding:14px 18px;margin:0 0 14px;text-align:center;font-size:.88rem;line-height:1.7;color:#cbd5e1;
+}
+.early-bird strong{color:#f6d365}
+.early-bird .wechat{
+  display:inline-block;margin-top:6px;
+  background:rgba(246,211,101,.15);border:1px solid rgba(246,211,101,.3);
+  border-radius:8px;padding:3px 12px;font-size:.85rem;color:#f6d365;font-weight:700;letter-spacing:.5px;
+}
+
+/* 历史记录 */
+.history-list{display:flex;flex-direction:column;gap:10px}
+.history-item{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;cursor:pointer;transition:.15s}
+.history-item:hover{background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.15)}
+.history-item .hi-meta{font-size:.78rem;color:#64748b;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.history-item .hi-level{font-size:.72rem;padding:2px 8px;border-radius:4px;background:rgba(246,211,101,.15);color:#f6d365}
+.history-item .hi-text{font-size:.85rem;color:#94a3b8;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;margin-bottom:8px}
+.history-item .hi-scores{display:flex;gap:6px;flex-wrap:wrap}
+.history-item .hi-badge{font-size:.7rem;padding:3px 8px;border-radius:6px;background:rgba(246,211,101,.12);color:#f6d365}
+.history-item .hi-badge .sl{font-weight:700;color:#fda085}
+.hist-detail-block{background:rgba(0,0,0,.2);border-radius:10px;padding:14px;margin-top:10px;display:none}
+.hist-detail-block.show{display:block}
+.hist-back{font-size:.82rem;color:#f6d365;cursor:pointer;margin-bottom:10px;display:inline-block}
+
+@media(max-width:600px){
+  .container{padding:10px;padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px))}
+  body{padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+  .card{padding:14px;border-radius:12px;margin-bottom:12px}
+  .app-header{padding:20px 12px 14px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+  .app-header h1{font-size:1.5rem;margin-bottom:4px}
+  .app-header p{font-size:.78rem}
+  .tabs{gap:6px;margin:12px 0 10px;padding:0 2px}
+  .tab-btn{padding:9px 0;flex:1;min-width:0;text-align:center;font-size:.85rem;min-height:42px;border-radius:14px}
+  .card-title{font-size:.78rem;margin-bottom:8px}
+  #article-text{font-size:1rem;line-height:1.85}
+  .sentence{padding:2px 3px;border-radius:5px}
+  .sentence.selected{padding:3px 5px}
+  .article-nav{justify-content:space-between;gap:6px}
+  .small-btn{flex:1;text-align:center;padding:9px 12px;font-size:.82rem;min-height:42px}
+  .mic-wrap{
+    position:fixed;bottom:0;left:0;right:0;z-index:100;
+    background:linear-gradient(transparent,rgba(15,23,42,.96) 35%);padding:14px 0 12px;
+    padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));margin:0;
+  }
+  #mic-btn{width:64px;height:64px;font-size:1.5rem;box-shadow:0 4px 20px rgba(246,211,101,.35)}
+  #mic-status{font-size:.78rem;margin-top:6px;padding:0 16px;line-height:1.4}
+  .scores-grid{gap:6px}
+  .score-card{flex:0 0 calc((100% - 12px) / 3);min-width:0;padding:8px 4px}
+  .score-card .v{font-size:1.3rem}
+  .score-card .n{font-size:.65rem}
+  .words-row{font-size:1rem;line-height:2;padding:10px}
+  .word{margin:2px 3px;padding:2px 6px;font-size:.95rem}
+  .word .sc{font-size:.6em}
+  .upload-zone{padding:14px}
+  .upload-zone .dz-icon{font-size:1.4rem}
+  #custom-input{min-height:100px;font-size:.95rem}
+  .saved-item{padding:10px 12px;font-size:.85rem}
+  .saved-item .sn{font-size:.85rem}
+  .action-btn{width:100%;text-align:center;padding:12px;font-size:1rem;min-height:48px;font-weight:700}
+  .login-overlay{padding:20px}
+  .login-box{padding:24px 20px;width:100%;max-width:none}
+  .login-box h2{font-size:1.2rem}
+  .login-box p{font-size:.85rem}
+  .history-item{padding:12px}
+  .history-item .hi-text{font-size:.82rem}
+  .phoneme-detail{font-size:.88rem;padding:12px}
+  .ph{padding:3px 8px;font-size:.88rem}
+  .early-bird{font-size:.78rem;padding:14px 12px;line-height:1.6}
+}
+@media(max-width:360px){
+  .app-header h1{font-size:1.3rem}
+  .tab-btn{font-size:.78rem;padding:7px 0}
+  #article-text{font-size:.92rem;line-height:1.75}
+  .score-card .v{font-size:1.15rem}
+  .score-card .n{font-size:.6rem}
+  .word{font-size:.88rem;padding:2px 5px;margin:2px}
+  #mic-btn{width:58px;height:58px;font-size:1.4rem}
+}
+@media(max-height:500px) and (orientation:landscape){
+  .app-header{padding:10px 12px 6px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+  .app-header h1{font-size:1.1rem;margin-bottom:0}
+  .app-header p{display:none}
+  .tabs{margin:8px 0 6px}
+  body{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+  #mic-btn{width:54px;height:54px;font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<div class="app-header">
+  <h1>德语发音对比练习器</h1>
+  <p>朗读 → 音素级评分 · 看清你每个音读得怎么样</p>
+</div>
+
+<div class="container">
+  <div id="guest-hint" style="text-align:center;font-size:.85rem;color:#94a3b8;padding:8px 12px;background:rgba(0,0,0,.2);border-radius:8px;margin-bottom:12px"></div>
+
+  <!-- Main UI -->
+  <div id="main-ui">
+    <div class="tabs">
+      <button class="tab-btn active" data-level="A1">A1</button>
+      <button class="tab-btn" data-level="A2">A2</button>
+      <button class="tab-btn" data-level="B1">B1</button>
+      <button class="tab-btn" data-level="custom" id="custom-tab">自定义</button>
+      <button class="tab-btn" data-level="history" id="history-tab">历史</button>
+    </div>
+
+    <div class="card" id="article-card">
+      <div class="card-title">Lies den folgenden Text vor <span id="article-counter"></span></div>
+      <div id="sentence-hint" class="sentence-hint" style="display:none"></div>
+      <div id="article-text"></div>
+      <div class="article-nav">
+        <button class="small-btn" onclick="prevArticle()">Vorheriger</button>
+        <button class="small-btn" onclick="nextArticle()">Nächster</button>
+      </div>
+    </div>
+
+    <div class="card" id="custom-area">
+      <div class="card-title">Eigener Text</div>
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+        <div class="dz-icon">📥</div>
+        <div>Dateien hier ablegen oder klicken (PDF / DOCX / TXT / Pages)</div>
+        <div class="dz-hint">Erste Zeile = Titel · Ab Zeile 2 = Text · Mehrfachimport möglich</div>
+      </div>
+      <input type="file" id="file-input" multiple accept=".pdf,.txt,.text,.docx,.pages" style="display:none" onchange="handleFileSelect(event)" />
+      <input id="custom-name" placeholder="Name des Artikels (optional)" />
+      <textarea id="custom-input" placeholder="Füge hier einen beliebigen deutschen Text ein..."></textarea>
+      <div style="display:flex;gap:8px">
+        <button class="action-btn" onclick="useCustomText()" style="flex:1">Üben</button>
+        <button class="action-btn" onclick="saveCustomArticle()" style="flex:1;background:linear-gradient(90deg,#6b21a8,#9333ea)">Speichern</button>
+      </div>
+      <div class="saved-list" id="saved-list"></div>
+    </div>
+
+    <div class="mic-wrap">
+      <button id="mic-btn" onclick="toggleRecording()">&#127908;</button>
+      <div id="mic-status">📝 Lies an beliebiger Stelle los — das System erkennt automatisch (oder Satz antippen für Einzelübung)</div>
+    </div>
+
+    <div class="card" id="result-card" style="display:none">
+      <div class="scores-grid" id="scores"></div>
+      <div class="card-title" style="margin-top:6px">Wort-für-Wort (antippen für Phonem-Details)</div>
+      <div class="words-row" id="words"></div>
+      <div class="phoneme-detail" id="ph-detail"></div>
+    </div>
+  </div>
+
+  <!-- 历史记录 -->
+  <div id="history-view" style="display:none">
+    <div class="card">
+      <div class="card-title">📋 Letzte 10 Übungen <span id="hist-count" style="color:#64748b"></span></div>
+      <div class="history-list" id="history-list"></div>
+      <div id="hist-detail" class="hist-detail-block">
+        <div class="hist-back" onclick="closeHistDetail()">← Zurück</div>
+        <div id="hist-detail-content"></div>
+      </div>
+      <p style="margin-top:14px;font-size:.82rem;color:#64748b;text-align:center">Maximal 10 Einträge</p>
+    </div>
+  </div>
+
+  <div class="early-bird">
+    🎉 <strong>Gast: 2× täglich kostenlos</strong> · Einloggen für unbegrenzten Zugang<br>
+    Phonem-Level Feedback für jeden einzelnen Laut<br>
+    Account anfragen: <span class="wechat">微信: LeonDeutsch</span>
+  </div>
+</div>
+
+<!-- 登录弹窗 -->
+<div class="login-overlay" id="login-overlay">
+  <div class="login-box">
+    <button class="login-close" onclick="closeLogin()" title="Schließen, A1 testen">✕</button>
+    <h2>🔐 Alle Funktionen freischalten</h2>
+    <p>A2 / B1 / eigene Texte<br>微信 <strong style="color:#f6d365">LeonDeutsch</strong> für Account</p>
+    <input class="setup-input" id="login-user" placeholder="Benutzername" autocomplete="off"/>
+    <input class="setup-input" id="login-pass" placeholder="Passwort" type="password" autocomplete="off"/>
+    <button class="action-btn" style="width:100%;text-align:center" onclick="doLogin()">Einloggen</button>
+    <div class="login-err" id="login-err"></div>
+    <p style="margin-top:14px;font-size:.78rem"><a href="#" onclick="closeLogin();return false" style="color:#86efac">Kostenlos A1 testen (2× täglich)</a></p>
+  </div>
+</div>
+
+<script>
+const BACKEND_URL = 'https://pronunci-german-fyexooxdsx.cn-hangzhou.fcapp.run';
+
+const articles = {
+  A1: [
+    "Hallo, ich heiße Anna und ich komme aus Berlin. Ich bin zwanzig Jahre alt und ich studiere Deutsch an der Universität. Jeden Morgen stehe ich um sieben Uhr auf und frühstücke mit meiner Familie. Mein Vater trinkt Kaffee und meine Mutter isst Brot mit Marmelade. Nach dem Frühstück fahre ich mit dem Bus zur Schule. Am Abend lese ich gerne Bücher oder höre Musik. Am Wochenende gehe ich oft mit meinen Freunden spazieren.",
+    "Meine Familie ist nicht sehr groß. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tom und er ist fünfzehn Jahre alt. Er geht noch zur Schule und spielt gerne Fußball. Meine Schwester Lisa ist achtundzwanzig und arbeitet als Lehrerin. Meine Eltern wohnen in einem kleinen Haus mit einem Garten. Im Garten haben wir Blumen und einen Apfelbaum. Ich besuche meine Familie jeden Sonntag.",
+    "Ich wohne in einer kleinen Wohnung im Stadtzentrum. Die Wohnung hat zwei Zimmer, eine Küche und ein Badezimmer. Mein Zimmer ist nicht sehr groß, aber es ist gemütlich. Ich habe ein Bett, einen Schreibtisch und einen Kleiderschrank. An der Wand hängen Fotos von meinen Freunden. Die Küche ist hell und modern. Ich koche gerne Nudeln und Suppe. Mein Lieblingsessen ist Pizza mit Käse und Tomaten."
+  ],
+  A2: [
+    "Letzten Sommer bin ich mit meinem Freund nach München gereist. Wir sind mit dem Zug gefahren und die Fahrt hat etwa vier Stunden gedauert. In München haben wir ein kleines Hotel in der Nähe des Marienplatzes gefunden. Am ersten Tag haben wir das Deutsche Museum besucht und ein Picknick im Englischen Garten gemacht. Das Wetter war wunderbar, sonnig und warm. Am nächsten Tag sind wir zu einer berühmten Bäckerei gegangen und haben frische Brezeln probiert.",
+    "Gestern bin ich zum Arzt gegangen, weil ich seit drei Tagen Kopfschmerzen und Halsschmerzen hatte. Im Wartezimmer musste ich dreißig Minuten warten. Der Arzt hat mich untersucht und gesagt, dass ich eine Erkältung habe. Er hat mir ein Rezept für Medikamente gegeben und mir empfohlen, viel Tee zu trinken und mich auszuruhen. In der Apotheke habe ich die Medizin gekauft. Die Apothekerin war sehr freundlich und hat mir erklärt, wie ich die Tabletten einnehmen soll.",
+    "Am Samstag gehe ich gerne einkaufen. Zuerst mache ich eine Einkaufsliste und dann fahre ich zum Supermarkt. Ich kaufe Obst und Gemüse, Brot, Milch und manchmal Fleisch oder Fisch. Letzte Woche habe ich einen neuen Bioladen entdeckt. Die Preise sind etwas höher, aber die Qualität ist sehr gut. Nach dem Einkaufen gehe ich oft in ein Café und trinke einen Cappuccino. Manchmal treffe ich dort Freunde und wir unterhalten uns über die Woche."
+  ],
+  B1: [
+    "Der Klimawandel ist eines der größten Probleme unserer Zeit. Die Temperaturen steigen weltweit und das hat ernste Konsequenzen für die Umwelt. Gletscher schmelzen, der Meeresspiegel steigt und extreme Wetterereignisse werden häufiger. Viele Menschen versuchen deshalb, ihren Alltag umweltfreundlicher zu gestalten. Sie fahren mit dem Fahrrad statt mit dem Auto, kaufen regionale Produkte und vermeiden Plastik. Auch die Politik muss handeln und strengere Gesetze zum Umweltschutz einführen.",
+    "Die Arbeitswelt verändert sich durch die Digitalisierung grundlegend. Immer mehr Menschen arbeiten von zu Hause aus und nutzen digitale Werkzeuge, um mit Kollegen zu kommunizieren. Das hat Vorteile, wie mehr Flexibilität und weniger Pendelzeit. Es gibt aber auch Nachteile, denn die Grenze zwischen Arbeit und Freizeit verschwimmt. Manche Berufe werden durch künstliche Intelligenz ersetzt, während gleichzeitig neue Berufe entstehen. Es ist wichtig, sich ständig weiterzubilden.",
+    "Soziale Medien spielen heute eine zentrale Rolle in unserem Leben. Fast jeder hat ein Profil auf mindestens einer Plattform und teilt dort Fotos, Meinungen und Erlebnisse. Einerseits ermöglichen soziale Medien den Kontakt mit Menschen auf der ganzen Welt und den schnellen Austausch von Informationen. Andererseits gibt es auch Risiken wie Cybermobbing, Fehlinformationen und Suchtverhalten. Besonders Jugendliche verbringen oft mehrere Stunden am Tag in sozialen Netzwerken."
+  ]
+};
+
+const USERS = {
+  'mia7':'wd8kp3','leo3':'rn5jq7','kai9':'bx7ml2','zoe5':'fy4nh8','max2':'ck6st9',
+  'ev1':'mzguya','tes5':'9rm4dr','tes6':'hrxfcc','cel4':'94vujv','vin2':'x3fz4g',
+  'amy6':'qu3mj3','pia2':'32h7xh','pia6':'ghbqu6','gab7':'6g72cv','lia6':'u2c65k',
+  'leni3':'gr7kpm','till4':'wd3nrf','anke2':'xf8qcb','sven7':'mh4tvg','gerd9':'rj9pwx',
+  'finn1':'yb6kzd','hilde':'cv2nmq','maren':'lk5hjr','jule5':'tp8wgf','ralf8':'qz3dsb'
+};
+const GUEST_DAILY_LIMIT = 2;
+const GUEST_USER = 'guest', GUEST_PASS = 'a1trial';
+
+let currentLevel='A1', currentIndex=0, currentText='';
+let currentSentences=[], currentSentenceIdx=-1;
+let mediaRecorder=null, isRecording=false, audioChunks=[], audioContext=null, mediaStream=null;
+let lastResult=null;
+let historyViewActive=false;
+const MAX_HISTORY=10;
+const $ = id => document.getElementById(id);
+
+/* ===== 句子拆分 + 选择 ===== */
+function splitSentences(text){
+  const re=/[^.!?。！？]+[.!?。！？]+["'""]?[\s\n]*/g;
+  const arr=[];
+  let m, lastEnd=0;
+  while((m=re.exec(text))!==null){
+    arr.push(m[0]);
+    lastEnd=m.index+m[0].length;
+  }
+  if(lastEnd<text.length){
+    const tail=text.substring(lastEnd);
+    if(tail.trim()) arr.push(tail);
+  }
+  if(arr.length===0 && text.trim()) arr.push(text);
+  return arr;
+}
+function setArticleText(text){
+  currentText=text;
+  currentSentences=splitSentences(text);
+  currentSentenceIdx=-1;
+  renderArticleSentences();
+  $('sentence-hint').style.display='none';
+  $('mic-status').textContent='📝 Lies an beliebiger Stelle los — das System erkennt automatisch (oder Satz antippen für Einzelübung)';
+}
+function renderArticleSentences(){
+  const html=currentSentences.map((s,i)=>
+    `<span class="sentence" data-idx="${i}" onclick="selectSentence(${i})">${escapeHtml(s)}</span>`
+  ).join('');
+  $('article-text').innerHTML=html;
+}
+function selectSentence(idx){
+  currentSentenceIdx=idx;
+  document.querySelectorAll('#article-text .sentence').forEach((el,i)=>{
+    el.classList.toggle('selected', i===idx);
+  });
+  $('sentence-hint').style.display='block';
+  $('sentence-hint').textContent=`📌 已选第 ${idx+1} 句，点击麦克风开始读这句`;
+  $('mic-status').textContent=`Satz ${idx+1} ausgewählt — Mikrofon antippen zum Lesen`;
+  $('result-card').style.display='none';
+}
+function getEffectiveRefText(){
+  if(currentSentenceIdx>=0 && currentSentences[currentSentenceIdx]){
+    return currentSentences[currentSentenceIdx].trim();
+  }
+  return currentText;
+}
+
+/* ===== 登录系统 ===== */
+function isLoggedIn(){
+  return localStorage.getItem('_auth_de')==='1';
+}
+function getCredentials(){
+  if(isLoggedIn()){
+    return {
+      username: localStorage.getItem('_user_de') || '',
+      password: localStorage.getItem('_pass_de') || ''
+    };
+  }
+  return { username: GUEST_USER, password: GUEST_PASS };
+}
+
+/* ===== 游客次数限制 ===== */
+function todayKey(){
+  const d=new Date();
+  return `_guest_de_${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+function getGuestUsage(){
+  return parseInt(localStorage.getItem(todayKey()) || '0', 10);
+}
+function incrGuestUsage(){
+  localStorage.setItem(todayKey(), String(getGuestUsage()+1));
+}
+function guestRemaining(){
+  return Math.max(0, GUEST_DAILY_LIMIT - getGuestUsage());
+}
+
+function openLogin(reason){
+  $('login-overlay').classList.add('show');
+  $('login-user').value='';$('login-pass').value='';
+  $('login-err').textContent=reason||'';
+  setTimeout(()=>$('login-user').focus(),100);
+}
+function closeLogin(){
+  $('login-overlay').classList.remove('show');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('[data-level="A1"]').classList.add('active');
+  currentLevel='A1';currentIndex=0;
+  showArticle();
+}
+function doLogin(){
+  const user=$('login-user').value.trim();
+  const pass=$('login-pass').value.trim();
+  if(!user||!pass){
+    $('login-err').textContent='Bitte Benutzername und Passwort eingeben';return;
+  }
+  if(USERS[user]!==pass){
+    $('login-err').textContent='Falscher Benutzername oder Passwort';return;
+  }
+  localStorage.setItem('_auth_de','1');
+  localStorage.setItem('_user_de',user);
+  localStorage.setItem('_pass_de',pass);
+  $('login-overlay').classList.remove('show');
+  updateGuestHint();
+  syncArticlesFromBackend();
+}
+function logout(){
+  localStorage.removeItem('_auth_de');
+  localStorage.removeItem('_user_de');
+  localStorage.removeItem('_pass_de');
+  openLogin('Abgemeldet');
+}
+
+function updateGuestHint(){
+  const hint=$('guest-hint');
+  if(!hint)return;
+  if(isLoggedIn()){
+    const u=localStorage.getItem('_user_de');
+    hint.innerHTML=`👤 Eingeloggt: <strong>${u}</strong> · <a href="#" onclick="logout();return false" style="color:#94a3b8">Abmelden</a>`;
+  }else{
+    const left=guestRemaining();
+    if(left>0){
+      hint.innerHTML=`🎁 Gast: heute noch <strong style="color:#86efac">${left}/${GUEST_DAILY_LIMIT}</strong> × · <a href="#" onclick="openLogin();return false" style="color:#f6d365">Einloggen</a>`;
+    }else{
+      hint.innerHTML=`⚠️ Gast-Limit erreicht, <a href="#" onclick="openLogin();return false" style="color:#f6d365"><strong>Einloggen für unbegrenzt</strong></a>`;
+    }
+  }
+}
+
+/* ===== 文章切换 ===== */
+function showArticle(){
+  historyViewActive=false;
+  $('history-view').style.display='none';
+  $('main-ui').style.display='block';
+  const list=articles[currentLevel];
+  if(!list||currentLevel==='custom'){
+    $('article-card').style.display='none';
+    $('custom-area').style.display='block';
+    renderSavedList();return;
+  }
+  $('article-card').style.display='block';
+  $('custom-area').style.display='none';
+  setArticleText(list[currentIndex]);
+  $('article-counter').textContent=`(${currentIndex+1}/${list.length})`;
+  $('result-card').style.display='none';
+}
+function prevArticle(){
+  const list=articles[currentLevel];
+  currentIndex=(currentIndex-1+list.length)%list.length;showArticle();
+}
+function nextArticle(){
+  const list=articles[currentLevel];
+  currentIndex=(currentIndex+1)%list.length;showArticle();
+}
+function getSavedArticles(){
+  try{return JSON.parse(localStorage.getItem('_saved_articles_de')||'[]');}catch(e){return [];}
+}
+async function syncArticlesToBackend(){
+  if(!isLoggedIn())return;
+  const cred=getCredentials();
+  try{
+    await fetch(BACKEND_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        action:'sync_save',
+        username:cred.username,
+        password:cred.password,
+        articles:getSavedArticles()
+      })
+    });
+  }catch(e){}
+}
+async function syncArticlesFromBackend(){
+  if(!isLoggedIn())return;
+  const cred=getCredentials();
+  try{
+    const resp=await fetch(BACKEND_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        action:'sync_load',
+        username:cred.username,
+        password:cred.password
+      })
+    });
+    const data=await resp.json();
+    if(data.articles&&data.articles.length>0){
+      localStorage.setItem('_saved_articles_de',JSON.stringify(data.articles));
+      renderSavedList();
+    }
+  }catch(e){}
+}
+// ── Einheitliches Drag&Drop (PDF / DOCX / TXT / Pages) ──
+(function(){
+  const uz=document.getElementById('upload-zone');
+  if(!uz)return;
+  uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover')});
+  uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
+  uz.addEventListener('drop',e=>{
+    e.preventDefault();uz.classList.remove('dragover');
+    const items=e.dataTransfer.items;
+    if(items && items.length){
+      processFileItems(items);
+    }else{
+      const files=Array.from(e.dataTransfer.files||[]);
+      if(files.length===0){alert('Keine Dateien gefunden');return;}
+      processFileItems(files.map(f=>({kind:'file',getAsFile:()=>f})));
+    }
+  });
+})();
+const SUPPORTED_EXTS = ['txt','docx','pages','pdf'];
+function getFileExt(name){ return name.split('.').pop().toLowerCase(); }
+
+async function processFileItems(items){
+  const files=[];
+  for(let i=0;i<items.length;i++){
+    const entry=items[i].webkitGetAsEntry?items[i].webkitGetAsEntry():null;
+    if(entry)await collectFiles(entry,files);
+    else if(items[i].kind==='file')files.push(items[i].getAsFile());
+  }
+  if(files.length===0){alert('Keine Dateien gefunden');return;}
+  let count=0, skipped=0;
+  const saved=getSavedArticles();
+  let debug='';
+  for(const file of files){
+    const ext=getFileExt(file.name);
+    debug+=file.name+' ('+ext+') ';
+    if(SUPPORTED_EXTS.indexOf(ext)===-1){debug+='Format nicht unterstützt\n';skipped++;continue;}
+    try{
+      const rawText=await readFileAsText(file);
+      if(!rawText.trim()){debug+='Inhalt leer\n';skipped++;continue;}
+      const lines=rawText.trim().split(/[\r\n]+/);
+      const name=lines[0].trim() || file.name.replace(/\.[^.]+$/,'');
+      const body=lines.length>1?lines.slice(1).join('\n').trim():lines[0].trim();
+      saved.push({
+        name:name,
+        text:body,
+        time:new Date().toLocaleString('de-DE',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})
+      });
+      debug+='✅\n';
+      count++;
+    }catch(e){debug+='Lesefehler:'+e.message+'\n';skipped++;}
+  }
+  if(count>0){
+    localStorage.setItem('_saved_articles_de',JSON.stringify(saved));
+    renderSavedList();
+    syncArticlesToBackend();
+    let msg=count+' Artikel importiert';
+    if(skipped>0)msg+=', '+skipped+' übersprungen';
+    alert(msg+'\n\n'+debug);
+  }else{
+    alert('Keine lesbaren Dateien gefunden (.txt / .docx / .pages / .pdf)\n\n'+debug);
+  }
+}
+function collectFiles(entry,files){
+  return new Promise(resolve=>{
+    if(entry.isFile){entry.file(f=>{files.push(f);resolve()});}
+    else if(entry.isDirectory){
+      const reader=entry.createReader();
+      reader.readEntries(entries=>{
+        const promises=entries.map(e=>collectFiles(e,files));
+        Promise.all(promises).then(resolve);
+      });
+    }else resolve();
+  });
+}
+
+// ── Multi-Format Text Extraction ──
+async function readFileAsText(file){
+  const ext=getFileExt(file.name);
+  if(ext==='txt') return await readTxt(file);
+  if(ext==='docx') return await readZipXml(file, 'word/document.xml', 'docx');
+  if(ext==='pages') return await readZipXml(file, 'index.xml', 'pages');
+  if(ext==='pdf') return await readPdfText(file);
+  throw new Error('Unsupported');
+}
+function readTxt(file){
+  return new Promise((resolve,reject)=>{
+    const r=new FileReader();
+    r.onload=()=>resolve(r.result);
+    r.onerror=reject;
+    r.readAsText(file);
+  });
+}
+
+// ── ZIP XML extraction (docx / pages, Absätze als \n erhalten) ──
+async function readZipXml(file, targetPath, fmt){
+  const buf=await file.arrayBuffer();
+  const view=new DataView(buf);
+  let eocdOff=-1;
+  const maxSearch=Math.min(65536, buf.byteLength-22);
+  for(let i=buf.byteLength-22;i>=buf.byteLength-maxSearch-22;i--){
+    if(view.getUint32(i,true)===0x06054b50){eocdOff=i;break;}
+  }
+  if(eocdOff<0) throw new Error('Not a ZIP');
+  const cdSize=view.getUint32(eocdOff+12,true);
+  const cdOff=view.getUint32(eocdOff+16,true);
+  let pos=cdOff, localOff=-1, compSize=0, method=0;
+  while(pos<cdOff+cdSize){
+    if(view.getUint32(pos,true)!==0x02014b50) break;
+    const m=view.getUint16(pos+10,true);
+    const nameLen=view.getUint16(pos+28,true);
+    const extraLen=view.getUint16(pos+30,true);
+    const commentLen=view.getUint16(pos+32,true);
+    const fname=new TextDecoder().decode(new Uint8Array(buf,pos+46,nameLen));
+    if(fname===targetPath||fname.endsWith('/'+targetPath)){
+      localOff=view.getUint32(pos+42,true);
+      compSize=view.getUint32(pos+20,true);
+      method=m;
+      break;
+    }
+    pos+=46+nameLen+extraLen+commentLen;
+  }
+  if(localOff<0) throw new Error('Entry not found: '+targetPath);
+  const lhNameLen=view.getUint16(localOff+26,true);
+  const lhExtraLen=view.getUint16(localOff+28,true);
+  const dataOff=localOff+30+lhNameLen+lhExtraLen;
+  const compressed=new Uint8Array(buf,dataOff,compSize);
+  let decompressed;
+  if(method===0){
+    decompressed=compressed;
+  }else{
+    const ds=new DecompressionStream('deflate-raw');
+    const writer=ds.writable.getWriter();
+    const reader=ds.readable.getReader();
+    writer.write(compressed);
+    writer.close();
+    const chunks=[];
+    while(true){
+      const {done,value}=await reader.read();
+      if(done)break;
+      chunks.push(value);
+    }
+    const totalLen=chunks.reduce((a,c)=>a+c.length,0);
+    decompressed=new Uint8Array(totalLen);
+    let off=0;
+    for(const c of chunks){decompressed.set(c,off);off+=c.length;}
+  }
+  const xml=new TextDecoder().decode(decompressed);
+  return extractStructuredXml(xml, fmt);
+}
+
+// Absatz-bewusste Textextraktion: </p> und <br/> → \n, <t>-Inhalt erhalten
+function extractStructuredXml(xml, fmt){
+  let s=xml;
+  if(fmt==='docx'){
+    s=s.replace(/<w:br\b[^>]*\/?>/g,'\n');
+    s=s.replace(/<w:tab\b[^>]*\/?>/g,'\t');
+    s=s.replace(/<\/w:p>/g,'\n');
+    s=s.replace(/<w:t\b[^>]*>([\s\S]*?)<\/w:t>/g,'$1');
+  }else{
+    s=s.replace(/<(?:sf:)?br\b[^>]*\/?>/g,'\n');
+    s=s.replace(/<\/(?:sf:)?p>/g,'\n');
+    s=s.replace(/<(?:sf:)?t\b[^>]*>([\s\S]*?)<\/(?:sf:)?t>/g,'$1');
+  }
+  s=s.replace(/<[^>]+>/g,'');
+  s=s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
+     .replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCharCode(+n));
+  s=s.replace(/[ \t]+\n/g,'\n').replace(/\n[ \t]+/g,'\n');
+  s=s.replace(/\n{3,}/g,'\n\n').trim();
+  if(!s) throw new Error('No text found');
+  return s;
+}
+
+// ── PDF Text Extraktion (pdf.js, zeilenweise nach Y-Koordinate) ──
+async function readPdfText(file){
+  if(!window.pdfjsLib) throw new Error('PDF-Bibliothek nicht geladen, bitte Internet prüfen');
+  const buf=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+  const lines=[];
+  for(let p=1;p<=pdf.numPages;p++){
+    const page=await pdf.getPage(p);
+    const content=await page.getTextContent();
+    let lastY=null, cur='';
+    for(const it of content.items){
+      const y=it.transform?it.transform[5]:null;
+      if(lastY!==null && y!==null && Math.abs(lastY-y)>1){
+        if(cur.trim()) lines.push(cur.trim());
+        cur='';
+      }
+      cur+=it.str;
+      if(it.hasEOL){
+        if(cur.trim()) lines.push(cur.trim());
+        cur=''; lastY=null;
+      }else{
+        lastY=y;
+      }
+    }
+    if(cur.trim()) lines.push(cur.trim());
+  }
+  const text=lines.join('\n').replace(/\n{2,}/g,'\n').trim();
+  if(!text) throw new Error('PDF nicht lesbar (möglicherweise gescanntes Bild-PDF ohne Textebene)');
+  return text;
+}
+
+function handleFileSelect(event){
+  const files=event.target.files;
+  if(!files||files.length===0)return;
+  const items=[];
+  for(let i=0;i<files.length;i++)items.push({kind:'file',getAsFile:()=>files[i]});
+  processFileItems(items);
+  event.target.value='';
+}
+function saveCustomArticle(){
+  const text=$('custom-input').value.trim();
+  const name=$('custom-name').value.trim();
+  if(!text){alert('Bitte Text einfügen');return;}
+  const saved=getSavedArticles();
+  saved.push({
+    name: name || ('Artikel '+(saved.length+1)),
+    text: text,
+    time: new Date().toLocaleString('de-DE',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})
+  });
+  localStorage.setItem('_saved_articles_de',JSON.stringify(saved));
+  $('custom-input').value='';
+  $('custom-name').value='';
+  renderSavedList();
+  syncArticlesToBackend();
+}
+function renderSavedList(){
+  const saved=getSavedArticles();
+  if(!saved.length){$('saved-list').innerHTML='';return;}
+  $('saved-list').innerHTML='<div style="font-size:.78rem;color:#64748b;margin-bottom:4px">Gespeichert ('+saved.length+')</div>'+
+    saved.map((s,i)=>`<div class="saved-item" onclick="loadSavedArticle(${i})">
+      <span class="sn">${escapeHtml(s.name)}</span>
+      <span class="sm">${s.time}</span>
+      <button class="sdel" onclick="event.stopPropagation();editSavedArticle(${i})" title="Bearbeiten">✎</button>
+      <button class="sdel" onclick="event.stopPropagation();deleteSavedArticle(${i})">✕</button>
+    </div>`).join('');
+}
+function loadSavedArticle(i){
+  const saved=getSavedArticles();
+  const s=saved[i];if(!s)return;
+  $('custom-area').style.display='none';
+  $('article-card').style.display='block';
+  setArticleText(s.text);
+  $('article-counter').textContent='('+escapeHtml(s.name)+')';
+  $('result-card').style.display='none';
+  currentLevel='custom';
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('custom-tab').classList.add('active');
+}
+function editSavedArticle(i){
+  const saved=getSavedArticles();
+  const s=saved[i];if(!s)return;
+  $('custom-input').value=s.text;
+  $('custom-name').value=s.name;
+  saved.splice(i,1);
+  localStorage.setItem('_saved_articles_de',JSON.stringify(saved));
+  renderSavedList();
+  syncArticlesToBackend();
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('custom-tab').classList.add('active');
+}
+function deleteSavedArticle(i){
+  const saved=getSavedArticles();
+  const s=saved[i];if(!s)return;
+  if(!confirm('"' + s.name + '" wirklich löschen?'))return;
+  saved.splice(i,1);
+  localStorage.setItem('_saved_articles_de',JSON.stringify(saved));
+  renderSavedList();
+  syncArticlesToBackend();
+}
+function useCustomText(){
+  const text=$('custom-input').value.trim();
+  const name=$('custom-name').value.trim();
+  if(!text){alert('Bitte Text einfügen');return;}
+  $('custom-area').style.display='none';
+  $('article-card').style.display='block';
+  setArticleText(text);
+  $('article-counter').textContent=name?('('+escapeHtml(name)+')'):'(eigener Text)';
+  $('result-card').style.display='none';
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.onclick=()=>{
+    const level=btn.dataset.level;
+    if(level==='history'){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      showHistoryView();
+      return;
+    }
+    if(!isLoggedIn() && level!=='A1'){
+      openLogin('A2/B1/eigene Texte nur mit Login');
+      return;
+    }
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentLevel=level;currentIndex=0;
+    showArticle();
+  };
+});
+
+/* ===== 录音 + 上传 ===== */
+async function toggleRecording(){
+  if(!isLoggedIn()){
+    if(currentLevel!=='A1'){
+      openLogin('Bitte einloggen');return;
+    }
+    if(guestRemaining()<=0){
+      openLogin('Gast-Limit erreicht, bitte einloggen');return;
+    }
+  }
+  if(isRecording){
+    stopRecording();return;
+  }
+  if(!currentText){alert('Bitte zuerst einen Text wählen');return;}
+  try{
+    mediaStream=await navigator.mediaDevices.getUserMedia({audio:{
+      sampleRate:16000,channelCount:1,
+      echoCancellation:true,noiseSuppression:true
+    }});
+  }catch(e){
+    alert('Mikrofon-Zugriff verweigert: '+e.message);return;
+  }
+  audioChunks=[];
+  mediaRecorder=new MediaRecorder(mediaStream);
+  mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);
+  mediaRecorder.onstop=async()=>{
+    const blob=new Blob(audioChunks);
+    $('mic-status').textContent='⏳ Audio konvertieren...';
+    try{
+      const wav=await convertToWav16k(blob);
+      $('mic-status').textContent='⏳ Hochladen...';
+      await sendToBackend(wav);
+    }catch(e){
+      $('mic-status').textContent='❌ '+e.message;
+    }
+  };
+  mediaRecorder.start();
+  isRecording=true;
+  $('mic-btn').classList.add('recording');
+  $('mic-btn').innerHTML='⏹';
+  $('mic-status').textContent='🔴 Aufnahme... antippen zum Stoppen';
+  $('result-card').style.display='none';
+}
+function stopRecording(){
+  if(mediaRecorder&&mediaRecorder.state==='recording')mediaRecorder.stop();
+  if(mediaStream)mediaStream.getTracks().forEach(t=>t.stop());
+  isRecording=false;
+  $('mic-btn').classList.remove('recording');
+  $('mic-btn').innerHTML='&#127908;';
+}
+
+async function convertToWav16k(blob){
+  const arrayBuf=await blob.arrayBuffer();
+  if(!audioContext)audioContext=new (window.AudioContext||window.webkitAudioContext)();
+  const decoded=await audioContext.decodeAudioData(arrayBuf);
+  const offline=new OfflineAudioContext(1,decoded.duration*16000,16000);
+  const src=offline.createBufferSource();src.buffer=decoded;
+  src.connect(offline.destination);src.start(0);
+  const rendered=await offline.startRendering();
+  return encodeWav(rendered.getChannelData(0),16000);
+}
+
+function encodeWav(samples,sampleRate){
+  const buffer=new ArrayBuffer(44+samples.length*2);
+  const view=new DataView(buffer);
+  const ws=(o,s)=>{for(let i=0;i<s.length;i++)view.setUint8(o+i,s.charCodeAt(i))};
+  ws(0,'RIFF');view.setUint32(4,36+samples.length*2,true);
+  ws(8,'WAVE');ws(12,'fmt ');
+  view.setUint32(16,16,true);view.setUint16(20,1,true);
+  view.setUint16(22,1,true);view.setUint32(24,sampleRate,true);
+  view.setUint32(28,sampleRate*2,true);view.setUint16(32,2,true);
+  view.setUint16(34,16,true);ws(36,'data');
+  view.setUint32(40,samples.length*2,true);
+  let off=44;
+  for(let i=0;i<samples.length;i++){
+    const s=Math.max(-1,Math.min(1,samples[i]));
+    view.setInt16(off,s<0?s*0x8000:s*0x7FFF,true);off+=2;
+  }
+  return new Blob([buffer],{type:'audio/wav'});
+}
+
+async function sendToBackend(wavBlob){
+  const reader=new FileReader();
+  reader.onload=async()=>{
+    const audio=reader.result.split(',')[1];
+    const cred=getCredentials();
+    const t0=Date.now();
+    // 路径分流:选了某句 = scripted 精读,没选 = unscripted 自动识别
+    const sentSelected = (currentSentenceIdx>=0 && currentSentences[currentSentenceIdx]);
+    const reqBody = {
+      username:cred.username, password:cred.password,
+      audio, langType:'de', deviceId:getDeviceId()
+    };
+    if(sentSelected){
+      reqBody.refText = currentSentences[currentSentenceIdx].trim();
+    }else{
+      reqBody.fullText = currentText;
+    }
+    try{
+      $('mic-status').textContent= sentSelected ? '⏳ Bewertung läuft...' : '⏳ Erkenne und bewerte...';
+      const resp=await fetch(BACKEND_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(reqBody)
+      });
+      const data=await resp.json();
+      const cost=((Date.now()-t0)/1000).toFixed(1);
+      if(resp.status===401){
+        $('mic-status').textContent='❌ Login abgelaufen, bitte neu einloggen';
+        logout();return;
+      }
+      if(resp.status===403){
+        $('mic-status').innerHTML='❌ '+(data.error||'Gerätelimit erreicht')+'<br><span style="font-size:.78rem;color:#f6d365">'+(data.hint||'')+'</span>';
+        return;
+      }
+      if(!resp.ok){
+        $('mic-status').textContent='❌ '+(data.error||'Server-Fehler');return;
+      }
+      if(data.errorCode==='NoSpeech'){
+        $('mic-status').innerHTML='❌ Keine Sprache erkannt<br><span style="font-size:.78rem;color:#f6d365">Bitte Mikrofon und Lautstärke prüfen, dann erneut aufnehmen</span>';
+        return;
+      }
+      if(data.errorCode==='NoMatch'){
+        const t = data._transcript || '';
+        $('mic-status').innerHTML='❌ Der erkannte Text stimmt nicht mit der Vorlage überein<br>'
+          +(t?`<span style="font-size:.78rem;color:#94a3b8">Erkannt:"${t.slice(0,80)}"</span><br>`:'')
+          +'<span style="font-size:.78rem;color:#f6d365">Bitte lies den angezeigten Text, oder wähle einen anderen Artikel</span>';
+        return;
+      }
+      if(data.errorCode&&data.errorCode!=='0'){
+        if(data.errorCode==='AzureRecognitionFailed'){
+          $('mic-status').textContent='❌ Spracherkennung fehlgeschlagen - bitte erneut versuchen';
+        }else{
+          $('mic-status').textContent='❌ Fehler ('+data.errorCode+')';
+        }
+        return;
+      }
+      if(!isLoggedIn())incrGuestUsage();
+      updateGuestHint();
+      $('mic-status').textContent=`✅ Fertig (${cost}s) — Wort antippen für Phoneme`;
+      lastResult=data;
+      saveToHistory(data,currentLevel);
+      renderResult(data);
+    }catch(e){
+      $('mic-status').textContent='❌ Netzwerk-Fehler: '+e.message;
+    }
+  };
+  reader.readAsDataURL(wavBlob);
+}
+
+function colorClass(score){
+  if(score==null)return 'unread';
+  if(score>=80)return 'good';
+  if(score>=60)return 'med';
+  return 'bad';
+}
+
+function renderInlineResult(refText, words, lang){
+  const wordPat=/[\w'\-äöüßÄÖÜéèêëàâîïôûçñ]+/g;
+  const parts=[];
+  let lastEnd=0, wordIdx=0, m;
+  while((m=wordPat.exec(refText))!==null){
+    if(m.index>lastEnd) parts.push(refText.substring(lastEnd,m.index));
+    const w=wordIdx<words.length?words[wordIdx]:null;
+    if(w){
+      const cls=colorClass(w.pronunciation);
+      parts.push(`<span class="word ${cls}" onclick="showPhoneme(${wordIdx})" title="Klicken für Phoneme">${escapeHtml(m[0])}<span class="sc">${Math.round(w.pronunciation)}</span><span style="cursor:pointer;margin-left:3px;font-size:.75em" onclick="event.stopPropagation();speakWord('${escapeHtml(m[0].replace(/'/g,"\\'"))}','${lang}')" title="Richtige Aussprache hören">🔊</span></span>`);
+    }else{
+      parts.push(escapeHtml(m[0]));
+    }
+    wordIdx++;lastEnd=m.index+m[0].length;
+  }
+  if(lastEnd<refText.length) parts.push(refText.substring(lastEnd));
+  return parts.join('').replace(/\n/g,'<br>');
+}
+
+function renderResult(data){
+  $('result-card').style.display='block';
+  const scores=[];
+  if(data.pronunciation!=null)scores.push({n:'Aussprache',v:Math.round(data.pronunciation)});
+  if(data.fluency!=null)scores.push({n:'Flüssigkeit',v:Math.round(data.fluency)});
+  if(data.integrity!=null)scores.push({n:'Vollständigkeit',v:Math.round(data.integrity)});
+  if(data.overall!=null)scores.push({n:'Gesamt',v:Math.round(data.overall)});
+  if(data.speed!=null)scores.push({n:'Sprechtempo',v:Math.round(data.speed)});
+  $('scores').innerHTML=scores.map(s=>`<div class="score-card"><div class="v">${s.v}</div><div class="n">${s.n}</div></div>`).join('');
+
+  const words=data.words||[];
+  const refText=data._refText||currentText||'';
+  let summary='';
+  if(data._mode==='auto' && data._transcript){
+    summary=`<div style="font-size:.78rem;color:#86efac;margin-bottom:10px;padding:6px 10px;background:rgba(34,197,94,.08);border-radius:6px;border-left:2px solid #86efac">📍 System erkannt:"${escapeHtml(data._transcript)}"</div>`;
+  }
+  $('words').innerHTML=summary+renderInlineResult(refText,words,'de-DE');
+  $('ph-detail').style.display='none';
+  $('result-card').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function getDeviceId(){
+  let id = localStorage.getItem('_device_id');
+  if (!id) {
+    id = 'dev_' + crypto.randomUUID();
+    localStorage.setItem('_device_id', id);
+  }
+  return id;
+}
+
+// 缓存所有 voices(浏览器异步加载)
+let _voicesCache = null;
+function getVoices(){
+  if(_voicesCache && _voicesCache.length) return _voicesCache;
+  if(window.speechSynthesis){
+    _voicesCache = speechSynthesis.getVoices();
+  }
+  return _voicesCache || [];
+}
+if(window.speechSynthesis){
+  speechSynthesis.onvoiceschanged = ()=>{ _voicesCache = speechSynthesis.getVoices(); };
+}
+function pickVoice(targetLang){
+  const voices = getVoices();
+  if(!voices.length) return null;
+  const tl = (targetLang||'').toLowerCase();
+  let v = voices.find(x => (x.lang||'').toLowerCase() === tl);
+  if(v) return v;
+  const main = tl.split('-')[0];
+  v = voices.find(x => (x.lang||'').toLowerCase().startsWith(main + '-') || (x.lang||'').toLowerCase() === main);
+  if(v) return v;
+  return null;
+}
+// 当前播放的 audio,切换时停掉
+let _ttsAudio = null;
+// 浏览器 TTS 缓存(同次会话重复点不再调后端)
+const _ttsBlobCache = {};
+async function speakWord(word, lang){
+  const cleanWord = (word||'').trim();
+  if(!cleanWord) return;
+  const targetLang = lang || 'de-DE';
+
+  // 停掉上一个播放
+  if(_ttsAudio){ try{_ttsAudio.pause();}catch(e){} _ttsAudio = null; }
+  if(window.speechSynthesis){ try{speechSynthesis.cancel();}catch(e){} }
+
+  // 优先用后端 TTS(Azure de-DE-KatjaNeural,真人发音)
+  try{
+    const cacheKey = targetLang + '|' + cleanWord;
+    let blobUrl = _ttsBlobCache[cacheKey];
+    if(!blobUrl){
+      const cred = getCredentials();
+      const resp = await fetch(BACKEND_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          username:cred.username, password:cred.password,
+          action:'tts', text:cleanWord, lang:targetLang
+        })
+      });
+      if(!resp.ok) throw new Error('tts http '+resp.status);
+      const ct = resp.headers.get('content-type')||'';
+      if(!ct.includes('audio')) throw new Error('not audio response');
+      const blob = await resp.blob();
+      blobUrl = URL.createObjectURL(blob);
+      _ttsBlobCache[cacheKey] = blobUrl;
+    }
+    _ttsAudio = new Audio(blobUrl);
+    _ttsAudio.playbackRate = 0.9;
+    await _ttsAudio.play();
+    return;
+  }catch(e){
+    // 后端 TTS 失败 → fallback 到浏览器 TTS
+    console.warn('Backend TTS failed, fallback to browser TTS:', e.message);
+  }
+
+  // Fallback:浏览器内置 TTS
+  if(!window.speechSynthesis){
+    alert('Ihr Browser unterstützt keine Sprachwiedergabe.');
+    return;
+  }
+  const voice = pickVoice(targetLang);
+  if(!voice){
+    alert('Keine deutsche Stimme verfügbar. Audio-Server nicht erreichbar — bitte Internetverbindung prüfen.');
+    return;
+  }
+  const u = new SpeechSynthesisUtterance(cleanWord);
+  u.voice = voice;
+  u.lang = voice.lang;
+  u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+
+function escapeHtml(s){
+  const d=document.createElement('div');d.textContent=s;return d.innerHTML;
+}
+
+window.showPhoneme=function(i){
+  if(!lastResult||!lastResult.words)return;
+  const w=lastResult.words[i];
+  if(!w||!w.phonemes)return;
+  let html=`<h4>"${escapeHtml(w.word)}" Phoneme (IPA: ${escapeHtml(w.IPA||'-')}) <span style="cursor:pointer;font-size:1.1rem" onclick="event.stopPropagation();speakWord('${escapeHtml(w.word.replace(/'/g,"\\'"))}','de-DE')" title="Richtige Aussprache hören">🔊</span></h4>`;
+  html+=w.phonemes.map(p=>{
+    const cls=colorClass(p.pronunciation);
+    const score=Math.round(p.pronunciation);
+    return `<span class="ph ${cls==='good'?'ok':(cls==='med'?'med':'fail')}">${escapeHtml(p.phoneme)}<span class="sc">${score}</span></span>`;
+  }).join('');
+  html+=`<div class="tip">💡 Grün = gut / Gelb = verbesserbar / Rot = deutliche Abweichung</div>`;
+  $('ph-detail').innerHTML=html;
+  $('ph-detail').style.display='block';
+  $('ph-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+
+/* ===== 历史记录 ===== */
+function getHistory(){
+  try{return JSON.parse(localStorage.getItem('_history_de')||'[]');}catch(e){return [];}
+}
+function saveToHistory(data,level){
+  const h=getHistory();
+  h.unshift({
+    time:new Date().toLocaleString('de-DE',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}),
+    level:level.toUpperCase(),
+    text:data._refText||currentText||'',
+    overall:data.overall!=null?Math.round(data.overall):null,
+    pronunciation:data.pronunciation!=null?Math.round(data.pronunciation):null,
+    fluency:data.fluency!=null?Math.round(data.fluency):null,
+    integrity:data.integrity!=null?Math.round(data.integrity):null,
+    speed:data.speed!=null?Math.round(data.speed):null,
+    words:data.words||[]
+  });
+  if(h.length>MAX_HISTORY)h.length=MAX_HISTORY;
+  localStorage.setItem('_history_de',JSON.stringify(h));
+}
+function renderHistory(){
+  const h=getHistory();
+  $('hist-count').textContent=h.length?' ('+h.length+' Einträge)':'';
+  if(!h.length){
+    $('history-list').innerHTML='<div style="text-align:center;color:#64748b;padding:30px">📭 Noch keine Übungen<br><span style="font-size:.8rem">Nach der ersten Auswertung hier sichtbar</span></div>';
+    return;
+  }
+  $('history-list').innerHTML=h.map((e,i)=>`<div class="history-item" onclick="viewHistEntry(${i})">
+    <div class="hi-meta"><span>${e.time}</span><span class="hi-level">${e.level}</span></div>
+    <div class="hi-text">${escapeHtml(e.text.slice(0,80))}${e.text.length>80?'...':''}</div>
+    <div class="hi-scores">
+      ${e.overall!=null?`<span class="hi-badge">Gesamt <span class="sl">${e.overall}</span></span>`:''}
+      ${e.pronunciation!=null?`<span class="hi-badge">Aussprache <span class="sl">${e.pronunciation}</span></span>`:''}
+      ${e.fluency!=null?`<span class="hi-badge">Flüssigkeit <span class="sl">${e.fluency}</span></span>`:''}
+      ${e.integrity!=null?`<span class="hi-badge">Vollst. <span class="sl">${e.integrity}</span></span>`:''}
+      ${e.speed!=null?`<span class="hi-badge">Tempo <span class="sl">${e.speed}</span></span>`:''}
+    </div>
+  </div>`).join('');
+  $('hist-detail').classList.remove('show');
+}
+function viewHistEntry(i){
+  const h=getHistory();
+  const e=h[i];if(!e)return;
+  let html=`<div class="card-title">${e.time} · ${e.level}</div>`;
+  html+=`<p style="font-size:.85rem;color:#94a3b8;margin-bottom:10px;line-height:1.6">${escapeHtml(e.text)}</p>`;
+  if(e.words&&e.words.length){
+    html+=`<div class="words-row">${e.words.map((w,j)=>{
+      const cls=colorClass(w.pronunciation);
+      return `<span class="word ${cls}" onclick="event.stopPropagation();showHistPhoneme(${i},${j})">${escapeHtml(w.word)}<span class="sc">${Math.round(w.pronunciation)}</span><span style="cursor:pointer;margin-left:3px;font-size:.75em" onclick="event.stopPropagation();speakWord('${escapeHtml(w.word.replace(/'/g,"\\'"))}','de-DE')" title="Richtige Aussprache hören">🔊</span></span>`;
+    }).join(' ')}</div>`;
+    html+=`<div class="phoneme-detail" id="hist-ph-detail"></div>`;
+  }
+  $('hist-detail-content').innerHTML=html;
+  $('hist-detail').classList.add('show');
+  $('hist-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeHistDetail(){
+  $('hist-detail').classList.remove('show');
+}
+window.showHistPhoneme=function(histIdx,wordIdx){
+  const h=getHistory();
+  const w=h[histIdx]&&h[histIdx].words?h[histIdx].words[wordIdx]:null;
+  if(!w||!w.phonemes)return;
+  let html=`<h4>"${escapeHtml(w.word)}" Phoneme (IPA: ${escapeHtml(w.IPA||'-')}) <span style="cursor:pointer;font-size:1.1rem" onclick="event.stopPropagation();speakWord('${escapeHtml(w.word.replace(/'/g,"\\'"))}','de-DE')" title="Richtige Aussprache hören">🔊</span></h4>`;
+  html+=w.phonemes.map(p=>{
+    const cls=colorClass(p.pronunciation);
+    return `<span class="ph ${cls==='good'?'ok':(cls==='med'?'med':'fail')}">${escapeHtml(p.phoneme)}<span class="sc">${Math.round(p.pronunciation)}</span></span>`;
+  }).join('');
+  html+=`<div class="tip">💡 Grün = gut / Gelb = verbesserbar / Rot = deutliche Abweichung</div>`;
+  const el=$('hist-ph-detail');
+  if(el){el.innerHTML=html;el.style.display='block';}
+};
+
+function showHistoryView(){
+  historyViewActive=true;
+  $('main-ui').style.display='none';
+  $('history-view').style.display='block';
+  renderHistory();
+}
+
+/* ===== 启动 ===== */
+window.addEventListener('load',()=>{
+  showArticle();
+  updateGuestHint();
+  if(isLoggedIn()) syncArticlesFromBackend();
+});
+</script>
+</body>
+</html>
