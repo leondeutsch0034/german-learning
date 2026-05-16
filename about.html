@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>关于本站 · Leon 德语中心</title>
+  <meta name="description" content="一个德语老师的十年教学沉淀——了解 Leon 德语学习中心背后的故事与理念。"/>
+  <meta name="robots" content="index,follow"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+      background:#0f172a; color:#e2e8f0; line-height:1.9;
+    }
+
+    /* ── 导航 ── */
+    #top-nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(10,20,40,.95); backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(246,211,101,.15);
+      padding:10px 20px; display:flex; align-items:center; gap:12px;
+      flex-wrap:wrap;
+    }
+    #top-nav a{
+      color:#e2e8f0; text-decoration:none; font-size:.85rem; font-weight:600;
+      padding:6px 14px; border-radius:16px; transition:.2s;
+      border:1px solid rgba(246,211,101,.2);
+      white-space:nowrap;
+    }
+    #top-nav a:hover, #top-nav a:focus{
+      border-color:rgba(246,211,101,.6); color:#f6d365;
+    }
+    #top-nav .back-link{
+      background:linear-gradient(90deg,#1e3a5f,#2e527c);
+      border-color:rgba(246,211,101,.3);
+    }
+
+    /* ── Hero ── */
+    .hero{
+      text-align:center; padding:72px 24px 56px;
+      background:linear-gradient(180deg,#0a1428 0%,#0f1e3a 40%,#0f172a 100%);
+      border-bottom:1px solid rgba(246,211,101,.1);
+    }
+    .hero h1{
+      font-size:clamp(1.7rem,4vw,2.6rem); color:#f6d365;
+      margin-bottom:10px; letter-spacing:.03em; font-weight:800;
+    }
+    .hero .sub{ font-size:1.05rem; color:#94a3b8; max-width:520px; margin:0 auto; }
+    .hero .quote-line {
+      margin-top: 24px; font-size: .92rem; color: rgba(246,211,101,.55);
+      font-style: italic; letter-spacing: .04em;
+    }
+
+    /* ── 容器 ── */
+    .wrap{ max-width:800px; margin:0 auto; padding:48px 24px; }
+
+    /* ── 章节 ── */
+    section{ margin-bottom:56px; }
+    section h2{
+      font-size:1.45rem; color:#f6d365; margin-bottom:22px; padding-bottom:12px;
+      border-bottom:2px solid rgba(246,211,101,.15);
+      display:flex; align-items:center; gap:10px;
+    }
+    section h2 .num{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:32px;height:32px;border-radius:50%;
+      background:linear-gradient(135deg,#b8860b,#f6d365);
+      color:#0a1428; font-size:.85rem; font-weight:800; flex-shrink:0;
+    }
+    section h3{
+      font-size:1.1rem; color:#fde68a; margin:24px 0 8px;
+    }
+    section p{
+      margin-bottom:14px; color:#cbd5e1; font-size:.94rem;
+    }
+
+    /* ── 故事卡片 ── */
+    .story-card{
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);
+      border-radius:16px; padding:26px 28px; margin:20px 0;
+    }
+    .story-card.gold{ border-color:rgba(246,211,101,.18); background:rgba(246,211,101,.03); }
+
+    /* ── 学习闭环图 ── */
+    .loop-diagram{
+      background:linear-gradient(135deg,#0a1428,#0f1e3a);
+      border:2px solid rgba(246,211,101,.15); border-radius:20px;
+      padding:28px 20px; margin:24px 0; text-align:center;
+    }
+    .loop-row{
+      display:flex; align-items:center; justify-content:center;
+      flex-wrap:wrap; gap:8px; margin:6px 0;
+    }
+    .loop-node{
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+      border-radius:12px; padding:10px 18px; font-size:.89rem;
+      font-weight:600; white-space:nowrap;
+    }
+    .loop-node.hl{ border-color:rgba(246,211,101,.35); color:#f6d365; }
+    .loop-arrow{ color:rgba(246,211,101,.45); font-size:1.2rem; margin:0 4px; }
+    .loop-arrow.down{ display:block; margin:4px 0; }
+    .loop-phase{ font-size:.76rem; color:#94a3b8; margin:12px 0 6px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+
+    /* ── 三遍循环表格 ── */
+    .three-table{ width:100%; border-collapse:collapse; margin:18px 0; }
+    .three-table th{
+      background:linear-gradient(135deg,#1e293b,#334155);
+      color:#f6d365; padding:12px 16px; text-align:left; font-size:.89rem;
+    }
+    .three-table td{
+      padding:12px 16px; border-bottom:1px solid rgba(255,255,255,.05);
+      font-size:.89rem;
+    }
+    .three-table tr:nth-child(even) td{ background:rgba(255,255,255,.02); }
+
+    /* ── 信念列表 ── */
+    .belief-grid{
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:14px; margin:18px 0;
+    }
+    .belief-card{
+      background:linear-gradient(135deg,#0a1428,#1a2740);
+      border:1px solid rgba(246,211,101,.12); border-radius:14px;
+      padding:22px; text-align:center;
+    }
+    .belief-card .icon{ font-size:2rem; margin-bottom:6px; }
+    .belief-card .title{ font-size:.95rem; color:#fde68a; font-weight:700; margin-bottom:4px; }
+    .belief-card .desc{ font-size:.82rem; color:#94a3b8; line-height:1.65; }
+
+    /* ── 引用 ── */
+    blockquote{
+      border-left:4px solid rgba(246,211,101,.35); margin:18px 0;
+      padding:14px 22px; background:rgba(246,211,101,.03);
+      border-radius:0 10px 10px 0; font-style:italic; color:#cbd5e1; font-size:.94rem;
+    }
+    blockquote strong{ color:#f6d365; }
+
+    /* ── 列表 ── */
+    ul, ol{ padding-left:22px; margin:10px 0; }
+    li{ margin-bottom:8px; color:#cbd5e1; font-size:.92rem; }
+    li strong{ color:#f1f5f9; }
+
+    /* ── 分隔线 ── */
+    .divider{
+      text-align:center; margin:48px 0 36px; color:rgba(246,211,101,.2);
+      font-size:1.2rem; letter-spacing:.1em;
+    }
+
+    /* ── 页脚 ── */
+    footer{
+      text-align:center; padding:40px 24px;
+      border-top:1px solid rgba(255,255,255,.05);
+      color:#64748b; font-size:.84rem; line-height:2;
+    }
+    footer a{ color:#f6d365; text-decoration:none; }
+
+    /* ── 手机适配 ── */
+    @media (max-width: 600px) {
+      .hero{ padding:48px 16px 36px; }
+      .hero h1{ font-size:1.3rem; }
+      .hero .sub{ font-size:.9rem; }
+      .hero .quote-line{ font-size:.82rem; }
+      .wrap{ padding:28px 14px; }
+      section h2{ font-size:1.15rem; }
+      section h3{ font-size:.98rem; }
+      section p{ font-size:.88rem; }
+      .story-card{ padding:18px 16px; }
+      .belief-grid{ grid-template-columns:1fr 1fr; gap:10px; }
+      .belief-card{ padding:16px 14px; }
+      .loop-node{ font-size:.78rem; padding:8px 12px; }
+      .loop-diagram{ padding:18px 10px; }
+      .three-table{ font-size:.76rem; }
+      .three-table th, .three-table td{ padding:8px 10px; }
+      blockquote{ padding:10px 14px; font-size:.86rem; }
+      li{ font-size:.86rem; }
+      #top-nav{ padding:8px 10px; gap:6px; }
+      #top-nav a{ font-size:.74rem; padding:5px 10px; }
+    }
+    @media (max-width: 380px) {
+      .belief-grid{ grid-template-columns:1fr; }
+      .hero{ padding:32px 10px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════ 顶部导航 ═══════ -->
+<nav id="top-nav">
+  <a href="index.html" class="back-link">← 返回学习中心</a>
+  <a href="#story">缘起</a>
+  <a href="#belief">理念</a>
+  <a href="#tools">工具箱</a>
+  <a href="#honest">关于付费</a>
+  <a href="#loop">学习闭环</a>
+</nav>
+
+<!-- ═══════ Hero ═══════ -->
+<header class="hero">
+  <h1>一个德语老师，和她的数字教室</h1>
+  <p class="sub">十年的教学点滴，浓缩在一个网页里</p>
+  <p class="quote-line">„Sprache ist der Schlüssel zur Welt." — 语言是打开世界的钥匙</p>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════ 一、缘起 ═══════ -->
+<section id="story">
+  <h2><span class="num">一</span>缘起</h2>
+
+  <p>我叫 Leon，是一名德语老师。我的学生大多是大学生——他们聪明、有动力，但也忙碌、预算有限、习惯用手机学习。</p>
+
+  <p>教了几年书之后，我发现一个让人有些无奈的事实：</p>
+
+  <div class="story-card">
+    <p style="margin-bottom:0">每次上课，我要打开至少三四个地方——主教材在这里，补充阅读在那里，听力音频在另一个文件夹，语法参考又在另一本书上。学生在课后想复习，面对的是同样的碎片化困境。</p>
+  </div>
+
+  <p>市面上的德语教材很多，但<strong>没有任何一本</strong>能覆盖我课堂上实际需要的所有内容。每本书都有亮点，也都有盲区。作为老师，我一直在做同一件事：<strong>把最好的部分挑出来，重新组合</strong>。</p>
+
+  <p>这个网站，就是这件事的最终形态。</p>
+
+  <p>它融合了：《交际德语教程》第二版的系统框架、第三版的新潮话题、多本德语语法书的精华、网络上优质的视听材料，以及——十年来我自己在课堂上反复打磨、验证过的<strong>独家教学方法</strong>。</p>
+
+  <blockquote>
+    这里不是一个"在线课程平台"。<br>
+    这是一个老师，把她认为对学生真正有用的东西，<strong>放在了一起</strong>。
+  </blockquote>
+</section>
+
+<!-- ═══════ 二、理念 ═══════ -->
+<section id="belief">
+  <h2><span class="num">二</span>我相信的</h2>
+
+  <h3>语言不是"学懂"的，是"练熟"的</h3>
+  <p>很多学生有一种感受：上课听懂了，做题也会了，但一到开口说的时候，脑子一片空白。这不是你不够努力——这是<strong>"假懂"</strong>。</p>
+  <p>真正的掌握，是"一闪而过就懂"。不需要翻译、不需要回忆语法规则、不需要在脑子里造句——像母语一样，直接出来。</p>
+  <p>要达到这个程度，只有一条路：<strong>高频重复</strong>。重复频次越高，印象越深，表达越自然。这不是什么高深的理论，但它需要一套系统来支撑。</p>
+
+  <h3>输入在前，输出在后</h3>
+  <div class="loop-diagram">
+    <div class="loop-row">
+      <span class="loop-node hl">输入积累<br><small style="color:#94a3b8">听 + 读</small></span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-node">慢性输出<br><small style="color:#94a3b8">写作</small></span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-node hl">快性输出<br><small style="color:#94a3b8">口语</small></span>
+    </div>
+    <p style="margin-top:14px;font-size:.88rem;color:#94a3b8">
+      <strong style="color:#fde68a">写作</strong>：有时间思考，属于慢性输出 ·
+      <strong style="color:#fde68a">口语</strong>：2-3秒内反应，属于快性输出
+    </p>
+  </div>
+  <p>没有足够的<strong>听和读</strong>作为输入积累，口语输出就是无源之水。很多学生急着"开口说"，却忽略了前面最重要的一步。</p>
+
+  <h3>每一遍，都在变得更好</h3>
+  <table class="three-table">
+    <thead><tr><th>遍数</th><th>阶段</th><th>你在经历什么</th></tr></thead>
+    <tbody>
+      <tr><td><strong>第 1 遍</strong></td><td>认知</td><td>建立初步印象——原来是这样</td></tr>
+      <tr><td><strong>第 2 遍</strong></td><td>熟悉</td><td>加深记忆——好像有点感觉了</td></tr>
+      <tr><td><strong>第 3 遍</strong></td><td>内化</td><td>变成本能——不用想就能说出来</td></tr>
+    </tbody>
+  </table>
+  <p style="color:#94a3b8;font-size:.86rem;text-align:center">不是天赋的差距，是重复次数的差距。</p>
+</section>
+
+<!-- ═══════ 三、工具箱 ═══════ -->
+<section id="tools">
+  <h2><span class="num">三</span>这里有什么</h2>
+
+  <div class="story-card gold">
+    <h3>📖 阅读与听力，本是一体</h3>
+    <p>同一篇文章，既是阅读材料，也是听力素材。阅读时积累的语感，会直接迁移到听力中。反过来，精听训练出的辨音能力，会让你读得更快、更准。</p>
+    <p style="color:#94a3b8;font-size:.86rem">课文原文 · 改编版 · 原创内容——都在这里。</p>
+  </div>
+
+  <div class="story-card gold">
+    <h3>✍️ 从一句话开始写</h3>
+    <p>不背模板。从最简单的"我叫……我来自……"开始，慢慢加入连接词、从句、丰富的细节。每一步都给学生足够的时间去<strong>思考和组织</strong>。</p>
+    <p style="color:#94a3b8;font-size:.86rem">对应歌德考试的口语和写作部分——但更重要的是，你真的学会了表达。</p>
+  </div>
+
+  <div class="story-card gold">
+    <h3>🧠 "抄答案"学习法</h3>
+    <p>这是我在多年教学中总结出的、<strong>最特别的一个方法</strong>。</p>
+    <p>传统做法：学生做题、对答案、纠错。问题是——初学者根本不知道"德国人是怎么说的"，做题只是在反复试错。</p>
+    <p>这个方法反过来：<strong>不是做题，是抄答案</strong>。看着标准答案，理解"原来德国人是这样表达的"。一遍一遍地看，直到这个表达方式变成你自己的。</p>
+
+    <h4 style="color:#fde68a;margin-top:18px">为什么这么做？</h4>
+    <ol>
+      <li>建立<strong>德语思维</strong>，而不是中→德翻译思维</li>
+      <li>理解题目背后的<strong>逻辑</strong>——每道题想让你掌握什么</li>
+      <li>检查自己语法知识是否完整</li>
+      <li>打破<strong>"假懂"</strong>——看懂和真懂之间，隔着好几遍</li>
+      <li>强制自己<strong>慢下来</strong>，认真处理每个单词</li>
+    </ol>
+
+    <p style="margin-top:14px;color:#94a3b8;font-size:.86rem">网站上，点击就能看到答案。进度条会告诉你完成了多少。完成后刷新，可以重来——不需要买三本书了。</p>
+  </div>
+</section>
+
+<!-- ═══════ 四、关于付费 ═══════ -->
+<section id="honest">
+  <h2><span class="num">四</span>关于付费，坦诚地说</h2>
+
+  <p>这个网站<strong>80% 以上的内容是完全免费的</strong>——A1-A2 的基础语法、课文、听力材料、阅读练习、基础习题……所有学生日常需要的东西，都可以自由使用。</p>
+
+  <p>付费解锁的，是那<strong>不到 20%</strong> 的核心部分：</p>
+
+  <ul>
+    <li>我十年教学总结出的<strong>独家方法论</strong>——市面上找不到的那种</li>
+    <li>针对歌德考试的<strong>技巧和策略</strong></li>
+    <li>一些<strong>难点突破</strong>的思路</li>
+    <li>语法抄写系统的完整版</li>
+  </ul>
+
+  <div class="story-card gold">
+    <p style="margin-bottom:8px;font-size:.95rem">这些内容为什么值得付费？</p>
+    <p style="margin-bottom:0;color:#94a3b8;font-size:.88rem">因为它们已经被<strong>985 高校和培训机构</strong>借鉴并编入教材。不是"我自认为有用"——是同行验证过的有用。</p>
+  </div>
+
+  <p style="margin-top:14px">关于版权：部分内容改编自原版德语语法书，已标明出处，仅供教学使用。在原书基础上做了改良和优化——这是老师的工作，把好的素材变得<strong>更适合学生</strong>。</p>
+</section>
+
+<!-- ═══════ 五、学习闭环 ═══════ -->
+<section id="loop">
+  <h2><span class="num">五</span>从输入到脱口而出</h2>
+  <p>这不是一个理论模型——这是我每一堂课、每一个学生都在走的路：</p>
+
+  <div class="loop-diagram">
+    <div class="loop-phase">⬇ 输入阶段</div>
+    <div class="loop-row">
+      <span class="loop-node">📖 阅读材料</span>
+      <span class="loop-arrow">←→</span>
+      <span class="loop-node">🎧 听力材料</span>
+    </div>
+    <p style="font-size:.78rem;color:#94a3b8;margin:4px 0">同一素材，双向训练</p>
+    <span class="loop-arrow down">↓</span>
+    <p style="font-size:.82rem;color:#cbd5e1">反复印证语法知识</p>
+    <span class="loop-arrow down">↓</span>
+
+    <div class="loop-phase">⬇ 输出阶段</div>
+    <div class="loop-row">
+      <span class="loop-node hl">✍️ 渐进式写作</span>
+    </div>
+    <p style="font-size:.78rem;color:#94a3b8;margin:4px 0">简单句 → 复杂句 → 深度话题</p>
+    <span class="loop-arrow down">↓</span>
+    <div class="loop-row">
+      <span class="loop-node hl">🗣️ 口语表达</span>
+    </div>
+    <p style="font-size:.78rem;color:#94a3b8;margin:4px 0">2-3 秒内，脱口而出</p>
+    <span class="loop-arrow down">↓</span>
+
+    <div class="loop-phase">⬇ 巩固阶段</div>
+    <div class="loop-row">
+      <span class="loop-node hl">🧠 "抄答案"循环</span>
+    </div>
+    <p style="font-size:.78rem;color:#94a3b8;margin:4px 0">每完成一遍，离"本能"更近一步</p>
+    <span class="loop-arrow down">↓</span>
+
+    <div class="loop-phase" style="color:#f6d365">⬇ 终点，也是起点</div>
+    <div class="loop-row">
+      <span class="loop-node hl" style="font-size:.95rem;padding:14px 24px">
+        <strong>听 · 说 · 读 · 写 · 全面内化</strong>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 六、我们相信的 ═══════ -->
+<section>
+  <h2><span class="num">六</span>我们相信的</h2>
+
+  <div class="belief-grid">
+    <div class="belief-card">
+      <div class="icon">📱</div>
+      <div class="title">学习不该被装备限制</div>
+      <div class="desc">一部手机就够了。地铁上、咖啡馆、宿舍里——随时打开，随时学。</div>
+    </div>
+    <div class="belief-card">
+      <div class="icon">🎯</div>
+      <div class="title">听说读写，不可分割</div>
+      <div class="desc">四项能力像一棵树的根，彼此交织。分开训练，事倍功半。</div>
+    </div>
+    <div class="belief-card">
+      <div class="icon">💡</div>
+      <div class="title">好的方法，值得被看到</div>
+      <div class="desc">不是每个学生都有机会遇到好老师。互联网可以改变这个。</div>
+    </div>
+    <div class="belief-card">
+      <div class="icon">📊</div>
+      <div class="title">看得见的进步，才能坚持</div>
+      <div class="desc">进度条、完成度——不是数字游戏，是给自己一个"我在前进"的确认。</div>
+    </div>
+    <div class="belief-card">
+      <div class="icon">🌱</div>
+      <div class="title">慢，就是快</div>
+      <div class="desc">不急。把每一步走扎实，后面的路自然就顺了。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 七、这个网站正在生长 ═══════ -->
+<section>
+  <h2><span class="num">七</span>这个网站正在生长</h2>
+
+  <div class="story-card gold" style="text-align:center">
+    <p style="font-size:1.05rem;color:#fde68a;margin-bottom:6px">
+      目前正在<strong style="color:#f6d365">不断更新 B1 级别</strong>的内容
+    </p>
+    <p style="color:#94a3b8;font-size:.88rem;margin-bottom:0">
+      就像学语言一样，这个网站也在一点一点地变得更好。
+    </p>
+  </div>
+
+  <p style="text-align:center;margin-top:24px;color:#94a3b8;font-size:.9rem">
+    如果它帮到了你——那是作为老师，最开心的事。
+  </p>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>Leon 德语学习中心 · <a href="https://leonsdeutschzentrum.com">leonsdeutschzentrum.com</a></p>
+  <p style="margin-top:4px">一部手机，学好德语 · 一个老师，十年的积累</p>
+</footer>
+
+</body>
+</html>
