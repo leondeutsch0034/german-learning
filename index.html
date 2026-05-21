@@ -2012,7 +2012,7 @@
       /* 目录 — 单列 */
       #page-b1lesen div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:.3rem .5rem!important}
       /* section 通用 */
-      #page-b1lesen .section{margin-bottom:14px!important;border-radius:12px!important}
+      #page-b1lesen .section{margin-bottom:22px!important;border-radius:12px!important}
       #page-b1lesen .section-header{font-size:.88rem!important;padding:.6rem 1rem!important;flex-wrap:wrap!important;gap:6px!important}
       #page-b1lesen .section-body{padding:.9rem 1rem!important}
       /* 正文容器 padding 压缩 */
@@ -2063,6 +2063,25 @@
       #page-b1lesen div[style*="border-bottom:1px dashed"]{font-size:.84rem!important;line-height:1.7!important}
       /* 音频全宽 */
       #page-b1lesen audio{width:100%!important;min-width:0!important}
+      /* ── Section 9 & 10 卡片内边距压缩 ── */
+      /* 卡片标题栏（绿色渐变） */
+      #page-b1lesen div[style*="padding:16px 28px 18px"]{padding:12px 16px 14px!important}
+      /* 卡片正文区 — section 9 博客体 */
+      #page-b1lesen div[style*="padding:24px 28px 28px"]{padding:16px 16px 20px!important;font-size:.84rem!important;line-height:1.75!important}
+      /* 卡片正文区 — section 10 说明栏 */
+      #page-b1lesen div[style*="padding:20px 28px 24px"]{padding:14px 16px 18px!important;font-size:.82rem!important}
+      /* Text 卡片标题栏 */
+      #page-b1lesen div[style*="padding:14px 24px 16px"]{padding:10px 14px 12px!important}
+      /* Text 卡片正文区 */
+      #page-b1lesen div[style*="padding:20px 24px 24px"]{padding:14px 14px 18px!important}
+      /* 博客标题字体 */
+      #page-b1lesen div[style*="font-size:1.3rem"][style*="font-weight:700"][style*="color:#fff"]{font-size:1.05rem!important}
+      /* Section 10 卡片标题栏 flex 压缩 */
+      #page-b1lesen div[style*="padding:14px 24px 16px"] div[style*="font-size:1.15rem"]{font-size:.95rem!important}
+      /* Transkript 模式按钮 — 更紧凑 */
+      #page-b1lesen button[id*="mode-full"], #page-b1lesen button[id*="mode-blank"], #page-b1lesen button[onclick*="RevealAll"], #page-b1lesen button[onclick*="HideAll"] { font-size:.72rem!important; padding:.3rem .55rem!important; }
+      /* 听写填空文本 — 行高压缩 */
+      #page-b1lesen div[id*="trans-blank"] p{line-height:1.9!important;font-size:.8rem!important}
     }
 
     /* 特小屏（≤380px）：Galaxy Fold / iPhone SE 1st gen 等 */
@@ -2192,9 +2211,9 @@ var USERS = {
   'christian':   { password: 'chr2026de', tier: 'custom' },
   'monika':      { password: 'mon2026de', tier: 'custom' },
   'maoziying':   { password: 'mzy2026de', tier: 'full' },
-  'yezhihao':    { password: 'yzh2026de', tier: 'full' },
-  'dongzelin':   { password: 'dzl2026de', tier: 'full' },
-  'zhouyuhang':  { password: 'zyh2026de', tier: 'full' },
+  'yezhihao':    { password: 'yzh2026de', tier: 'custom' },
+  'dongzelin':   { password: 'dzl2026de', tier: 'custom' },
+  'zhouyuhang':  { password: 'zyh2026de', tier: 'custom' },
   'sophie':      { password: 'sop2026de', tier: 'full' },
   'lukas':       { password: 'luk2026de', tier: 'full' },
   'emilia':      { password: 'emi2026de', tier: 'full' },
@@ -2248,7 +2267,7 @@ var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schre
 // A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
 (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1s10','b1s11','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61'];
+var LOCKED_SECTIONS_CUSTOM = ['b1l-s2','b1l-s3','b1l-s4','b1l-s5','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1s10','b1s11','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61'];
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -16634,6 +16653,7 @@ function brToggleSample4() {
 #page-b1lesen .mcq-options label.wrong-ans{border-color:#c62828;background:#ffebee;color:#b71c1c}
 #page-b1lesen .answer-box{display:none;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:.8rem 1rem;margin-top:.8rem;font-size:.9rem}
 #page-b1lesen .answer-box.show{display:block}
+#page-b1lesen .section{margin-bottom:36px}
 #page-b1lesen .answer-box strong{color:#1b5e20}
 #page-b1lesen .passage{background:#f9fbe7;border-left:4px solid #aed581;border-radius:6px;padding:.9rem 1.1rem;font-size:.93rem;margin-bottom:1rem;line-height:1.8}
 #page-b1lesen .btn-show{background:linear-gradient(135deg,#1a5a2a,#2ecc71);color:#fff;border:none;padding:8px 18px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;margin:4px;transition:.2s}
@@ -16643,6 +16663,8 @@ function brToggleSample4() {
 #page-b1lesen .btn-check{display:block;margin:16px auto 0;padding:10px 30px;background:linear-gradient(90deg,#2e7d32,#43a047);color:#fff;border:none;border-radius:25px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(46,125,50,.35);transition:transform .15s}
 #page-b1lesen .btn-check:hover{transform:scale(1.04)}
 #page-b1lesen #b1x-read5-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1s9-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1s10-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 
 /* ═══ Familie Born · 听写填空 Gap 样式 ═══ */
 .b1fb-gap{
@@ -25825,6 +25847,9 @@ function lxqResetMCQ(id) {
       <a href="#b1l-s5" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">5 · 🎓 Erasmus+ Programm — EU-Bildungsprogramm</a>
       <a href="#b1l-s6" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">6 · 🕰️ Alltag — Leserbriefe & Familie Born</a>
       <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">7 · 🆘 Alltagsprobleme & Notfälle</a>
+      <a href="#b1l-s8" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">8 · 💼 Arbeitswelt & Stress</a>
+      <a href="#b1l-s9" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">9 · 📝 Zertifikatstraining — Lesen Teil 1</a>
+      <a href="#b1l-s10" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 🎧 Zertifikatstraining — Hören Teil 1</a>
     </div>
   </div>
 
@@ -29475,6 +29500,1315 @@ function b1Emma7bCheck(){
 </div>
 </div>
 
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- B1 阅读 8 · Arbeitswelt & Stress · Lektion 4                            -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s8-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s8">
+  <div class="section-header">阅读 8 · 💼 Arbeitswelt &amp; Stress &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Lektion 4 · Digitalisierung + Stress im Beruf + Rote Nasen Clowns</span></div>
+  <div class="section-body">
+
+    <!-- 单元导航 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.5rem;margin-bottom:1.2rem">
+      <a href="#b1s8-arbeitswelt" style="background:linear-gradient(135deg,#ef6c00,#ffa726);color:#fff;padding:.6rem .8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;text-align:center;box-shadow:0 3px 8px rgba(239,108,0,.25)">💻 1 · Arbeitswelt</a>
+      <a href="#b1s8-frisst" style="background:linear-gradient(135deg,#c2185b,#ec407a);color:#fff;padding:.6rem .8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;text-align:center;box-shadow:0 3px 8px rgba(194,24,91,.25)">😰 2 · 3 Stress-Porträts</a>
+      <a href="#b1s8-stressreport" style="background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff;padding:.6rem .8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;text-align:center;box-shadow:0 3px 8px rgba(21,101,192,.25)">📰 3 · Stressreport</a>
+      <a href="#b1s8-clowns" style="background:linear-gradient(135deg,#d81b60,#f06292);color:#fff;padding:.6rem .8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;text-align:center;box-shadow:0 3px 8px rgba(216,27,96,.25)">🤡 4 · Rote Nasen Clowns</a>
+    </div>
+
+    <!-- 章节封面 / 主题导入 -->
+    <div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:14px;padding:1rem 1.2rem;margin-bottom:1.4rem;border-left:5px solid #ef6c00">
+      <div style="font-weight:700;color:#bf360c;font-size:1rem;margin-bottom:.4rem">📖 So arbeiten wir heute · Wie? Wo? Mit wem? Wie wollen wir arbeiten?</div>
+      <div style="font-size:.86rem;color:#5d4037;line-height:1.7">
+        🎯 <strong>HIER LERNEN SIE:</strong>
+        <ul style="margin:.4rem 0 0 1.2rem;padding:0">
+          <li>berufliche Veränderungen beschreiben</li>
+          <li>Vor- und Nachteile nennen, zustimmen oder ablehnen</li>
+          <li>einen Lebenslauf lesen und schreiben</li>
+          <li>telefonieren, formelle E-Mails schreiben</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗ -->
+    <!-- ║ TEIL 1 · Alles neu, alles anders?! · Paula Wessely        ║ -->
+    <!-- ╚═══════════════════════════════════════════════════════════╝ -->
+    <div id="b1s8-arbeitswelt" style="margin-bottom:2rem">
+      <div style="background:linear-gradient(135deg,#ef6c00,#ffa726);color:#fff;padding:.9rem 1.2rem;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700;font-size:1.05rem">💻 1 · Alles neu, alles anders?!</div>
+          <div style="font-size:.82rem;opacity:.95">Computer und Internet verändern die Arbeitswelt · Paula Wessely, Hochzeitsfotografin</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:0 0 12px 12px;padding:1.2rem 1.4rem;border:2px solid #ef6c00;border-top:none">
+
+        <!-- Artikel -->
+        <div class="passage" style="background:#fff8e1;border-left:4px solid #ef6c00;padding:1rem 1.2rem;font-size:.9rem;line-height:1.95;color:#3e2723">
+          <div style="font-weight:700;color:#bf360c;font-size:1.05rem;margin-bottom:.5rem">📰 Alles neu, alles anders?!</div>
+          <div style="font-weight:600;color:#6a1b9a;font-size:.92rem;margin-bottom:.7rem">Computer und Internet verändern die Arbeitswelt</div>
+
+          <p style="margin:0 0 .7rem">Mit der Digitalisierung entstehen viele neue Berufe, andere verändern sich. So z. B. der kreative Beruf von <strong>Paula Wessely (42)</strong>, Hochzeitsfotografin. Früher hat sie Fotos von Hochzeiten gemacht und im Labor entwickelt. „Heute sind Fotos out. Die Paare möchten lieber ein Hochzeitsvideo", erzählt sie. Sie filmt die Hochzeit von der Trauung am Vormittag bis zur Party am Abend. Dann schneidet und vertont sie das ganze Video zu Hause am Computer. „Das ist kein 8-Stunden-Job und ohne Computer geht es nicht", sagt sie. Seit der Ausbildung zur Fotografin muss sie sich immer wieder in die aktuelle Technik einarbeiten. „Ich filme jetzt auch mit der Drohne. Bilder von oben sind bei den Hochzeitspaaren absolut in", fasst sie die letzten beruflichen Veränderungen zusammen.</p>
+
+          <p style="margin:0 0 .7rem">Sie arbeitet viel im Homeoffice. „Das ist ein Vorteil, aber mir fehlen die lieben Kolleginnen und Kollegen. Ich sehe sie oft nur in der Videokonferenz, nicht beim Kaffee. Das ist schade", findet Paula. Die neue Arbeitssituation liegt aber voll im Trend: Immer mehr Menschen arbeiten digital und mobil von zuhause oder unterwegs. Der genaue Arbeitsort ist heute oft egal, man braucht nur einen Laptop und Internet.</p>
+
+          <p style="margin:0">Nicht egal ist die Arbeitszeit. „Man muss aufpassen, dass sich Arbeit und Freizeit nicht dauernd mischen", meint Paula. „Ab und zu muss ich abschalten. Nach der Ruhe mag ich auch den stressigen Job wieder!"</p>
+        </div>
+
+        <!-- 词汇 -->
+        <div style="background:#fce4ec;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #c2185b">
+          <div style="font-weight:700;color:#880e4f;font-size:.95rem;margin-bottom:.5rem">📚 Wortschatz · Digitalisierung & Arbeit</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.4rem .8rem;font-size:.85rem;color:#3e2723;line-height:1.7">
+            <div>• <strong>die Digitalisierung</strong> — 数字化</div>
+            <div>• <strong>sich einarbeiten in</strong> + Akk — 钻研、入门</div>
+            <div>• <strong>vertonen</strong> — 配音、添加音乐</div>
+            <div>• <strong>die Drohne, -n</strong> — 无人机</div>
+            <div>• <strong>das Homeoffice</strong> — 居家办公</div>
+            <div>• <strong>die Videokonferenz</strong> — 视频会议</div>
+            <div>• <strong>im Trend liegen</strong> — 流行</div>
+            <div>• <strong>abschalten</strong> — 关机；放空</div>
+            <div>• <strong>sich mischen</strong> — 混合</div>
+            <div>• <strong>absolut „in" sein</strong> — 非常流行</div>
+          </div>
+        </div>
+
+        <!-- Aufgabe a · Vor-/Nachteile -->
+        <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #1565c0">
+          <div style="font-weight:700;color:#0d47a1;font-size:.95rem;margin-bottom:.5rem">a) ⚖️ Vor- und Nachteile · Was sagt Paula über das Homeoffice?</div>
+          <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:.86rem;line-height:1.6">
+            <thead>
+              <tr style="background:#1565c0;color:#fff">
+                <th style="padding:.5rem;text-align:left;width:50%">✅ Vorteile (Pro)</th>
+                <th style="padding:.5rem;text-align:left;width:50%">❌ Nachteile (Kontra)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:.5rem;border-bottom:1px solid #e3f2fd;vertical-align:top">• Arbeitsort egal — nur Laptop + Internet nötig<br>• flexible Arbeitszeit<br>• Trend / modern</td>
+                <td style="padding:.5rem;border-bottom:1px solid #e3f2fd;vertical-align:top">• Kolleginnen/Kollegen fehlen<br>• kein Kaffee zusammen<br>• Arbeit und Freizeit mischen sich</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Aufgabe b · Fragen -->
+        <div style="background:#f1f8e9;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #689f38">
+          <div style="font-weight:700;color:#33691e;font-size:.95rem;margin-bottom:.5rem">b) 🎯 Beantworten Sie die Fragen</div>
+          <div style="font-size:.88rem;color:#33691e;line-height:1.95">
+            <div style="margin-bottom:.5rem">1. Was war Paulas alter Beruf, und wie hat er sich verändert?</div>
+            <div style="margin-bottom:.5rem">2. Welche Technik braucht sie heute, die sie früher nicht brauchte?</div>
+            <div style="margin-bottom:.5rem">3. Was ist für Paula das größte Problem im Homeoffice?</div>
+          </div>
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s8-arbeit-ans')">💡 显示参考答案</button>
+          <div class="answer-box" id="b1s8-arbeit-ans">
+            <strong>参考答案：</strong><br>
+            1. Sie war Hochzeitsfotografin und hat Fotos gemacht. Heute filmt sie Hochzeitsvideos (mit Drohne) und schneidet sie am Computer.<br>
+            2. Computer, Schnittsoftware, Drohne, Internet, Videokonferenz-Tools.<br>
+            3. Sie sieht ihre Kolleginnen nur in Videokonferenzen, nicht mehr „beim Kaffee" — der soziale Kontakt fehlt. Außerdem mischen sich Arbeit und Freizeit zu leicht.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗ -->
+    <!-- ║ TEIL 2 · Frisst ihr Job sie auf? · 3 Porträts            ║ -->
+    <!-- ╚═══════════════════════════════════════════════════════════╝ -->
+    <div id="b1s8-frisst" style="margin-bottom:2rem">
+      <div style="background:linear-gradient(135deg,#c2185b,#ec407a);color:#fff;padding:.9rem 1.2rem;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700;font-size:1.05rem">😰 2 · Frisst ihr Job sie auf? — Neo hat nachgefragt</div>
+          <div style="font-size:.82rem;opacity:.95">3 Stress-Porträts · Werbetexterin · Architekt · Kinderkrankenschwester</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:0 0 12px 12px;padding:1.2rem 1.4rem;border:2px solid #c2185b;border-top:none">
+
+        <!-- Aufgabe a -->
+        <div style="background:#fce4ec;border-radius:10px;padding:.8rem 1rem;margin-bottom:1.2rem;border-left:4px solid #c2185b">
+          <div style="font-weight:700;color:#880e4f;font-size:.92rem;margin-bottom:.5rem">a) 💬 Warum kann Arbeit stressig sein? Sammeln Sie Ideen.</div>
+          <div style="font-size:.85rem;color:#3e2723;line-height:1.8;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem">
+            <div style="background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px dashed #c2185b">💬 „Viele Überstunden machen ist stressig."</div>
+            <div style="background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px dashed #c2185b">💬 „Ich finde unfreundliche Kollegen stressig."</div>
+          </div>
+        </div>
+
+        <!-- Aufgabe b: 3 Porträts -->
+        <div style="background:linear-gradient(135deg,#fff8e1,#fffde7);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;border:2px dashed #f9a825">
+          <div style="text-align:center;font-weight:700;color:#bf8a00;font-size:1rem;margin-bottom:.3rem">+++ FRISST IHR JOB SIE AUF? — NEO HAT NACHGEFRAGT +++</div>
+          <div style="text-align:center;font-size:.85rem;color:#5d4037;line-height:1.6;margin-bottom:.9rem;font-style:italic">
+            Arbeiten bis spät in die Nacht, ständig unter Zeitdruck sein, keine Zeit für Familie und Freunde — und immer ein schlechtes Gewissen? Frisst Ihr Job sie auf oder leben Sie anders?
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem">
+
+            <!-- Wiebke -->
+            <div style="background:#fff;border-radius:10px;padding:.8rem 1rem;border:2px solid #1565c0">
+              <div style="font-weight:700;color:#0d47a1;font-size:.92rem;margin-bottom:.3rem">👩 Wiebke Staude, 51</div>
+              <div style="font-size:.8rem;color:#1565c0;margin-bottom:.5rem;font-style:italic">Werbetexterin</div>
+              <p style="margin:0;font-size:.84rem;line-height:1.8;color:#263238">
+                Ich bin seit 15 Jahren in der Werbebranche und kenne die Probleme: lange Arbeitszeiten, Überstunden, manchmal arbeite ich auch bis in die Nacht und unter großem Zeitdruck. <strong>Deshalb bleibt meist nur wenig Zeit für Familie und Freunde.</strong> Vor allem für junge Leute mit kleinen Kindern ist das sehr schwierig. <em>Unsere Arbeitswelt hat sich in den letzten Jahren stark verändert</em>, deshalb haben viele Menschen das Gefühl, dass ihr Job sie auffrisst. Ich habe drei Regeln, die mir helfen: keine Mails nach 19 Uhr, keine Telefonate am Wochenende und mindestens zweimal pro Woche ins Sportstudio. <strong>Das hilft mir sehr.</strong>
+              </p>
+            </div>
+
+            <!-- Thorsten -->
+            <div style="background:#fff;border-radius:10px;padding:.8rem 1rem;border:2px solid #2e7d32">
+              <div style="font-weight:700;color:#1b5e20;font-size:.92rem;margin-bottom:.3rem">👨 Thorsten Döhler, 42</div>
+              <div style="font-size:.8rem;color:#2e7d32;margin-bottom:.5rem;font-style:italic">Architekt</div>
+              <p style="margin:0;font-size:.84rem;line-height:1.8;color:#263238">
+                Ich habe damals als Architekt mit eigenem Büro ziemlich viel gearbeitet, weil ich das Geld brauchte. Deswegen habe ich alle Aufträge angenommen. Das hat mich vorangebracht. Langfristig war das aber nicht gut, weil ich keine Zeit mehr für ganz kleinen Sachen hatte. Architektenmine hatte sich verschoben, dass sich über wichtigen Bauplänen. <em>Freunde haben sich nach der fünften Absage nicht mehr gemeldet.</em> Das hat mich wachgerüttelt. Ich habe mittlerweile mein Büro geschlossen, arbeite in einem großen Architektenbüro. Daher lebe ich sehr viel freier. <strong>Diese Entscheidung war sehr gut für mich und auch meine Familie.</strong>
+              </p>
+            </div>
+
+            <!-- Annette -->
+            <div style="background:#fff;border-radius:10px;padding:.8rem 1rem;border:2px solid #c2185b">
+              <div style="font-weight:700;color:#880e4f;font-size:.92rem;margin-bottom:.3rem">👩 Annette Feistel, 21</div>
+              <div style="font-size:.8rem;color:#c2185b;margin-bottom:.5rem;font-style:italic">Kinderkrankenschwester</div>
+              <p style="margin:0;font-size:.84rem;line-height:1.8;color:#263238">
+                Natürlich ist meine Arbeit in der Kinderklinik nicht immer leicht. Ich habe oft Nachtdienst, muss mich konzentrieren, Fehler dürfen nicht passieren — es ist körperlich und manchmal auch psychisch schwere Arbeit. Aber ich liebe meinen Beruf, die Arbeit mit Eltern und besonders mit unseren kleinen Patienten. Das gibt meinem Leben eine Familie und einen tieferen Sinn. Nach der Arbeit brauche ich natürlich einen Ausgleich. Darum lese ich sehr viel und treffe mich mindestens zweimal pro Woche mit Freunden. Außerdem fahre ich pro Monat etwa mit Yoga angefangen. Das tut mir gut. <strong>Ich glaube, ich habe eine ziemlich gute Work-Life-Balance.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div style="font-size:.78rem;color:#666;font-style:italic;margin-top:.5rem;text-align:center">
+            📄 Quelle (FAQ): Frisst Ihr Job Sie auf?
+          </div>
+        </div>
+
+        <!-- Aufgabe c · Tabelle -->
+        <div style="background:#e8f5e9;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #2e7d32">
+          <div style="font-weight:700;color:#1b5e20;font-size:.95rem;margin-bottom:.5rem">c) 📋 Ergänzen Sie die Tabelle · Stressfaktoren vs. Strategien</div>
+          <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:.84rem;line-height:1.55">
+            <thead>
+              <tr style="background:#2e7d32;color:#fff">
+                <th style="padding:.5rem;text-align:left">Name, Alter, Beruf</th>
+                <th style="padding:.5rem;text-align:left">Stressfaktoren</th>
+                <th style="padding:.5rem;text-align:left">Strategien gegen Stress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top"><strong>Wiebke Staude</strong><br>51 · Werbetexterin</td>
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top">lange Arbeitszeiten · Überstunden · Nachtarbeit · Zeitdruck · wenig Zeit für Familie</td>
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top">keine Mails nach 19 Uhr · keine Telefonate am Wochenende · 2× Sport pro Woche</td>
+              </tr>
+              <tr style="background:#f1f8e9">
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top"><strong>Thorsten Döhler</strong><br>42 · Architekt</td>
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top">zu viele Aufträge · keine Zeit mehr für Kleines · Freunde verloren</td>
+                <td style="padding:.5rem;border-bottom:1px solid #c8e6c9;vertical-align:top">eigenes Büro geschlossen · Wechsel in großes Architektenbüro · mehr Familienzeit</td>
+              </tr>
+              <tr>
+                <td style="padding:.5rem;vertical-align:top"><strong>Annette Feistel</strong><br>21 · Kinderkrankenschwester</td>
+                <td style="padding:.5rem;vertical-align:top">Nachtdienst · hohe Konzentration · keine Fehler erlaubt · körperlich/psychisch schwer</td>
+                <td style="padding:.5rem;vertical-align:top">viel lesen · 2× Freunde pro Woche · Yoga 1× pro Monat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗ -->
+    <!-- ║ TEIL 3 · Stressreport Deutschland 2012                   ║ -->
+    <!-- ╚═══════════════════════════════════════════════════════════╝ -->
+    <div id="b1s8-stressreport" style="margin-bottom:2rem">
+      <div style="background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff;padding:.9rem 1.2rem;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700;font-size:1.05rem">📰 3 · Worüber Arbeitnehmerinnen und Arbeitnehmer klagen</div>
+          <div style="font-size:.82rem;opacity:.95">Hälfte der deutschen Arbeitnehmer klagt über Stress am Arbeitsplatz (Stressreport 2012)</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:0 0 12px 12px;padding:1.2rem 1.4rem;border:2px solid #1565c0;border-top:none">
+
+        <!-- Artikel -->
+        <div class="passage" style="background:#e3f2fd;border-left:4px solid #1565c0;padding:1rem 1.2rem;font-size:.9rem;line-height:1.95;color:#263238">
+          <div style="font-weight:700;color:#0d47a1;font-size:1rem;margin-bottom:.5rem;text-align:center">📰 Hälfte der deutschen Arbeitnehmer klagt über Stress am Arbeitsplatz</div>
+          <p style="margin:0">
+            Deutsche Arbeitnehmer haben ziemlich viel Stress — das zeigt das Ergebnis einer großen Studie. Aus dem „<strong>Stressreport Deutschland 2012</strong>" der Bundesanstalt für Arbeitsschutz und Arbeitsmedizin geht hervor, dass fast 50 bis 70 Prozent der 17.000 Befragten sehr viel Stress im Job haben. Besonders interessantes Ergebnis: Nicht die Menge an Arbeit ist die Hauptursache für Stress im Job. Es sind die <em>Beziehungen zum Chef, zu Kollegen oder zu Kunden</em>, die stressen. Vor allem zwei Faktoren machen am Arbeitsplatz Stress: <strong>erstens</strong> andere Menschen und <strong>zweitens</strong> die Erwartungen, die der Arbeitgeber, Kollegen und wir selbst an uns haben. Vor allem Menschen zwischen dem 30. und 40. Lebensjahr haben einen besonders großen Erwartungsdruck. Viele gründen in dieser Lebensphase eine Familie und bekommen aber auch im Job mehr Verantwortung. Die Balance zwischen beruflichen Zielen und dem Wunsch nach Freizeit wird dabei zu einer großen Herausforderung.
+          </p>
+        </div>
+
+        <!-- Aufgabe a · 3 Fragen -->
+        <div style="background:#fff3e0;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #ef6c00">
+          <div style="font-weight:700;color:#bf360c;font-size:.95rem;margin-bottom:.5rem">a) ❓ Lesen Sie den Zeitungsartikel und beantworten Sie die Fragen</div>
+          <div style="font-size:.88rem;color:#3e2723;line-height:1.95">
+            <div style="margin-bottom:.4rem">1. Was ist der „Stressreport Deutschland"?</div>
+            <div style="margin-bottom:.4rem">2. Wer hat die Studie in Auftrag gegeben?</div>
+            <div style="margin-bottom:.4rem">3. Wie viel Arbeitnehmer finden, dass sie Stress haben?</div>
+          </div>
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s8-stress-ans1')">💡 显示参考答案</button>
+          <div class="answer-box" id="b1s8-stress-ans1">
+            <strong>参考答案：</strong><br>
+            1. Der Stressreport ist eine große Studie / Untersuchung über Stress am Arbeitsplatz in Deutschland.<br>
+            2. Die <em>Bundesanstalt für Arbeitsschutz und Arbeitsmedizin</em> hat die Studie in Auftrag gegeben.<br>
+            3. Etwa <strong>50 bis 70 Prozent</strong> der 17.000 Befragten — also fast die Hälfte (sogar mehr) — fühlen sich gestresst.
+          </div>
+        </div>
+
+        <!-- Aufgabe b · Aussagen stimmen? -->
+        <div style="background:#e8f5e9;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #2e7d32">
+          <div style="font-weight:700;color:#1b5e20;font-size:.95rem;margin-bottom:.5rem">b) ✅ Welche Aussagen stimmen? Kreuzen Sie an. Korrigieren Sie die falschen.</div>
+
+          <div id="b1s8-stress-mcq" style="font-size:.88rem;color:#263238;line-height:1.85">
+            <div style="margin-bottom:.5rem;background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px solid #c8e6c9">
+              <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer">
+                <input type="checkbox" data-ans="0" style="margin-top:.3rem">
+                <span><strong>1.</strong> Termindruck und die Überstunden sind die häufigsten Stressfaktoren.</span>
+              </label>
+            </div>
+            <div style="margin-bottom:.5rem;background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px solid #c8e6c9">
+              <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer">
+                <input type="checkbox" data-ans="1" style="margin-top:.3rem">
+                <span><strong>2.</strong> Wenn die Beziehungen zu Kolleginnen und Kollegen schwierig sind, hat man Stress.</span>
+              </label>
+            </div>
+            <div style="margin-bottom:.5rem;background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px solid #c8e6c9">
+              <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer">
+                <input type="checkbox" data-ans="0" style="margin-top:.3rem">
+                <span><strong>3.</strong> Der Erwartungsdruck steigt mit den Jahren. Deshalb haben ältere Arbeitnehmerinnen und Arbeitnehmer mehr Stress als 30- bis 40-Jährige.</span>
+              </label>
+            </div>
+            <div style="margin-bottom:.5rem;background:#fff;border-radius:8px;padding:.5rem .7rem;border:1px solid #c8e6c9">
+              <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer">
+                <input type="checkbox" data-ans="1" style="margin-top:.3rem">
+                <span><strong>4.</strong> Viele 30- bis 40-Jährige haben Probleme, eine gute <em>Work-Life-Balance</em> zu finden.</span>
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-check" onclick="b1FbCheck('b1s8-stress-mcq','b1s8-stress-score')">批改</button>
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s8-stress-korrektur')">显示/隐藏修正</button>
+          <span id="b1s8-stress-score" style="margin-left:.6rem;font-weight:700"></span>
+
+          <div class="answer-box" id="b1s8-stress-korrektur">
+            <strong>正确答案 + 修正：</strong><br>
+            ✗ <strong>1. Falsch.</strong> Nicht Termindruck/Überstunden sind die häufigsten Stressfaktoren — sondern <strong>schwierige Beziehungen zu Menschen</strong> (Chef, Kollegen, Kunden) und <strong>Erwartungsdruck</strong>.<br>
+            ✓ <strong>2. Richtig.</strong> Schwierige Kollegenbeziehungen sind ein Hauptstressfaktor.<br>
+            ✗ <strong>3. Falsch.</strong> Nicht ältere Arbeitnehmer, sondern <strong>Menschen zwischen 30 und 40</strong> haben den größten Erwartungsdruck (Familie + Karriere gleichzeitig).<br>
+            ✓ <strong>4. Richtig.</strong> Genau in dieser Lebensphase ist die Work-Life-Balance besonders schwer.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗ -->
+    <!-- ║ TEIL 4 · Rote Nasen Clowns + Track 1.14 Interview        ║ -->
+    <!-- ╚═══════════════════════════════════════════════════════════╝ -->
+    <div id="b1s8-clowns" style="margin-bottom:1.5rem">
+      <div style="background:linear-gradient(135deg,#d81b60,#f06292);color:#fff;padding:.9rem 1.2rem;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700;font-size:1.05rem">🤡 4 · Rote-Nasen-Clowns schenken Kindern ein Lachen</div>
+          <div style="font-size:.82rem;opacity:.95">Karen Trenkelbach berichtet · Interview mit Clown Leofin (Track 1.14)</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:0 0 12px 12px;padding:1.2rem 1.4rem;border:2px solid #d81b60;border-top:none">
+
+        <!-- Aufgabe a · Vermutungen -->
+        <div style="background:#fce4ec;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;border-left:4px solid #d81b60">
+          <div style="font-weight:700;color:#880e4f;font-size:.92rem;margin-bottom:.4rem">a) 👀 Sehen Sie sich das Foto an, lesen Sie die Überschrift und den ersten Absatz. Beantworten Sie die Fragen. Nicht alles wird erklärt — vermuten Sie.</div>
+          <div style="font-size:.86rem;color:#3e2723;line-height:1.85">
+            <div>1. Wer sind die <strong>Roten Nasen</strong> und wo arbeiten sie?</div>
+            <div>2. Was ist die Aufgabe der Roten Nasen und warum ist diese Arbeit so wichtig?</div>
+          </div>
+        </div>
+
+        <!-- Artikel -->
+        <div class="passage" style="background:#fff8e1;border-left:4px solid #d81b60;padding:1rem 1.2rem;font-size:.9rem;line-height:1.95;color:#3e2723">
+          <div style="font-weight:700;color:#d81b60;font-size:1.1rem;margin-bottom:.3rem;text-align:center;font-family:'Comic Sans MS','Marker Felt',cursive">🤡 ROTE NASEN CLOWNS</div>
+          <div style="font-weight:700;color:#bf360c;font-size:.95rem;margin-bottom:.5rem;text-align:center;font-family:'Comic Sans MS',cursive">bringen kranke Kinder zum Lachen</div>
+
+          <p style="margin:0 0 .7rem"><em>Menschen lachen. Das ist eigentlich normal. Aber wenn sie nicht mehr lachen können, ist das ein Zeichen, dass sie ihren Mut und ihre Energie verlieren.</em> Die <strong>ROTEN NASEN</strong> Clowns bringen Kinder und alte Menschen in Krankenhäusern und Heimen zum Lachen. Karen Trenkelbach berichtet über die wichtige Arbeit der ROTE NASEN Clowns in deutschen Krankenhäusern.</p>
+
+          <p style="margin:0 0 .7rem">Schon zu Anfang des 20. Jahrhunderts arbeiteten Clowns mit Patienten in Krankenhäusern, auch wenn man keinen wissenschaftlichen Beweis für positive Effekte hatte. Mittlerweile haben Wissenschaftler in unterschiedlichen Studien bewiesen: <strong>Lachen hilft</strong> bei Ängsten, Schmerzen und Traurigkeit und es hilft, schneller gesund zu werden. Und das ist das Ziel der <strong>ROTE NASEN</strong> Clowns: Sie wollen kranken Menschen den Gesundwerden helfen und ihnen die Zeit im Krankenhaus erleichtern.</p>
+
+          <p style="margin:0 0 .7rem">Kleine (und große) Patienten haben es dort oft nicht leicht. Die Familie ist nicht immer normal, die Therapie dauert vielleicht lange oder ist schmerzhaft. Daher sind Humor und Lachen in solchen schwierigen Situationen sehr wichtig. Die Clowns sind professionelle Künstler (aber <strong>keine Ärzte</strong>), die für ihre Arbeit bezahlt werden. Sie reden, spielen und lachen gemeinsam mit den Patienten und bringen so ein wenig Freude in den grauen Krankenhaus-Alltag. Die ehrenamtlichen Besuche sind aber nur durch <strong>Spenden</strong> möglich. Schenken Sie mit ihrer Spende ein Lachen! Die Kontodaten finden Sie online unter <code>www.rotenasen.de</code>.</p>
+        </div>
+
+        <!-- Aufgabe c · Schreiben -->
+        <div style="background:#fff3e0;border-radius:10px;padding:.9rem 1.1rem;margin-top:1rem;border-left:4px solid #ef6c00">
+          <div style="font-weight:700;color:#bf360c;font-size:.95rem;margin-bottom:.5rem">c) ✍️ Schreiben Sie zu jedem Punkt einen Satz</div>
+          <div style="background:#fff;border-radius:8px;padding:.6rem .8rem;font-size:.86rem;color:#bf360c;line-height:1.8;font-weight:600">
+            20. Jahrhundert &nbsp;·&nbsp; positiver Effekt &nbsp;·&nbsp; Ziel der Clowns &nbsp;·&nbsp; Krankenhaus &nbsp;·&nbsp; Alltag &nbsp;·&nbsp; Spende
+          </div>
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s8-clown-saetze')" style="margin-top:.6rem">💡 显示示例句</button>
+          <div class="answer-box" id="b1s8-clown-saetze">
+            <strong>Beispielsätze:</strong><br>
+            • <em>Schon im 20. Jahrhundert arbeiteten Clowns in Krankenhäusern.</em><br>
+            • <em>Lachen hat einen positiven Effekt auf die Gesundheit.</em><br>
+            • <em>Das Ziel der ROTE NASEN Clowns ist, kranken Menschen zu helfen.</em><br>
+            • <em>Im Krankenhaus haben Kinder oft Angst und Schmerzen.</em><br>
+            • <em>Die Clowns bringen Freude in den grauen Alltag.</em><br>
+            • <em>Die Besuche sind nur durch Spenden möglich.</em>
+          </div>
+        </div>
+
+        <!-- Track 1.14 Interview · Aufgabe a -->
+        <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:12px;padding:.9rem 1.1rem;margin-top:1.4rem;border-left:5px solid #1565c0">
+          <div style="font-weight:700;color:#0d47a1;font-size:.98rem;margin-bottom:.4rem">🎙️ Clown Leofin spricht über seine Arbeit &nbsp;<span style="font-size:.78rem;background:#1565c0;color:#fff;padding:.15rem .5rem;border-radius:10px">Track 1.14</span></div>
+          <div style="font-size:.86rem;color:#0d47a1;line-height:1.7;margin-bottom:.6rem"><strong>a)</strong> Hören Sie das Interview und ordnen Sie die Interviewfragen.</div>
+
+          <!-- Hauptaudio -->
+          <div style="background:#fff;border-radius:10px;padding:.7rem .9rem;margin-bottom:.8rem;border:2px dashed #1565c0">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem">
+              <span style="font-size:1.2rem">🔊</span>
+              <span style="font-weight:700;color:#0d47a1;font-size:.88rem">Track 1.14 · Interview mit Clown Leofin</span>
+            </div>
+            <audio controls preload="metadata" style="width:100%;outline:none">
+              <source src="audio/b1-rote-nasen-clown.mp3" type="audio/mpeg">
+              你的浏览器不支持音频播放。
+            </audio>
+          </div>
+
+          <!-- Fragen Checkliste (informativ) -->
+          <div style="background:#fff;border-radius:8px;padding:.6rem .8rem;font-size:.84rem;color:#263238;line-height:1.85">
+            <div style="font-weight:700;color:#0d47a1;margin-bottom:.3rem">📋 Interviewfragen (aus dem Lehrbuch)</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.2rem .6rem">
+              <div>☐ Was ist das Schönste an deiner Arbeit?</div>
+              <div>☐ Wie lange bist du schon ein ROTE NASEN Clown?</div>
+              <div>☐ Was bist du von Beruf?</div>
+              <div>☐ Warum arbeitest du auch als Clown?</div>
+              <div>☐ Bist du manchmal traurig?</div>
+              <div>☐ Verdienst du viel Geld als Clown?</div>
+              <div>☐ Hatte ein Kind schon mal Angst vor dir?</div>
+            </div>
+          </div>
+
+          <!-- b) Ordnen Sie die Antworten -->
+          <div style="background:#fff;border-radius:8px;padding:.6rem .8rem;margin-top:.7rem;font-size:.84rem;color:#263238;line-height:1.85">
+            <div style="font-weight:700;color:#0d47a1;margin-bottom:.3rem"><strong>b)</strong> Ordnen Sie die Antworten von Clown Leofin den Fragen aus a) zu</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.2rem .6rem">
+              <div><strong>a</strong> · Ich kann nicht von dem Geld leben.</div>
+              <div><strong>b</strong> · Das Lachen der Patienten.</div>
+              <div><strong>c</strong> · Ich bin Schauspieler.</div>
+              <div><strong>d</strong> · Das kann passieren. Aber ich bin vorsichtig.</div>
+              <div><strong>e</strong> · Seit mehr als zehn Jahren, glaube ich.</div>
+              <div><strong>f</strong> · Das gibt meinem Leben einen tieferen Sinn.</div>
+              <div><strong>g</strong> · Manchmal bin ich auch traurig, ja.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ 听力原文 Transkript (Track 1.14) · 应用 /听力原文 范式 ═══ -->
+        <div style="margin-top:1rem">
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s8-clown-transkript')">📄 显示/隐藏听力原文 Transkript</button>
+          <div class="answer-box" id="b1s8-clown-transkript" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem">
+            <div style="font-weight:700;color:#0d47a1;font-size:.95rem;margin-bottom:.8rem;text-align:center;padding-bottom:.5rem;border-bottom:2px dashed #bbdefb">🎧 Transkript · Clown Leofin im Studio (Track 1.14)</div>
+
+            <!-- 模式切换 -->
+            <div style="display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap;justify-content:center">
+              <button onclick="B1S8ClownTransMode('full')" id="b1s8-clown-mode-full" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+              <button onclick="B1S8ClownTransMode('blank')" id="b1s8-clown-mode-blank" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写练习</button>
+              <button onclick="B1S8ClownRevealAll()" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示答案</button>
+              <button onclick="B1S8ClownHideAll()" style="padding:.4rem .9rem;border:2px solid #c62828;background:#fff;color:#c62828;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+            </div>
+
+            <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-bottom:.9rem;font-size:.78rem;color:#5d4037;line-height:1.6;text-align:center">
+              💡 切换到「✏️ 听写练习」模式 → 边听音频边在脑中补全词 → <strong>双击空格</strong>显示答案
+            </div>
+
+            <!-- ═══ 完整原文 ═══ -->
+            <div id="b1s8-clown-trans-full">
+
+              <!-- 段落 · 完整（蓝边） -->
+              <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Interview · 🎙️ Im Studio mit Clown Leofin</div>
+                <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                  <strong>🎙️ Moderatorin:</strong> Wir begrüßen Sie im Studio Jordis Klein, unser Kinderreporter und Magda Bohnmert. Heute geht es um das Thema „Arbeit und soziales <strong>Engagement</strong>". Sag mal Jordis, mit wem hast du den eben gesprochen?<br>
+                  <strong>👦 Jordis:</strong> Mit Leofin, einem Clown.<br>
+                  <strong>🎙️ Moderatorin:</strong> Spannend, da hören wir doch gleich mal in das Interview rein …<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Leofin, wie lange bist du schon ein ROTE NASEN Clown?<br>
+                  <strong>🤡 Leofin:</strong> Das bin ich seit mehr als zehn Jahren, glaube ich. Also schon ziemlich lange.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Was bist du von Beruf?<br>
+                  <strong>🤡 Leofin:</strong> Ich bin <strong>Schauspieler</strong> und arbeite am Theater, aber auch für Film und Fernsehen.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Warum arbeitest du auch als Clown?<br>
+                  <strong>🤡 Leofin:</strong> Das gibt meinem Leben einen tieferen <strong>Sinn</strong>. Es macht mir einfach Freude, wenn ich anderen helfen kann. Lachen ist so wichtig. Nicht nur für die kleinen Patienten, sondern auch für die Großen.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Verdienst du viel Geld als Clown?<br>
+                  <strong>🤡 Leofin:</strong> Nein, ich kann nicht von diesem Geld leben, aber das ist ja auch nicht mein Ziel. Ich lebe von meinem Beruf als <strong>Schauspieler</strong>. Als ROTE NASEN Clown denkt man nicht zuerst über Geld und Verdienst nach.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Was ist das Schönste an deiner Arbeit?<br>
+                  <strong>🤡 Leofin:</strong> Das <strong>Lachen</strong> der Patienten. Das ist so dankbar. Viele Patienten warten jede Woche auf mich. Das ist schon ein tolles Gefühl.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Bist du manchmal <strong>traurig</strong>?<br>
+                  <strong>🤡 Leofin:</strong> Ja, das kommt natürlich vor. Wenn es Patienten gibt, denen es nicht gut geht und sie lange im Krankenhaus bleiben müssen — das ist schon schwer.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Hatte ein Kind schon mal <strong>Angst</strong> vor dir?<br>
+                  <strong>🤡 Leofin:</strong> Das kann passieren. Aber ich bin beim ersten Treffen immer sehr vorsichtig. Ich habe da sehr viel Erfahrung und ich gebe dem Kind sehr viel Gefühl für die Patienten. 9 von 10 Kindern freuen sich schon nach dem ersten Treffen auf ein Wiedersehen.
+                </p>
+              </div>
+
+              <!-- 🔊 嵌入音频 · 完整模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Track 1.14 · Clown Leofin</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边读 📖</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rote-nasen-clown.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+            </div>
+
+            <!-- ═══ 听写练习（双击显示答案）═══ -->
+            <div id="b1s8-clown-trans-blank" style="display:none">
+
+              <!-- 段落 · Blank（橙边） -->
+              <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Interview · 🎙️ Im Studio mit Clown Leofin <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                  <strong>🎙️ Moderatorin:</strong> Wir begrüßen Sie im Studio Jordis Klein, unser Kinderreporter und Magda Bohnmert. Heute geht es um das Thema „Arbeit und soziales <span class="b1fb-gap" data-ans="Engagement">①____</span>". Sag mal Jordis, mit wem hast du den eben <span class="b1fb-gap" data-ans="gesprochen">②____</span>?<br>
+                  <strong>👦 Jordis:</strong> Mit Leofin, einem Clown.<br>
+                  <strong>🎙️ Moderatorin:</strong> Spannend, da hören wir doch gleich mal in das <span class="b1fb-gap" data-ans="Interview">③____</span> rein …<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Leofin, wie lange bist du schon ein ROTE NASEN Clown?<br>
+                  <strong>🤡 Leofin:</strong> Das bin ich seit mehr als <span class="b1fb-gap" data-ans="zehn Jahren">④____</span>, glaube ich. Also schon ziemlich lange.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Was bist du von <span class="b1fb-gap" data-ans="Beruf">⑤____</span>?<br>
+                  <strong>🤡 Leofin:</strong> Ich bin <span class="b1fb-gap" data-ans="Schauspieler">⑥____</span> und arbeite am Theater, aber auch für Film und Fernsehen.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Warum arbeitest du auch als Clown?<br>
+                  <strong>🤡 Leofin:</strong> Das gibt meinem Leben einen tieferen <span class="b1fb-gap" data-ans="Sinn">⑦____</span>. Es macht mir einfach Freude, wenn ich anderen helfen kann. <span class="b1fb-gap" data-ans="Lachen">⑧____</span> ist so wichtig. Nicht nur für die kleinen Patienten, sondern auch für die Großen.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Verdienst du viel Geld als Clown?<br>
+                  <strong>🤡 Leofin:</strong> Nein, ich kann nicht von diesem Geld leben, aber das ist ja auch nicht mein Ziel. Ich lebe von meinem Beruf als <span class="b1fb-gap" data-ans="Schauspieler">⑨____</span>. Als ROTE NASEN Clown denkt man nicht zuerst über Geld und <span class="b1fb-gap" data-ans="Verdienst">⑩____</span> nach.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Was ist das <span class="b1fb-gap" data-ans="Schönste">⑪____</span> an deiner Arbeit?<br>
+                  <strong>🤡 Leofin:</strong> Das <span class="b1fb-gap" data-ans="Lachen">⑫____</span> der Patienten. Das ist so <span class="b1fb-gap" data-ans="dankbar">⑬____</span>. Viele Patienten warten jede Woche auf mich. Das ist schon ein tolles <span class="b1fb-gap" data-ans="Gefühl">⑭____</span>.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Bist du manchmal <span class="b1fb-gap" data-ans="traurig">⑮____</span>?<br>
+                  <strong>🤡 Leofin:</strong> Ja, das kommt natürlich vor. Wenn es Patienten gibt, denen es nicht gut geht und sie lange im <span class="b1fb-gap" data-ans="Krankenhaus">⑯____</span> bleiben müssen — das ist schon schwer.<br>
+                  <br>
+                  <strong>👦 Jordis:</strong> Hatte ein Kind schon mal <span class="b1fb-gap" data-ans="Angst">⑰____</span> vor dir?<br>
+                  <strong>🤡 Leofin:</strong> Das kann passieren. Aber ich bin beim ersten <span class="b1fb-gap" data-ans="Treffen">⑱____</span> immer sehr <span class="b1fb-gap" data-ans="vorsichtig">⑲____</span>. Ich habe da sehr viel Erfahrung und ich gebe dem Kind sehr viel Gefühl für die Patienten. 9 von 10 Kindern freuen sich schon nach dem ersten Treffen auf ein <span class="b1fb-gap" data-ans="Wiedersehen">⑳____</span>.
+                </p>
+              </div>
+
+              <!-- 🔊 嵌入音频 · 听写模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Track 1.14 · Clown Leofin</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边填 ✏️</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rote-nasen-clown.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+            </div>
+
+            <!-- 学习提示 -->
+            <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-top:.8rem;font-size:.8rem;color:#5d4037;line-height:1.6">
+              💡 <strong>Tipp:</strong> 慈善/职业访谈核心词 — <em>soziales Engagement</em>（社会参与）/ <em>einen tieferen Sinn</em>（更深的意义）/ <em>Schauspieler / Beruf / Verdienst</em>（演员/职业/收入）。这些是 B1 Arbeit & Engagement 主题高频表达。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<!-- B1 阅读 9 · Zertifikatstraining Lesen Teil 1 · Ninas Welt                   -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s9-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s9">
+  <div class="section-header">阅读 9 · 📝 Zertifikatstraining — Lesen Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Blog lesen + Richtig/Falsch · 10 Minuten</span></div>
+  <div class="section-body">
+
+    <!-- 考试说明 -->
+    <div style="background:linear-gradient(135deg,#fff8e1,#ffe082);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem">
+      <div style="font-weight:700;color:#bf6a00;font-size:.95rem;margin-bottom:.4rem">📋 Lesen Teil 1 · Arbeitszeit: 10 Minuten</div>
+      <div style="font-size:.9rem;color:#5d4037;line-height:1.75">
+        Lesen Sie den Blogeintrag und die Aufgaben 1 bis 6 dazu.<br>
+        Wählen Sie: Sind die Aussagen <strong>richtig</strong> oder <strong>falsch</strong>?
+      </div>
+    </div>
+
+    <!-- 博客卡片 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <!-- 博客标题栏 -->
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.3rem;font-weight:700;letter-spacing:-.01em">🌿 Willkommen_in_Ninas_Welt</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">ninaswelt.de/blog</span>
+        </div>
+        <div style="color:rgba(255,255,255,.8);font-size:.82rem;margin-top:4px">Persönlicher Reiseblog · Winterurlaub in Österreich</div>
+      </div>
+      <!-- 博客正文 + 行号（点击显隐中文） -->
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748;cursor:pointer" onclick="var n=this.querySelector('.nina-cn');n.style.display=n.style.display==='none'?'block':'none'">
+        <p style="margin:0 0 .55rem"><strong>Hallo Leute,</strong></p>
+        <p style="margin:0 0 .7rem"><span style="color:#94b43b;font-size:.72rem;font-weight:700;margin-right:.5rem">Z.5</span>ich bin zurück aus dem Winterurlaub oder besser: von meiner <strong>„Zeitreise"</strong> ;-)!</p>
+        <p style="margin:0 0 .7rem"><span style="color:#94b43b;font-size:.72rem;font-weight:700;margin-right:.3rem">Z.10</span>Die letzten vier Wochen habe ich mit Robert, meinem Freund, in <strong>Österreich, in einem kleinen Holzhaus in den Bergen</strong> verbracht. Wir waren weit von der nächsten Stadt entfernt und haben fast wie die Leute <strong>vor 100 Jahren</strong> gelebt.</p>
+        <p style="margin:0 0 .7rem"><span style="color:#94b43b;font-size:.72rem;font-weight:700;margin-right:.3rem">Z.10</span>Schon der Weg zum Ferienhaus war ein Abenteuer! Wir mussten das Auto <strong>im Tal auf einem Parkplatz abstellen</strong>, weil dort die Straße endete. Dort haben wir unsere Sachen in <strong>Rucksäcke</strong> gepackt und <strong>durch tiefen Schnee mit Skiern</strong> zum Haus hoch gebracht. Das dauerte zwei Stunden und weil wir auch <strong>alle Lebensmittel für die vier Wochen</strong> vom Auto zum Haus bringen mussten, war das Gepäck sehr schwer! Als wir dann am späten Nachmittag <strong>total erschöpft</strong> am Haus ankamen und uns alles ansahen, war ich erst gar nicht begeistert: Es gab <strong>keinen Strom, kein Badezimmer</strong>, die Toilette war draußen in einem Häuschen mit <strong>Herzfenster</strong> in der Tür!, zum Heizen und Kochen gab es nur einen <strong>Holzofen</strong>. Und das Wasser zum Trinken, Kochen und Waschen mussten wir aus einem <strong>Fluss holen</strong>. Das war hart, denn der Fluss war <strong>gefroren</strong>.</p>
+        <p style="margin:0 0 .7rem"><span style="color:#94b43b;font-size:.72rem;font-weight:700;margin-right:.3rem">Z.15</span>Man musste also immer erst <strong>ein Loch ins Eis machen</strong>, wenn man Wasser holen wollte — sehr abenteuerlich! Und wisst ihr was? <strong>Robert wusste das alles vorher</strong>, er hat mir aber kein Wort gesagt! Er kennt sogar den <strong>Besitzer des Hauses</strong> und erzählte mir später, dass dieser in seiner <strong>Studienzeit</strong> alle Baumaterialien selbst auf den Berg getragen und dann das Haus <strong>in drei Sommermonaten allein gebaut</strong> hat. Wahnsinn!</p>
+        <p style="margin:0 0 .7rem"><span style="color:#94b43b;font-size:.72rem;font-weight:700;margin-right:.3rem">Z.20</span>Naja, wie gesagt, am Anfang dachte ich, es wird furchtbar! Aber Leute, jetzt kann ich sagen: Für immer möchte ich so nicht leben, aber <strong>man kann auch ohne Strom, Heizung usw. einen tollen Urlaub haben</strong>. Man braucht dann für viele Dinge länger, aber das ist ja kein Problem, wenn man Zeit hat. Ich bin jedenfalls <strong>ab dem zweiten Tag jeden Abend sehr zufrieden und glücklich ins Bett gefallen</strong> und habe nichts vermisst!</p>
+        <p style="margin:0"><em>Bis bald eure Nina</em></p>
+        <div class="nina-cn" style="display:none;margin-top:1rem;padding:.9rem 1rem;background:#f0fdf0;border-radius:10px;border-left:4px solid #94b43b;font-size:.83rem;color:#5d4037;line-height:1.8">
+          <p style="margin:0 0 .5rem"><strong>🇨🇳 中文参考：</strong>嗨大家，我从冬假回来了——或者更准确地说：从我的"时间旅行"回来了 ;-)。过去四周我和男朋友 Robert 一起在奥地利山里的一间小木屋度过。我们远离最近的城镇，几乎像 100 年前的人一样生活。光是去度假屋的路就是一场冒险！我们得把车停在山谷的停车场，因为路到那里就断了。我们把东西装进背包，穿着滑雪板在深雪中把行李运到山上小屋。这花了两个小时，而且因为我们要把四个星期的食物全部从车里搬到屋里，行李特别重！傍晚我们筋疲力尽到达小屋，环顾四周时，我一开始并不兴奋：没有电、没有浴室、厕所在外面的小屋里（门上还有个心形窗户！），取暖做饭只有一个木柴炉。喝水、做饭、洗漱的水得从河里取。那可不轻松，因为河都冻上了。所以每次要取水都得先在冰上凿个洞——超有冒险感的！你们知道吗？Robert 事先全知道这些，但一个字都没跟我说！他甚至认识房主，后来告诉我房主大学时代把所有建材自己搬上山，然后一个人花了三个夏天建了这房子。太疯狂了！嗯，就像我说的，一开始我觉得会很糟糕！但伙计们，现在我能说：虽然我不想永远这样生活，但没电没暖气也能过个很棒的假期。做很多事情需要更长时间，但如果有时间那完全不是问题。反正我从第二天起每晚都心满意足、开心地倒头就睡，什么都不缺！再见，你们的 Nina。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中文翻译 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s9-trans')">显示/隐藏中文翻译</button>
+    <div class="answer-box" id="b1s9-trans">
+      <strong>中文翻译：</strong><br><br>
+      嗨大家，我从冬假回来了——或者更准确地说：从我的"时间旅行"回来了 ;-)。过去四周我和男朋友 Robert 一起在<strong>奥地利山里的一间小木屋</strong>度过。我们远离最近的城镇，几乎像<strong>100 年前的人</strong>一样生活。<br><br>
+      光是去度假屋的路就是一场冒险！我们得把车停在<strong>山谷的停车场</strong>，因为路到那里就断了。我们把东西装进<strong>背包</strong>，穿着滑雪板在<strong>深雪中</strong>把行李运到山上小屋。这花了两个小时，而且因为我们要把<strong>四个星期的食物全部从车里搬到屋里</strong>，行李特别重！傍晚我们<strong>筋疲力尽</strong>到达小屋，环顾四周时，我一开始并不兴奋：没有<strong>电、没有浴室</strong>、厕所在外面的小屋里（门上还有个<strong>心形窗户</strong>！），取暖做饭只有一个<strong>木柴炉</strong>。喝水、做饭、洗漱的水得从<strong>河里取</strong>。那可不轻松，因为河都<strong>冻上了</strong>。<br><br>
+      所以每次要取水都得先在冰上凿个洞——超有冒险感的！你们知道吗？<strong>Robert 事先全知道这些</strong>，但一个字都没跟我说！他甚至认识<strong>房主</strong>，后来告诉我房主<strong>大学时代</strong>把所有建材自己搬上山，然后<strong>一个人花了三个夏天建了这房子</strong>。太疯狂了！<br><br>
+      嗯，就像我说的，一开始我觉得会很糟糕！但伙计们，现在我能说：虽然我不想永远这样生活，但<strong>没电没暖气也能过个很棒的假期</strong>。做很多事情需要更长时间，但如果有时间那完全不是问题。反正我<strong>从第二天起每晚都心满意足、开心地倒头就睡</strong>，什么都不缺！<br><br>
+      再见，你们的 Nina。
+    </div>
+
+    <!-- 词汇 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s9-vocab')">显示/隐藏词汇语法</button>
+    <div class="answer-box" id="b1s9-vocab">
+      <strong>📚 重点词汇：</strong><br>
+      • <strong>der Winterurlaub</strong> = 冬假 · <strong>die Zeitreise</strong> = 时间旅行<br>
+      • <strong>das Holzhaus, -¨er</strong> = 木屋 · <strong>die Berge (Pl.)</strong> = 山区<br>
+      • <strong>weit von + D entfernt</strong> = 远离 · <strong>gelebt (leben, Perf.)</strong> = 生活过<br>
+      • <strong>das Abenteuer, -</strong> = 冒险 · <strong>abstellen</strong> = 停放（车）<br>
+      • <strong>der Rucksack, -¨e</strong> = 背包 · <strong>der Ski, -er</strong> = 滑雪板<br>
+      • <strong>die Lebensmittel (Pl.)</strong> = 食品 · <strong>erschöpft</strong> = 筋疲力尽的<br>
+      • <strong>der Strom</strong> = 电 · <strong>das Badezimmer</strong> = 浴室<br>
+      • <strong>der Holzofen, -¨</strong> = 木柴炉 · <strong>gefroren (frieren)</strong> = 结冰的<br>
+      • <strong>das Loch, -¨er</strong> = 洞 · <strong>das Eis</strong> = 冰<br>
+      • <strong>der Besitzer, -</strong> = 房主/所有者 · <strong>die Studienzeit</strong> = 大学时代<br>
+      • <strong>die Baumaterialien (Pl.)</strong> = 建材 · <strong>tragen (trug, getragen)</strong> = 搬运<br>
+      • <strong>furchtbar</strong> = 可怕的 · <strong>zufrieden</strong> = 满意的<br>
+      • <strong>vermissen</strong> = 想念/缺少 · <strong>nichts vermissen</strong> = 什么都不缺
+    </div>
+
+    <!-- 语法解析 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s9-grammatik')">📚 显示/隐藏语法解析</button>
+    <div class="answer-box" id="b1s9-grammatik">
+      <strong>📚 Grammatik im Text</strong><br><br>
+
+      <strong>1. Perfekt — 口语过去时（叙述已发生的事）</strong><br>
+      本文是博客文体，口语化叙述，全文用 <strong>Perfekt</strong>（现在完成时）讲述过去经历。<br>
+      公式：<em>haben/sein</em> (变位) + … + <strong>Partizip II</strong>（句末）<br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ Ich <strong>habe</strong> die letzten vier Wochen in einem Holzhaus <strong>verbracht</strong>. <em>(verbringen → verbracht)</em><br>
+        ▸ Wir <strong>haben</strong> fast wie die Leute vor 100 Jahren <strong>gelebt</strong>. <em>(leben → gelebt)</em><br>
+        ▸ Er <strong>hat</strong> das Haus allein <strong>gebaut</strong>. <em>(bauen → gebaut)</em><br>
+        ▸ Ich <strong>bin</strong> sehr zufrieden ins Bett <strong>gefallen</strong>. <em>(fallen → gefallen, 移动用 sein)</em>
+      </div>
+      💡 博客/日记/口语叙述 = Perfekt。书面报道/新闻 = Präteritum。<br><br>
+
+      <strong>2. Präteritum — 少数高频动词用过去式</strong><br>
+      <em>sein, haben, Modalverben</em> 在口语中也常用 Präteritum：<br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ Schon der Weg zum Ferienhaus <strong>war</strong> ein Abenteuer! <em>(sein → war)</em><br>
+        ▸ Es <strong>gab</strong> keinen Strom, kein Badezimmer. <em>(geben → gab, 表"存在有")</em><br>
+        ▸ Das <strong>dauerte</strong> zwei Stunden. <em>(dauern → dauerte)</em><br>
+        ▸ Ich <strong>dachte</strong>, es wird furchtbar! <em>(denken → dachte)</em>
+      </div><br>
+
+      <strong>3. müssen + Infinitiv — 不得不/必须（义务）</strong><br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ Wir <strong>mussten</strong> das Auto im Tal <strong>abstellen</strong>. <em>(Präteritum: müssen → mussten)</em><br>
+        ▸ Man <strong>musste</strong> immer erst ein Loch ins Eis <strong>machen</strong>.<br>
+        ▸ Wir <strong>mussten</strong> das Wasser aus einem Fluss <strong>holen</strong>.
+      </div>
+      <strong>公式：</strong> Subjekt + <em>müssen</em> (变位) + … + <strong>Infinitiv</strong>（句末）<br><br>
+
+      <strong>4. weil 从句 — 原因状语（动词置末）</strong><br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ Wir mussten das Auto abstellen, <strong>weil</strong> dort die Straße <strong>endete</strong>. <em>(动词在句末！)</em><br>
+        ▸ Das war hart, <strong>denn</strong> der Fluss <strong>war</strong> gefroren. <em>(denn = 不占位连词，动词仍在第二位)</em><br>
+        ▸ … <strong>weil</strong> wir auch alle Lebensmittel vom Auto zum Haus <strong>bringen mussten</strong>. <em>(双动词：情态动词在不定式之后)</em>
+      </div>
+      ⚠️ <strong>weil vs. denn：</strong>weil → 动词句末（从句语序）；denn → 动词第二（主句语序，像 und/oder/aber）<br><br>
+
+      <strong>5. als / wenn — 时间从句</strong><br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ <strong>Als</strong> wir dann total erschöpft am Haus <strong>ankamen</strong>, war ich gar nicht begeistert. <em>(als = 过去一次性事件)</em><br>
+        ▸ <strong>Wenn</strong> man Wasser holen <strong>wollte</strong>, musste man ein Loch ins Eis machen. <em>(wenn = 过去反复/条件)</em>
+      </div>
+      ⚠️ <strong>als =</strong> 过去一次性的"当…时"；<strong>wenn =</strong> 过去反复的"每当" / 现在或将来的"当…时"。两者从句动词都在句末。<br><br>
+
+      <strong>6. Adjektivdeklination — 形容词词尾（精选文中高频搭配）</strong><br>
+      <div style="background:#f5f7fa;border-radius:6px;padding:.6rem .8rem;margin:.4rem 0;font-size:.87rem;line-height:1.9">
+        ▸ in <strong>einem kleinen Holzhaus</strong> <em>(in + Dativ, neutr.: ein → einem, klein → kleinen, Holz-不变)</em><br>
+        ▸ durch <strong>tiefen Schnee</strong> <em>(durch + Akkusativ, mask.: tief → tiefen)</em><br>
+        ▸ weit von <strong>der nächsten Stadt</strong> <em>(von + Dativ, fem.: die → der, nächst → nächsten)</em><br>
+        ▸ in <strong>drei Sommermonaten</strong> <em>(in + Dativ, Pl.: drei→drei, Monate→Monaten [Dat.Pl. +n])</em>
+      </div>
+      规则记忆口诀：介词定格 → 冠词/限定词显性数格 → 形容词尾呼应。
+    </div>
+
+    <!-- 词汇搭配 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s9-kollokation')">🔗 显示/隐藏词汇搭配</button>
+    <div class="answer-box" id="b1s9-kollokation">
+      <strong>🔗 Wichtige Wortverbindungen</strong>（重要搭配，B1 考试高频考点）<br><br>
+
+      <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+        <tr style="background:#1a5a2a;color:#fff">
+          <th style="padding:.5rem .7rem;text-align:left">搭配</th>
+          <th style="padding:.5rem .7rem;text-align:left">释义</th>
+          <th style="padding:.5rem .7rem;text-align:left">文中原句</th>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">in den Bergen verbringen</td>
+          <td style="padding:.4rem .7rem">在山区度过</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… in einem kleinen Holzhaus <em>in den Bergen verbracht</em></td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">weit von + D entfernt</td>
+          <td style="padding:.4rem .7rem">远离…</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem"><em>weit von der nächsten Stadt entfernt</em></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">wie … leben</td>
+          <td style="padding:.4rem .7rem">像…一样生活</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… fast <em>wie die Leute vor 100 Jahren gelebt</em></td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">das Auto abstellen</td>
+          <td style="padding:.4rem .7rem">停放车辆</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… das Auto <em>im Tal auf einem Parkplatz abstellen</em></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">in Rucksäcke packen</td>
+          <td style="padding:.4rem .7rem">装进背包</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… unsere Sachen <em>in Rucksäcke gepackt</em></td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">durch tiefen Schnee</td>
+          <td style="padding:.4rem .7rem">穿过深雪</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… <em>durch tiefen Schnee</em> mit Skiern zum Haus hoch gebracht</td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">total erschöpft ankommen</td>
+          <td style="padding:.4rem .7rem">筋疲力尽到达</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… am späten Nachmittag <em>total erschöpft am Haus ankamen</em></td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">Es gibt (gab) + A</td>
+          <td style="padding:.4rem .7rem">有/存在</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem"><em>Es gab keinen Strom, kein Badezimmer</em></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">Wasser aus dem Fluss holen</td>
+          <td style="padding:.4rem .7rem">从河里取水</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… das Wasser <em>aus einem Fluss holen</em></td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">ein Loch ins Eis machen</td>
+          <td style="padding:.4rem .7rem">在冰上凿洞</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… immer erst <em>ein Loch ins Eis machen</em></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">kein Wort sagen</td>
+          <td style="padding:.4rem .7rem">一句话不说</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… er hat mir aber <em>kein Wort gesagt</em>!</td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">in der Studienzeit</td>
+          <td style="padding:.4rem .7rem">大学时代</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… dass dieser <em>in seiner Studienzeit</em> …</td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">allein bauen</td>
+          <td style="padding:.4rem .7rem">独自建造</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… das Haus <em>in drei Sommermonaten allein gebaut</em> hat</td>
+        </tr>
+        <tr>
+          <td style="padding:.4rem .7rem;font-weight:700">ins Bett fallen</td>
+          <td style="padding:.4rem .7rem">倒在床上（累瘫了）</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… jeden Abend sehr zufrieden und glücklich <em>ins Bett gefallen</em></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="padding:.4rem .7rem;font-weight:700">nichts vermissen</td>
+          <td style="padding:.4rem .7rem">不缺任何东西</td>
+          <td style="padding:.4rem .7rem;font-size:.83rem">… und <em>habe nichts vermisst</em>!</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Richtig/Falsch 题目 -->
+    <div style="font-weight:700;color:#1a5a2a;font-size:.93rem;margin:1.2rem 0 .5rem">📝 Aufgaben 1–6 · Richtig oder falsch?</div>
+    <div style="background:#fff;border:2px solid #1a5a2a;border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:1rem">
+      <div class="mcq-list" id="b1s9-mcq">
+        <div class="mcq-item" data-ans="B">
+          <p><strong style="color:#f28c00">0. Beispiel:</strong> Das Ferienhaus war in der Nähe einer Stadt. <span style="color:#2e7d32;font-weight:700;margin-left:.5rem">→ falsch ✗</span></p>
+          <div class="mcq-options" style="opacity:.5">
+            <label><input type="radio" name="b1s9-q0" value="A" disabled> A) richtig</label>
+            <label class="correct-ans"><input type="radio" name="b1s9-q0" value="B" checked disabled> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="A">
+          <p><strong style="color:#f28c00">1.</strong> Der Weg zum Haus war anstrengend.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q1" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q1" value="B"> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="B">
+          <p><strong style="color:#f28c00">2.</strong> Nina und Robert haben das Essen von zu Hause mitgebracht.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q2" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q2" value="B"> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="B">
+          <p><strong style="color:#f28c00">3.</strong> Es war kalt, aber es lag nicht viel Schnee.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q3" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q3" value="B"> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="A">
+          <p><strong style="color:#f28c00">4.</strong> Das Haus gehört einem Bekannten von Robert.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q4" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q4" value="B"> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="B">
+          <p><strong style="color:#f28c00">5.</strong> Das Haus wurde vor drei Monaten von Studenten gebaut.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q5" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q5" value="B"> B) falsch</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="A">
+          <p><strong style="color:#f28c00">6.</strong> Nina hat die „Zeitreise" gut gefallen.</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s9-q6" value="A"> A) richtig</label>
+            <label><input type="radio" name="b1s9-q6" value="B"> B) falsch</label>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem">
+        <button class="btn btn-check" onclick="a2CheckMCQ('b1s9-mcq')">批改答案</button>
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s9-explain')">显示/隐藏解析</button>
+        <button class="btn btn-reset" onclick="a2ResetMCQ('b1s9-mcq')">重置</button>
+        <div id="b1s9-mcq-score" style="text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px"></div>
+      </div>
+      <div class="answer-box" id="b1s9-explain">
+        <strong>📖 解析：</strong><br><br>
+        <strong>1. Der Weg zum Haus war anstrengend. → ✅ richtig</strong><br>
+        原文：<em>„Das dauerte zwei Stunden … das Gepäck sehr schwer … total erschöpft"</em> — 路走了两小时、行李很重、到达时筋疲力尽 → 路确实很累人。<br><br>
+        <strong>2. Nina und Robert haben das Essen von zu Hause mitgebracht. → ❌ falsch</strong><br>
+        原文：<em>„alle Lebensmittel für die vier Wochen vom Auto zum Haus bringen"</em> — 食物是从车里搬到屋里（在山谷买好带上来的），不是"从家里带来的"。文中无"von zu Hause"相关表述。<br><br>
+        <strong>3. Es war kalt, aber es lag nicht viel Schnee. → ❌ falsch</strong><br>
+        原文：<em>„durch tiefen Schnee"</em>（深雪中）、<em>„der Fluss war gefroren"</em>（河冻上了）→ 雪很多。<br><br>
+        <strong>4. Das Haus gehört einem Bekannten von Robert. → ✅ richtig</strong><br>
+        原文：<em>„Er kennt sogar den Besitzer des Hauses"</em> — Robert 认识房主 → 房主是他熟人。<br><br>
+        <strong>5. Das Haus wurde vor drei Monaten von Studenten gebaut. → ❌ falsch</strong><br>
+        原文：<em>„in seiner Studienzeit … in drei Sommermonaten allein gebaut"</em> — 房主大学时代一个人建了三个夏天。不是"三个月前"，也不是"由学生建"。<br><br>
+        <strong>6. Nina hat die „Zeitreise" gut gefallen. → ✅ richtig</strong><br>
+        原文：<em>„man kann auch ohne Strom … einen tollen Urlaub haben"</em> + <em>„ab dem zweiten Tag jeden Abend sehr zufrieden und glücklich ins Bett gefallen"</em> — 她从第二天起每晚满意入睡 → 这趟旅行她很喜欢。
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- B1 Section 10 · Zertifikatstraining — Hören Teil 1                -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s10-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s10">
+  <div class="section-header">阅读 10 · 🎧 Zertifikatstraining — Hören Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Hörverstehen</span></div>
+  <div class="section-body">
+
+    <!-- 考试说明卡片 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#1a5a2a,#2e7d32);padding:16px 28px 18px">
+        <div style="color:#fff;font-size:1.3rem;font-weight:700">🎧 Hören Teil 1 — Kurze Texte verstehen</div>
+        <div style="color:rgba(255,255,255,.82);font-size:.85rem;margin-top:4px">5 Hörtexte · je 2 Aufgaben (Richtig/Falsch + Multiple-Choice) · Track 1.15</div>
+      </div>
+      <div style="padding:20px 28px 24px;font-size:.88rem;line-height:1.8;color:#2d3748">
+        <p style="margin:0 0 8px"><strong>📋 Aufgabenstellung:</strong> Sie hören fünf kurze Texte. Zu jedem Text lösen Sie zwei Aufgaben. Lesen Sie zuerst die Aufgaben. Hören Sie dann den Text. Entscheiden Sie bei <em>Aufgabe 1</em>: richtig oder falsch? Wählen Sie bei <em>Aufgabe 2</em> die richtige Antwort (a, b oder c).</p>
+        <p style="margin:0;color:#666;font-size:.82rem">💡 Tipp: Vor dem Hören die Aufgaben lesen — so wisst ihr, worauf ihr achten müsst.</p>
+        <div style="margin-top:14px">
+          <audio controls preload="metadata" style="width:100%;outline:none">
+            <source src="audio/b1-horen-teil1.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Beispiel ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#546e7a,#78909c);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">📋 Beispiel — Bahnhofsdurchsage</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Beispiel</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie sind am Bahnhof und hören folgende Durchsage.</p>
+        <div class="mcq-list" id="b1s10-mcq-bsp">
+          <div class="mcq-item" data-ans="🗸 B)">
+            <p><strong>00.</strong> Der IC 2213 nach Bonn fährt von Gleis 4 ab.</p>
+            <div class="mcq-options">
+              <label style="background:#c8e6c9;border-color:#2e7d32"><input type="radio" name="b1s10-q00" value="A" checked> A) richtig</label>
+              <label><input type="radio" name="b1s10-q00" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="🗸 C)">
+            <p><strong>00.</strong> Der ICE nach Berlin hat...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q00b" value="A"> A) keine Verspätung.</label>
+              <label><input type="radio" name="b1s10-q00b" value="B"> B) 10 Minuten Verspätung.</label>
+              <label style="background:#c8e6c9;border-color:#2e7d32"><input type="radio" name="b1s10-q00b" value="C" checked> C) etwa 20 Minuten Verspätung.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('bsp','full')" id="b1s10-mode-full-bsp" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('bsp','blank')" id="b1s10-mode-blank-bsp" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('bsp')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('bsp')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-bsp">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Sehr geehrte Reisende, bitte beachten Sie: Am Gleis 5 und 6 finden zurzeit Bauarbeiten statt, deshalb kommt es zu folgenden Gleisänderungen: IC 2213 nach Bonn, Abfahrt 11:27 Uhr, fährt heute von Gleis 4 ab. Abfahrt Regionalexpress 4385 11:40 Uhr nach Rostock heute von Gleis 2. Ich wiederhole: Gleisänderung: IC 2213 nach Bonn, Abfahrt 11:27 Uhr, fährt heute von Gleis 4 ab. Abfahrt Regionalexpress 4385 11:40 Uhr nach Rostock heute von Gleis 2. Und noch eine Information für Reisende nach Berlin: Der InterCityExpress 2355, geplante Abfahrt 11:32 Uhr von Gleis 4, hat etwa 20 Minuten Verspätung."</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-bsp" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Sehr geehrte Reisende, bitte beachten Sie: Am Gleis 5 und 6 finden zurzeit <span class="b1fb-gap" data-ans="Bauarbeiten">____</span> statt, deshalb kommt es zu folgenden <span class="b1fb-gap" data-ans="Gleisänderungen">____</span>: IC 2213 nach <span class="b1fb-gap" data-ans="Bonn">____</span>, Abfahrt 11:27 Uhr, fährt heute von <span class="b1fb-gap" data-ans="Gleis 4">____</span> ab. Abfahrt <span class="b1fb-gap" data-ans="Regionalexpress 4385">____</span> 11:40 Uhr nach <span class="b1fb-gap" data-ans="Rostock">____</span> heute von <span class="b1fb-gap" data-ans="Gleis 2">____</span>. Ich wiederhole: Gleisänderung: IC 2213 nach Bonn, Abfahrt 11:27 Uhr, fährt heute von Gleis 4 ab. Abfahrt Regionalexpress 4385 11:40 Uhr nach Rostock heute von Gleis 2. Und noch eine Information für Reisende nach <span class="b1fb-gap" data-ans="Berlin">____</span>: Der <span class="b1fb-gap" data-ans="InterCityExpress 2355">____</span>, geplante Abfahrt 11:32 Uhr von Gleis 4, hat <span class="b1fb-gap" data-ans="etwa 20 Minuten Verspätung">____</span>."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Text 1 · Isabells Portemonnaie ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">📞 Text 1 — Nachricht auf dem Anrufbeantworter</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Text 1</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie hören eine Nachricht auf dem Anrufbeantworter.</p>
+        <div class="mcq-list" id="b1s10-mcq-t1">
+          <div class="mcq-item" data-ans="A">
+            <p><strong>1.</strong> Isabell hat ihr Portemonnaie vielleicht bei Toni vergessen.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q1" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1s10-q1" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p><strong>2.</strong> Isabell möchte, dass Toni...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q2" value="A"> A) sie sofort zurückruft.</label>
+              <label><input type="radio" name="b1s10-q2" value="B"> B) für sie einkaufen geht.</label>
+              <label><input type="radio" name="b1s10-q2" value="C"> C) ihr das Geld zurückgibt.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('t1','full')" id="b1s10-mode-full-t1" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('t1','blank')" id="b1s10-mode-blank-t1" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('t1')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('t1')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-t1">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Hallo Toni, hier ist Isabell. Sag mal, habe ich vielleicht mein Portemonnaie bei dir zu Hause vergessen? Ich wollte gerade einkaufen gehen, aber ich kann mein Portemonnaie nicht finden. Heute Morgen hatte ich es noch in meiner Handtasche. Als ich heute Nachmittag bei dir war, habe ich es aus meiner Tasche genommen und dir das Geld für die Kinokarten gegeben. Kannst du bitte mal schauen, ob du es findest? Danke und bis später. Ruf mich doch bitte sofort zurück."</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-t1" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Hallo Toni, hier ist Isabell. Sag mal, habe ich vielleicht mein <span class="b1fb-gap" data-ans="Portemonnaie">____</span> bei dir zu Hause <span class="b1fb-gap" data-ans="vergessen">____</span>? Ich wollte gerade <span class="b1fb-gap" data-ans="einkaufen gehen">____</span>, aber ich kann mein Portemonnaie nicht <span class="b1fb-gap" data-ans="finden">____</span>. Heute Morgen hatte ich es noch in meiner <span class="b1fb-gap" data-ans="Handtasche">____</span>. Als ich heute Nachmittag bei dir war, habe ich es aus meiner Tasche <span class="b1fb-gap" data-ans="genommen">____</span> und dir das Geld für die <span class="b1fb-gap" data-ans="Kinokarten">____</span> gegeben. Kannst du bitte mal <span class="b1fb-gap" data-ans="schauen">____</span>, ob du es findest? Danke und <span class="b1fb-gap" data-ans="bis später">____</span>. Ruf mich doch bitte <span class="b1fb-gap" data-ans="sofort zurück">____</span>."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Text 2 · Open-Air-Konzert ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">📻 Text 2 — Information im Radio</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Text 2</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie hören eine Information im Radio.</p>
+        <div class="mcq-list" id="b1s10-mcq-t2">
+          <div class="mcq-item" data-ans="B">
+            <p><strong>3.</strong> Man soll mit dem Auto zum Stadion fahren.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q3" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1s10-q3" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p><strong>4.</strong> Der Sprecher empfiehlt persönlich,...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q4" value="A"> A) mit dem Bus zu fahren.</label>
+              <label><input type="radio" name="b1s10-q4" value="B"> B) am Messegelände zu parken.</label>
+              <label><input type="radio" name="b1s10-q4" value="C"> C) mit dem Fahrrad zu fahren.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('t2','full')" id="b1s10-mode-full-t2" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('t2','blank')" id="b1s10-mode-blank-t2" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('t2')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('t2')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-t2">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Liebe Hörerinnen und Hörer, hier noch eine Bitte der Polizei an alle Besucher des Open-Air-Konzerts heute Abend im Stadion. Bitte fahren Sie mit dem Bus oder der S-Bahn zum Stadion. Es gibt dort keine Parkmöglichkeiten, weil die Parkplätze am Stadion zurzeit gesperrt sind. Wer mit dem Auto anreist, sollte möglichst am Messegelände parken und dann zu Fuß zum Stadion laufen. Mein persönlicher Tipp: Fahren Sie mit dem Fahrrad — heute bleibt es auch in der Nacht wolkenlos und warm."</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-t2" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Liebe Hörerinnen und Hörer, hier noch eine Bitte der Polizei an alle Besucher des <span class="b1fb-gap" data-ans="Open-Air-Konzerts">____</span> heute Abend im <span class="b1fb-gap" data-ans="Stadion">____</span>. Bitte fahren Sie mit dem <span class="b1fb-gap" data-ans="Bus oder der S-Bahn">____</span> zum Stadion. Es gibt dort <span class="b1fb-gap" data-ans="keine Parkmöglichkeiten">____</span>, weil die Parkplätze am Stadion zurzeit <span class="b1fb-gap" data-ans="gesperrt">____</span> sind. Wer mit dem Auto anreist, sollte möglichst am <span class="b1fb-gap" data-ans="Messegelände">____</span> parken und dann <span class="b1fb-gap" data-ans="zu Fuß">____</span> zum Stadion laufen. Mein <span class="b1fb-gap" data-ans="persönlicher Tipp">____</span>: Fahren Sie mit dem <span class="b1fb-gap" data-ans="Fahrrad">____</span> — heute bleibt es auch in der Nacht <span class="b1fb-gap" data-ans="wolkenlos">____</span> und warm."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Text 3 · Fahrrad gestohlen ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">🚲 Text 3 — Anruf vom Polizeirevier</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Text 3</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie hören eine Nachricht auf dem Anrufbeantworter.</p>
+        <div class="mcq-list" id="b1s10-mcq-t3">
+          <div class="mcq-item" data-ans="A">
+            <p><strong>5.</strong> Frau Börner hat ihr Fahrrad als gestohlen gemeldet.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q5" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1s10-q5" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p><strong>6.</strong> Frau Börner soll...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q6" value="A"> A) in ihrem Keller nachsehen.</label>
+              <label><input type="radio" name="b1s10-q6" value="B"> B) zur Polizei kommen und die Fahrräder ansehen.</label>
+              <label><input type="radio" name="b1s10-q6" value="C"> C) einen Mann festnehmen.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('t3','full')" id="b1s10-mode-full-t3" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('t3','blank')" id="b1s10-mode-blank-t3" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('t3')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('t3')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-t3">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Guten Tag, Frau Börner. Hier ist Hübner vom Polizeirevier Mitte. Sie haben letzten Monat eine Anzeige gegen unbekannt erstattet, weil Ihr Fahrrad gestohlen wurde. Wir haben letzte Woche einen Mann festgenommen und in seinem Keller mehrere Fahrräder entdeckt, die ihm nicht gehören. Es kann sein, dass wir auch Ihr Fahrrad gefunden haben. Bitte kommen Sie doch mal bei uns in der Brunnenstraße 7 vorbei und schauen Sie sich die Räder an. Auf Wiederhören!"</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-t3" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Guten Tag, Frau Börner. Hier ist Hübner vom <span class="b1fb-gap" data-ans="Polizeirevier Mitte">____</span>. Sie haben letzten Monat eine <span class="b1fb-gap" data-ans="Anzeige gegen unbekannt">____</span> erstattet, weil Ihr Fahrrad <span class="b1fb-gap" data-ans="gestohlen wurde">____</span>. Wir haben letzte Woche einen Mann <span class="b1fb-gap" data-ans="festgenommen">____</span> und in seinem <span class="b1fb-gap" data-ans="Keller">____</span> mehrere Fahrräder <span class="b1fb-gap" data-ans="entdeckt">____</span>, die ihm nicht <span class="b1fb-gap" data-ans="gehören">____</span>. Es kann sein, dass wir auch Ihr Fahrrad <span class="b1fb-gap" data-ans="gefunden haben">____</span>. Bitte kommen Sie doch mal bei uns in der <span class="b1fb-gap" data-ans="Brunnenstraße 7">____</span> vorbei und schauen Sie sich die Räder an. <span class="b1fb-gap" data-ans="Auf Wiederhören">____</span>!"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Text 4 · Bank-Hotline ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">🏦 Text 4 — Automatische Telefonansage</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Text 4</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie hören eine automatische Telefonansage.</p>
+        <div class="mcq-list" id="b1s10-mcq-t4">
+          <div class="mcq-item" data-ans="B">
+            <p><strong>7.</strong> Wenn man die Drei wählt, kann man Geld überweisen.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q7" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1s10-q7" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p><strong>8.</strong> Die Fünf wählt man, um...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q8" value="A"> A) direkt mit einem Berater verbunden zu werden.</label>
+              <label><input type="radio" name="b1s10-q8" value="B"> B) einen Termin zu vereinbaren.</label>
+              <label><input type="radio" name="b1s10-q8" value="C"> C) Informationen zu Produkten zu bekommen.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('t4','full')" id="b1s10-mode-full-t4" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('t4','blank')" id="b1s10-mode-blank-t4" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('t4')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('t4')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-t4">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Herzlich willkommen bei der Direktfinanz! Wir sind gleich für Sie da. Wählen Sie bitte aus folgenden Möglichkeiten aus: Möchten Sie Informationen zu unseren Produkten, dann wählen Sie die Eins. Wenn Sie Geld überweisen möchten, wählen Sie bitte die Zwei. Wenn Sie Ihre Kredit- oder EC-Karte sperren möchten, wählen Sie die Drei. Möchten Sie einen Termin mit einem Berater in Ihrer Stadt vereinbaren, wählen Sie bitte die Vier. Soll ich Sie direkt mit einem Berater verbinden, dann wählen Sie die Fünf."</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-t4" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Herzlich willkommen bei der <span class="b1fb-gap" data-ans="Direktfinanz">____</span>! Wir sind <span class="b1fb-gap" data-ans="gleich für Sie da">____</span>. Wählen Sie bitte aus folgenden Möglichkeiten aus: Möchten Sie <span class="b1fb-gap" data-ans="Informationen">____</span> zu unseren Produkten, dann wählen Sie die <span class="b1fb-gap" data-ans="Eins">____</span>. Wenn Sie <span class="b1fb-gap" data-ans="Geld überweisen">____</span> möchten, wählen Sie bitte die <span class="b1fb-gap" data-ans="Zwei">____</span>. Wenn Sie Ihre <span class="b1fb-gap" data-ans="Kredit- oder EC-Karte sperren">____</span> möchten, wählen Sie die <span class="b1fb-gap" data-ans="Drei">____</span>. Möchten Sie einen <span class="b1fb-gap" data-ans="Termin">____</span> mit einem Berater in Ihrer Stadt <span class="b1fb-gap" data-ans="vereinbaren">____</span>, wählen Sie bitte die Vier. Soll ich Sie direkt mit einem Berater <span class="b1fb-gap" data-ans="verbinden">____</span>, dann wählen Sie die Fünf."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Text 5 · Zugverspätung ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:14px 24px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.15rem;font-weight:700">🚆 Text 5 — Durchsage im Zug</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Track 1.15 · Text 5</span>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px">
+        <p style="margin:0 0 8px;font-size:.84rem;color:#666;font-style:italic">Sie hören folgende Durchsage im Zug.</p>
+        <div class="mcq-list" id="b1s10-mcq-t5">
+          <div class="mcq-item" data-ans="A">
+            <p><strong>9.</strong> Der Zug hat 25 Minuten Verspätung.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q9" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1s10-q9" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p><strong>10.</strong> Reisende nach Stuttgart können...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s10-q10" value="A"> A) den IC 578 von Gleis 11 nehmen.</label>
+              <label><input type="radio" name="b1s10-q10" value="B"> B) um 19:35 Uhr mit dem IC 769 von Gleis 9 fahren.</label>
+              <label><input type="radio" name="b1s10-q10" value="C"> C) um 19:05 Uhr den Intercity von Gleis 8 nehmen.</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button onclick="b1S10TransMode('t5','full')" id="b1s10-mode-full-t5" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1S10TransMode('t5','blank')" id="b1s10-mode-blank-t5" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写填空</button>
+          <button onclick="b1S10RevealAll('t5')" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示</button>
+          <button onclick="b1S10HideAll('t5')" style="padding:.4rem .9rem;border:2px solid #78909c;background:#fff;color:#78909c;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+        <div class="answer-box" id="b1s10-trans-full-t5">
+          <p style="margin:0;font-size:.85rem;line-height:1.9"><em>„Sehr geehrte Fahrgäste. Wir haben zurzeit 25 Minuten Verspätung und werden Hannover Hauptbahnhof in etwa fünfzehn Minuten, also um 18:50 Uhr erreichen. Auf die Fahrgäste nach Hamburg wartet am Gleis 11 der Anschlusszug IC 578. Der InterCityExpress 3497 nach Stuttgart kann leider nicht auf uns warten. Reisende nach Kassel können um 19:05 Uhr den Intercity von Gleis 8 nehmen. Die nächste Reisemöglichkeit nach Stuttgart ist um 19:35 Uhr mit dem IC 769 von Gleis 9. Bitte achten Sie auch auf die Durchsagen am Bahnhof."</em></p>
+        </div>
+        <div class="answer-box" id="b1s10-trans-blank-t5" style="display:none;background:#fff9e6;border-color:#fb8c00">
+          <p style="margin:0;font-size:.85rem;line-height:2.2;color:#263238">
+            „Sehr geehrte Fahrgäste. Wir haben zurzeit <span class="b1fb-gap" data-ans="25 Minuten Verspätung">____</span> und werden <span class="b1fb-gap" data-ans="Hannover Hauptbahnhof">____</span> in etwa fünfzehn Minuten, also um <span class="b1fb-gap" data-ans="18:50 Uhr">____</span> erreichen. Auf die Fahrgäste nach <span class="b1fb-gap" data-ans="Hamburg">____</span> wartet am Gleis 11 der <span class="b1fb-gap" data-ans="Anschlusszug">____</span> IC 578. Der InterCityExpress 3497 nach Stuttgart kann <span class="b1fb-gap" data-ans="leider nicht">____</span> auf uns warten. Reisende nach <span class="b1fb-gap" data-ans="Kassel">____</span> können um 19:05 Uhr den Intercity von Gleis 8 nehmen. Die nächste <span class="b1fb-gap" data-ans="Reisemöglichkeit">____</span> nach Stuttgart ist um <span class="b1fb-gap" data-ans="19:35 Uhr">____</span> mit dem IC 769 von <span class="b1fb-gap" data-ans="Gleis 9">____</span>. Bitte <span class="b1fb-gap" data-ans="achten Sie auch auf">____</span> die Durchsagen am Bahnhof."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 批改 + 解析 ═══ -->
+    <div style="text-align:center;margin:24px 0 12px">
+      <button class="btn btn-check" onclick="b1S10CheckAll()">📝 批改全部答案</button>
+      <button class="btn btn-reset" onclick="b1S10ResetAll()">🔄 重置全部</button>
+    </div>
+    <div id="b1s10-mcq-score"></div>
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-explain')">📖 显示/隐藏全部解析</button>
+    <div class="answer-box" id="b1s10-explain">
+      <strong>📖 解析：</strong><br><br>
+      <strong>Text 1 · Isabells Portemonnaie</strong><br>
+      <strong>1. Isabell hat ihr Portemonnaie vielleicht bei Toni vergessen. → ✅ richtig</strong><br>
+      原文：<em>„habe ich vielleicht mein Portemonnaie bei dir zu Hause vergessen?"</em> — Isabell fragt direkt, ob sie es bei Toni vergessen hat. "vielleicht" = 可能, aber die Aussage selbst (dass sie fragt, ob es dort ist) ist korrekt.<br>
+      <strong>2. Isabell möchte, dass Toni sie sofort zurückruft. → ✅ a)</strong><br>
+      原文最后一句：<em>„Ruf mich doch bitte sofort zurück."</em> — eindeutig a).<br><br>
+      <strong>Text 2 · Open-Air-Konzert</strong><br>
+      <strong>3. Man soll mit dem Auto zum Stadion fahren. → ❌ falsch</strong><br>
+      原文：<em>„Bitte fahren Sie mit dem Bus oder der S-Bahn … Es gibt dort keine Parkmöglichkeiten"</em> — genau das Gegenteil.<br>
+      <strong>4. Der Sprecher empfiehlt persönlich, mit dem Fahrrad zu fahren. → ✅ c)</strong><br>
+      原文：<em>„Mein persönlicher Tipp: Fahren Sie mit dem Fahrrad"</em> — klar c).<br><br>
+      <strong>Text 3 · Fahrrad gestohlen</strong><br>
+      <strong>5. Frau Börner hat ihr Fahrrad als gestohlen gemeldet. → ✅ richtig</strong><br>
+      原文：<em>„Sie haben letzten Monat eine Anzeige … erstattet, weil Ihr Fahrrad gestohlen wurde"</em> — sie hat Anzeige erstattet = gemeldet.<br>
+      <strong>6. Frau Börner soll zur Polizei kommen und die Fahrräder ansehen. → ✅ b)</strong><br>
+      原文：<em>„kommen Sie doch mal bei uns … vorbei und schauen Sie sich die Räder an"</em><br><br>
+      <strong>Text 4 · Bank-Hotline</strong><br>
+      <strong>7. Wenn man die Drei wählt, kann man Geld überweisen. → ❌ falsch</strong><br>
+      原文：Drei = <em>„Kredit- oder EC-Karte sperren"</em>, Zwei = <em>„Geld überweisen"</em> — verwechselt!<br>
+      <strong>8. Die Fünf wählt man, um direkt mit einem Berater verbunden zu werden. → ✅ a)</strong><br>
+      原文：<em>„Soll ich Sie direkt mit einem Berater verbinden, dann wählen Sie die Fünf"</em><br><br>
+      <strong>Text 5 · Zugverspätung</strong><br>
+      <strong>9. Der Zug hat 25 Minuten Verspätung. → ✅ richtig</strong><br>
+      原文第一句：<em>„Wir haben zurzeit 25 Minuten Verspätung"</em> — direkt bestätigt.<br>
+      <strong>10. Reisende nach Stuttgart können um 19:35 Uhr mit IC 769 von Gleis 9 fahren. → ✅ b)</strong><br>
+      原文：<em>„Die nächste Reisemöglichkeit nach Stuttgart ist um 19:35 Uhr mit dem IC 769 von Gleis 9"</em> — a) IC 578 geht nach Hamburg, c) IC um 19:05 geht nach Kassel.
+    </div>
+
+    <!-- ═══ 词汇表 ═══ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-vocab')" style="margin-top:20px">📚 显示/隐藏词汇语法</button>
+    <div class="answer-box" id="b1s10-vocab">
+      • <strong>der Anrufbeantworter, -</strong> = 电话答录机 · <strong>das Portemonnaie, -s</strong> = 钱包<br>
+      • <strong>vergessen (vergisst, vergaß, hat vergessen)</strong> = 忘记 · <strong>die Handtasche, -n</strong> = 手提包<br>
+      • <strong>die Durchsage, -n</strong> = 广播通知 · <strong>die Gleisänderung, -en</strong> = 站台变更 (Gleis + Änderung)<br>
+      • <strong>die Bauarbeiten (Pl.)</strong> = 施工工程 · <strong>gesperrt</strong> = 封锁的/关闭的 (sperren 的 PII)<br>
+      • <strong>die Parkmöglichkeit, -en</strong> = 停车可能性/车位 · <strong>wolkenlos</strong> = 无云的<br>
+      • <strong>die Anzeige, -n</strong> = 报案/举报 · <strong>Anzeige erstatten</strong> = 报案（固定搭配）<br>
+      • <strong>festnehmen (nimmt fest, nahm fest, hat festgenommen)</strong> = 逮捕 · <strong>entdecken</strong> = 发现<br>
+      • <strong>überweisen (überweist, überwies, hat überwiesen)</strong> = 转账 · <strong>sperren</strong> = 封锁/冻结<br>
+      • <strong>vereinbaren</strong> = 约定/商定 · <strong>der Berater, -</strong> = 顾问/咨询师<br>
+      • <strong>der Anschlusszug, -¨e</strong> = 接驳列车 · <strong>die Reisemöglichkeit, -en</strong> = 出行选择<br>
+      • <strong>achten auf + A</strong> = 注意/留意 · <strong>die Verspätung, -en</strong> = 延误/晚点<br>
+      • <strong>der Fahrgast, -¨e</strong> = 乘客 · <strong>erreichen</strong> = 到达/达到
+    </div>
+
+    <!-- ═══ 语法解析 ═══ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-grammatik')">📖 显示/隐藏语法解析</button>
+    <div class="answer-box" id="b1s10-grammatik">
+      <strong>1. Indirekte Fragesätze mit „ob" (间接问句)</strong><br>
+      公式：<em>Hauptsatz + ob + Nebensatz (Verb am Ende)</em><br>
+      文中例句：<em>„Kannst du bitte mal schauen, <strong>ob</strong> du es <strong>findest</strong>?"</em> (Text 1)<br>
+      另见：<em>„Es kann sein, <strong>dass</strong> wir auch Ihr Fahrrad <strong>gefunden haben</strong>."</em> (Text 3) — dass-Satz 同理，变位动词放从句末尾。<br>
+      ⚠️ ob = 是否（不确定）；dass = 陈述事实（确定的）。<br><br>
+      <strong>2. Passiversatzform: sich lassen + Infinitiv（替代被动态）</strong><br>
+      公式：<em>etwas lässt sich + Infinitiv</em> = 某事可以被…（kann + PII werden 的替代表达）<br>
+      文中例句：文中未直接出现，但 B1 考试高频。比较：<em>„Das lässt sich machen."</em> = Das kann gemacht werden.<br><br>
+      <strong>3. Perfekt 时态（口语过去时）</strong><br>
+      公式：<em>haben/sein + Partizip II</em><br>
+      文中例句：<em>„Ich <strong>habe</strong> es aus meiner Tasche <strong>genommen</strong>"</em> (Text 1)<br>
+      <em>„Wir <strong>haben</strong> letzte Woche einen Mann <strong>festgenommen</strong>"</em> (Text 3)<br>
+      <em>„weil Ihr Fahrrad <strong>gestohlen wurde</strong>"</em> (Text 3) — 被动态 Perfekt: sein + PII + worden<br>
+      ⚠️ 口语中讲述过去事件用 Perfekt，书面语/新闻报道用 Präteritum。<br><br>
+      <strong>4. Modalverben: sollen / können / möchten</strong><br>
+      公式：<em>Modalverb + … + Infinitiv (am Ende)</em><br>
+      文中例句：<em>„Wer mit dem Auto anreist, <strong>sollte</strong> möglichst am Messegelände <strong>parken</strong>"</em> (Text 2) — sollte = Konjunktiv II，表建议（应该）<br>
+      <em>„Bitte <strong>kommen</strong> Sie doch mal bei uns vorbei"</em> (Text 3) — 省略了 möchten/sollen 的祈使句<br>
+      <em>„<strong>Möchten</strong> Sie einen Termin <strong>vereinbaren</strong>?"</em> (Text 4)<br>
+      ⚠️ Konjunktiv II 常用来表达礼貌（sollten, könnten, möchten）。<br><br>
+      <strong>5. weil / da 引导的原因从句</strong><br>
+      公式：<em>Hauptsatz + weil/da + Nebensatz (Verb am Ende)</em><br>
+      文中例句：<em>„Es gibt dort keine Parkmöglichkeiten, <strong>weil</strong> die Parkplätze zurzeit <strong>gesperrt sind</strong>."</em> (Text 2)<br>
+      另：<em>„<strong>weil</strong> die Parkplätze … gesperrt <strong>sind</strong>"</em> — 变位动词放从句末尾。<br>
+      ⚠️ da = weil，但 da 常用于句首，偏书面/正式。<br><br>
+      <strong>6. Temporale Präpositionen: in / um / bis</strong><br>
+      公式：<em>in + Dativ (时间长度) / um + Akkusativ (钟点) / bis + Akkusativ (终点)</em><br>
+      文中例句：<em>„<strong>in</strong> etwa fünfzehn Minuten"</em> (Text 5) — 大约15分钟后<br>
+      <em>„<strong>um</strong> 18:50 Uhr"</em> (Text 5) — 在18:50<br>
+      <em>„<strong>bis</strong> später"</em> (Text 1) — 到待会儿见<br>
+      ⚠️ in + 时间段 = 在…之后（未来）；um = 在…点钟（精确时间点）。
+    </div>
+
+  </div>
+</div></div></div>
+
+<script>
+// ═══ Section 10 · Hören Teil 1 · 统一批改 ═══
+function b1S10CheckAll(){
+  const lists = ['b1s10-mcq-bsp','b1s10-mcq-t1','b1s10-mcq-t2','b1s10-mcq-t3','b1s10-mcq-t4','b1s10-mcq-t5'];
+  let total=0, correct=0;
+  lists.forEach(function(id){
+    const box = document.getElementById(id);
+    if(!box) return;
+    box.querySelectorAll('.mcq-item').forEach(function(item){
+      const ans = item.getAttribute('data-ans');
+      if(!ans) return;
+      total++;
+      const hasCheck = ans.indexOf('🗸') !== -1;
+      const ansLetter = hasCheck ? ans.replace('🗸 ','').trim() : ans.trim();
+      const radios = item.querySelectorAll('input[type="radio"]');
+      let chosen = null;
+      radios.forEach(function(r){ if(r.checked) chosen = r.value; });
+      const labels = item.querySelectorAll('label');
+      labels.forEach(function(label){
+        const input = label.querySelector('input[type="radio"]');
+        if(!input) return;
+        const val = input.value;
+        if(val === ansLetter){
+          if(chosen === ansLetter) label.style.background = '#c8e6c9';
+          else if(!chosen || chosen !== ansLetter) label.style.background = '#fff3e0';
+          label.style.borderColor = '#2e7d32';
+        }
+        if(chosen === val && val !== ansLetter){
+          label.style.background = '#ffcdd2';
+          label.style.borderColor = '#c62828';
+        }
+      });
+      if(chosen === ansLetter) correct++;
+    });
+  });
+  const scoreEl = document.getElementById('b1s10-mcq-score');
+  if(scoreEl){
+    const pct = Math.round(correct/total*100);
+    scoreEl.innerHTML = '<span style="color:'+(pct>=80?'#2e7d32':pct>=60?'#f57c00':'#c62828')+';font-size:1.2rem">✓ '+correct+'/'+total+' ('+pct+'%)</span>';
+  }
+}
+function b1S10ResetAll(){
+  const lists = ['b1s10-mcq-bsp','b1s10-mcq-t1','b1s10-mcq-t2','b1s10-mcq-t3','b1s10-mcq-t4','b1s10-mcq-t5'];
+  lists.forEach(function(id){
+    const box = document.getElementById(id);
+    if(!box) return;
+    box.querySelectorAll('input[type="radio"]').forEach(function(r){ r.checked = false; });
+    box.querySelectorAll('label').forEach(function(label){
+      label.style.background = '#fff';
+      label.style.borderColor = '#ddd';
+    });
+  });
+  // Re-mark the Beispiel
+  const bsp = document.getElementById('b1s10-mcq-bsp');
+  if(bsp){
+    bsp.querySelectorAll('.mcq-item').forEach(function(item){
+      const ans = item.getAttribute('data-ans');
+      if(!ans) return;
+      const hasCheck = ans.indexOf('🗸') !== -1;
+      const ansLetter = hasCheck ? ans.replace('🗸 ','').trim() : ans.trim();
+      const labels = item.querySelectorAll('label');
+      labels.forEach(function(label){
+        const input = label.querySelector('input[type="radio"]');
+        if(!input) return;
+        if(input.value === ansLetter && (ansLetter==='C' || ansLetter==='B')){
+          label.style.background = '#c8e6c9';
+          label.style.borderColor = '#2e7d32';
+          input.checked = true;
+        }
+      });
+    });
+  }
+  const scoreEl = document.getElementById('b1s10-mcq-score');
+  if(scoreEl) scoreEl.innerHTML = '';
+}
+// ═══ Section 10 · Transkript 双模式切换 ═══
+function b1S10TransMode(id, mode){
+  const full = document.getElementById('b1s10-trans-full-'+id);
+  const blank = document.getElementById('b1s10-trans-blank-'+id);
+  const btnFull = document.getElementById('b1s10-mode-full-'+id);
+  const btnBlank = document.getElementById('b1s10-mode-blank-'+id);
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = 'block';
+    if(btnFull){ btnFull.style.background='#fff'; btnFull.style.color='#1565c0'; }
+    if(btnBlank){ btnBlank.style.background='#1565c0'; btnBlank.style.color='#fff'; }
+  } else {
+    full.style.display = 'block';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#1565c0'; btnFull.style.color='#fff'; }
+    if(btnBlank){ btnBlank.style.background='#fff'; btnBlank.style.color='#1565c0'; }
+  }
+}
+function b1S10RevealAll(id){
+  document.querySelectorAll('#b1s10-trans-blank-'+id+' .b1fb-gap').forEach(function(g){ g.classList.add('revealed'); });
+}
+function b1S10HideAll(id){
+  document.querySelectorAll('#b1s10-trans-blank-'+id+' .b1fb-gap').forEach(function(g){ g.classList.remove('revealed'); });
+}
+</script>
+
 <script>
 function b1FbCheck(boxId, scoreId){
   const box = document.getElementById(boxId);
@@ -29642,6 +30976,32 @@ function B1S7DbHideAll(){
   document.querySelectorAll('#b1s7-diebstahl-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
 }
 
+// ═══ Section 8 · TEIL 4 · Clown Leofin (Track 1.14) · Transkript 模式切换 ═══
+function B1S8ClownTransMode(mode){
+  const full = document.getElementById('b1s8-clown-trans-full');
+  const blank = document.getElementById('b1s8-clown-trans-blank');
+  const btnFull = document.getElementById('b1s8-clown-mode-full');
+  const btnBlank = document.getElementById('b1s8-clown-mode-blank');
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = '';
+    if(btnFull){ btnFull.style.background='#fff'; btnFull.style.color='#1565c0'; }
+    if(btnBlank){ btnBlank.style.background='#1565c0'; btnBlank.style.color='#fff'; }
+  } else {
+    full.style.display = '';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#1565c0'; btnFull.style.color='#fff'; }
+    if(btnBlank){ btnBlank.style.background='#fff'; btnBlank.style.color='#1565c0'; }
+  }
+}
+function B1S8ClownRevealAll(){
+  document.querySelectorAll('#b1s8-clown-trans-blank .b1fb-gap').forEach(g=>g.classList.add('revealed'));
+}
+function B1S8ClownHideAll(){
+  document.querySelectorAll('#b1s8-clown-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
+}
+
 // ═══ 把 Section 6 / 7 wrapper 无条件挂载到 page-b1lesen ═══
 (function(){
   function mountB1Sections(){
@@ -29649,7 +31009,7 @@ function B1S7DbHideAll(){
     if(!page) return;
     const inner = page.querySelector(':scope > div');
     if(!inner) return;
-    [['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7']].forEach(function(pair){
+    [['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10']].forEach(function(pair){
       const wrapper = document.getElementById(pair[0]);
       const existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
