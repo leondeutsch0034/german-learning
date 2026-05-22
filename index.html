@@ -2138,6 +2138,26 @@
       #page-b1lesen button[id*="mode-full"], #page-b1lesen button[id*="mode-blank"], #page-b1lesen button[onclick*="RevealAll"], #page-b1lesen button[onclick*="HideAll"] { font-size:.72rem!important; padding:.3rem .55rem!important; }
       /* 听写填空文本 — 行高压缩 */
       #page-b1lesen div[id*="trans-blank"] p{line-height:1.9!important;font-size:.8rem!important}
+      /* ── Section 9 · 特殊布局 ── */
+      /* 地图高度缩到 200px */
+      #page-b1lesen div[style*="max-width:700px"][style*="height:300px"]{height:200px!important}
+      #page-b1lesen div[style*="max-width:700px"][style*="height:300px"] div[style*="position:absolute"]{font-size:9px!important}
+      /* 文章2 报纸正文 3 栏 → 1 栏 */
+      #page-b1lesen div[style*="columns:3"]{columns:1!important;column-gap:0!important}
+      /* 文章2 句子填空 2 栏 → 1 栏 */
+      #page-b1lesen div[style*="grid-template-columns:1fr 1fr"][style*="gap:6px 20px"]{grid-template-columns:1fr!important}
+      /* 文章2 排序练习 select 撑满 */
+      #page-b1lesen div[style*="flex-wrap:wrap"][style*="gap:12px"] label{flex:1 1 100%!important}
+      #page-b1lesen div[style*="flex-wrap:wrap"][style*="gap:12px"] select{flex:1!important}
+      /* 文章3 时间轴容器 overflow */
+      #page-b1lesen div[style*="position:relative"][style*="height:80px"]{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+      /* 文章6 Schrebergarten 正文+图双栏 → 单栏 */
+      #page-b1lesen div[style*="grid-template-columns:1fr 140px"]{grid-template-columns:1fr!important;gap:12px!important}
+      /* 文章5 früher/heute 表格 checkbox 列宽压缩 */
+      #page-b1lesen #b1s9-frueherheute td[style*="text-align:center"]{padding:4px 2px!important}
+      #page-b1lesen #b1s9-frueherheute th[style*="width:60px"]{width:42px!important}
+      /* 排序 + FH 批改按钮并排 */
+      #page-b1lesen button[onclick*="b1S11"]{display:inline-block!important;margin:4px 2px!important}
     }
 
     /* 特小屏（≤380px）：Galaxy Fold / iPhone SE 1st gen 等 */
@@ -31679,6 +31699,7 @@ function b1Emma7bCheck(){
 
 </div>
 </div></div></div>
+
 
 
 <script>
