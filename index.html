@@ -2180,6 +2180,50 @@
       #page-b1lesen div[style*="padding:14px 18px"][style*="margin-bottom:12px"]{padding:10px 12px!important;font-size:.8rem!important;line-height:1.65!important}
       /* 排序 + FH 批改按钮并排 */
       #page-b1lesen button[onclick*="b1S11"]{display:inline-block!important;margin:4px 2px!important}
+      /* ── Bildungswege Infografik · 手机竖屏适配 ── */
+      #page-b1lesen div[style*="min-width:760px"]{min-width:100%!important;width:100%!important;padding:10px 6px 8px!important}
+      #page-b1lesen div[style*="min-width:760px"] > div[style*="font-size:1.1rem"]{font-size:.88rem!important}
+      /* Infografik 四列 → 两列 + 缩字体 */
+      #page-b1lesen div[style*="min-width:155px"][style*="max-width:180px"]{min-width:45%!important;max-width:48%!important;padding:6px 4px!important;font-size:.7rem!important}
+      #page-b1lesen div[style*="min-width:155px"][style*="max-width:180px"] > div{font-size:.72rem!important}
+      #page-b1lesen div[style*="min-width:155px"][style*="max-width:180px"] > div[style*="font-size:.68rem"]{font-size:.62rem!important}
+      /* Infografik 底部标签 pill → 堆叠 */
+      #page-b1lesen div[style*="border-radius:20px"][style*="padding:5px 14px"]{font-size:.64rem!important;padding:4px 8px!important}
+      /* Infografik 高等教育底部 Bar */
+      #page-b1lesen div[style*="linear-gradient(135deg,#0d3b66,#1a5a2a)"]{padding:8px 10px!important}
+      #page-b1lesen div[style*="linear-gradient(135deg,#0d3b66,#1a5a2a)"] > div{flex-direction:column!important;gap:6px!important}
+      #page-b1lesen div[style*="linear-gradient(135deg,#0d3b66,#1a5a2a)"] div[style*="font-size:1.5rem"]{display:none!important}
+      /* ── Article 10 · Traumberuf Lehrer!? ── */
+      #page-b1lesen div[id*="b1s10-s10-mcq"] .mcq-item p{font-size:.78rem!important;line-height:1.5!important}
+      #page-b1lesen div[id*="b1s10-s10-mcq"] .mcq-options label{font-size:.74rem!important;padding:4px 8px!important}
+      /* Article 10 · 杂志文章 box → 缩小 padding */
+      #page-b1lesen div[style*="box-shadow:4px 5px 0"]{padding:10px 12px!important}
+      /* Article 10 · Georgia 正文 */
+      #page-b1lesen div[style*="Georgia"][style*="text-align:justify"]{font-size:.76rem!important;line-height:1.55!important;text-align:left!important}
+      /* ── Article 11 · Schulbiografien ── */
+      /* 传记卡片 → 单列堆叠 + 缩小 padding */
+      #page-b1lesen div[style*="border-radius:10px"][style*="padding:14px 18px"][style*="margin-bottom:14px"],
+      #page-b1lesen div[style*="border-radius:10px"][style*="padding:14px 18px"]{padding:10px 12px!important;font-size:.78rem!important;line-height:1.55!important}
+      /* Article 11 · S/T 表格 手机下滚动 */
+      #page-b1lesen table[style*="font-size:.88rem"][style*="line-height:1.6"]{font-size:.74rem!important}
+      #page-b1lesen table[style*="font-size:.88rem"][style*="line-height:1.6"] th,
+      #page-b1lesen table[style*="font-size:.88rem"][style*="line-height:1.6"] td{padding:4px 6px!important}
+      /* Article 11 · Wortverbindungen 动词搭配表 */
+      #page-b1lesen table[style*="font-size:.85rem"][style*="line-height:1.7"]{font-size:.72rem!important}
+      #page-b1lesen table[style*="font-size:.85rem"][style*="line-height:1.7"] th,
+      #page-b1lesen table[style*="font-size:.85rem"][style*="line-height:1.7"] td{padding:4px 6px!important}
+      /* Article 11 · Verbkasten 动词框 */
+      #page-b1lesen div[style*="Consolas"]{font-size:.74rem!important;letter-spacing:1px!important;padding:8px 10px!important}
+      /* ── 通用：折叠按钮 + answer-box 手机缩小 ── */
+      #page-b1lesen .btn-show{font-size:.74rem!important;padding:5px 12px!important}
+      #page-b1lesen .answer-box{font-size:.78rem!important;padding:8px 10px!important;line-height:1.55!important}
+      #page-b1lesen .answer-box table{font-size:.72rem!important}
+      #page-b1lesen .answer-box th,
+      #page-b1lesen .answer-box td{padding:4px 6px!important}
+      /* ── Interview 对话块压缩 ── */
+      #page-b1lesen div[style*="border-radius:10px"][style*="border:1px solid #ffab91"]{font-size:.78rem!important;padding:8px 12px!important;line-height:1.65!important}
+      /* ── 预习笔记 预习笔记统一压缩 ── */
+      #page-b1lesen div[style*="border-left:4px solid #e6a817"]{font-size:.76rem!important;padding:8px 12px!important;line-height:1.55!important}
     }
 
     /* 特小屏（≤380px）：Galaxy Fold / iPhone SE 1st gen 等 */
@@ -2203,6 +2247,9 @@
       #page-index .about-wrap .user-grid { grid-template-columns: 1fr; gap: 6px; }
       #page-index .about-wrap .loop-node { font-size: .72rem; padding: 6px 10px; }
       #page-index .about-wrap .loop-diagram { padding: 12px 8px; }
+      /* 特小屏 Section 10 · Infografik 四列变单列 */
+      #page-b1lesen div[style*="min-width:155px"][style*="max-width:180px"]{min-width:100%!important;max-width:100%!important}
+      #page-b1lesen div[style*="gap:10px"][style*="flex-wrap:wrap"]{gap:6px!important}
     }
   </style>
 </head>
@@ -32300,6 +32347,206 @@ function b1Emma7bCheck(){
   </div>
 </div>
 
+<!-- ═══ Bildungswege in Deutschland · 德国升学路径全景图 ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#0d3b66,#1a6ead);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🗺️ Bildungswege in Deutschland — 德国升学路径全景图</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Infografik · KMK / Kultusministerkonferenz</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">从小学到大学：一目了然看懂德国三轨制教育体系 · 点击图片可放大</div>
+  </div>
+  <div style="padding:20px 16px 10px;text-align:center;overflow-x:auto">
+
+    <!-- ═══ 德国教育体系全景图 ═══ -->
+    <div style="display:inline-block;min-width:760px;max-width:860px;background:linear-gradient(180deg,#f8fafc,#e2e8f0);border-radius:12px;padding:18px 14px 14px;font-size:.82rem;line-height:1.5">
+
+      <!-- 标题栏 -->
+      <div style="text-align:center;font-weight:800;font-size:1.1rem;color:#0d3b66;margin-bottom:10px;letter-spacing:1px">
+        🇩🇪 Das deutsche Bildungssystem · 德国教育体系
+      </div>
+
+      <!-- ═══════ 第一层：小学 ═══════ -->
+      <div style="display:flex;justify-content:center;margin-bottom:6px">
+        <div style="background:linear-gradient(135deg,#0d3b66,#1a6ead);color:#fff;padding:10px 40px;border-radius:10px;font-weight:700;font-size:.92rem;text-align:center;min-width:300px">
+          🏠 Grundschule 小学<br>
+          <span style="font-weight:400;font-size:.75rem">Klasse 1–4 (6–10 Jahre) · 四年制统一基础教育</span>
+        </div>
+      </div>
+
+      <!-- 向下箭头 -->
+      <div style="text-align:center;font-size:1.4rem;color:#1a6ead;line-height:1.4">⬇</div>
+      <div style="text-align:center;font-size:.7rem;color:#ef4444;margin-top:-2px;margin-bottom:4px">← 分流节点 · 10岁定方向（教师评估+家长意愿）→</div>
+
+      <!-- ═══════ 第二层：四类中学 ═══════ -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+
+        <!-- Hauptschule -->
+        <div style="flex:1;min-width:155px;max-width:180px;background:linear-gradient(180deg,#fff3e0,#ffe0b2);border:2px solid #fb8c00;border-radius:10px;padding:10px 8px;text-align:center">
+          <div style="font-weight:700;color:#e65100;font-size:.85rem">🏫 Hauptschule</div>
+          <div style="font-size:.72rem;color:#bf360c">普通中学</div>
+          <div style="font-size:.7rem;color:#666;margin:2px 0">5.–9. Klasse</div>
+          <div style="font-size:.68rem;color:#999">(5年) 技能导向</div>
+          <div style="margin-top:4px;background:#fb8c00;color:#fff;border-radius:6px;padding:3px 8px;font-size:.68rem;font-weight:700">~12%</div>
+        </div>
+
+        <!-- Realschule -->
+        <div style="flex:1;min-width:155px;max-width:180px;background:linear-gradient(180deg,#e8f5e9,#c8e6c9);border:2px solid #43a047;border-radius:10px;padding:10px 8px;text-align:center">
+          <div style="font-weight:700;color:#1b5e20;font-size:.85rem">🏛️ Realschule</div>
+          <div style="font-size:.72rem;color:#2e7d32">实科中学</div>
+          <div style="font-size:.7rem;color:#666;margin:2px 0">5.–10. Klasse</div>
+          <div style="font-size:.68rem;color:#999">(6年) 实用导向</div>
+          <div style="margin-top:4px;background:#43a047;color:#fff;border-radius:6px;padding:3px 8px;font-size:.68rem;font-weight:700">~28%</div>
+        </div>
+
+        <!-- Gymnasium -->
+        <div style="flex:1;min-width:155px;max-width:180px;background:linear-gradient(180deg,#e3f2fd,#bbdefb);border:2px solid #1e88e5;border-radius:10px;padding:10px 8px;text-align:center">
+          <div style="font-weight:700;color:#0d47a1;font-size:.85rem">🎓 Gymnasium</div>
+          <div style="font-size:.72rem;color:#1565c0">文理中学</div>
+          <div style="font-size:.7rem;color:#666;margin:2px 0">5.–12./13. Klasse</div>
+          <div style="font-size:.68rem;color:#999">(8–9年) 学术导向</div>
+          <div style="margin-top:4px;background:#1e88e5;color:#fff;border-radius:6px;padding:3px 8px;font-size:.68rem;font-weight:700">~36%</div>
+        </div>
+
+        <!-- Gesamtschule -->
+        <div style="flex:1;min-width:155px;max-width:180px;background:linear-gradient(180deg,#f3e5f5,#e1bee7);border:2px solid #8e24aa;border-radius:10px;padding:10px 8px;text-align:center">
+          <div style="font-weight:700;color:#6a1b9a;font-size:.85rem">🏢 Gesamtschule</div>
+          <div style="font-size:.72rem;color:#7b1fa2">综合中学</div>
+          <div style="font-size:.7rem;color:#666;margin:2px 0">5.–12./13. Klasse</div>
+          <div style="font-size:.68rem;color:#999">(6–9年) 三轨合一</div>
+          <div style="margin-top:4px;background:#8e24aa;color:#fff;border-radius:6px;padding:3px 8px;font-size:.68rem;font-weight:700">~24%</div>
+        </div>
+      </div>
+
+      <!-- 向下分叉 -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#fb8c00">⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#43a047">⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#1e88e5">⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#8e24aa">⬇</div>
+      </div>
+
+      <!-- ═══════ 第三层：毕业文凭 ═══════ -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+        <div style="flex:1;min-width:155px;max-width:180px;background:#fff3e0;border:1px dashed #fb8c00;border-radius:8px;padding:8px;text-align:center">
+          <div style="font-weight:700;font-size:.78rem;color:#e65100">📜 Hauptschulabschluss</div>
+          <div style="font-size:.67rem;color:#bf360c">普通中学毕业</div>
+          <div style="font-size:.65rem;color:#999">nach Klasse 9</div>
+        </div>
+        <div style="flex:1;min-width:155px;max-width:180px;background:#e8f5e9;border:1px dashed #43a047;border-radius:8px;padding:8px;text-align:center">
+          <div style="font-weight:700;font-size:.78rem;color:#1b5e20">📜 Mittlere Reife</div>
+          <div style="font-size:.67rem;color:#2e7d32">实科中学毕业</div>
+          <div style="font-size:.65rem;color:#999">nach Klasse 10</div>
+        </div>
+        <div style="flex:1;min-width:155px;max-width:180px;background:#e3f2fd;border:1px dashed #1e88e5;border-radius:8px;padding:8px;text-align:center">
+          <div style="font-weight:700;font-size:.78rem;color:#0d47a1">📜 Abitur</div>
+          <div style="font-size:.67rem;color:#1565c0">高中毕业会考</div>
+          <div style="font-size:.65rem;color:#999">nach Klasse 12/13</div>
+        </div>
+        <div style="flex:1;min-width:155px;max-width:180px;background:#f3e5f5;border:1px dashed #8e24aa;border-radius:8px;padding:8px;text-align:center">
+          <div style="font-weight:700;font-size:.78rem;color:#6a1b9a">📜 Alle Abschlüsse</div>
+          <div style="font-size:.67rem;color:#7b1fa2">按个人路径获相应文凭</div>
+          <div style="font-size:.65rem;color:#999">offen für alle Wege</div>
+        </div>
+      </div>
+
+      <!-- 向下分叉 -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#fb8c00">⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#43a047">⬇ ⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#1e88e5">⬇ ⬇</div>
+        <div style="flex:1;min-width:155px;max-width:180px;text-align:center;font-size:1.2rem;color:#8e24aa">⬇ ⬇</div>
+      </div>
+
+      <!-- ═══════ 第四层：升学/就业路径 ═══════ -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+        <!-- Hauptschule path -->
+        <div style="flex:1;min-width:155px;max-width:180px;display:flex;flex-direction:column;gap:5px">
+          <div style="background:linear-gradient(135deg,#fb8c00,#ffb74d);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🔧 Duale Ausbildung<br><span style="font-weight:400;font-size:.68rem">双元制职业培训<br>3–3.5年 (企业+职校)</span>
+          </div>
+          <div style="text-align:center;font-size:.8rem;color:#666">↓</div>
+          <div style="background:#fff3e0;border:1px solid #fb8c00;border-radius:6px;padding:6px;text-align:center;font-size:.7rem;color:#e65100">
+            👷 Beruf / Meister<br><span style="font-size:.65rem">就业 / 师傅 → 可继续考FH</span>
+          </div>
+        </div>
+
+        <!-- Realschule paths -->
+        <div style="flex:1;min-width:155px;max-width:180px;display:flex;flex-direction:column;gap:5px">
+          <div style="background:linear-gradient(135deg,#43a047,#66bb6a);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🔧 Ausbildung<br><span style="font-weight:400;font-size:.68rem">双元制培训</span>
+          </div>
+          <div style="background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            📚 Fachoberschule<br><span style="font-weight:400;font-size:.68rem">专科高级中学 → Fachabitur</span>
+          </div>
+          <div style="text-align:center;font-size:.8rem;color:#666">↓</div>
+          <div style="background:#e8f5e9;border:1px solid #43a047;border-radius:6px;padding:6px;text-align:center;font-size:.7rem;color:#1b5e20">
+            🏛️ Fachhochschule (FH)<br><span style="font-size:.65rem">应用技术大学</span>
+          </div>
+        </div>
+
+        <!-- Gymnasium paths -->
+        <div style="flex:1;min-width:155px;max-width:180px;display:flex;flex-direction:column;gap:5px">
+          <div style="background:linear-gradient(135deg,#1e88e5,#64b5f6);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🎓 Universität<br><span style="font-weight:400;font-size:.68rem">综合大学 (研究/学术)</span>
+          </div>
+          <div style="background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🏛️ Fachhochschule<br><span style="font-weight:400;font-size:.68rem">应用技术大学 (实践)</span>
+          </div>
+          <div style="background:linear-gradient(135deg,#0d47a1,#1976d2);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🔧 Ausbildung<br><span style="font-weight:400;font-size:.68rem">也可选择双元制</span>
+          </div>
+        </div>
+
+        <!-- Gesamtschule paths -->
+        <div style="flex:1;min-width:155px;max-width:180px;display:flex;flex-direction:column;gap:5px">
+          <div style="background:linear-gradient(135deg,#8e24aa,#ba68c8);color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;font-size:.78rem">
+            🎓 Alle Wege offen<br><span style="font-weight:400;font-size:.68rem">Uni / FH / Ausbildung</span>
+          </div>
+          <div style="text-align:center;font-size:.8rem;color:#666">↓</div>
+          <div style="background:#f3e5f5;border:1px solid #8e24aa;border-radius:6px;padding:6px;text-align:center;font-size:.7rem;color:#6a1b9a">
+            📜 Je nach Abschluss<br><span style="font-size:.65rem">按所获文凭选择去向</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ 底部：高等教育 ═══════ -->
+      <div style="background:linear-gradient(135deg,#0d3b66,#1a5a2a);color:#fff;border-radius:10px;padding:12px 20px;text-align:center;margin-top:4px">
+        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:center">
+          <div>
+            <div style="font-weight:700;font-size:.85rem">🏛️ Universität (Uni)</div>
+            <div style="font-size:.68rem;opacity:.85">综合大学 ~106所 · 学术研究</div>
+            <div style="font-size:.68rem;opacity:.85">Bachelor → Master → Promotion (博士)</div>
+          </div>
+          <div style="font-size:1.5rem;opacity:.5">|</div>
+          <div>
+            <div style="font-weight:700;font-size:.85rem">🏛️ Fachhochschule (FH)</div>
+            <div style="font-size:.68rem;opacity:.85">应用技术大学 ~216所 · 实践应用</div>
+            <div style="font-size:.68rem;opacity:.85">Bachelor → Master (博士需合作Uni)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 关键特点标注 -->
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div style="background:#e3f2fd;border-radius:20px;padding:5px 14px;font-size:.7rem;color:#0d47a1">
+          🔄 <strong>灵活转换</strong>：各路径可互通，成绩达标即可转轨
+        </div>
+        <div style="background:#e8f5e9;border-radius:20px;padding:5px 14px;font-size:.7rem;color:#1b5e20">
+          👥 <strong>双元制</strong>：54%中学生选择，企业付薪+职校学习
+        </div>
+        <div style="background:#fff3e0;border-radius:20px;padding:5px 14px;font-size:.7rem;color:#e65100">
+          ⚠️ <strong>各州不同</strong>：16个联邦州各有独立教育法
+        </div>
+        <div style="background:#f3e5f5;border-radius:20px;padding:5px 14px;font-size:.7rem;color:#6a1b9a">
+          🎯 <strong>无统一高考</strong>：Abitur由各州自主命题
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ═══ Article 9 · Das deutsche Schulsystem (Hauptartikel) ═══ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
   <div style="background:linear-gradient(135deg,#1a5a2a,#2ecc71);padding:14px 24px 16px">
@@ -32692,6 +32939,645 @@ function b1Emma7bCheck(){
       <strong>6. → B) falsch</strong> ❌<br>
       🇩🇪 原文依据：<em>„Damit bewerben Sie sich um einen Studienplatz an <strong>der Universität oder der Fachhochschule</strong> oder auch um einen Ausbildungsplatz."</em><br>
       🇨🇳 解析：原文明确列出大学、应用科技大学和学徒岗位三种路径，所以"只能在大学读书"是错的。
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ Article 10 · Traumberuf Lehrer!? ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#bf360c,#f4511e);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🎤 10 · Traumberuf Lehrer!?</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">BERUF AKTUELL · Interview</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Ein Interview mit Peter Moller — Deutsch- und Geschichtslehrer an einer Realschule</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+
+    <!-- 📌 Aufgabe a) Interviewfragen zuordnen -->
+    <div style="background:#fff3e0;border-left:4px solid #fb8c00;border-radius:0 8px 8px 0;padding:10px 16px;margin-bottom:14px;font-size:.88rem;color:#5d4037">
+      <strong>📌 Aufgabe a)</strong> Lesen Sie den Magazinbeitrag und <strong>ordnen Sie die Interviewfragen zu</strong>.
+    </div>
+
+    <!-- Interviewfragen -->
+    <div style="background:#fbe9e7;border:1px solid #ffab91;border-radius:10px;padding:14px 20px;margin-bottom:14px;font-size:.9rem;line-height:2;color:#4e342e">
+      <div style="font-weight:700;color:#bf360c;margin-bottom:6px">📋 Interviewfragen</div>
+      <strong>1.</strong> Wie gut kennen Sie Ihre Schüler?<br>
+      <strong>2.</strong> Und was sind die Gründe dafür?<br>
+      <strong>3.</strong> Was machen Sie eigentlich in den Osterferien?<br>
+      <strong>4.</strong> Macht Ihnen Ihr Beruf Spaß?<br>
+      <strong>5.</strong> Was machen Sie in so einer Situation?<br>
+      <strong>6.</strong> Können Sie uns ein Beispiel geben?
+    </div>
+
+    <!-- Magazin-Artikel -->
+    <div style="background:#fafafa;border:1px solid #b7b7b7;padding:20px 24px;box-shadow:4px 5px 0 rgba(0,0,0,.13);margin-bottom:14px">
+      <div style="text-align:right;font-size:.75rem;color:#999;margin-bottom:6px">BERUF AKTUELL</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:1.35rem;font-weight:700;color:#bf360c;margin-bottom:4px">Traumberuf Lehrer!?</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:.92rem;color:#666;margin-bottom:14px">Beruf aktuell im Gespräch mit Peter Moller — seit 15 Jahren Deutsch- und Geschichtslehrer an einer Realschule</div>
+      <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify">
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.1</span>
+        <em>"Lehrerinnen und Lehrer haben es doch gut! Sie arbeiten meistens nur ein paar Stunden am Vormittag und haben oft Ferien."</em>
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.3</span>
+        Das denken viele, aber ist das wirklich so? <strong>Beruf aktuell</strong> fragt <strong>Peter Moller</strong>, der seit 15 Jahren Deutsch und Geschichte an einer Realschule unterrichtet.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.5</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Macht Ihnen Ihr Beruf Spaß?<br>
+        <strong>Moller:</strong> Ja, eigentlich schon. Ich unterrichte nicht nur Deutsch, sondern auch Geschichte. Manchmal bin ich aber auch unzufrieden oder frustriert, wenn ich nach Hause komme — besonders dann, wenn die Schülerinnen und Schüler schlecht vorbereitet in den Unterricht kommen und wir deshalb im Unterricht viel Zeit verlieren.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.9</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Wie gut kennen Sie Ihre Schüler?<br>
+        <strong>Moller:</strong> Das kann man unterschiedlich sehen. Manche Schüler kennt man sehr gut, aber bei vielen kann man nicht jeden gut kennen. Ich merke aber, wenn die Leistungen eines Schülers schlecht werden. Dann frage ich ihn oder sie, ob es ein Problem gibt, oder ich spreche mit der Schulsozialarbeiterin.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.14</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Können Sie uns ein Beispiel geben?<br>
+        <strong>Moller:</strong> Sicher! Gestern hatte ich eine Klasse mit 28 Schülern. Nur 12 hatten die Texte gelesen, die ich ihnen zur Vorbereitung gegeben hatte. So musste ich die Zeit nutzen, um die Texte zusammen in der Klasse zu lesen. Manche Schülerinnen und Schüler sind nicht gut vorbereitet in den Unterricht gekommen.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.19</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Was machen Sie eigentlich in den Osterferien?<br>
+        <strong>Moller:</strong> Ich erhole mich von der Arbeit, aber ich brauche die Zeit auch, um Klassenarbeiten zu korrigieren und den Unterricht der nächsten Wochen vorzubereiten. Manchmal denke ich am Ende der Ferien, dass ich zu wenig Zeit für Erholung hatte.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.23</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Und was sind die Gründe dafür?<br>
+        <strong>Moller:</strong> Die Gründe sind unterschiedlich. Viele Schüler haben zu Hause keine Ruhe zum Lesen. Andere haben einfach keine Lust. Ich versuche dann, die Texte im Unterricht gemeinsam zu besprechen. Wir lesen die Texte in der Klasse, wenn viele sie zu Hause nicht gelesen haben.
+        <br><br>
+        <span style="color:#bf360c;font-size:.72rem;font-weight:700">Z.28</span>
+        <strong style="color:#bf360c">Beruf aktuell:</strong> Was machen Sie in so einer Situation?<br>
+        <strong>Moller:</strong> Ich versuche, meinen Schülerinnen und Schülern zu helfen, wenn sie Probleme haben. An den Nachmittagen und in den Ferien arbeite ich auch für die Schule. Aber ich liebe meinen Beruf trotzdem!
+      </div>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Traumberuf, -e</strong> 梦想职业 | <em>ein Beruf, den man sich wünscht</em><br>
+      • <strong>unterrichten (unterrichtet, unterrichtete, hat unterrichtet)</strong> 授课/教学 | <em>als Lehrer/in ein Fach lehren</em><br>
+      • <strong>der Vormittag, -e</strong> 上午 | <em>die Zeit von 8 bis 12 Uhr</em><br>
+      • <strong>die Osterferien (Pl.)</strong> 复活节假期 | <em>Schulferien um Ostern (Frühling)</em><br>
+      • <strong>vorbereiten (bereitet vor, bereitete vor, hat vorbereitet)</strong> 准备/预习 | <em>etwas fertig machen für später</em><br>
+      • <strong>der/die Schulsozialarbeiter/in</strong> 学校社工 | <em>Helfer bei sozialen oder persönlichen Problemen in der Schule</em><br>
+      • <strong>die Leistung, -en</strong> 成绩/表现 | <em>wie gut ein Schüler in der Schule ist</em><br>
+      • <strong>frustriert / unzufrieden</strong> 沮丧的/不满的 | <em>nicht zufrieden, enttäuscht</em><br>
+      • <strong>sich erholen (erholt sich, erholte sich, hat sich erholt)</strong> 恢复/休息 | <em>Pause machen, entspannen</em><br>
+      • <strong>korrigieren (korrigiert, korrigierte, hat korrigiert)</strong> 批改/纠正 | <em>Fehler suchen und verbessern</em><br>
+      • <strong>die Klassenarbeit, -en</strong> 班级测验/考试 | <em>eine Prüfung, die alle in der Klasse schreiben</em><br>
+      • <strong>die Erholung</strong> 休养/恢复 | <em>die Zeit, in der man sich ausruht</em>
+    </div>
+
+    <!-- 📝 Übung b) Richtig/Falsch -->
+    <div style="background:linear-gradient(135deg,#fff8e1,#ffe082);border-radius:10px;padding:14px 18px;margin-top:18px;border-left:4px solid #f57f17">
+      <strong style="color:#bf6a00">📝 Aufgabe b) Was sagt Peter Moller?</strong> Kreuzen Sie an und korrigieren Sie die falschen Aussagen.
+    </div>
+    <div class="mcq-list" id="b1s10-s10-mcq-b" style="margin-top:10px">
+      <div class="mcq-item" data-ans="A">
+        <p><strong>1.</strong> Mein Beruf macht mir meistens Spaß.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb1" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb1" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>2.</strong> Die Schülerinnen und Schüler sind immer gut vorbereitet.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb2" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb2" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>3.</strong> Die Deutschstunde gestern lief nicht gut, weil er schlecht vorbereitet war.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb3" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb3" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>4.</strong> Wir lesen die Texte in der Klasse, wenn viele sie zu Hause nicht gelesen haben.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb4" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb4" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>5.</strong> Ich versuche, meinen Schülerinnen und Schülern zu helfen, wenn sie Probleme haben.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb5" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb5" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>6.</strong> An den Nachmittagen und in den Ferien arbeitet er auch für die Schule.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qb6" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s10-qb6" value="B"> B) falsch</label>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px">
+      <button class="btn btn-check" onclick="a2CheckMCQ('b1s10-s10-mcq-b')">📝 批改答案</button>
+      <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-explain-b')">💡 显示/隐藏解析</button>
+      <button class="btn btn-reset" onclick="a2ResetMCQ('b1s10-s10-mcq-b')">🔄 重置</button>
+    </div>
+    <div id="b1s10-s10-mcq-b-score"></div>
+    <div class="answer-box" id="b1s10-s10-explain-b">
+      <strong>📖 解析 / Erläuterung：</strong><br><br>
+      <strong>1. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„Ja, eigentlich schon." (Antwort auf die Frage „Macht Ihnen Ihr Beruf Spaß?")</em><br>
+      🇨🇳 解析：Moller 明确回答"是的，基本是这样"，与题目一致。<br><br>
+      <strong>2. → B) falsch</strong> ❌<br>
+      🇩🇪 原文依据：<em>„… wenn die Schülerinnen und Schüler schlecht vorbereitet in den Unterricht kommen"</em><br>
+      🇨🇳 解析：Moller 提到学生有时准备不好，并非"总是"准备充分。<br><br>
+      <strong>3. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„…Nur 12 hatten die Texte gelesen, die ich ihnen zur Vorbereitung gegeben hatte."</em><br>
+      🇨🇳 解析：昨天的德语课只有12人读了预备材料，说明课程不顺利。<br><br>
+      <strong>4. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„Wir lesen die Texte in der Klasse, wenn viele sie zu Hause nicht gelesen haben."</em><br>
+      🇨🇳 解析：Moller 明确说如果很多人没在家读，就在课上一起读。<br><br>
+      <strong>5. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„Ich versuche, meinen Schülerinnen und Schülern zu helfen, wenn sie Probleme haben."</em><br>
+      🇨🇳 解析：与原文一致。<br><br>
+      <strong>6. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„An den Nachmittagen und in den Ferien arbeite ich auch für die Schule."</em><br>
+      🇨🇳 解析：与原文完全一致。
+    </div>
+
+    <!-- 📝 Übung c) Konjunktiv II -->
+    <div style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);border-radius:10px;padding:14px 18px;margin-top:18px;border-left:4px solid #3949ab">
+      <strong style="color:#1a237e">📝 Aufgabe c) Welchen Aussagen würde Peter Moller zustimmen?</strong> Kreuzen Sie an und <strong>markieren Sie dann die Formen des Konjunktiv II (Präsens)</strong> in den Sätzen.
+    </div>
+    <div class="mcq-list" id="b1s10-s10-mcq-c" style="margin-top:10px">
+      <div class="mcq-item" data-ans="B">
+        <p><strong>1.</strong> Ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">würde</span> gern in einem anderen Beruf <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">arbeiten</span>.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qc1" value="A"> A) stimmt zu ✓</label>
+          <label><input type="radio" name="b1s10-s10-qc1" value="B"> B) stimmt nicht zu ✗</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>2.</strong> Ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">würde</span> es gut <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">finden</span>, wenn die Schülerinnen und Schüler besser vorbereitet <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">wären</span>.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qc2" value="A"> A) stimmt zu ✓</label>
+          <label><input type="radio" name="b1s10-s10-qc2" value="B"> B) stimmt nicht zu ✗</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>3.</strong> Ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">wünschte</span>, ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">hätte</span> die Möglichkeit, alle Schülerinnen und Schüler besser <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">kennenzulernen</span>.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qc3" value="A"> A) stimmt zu ✓</label>
+          <label><input type="radio" name="b1s10-s10-qc3" value="B"> B) stimmt nicht zu ✗</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>4.</strong> Ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">würde</span> meine Schülerinnen und Schüler nie nach privaten Problemen fragen.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qc4" value="A"> A) stimmt zu ✓</label>
+          <label><input type="radio" name="b1s10-s10-qc4" value="B"> B) stimmt nicht zu ✗</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>5.</strong> Ich <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">würde</span> mich freuen, wenn ich in den Ferien weniger arbeiten <span style="background:#ffd54f;padding:1px 6px;border-radius:3px">müsste</span>.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s10-qc5" value="A"> A) stimmt zu ✓</label>
+          <label><input type="radio" name="b1s10-s10-qc5" value="B"> B) stimmt nicht zu ✗</label>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px">
+      <button class="btn btn-check" onclick="a2CheckMCQ('b1s10-s10-mcq-c')">📝 批改答案</button>
+      <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-explain-c')">💡 显示/隐藏解析</button>
+      <button class="btn btn-reset" onclick="a2ResetMCQ('b1s10-s10-mcq-c')">🔄 重置</button>
+    </div>
+    <div id="b1s10-s10-mcq-c-score"></div>
+    <div class="answer-box" id="b1s10-s10-explain-c">
+      <strong>📖 解析 / Konjunktiv II Formen + Antworten：</strong><br><br>
+      <strong>1. → B) stimmt nicht zu ✗</strong><br>
+      🇩🇪 Moller sagt: <em>„Ich liebe meinen Beruf trotzdem!"</em> — Er möchte den Beruf nicht wechseln.<br>
+      🇨🇳 Moller 说"尽管如此我仍然爱我的职业"，他不想换工作。<br>
+      🔑 Konjunktiv II: <strong>würde + arbeiten</strong> (würde-Form)<br><br>
+      <strong>2. → A) stimmt zu ✓</strong><br>
+      🇩🇪 Moller beschwert sich über schlecht vorbereitete Schüler und den Zeitverlust im Unterricht.<br>
+      🇨🇳 Moller 抱怨学生准备不好、课上浪费时间，所以他会同意此说法。<br>
+      🔑 Konjunktiv II: <strong>würde + finden + wären</strong> (würde-Form + Konjunktiv II von sein)<br><br>
+      <strong>3. → A) stimmt zu ✓</strong><br>
+      🇩🇪 Er sagt: <em>„… bei vielen kann man nicht jeden gut kennen"</em> — der Wunsch nach besserem Kennenlernen passt.<br>
+      🇨🇳 他说"很多人没法逐个深入了解"——希望更好地了解学生符合逻辑。<br>
+      🔑 Konjunktiv II: <strong>wünschte + hätte + kennenzulernen</strong> (wünschte = Konjunktiv II Präteritum von wünschen; hätte = Konjunktiv II von haben)<br><br>
+      <strong>4. → B) stimmt nicht zu ✗</strong><br>
+      🇩🇪 Moller sagt: <em>„Dann frage ich ihn oder sie, ob es ein Problem gibt"</em> — Er fragt sehr wohl nach privaten Problemen.<br>
+      🇨🇳 Moller 明确说"我会问他/她是否有问题"——他确实会问私人问题。<br>
+      🔑 Konjunktiv II: <strong>würde + fragen</strong> (würde-Form)<br><br>
+      <strong>5. → A) stimmt zu ✓</strong><br>
+      🇩🇪 Er sagt: <em>„Manchmal denke ich am Ende der Ferien, dass ich zu wenig Zeit für Erholung hatte."</em><br>
+      🇨🇳 他说"有时假期结束时我觉得恢复时间太少"——他确实希望假期少工作。<br>
+      🔑 Konjunktiv II: <strong>würde + freuen + müsste</strong> (würde-Form + Konjunktiv II von müssen)
+    </div>
+
+    <!-- 📚 词汇语法 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-vocab')" style="margin-top:14px">📚 🎤 词汇语法</button>
+    <div class="answer-box" id="b1s10-s10-vocab">
+      • <strong>der Traumberuf, -e</strong> = 梦想职业 · <strong>der Lehrerberuf</strong> = 教师职业<br>
+      • <strong>unterrichten + Akk.</strong> = 教(课) · <strong>lehren + Akk.</strong> = 教授<br>
+      • <strong>die Realschule, -n</strong> = 实科中学 · <strong>der Deutschlehrer, -</strong> = 德语老师<br>
+      • <strong>der Geschichtslehrer, -</strong> = 历史老师 · <strong>die Schulsozialarbeiterin, -nen</strong> = 学校社工(女)<br>
+      • <strong>vorbereitet sein</strong> = 有所准备 · <strong>schlecht vorbereitet</strong> = 准备不足<br>
+      • <strong>frustriert / unzufrieden</strong> = 沮丧/不满 · <strong>sich erholen</strong> = 休养/恢复<br>
+      • <strong>korrigieren</strong> = 批改/纠正 · <strong>verlieren (verliert, verlor, hat verloren)</strong> = 丢失/浪费<br>
+      • <strong>Zeit verlieren</strong> = 浪费/失去时间 · <strong>die Erholung</strong> = 休养<br>
+      • <strong>die Klassenarbeit, -en</strong> = 班级测验 · <strong>der Vormittag, -e</strong> = 上午<br>
+      • <strong>die Osterferien (Pl.)</strong> = 复活节假期 · <strong>die Ruhe</strong> = 安静<br>
+      • <strong>die Lust (keine Lust haben)</strong> = 兴趣(没兴趣) · <strong>das Beispiel, -e</strong> = 例子<br>
+      • <strong>merken</strong> = 注意到/察觉 · <strong>der/die Schulsozialarbeiter/in</strong> = 学校社工<br>
+      • <strong>besprechen (bespricht, besprach, hat besprochen)</strong> = 讨论/讲解
+    </div>
+
+    <!-- 语法解析 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-grammatik')">📖 🎤 语法解析</button>
+    <div class="answer-box" id="b1s10-s10-grammatik">
+      <strong>1. Konjunktiv II (Präsens) — würde-Form</strong> 第二虚拟式 würde 形式 | <em>Höflichkeit, Wünsche, irreale Bedingungen</em><br>
+      🇩🇪 Formel: <em>würde + Infinitiv (am Satzende)</em><br>
+      🇨🇳 规则：绝大多数动词用 würde + 原形表达虚拟/礼貌/假设。würde 放第二位，原形放句末。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Ich <strong>würde</strong> gern in einem anderen Beruf <strong>arbeiten</strong>."</em> — 我本想从事另一份职业。<br>
+      <em>„Ich <strong>würde</strong> mich <strong>freuen</strong>, wenn …"</em> — 如果...我会很高兴。<br>
+      ⚠️ 考点：würde + Infinitiv 是 B1 最常考的虚拟式结构。少见动词（haben/sein/Modalverben）直接用虚拟形式（hätte/wäre/könnte/müsste）。<br><br>
+
+      <strong>2. Konjunktiv II — hätte / wünschte / wäre / müsste</strong> 特殊虚拟形式 | <em>haben / wünschen / sein / müssen</em><br>
+      🇩🇪 Formel: <em>hätte (haben), wäre (sein), müsste (müssen), wünschte (wünschen)</em><br>
+      🇨🇳 规则：haben/sein/Modalverben 不用 würde-Form，直接用自身的 Konjunktiv II 形式。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Ich <strong>wünschte</strong>, ich <strong>hätte</strong> die Möglichkeit …"</em> — 我希望我有这个可能。<br>
+      <em>„… wenn ich in den Ferien weniger arbeiten <strong>müsste</strong>."</em> — 如果我假期可以少工作一些。<br>
+      ⚠️ 考点：wünschte 是 wünschen 的 Konjunktiv II（正式/书面语）。口语多用 ich wünschte mir = 我希望。<br><br>
+
+      <strong>3. Nebensatz mit wenn (irrealer Konditionalsatz)</strong> wenn 虚拟条件句 | <em>wenn + Konjunktiv II</em><br>
+      🇩🇪 Formel: <em>wenn + Subjekt + Konjunktiv II … am Satzende, Hauptsatz: würde/hätte/wäre + …</em><br>
+      🇨🇳 规则：wenn 引导的条件句用 Konjunktiv II 表"如果...就..."（与现实相反）。主句也用 Konjunktiv II。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„<strong>Wenn</strong> die Schülerinnen und Schüler besser vorbereitet <strong>wären</strong>, <strong>würde</strong> ich es gut <strong>finden</strong>."</em> — 如果学生准备得更好，我会觉得很好。<br>
+      <em>„Ich würde mich freuen, <strong>wenn</strong> ich weniger arbeiten <strong>müsste</strong>."</em> — 如果我不用工作那么多我会很高兴。<br>
+      ⚠️ 考点：wenn-从句动词放句末（wären/müsste/könnte），主句用 würde-Form 或 hätte/wäre 起头。<br><br>
+
+      <strong>4. Indirekte Fragesätze mit ob</strong> ob 间接疑问句 | <em>ob + Nebensatz</em><br>
+      🇩🇪 Formel: <em>fragen / wissen / merken, ob + Subjekt + … + Verb (am Satzende)</em><br>
+      🇨🇳 规则：ob = 是否。用在主句后引导间接疑问从句，动词放句末。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Dann frage ich ihn oder sie, <strong>ob</strong> es ein Problem <strong>gibt</strong>."</em> — 然后我问他/她是否有问题。<br>
+      ⚠️ 考点：ob vs. wenn — ob 表"是否"（Ja/Nein-Frage），wenn 表"如果/当...时"。
+    </div>
+
+    <!-- 词汇搭配 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-kollokation')">🔗 🎤 词汇搭配</button>
+    <div class="answer-box" id="b1s10-s10-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#bf360c;color:#fff">
+        <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+        <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">Spaß machen</td>
+        <td style="padding:8px 12px">带来乐趣 | <em>Freude bringen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Mein Beruf <strong>macht</strong> mir meistens <strong>Spaß</strong>.</em><br><span style="color:#666">我的职业大多时候给我带来乐趣。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">Zeit verlieren</td>
+        <td style="padding:8px 12px">浪费时间 | <em>unnötig Zeit brauchen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>verlieren</strong> deshalb im Unterricht viel <strong>Zeit</strong>.</em><br><span style="color:#666">我们因此在课堂上浪费了很多时间。</span></td>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">sich erholen von + Dativ</td>
+        <td style="padding:8px 12px">从...中恢复 | <em>sich ausruhen nach Anstrengung</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>In den Ferien <strong>erhole</strong> ich mich <strong>von</strong> der Arbeit.</em><br><span style="color:#666">假期中我从工作中恢复过来。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">vorbereitet sein</td>
+        <td style="padding:8px 12px">有所准备 | <em>fertig vorbereitet</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Die Schüler sind <strong>schlecht vorbereitet</strong> in den Unterricht gekommen.</em><br><span style="color:#666">学生准备不足就来上课了。</span></td>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">keine Lust haben</td>
+        <td style="padding:8px 12px">没有兴趣 | <em>keine Motivation haben</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Manche <strong>haben</strong> einfach <strong>keine Lust</strong> zu lesen.</em><br><span style="color:#666">有些人根本没有兴趣阅读。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">Probleme haben / helfen bei + Dativ</td>
+        <td style="padding:8px 12px">有问题/在...方面帮助 | <em>Schwierigkeiten haben / unterstützen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Ich <strong>helfe</strong> meinen Schülern <strong>bei</strong> Problemen.</em><br><span style="color:#666">我在学生遇到问题时帮助他们。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- 常用表达 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s10-redemittel')">💬 🎤 常用表达</button>
+    <div class="answer-box" id="b1s10-s10-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#bf360c;color:#fff">
+        <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">表达喜欢/乐趣</td>
+        <td style="padding:8px 12px"><em>Mein Beruf macht mir meistens Spaß.</em></td>
+        <td style="padding:8px 12px">我的职业大多时候带给我乐趣。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">表达不满/沮丧</td>
+        <td style="padding:8px 12px"><em>Manchmal bin ich unzufrieden oder frustriert.</em></td>
+        <td style="padding:8px 12px">有时我感到不满或沮丧。</td>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">表达愿望(Konj. II)</td>
+        <td style="padding:8px 12px"><em>Ich wünschte, ich hätte mehr Zeit für die einzelnen Schüler.</em></td>
+        <td style="padding:8px 12px">我希望我有更多时间给每个学生。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">礼貌假设(Konj. II)</td>
+        <td style="padding:8px 12px"><em>Ich würde mich freuen, wenn die Schüler besser vorbereitet wären.</em></td>
+        <td style="padding:8px 12px">如果学生准备得更好，我会很高兴。</td>
+      </tr>
+      <tr style="background:#fbe9e7">
+        <td style="font-weight:700;padding:8px 12px">描述日常工作</td>
+        <td style="padding:8px 12px"><em>An den Nachmittagen korrigiere ich Klassenarbeiten.</em></td>
+        <td style="padding:8px 12px">下午我批改班级测验。</td>
+      </tr>
+    </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ Article 11 · Schulbiografien ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#1565c0,#42a5f5);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">📋 11 · Schulbiografien — Zwei Wege zum Traumberuf</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">BERUF AKTUELL · Lektion 5 · S.86</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Sarah Stegemann und Thomas Sonneborn — zwei völlig unterschiedliche Bildungswege</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+
+    <!-- 📌 Aufgabenstellung -->
+    <div style="background:#e3f2fd;border-left:4px solid #1565c0;border-radius:0 8px 8px 0;padding:10px 16px;margin-bottom:14px;font-size:.88rem;color:#1a3a5c">
+      <strong>📌 Aufgabe a)</strong> Lesen Sie den Magazinbeitrag. <strong>Zeichnen Sie beide Schulbiografien</strong> in die Grafik auf Seite 86 ein (Stegemann <span style="color:#2e7d32;font-weight:700">grün</span>, Sonneborn <span style="color:#1565c0;font-weight:700">blau</span>).
+    </div>
+
+    <!-- Magazin-Intro -->
+    <div style="background:#fafafa;border:1px solid #b7b7b7;padding:20px 24px;box-shadow:4px 5px 0 rgba(0,0,0,.13);margin-bottom:14px">
+      <div style="text-align:right;font-size:.75rem;color:#999;margin-bottom:6px">BERUF AKTUELL</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:1.35rem;font-weight:700;color:#1565c0;margin-bottom:4px">Schulbiografien</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:.92rem;color:#666;margin-bottom:14px">Beruf aktuell fragt nach: Welchen (Schul-)Weg sind Sie gegangen?</div>
+
+      <!-- ⬛ Sarah Stegemann -->
+      <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:10px;padding:14px 18px;margin-bottom:14px;border-left:4px solid #2e7d32">
+        <div style="font-weight:700;color:#2e7d32;font-size:.95rem;margin-bottom:6px">🟢 Sarah Stegemann, 28 — Mein Weg zum Traumberuf</div>
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify">
+          <span style="color:#2e7d32;font-size:.72rem;font-weight:700">Z.1</span>
+          Meine Schulbiografie ist ein bisschen langweilig, denn ich bin nicht auf direktem Weg zum Studium gekommen — sondern auf dem <strong>normalen Weg</strong>.
+          <br><br>
+          <span style="color:#2e7d32;font-size:.72rem;font-weight:700">Z.3</span>
+          Meine Zeugnisse waren schon immer gut. Ich bin nach der <strong>Grundschule</strong> aufs <strong>Gymnasium</strong> gegangen und habe mit 18 mein <strong>Abitur</strong> gemacht. Die Schule hat mir Spaß gemacht, und meine Noten waren nicht schlecht.
+          <br><br>
+          <span style="color:#2e7d32;font-size:.72rem;font-weight:700">Z.6</span>
+          Nach dem Abitur habe ich mich um einen <strong>Studienplatz</strong> beworben und habe eine Zusage bekommen. Ich habe <strong>Biowissenschaften</strong> in München studiert und heute bin ich <strong>Wissenschaftlerin</strong> an einem <strong>Institut in Süddeutschland</strong>. Ich erforsche neue Medikamente — das ist mein absoluter Traumberuf!
+        </div>
+      </div>
+
+      <!-- 🔷 Thomas Sonneborn -->
+      <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:14px 18px;border-left:4px solid #1565c0">
+        <div style="font-weight:700;color:#1565c0;font-size:.95rem;margin-bottom:6px">🔵 Thomas Sonneborn, 34 — Mein Weg zum Traumjob</div>
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify">
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.1</span>
+          Meine Schulbiografie ist kompliziert, denn ich bin auf <strong>indirektem Weg</strong> zum Studium gekommen.
+          <br><br>
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.3</span>
+          Ich bin in meiner Jugend <strong>nicht so gern zur Schule gegangen</strong>. Nach der Grundschule bin ich auf die <strong>Hauptschule</strong> gekommen und habe mit 15, nach der 9. Klasse, den <strong>Hauptschulabschluss</strong> gemacht. Dann bin ich auf die <strong>Realschule</strong> gewechselt und habe zwei Jahre später den <strong>Realschulabschluss</strong> bekommen.
+          <br><br>
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.7</span>
+          Ich wollte zunächst eine <strong>Ausbildung</strong> machen. Mit 17 habe ich eine <strong>Ausbildung als Mechatroniker</strong> begonnen, aber ich hatte immer Probleme und musste die Ausbildung nach einem Jahr <strong>abbrechen</strong>.
+          <br><br>
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.10</span>
+          Danach habe ich mich um einen <strong>Medizin-Studienplatz</strong> beworben und eine Zusage bekommen. Aber nach zwei Semestern habe ich gemerkt, dass ich <strong>keine Lust</strong> auf das Medizinstudium habe. Also habe ich das Studium <strong>abgebrochen</strong>.
+          <br><br>
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.13</span>
+          Dann bin ich für ein Jahr <strong>nach Brüssel</strong> gegangen. Dort habe ich <strong>gearbeitet</strong> und ein Praktikum gemacht. Nach zwei Jahren habe ich dort mein <strong>Abitur</strong> nachgeholt. Danach habe ich in Hamburg <strong>Politik</strong> studiert und jetzt arbeite ich als <strong>Wissenschaftsjournalist</strong>.
+          <br><br>
+          <span style="color:#1565c0;font-size:.72rem;font-weight:700">Z.17</span>
+          Zwei Jahre am <strong>Geschwister-Scholl-Gymnasium</strong> in Brüssel haben mir sehr geholfen. Ich bekam am Gymnasium viel <strong>Unterstützung</strong> durch die Lehrkräfte. Heute mache ich etwas ganz anderes als meine Eltern — und ich liebe meinen Beruf!
+        </div>
+      </div>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Schulbiografie, -n</strong> 学历/求学经历 | <em>der schulische Lebenslauf einer Person</em><br>
+      • <strong>der Bildungsweg, -e</strong> 教育路径 | <em>der Weg durch Schule, Ausbildung und Studium</em><br>
+      • <strong>direkt / indirekt</strong> 直接的/间接的 | <em>gerade / über Umwege, nicht direkt</em><br>
+      • <strong>der Hauptschulabschluss, -¨e</strong> 普通中学毕业证 | <em>Abschluss nach Klasse 9 oder 10 an der Hauptschule</em><br>
+      • <strong>der Realschulabschluss, -¨e</strong> 实科中学毕业证 | <em>mittlerer Schulabschluss nach Klasse 10</em><br>
+      • <strong>abbrechen (bricht ab, brach ab, hat abgebrochen)</strong> 中断/放弃 | <em>etwas vor dem Ende beenden</em><br>
+      • <strong>nachholen (holt nach, holte nach, hat nachgeholt)</strong> 补上/事后获得 | <em>etwas später machen, was man früher nicht gemacht hat</em><br>
+      • <strong>wechseln (wechselt, wechselte, ist/hat gewechselt)</strong> 更换/转换 | <em>von einer Schule zur anderen gehen</em><br>
+      • <strong>die Unterstützung</strong> 支持/帮助 | <em>Hilfe, die man von anderen bekommt</em><br>
+      • <strong>der/die Wissenschaftler/in</strong> 科学家/研究员 | <em>jemand, der forscht und wissenschaftlich arbeitet</em><br>
+      • <strong>der/die Wissenschaftsjournalist/in</strong> 科学记者 | <em>Journalist, der über Wissenschaftsthemen berichtet</em><br>
+      • <strong>das Zeugnis, -se</strong> 成绩单/证书 | <em>Dokument mit Noten am Ende des Schuljahres</em><br>
+      • <strong>die Zusage, -n</strong> 录取通知/同意 | <em>positive Antwort auf eine Bewerbung</em><br>
+      • <strong>sich bewerben um (bewirbt, bewarb, hat beworben)</strong> 申请 | <em>einen Antrag stellen für einen Platz/eine Stelle</em>
+    </div>
+
+    <!-- 📝 Übung b) S oder T? -->
+    <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:14px 18px;margin-top:18px;border-left:4px solid #1565c0">
+      <strong style="color:#0d47a1">📝 Aufgabe b) Sarah Stegemann (S) oder Thomas Sonneborn (T)?</strong> Markieren Sie.
+    </div>
+    <div style="font-size:.9rem;line-height:2.2;padding:10px 16px;color:#1a3a5c">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem;line-height:1.6">
+        <tr style="background:#1565c0;color:#fff">
+          <th style="padding:6px 8px;width:5%;text-align:center">#</th>
+          <th style="padding:6px 8px;text-align:left">Aussage</th>
+          <th style="padding:6px 8px;width:12%;text-align:center">S / T</th>
+        </tr>
+        <tr style="background:#e3f2fd"><td style="padding:8px;text-align:center;font-weight:700">1</td><td style="padding:8px">arbeitet jetzt an einem Institut in Süddeutschland.</td><td style="text-align:center;font-weight:700;color:#2e7d32">S</td></tr>
+        <tr><td style="padding:8px;text-align:center;font-weight:700">2</td><td style="padding:8px">ist auf indirektem Weg zum Studium gekommen.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr style="background:#e3f2fd"><td style="padding:8px;text-align:center;font-weight:700">3</td><td style="padding:8px">ist in Jugendjahren nicht so gern zur Schule gegangen.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr><td style="padding:8px;text-align:center;font-weight:700">4</td><td style="padding:8px">hat mehrere Schulabschlüsse: Haupt- und Realschulabschluss sowie Abitur.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr style="background:#e3f2fd"><td style="padding:8px;text-align:center;font-weight:700">5</td><td style="padding:8px">hat ein Medizin-Studium begonnen und wieder abgebrochen.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr><td style="padding:8px;text-align:center;font-weight:700">6</td><td style="padding:8px">wollte zunächst eine Ausbildung machen.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr style="background:#e3f2fd"><td style="padding:8px;text-align:center;font-weight:700">7</td><td style="padding:8px">bekam am Gymnasium viel Unterstützung durch die Lehrkräfte.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+        <tr><td style="padding:8px;text-align:center;font-weight:700">8</td><td style="padding:8px">macht jetzt etwas ganz anderes als die Eltern.</td><td style="text-align:center;font-weight:700;color:#1565c0">T</td></tr>
+      </table>
+    </div>
+
+    <!-- 📝 Übung c) Wortverbindungen -->
+    <div style="background:linear-gradient(135deg,#fff8e1,#ffe082);border-radius:10px;padding:14px 18px;margin-top:18px;border-left:4px solid #f57f17">
+      <strong style="color:#bf6a00">📝 Aufgabe c) Lesen Sie noch einmal.</strong> Markieren Sie die Wortverbindungen mit den Verben aus dem Kasten.
+    </div>
+    <div style="background:#fafafa;border:1px solid #cfd8dc;border-radius:8px;padding:14px 18px;margin-top:10px;font-family:Consolas,monospace;font-size:.88rem;color:#37474f;text-align:center;letter-spacing:2px">
+      beginnen · bekommen · sich bewerben · verlassen · wechseln ·<br>
+      lernen · machen (2×) · kommen · studieren · wollen · werden
+    </div>
+    <div style="background:#f5f5f5;border-radius:8px;padding:14px 18px;margin-top:10px;font-size:.88rem;line-height:2;color:#37474f">
+      <table style="width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.7">
+        <tr style="background:#bf6a00;color:#fff">
+          <th style="padding:8px 12px;text-align:left">Verb</th>
+          <th style="padding:8px 12px;text-align:left">Wortverbindung / Kollokation</th>
+          <th style="padding:8px 12px;text-align:left">🇨🇳</th>
+        </tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">beginnen</td><td style="padding:8px 12px">eine <strong>Ausbildung</strong> beginnen</td><td style="padding:8px 12px">开始一个培训</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">bekommen</td><td style="padding:8px 12px">eine <strong>Zusage</strong> bekommen</td><td style="padding:8px 12px">收到录取通知</td></tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">sich bewerben</td><td style="padding:8px 12px">sich um einen <strong>Studienplatz</strong> bewerben</td><td style="padding:8px 12px">申请大学学位</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">verlassen</td><td style="padding:8px 12px">die <strong>Schule</strong> verlassen</td><td style="padding:8px 12px">离开学校</td></tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">wechseln</td><td style="padding:8px 12px">auf die <strong>Realschule</strong> wechseln</td><td style="padding:8px 12px">转到实科中学</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">lernen</td><td style="padding:8px 12px">einen <strong>Beruf</strong> lernen</td><td style="padding:8px 12px">学习一门职业</td></tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">machen (1)</td><td style="padding:8px 12px">den <strong>Realschulabschluss</strong> machen</td><td style="padding:8px 12px">取得实科中学毕业证</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">machen (2)</td><td style="padding:8px 12px">das <strong>Abitur</strong> machen</td><td style="padding:8px 12px">参加高考/取得 Abitur</td></tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">kommen</td><td style="padding:8px 12px">auf das <strong>Gymnasium</strong> kommen</td><td style="padding:8px 12px">上文理中学</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">studieren</td><td style="padding:8px 12px">an der <strong>Fachhochschule</strong> studieren</td><td style="padding:8px 12px">在应用科技大学学习</td></tr>
+        <tr style="background:#fff8e1"><td style="font-weight:700;padding:8px 12px">wollen</td><td style="padding:8px 12px"><strong>Arzt/Ärztin</strong> werden wollen</td><td style="padding:8px 12px">想成为医生</td></tr>
+        <tr><td style="font-weight:700;padding:8px 12px">werden</td><td style="padding:8px 12px"><strong>Wissenschaftler/in</strong> werden</td><td style="padding:8px 12px">成为科学家</td></tr>
+      </table>
+    </div>
+
+    <!-- 📚 词汇语法 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s11-vocab')" style="margin-top:14px">📚 📋 词汇语法</button>
+    <div class="answer-box" id="b1s10-s11-vocab">
+      • <strong>die Schulbiografie, -n</strong> = 学历/求学经历 · <strong>der Bildungsweg, -e</strong> = 教育路径<br>
+      • <strong>der Hauptschulabschluss, -¨e</strong> = 普通中学毕业 · <strong>der Realschulabschluss, -¨e</strong> = 实科中学毕业<br>
+      • <strong>das Abitur</strong> = 高中毕业考 · <strong>der Studienplatz, -¨e</strong> = 大学学位<br>
+      • <strong>die Ausbildung, -en</strong> = 职业培训 · <strong>das Praktikum, Praktika</strong> = 实习<br>
+      • <strong>abbrechen (bricht ab, brach ab, hat abgebrochen)</strong> = 中断/放弃<br>
+      • <strong>nachholen (holt nach, holte nach, hat nachgeholt)</strong> = 补上/事后获得<br>
+      • <strong>wechseln (wechselt, wechselte, ist/hat gewechselt)</strong> = 更换/转换<br>
+      • <strong>sich bewerben um (bewirbt, bewarb, hat beworben)</strong> = 申请<br>
+      • <strong>die Zusage, -n</strong> = 录取通知 · <strong>die Absage, -n</strong> = 拒绝通知<br>
+      • <strong>die Unterstützung</strong> = 支持 · <strong>unterstützen + Akk.</strong> = 支持某人<br>
+      • <strong>die Lehrkraft, -¨e</strong> = 教师/师资 · <strong>die Note, -n</strong> = 分数<br>
+      • <strong>das Zeugnis, -se</strong> = 成绩单 · <strong>die Jugend</strong> = 青少年时期<br>
+      • <strong>kompliziert</strong> = 复杂的 · <strong>langweilig</strong> = 无聊的<br>
+      • <strong>der/die Wissenschaftler/in</strong> = 科学家 · <strong>der/die Journalist/in</strong> = 记者<br>
+      • <strong>direkt / indirekt</strong> = 直接的/间接的 · <strong>zunächst</strong> = 起初/首先
+    </div>
+
+    <!-- 语法解析 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s11-grammatik')">📖 📋 语法解析</button>
+    <div class="answer-box" id="b1s10-s11-grammatik">
+      <strong>1. Präteritum vs. Perfekt im Lebenslauf</strong> 简历中的过去时与完成时 | <em>Vergangenheitsformen in der Biografie</em><br>
+      🇩🇪 Formel: <em>Biografien: Präteritum bei sein/haben/Modalverben; Perfekt bei Handlungsverben</em><br>
+      🇨🇳 规则：在书面传记中，sein/haben/Modalverben 用 Präteritum（war/hatte/wollte），动作动词多用 Perfekt（habe gemacht / bin gegangen）。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Ich <strong>bin</strong> nach der Grundschule aufs Gymnasium <strong>gegangen</strong> und <strong>habe</strong> mit 18 mein Abitur <strong>gemacht</strong>.&ldquo;</em> — 我小学后上了文理中学，18岁时参加了高考。<br>
+      <em>„Meine Zeugnisse <strong>waren</strong> schon immer gut.&ldquo;</em> — 我的成绩单一直都很好。<br>
+      ⚠️ 考点：B1 阶段要求能写简短 Lebenslauf（履历），混合使用 Präteritum 和 Perfekt。<br><br>
+
+      <strong>2. Trennbare Verben: abbrechen / nachholen / bewerben</strong> 可分动词 | <em>Präfix am Satzende im Hauptsatz</em><br>
+      🇩🇪 Formel: <em>ab|brechen → bricht ab / holt nach / bewirbt sich</em><br>
+      🇨🇳 规则：可分动词在现在时和过去时主句中，前缀放到句末。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„… und musste die Ausbildung nach einem Jahr <strong>abbrechen</strong>.&ldquo;</em> — ...不得不在一年后中断培训。<br>
+      <em>„Dort habe ich mein Abitur <strong>nachgeholt</strong>.&ldquo;</em> — 在那里我补上了高考。<br>
+      ⚠️ 考点：可分动词的 Perfekt 形式：前缀 + ge + 词干 + t（auf-ge-macht, ab-ge-brochen, nach-ge-holt）。<br><br>
+
+      <strong>3. Infinitiv mit zu nach Hilfsverben</strong> 情态动词后的 zu 不定式 | <em>Modalverben + Infinitiv ohne zu; andere Verben + zu + Infinitiv</em><br>
+      🇩🇪 Formel: <em>Modalverben (wollen/können/müssen) + Infinitiv ohne zu; anfangen/beginnen/versuchen + zu + Infinitiv</em><br>
+      🇨🇳 规则：情态动词后不加 zu；但 beginnen/anfangen/versuchen 后需要 zu + 不定式。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Ich <strong>wollte</strong> zunächst eine Ausbildung <strong>machen</strong>.&ldquo;</em> — 我起初想做一个培训。（wollen 不加 zu）<br>
+      <em>„… <strong>begann</strong> eine Ausbildung <strong>zu machen</strong>.&ldquo;</em> — 开始做一个培训。（beginnen 需要 zu）<br>
+      ⚠️ 考点：区分哪些动词需要 zu（beginnen/versuchen/hoffen/vergessen）vs 不需要 zu（Modalverben + werden + lassen）。<br><br>
+
+      <strong>4. Zweiteilige Konjunktionen: nicht … sondern / zwar … aber</strong> 双连词 | <em>Kontrast und Einschränkung</em><br>
+      🇩🇪 Formel: <em>nicht A, sondern B (否定A肯定B) / zwar A, aber B (虽然A, 但是B)</em><br>
+      🇨🇳 规则：nicht … sondern = 不是...而是；zwar … aber = 虽然...但是。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„… ich bin <strong>nicht</strong> auf direktem Weg zum Studium gekommen — <strong>sondern</strong> auf dem normalen Weg.&ldquo;</em> — 我不是通过直接路径上大学的，而是通过正常路径。<br>
+      ⚠️ 考点：sondern 用于否定后提出替代（必须是同类型内容），aber 仅表转折。
+    </div>
+
+    <!-- 词汇搭配 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s11-kollokation')">🔗 📋 词汇搭配</button>
+    <div class="answer-box" id="b1s10-s11-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#1565c0;color:#fff">
+        <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+        <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">einen Schulabschluss machen</td>
+        <td style="padding:8px 12px">取得中学文凭 | <em>eine Schulprüfung ablegen und bestehen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Nach der 10. Klasse <strong>macht</strong> man den <strong>Realschulabschluss</strong>.</em><br><span style="color:#666">10年级后取得实科中学毕业证。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">eine Ausbildung abbrechen</td>
+        <td style="padding:8px 12px">中断职业培训 | <em>eine Ausbildung vor dem Ende beenden</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Thomas musste die <strong>Ausbildung abbrechen</strong>, weil er Probleme hatte.</em><br><span style="color:#666">Thomas 因为遇到问题不得不中断培训。</span></td>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">das Abitur nachholen</td>
+        <td style="padding:8px 12px">补上高考/事后获得 Abitur | <em>das Abitur später machen, als Erwachsener</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Thomas hat sein <strong>Abitur</strong> in Brüssel <strong>nachgeholt</strong>.</em><br><span style="color:#666">Thomas 在布鲁塞尔补上了高考。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">sich um einen Studienplatz bewerben</td>
+        <td style="padding:8px 12px">申请大学学位 | <em>einen Antrag für die Universität stellen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Sarah <strong>bewarb</strong> sich um einen <strong>Studienplatz</strong> in München.</em><br><span style="color:#666">Sarah 申请了慕尼黑的大学学位。</span></td>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">auf eine andere Schule wechseln</td>
+        <td style="padding:8px 12px">转学到另一所学校 | <em>von einer Schule zur anderen gehen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Nach der Hauptschule <strong>wechselte</strong> er <strong>auf</strong> die Realschule.</em><br><span style="color:#666">普通中学后他转到了实科中学。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">eine Zusage bekommen</td>
+        <td style="padding:8px 12px">收到录取通知 | <em>eine positive Antwort erhalten</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Sarah <strong>bekam</strong> eine <strong>Zusage</strong> von der Universität.</em><br><span style="color:#666">Sarah 收到了大学的录取通知。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- 常用表达 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s11-redemittel')">💬 📋 常用表达</button>
+    <div class="answer-box" id="b1s10-s11-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#1565c0;color:#fff">
+        <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">描述求学路径</td>
+        <td style="padding:8px 12px"><em>Ich bin nach der Grundschule aufs Gymnasium gegangen.</em></td>
+        <td style="padding:8px 12px">我小学毕业后上了文理中学。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">描述曲折路径</td>
+        <td style="padding:8px 12px"><em>Ich bin auf indirektem Weg zum Studium gekommen.</em></td>
+        <td style="padding:8px 12px">我是通过间接路径上大学的。</td>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">表达中断/改变</td>
+        <td style="padding:8px 12px"><em>Ich musste die Ausbildung abbrechen.</em></td>
+        <td style="padding:8px 12px">我不得不中断职业培训。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">表达事后补救</td>
+        <td style="padding:8px 12px"><em>Ich habe mein Abitur nachgeholt.</em></td>
+        <td style="padding:8px 12px">我补上了高考。</td>
+      </tr>
+      <tr style="background:#e3f2fd">
+        <td style="font-weight:700;padding:8px 12px">表达现在职业</td>
+        <td style="padding:8px 12px"><em>Heute arbeite ich als Wissenschaftsjournalist.</em></td>
+        <td style="padding:8px 12px">今天我作为科学记者工作。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">对比路径</td>
+        <td style="padding:8px 12px"><em>Nicht auf direktem Weg, sondern über Umwege zum Ziel.</em></td>
+        <td style="padding:8px 12px">不是通过直接路径，而是绕了路到达目标。</td>
+      </tr>
+    </table>
     </div>
 
   </div>
