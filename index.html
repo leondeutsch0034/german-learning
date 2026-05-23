@@ -2156,6 +2156,28 @@
       /* 文章5 früher/heute 表格 checkbox 列宽压缩 */
       #page-b1lesen #b1s9-frueherheute td[style*="text-align:center"]{padding:4px 2px!important}
       #page-b1lesen #b1s9-frueherheute th[style*="width:60px"]{width:42px!important}
+      /* ── Section 5 · 序号圆圈 ①②③ — 手机下移入卡片内，避免遮挡上文 ── */
+      #page-b1lesen div[style*="top:-12px"][style*="left:10px"][style*="width:28px"]{top:6px!important;left:8px!important}
+      /* ── Section 10 · Schule und Berufe ── */
+      /* 便签贴纸 — 去 inline-block 防溢出，去旋转省空间 */
+      #page-b1lesen div[style*="display:inline-block"][style*="transform:rotate"]{display:block!important;max-width:100%!important;font-size:.76rem!important;padding:8px 12px!important;transform:none!important}
+      /* Article 3 & 8 头像区 — 压缩间距 */
+      #page-b1lesen div[style*="gap:18px"][style*="padding:16px 20px"]{gap:10px!important;padding:10px 12px!important}
+      /* 内容盒 padding 压缩（未覆盖值） */
+      #page-b1lesen div[style*="padding:16px 22px"][style*="border-radius:10px"],
+      #page-b1lesen div[style*="padding:18px 22px"][style*="border-radius:10px"]{padding:10px 12px!important;font-size:.82rem!important}
+      #page-b1lesen div[style*="padding:14px 18px"][style*="text-align:center"]{padding:10px 12px!important}
+      /* Article 9 · Bildungswege 图 — 压缩 */
+      #page-b1lesen div[style*="space-around"][style*="font-size:.78rem"]{gap:4px!important;font-size:.7rem!important}
+      #page-b1lesen div[style*="space-around"][style*="font-size:.78rem"] div[style*="padding:6px 10px"]{padding:4px 5px!important;font-size:.64rem!important}
+      /* Article 9 · Broschüre 报纸 — 压缩内边距 */
+      #page-b1lesen div[style*="box-shadow:4px 5px 0"]{padding:10px 12px!important}
+      /* Article 9 · Georgia 正文 — 缩小 + 去 justify 防断词 */
+      #page-b1lesen div[style*="text-align:justify"][style*="Georgia"]{font-size:.76rem!important;line-height:1.55!important;text-align:left!important}
+      /* Article 9 · 便签问题卡 */
+      #page-b1lesen div[style*="padding:10px 14px"][style*="rotate"]{font-size:.74rem!important;padding:8px 10px!important}
+      /* Article 9 · Hintergrund 背景知识盒 */
+      #page-b1lesen div[style*="padding:14px 18px"][style*="margin-bottom:12px"]{padding:10px 12px!important;font-size:.8rem!important;line-height:1.65!important}
       /* 排序 + FH 批改按钮并排 */
       #page-b1lesen button[onclick*="b1S11"]{display:inline-block!important;margin:4px 2px!important}
     }
@@ -2343,7 +2365,7 @@ var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schre
 // A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
 (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s5','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
+var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s5','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -16744,6 +16766,7 @@ function brToggleSample4() {
 #page-b1lesen #b1s6-hl-score{text-align:center;margin-top:10px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen #b1s9-order-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen #b1s9-fh-score{text-align:center;margin-top:8px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1s10-s9-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 
 /* ═══ Familie Born · 听写填空 Gap 样式 ═══ */
 .b1fb-gap{
@@ -25928,6 +25951,7 @@ function lxqResetMCQ(id) {
       <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">7 · 📝 Zertifikatstraining — Lesen Teil 1</a>
       <a href="#b1l-s8" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">8 · 🎧 Zertifikatstraining — Hören Teil 1</a>
       <a href="#b1l-s9" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">9 · 🏭 Arbeit im Wandel — Das Ruhrgebiet</a>
+      <a href="#b1l-s10" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 🎓 Schule und Berufe — Das deutsche Schulsystem</a>
     </div>
   </div>
 
@@ -31701,6 +31725,983 @@ function b1Emma7bCheck(){
 </div></div></div>
 
 
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- B1 阅读 10 · Schule und Berufe — Lektion 5                        -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s10-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s10">
+  <div class="section-header">阅读 10 · 🎓 Schule und Berufe &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Lektion 5 · Schulalltag · Aushänge · Das deutsche Schulsystem</span></div>
+  <div class="section-body">
+
+<!-- ═══ Lektion 5 引言 ═══ -->
+<div style="background:linear-gradient(135deg,#fff8e1,#ffe082);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;border-left:5px solid #f57f17">
+  <div style="font-weight:700;color:#bf6a00;font-size:1rem;margin-bottom:.4rem">📋 Lektion 5 · Hier lernen Sie / 本课你将学会</div>
+  <div style="font-size:.9rem;color:#5d4037;line-height:1.85">
+    ▶ über <strong>Schule und Berufe</strong> in der Schule sprechen <span style="color:#666">— 谈论学校与职业话题</span><br>
+    ▶ das <strong>deutsche Schulsystem</strong> kennen und darüber sprechen <span style="color:#666">— 了解并讨论德国的学校制度</span><br>
+    ▶ über <strong>Wünsche oder etwas Irreales</strong> sprechen <span style="color:#666">— 表达愿望或虚拟现实（Konjunktiv II）</span>
+  </div>
+</div>
+
+<!-- ═══ Sticky Note: Stundenplanänderung ═══ -->
+<div style="background:#fff59d;display:inline-block;padding:14px 18px;margin-bottom:14px;transform:rotate(-1.5deg);font-family:'Comic Sans MS',cursive;color:#bf6a00;font-size:.92rem;line-height:1.5;box-shadow:3px 4px 8px rgba(0,0,0,.18);border-radius:2px">
+  <strong>Änderung</strong><br>
+  Stundenplan 8 c<br>
+  ab Montag,<br>
+  <strong>14. 03.</strong>
+</div>
+
+<!-- ═══ Article 1 · Stundenplan 8c ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#6a1b9a,#ab47bc);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">📅 1 · Stundenplan Klasse 8 c</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Lektion 5 · S.78</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Die Schulwoche an einem deutschen Gymnasium — Heinrich-Heine-Gymnasium Flensburg</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <!-- Stundenplan Tabelle -->
+    <div style="overflow-x:auto;margin-bottom:14px">
+      <table style="width:100%;min-width:520px;border-collapse:collapse;font-size:.85rem;background:linear-gradient(180deg,#fffde7,#fff9c4);border:2px solid #fbc02d;border-radius:8px;overflow:hidden">
+        <tr style="background:#1a3a5c;color:#fff">
+          <th style="padding:8px 6px;font-size:.78rem">Zeit</th>
+          <th style="padding:8px 6px">Montag</th>
+          <th style="padding:8px 6px">Dienstag</th>
+          <th style="padding:8px 6px">Mittwoch</th>
+          <th style="padding:8px 6px">Donnerstag</th>
+          <th style="padding:8px 6px">Freitag</th>
+        </tr>
+        <tr><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">8:15–9:00</td><td style="padding:6px;text-align:center">Musik</td><td style="padding:6px;text-align:center">Mathe</td><td style="padding:6px;text-align:center">Sport</td><td style="padding:6px;text-align:center">Deutsch</td><td style="padding:6px;text-align:center">Mathe</td></tr>
+        <tr style="background:rgba(251,192,45,.08)"><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">9:05–9:50</td><td style="padding:6px;text-align:center">Latein</td><td style="padding:6px;text-align:center">Latein</td><td style="padding:6px;text-align:center">Musik</td><td style="padding:6px;text-align:center">Mathe</td><td style="padding:6px;text-align:center">Mathe</td></tr>
+        <tr><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">10:05–10:50</td><td style="padding:6px;text-align:center">Mathe</td><td style="padding:6px;text-align:center">Englisch</td><td style="padding:6px;text-align:center">Chemie</td><td style="padding:6px;text-align:center">Latein</td><td style="padding:6px;text-align:center">Englisch</td></tr>
+        <tr style="background:rgba(251,192,45,.08)"><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">10:55–11:40</td><td style="padding:6px;text-align:center">Englisch</td><td style="padding:6px;text-align:center">Geschichte</td><td style="padding:6px;text-align:center">Religion</td><td style="padding:6px;text-align:center">Geschichte</td><td style="padding:6px;text-align:center">Deutsch</td></tr>
+        <tr><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">12:00–12:45</td><td style="padding:6px;text-align:center">Chemie</td><td style="padding:6px;text-align:center">Deutsch</td><td style="padding:6px;text-align:center">Physik</td><td style="padding:6px;text-align:center">Wahlfach Bio</td><td style="padding:6px;text-align:center">Deutsch</td></tr>
+        <tr style="background:rgba(251,192,45,.08)"><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">12:50–13:35</td><td style="padding:6px;text-align:center">Deutsch</td><td style="padding:6px;text-align:center">Politik</td><td style="padding:6px;text-align:center">Physik</td><td style="padding:6px;text-align:center">Wahlfach Bio</td><td style="padding:6px;text-align:center">Deutsch</td></tr>
+        <tr><td style="padding:6px;font-weight:700;color:#bf6a00;text-align:center;font-size:.75rem">13:45–15:15</td><td style="padding:6px;text-align:center;color:#999">—</td><td style="padding:6px;text-align:center">Handball AG</td><td style="padding:6px;text-align:center;color:#999">—</td><td style="padding:6px;text-align:center">Ethik</td><td style="padding:6px;text-align:center;font-size:.78rem">Physik<br>(eigenständig)</td></tr>
+      </table>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;color:#5d4037">
+      <span style="background:#e1bee7;padding:4px 10px;border-radius:14px">🏊 Die 8c im Schwimmkurs</span>
+      <span style="background:#f8bbd0;padding:4px 10px;border-radius:14px">🎸 Unsere Schulband</span>
+      <span style="background:#c5cae9;padding:4px 10px;border-radius:14px">💬 Debattier-Club, donnerstags</span>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Stundenplan, -¨e</strong> 课程表 | <em>die Übersicht über alle Schulstunden in einer Woche</em><br>
+      • <strong>das Fach, -¨er</strong> 科目 | <em>ein Unterrichtsgegenstand wie Mathe oder Deutsch</em><br>
+      • <strong>das Wahlfach, -¨er</strong> 选修课 | <em>ein Fach, das man freiwillig wählen kann</em><br>
+      • <strong>die AG (Arbeitsgemeinschaft)</strong> 社团 | <em>eine freiwillige Gruppe nach dem Unterricht</em><br>
+      • <strong>die Klasse, -n</strong> 班级 | <em>eine Gruppe von Schülern desselben Jahrgangs (z. B. 8 c)</em><br>
+      • <strong>eigenständig</strong> 独立的/自主的 | <em>ohne Lehrer, selbstständig arbeiten</em><br>
+      • <strong>der Schulkurs, -e</strong> 校内课程 | <em>z. B. der Schwimmkurs der Klasse 8 c</em>
+    </div>
+
+    <!-- 📚 Article 1 资源 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s1-vocab')" style="margin-top:14px">📚 📅 词汇语法</button>
+    <div class="answer-box" id="b1s10-s1-vocab">
+      • <strong>der Stundenplan, -¨e</strong> = 课程表 · <strong>das Schulfach, -¨er</strong> = 学科<br>
+      • <strong>der Wochentag, -e</strong> = 工作日 · <strong>die Schulstunde, -n</strong> = 课时<br>
+      • <strong>Mathe / Mathematik</strong> = 数学 · <strong>Deutsch</strong> = 德语 · <strong>Englisch</strong> = 英语<br>
+      • <strong>Latein</strong> = 拉丁语 · <strong>Physik</strong> = 物理 · <strong>Chemie</strong> = 化学<br>
+      • <strong>Biologie / Bio</strong> = 生物 · <strong>Geschichte</strong> = 历史 · <strong>Politik</strong> = 政治<br>
+      • <strong>Religion / Ethik</strong> = 宗教课/伦理课 · <strong>Musik / Sport</strong> = 音乐/体育<br>
+      • <strong>der Schwimmkurs, -e</strong> = 游泳课 · <strong>die Schulband, -s</strong> = 校园乐队<br>
+      • <strong>der Debattier-Club, -s</strong> = 辩论俱乐部 · <strong>die Handball-AG</strong> = 手球社<br>
+      • <strong>haben (Präsens)</strong>: ich habe Mathe → 表示"上...课"<br>
+      • <strong>von … bis …</strong> = 从...到... (时间段)
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s1-grammatik')">📖 📅 语法解析</button>
+    <div class="answer-box" id="b1s10-s1-grammatik">
+      <strong>1. Wochentage und Zeitangaben</strong> 工作日与时间表达 | <em>Temporalangaben</em><br>
+      🇩🇪 Formel: <em>am + Wochentag (Dativ) / von … bis … / Uhrzeit + Uhr</em><br>
+      🇨🇳 规则：表示星期用 am Montag/Dienstag...（一律 Dativ）；时间段用 von ... bis ...；时刻用 X Uhr Y。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„<strong>Am Montag</strong> haben wir <strong>von 8:15 bis 9:00</strong> Musik."</em> — 周一8:15到9:00上音乐课<br>
+      ⚠️ 考点：星期一律阳性 der → am；时刻使用 24 小时制（13:45 Uhr = dreizehn Uhr fünfundvierzig）。<br><br>
+
+      <strong>2. Schulfach + haben</strong> 表达"上某门课" | <em>Stundenplan-Verben</em><br>
+      🇩🇪 Formel: <em>jd. + haben + Fach (Akkusativ ohne Artikel)</em><br>
+      🇨🇳 规则：表示"上课"用 haben + 学科名（无冠词），是德语日常口语。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Wir <strong>haben</strong> heute <strong>Mathe</strong> und <strong>Deutsch</strong>."</em> — 我们今天上数学和德语课<br>
+      ⚠️ 考点：动词 haben、不加冠词；同义说法有 Mathe-Unterricht haben / in Mathe sein。<br><br>
+
+      <strong>3. eigenständig + arbeiten</strong> 自主学习 | <em>Adverb der Art und Weise</em><br>
+      🇩🇪 Formel: <em>Subjekt + arbeitet/lernt + eigenständig</em><br>
+      🇨🇳 规则：eigenständig 用作方式状语，表示"独立地、自主地"。同义词 selbstständig / allein / ohne Hilfe。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Freitag 13:45–15:15: Physik <strong>(eigenständig)</strong>."</em> — 周五13:45到15:15自主学习物理<br>
+      ⚠️ 考点：德国中学高年级常有 eigenständiges Lernen / Selbstlernzeit。
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s1-kollokation')">🔗 📅 词汇搭配</button>
+    <div class="answer-box" id="b1s10-s1-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#6a1b9a;color:#fff">
+        <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+        <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+      </tr>
+      <tr style="background:#f3e5f5">
+        <td style="font-weight:700;padding:8px 12px">in die Schule gehen</td>
+        <td style="padding:8px 12px">上学 | <em>als Schüler die Schule besuchen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Sara <strong>geht</strong> in die 8 c <strong>zur Schule</strong>.</em><br><span style="color:#666">Sara 上八年级 c 班。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">eine Stunde Mathe haben</td>
+        <td style="padding:8px 12px">上一节数学课 | <em>eine Unterrichtsstunde im Fach Mathe</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Heute <strong>haben</strong> wir zwei <strong>Stunden Mathe</strong>.</em><br><span style="color:#666">今天我们有两节数学课。</span></td>
+      </tr>
+      <tr style="background:#f3e5f5">
+        <td style="font-weight:700;padding:8px 12px">an einer AG teilnehmen</td>
+        <td style="padding:8px 12px">参加一个社团 | <em>Mitglied einer Arbeitsgemeinschaft sein</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Lukas <strong>nimmt</strong> an der Handball-<strong>AG teil</strong>.</em><br><span style="color:#666">Lukas 参加了手球社。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">den Stundenplan ändern</td>
+        <td style="padding:8px 12px">更改课程表 | <em>Änderungen am Plan vornehmen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Ab Montag <strong>wird</strong> der <strong>Stundenplan geändert</strong>.</em><br><span style="color:#666">从周一开始课程表将被更改。</span></td>
+      </tr>
+      <tr style="background:#f3e5f5">
+        <td style="font-weight:700;padding:8px 12px">ein Wahlfach belegen</td>
+        <td style="padding:8px 12px">选修一门课 | <em>ein freiwilliges Fach wählen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Donnerstags <strong>belege</strong> ich das <strong>Wahlfach Biologie</strong>.</em><br><span style="color:#666">周四我选修了生物。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s1-redemittel')">💬 📅 常用表达</button>
+    <div class="answer-box" id="b1s10-s1-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#6a1b9a;color:#fff">
+        <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+      </tr>
+      <tr style="background:#f3e5f5">
+        <td style="font-weight:700;padding:8px 12px">描述课表</td>
+        <td style="padding:8px 12px"><em>Am Montag habe ich um 8:15 Uhr Musik und danach Latein.</em></td>
+        <td style="padding:8px 12px">周一我8:15上音乐课，之后是拉丁语。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">询问课程</td>
+        <td style="padding:8px 12px"><em>Was hast du am Dienstag in der dritten Stunde?</em></td>
+        <td style="padding:8px 12px">你周二第三节课上什么？</td>
+      </tr>
+      <tr style="background:#f3e5f5">
+        <td style="font-weight:700;padding:8px 12px">表示喜好</td>
+        <td style="padding:8px 12px"><em>Mein Lieblingsfach ist Deutsch, weil mir der Lehrer gefällt.</em></td>
+        <td style="padding:8px 12px">我最喜欢的科目是德语，因为我喜欢这位老师。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">谈论变化</td>
+        <td style="padding:8px 12px"><em>Ab Montag, dem 14. 03., gilt der neue Stundenplan.</em></td>
+        <td style="padding:8px 12px">从3月14日（周一）起，新课程表生效。</td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s1-beispiele')">✍️ 📅 仿写例句</button>
+    <div class="answer-box" id="b1s10-s1-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: 描述一天的课程（temporal + Schulfach）</strong><br>
+      🇩🇪 <em><strong>Am Montag</strong> habe ich <strong>von 8:15 bis 9:00</strong> Musik, <strong>danach</strong> Latein und <strong>in der dritten Stunde</strong> Mathe.</em><br>
+      🇨🇳 周一8:15到9:00我上音乐课，之后是拉丁语，第三节是数学。<br>
+      👉 <em>Nachbau: Am ___ habe ich von ___ bis ___ ___, danach ___.</em><br><br>
+
+      <strong>🔹 Muster 2: 比较两天的课程（Vergleich mit aber/dagegen）</strong><br>
+      🇩🇪 <em>Am Mittwoch haben wir Sport, <strong>aber</strong> am Donnerstag haben wir <strong>stattdessen</strong> Deutsch.</em><br>
+      🇨🇳 周三我们上体育，但周四我们改上德语。<br>
+      👉 <em>Nachbau: Am ___ haben wir ___, aber am ___ haben wir stattdessen ___.</em>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ Article 2 · Lange Nacht der Mathematik ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#283593,#5e35b1);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🌙 2 · Lange Nacht der Mathematik</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Plakat · Schul-Wettbewerb</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Wettbewerb für die 5.–13. Klasse — keine Noten, nur Spaß am Knobeln</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <div style="background:radial-gradient(ellipse at top,#fff9c4,#fff59d 70%,#ffd54f);border:2px dashed #f57f17;border-radius:10px;padding:18px 22px;color:#5d4037;font-size:.92rem;line-height:1.8">
+      <div style="font-weight:700;color:#c62828;font-size:1.05rem;margin-bottom:8px">🧮 Wettbewerb für die 5.–13. Klasse — <em>keine Noten!</em></div>
+      Mach mit und löse die ganze Nacht spannende Matheaufgaben!<br>
+      <strong>Freischaltung der Aufgaben im Netz:</strong> am <strong>21. 03. um 18:00 Uhr</strong> (Abholung im Raum 126)<br>
+      <strong>Einsendeschluss Ergebnisse im Netz:</strong> <strong>22. 03. um 8:00 Uhr</strong><br>
+      <strong>Du brauchst:</strong> Formular (Eltern!), Schlafsack, gute Laune<br>
+      Abendessen / Frühstück und Getränke gibt es in der <strong>Schulkantine</strong>.
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Wettbewerb, -e</strong> 比赛/竞赛 | <em>ein Spiel/Test, bei dem man gewinnen kann</em><br>
+      • <strong>die Note, -n</strong> 分数/成绩 | <em>die Bewertung von 1 bis 6 in der Schule</em><br>
+      • <strong>knobeln / Matheaufgaben lösen</strong> 解题/钻研 | <em>schwierige Aufgaben durchdenken</em><br>
+      • <strong>die Freischaltung</strong> 解锁/开放 | <em>etwas wird zur Nutzung freigegeben</em><br>
+      • <strong>der Einsendeschluss</strong> 截止日期 | <em>letzter Termin zum Einreichen</em><br>
+      • <strong>das Formular, -e</strong> 表格/申请单 | <em>ein Blatt zum Ausfüllen, hier mit Unterschrift der Eltern</em><br>
+      • <strong>der Schlafsack, -¨e</strong> 睡袋 | <em>ein gefütterter Sack zum Schlafen</em><br>
+      • <strong>die Schulkantine, -n</strong> 学校食堂 | <em>der Speisesaal in der Schule</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 3 · Schulsozialarbeiter ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#c62828,#ef5350);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">👨‍💼 3 · Euer Schulsozialarbeiter: Dirk Koop</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Heinrich-Heine-Gymnasium Flensburg</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Aushang im Schulflur — Ansprechpartner bei Problemen</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;background:#fff8e1;border:1px solid #ffd54f;border-radius:10px;padding:16px 20px">
+      <div style="flex:0 0 80px;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#ffd54f,#ffb300);display:flex;align-items:center;justify-content:center;font-size:2.6rem;box-shadow:0 3px 8px rgba(0,0,0,.15)">👨‍💼</div>
+      <div style="flex:1;min-width:220px;font-size:.9rem;line-height:1.85;color:#5d4037">
+        <div style="font-weight:700;color:#c62828;font-size:1.05rem">Heinrich-Heine-Gymnasium Flensburg</div>
+        <div style="color:#666;font-size:.85rem;margin-bottom:8px">Euer Schulsozialarbeiter: <strong>Dirk Koop</strong></div>
+        <div style="background:#fff;border-radius:8px;padding:8px 12px;border-left:3px solid #c62828">
+          <strong>Sprechstunde:</strong><br>
+          Mo – Fr, R. 112<br>
+          13 – 17 Uhr<br>
+          oder ruft an!<br>
+          📞 <strong>0151 – 27 21 27 21</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Schulsozialarbeiter, -</strong> 学校社工 | <em>Helfer bei sozialen oder persönlichen Problemen in der Schule</em><br>
+      • <strong>die Sprechstunde, -n</strong> 接待时间/咨询时间 | <em>Zeit, in der man jemanden treffen oder anrufen kann</em><br>
+      • <strong>der Raum, -¨e (R. 112)</strong> 房间（112室） | <em>Zimmer in einem Gebäude</em><br>
+      • <strong>anrufen (ruft an, rief an, hat angerufen)</strong> 打电话 | <em>jemanden per Telefon kontaktieren</em><br>
+      • <strong>der/die Ansprechpartner/in</strong> 联系人 | <em>Person, mit der man sprechen kann</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 4 · NEWS Arbeitsgruppen ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#e65100,#fb8c00);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">📰 4 · NEWS! Arbeitsgruppen</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Neue AG-Angebote ab März</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Drei neue AGs starten — kreativ, literarisch, medial</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;background:#fff8e1;border:1px solid #ffd54f;border-radius:8px;overflow:hidden">
+      <tr style="background:#e65100;color:#fff">
+        <th style="padding:10px 14px;text-align:left">AG</th>
+        <th style="padding:10px 14px;text-align:left">Zeit</th>
+        <th style="padding:10px 14px;text-align:left">Lehrer</th>
+      </tr>
+      <tr><td style="padding:8px 14px;font-weight:600;color:#bf360c">🎬 Medien-AG</td><td style="padding:8px 14px">Dienstag 14 – 18 Uhr</td><td style="padding:8px 14px">Herr Nowak</td></tr>
+      <tr style="background:rgba(255,213,79,.18)"><td style="padding:8px 14px;font-weight:600;color:#bf360c">📚 Literatur-AG</td><td style="padding:8px 14px">Mittwoch 15 – 16:30 Uhr</td><td style="padding:8px 14px">Frau Rasche</td></tr>
+      <tr><td style="padding:8px 14px;font-weight:600;color:#bf360c">🎭 Theater-AG</td><td style="padding:8px 14px">Donnerstag 15 – 18 Uhr</td><td style="padding:8px 14px">Herr Dormann</td></tr>
+    </table>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Arbeitsgemeinschaft, -en (AG)</strong> 课外社团 | <em>freiwilliges Lernangebot nach dem Unterricht</em><br>
+      • <strong>die Medien-AG</strong> 媒体社 | <em>AG für Film, Foto, Computer, soziale Medien</em><br>
+      • <strong>die Literatur-AG</strong> 文学社 | <em>AG zum Lesen und Schreiben von Texten</em><br>
+      • <strong>die Theater-AG</strong> 戏剧社 | <em>AG, in der man Theaterstücke probt und aufführt</em><br>
+      • <strong>das Angebot, -e</strong> 提供/项目 | <em>das, was angeboten wird</em><br>
+      • <strong>ab März</strong> 从三月起 | <em>vom März an, beginnend im März</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 5 · Medien-AG sucht neue Schüler ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#00695c,#26a69a);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">💻 5 · Die Medien-AG sucht neue Schülerinnen und Schüler!</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Aushang · Mitmachen!</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Programmieren, Comics zeichnen, Trickfilme machen — komm vorbei!</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <!-- Notizblock Style -->
+    <div style="background:repeating-linear-gradient(to bottom,#fff,#fff 25px,#cfd8dc 25px,#cfd8dc 26px);border:1px solid #b0bec5;border-radius:0 8px 8px 0;border-left:3px solid #c62828;padding:14px 20px;font-family:'Comic Sans MS',cursive;color:#37474f;font-size:.9rem;line-height:26px">
+      Hier lernst du zu <strong>programmieren</strong> oder<br>
+      deine eigenen <strong>Comics</strong> oder<br>
+      <strong>Trickfilme</strong> zu machen.<br>
+      Wir arbeiten mit tollen Anwendungen<br>
+      auf <strong>Tablets, Smartphones</strong> und Computern.<br>
+      Hast du Interesse?<br>
+      Dann komm vorbei!<br>
+      Wir treffen uns jeden <strong>Dienstag</strong><br>
+      14 – 16 Uhr im <strong>Medienzentrum</strong>.
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>programmieren</strong> 编程 | <em>Software/Apps mit Code schreiben</em><br>
+      • <strong>der Trickfilm, -e</strong> 动画片 | <em>ein Animationsfilm, oft am Computer gemacht</em><br>
+      • <strong>der Comic, -s</strong> 漫画 | <em>eine Bildergeschichte</em><br>
+      • <strong>die Anwendung, -en (App)</strong> 应用程序 | <em>ein Programm auf dem Computer/Handy</em><br>
+      • <strong>komm vorbei!</strong> 来访吧！来一下！ | <em>besuche uns, schau bei uns rein</em><br>
+      • <strong>sich treffen (trifft, traf, hat getroffen)</strong> 见面/聚会 | <em>zusammenkommen</em><br>
+      • <strong>das Medienzentrum</strong> 媒体中心 | <em>Raum mit Computern und Medientechnik</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 6 · Abfahrtszeiten + Baustelle ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#0277bd,#29b6f6);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🚌 6 · Abfahrtszeiten — Heinrich-Heine-Gymnasium Flensburg</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">gültig ab 14. 03. 2026</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Achtung Baustelle — neue Abfahrt &bdquo;Am Lachsbach&rdquo;</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <!-- Warnung -->
+    <div style="background:#fff59d;display:inline-block;padding:10px 16px;margin-bottom:14px;transform:rotate(1deg);font-family:'Comic Sans MS',cursive;color:#bf6a00;font-size:.88rem;line-height:1.5;box-shadow:2px 3px 6px rgba(0,0,0,.18);border-radius:2px">
+      <strong>ACHTUNG!</strong><br>
+      BAUSTELLE VOR<br>
+      DER SCHULE<br>
+      Abfahrt ab jetzt<br>
+      <strong>Am Lachsbach</strong>
+    </div>
+
+    <!-- Bus-Fahrplan -->
+    <table style="width:100%;border-collapse:collapse;font-size:.88rem;background:#e1f5fe;border:1px solid #4fc3f7;border-radius:8px;overflow:hidden">
+      <tr style="background:#0277bd;color:#fff">
+        <th style="padding:8px 12px;text-align:left">Mo – Fr</th>
+        <th style="padding:8px 12px;text-align:left">Linie</th>
+        <th style="padding:8px 12px;text-align:left">Strecke</th>
+      </tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#01579b">🚌 13:18</td><td style="padding:8px 12px">Linie 1</td><td style="padding:8px 12px;font-size:.83rem">Am Lachsbach → Harrisleer Kreuz → Ochsenmarkt → Südermarkt → ZOB</td></tr>
+      <tr style="background:rgba(79,195,247,.15)"><td style="padding:8px 12px;font-weight:700;color:#01579b">🚌 13:27</td><td style="padding:8px 12px">Linie 1</td><td style="padding:8px 12px;font-size:.83rem">Am Lachsbach → Ordertor → Südermarkt → Bahnhof Krusau / DK</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#01579b">🚌 14:00</td><td style="padding:8px 12px">Linie 7</td><td style="padding:8px 12px;font-size:.83rem">Am Lachsbach → Nordertor → ZOB → Südermarkt → Hafermarkt</td></tr>
+    </table>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Abfahrt, -en</strong> 出发/发车 | <em>der Moment, in dem ein Bus/Zug losfährt</em><br>
+      • <strong>die Abfahrtszeit, -en</strong> 发车时间 | <em>wann ein Bus/Zug fährt</em><br>
+      • <strong>die Baustelle, -n</strong> 工地/施工区 | <em>ein Ort, an dem gebaut wird</em><br>
+      • <strong>die Strecke, -n</strong> 路线/路段 | <em>der Weg, den der Bus fährt</em><br>
+      • <strong>die Linie, -n</strong> 线路 (公交) | <em>Bus- oder Straßenbahnnummer</em><br>
+      • <strong>gültig ab + Dativ</strong> 自...起有效 | <em>ist gültig von einem bestimmten Datum an</em><br>
+      • <strong>ZOB (Zentraler Omnibusbahnhof)</strong> 中央公交总站 | <em>Hauptbusbahnhof einer Stadt</em><br>
+      • <strong>Mo – Fr</strong> 周一至周五 | <em>von Montag bis Freitag</em>
+    </div>
+
+    <!-- 📚 Article 6 资源（Aushänge / Bekanntmachungen） -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s6-vocab')" style="margin-top:14px">📚 🚌 词汇语法</button>
+    <div class="answer-box" id="b1s10-s6-vocab">
+      • <strong>der Aushang, -¨e</strong> = 公告/告示 · <strong>die Bekanntmachung, -en</strong> = 通告<br>
+      • <strong>die Information, -en</strong> = 信息 · <strong>die Mitteilung, -en</strong> = 通知<br>
+      • <strong>der Termin, -e</strong> = 日期/约会 · <strong>der Treffpunkt, -e</strong> = 集合地<br>
+      • <strong>der Stundenplan, -¨e</strong> = 课程表 · <strong>der Fahrplan, -¨e</strong> = 时刻表<br>
+      • <strong>die Sprechstunde, -n</strong> = 接待时间 · <strong>der Einsendeschluss</strong> = 截止时间<br>
+      • <strong>Achtung!</strong> = 注意！ · <strong>NEWS!</strong> = 新消息！<br>
+      • <strong>vorbeikommen (kommt vorbei, kam vorbei, ist vorbeigekommen)</strong> = 来访<br>
+      • <strong>(an)rufen (ruft an, rief an, hat angerufen)</strong> = 打电话<br>
+      • <strong>sich treffen</strong> = 见面 · <strong>teilnehmen an + D.</strong> = 参加<br>
+      • <strong>ab + Dativ</strong> = 自...起 · <strong>von … bis …</strong> = 从...到...
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s6-grammatik')">📖 🚌 语法解析</button>
+    <div class="answer-box" id="b1s10-s6-grammatik">
+      <strong>1. Imperativ (du / ihr)</strong> 命令式 — 招呼语气 | <em>Aufforderungsform</em><br>
+      🇩🇪 Formel: <em>du-Imperativ = Verbstamm (ohne -st); ihr-Imperativ = ihr-Form ohne "ihr"</em><br>
+      🇨🇳 规则：du 命令式去掉 -st；ihr 命令式直接用 ihr 的现在时形式去掉代词。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„<strong>Mach mit</strong> und <strong>löse</strong> die ganze Nacht spannende Matheaufgaben!"</em> — 加入吧，整夜钻研有趣的数学题！<br>
+      <em>„<strong>Komm vorbei!</strong>"</em> — 来一下吧！ <em>„Oder <strong>ruft an!</strong>"</em> — 或者你们打电话！<br>
+      ⚠️ 考点：可分动词命令式时前缀放最后（Komm vorbei! / Ruf an!）；ihr-Form 直接接代词 du/ihr 隐去。<br><br>
+
+      <strong>2. Präpositionen mit temporalem Sinn</strong> 时间介词 | <em>ab / am / um / von … bis</em><br>
+      🇩🇪 Formel: <em>ab + D. (起点), am + Wochentag, um + Uhrzeit, von … bis … (时间段)</em><br>
+      🇨🇳 规则：ab + Dativ 表"从...起"；am Montag = 在周一；um 14 Uhr = 14点；von 14 bis 16 Uhr = 14到16点。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Gültig <strong>ab</strong> 14. 03. 2026"</em> — 自2026年3月14日起生效<br>
+      <em>„Wir treffen uns jeden Dienstag <strong>von 14 bis 16 Uhr</strong>"</em> — 每周二14到16点见面<br>
+      ⚠️ 考点：ab 永远是 Dativ；jeden Dienstag 是 Akkusativ（jede Woche，时间重复用 Akkusativ）。<br><br>
+
+      <strong>3. Ordinalzahlen + Datum</strong> 序数词 + 日期 | <em>am ersten / am vierzehnten März</em><br>
+      🇩🇪 Formel: <em>am + Ordinalzahl (auf -ten / -sten) + Monat</em><br>
+      🇨🇳 规则：序数词 1-19 + ten；20+ + sten；日期前用 am；月份首字母大写。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„<strong>am 21. 03.</strong> um 18:00 Uhr"</em> — 在3月21日18点 (am einundzwanzigsten März)<br>
+      ⚠️ 考点：写作时常用 14. 03.（数字 + 点），口语用 am vierzehnten März。
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s6-kollokation')">🔗 🚌 词汇搭配</button>
+    <div class="answer-box" id="b1s10-s6-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#0277bd;color:#fff">
+        <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+        <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">gültig ab + Dativ</td>
+        <td style="padding:8px 12px">自...起生效 | <em>von einem Datum an wirksam</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Der Fahrplan ist <strong>gültig ab</strong> dem 14. März.</em><br><span style="color:#666">时刻表自3月14日起有效。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">mit etwas rechnen</td>
+        <td style="padding:8px 12px">考虑/预计 | <em>etwas erwarten</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Wegen der Baustelle <strong>muss</strong> man <strong>mit</strong> Verspätungen <strong>rechnen</strong>.</em><br><span style="color:#666">由于施工，需要预计会有延误。</span></td>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">sich treffen mit + Dativ</td>
+        <td style="padding:8px 12px">与...见面 | <em>zusammenkommen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>treffen uns</strong> jeden Dienstag im Medienzentrum.</em><br><span style="color:#666">我们每周二在媒体中心见面。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">Interesse haben an + Dativ</td>
+        <td style="padding:8px 12px">对...感兴趣 | <em>etwas interessant finden</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Hast du <strong>Interesse an</strong> der Medien-AG?</em><br><span style="color:#666">你对媒体社感兴趣吗？</span></td>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">eine Sprechstunde anbieten</td>
+        <td style="padding:8px 12px">提供接待时间 | <em>regelmäßige Zeit für Gespräche</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Der Sozialarbeiter <strong>bietet</strong> Mo – Fr eine <strong>Sprechstunde an</strong>.</em><br><span style="color:#666">社工周一至周五提供接待时间。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s6-redemittel')">💬 🚌 常用表达</button>
+    <div class="answer-box" id="b1s10-s6-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#0277bd;color:#fff">
+        <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">发布通告</td>
+        <td style="padding:8px 12px"><em>Ab dem 14. März gilt der neue Fahrplan.</em></td>
+        <td style="padding:8px 12px">自3月14日起，新时刻表生效。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">提醒注意</td>
+        <td style="padding:8px 12px"><em>Achtung! Wegen der Baustelle fahren die Busse anders.</em></td>
+        <td style="padding:8px 12px">注意！由于施工，公交车走不同路线。</td>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">邀请参加</td>
+        <td style="padding:8px 12px"><em>Hast du Interesse? Dann komm vorbei!</em></td>
+        <td style="padding:8px 12px">你感兴趣吗？那就过来吧！</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">告知时间</td>
+        <td style="padding:8px 12px"><em>Wir treffen uns jeden Dienstag von 14 bis 16 Uhr.</em></td>
+        <td style="padding:8px 12px">我们每周二14到16点见面。</td>
+      </tr>
+      <tr style="background:#e1f5fe">
+        <td style="font-weight:700;padding:8px 12px">联系方式</td>
+        <td style="padding:8px 12px"><em>Bei Fragen ruft mich einfach an: 0151 – 27 21 27 21.</em></td>
+        <td style="padding:8px 12px">有问题尽管打给我：0151-27212721。</td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s6-beispiele')">✍️ 🚌 仿写例句</button>
+    <div class="answer-box" id="b1s10-s6-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: 发布告示 (Imperativ + Information)</strong><br>
+      🇩🇪 <em><strong>Achtung!</strong> Wegen der Baustelle fährt der Bus jetzt &bdquo;Am Lachsbach&rdquo; ab. <strong>Plant</strong> mehr Zeit ein!</em><br>
+      🇨🇳 注意！由于施工，公交车现在从"Am Lachsbach"出发。请预留更多时间！<br>
+      👉 <em>Nachbau: Achtung! Wegen ___ ___. ___ + Imperativ!</em><br><br>
+
+      <strong>🔹 Muster 2: 邀请加入 AG / Wettbewerb</strong><br>
+      🇩🇪 <em>Hast du Interesse an ___? Dann <strong>komm vorbei!</strong> Wir treffen uns jeden ___ von ___ bis ___ Uhr.</em><br>
+      🇨🇳 你对...感兴趣吗？那就来一下吧！我们每周...的...到...点见面。<br>
+      👉 <em>Nachbau: Hast du Interesse an ___? Komm vorbei! Wir treffen uns jeden ___ von ___ bis ___ Uhr.</em>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ Article 7 · Kantine Essensplan ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#2e7d32,#66bb6a);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🍽️ 7 · Kantine — Neuigkeiten: ESSENSPLAN</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Schulkantine · Aktuell</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Mehr Auswahl: zwei Wahlessen + ein vegetarisches Gericht</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <div style="background:#e8f5e9;border:2px dashed #81c784;border-radius:10px;padding:16px 22px;color:#1b5e20;font-size:.95rem;line-height:1.8">
+      <div style="font-weight:700;color:#1b5e20;font-size:1.05rem;margin-bottom:8px">🥗 Kantine — Neuigkeiten</div>
+      ▶ Ab März <strong>2 Wahlessen</strong><br>
+      ▶ <strong>+ 1 × Vegetarisch</strong> 🌱
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Essensplan, -¨e</strong> 菜单/餐饮计划 | <em>Übersicht über die Mahlzeiten der Woche</em><br>
+      • <strong>das Wahlessen, -</strong> 可选餐 | <em>Mahlzeit, die man aus mehreren auswählen kann</em><br>
+      • <strong>vegetarisch</strong> 素食的 | <em>ohne Fleisch und Fisch</em><br>
+      • <strong>die Neuigkeit, -en</strong> 新消息 | <em>neue, aktuelle Information</em><br>
+      • <strong>die Mahlzeit, -en</strong> 餐 | <em>Frühstück, Mittagessen oder Abendessen</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 8 · Majas Blog ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#ad1457,#ec407a);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🌍 8 · Maja, 12 A — im Austauschjahr in den USA</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Blog · majainutah.de</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Eine Schülerin der 12 A verbringt ein Schuljahr in Utah</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+    <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;background:#fce4ec;border-radius:10px;padding:16px 20px">
+      <div style="flex:0 0 80px;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#f48fb1,#ec407a);display:flex;align-items:center;justify-content:center;font-size:2.6rem;box-shadow:0 3px 8px rgba(0,0,0,.15)">👩</div>
+      <div style="flex:1;min-width:220px;font-size:.95rem;line-height:1.8;color:#5d2436;font-family:'Comic Sans MS',cursive">
+        <strong>Maja, 12 A,</strong><br>
+        im <strong>Austauschjahr</strong> in den <strong>USA</strong>.<br>
+        Majas Blog: <span style="background:#fff;padding:2px 10px;border-radius:14px;font-family:Consolas,monospace;color:#ad1457">majainutah.de</span>
+      </div>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>das Austauschjahr, -e</strong> 交换年/海外学年 | <em>ein Jahr Schule oder Studium in einem anderen Land</em><br>
+      • <strong>der Austauschschüler, - / die Austauschschülerin, -nen</strong> 交换生 | <em>Schüler/in im Ausland</em><br>
+      • <strong>der Blog, -s</strong> 博客 | <em>persönliche Webseite mit regelmäßigen Einträgen</em><br>
+      • <strong>verbringen (verbringt, verbrachte, hat verbracht)</strong> 度过/花费时间 | <em>Zeit an einem Ort sein</em><br>
+      • <strong>die Klasse 12 A</strong> 高二A班 | <em>Schuljahrgang in der Oberstufe</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Article 9 · Das deutsche Schulsystem (Hauptartikel) ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#1a5a2a,#2ecc71);padding:14px 24px 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.15rem;font-weight:700">🎓 9 · Das deutsche Schulsystem — Viele Wege zum Schulabschluss</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Lektion 5 · S.79 · Broschüre &bdquo;weiterBILDUNG&rdquo;</span>
+    </div>
+    <div style="color:rgba(255,255,255,.82);font-size:.82rem;margin-top:4px">Bildungswege in Deutschland — Grundschule, Hauptschule, Realschule, Gymnasium, Ausbildung, Studium</div>
+  </div>
+  <div style="padding:20px 24px 24px">
+
+    <!-- Aufgabenstellung -->
+    <div style="background:#fff3e0;border-left:4px solid #fb8c00;border-radius:0 8px 8px 0;padding:10px 16px;margin-bottom:14px;font-size:.88rem;color:#5d4037">
+      <strong>📌 Aufgabe a)</strong> Sehen Sie sich die Grafik unten an und lesen Sie die Broschüre. <strong>Streichen Sie die falsche Information</strong> wie im Beispiel. (Beispiel: <em>sechs / <s>neun</s></em>)
+    </div>
+
+    <!-- Bildungswege Grafik (vereinfacht) -->
+    <div style="background:#fff8e1;border:1px solid #ffd54f;border-radius:8px;padding:14px 18px;margin-bottom:14px;font-size:.8rem;color:#5d4037;text-align:center">
+      <strong style="color:#bf6a00">🏫 Bildungswege in Deutschland (Übersicht)</strong><br>
+      <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:.78rem">
+        <div style="background:#fff;padding:6px 10px;border-radius:6px">🏠 Grundschule<br>(Kl. 1–4)</div>
+        <div style="color:#bf6a00;align-self:center">→</div>
+        <div style="background:#fff;padding:6px 10px;border-radius:6px">🏫 Hauptschule<br>(Kl. 5–9/10)</div>
+        <div style="background:#fff;padding:6px 10px;border-radius:6px">🏛️ Realschule<br>(Kl. 5–10)</div>
+        <div style="background:#fff;padding:6px 10px;border-radius:6px">🎓 Gymnasium<br>(Kl. 5–12/13)</div>
+        <div style="color:#bf6a00;align-self:center">→</div>
+        <div style="background:#fff;padding:6px 10px;border-radius:6px">🔧 Ausbildung<br>/ 🏛️ Universität</div>
+      </div>
+    </div>
+
+    <!-- Broschüre Text -->
+    <div style="background:#fafafa;border:1px solid #b7b7b7;padding:20px 24px;box-shadow:4px 5px 0 rgba(0,0,0,.13);margin-bottom:14px">
+      <div style="text-align:right;font-size:.75rem;color:#999;margin-bottom:6px">weiterBILDUNG</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:1.35rem;font-weight:700;color:#1a5a2a;margin-bottom:4px">Viele Wege führen zum Ziel: Bildungswege in Deutschland</div>
+      <div style="font-family:Georgia,serif;text-align:center;font-size:.92rem;color:#666;margin-bottom:14px">Sie wollen den optimalen Bildungsweg für Ihre Kinder finden? <em>weiterBILDUNG</em> gibt Ihnen einen kurzen Überblick.</div>
+      <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.7;text-align:justify">
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.1</span>
+        In Deutschland ist das <strong>Schulsystem</strong> in jedem Bundesland ein bisschen anders. Alle Kinder kommen mit <strong>sechs</strong> / <s style="color:#c62828">neun</s> Jahren in die <strong>Grundschule</strong>, die in der Regel <strong>vier</strong> / <s style="color:#c62828">fünf</s> Jahre dauert.
+        <br><br>
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.5</span>
+        Danach entscheiden die <strong>Leistungen</strong> der Kinder, ob sie auf die <strong>Hauptschule</strong>, die <strong>Realschule</strong> oder das <strong>Gymnasium</strong> gehen. Eine Alternative zu diesem dreigliedrigen System ist die <strong>Gesamtschule</strong>. In manchen Bundesländern werden auch die Haupt- und Realschulen zusammengelegt und heißen dann <strong>Regionale</strong> oder <strong>Gemeinschaftsschulen</strong>.
+        <br><br>
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.10</span>
+        Einige Hauptschüler verlassen die Schule nach der <strong>9.</strong> / <s style="color:#c62828">10.</s> Klasse und suchen einen <strong>Ausbildungsplatz</strong>. Manche gehen <s style="color:#c62828">drei</s> / <strong>ein weiteres Jahr</strong> zur Schule und machen ihren <strong>Realschulabschluss</strong>.
+        <br><br>
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.15</span>
+        Die Realschüler gehen insgesamt <strong>10</strong> / <s style="color:#c62828">13</s> Jahre zur Schule. Danach haben sie mehrere Möglichkeiten. Sie machen eine <strong>Ausbildung</strong> und lernen drei Jahre lang einen Beruf in <strong>Betrieben</strong> und in der <strong>Berufsschule</strong>. Manche Realschüler gehen auch weiter zur <strong>Fachoberschule</strong> und machen das <strong>Fachabitur</strong> oder sie gehen auf das Gymnasium.
+        <br><br>
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.22</span>
+        Dort ist die Schulzeit am längsten — insgesamt <s style="color:#c62828">12</s> / <strong>13 Jahre</strong>. <s style="color:#c62828">Am Anfang</s> / <strong>Am Ende</strong> der 12. Klasse machen die Gymnasiasten das <strong>Abitur</strong>. Damit bewerben Sie sich um einen <strong>Studienplatz</strong> an der Universität oder der Fachhochschule oder auch um einen Ausbildungsplatz.
+        <br><br>
+        <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.28</span>
+        Sie haben weitere Fragen? Schreiben Sie an <em style="color:#1565c0">redaktion@weiterbildung.de</em>
+      </div>
+      <div style="margin-top:12px;font-size:.78rem;color:#999;text-align:right;font-style:italic">Streichen = ausgestrichen · <s style="color:#c62828">Beispiel</s> = falsche Information</div>
+    </div>
+
+    <!-- Beispielsfragen (b) -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+      <div style="background:#fff59d;padding:10px 14px;transform:rotate(-1deg);font-family:'Comic Sans MS',cursive;color:#5d4037;font-size:.82rem;box-shadow:2px 3px 6px rgba(0,0,0,.18);border-radius:2px">Wie lange geht<br>man als Realschüler/in<br>zur Schule?</div>
+      <div style="background:#fff59d;padding:10px 14px;transform:rotate(1.5deg);font-family:'Comic Sans MS',cursive;color:#5d4037;font-size:.82rem;box-shadow:2px 3px 6px rgba(0,0,0,.18);border-radius:2px">Welchen Abschluss<br>macht man am<br>Gymnasium?</div>
+    </div>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.75;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>das Schulsystem, -e</strong> 学校制度/教育体系 | <em>der Aufbau der Schulen in einem Land</em><br>
+      • <strong>das Bundesland, -¨er</strong> 联邦州 | <em>einer der 16 Teilstaaten Deutschlands</em><br>
+      • <strong>die Grundschule, -n</strong> 小学 | <em>die ersten 4 Jahre der Schulzeit</em><br>
+      • <strong>die Hauptschule, -n</strong> 普通中学 | <em>Schule mit Abschluss nach Klasse 9 oder 10</em><br>
+      • <strong>die Realschule, -n</strong> 实科中学 | <em>Schule mit mittlerem Abschluss nach Klasse 10</em><br>
+      • <strong>das Gymnasium, Gymnasien</strong> 文理中学 | <em>Schule mit Abitur nach Klasse 12 oder 13</em><br>
+      • <strong>die Gesamtschule, -n</strong> 综合学校 | <em>Schule, in der alle drei Schulformen vereint sind</em><br>
+      • <strong>die Ausbildung, -en</strong> 职业培训 | <em>praktische Berufsausbildung im Betrieb + Berufsschule</em><br>
+      • <strong>der Ausbildungsplatz, -¨e</strong> 学徒岗位 | <em>eine Stelle, an der man einen Beruf lernt</em><br>
+      • <strong>der Schulabschluss, -¨e</strong> 中学毕业文凭 | <em>Zeugnis nach dem Ende der Schulzeit</em><br>
+      • <strong>das Abitur</strong> 高中毕业证（Abi） | <em>der höchste Schulabschluss, Voraussetzung für Studium</em><br>
+      • <strong>das Fachabitur</strong> 专科高中毕业证 | <em>Abschluss der Fachoberschule</em><br>
+      • <strong>der Studienplatz, -¨e</strong> 大学学位 | <em>Platz für ein Studium an der Universität</em><br>
+      • <strong>die Berufsschule, -n</strong> 职业学校 | <em>Schule, die parallel zur Ausbildung besucht wird</em><br>
+      • <strong>die Fachhochschule, -n (FH)</strong> 应用科技大学 | <em>Hochschule mit praktischem Bezug</em>
+    </div>
+
+    <!-- 📚 Article 9 资源 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-vocab')" style="margin-top:14px">📚 🎓 词汇语法</button>
+    <div class="answer-box" id="b1s10-s9-vocab">
+      • <strong>das Schulsystem, -e</strong> = 学校制度 · <strong>der Bildungsweg, -e</strong> = 教育路径<br>
+      • <strong>das Bundesland, -¨er</strong> = 联邦州 · <strong>die Grundschule, -n</strong> = 小学<br>
+      • <strong>die Hauptschule, -n</strong> = 普通中学 · <strong>die Realschule, -n</strong> = 实科中学<br>
+      • <strong>das Gymnasium, Gymnasien</strong> = 文理中学 · <strong>die Gesamtschule, -n</strong> = 综合学校<br>
+      • <strong>die Regionalschule / Gemeinschaftsschule</strong> = 地区/共同学校<br>
+      • <strong>die Ausbildung, -en</strong> = 职业培训 · <strong>der Beruf, -e</strong> = 职业<br>
+      • <strong>der Ausbildungsplatz, -¨e</strong> = 学徒岗位 · <strong>der Betrieb, -e</strong> = 企业<br>
+      • <strong>die Berufsschule, -n</strong> = 职业学校 · <strong>die Fachoberschule, -n (FOS)</strong> = 专科高级中学<br>
+      • <strong>das Fachabitur</strong> = 专科高中毕业证 · <strong>das Abitur</strong> = 高中毕业证<br>
+      • <strong>der Studienplatz, -¨e</strong> = 大学学位 · <strong>die Universität, -en</strong> = 大学<br>
+      • <strong>die Fachhochschule, -n (FH)</strong> = 应用科技大学 · <strong>der Realschulabschluss</strong> = 实科中学毕业证<br>
+      • <strong>die Leistung, -en</strong> = 成绩/表现 · <strong>der Schulabschluss, -¨e</strong> = 中学毕业证<br>
+      • <strong>dreigliedrig</strong> = 三轨制的 · <strong>zusammenlegen (legt zusammen)</strong> = 合并<br>
+      • <strong>entscheiden (entscheidet, entschied, hat entschieden) über + Akk.</strong> = 决定<br>
+      • <strong>bewerben (sich) (bewirbt sich, bewarb sich, hat sich beworben) um + Akk.</strong> = 申请
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-grammatik')">📖 🎓 语法解析</button>
+    <div class="answer-box" id="b1s10-s9-grammatik">
+      <strong>1. Konjunktiv II (Wünsche und Irreales)</strong> 第二虚拟式 — 表达愿望与非现实 | <em>Wünsche &amp; hypothetische Aussagen</em><br>
+      🇩🇪 Formel: <em>würde + Infinitiv / hätte / wäre / könnte / wünschte … wenn-Satz</em><br>
+      🇨🇳 规则：表达愿望、假设、虚拟情境，结构 würde + 原形 / hätte / wäre / könnte。Lektion 5 重点语法。<br>
+      📖 文中例句 / Textbeleg / 拓展:<br>
+      <em>„<strong>Ich wünschte, ich hätte</strong> nach der Realschule eine Ausbildung gemacht."</em> — 我希望当时实科中学毕业后能去做学徒培训。<br>
+      <em>„<strong>Wenn</strong> ich mehr Zeit <strong>hätte, würde</strong> ich studieren."</em> — 如果我时间充裕，我就会去读大学。<br>
+      ⚠️ 考点：Lektion 5 必考点。区分 würde-Form（多数动词用）和 hätte/wäre/könnte（haben/sein/Modalverben 直接变）。<br><br>
+
+      <strong>2. Adverbiale Konjunktionen: danach / dann / anschließend</strong> 时间连接副词 | <em>Reihenfolge in der Vergangenheit / Zukunft</em><br>
+      🇩🇪 Formel: <em>Hauptsatz 1, danach + Verb + Subjekt + … (Inversion)</em><br>
+      🇨🇳 规则：danach / dann / anschließend 起头要倒装（动词在前），表示"然后"。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„… die in der Regel vier Jahre dauert. <strong>Danach entscheiden</strong> die Leistungen …"</em> — ...通常持续四年。然后由学生的成绩决定...<br>
+      ⚠️ 考点：句首的 danach / dann / deshalb / trotzdem 都要倒装，第二位是变位动词。<br><br>
+
+      <strong>3. Komparativ und Superlativ</strong> 比较级和最高级 | <em>länger / am längsten</em><br>
+      🇩🇪 Formel: <em>Adjektiv + -er (Komparativ); am + Adjektiv + -sten (Superlativ)</em><br>
+      🇨🇳 规则：比较级 + -er；最高级 am ... -sten；不规则：gut → besser → am besten；lang → länger → am längsten。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„Dort ist die Schulzeit <strong>am längsten</strong> — insgesamt 13 Jahre."</em> — 那里的学习时间最长——总共13年。<br>
+      ⚠️ 考点：单音节形容词通常加元音字母上方两点（Umlaut）：lang → länger, alt → älter。<br><br>
+
+      <strong>4. Indefinitpronomen: manche / einige / alle</strong> 不定代词 | <em>Mengenangaben</em><br>
+      🇩🇪 Formel: <em>alle = 所有 (Pl.) / manche = 一些 (Pl.) / einige = 几个 (Pl.) / jeder = 每一个 (Sg.)</em><br>
+      🇨🇳 规则：alle &gt; viele &gt; manche / einige &gt; wenige &gt; keine。修饰复数名词时词尾随格变化。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„<strong>Manche</strong> Realschüler gehen auch weiter zur Fachoberschule."</em> — 有些实科中学的学生继续去专科高级中学。<br>
+      <em>„<strong>Einige</strong> Hauptschüler verlassen die Schule nach der 9. Klasse."</em> — 一些普通中学的学生9年级后就离开学校。<br>
+      ⚠️ 考点：manche / einige + 复数名词无冠词；后面形容词用强变化词尾（-e/-en）。<br><br>
+
+      <strong>5. Trennbare Verben: zusammenlegen / weitergehen / sich bewerben um</strong> 可分动词 | <em>Präfix am Satzende</em><br>
+      🇩🇪 Formel: <em>Präfix + Stamm im Infinitiv → im Hauptsatz: Stamm konjugiert vorn, Präfix am Ende</em><br>
+      🇨🇳 规则：可分动词在主句中前缀放句末，从句中合并放句末。<br>
+      📖 文中例句 / Textbeleg:<br>
+      <em>„… die Haupt- und Realschulen <strong>werden</strong> <strong>zusammengelegt</strong>"</em>（被动态 + 可分动词） — ...普通中学和实科中学被合并<br>
+      <em>„Damit <strong>bewerben Sie sich</strong> <strong>um</strong> einen Studienplatz."</em> — 凭此申请大学学位<br>
+      ⚠️ 考点：sich bewerben um + Akkusativ；常考搭配 sich bewerben um eine Stelle / einen Studienplatz。
+    </div>
+
+    <!-- 🏭 背景知识 -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-hintergrund')">🏛️ 🎓 背景知识</button>
+    <div class="answer-box" id="b1s10-s9-hintergrund">
+    <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+      <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#1a5a2a;font-size:.95rem">🏫 Das dreigliedrige Schulsystem — Bildung als Ländersache</strong><br>
+        🇩🇪 In Deutschland ist Bildung &bdquo;Ländersache&rdquo;. Das heißt: Jedes der 16 Bundesländer macht seine eigenen Schulgesetze. Deshalb ist das Schulsystem überall ein bisschen anders. Das klassische System ist <strong>dreigliedrig</strong>: Nach der Grundschule entscheiden die Leistungen über drei Wege — Hauptschule, Realschule oder Gymnasium. Daneben gibt es die Gesamtschule, in der alle drei Wege unter einem Dach kombiniert sind. In den letzten Jahren werden Haupt- und Realschulen in vielen Bundesländern zur <strong>Gemeinschaftsschule</strong> oder <strong>Regionalschule</strong> zusammengelegt.<br>
+        🇨🇳 在德国，教育是"各联邦州自己的事"。也就是说：16 个联邦州各自制定自己的学校法。因此每个州的学校制度略有不同。经典的体系是**三轨制**：小学毕业后，根据成绩走三条路——普通中学、实科中学或文理中学。此外还有综合学校，将三条路整合在一个屋顶下。近年来许多联邦州将普通中学和实科中学合并为**共同学校**或**地区学校**。
+      </div>
+      <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#e65100;font-size:.95rem">🔧 Das duale Ausbildungssystem — Lernen im Betrieb und in der Berufsschule</strong><br>
+        🇩🇪 Eine deutsche Besonderheit ist die <strong>duale Ausbildung</strong>: Die Auszubildenden — kurz &bdquo;Azubis&rdquo; — arbeiten drei bis dreieinhalb Jahre in einem Betrieb und lernen gleichzeitig in der <strong>Berufsschule</strong> die Theorie. Sie bekommen jeden Monat eine Ausbildungsvergütung. Am Ende machen sie eine Prüfung bei der Industrie- und Handelskammer (IHK) oder der Handwerkskammer und werden zum Beispiel <strong>Bäcker</strong>, <strong>Mechatroniker</strong>, <strong>Bürokauffrau</strong> oder <strong>Krankenpfleger</strong>. Dieses System ist weltweit ein Vorbild, weil es Theorie und Praxis verbindet.<br>
+        🇨🇳 德国的一个特色是**双元制职业培训**：学徒——简称"Azubi"——在企业工作 3 到 3 年半，同时在**职业学校**学习理论。每月可获得培训津贴。培训结束时在工商会（IHK）或手工业商会参加考试，例如成为面包师、机电技师、办公室文员或护士。这套体系被世界推崇，因为它将理论与实践结合在一起。
+      </div>
+      <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#0d47a1;font-size:.95rem">🎓 Das Abitur — der wichtigste Schulabschluss</strong><br>
+        🇩🇪 Das <strong>Abitur</strong> ist der höchste Schulabschluss und die Voraussetzung für ein <strong>Studium</strong> an einer Universität. Die meisten Bundesländer haben das Abitur nach der <strong>12. oder 13. Klasse</strong> (G8 / G9). Die Prüfung besteht aus mehreren Fächern, darunter Deutsch, Mathe, eine Fremdsprache und zwei weitere Fächer. Die Abiturnote (zwischen 1,0 und 4,0) entscheidet oft, welches Fach und welche Universität man wählen kann. Bei beliebten Fächern wie Medizin gibt es einen <strong>Numerus clausus (NC)</strong>: Nur Schüler mit sehr guten Noten bekommen einen Studienplatz.<br>
+        🇨🇳 **Abitur**（高中毕业证）是最高的中学文凭，也是上大学的前提。大多数联邦州学生在 12 或 13 年级（G8/G9）参加 Abitur 考试。考试包括德语、数学、一门外语和另外两科。Abitur 成绩（1.0 到 4.0 之间）通常决定能选什么专业、上哪所大学。像医学这种热门专业有 **Numerus clausus（招生限额）**：只有成绩很好的学生才能拿到学位。
+      </div>
+      <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#ad1457;font-size:.95rem">🌍 Austauschjahr und Schüleraustausch — ein Jahr ins Ausland</strong><br>
+        🇩🇪 Viele deutsche Schülerinnen und Schüler machen in der <strong>11. oder 12. Klasse</strong> ein <strong>Austauschjahr</strong> im Ausland. Beliebte Länder sind die USA, Kanada, Australien und Neuseeland. Die Jugendlichen wohnen bei einer <strong>Gastfamilie</strong>, gehen dort zur Schule und lernen Sprache und Kultur. Organisationen wie AFS, YFU oder Rotary helfen bei der Organisation. Manche dokumentieren ihr Jahr in einem <strong>Blog</strong> wie Maja aus unserem Aushang. Ein Austauschjahr ist anstrengend, aber für viele die wichtigste Erfahrung der Schulzeit.<br>
+        🇨🇳 许多德国中学生在 11 或 12 年级参加海外**交换年**。热门国家有美国、加拿大、澳大利亚和新西兰。青少年寄住在**寄宿家庭**，在那里上学，学习语言和文化。AFS、YFU、Rotary 等组织协助安排。有人会像告示中的 Maja 那样在博客里记录这一年。交换年很辛苦，但对许多人来说是中学阶段最重要的经历。
+      </div>
+      <div style="background:#f3e5f5;border-radius:10px;padding:14px 18px">
+        <strong style="color:#6a1b9a;font-size:.95rem">📚 Schulalltag — AGs, Sozialarbeiter und Wettbewerbe</strong><br>
+        🇩🇪 Das deutsche Schulleben ist mehr als nur Unterricht. Viele Schulen bieten <strong>Arbeitsgemeinschaften (AGs)</strong> an — Theater, Medien, Sport, Literatur. Bei persönlichen Problemen können Schülerinnen und Schüler zum <strong>Schulsozialarbeiter</strong> gehen. Auch Wettbewerbe wie die <strong>&bdquo;Lange Nacht der Mathematik&rdquo;</strong> sind beliebt: Schüler verschiedener Klassenstufen knobeln eine ganze Nacht lang an Aufgaben — ohne Noten, nur aus Spaß. So lernen sie, dass Schule auch Spaß machen kann.<br>
+        🇨🇳 德国的校园生活不只是上课。许多学校提供**社团（AG）**：戏剧、媒体、体育、文学。学生遇到个人问题可以找**学校社工**。像**"数学之夜"**这样的比赛也很受欢迎：不同年级的学生整夜钻研数学题——没有分数，纯粹是为了乐趣。这样他们学到的是：上学也可以很有趣。
+      </div>
+    </div>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-kollokation')">🔗 🎓 词汇搭配</button>
+    <div class="answer-box" id="b1s10-s9-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#1a5a2a;color:#fff">
+        <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+        <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">in die Grundschule kommen</td>
+        <td style="padding:8px 12px">开始上小学 | <em>mit der Schule anfangen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Mit sechs Jahren <strong>kommen</strong> die Kinder <strong>in die Grundschule</strong>.</em><br><span style="color:#666">孩子们六岁开始上小学。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">zur Schule gehen</td>
+        <td style="padding:8px 12px">上学 | <em>Schüler/in sein</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Realschüler <strong>gehen</strong> insgesamt 10 Jahre <strong>zur Schule</strong>.</em><br><span style="color:#666">实科中学学生总共上10年学。</span></td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">eine Ausbildung machen</td>
+        <td style="padding:8px 12px">接受职业培训 | <em>einen Beruf in einem Betrieb lernen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Nach der Realschule <strong>macht</strong> Lisa eine <strong>Ausbildung</strong> als Bäckerin.</em><br><span style="color:#666">实科中学毕业后 Lisa 接受面包师培训。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">das Abitur machen</td>
+        <td style="padding:8px 12px">参加高中毕业考试 | <em>die Abiturprüfung ablegen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Am Ende der 12. Klasse <strong>machen</strong> die Gymnasiasten das <strong>Abitur</strong>.</em><br><span style="color:#666">12年级末，文理中学学生参加高中毕业考试。</span></td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">sich bewerben um + Akk.</td>
+        <td style="padding:8px 12px">申请... | <em>einen Antrag stellen für eine Stelle/Platz</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Mit dem Abitur kann man <strong>sich um</strong> einen <strong>Studienplatz bewerben</strong>.</em><br><span style="color:#666">有了高中毕业证就可以申请大学学位。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">die Schule verlassen</td>
+        <td style="padding:8px 12px">结束学业/离开学校 | <em>mit der Schule fertig sein</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Einige Hauptschüler <strong>verlassen</strong> die <strong>Schule</strong> nach der 9. Klasse.</em><br><span style="color:#666">一些普通中学学生9年级后就离开学校。</span></td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">einen Beruf lernen</td>
+        <td style="padding:8px 12px">学习一门职业 | <em>einen Beruf in der Ausbildung erlernen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>In drei Jahren <strong>lernt</strong> man einen <strong>Beruf</strong> im Betrieb.</em><br><span style="color:#666">在企业中三年学习一门职业。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">eine Möglichkeit haben</td>
+        <td style="padding:8px 12px">有...可能性 | <em>eine Option besitzen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Nach der Realschule <strong>haben</strong> Schüler mehrere <strong>Möglichkeiten</strong>.</em><br><span style="color:#666">实科中学毕业后学生有多种可能性。</span></td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">über etwas entscheiden</td>
+        <td style="padding:8px 12px">决定... | <em>eine Entscheidung treffen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>Die Leistungen <strong>entscheiden über</strong> den weiteren Weg.</em><br><span style="color:#666">学习成绩决定接下来的道路。</span></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">zusammenlegen mit + Dativ</td>
+        <td style="padding:8px 12px">与...合并 | <em>zwei Dinge in eines vereinen</em></td>
+        <td style="padding:8px 12px;font-size:.83rem"><em>In manchen Bundesländern <strong>werden</strong> Haupt- und Realschulen <strong>zusammengelegt</strong>.</em><br><span style="color:#666">在一些联邦州，普通中学和实科中学被合并。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-redemittel')">💬 🎓 常用表达</button>
+    <div class="answer-box" id="b1s10-s9-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#1a5a2a;color:#fff">
+        <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">描述学制</td>
+        <td style="padding:8px 12px"><em>In Deutschland geht man insgesamt 10 bis 13 Jahre zur Schule.</em></td>
+        <td style="padding:8px 12px">在德国，人们总共上10到13年学。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">说明阶段</td>
+        <td style="padding:8px 12px"><em>Nach der Grundschule besucht man die Hauptschule, Realschule oder das Gymnasium.</em></td>
+        <td style="padding:8px 12px">小学毕业后上普通中学、实科中学或文理中学。</td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">表达选择</td>
+        <td style="padding:8px 12px"><em>Man kann entweder eine Ausbildung machen oder weiter zur Schule gehen.</em></td>
+        <td style="padding:8px 12px">既可以接受职业培训，也可以继续上学。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">比较时长</td>
+        <td style="padding:8px 12px"><em>Am Gymnasium ist die Schulzeit am längsten — insgesamt 13 Jahre.</em></td>
+        <td style="padding:8px 12px">在文理中学学习时间最长——总共13年。</td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">表达申请</td>
+        <td style="padding:8px 12px"><em>Mit dem Abitur kann man sich um einen Studienplatz bewerben.</em></td>
+        <td style="padding:8px 12px">有了高中毕业证可以申请大学学位。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">表达愿望 (KII)</td>
+        <td style="padding:8px 12px"><em>Ich wünschte, ich hätte nach der Realschule eine Ausbildung gemacht.</em></td>
+        <td style="padding:8px 12px">我希望当时实科中学毕业后能去做职业培训。</td>
+      </tr>
+      <tr style="background:#e8f5e9">
+        <td style="font-weight:700;padding:8px 12px">假设条件 (KII)</td>
+        <td style="padding:8px 12px"><em>Wenn ich noch einmal zur Schule gehen könnte, würde ich aufs Gymnasium gehen.</em></td>
+        <td style="padding:8px 12px">如果我能再上一次学，我会上文理中学。</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;padding:8px 12px">比较两国体系</td>
+        <td style="padding:8px 12px"><em>Anders als in China gibt es in Deutschland kein zentrales Gaokao, sondern das Abitur.</em></td>
+        <td style="padding:8px 12px">与中国不同，德国没有统一的高考，而是高中毕业考。</td>
+      </tr>
+    </table>
+    </div>
+
+    <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-beispiele')">✍️ 🎓 仿写例句</button>
+    <div class="answer-box" id="b1s10-s9-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: 描述学校阶段（temporal + Verb der Bewegung）</strong><br>
+      🇩🇪 <em>Mit <strong>sechs Jahren kommen</strong> die Kinder in die Grundschule, die in der Regel vier Jahre <strong>dauert</strong>.</em><br>
+      🇨🇳 孩子们六岁开始上小学，通常持续四年。<br>
+      👉 <em>Nachbau: Mit ___ Jahren kommen ___ in/auf die ___, die ___ dauert.</em><br><br>
+
+      <strong>🔹 Muster 2: 说明选择路径（Inversion mit danach）</strong><br>
+      🇩🇪 <em>Nach der Realschule machen viele eine Ausbildung. <strong>Danach gehen</strong> sie in einen Betrieb und in die Berufsschule.</em><br>
+      🇨🇳 实科中学毕业后许多人去做职业培训。然后他们进入企业和职业学校。<br>
+      👉 <em>Nachbau: Nach ___ machen viele ___. Danach gehen sie ___.</em><br><br>
+
+      <strong>🔹 Muster 3: 最高级 (am längsten / am wichtigsten)</strong><br>
+      🇩🇪 <em>Am Gymnasium ist die Schulzeit <strong>am längsten</strong> — insgesamt 13 Jahre.</em><br>
+      🇨🇳 在文理中学学习时间最长——总共13年。<br>
+      👉 <em>Nachbau: Am ___ ist ___ am ___sten — insgesamt ___.</em><br><br>
+
+      <strong>🔹 Muster 4: 表达愿望 (Konjunktiv II — Lektion 5 重点)</strong><br>
+      🇩🇪 <em><strong>Ich wünschte</strong>, ich <strong>hätte</strong> in der 12. Klasse ein Austauschjahr <strong>gemacht</strong>.</em><br>
+      🇨🇳 我希望我当时12年级时能做一个交换年。<br>
+      👉 <em>Nachbau: Ich wünschte, ich hätte ___ gemacht. / Wenn ich ___ hätte, würde ich ___.</em><br><br>
+
+      <strong>🔹 Muster 5: 申请（sich bewerben um + Akk.）</strong><br>
+      🇩🇪 <em>Mit dem Abitur kann man <strong>sich um</strong> einen <strong>Studienplatz</strong> oder einen Ausbildungsplatz <strong>bewerben</strong>.</em><br>
+      🇨🇳 有了高中毕业证可以申请大学学位或学徒岗位。<br>
+      👉 <em>Nachbau: Mit ___ kann man sich um ___ bewerben.</em>
+    </div>
+    </div>
+
+    <!-- 📝 互动练习 · Richtig/Falsch -->
+    <div style="background:linear-gradient(135deg,#fff8e1,#ffe082);border-radius:10px;padding:14px 18px;margin-top:18px;border-left:4px solid #f57f17">
+      <strong style="color:#bf6a00">📝 Aufgabe: Richtig oder falsch? — Was steht im Text?</strong>
+    </div>
+    <div class="mcq-list" id="b1s10-s9-mcq" style="margin-top:10px">
+      <div class="mcq-item" data-ans="A">
+        <p><strong>1.</strong> Das Schulsystem ist in jedem Bundesland gleich.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q1" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q1" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>2.</strong> Die Grundschule dauert in der Regel vier Jahre.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q2" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q2" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>3.</strong> Realschüler können nach der 10. Klasse nicht mehr aufs Gymnasium wechseln.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q3" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q3" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>4.</strong> Eine Ausbildung dauert insgesamt drei Jahre.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q4" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q4" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>5.</strong> Am Ende der 12. Klasse machen die Gymnasiasten das Abitur.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q5" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q5" value="B"> B) falsch</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>6.</strong> Mit dem Abitur kann man nur an einer Universität studieren, nicht an einer Fachhochschule.</p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s10-s9-q6" value="A"> A) richtig</label>
+          <label><input type="radio" name="b1s10-s9-q6" value="B"> B) falsch</label>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px">
+      <button class="btn btn-check" onclick="a2CheckMCQ('b1s10-s9-mcq')">📝 批改答案</button>
+      <button class="btn btn-show" onclick="a2ToggleAns('b1s10-s9-explain')">💡 显示/隐藏解析</button>
+      <button class="btn btn-reset" onclick="a2ResetMCQ('b1s10-s9-mcq')">🔄 重置</button>
+    </div>
+    <div id="b1s10-s9-mcq-score"></div>
+    <div class="answer-box" id="b1s10-s9-explain">
+      <strong>📖 解析 / Erläuterung：</strong><br><br>
+      <strong>1. → B) falsch</strong> ❌<br>
+      🇩🇪 原文依据：<em>„In Deutschland ist das Schulsystem in jedem Bundesland ein <strong>bisschen anders</strong>."</em><br>
+      🇨🇳 解析：文中明确说"每个联邦州的学校制度有点不同"，因此"完全相同"是错的。<br><br>
+      <strong>2. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„… die Grundschule, die in der Regel <strong>vier Jahre</strong> dauert."</em><br>
+      🇨🇳 解析：原文明确小学通常持续四年，符合题目陈述。<br><br>
+      <strong>3. → B) falsch</strong> ❌<br>
+      🇩🇪 原文依据：<em>„Manche Realschüler gehen auch weiter zur Fachoberschule und machen das Fachabitur oder sie <strong>gehen auf das Gymnasium</strong>."</em><br>
+      🇨🇳 解析：原文明确说一些实科中学学生可以继续上文理中学，所以"不能再换"是错的。<br><br>
+      <strong>4. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„Sie machen eine Ausbildung und lernen <strong>drei Jahre lang</strong> einen Beruf in Betrieben und in der Berufsschule."</em><br>
+      🇨🇳 解析：原文明确职业培训持续三年。<br><br>
+      <strong>5. → A) richtig</strong> ✓<br>
+      🇩🇪 原文依据：<em>„<strong>Am Ende</strong> der 12. Klasse machen die Gymnasiasten das Abitur."</em><br>
+      🇨🇳 解析：原文明确说"12年级末"（修改版去掉了 Am Anfang 错误信息），所以题目正确。<br><br>
+      <strong>6. → B) falsch</strong> ❌<br>
+      🇩🇪 原文依据：<em>„Damit bewerben Sie sich um einen Studienplatz an <strong>der Universität oder der Fachhochschule</strong> oder auch um einen Ausbildungsplatz."</em><br>
+      🇨🇳 解析：原文明确列出大学、应用科技大学和学徒岗位三种路径，所以"只能在大学读书"是错的。
+    </div>
+
+  </div>
+</div>
+
+<!-- 各文章的资源已拆分到对应 sub-section 下方 -->
+
+</div>
+</div></div></div>
+
 
 <script>
 // ═══ Section 10 · Hören Teil 1 · 统一批改 ═══
@@ -32069,7 +33070,7 @@ function b1S11ResetFH(){
     if(!page) return;
     const inner = page.querySelector(':scope > div');
     if(!inner) return;
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s5-wrapper','b1l-s5'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s5-wrapper','b1l-s5'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10']].forEach(function(pair){
       const wrapper = document.getElementById(pair[0]);
       const existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
