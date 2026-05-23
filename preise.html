@@ -157,6 +157,60 @@
     .access-card .access-label { min-width: auto; }
     .access-card .access-row { flex-direction: column; gap: 2px; }
   }
+
+  /* ── 小班课程 section ── */
+  .smallclass-section { margin: 28px 0 0; }
+  .smallclass-header {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .smallclass-badge {
+    padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    border: 1px solid #334155; color: #cbd5e1; background: #1e293b;
+    white-space: nowrap;
+  }
+  .smallclass-badge.hl { border-color: #f6d365; color: #f6d365; background: #1e1b18; }
+
+  .smallclass-table-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 780px) { .smallclass-table-wrap { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
+
+  .smallclass-card {
+    background: linear-gradient(180deg, #1a2332 0%, #1e293b 100%);
+    border: 1px solid #334155; border-radius: 20px; padding: 28px 24px 24px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .smallclass-card .scc-icon { font-size: 32px; margin-bottom: 6px; }
+  .smallclass-card .scc-title { font-size: 18px; font-weight: 700; color: #f1f5f9; margin-bottom: 2px; }
+  .smallclass-card .scc-sub  { font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+
+  .scc-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 16px; }
+  @media (max-width: 440px) { .scc-prices { grid-template-columns: 1fr; gap: 8px; } }
+
+  .scc-tier {
+    padding: 14px 8px; border-right: 1px solid #1e293b;
+    position: relative;
+  }
+  .scc-tier:last-child { border-right: none; }
+  .scc-tier .tier-label { font-size: 11px; color: #94a3b8; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .scc-tier .tier-price { font-size: 34px; font-weight: 800; color: #f6d365; line-height: 1; }
+  .scc-tier .tier-unit  { font-size: 11px; color: #64748b; display: block; margin-top: 3px; }
+
+  .scc-features {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    padding-top: 16px; border-top: 1px solid #1e293b;
+  }
+  .scc-features span {
+    font-size: 11px; color: #22c55e; padding: 3px 12px;
+    background: rgba(34,197,94,.08); border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  .smallclass-note {
+    text-align: center; margin-top: 18px; font-size: 12px; color: #64748b; line-height: 1.7;
+  }
+  .smallclass-note strong { color: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -342,6 +396,79 @@
     <span class="big">¥1,297</span><span class="unit"> /年</span>
     <span class="save">单买总价 ¥1,497 · 省 ¥200</span>
   </div>
+</div>
+
+<!-- ═══════════ 德语小班课程 ═══════════ -->
+<div class="section-title">
+  <h2>👥 德语小班课</h2>
+  <p>透明定价 · 灵活组班 · 最多5人 · 课后资料 · 微信答疑</p>
+</div>
+
+<div class="smallclass-section">
+  <div class="smallclass-table-wrap">
+
+    <!-- 标准课 -->
+    <div class="smallclass-card">
+      <div class="scc-icon">📖</div>
+      <div class="scc-title">标准课</div>
+      <div class="scc-sub">约 2~2.5 小时 / 次 · 系统深入</div>
+      <div class="scc-prices">
+        <div class="scc-tier">
+          <div class="tier-label">一对一</div>
+          <div class="tier-price">¥500</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+        <div class="scc-tier">
+          <div class="tier-label">两人班</div>
+          <div class="tier-price">¥300</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+        <div class="scc-tier">
+          <div class="tier-label">三人以上</div>
+          <div class="tier-price">¥260</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+      </div>
+      <div class="scc-features">
+        <span>专属讲解</span>
+        <span>自行组班</span>
+        <span>更划算</span>
+      </div>
+    </div>
+
+    <!-- 轻量课 -->
+    <div class="smallclass-card">
+      <div class="scc-icon">⚡</div>
+      <div class="scc-title">轻量课</div>
+      <div class="scc-sub">约 75 分钟 / 次 · 高频灵活</div>
+      <div class="scc-prices">
+        <div class="scc-tier">
+          <div class="tier-label">一对一</div>
+          <div class="tier-price">¥320</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+        <div class="scc-tier">
+          <div class="tier-label">两人班</div>
+          <div class="tier-price">¥200</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+        <div class="scc-tier">
+          <div class="tier-label">三人以上</div>
+          <div class="tier-price">¥168</div>
+          <div class="tier-unit">/ 人次</div>
+        </div>
+      </div>
+      <div class="scc-features">
+        <span>高频巩固</span>
+        <span>灵活高效</span>
+        <span>轻量划算</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="smallclass-note">
+    💡 以上价格均为 <strong>单人单次</strong> 课费 · 组班后可自行协商上课时间 · 详情咨询微信 <strong>LeonDeutsch</strong>
+  </p>
 </div>
 
 <!-- ═══════════ 优惠政策 ═══════════ -->
