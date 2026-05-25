@@ -462,7 +462,7 @@
     .ex-check-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:2px}
     .btn-ex{background:linear-gradient(90deg,#2b6cb0,#63b3ed);color:#fff;border:none;padding:8px 20px;border-radius:18px;font-size:.88rem;font-weight:600;cursor:pointer;transition:.2s}
     .btn-ex:hover{transform:scale(1.03)}
-    .ex-fb{font-size:.87rem;font-weight:600;color:#2b6cb0;min-height:18px}
+    .ex-fb{font-size:.87rem;font-weight:600;color:#059669;min-height:18px}
 
     /* ── 练习专栏页 ── */
     #page-lianxi{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#2d3748;padding:20px}
@@ -492,7 +492,7 @@
     .lx-mc-item label{display:flex;align-items:center;gap:8px;font-size:.9rem;cursor:pointer;padding:4px 6px;border-radius:6px;transition:background .15s}
     .lx-mc-item label:hover{background:#f3f4f6}
     .lx-mc-item label input[type=radio]{-webkit-appearance:radio;appearance:radio;accent-color:#059669;width:16px;height:16px;min-width:16px;flex-shrink:0;cursor:pointer;border:none;background:none;padding:0;margin:0}
-    .lx-mc-fb{font-size:.8rem;font-weight:600;margin-top:6px;min-height:16px}
+    .lx-mc-fb{font-size:.8rem;font-weight:600;margin-top:6px;min-height:16px;color:#059669}
     .lx-mc-fb.ok{color:#059669} .lx-mc-fb.no{color:#dc2626}
     .lx-check-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px}
     .btn-lx{background:linear-gradient(90deg,#059669,#34d399);color:#fff;border:none;padding:9px 22px;border-radius:18px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.2s}
@@ -571,7 +571,7 @@
     .option.reveal{background:#f0fff4;border-color:#48bb78;color:#276749}
     .option .letter{width:24px;height:24px;border-radius:50%;background:#e9d8fd;color:#6b21a8;font-weight:700;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     /* Score */
-    .q-feedback{font-size:.9rem;margin-top:6px;font-weight:600;min-height:18px}
+    .q-feedback{font-size:.9rem;margin-top:6px;font-weight:600;min-height:18px;color:#059669}
     .q-feedback.ok{color:#276749}
     .q-feedback.no{color:#c53030}
     /* Score panel */
@@ -2283,6 +2283,31 @@
       #page-b1lesen div[style*="font-size:.85rem"][style*="cursor:pointer"] label{font-size:.72rem!important;margin-right:8px!important;display:inline-block!important}
       /* R/F 批改按钮 */
       #page-b1lesen button[onclick="b1S12CheckB()"]{font-size:.78rem!important;padding:6px 14px!important}
+      /* ── Section 1 · Erlebnisbericht Heike Demming ── */
+      /* Georgia 正文缩小 */
+      #page-b1lesen div[style*="max-width:720px"] p{font-size:.82rem!important;line-height:1.7!important}
+      /* b) 问答区 */
+      #page-b1lesen div[style*="background:#e8eaf0"] div[style*="margin-bottom:.5rem"]{font-size:.78rem!important;line-height:1.6!important}
+      #page-b1lesen div[style*="background:#e8eaf0"] span[contenteditable]{min-width:180px!important;font-size:.76rem!important}
+      /* c) MCQ 选项缩小 */
+      #page-b1lesen div[id="b1s1-erlebnis-mcq"] .mcq-item p{font-size:.8rem!important;line-height:1.45!important}
+      #page-b1lesen div[id="b1s1-erlebnis-mcq"] .mcq-options label{font-size:.76rem!important}
+      /* 预习笔记 */
+      #page-b1lesen div[style*="border-left:4px solid #e6a817"]{font-size:.74rem!important;padding:8px 12px!important;line-height:1.55!important}
+      /* 搭配表/Redemittel 表格横向滚动 */
+      #page-b1lesen div[id*="erlebnis-kollokation"] table,
+      #page-b1lesen div[id*="erlebnis-redemittel"] table{font-size:.72rem!important}
+      #page-b1lesen div[id*="erlebnis-kollokation"] td,
+      #page-b1lesen div[id*="erlebnis-redemittel"] td{padding:.25rem .35rem!important}
+      /* 按钮缩小 */
+      #page-b1lesen button[onclick*="erlebnis"]{font-size:.74rem!important;padding:5px 10px!important}
+      /* Easy German 321 MCQ + 表格 */
+      #page-b1lesen div[id="eg321-mcq"] .mcq-item p{font-size:.8rem!important;line-height:1.45!important}
+      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.74rem!important}
+      #page-b1lesen div[id*="eg321-kollokation"] table,
+      #page-b1lesen div[id*="eg321-redemittel"] table{font-size:.72rem!important}
+      #page-b1lesen div[id*="eg321-kollokation"] td,
+      #page-b1lesen div[id*="eg321-redemittel"] td{padding:.25rem .35rem!important}
     }
 
     /* 特小屏（≤380px）：Galaxy Fold / iPhone SE 1st gen 等 */
@@ -2332,6 +2357,15 @@
       /* 特小屏 配对区域 */
       #page-b1lesen div[id="b1s11-lt3-mcq"] select{font-size:.62rem!important;padding:2px 4px!important;min-width:36px!important}
       #page-b1lesen div[id="b1s11-lt3-mcq"] span{font-size:.62rem!important}
+      /* 特小屏 Erlebnisbericht · 全部模块全宽压缩 */
+      #page-b1lesen div[id="b1s1-erlebnis-mcq"] .mcq-item p{font-size:.72rem!important}
+      #page-b1lesen div[id="b1s1-erlebnis-mcq"] .mcq-options label{font-size:.7rem!important}
+      #page-b1lesen div[style*="border-left:4px solid #e6a817"]{font-size:.68rem!important;padding:6px 10px!important}
+      #page-b1lesen div[id*="erlebnis-kollokation"] table,
+      #page-b1lesen div[id*="erlebnis-redemittel"] table{font-size:.66rem!important}
+      /* 特小屏 Easy German 321 */
+      #page-b1lesen div[id="eg321-mcq"] .mcq-item p{font-size:.72rem!important}
+      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.68rem!important}
     }
   </style>
 </head>
@@ -16897,6 +16931,9 @@ function brToggleSample4() {
 #page-b1lesen #b1s9-order-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen #b1s9-fh-score{text-align:center;margin-top:8px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s10-s9-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1s1-erlebnis-mcq-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
+#page-b1lesen #eg321-mcq-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
+#page-b1lesen .score-badge{display:inline-block;background:#1a5a2a;color:#fff;border-radius:2rem;padding:.25rem .9rem;font-size:.85rem;font-weight:700}
 
 /* ═══ Familie Born · 听写填空 Gap 样式 ═══ */
 .b1fb-gap{
@@ -26605,16 +26642,848 @@ function lxqResetMCQ(id) {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
-      <!-- ═══ 30 Jahre Mauerfall — Stimmen aus Berlin ═══ -->
-<!-- 引言 -->
-      <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem">
-        <div style="font-weight:700;color:#1b5e20;font-size:.95rem;margin-bottom:.3rem">🎙️ Echte Berliner sprechen — zwei Jahrestage, zwei Generationen</div>
-        <div style="font-size:.9rem;color:#1b5e20;line-height:1.75">
-          Die Reihe <strong>Easy German</strong> hat Berliner auf der Straße zum Mauerfall befragt — einmal <strong>2014 (25 Jahre)</strong> und einmal <strong>2019 (30 Jahre)</strong>. Diese Aufgabe arbeitet mit zentralen Sätzen und Themen aus diesen authentischen Gesprächen.<br>
-          <strong>a)</strong> Hören Sie sich (wenn möglich) die Originalvideos an. <strong>b)</strong> Lesen Sie die Zitate. <strong>c)</strong> Ordnen Sie zu, welche Aussage zu welchem Thema gehört.
-</div>
+      <!-- ═══ Erlebnisbericht: Heike Demming — voller Text ═══ -->
+      <div style="background:#fff;border:2px solid #1a3a5c;border-radius:12px;padding:0;margin-bottom:1.2rem;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.1)">
+        <div style="background:#1a3a5c;color:#fff;padding:.5rem 1.2rem;font-size:.85rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-weight:700">📰 Erlebnisbericht</span>
+          <span style="font-size:.78rem;opacity:.85">nach: Berliner LOKALES</span>
+        </div>
+        <div style="padding:1.2rem 1.4rem;background:#faf8f0">
+
+          <!-- a) Lesetext mit Zeilennummern -->
+          <div style="margin-bottom:1.2rem">
+            <div style="font-weight:700;color:#1a3a5c;font-size:.9rem;margin-bottom:.5rem">a) Lesen Sie den Erlebnisbericht von Heike Demming.</div>
+            <div style="font-family:Georgia,serif;font-size:.93rem;line-height:1.95;color:#1a1a1a;max-width:720px">
+              <p style="margin:0 0 .6rem">
+                Der Herbst 1989 war eine spannende Zeit! Ich war damals auch auf den Demonstrationen. Zum Beispiel am 4. November in Jena. Es waren 40.000 Menschen gekommen! So etwas hatte ich noch nie erlebt. Viele hatten Plakate dabei und wir riefen immer wieder: „Wir sind das Volk!" Wir hofften damals sehr auf politische Veränderung: Demokratie, mehr Meinungsfreiheit usw.
+              </p>
+              <p style="margin:0 0 .6rem">
+                Aber was dann am 9. November geschah, konnte ich kaum glauben. Ich weiß noch: Mein Mann und ich kamen abends nach Hause, schalteten den Fernseher an und sahen Nachrichten. Da hörten wir plötzlich die Worte „Reisefreiheit" und „offene Grenzen". Ich erinnere mich noch genau, wie wir uns anschauten. Das konnte doch alles gar nicht möglich sein!
+              </p>
+              <p style="margin:0">
+                Wir suchten nach genaueren Informationen. Dann kam die Nachricht, die um die Welt ging: Ab 24 Uhr offene Grenzen und Reisefreiheit für alle DDR-Bürger! Wir waren total überrascht und sehr glücklich und saßen die ganze Nacht vor dem Fernseher. Dann sahen wir die ersten Bilder von der offenen Grenze: Deutsche aus Ost und West, die auf der Mauer standen und tanzten und lachten. Das war eine tolle Nacht!
+              </p>
+            </div>
+
+            <!-- 📖 预习笔记 / Lernwortschatz（直接可见） -->
+            <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+              <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+              • <strong>der Herbst, -e</strong> 秋天 | <em>die Jahreszeit zwischen Sommer und Winter</em><br>
+              • <strong>spannend</strong> 激动人心的 | <em>aufregend, interessant</em><br>
+              • <strong>die Demonstration, -en</strong> 示威游行 | <em>öffentliche politische Versammlung</em><br>
+              • <strong>das Plakat, -e</strong> 标语牌 | <em>großes Schild mit politischer Botschaft</em><br>
+              • <strong>die Veränderung, -en</strong> 变化，改变 | <em>Wandel, Umgestaltung</em><br>
+              • <strong>die Demokratie</strong> 民主 | <em>politisches System mit freien Wahlen</em><br>
+              • <strong>die Meinungsfreiheit</strong> 言论自由 | <em>das Recht, seine Meinung frei zu sagen</em><br>
+              • <strong>geschehen (geschieht, geschah, ist geschehen)</strong> 发生 | <em>passieren, stattfinden</em><br>
+              • <strong>der Fernseher, -</strong> 电视机 | <em>Gerät zum Fernsehen</em><br>
+              • <strong>die Nachricht, -en</strong> 新闻，消息 | <em>Information über aktuelle Ereignisse</em><br>
+              • <strong>die Grenze, -n</strong> 边界，边境 | <em>Trennlinie zwischen Ländern</em><br>
+              • <strong>die Reisefreiheit</strong> 旅行自由 | <em>das Recht, frei zu reisen</em><br>
+              • <strong>überrascht</strong> 惊讶的 | <em>erstaunt, verwundert</em><br>
+              • <strong>glücklich</strong> 幸福的，高兴的 | <em>froh, zufrieden</em><br>
+              • <strong>der Bürger, -</strong> 公民 | <em>Einwohner eines Staates mit Rechten und Pflichten</em><br>
+              • <strong>die Mauer, -n</strong> 墙 | <em>Bauwerk aus Stein; hier: die Berliner Mauer</em>
+            </div>
+          </div>
+
+          <!-- b) Fragen zum Text -->
+          <div style="background:#e8eaf0;border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem">
+            <div style="font-weight:700;color:#1a3a5c;font-size:.9rem;margin-bottom:.6rem">b) Beantworten Sie die Fragen.</div>
+            <div style="font-size:.88rem;line-height:2;color:#1a1a1a">
+              <div style="margin-bottom:.5rem">
+                <strong>1.</strong> Wo war Frau Demming am 4. November 1989?<br>
+                <span style="display:inline-block;min-width:280px;border-bottom:1px dashed #999;padding:0 .5rem;color:#555;font-style:italic" contenteditable="true">In Jena, auf der Demonstration</span>
+              </div>
+              <div style="margin-bottom:.5rem">
+                <strong>2.</strong> Was wollten die Demonstranten damals?<br>
+                <span style="display:inline-block;min-width:320px;border-bottom:1px dashed #999;padding:0 .5rem;color:#555;font-style:italic" contenteditable="true"></span>
+              </div>
+              <div style="margin-bottom:.5rem">
+                <strong>3.</strong> Wie hat Frau Demming von der Öffnung der Grenze erfahren?<br>
+                <span style="display:inline-block;min-width:320px;border-bottom:1px dashed #999;padding:0 .5rem;color:#555;font-style:italic" contenteditable="true"></span>
+              </div>
+              <div>
+                <strong>4.</strong> Wie war ihre erste Reaktion auf die Nachricht?<br>
+                <span style="display:inline-block;min-width:320px;border-bottom:1px dashed #999;padding:0 .5rem;color:#555;font-style:italic" contenteditable="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- c) Richtig / Falsch — MCQ -->
+          <div style="background:#e8eaf0;border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem">
+            <div style="font-weight:700;color:#1a3a5c;font-size:.9rem;margin-bottom:.3rem">c) Welche Aussage passt zu Heike Demmings Bericht? Kreuzen Sie an.</div>
+            <div style="font-size:.8rem;color:#666;margin-bottom:.8rem">Lesen Sie den Text und entscheiden Sie: richtig oder falsch?</div>
+            <div class="mcq-list" id="b1s1-erlebnis-mcq">
+              <div class="mcq-item" data-ans="A">
+                <p><strong>1.</strong> Ich wollte, dass sich die DDR verändert.</p>
+                <div class="mcq-options">
+                  <label><input type="radio" name="b1s1-erlebnis-q1" value="A"> A) richtig</label>
+                  <label><input type="radio" name="b1s1-erlebnis-q1" value="B"> B) falsch</label>
+                </div>
+              </div>
+              <div class="mcq-item" data-ans="B">
+                <p><strong>2.</strong> Ich habe erwartet, dass man die Grenzen öffnet.</p>
+                <div class="mcq-options">
+                  <label><input type="radio" name="b1s1-erlebnis-q2" value="A"> A) richtig</label>
+                  <label><input type="radio" name="b1s1-erlebnis-q2" value="B"> B) falsch</label>
+                </div>
+              </div>
+              <div class="mcq-item" data-ans="B">
+                <p><strong>3.</strong> Ich hatte an diesem Abend Angst, weil die Grenze auf einmal offen war.</p>
+                <div class="mcq-options">
+                  <label><input type="radio" name="b1s1-erlebnis-q3" value="A"> A) richtig</label>
+                  <label><input type="radio" name="b1s1-erlebnis-q3" value="B"> B) falsch</label>
+                </div>
+              </div>
+              <div class="mcq-item" data-ans="A">
+                <p><strong>4.</strong> Das war ein ganz besonderer und sehr langer Tag für mich.</p>
+                <div class="mcq-options">
+                  <label><input type="radio" name="b1s1-erlebnis-q4" value="A"> A) richtig</label>
+                  <label><input type="radio" name="b1s1-erlebnis-q4" value="B"> B) falsch</label>
+                </div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:10px">
+              <button class="btn btn-check" onclick="a2CheckMCQ('b1s1-erlebnis-mcq')">✅ 批改答案</button>
+              <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-explain')">📖 显示/隐藏解析</button>
+              <button class="btn btn-reset" onclick="a2ResetMCQ('b1s1-erlebnis-mcq')">🔄 重置</button>
+            </div>
+            <div id="b1s1-erlebnis-mcq-score" style="text-align:center;margin-top:8px;font-size:.95rem;font-weight:700;min-height:24px"></div>
+            <div class="answer-box" id="b1s1-erlebnis-explain" style="margin-top:10px">
+              <strong>📖 解析 / Erläuterung：</strong><br><br>
+              <strong>1. → A) richtig</strong><br>
+              🇩🇪 原文依据：<em>„Wir hofften damals sehr auf politische Veränderung: Demokratie, mehr Meinungsfreiheit usw."</em><br>
+              🇨🇳 解析：她明确表达了希望DDR发生政治变革的愿望，因此该陈述正确。<br><br>
+              <strong>2. → B) falsch</strong><br>
+              🇩🇪 原文依据：<em>„Das konnte doch alles gar nicht möglich sein!"</em><br>
+              🇨🇳 解析：她听到开放边境的消息时完全不敢相信，说明她根本没有预料到边境会开放，因此"预期到了"是错误的。<br><br>
+              <strong>3. → B) falsch</strong><br>
+              🇩🇪 原文依据：<em>„Wir waren total überrascht und sehr glücklich"</em><br>
+              🇨🇳 解析：她的反应是惊喜和幸福，不是恐惧，因此"感到害怕"是错误的。<br><br>
+              <strong>4. → A) richtig</strong><br>
+              🇩🇪 原文依据：<em>„Wir saßen die ganze Nacht vor dem Fernseher"</em> + <em>„Das war eine tolle Nacht!"</em><br>
+              🇨🇳 解析：她们整夜坐在电视机前，称之为"美妙的一夜"，说明这是一个特别而漫长的一天，因此正确。
+            </div>
+          </div>
+
+          <!-- 📚 词汇表 -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-vocab')" style="margin-bottom:.5rem">📚 显示/隐藏词汇语法</button>
+          <div class="answer-box" id="b1s1-erlebnis-vocab" style="margin-bottom:.8rem">
+            <strong>📚 词汇表 / Wortschatz：</strong><br><br>
+            • <strong>der Herbst, -e</strong> = 秋天 · <strong>spannend</strong> = 激动人心的<br>
+            • <strong>die Demonstration, -en</strong> = 示威游行 · <strong>das Plakat, -e</strong> = 标语牌<br>
+            • <strong>die Veränderung, -en</strong> = 变化，改变 · <strong>die Demokratie</strong> = 民主<br>
+            • <strong>die Meinungsfreiheit</strong> = 言论自由 · <strong>das Volk, -¨er</strong> = 人民<br>
+            • <strong>geschehen (geschieht, geschah, ist geschehen)</strong> = 发生<br>
+            • <strong>der Fernseher, -</strong> = 电视机 · <strong>anschalten</strong> = 打开（电器）<br>
+            • <strong>die Nachricht, -en</strong> = 新闻，消息 · <strong>plötzlich</strong> = 突然<br>
+            • <strong>die Grenze, -n</strong> = 边界，边境 · <strong>die Reisefreiheit</strong> = 旅行自由<br>
+            • <strong>überrascht</strong> = 惊讶的 · <strong>glücklich</strong> = 幸福的，高兴的<br>
+            • <strong>der Bürger, -</strong> = 公民 · <strong>die Mauer, -n</strong> = 墙<br>
+            • <strong>die Wiedervereinigung</strong> = 重新统一 · <strong>der Ost-/Westdeutsche, -n</strong> = 东/西德人<br>
+            • <strong>sich erinnern an + A</strong> = 回忆起 · <strong>kaum</strong> = 几乎不<br>
+            • <strong>der Mauerfall</strong> = 柏林墙倒塌 · <strong>die DDR (Deutsche Demokratische Republik)</strong> = 东德<br>
+            • <strong>die BRD (Bundesrepublik Deutschland)</strong> = 西德/联邦德国
+          </div>
+
+          <!-- 📖 语法解析 -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-grammatik')" style="margin-bottom:.5rem">📖 显示/隐藏语法解析</button>
+          <div class="answer-box" id="b1s1-erlebnis-grammatik" style="margin-bottom:.8rem">
+            <strong>📖 语法解析 / Grammatik：</strong><br><br>
+
+            <strong>1. Präteritum</strong> 书面过去时 | <em>schriftliche Vergangenheit</em><br>
+            🇩🇪 Formel: <em>sein → war / haben → hatte / werden → wurde / kommen → kam</em><br>
+            🇨🇳 规则：不规则动词过去式。本文为第一人称回忆录，全文用 Präteritum。<br>
+            📖 文中例句 / Textbeleg:<br>
+            <em>„Es <strong>waren</strong> 40.000 Menschen gekommen!"</em> — 来了四万人！<br>
+            <em>„Wir <strong>hatten</strong> Plakate dabei und <strong>riefen</strong> immer wieder..."</em> — 我们带着标语牌，不断高呼……<br>
+            ⚠️ 考点：回忆录/新闻报道用 Präteritum（书面），口语对话用 Perfekt。<br><br>
+
+            <strong>2. Perfekt</strong> 口语过去时 | <em>gesprochene Vergangenheit</em><br>
+            🇩🇪 Formel: <em>haben/sein + Partizip II</em><br>
+            🇨🇳 规则：辅助动词 haben/sein + 第二分词。移动/状态变化用 sein。<br>
+            📖 文中例句 / Textbeleg:<br>
+            <em>„Es <strong>sind</strong> 40.000 Menschen <strong>gekommen</strong>!"</em> — 来了四万人！（注：原文此处用 waren gekommen，为 Plusquamperfekt）<br>
+            ⚠️ 考点：kommen/gehen/fahren 用 sein；haben/machen/sagen 用 haben。<br><br>
+
+            <strong>3. dass-Satz</strong> 宾语从句 | <em>Nebensatz mit dass</em><br>
+            🇩🇪 Formel: <em>Hauptsatz, <strong>dass</strong> + Subjekt + ... + <strong>Verb am Ende</strong></em><br>
+            🇨🇳 规则：dass 引导的从句中，变位动词放在句末。<br>
+            📖 文中例句 / Textbeleg:<br>
+            <em>„Ich weiß noch, <strong>dass</strong> mein Mann und ich abends nach Hause <strong>kamen</strong>..."</em> — 我还记得，我丈夫和我晚上回到家……<br>
+            ⚠️ 考点：dass 前必须有逗号，从句动词在末尾。B1 写作必考。<br><br>
+
+            <strong>4. Modalverb: können (Präteritum)</strong> 情态动词 können 的过去式 | <em>Möglichkeit in der Vergangenheit</em><br>
+            🇩🇪 Formel: <em>können → <strong>konnte</strong> + Infinitiv am Ende</em><br>
+            🇨🇳 规则：können 过去式为 konnte，搭配原形动词放句末。<br>
+            📖 文中例句 / Textbeleg:<br>
+            <em>„Das <strong>konnte</strong> doch alles gar nicht möglich <strong>sein</strong>!"</em> — 这一切怎么可能呢！<br>
+            ⚠️ 考点：情态动词过去式 + 原形动词在句末的框架结构（Satzklammer）。<br><br>
+
+            <strong>5. Adjektivdeklination</strong> 形容词词尾变化 | <em>Adjektivendungen</em><br>
+            🇩🇪 Formel: <em>eine spannend<strong>e</strong> Zeit (Nom.) / die ersten Bilder (Akk. Pl.) / auf politisch<strong>e</strong> Veränderung (Akk.)</em><br>
+            🇨🇳 规则：不定冠词后形容词词尾：-er(m)/-e(f)/-es(n)；定冠词后：-e/-e/-e。<br>
+            📖 文中例句 / Textbeleg:<br>
+            <em>„eine spannend<strong>e</strong> Zeit" / „die erst<strong>en</strong> Bilder" / „eine toll<strong>e</strong> Nacht"</em><br>
+            ⚠️ 考点：不定冠词 + 形容词 + 阴性名词 → -e（eine spannende Zeit）。
+          </div>
+
+          <!-- 🏭 背景知识 -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-hintergrund')" style="margin-bottom:.5rem">🏭 显示/隐藏背景知识</button>
+          <div class="answer-box" id="b1s1-erlebnis-hintergrund" style="margin-bottom:.8rem">
+          <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+
+            <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#1a5a2a;font-size:.95rem">🧱 Die Berliner Mauer (1961–1989) / 柏林墙</strong><br>
+              🇩🇪 Die Berliner Mauer wurde am 13. August 1961 gebaut und trennte Ost-Berlin von West-Berlin. Sie war 155 km lang und das bekannteste Symbol des Kalten Krieges. Viele Menschen starben bei Fluchtversuchen. Am 9. November 1989 fiel die Mauer — das war das Ende der deutschen Teilung.<br>
+              🇨🇳 柏林墙建于1961年8月13日，将东柏林与西柏林分隔开来。全长155公里，是冷战最著名的象征。许多人在试图翻越时丧生。1989年11月9日，柏林墙倒塌——标志着德国分裂的终结。
+            </div>
+
+            <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#e65100;font-size:.95rem">🕊️ Die Friedliche Revolution 1989 / 和平革命</strong><br>
+              🇩🇪 Im Herbst 1989 gingen Hunderttausende DDR-Bürger auf die Straße. Sie demonstrierten für Demokratie, Meinungsfreiheit und Reisefreiheit. Die Montagsdemonstrationen in Leipzig, Jena und anderen Städten wurden immer größer. Anders als bei anderen Revolutionen gab es fast keine Gewalt — deshalb heißt sie „Friedliche Revolution".<br>
+              🇨🇳 1989年秋天，数十万东德公民走上街头，为民主、言论自由和旅行自由而示威。莱比锡、耶拿等城市的"星期一示威"规模越来越大。与其他革命不同，这场革命几乎没有暴力——因此被称为"和平革命"。
+            </div>
+
+            <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#0d47a1;font-size:.95rem">📣 „Wir sind das Volk!" / "我们就是人民！"</strong><br>
+              🇩🇪 „Wir sind das Volk!" war der zentrale Ruf der Demonstrationen 1989. Die Menschen wollten damit sagen: Nicht die SED-Partei bestimmt über das Land, sondern die Bürger selbst. Später, nach dem Mauerfall, wurde der Ruf zu „Wir sind ein Volk!" geändert — ein Ausdruck des Wunsches nach Wiedervereinigung.<br>
+              🇨🇳 "我们就是人民！"是1989年示威活动的核心口号。人们想借此表达：不是统一社会党决定国家的命运，而是公民自己。后来柏林墙倒塌后，口号变成了"我们是一个民族！"——表达了人们对德国统一的渴望。
+            </div>
+
+            <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#880e4f;font-size:.95rem">🗓️ Der 9. November — Schicksalstag der Deutschen / 11月9日——德国人的命运之日</strong><br>
+              🇩🇪 Der 9. November ist ein besonderes Datum in der deutschen Geschichte: 1918 — Ausrufung der Republik; 1938 — Reichspogromnacht (NS-Terror gegen Juden); 1989 — Fall der Berliner Mauer. Wegen der positiven und negativen Ereignisse wird er „Schicksalstag der Deutschen" genannt.<br>
+              🇨🇳 11月9日是德国历史上一个特殊的日子：1918年——共和国宣告成立；1938年——"水晶之夜"（纳粹对犹太人的迫害）；1989年——柏林墙倒塌。由于既有正面也有负面事件，这一天被称为"德国人的命运之日"。
+            </div>
+
+            <div style="background:#f3e5f5;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#4a148c;font-size:.95rem">🇩🇪 DDR und BRD / 东德与西德</strong><br>
+              🇩🇪 Nach dem Zweiten Weltkrieg (1945) wurde Deutschland in vier Besatzungszonen geteilt. 1949 entstanden zwei deutsche Staaten: die BRD (Bundesrepublik Deutschland) im Westen und die DDR (Deutsche Demokratische Republik) im Osten. Die DDR war ein sozialistischer Staat mit wenig Freiheit. Am 3. Oktober 1990 wurde Deutschland wiedervereinigt.<br>
+              🇨🇳 二战后（1945年），德国被分为四个占领区。1949年成立了两个德国国家：西部的德意志联邦共和国（BRD）和东部的德意志民主共和国（DDR）。东德是一个缺乏自由的社会主义国家。1990年10月3日，德国重新统一。
+            </div>
+
+            <div style="background:#e8eaf0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+              <strong style="color:#263238;font-size:.95rem">🔄 Wiedervereinigung 1990 / 1990年两德统一</strong><br>
+              🇩🇪 Fast ein Jahr nach dem Mauerfall, am 3. Oktober 1990, wurde Deutschland offiziell wiedervereinigt. Seitdem ist der 3. Oktober Nationalfeiertag — der „Tag der Deutschen Einheit". Der Prozess war wirtschaftlich und sozial sehr schwierig. Noch heute gibt es Unterschiede zwischen Ost und West, zum Beispiel bei Löhnen und Arbeitslosigkeit.<br>
+              🇨🇳 柏林墙倒塌近一年后，1990年10月3日德国正式重新统一。此后，10月3日成为德国的国庆日——"德国统一日"。统一过程在经济和社会层面都非常艰难。至今东西部之间仍然存在差异，例如在工资和失业率方面。
+            </div>
+
+          </div>
+          </div>
+
+          <!-- 🔗 词汇搭配 -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-kollokation')" style="margin-bottom:.5rem">🔗 显示/隐藏词汇搭配</button>
+          <div class="answer-box" id="b1s1-erlebnis-kollokation" style="margin-bottom:.8rem">
+          <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+            <tr style="background:#1a5a2a;color:#fff">
+              <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+              <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+              <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">auf eine Demonstration gehen</td>
+              <td style="padding:8px 12px">参加示威 | <em>an einer Demo teilnehmen</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Am 4. November <strong>gingen</strong> 40.000 Menschen in Jena <strong>auf die Demonstration</strong>.</em><br><span style="color:#666">11月4日，四万人在耶拿参加了示威游行。</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">Plakate dabei haben</td>
+              <td style="padding:8px 12px">带着标语牌 | <em>Schilder mit politischen Slogans tragen</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Viele Demonstranten <strong>hatten Plakate dabei</strong>.</em><br><span style="color:#666">许多示威者带着标语牌。</span></td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">„Wir sind das Volk!" rufen</td>
+              <td style="padding:8px 12px">高呼"我们就是人民！" | <em>den zentralen Demo-Spruch skandieren</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>riefen</strong> immer wieder: <strong>„Wir sind das Volk!"</strong></em><br><span style="color:#666">我们不断高呼："我们就是人民！"</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">auf + A hoffen</td>
+              <td style="padding:8px 12px">希望，指望 | <em>wünschen, dass etw. passiert</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>hofften</strong> damals sehr <strong>auf</strong> politische Veränderung.</em><br><span style="color:#666">我们当时非常希望政治变革。</span></td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">den Fernseher anschalten</td>
+              <td style="padding:8px 12px">打开电视机 | <em>den Fernseher einschalten / anmachen</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir kamen nach Hause und <strong>schalteten den Fernseher an</strong>.</em><br><span style="color:#666">我们回到家，打开了电视机。</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">Nachrichten sehen</td>
+              <td style="padding:8px 12px">看新闻 | <em>die Nachrichtensendung im TV schauen</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>sahen Nachrichten</strong> und hörten plötzlich die Worte...</em><br><span style="color:#666">我们看新闻，突然听到了……的话语。</span></td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">die Grenzen öffnen</td>
+              <td style="padding:8px 12px">开放边境 | <em>die Schließung der Grenze aufheben</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Ab 24 Uhr <strong>offene Grenzen</strong> und Reisefreiheit für alle!</em><br><span style="color:#666">零点起开放边境，所有人享有旅行自由！</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">total überrascht sein</td>
+              <td style="padding:8px 12px">完全惊讶 | <em>sehr erstaunt / perplex sein</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir waren <strong>total überrascht</strong> und sehr glücklich.</em><br><span style="color:#666">我们完全惊呆了，也非常幸福。</span></td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">vor dem Fernseher sitzen</td>
+              <td style="padding:8px 12px">坐在电视机前 | <em>vor dem TV-Gerät sitzen und zuschauen</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>saßen</strong> die ganze Nacht <strong>vor dem Fernseher</strong>.</em><br><span style="color:#666">我们整夜坐在电视机前。</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">auf der Mauer stehen und tanzen</td>
+              <td style="padding:8px 12px">在墙上站着跳舞 | <em>auf der Berliner Mauer feiern</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Deutsche aus Ost und West <strong>standen auf der Mauer und tanzten</strong>.</em><br><span style="color:#666">来自东西德的德国人站在墙上跳舞。</span></td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">eine tolle Nacht</td>
+              <td style="padding:8px 12px">美妙的一夜 | <em>ein wunderbarer, unvergesslicher Abend</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em><strong>Das war eine tolle Nacht!</strong></em><br><span style="color:#666">那是美妙的一夜！</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">sich erinnern an + A</td>
+              <td style="padding:8px 12px">回忆起 | <em>zurückdenken an ein Ereignis</em></td>
+              <td style="padding:8px 12px;font-size:.83rem"><em>Ich <strong>erinnere mich</strong> noch genau <strong>an</strong> diesen Moment.</em><br><span style="color:#666">我仍然清楚地记得那个时刻。</span></td>
+            </tr>
+          </table>
+          </div>
+
+          <!-- 💬 Redemittel -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-redemittel')" style="margin-bottom:.5rem">💬 显示/隐藏常用表达</button>
+          <div class="answer-box" id="b1s1-erlebnis-redemittel" style="margin-bottom:.8rem">
+          <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+            <tr style="background:#1a5a2a;color:#fff">
+              <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+              <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+              <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">描述历史背景</td>
+              <td style="padding:8px 12px"><em>Der Herbst 1989 war eine spannende Zeit.</em></td>
+              <td style="padding:8px 12px">1989年秋天是一个激动人心的时代。</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">表达亲身经历</td>
+              <td style="padding:8px 12px"><em>So etwas hatte ich noch nie erlebt.</em></td>
+              <td style="padding:8px 12px">我从未经历过这样的事情。</td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">引述口号/原话</td>
+              <td style="padding:8px 12px"><em>Wir riefen immer wieder: „Wir sind das Volk!"</em></td>
+              <td style="padding:8px 12px">我们不断高呼："我们就是人民！"</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">表达难以置信</td>
+              <td style="padding:8px 12px"><em>Das konnte doch alles gar nicht möglich sein!</em></td>
+              <td style="padding:8px 12px">这一切怎么可能呢！</td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">讲述回忆</td>
+              <td style="padding:8px 12px"><em>Ich weiß noch: ... / Ich erinnere mich noch genau, wie ...</em></td>
+              <td style="padding:8px 12px">我还记得：…… / 我仍然清楚地记得，……</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">表达情感反应</td>
+              <td style="padding:8px 12px"><em>Wir waren total überrascht und sehr glücklich.</em></td>
+              <td style="padding:8px 12px">我们完全惊呆了，也非常幸福。</td>
+            </tr>
+            <tr style="background:#f9fbe7">
+              <td style="font-weight:700;padding:8px 12px">描述事件序列</td>
+              <td style="padding:8px 12px"><em>Dann kam die Nachricht ... Dann sahen wir die ersten Bilder ...</em></td>
+              <td style="padding:8px 12px">然后消息传来……然后我们看到了第一批画面……</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;padding:8px 12px">总结评价</td>
+              <td style="padding:8px 12px"><em>Das war eine tolle Nacht!</em></td>
+              <td style="padding:8px 12px">那是美妙的一夜！</td>
+            </tr>
+          </table>
+          </div>
+
+          <!-- ✍️ 仿写例句 -->
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-beispiele')" style="margin-bottom:.5rem">✍️ 显示/隐藏仿写例句</button>
+          <div class="answer-box" id="b1s1-erlebnis-beispiele">
+          <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+            <strong>🔹 Muster 1: 描述历史背景 / Historischen Kontext beschreiben</strong><br>
+            🇩🇪 <em><strong>Der Herbst 1989 war</strong> eine spannende Zeit!</em><br>
+            🇨🇳 1989年秋天是一个激动人心的时代！<br>
+            👉 <em>Nachbau: <strong>Der/Die/Das ___ (Jahreszahl) war</strong> eine ___ Zeit.</em><br><br>
+
+            <strong>🔹 Muster 2: 表达从未有过的经历 / Nie dagewesenes Erlebnis ausdrücken</strong><br>
+            🇩🇪 <em><strong>So etwas hatte ich noch nie erlebt.</strong></em><br>
+            🇨🇳 我从未经历过这样的事情。<br>
+            👉 <em>Nachbau: <strong>So einen/eine/ein ___ hatte ich noch nie</strong> ___ (Partizip II).</em><br><br>
+
+            <strong>🔹 Muster 3: 表达难以置信 / Unglauben ausdrücken</strong><br>
+            🇩🇪 <em><strong>Das konnte doch alles gar nicht möglich sein!</strong></em><br>
+            🇨🇳 这一切怎么可能呢！<br>
+            👉 <em>Nachbau: <strong>Das konnte doch gar nicht</strong> ___ (Adjektiv/Infinitiv) <strong>sein!</strong></em><br><br>
+
+            <strong>🔹 Muster 4: 叙述事件序列 / Ereignisfolge schildern</strong><br>
+            🇩🇪 <em><strong>Dann kam die Nachricht</strong>, die um die Welt ging: ...</em><br>
+            🇨🇳 然后消息传来，传遍了全世界：……<br>
+            👉 <em>Nachbau: <strong>Dann</strong> ___ (Verb Präteritum) ___ (Subjekt), der/die/das ___ (Relativsatz).</em><br><br>
+
+            <strong>🔹 Muster 5: 总结评价 / Abschließende Bewertung</strong><br>
+            🇩🇪 <em><strong>Das war eine tolle Nacht!</strong></em><br>
+            🇨🇳 那是美妙的一夜！<br>
+            👉 <em>Nachbau: <strong>Das war ein/eine</strong> ___ (Adjektiv) ___ (Nomen)!</em>
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+  <!-- ═══ Easy German 321 · Berlin 30 Jahre nach dem Mauerfall ═══ -->
+  <div style="background:#fff;border:2px solid #1b5e20;border-radius:12px;overflow:hidden;margin-top:1.2rem;margin-bottom:1.2rem">
+    <!-- 标题栏 -->
+    <div style="background:linear-gradient(135deg,#1b5e20,#2e7d32);padding:16px 24px 18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div style="color:#fff;font-size:1.2rem;font-weight:700">🎬 Easy German · Folge 321</div>
+        <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">YouTube · 2019</span>
+      </div>
+      <div style="color:rgba(255,255,255,.85);font-size:.82rem;margin-top:4px">Berlin – 30 Jahre nach dem Mauerfall · Straßeninterviews mit Berlinern</div>
+    </div>
+
+    <!-- 正文区 -->
+    <div style="padding:20px 24px 24px;font-size:.87rem;line-height:1.85;color:#2d3748">
+
+      <!-- Cari 开场 -->
+      <div style="display:flex;gap:12px;align-items:flex-start;background:#f1f8e9;border-radius:10px;padding:14px 18px;margin-bottom:20px">
+        <div style="width:44px;height:44px;background:#2e7d32;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;flex-shrink:0">C</div>
+        <div style="font-size:.84rem;line-height:1.7">
+          <strong style="color:#1b5e20">Cari (Easy German):</strong> Hallo Leute, wir haben heute Besuch von Rebecca, Katie und Rachel. Sie arbeiten bei <em>The Local</em> und wir machen heute ein gemeinsames Projekt. Und zwar feiern wir in diesen Wochen den 30-jährigen Mauerfall. Am 9. November 1989 ist die Mauer in Berlin gefallen und wir fragen heute Menschen auf der Straße hier in Berlin, wie sich Berlin eigentlich seitdem verändert hat.
+        </div>
+      </div>
+
+      <p style="color:#666;font-style:italic;font-size:.82rem;margin-bottom:20px">🎥 Im Video und gleichzeitig gibt es dazu auch einen Artikel mit weiterführenden Informationen — auf thelocal.de.</p>
+
+      <!-- 🏙️ Abschnitt 1: Wie hat sich Berlin verändert? -->
+      <div style="background:#f1f8e9;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#1b5e20;font-size:.92rem">🏙️ Wie hat sich Berlin verändert?</strong>
+        <p style="margin:8px 0 0">🎤 <em>Wie hat sich Berlin verändert in den letzten 30 Jahren?</em><br>→ Berlin ist <strong>voller</strong> geworden, <strong>bunter</strong>, gefährlicher, lauter.</p>
+        <p style="margin:6px 0 0">🎤 <em>Was hat sich da verändert?</em><br>→ Meine Güte, <strong>alles</strong>. Also die Bevölkerung, der Lebensstandard, die Mieten, die vielen Menschen, die aus allen Ländern und Erdteilen kommen. Es ist <strong>ordentlicher</strong> geworden und <strong>sauberer</strong> und aufgeräumter.</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Äußerlich unendlich viel, weil die ganzen alten Wohnungen, die ganzen alten Häuser mit den <strong>Einschusslöchern</strong>, die da noch drin waren vom Krieg, weil die <strong>saniert</strong> wurden."</p>
+      </div>
+
+      <!-- 🏠 Abschnitt 2: Gentrifizierung -->
+      <div style="background:#fff3e0;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#e65100;font-size:.92rem">🏠 Gentrifizierung &amp; steigende Mieten</strong>
+        <p style="margin:8px 0 0">🎤 <em>Was hat sich für Sie verändert in den letzten 30 Jahren?</em><br>→ Dass ich aus meiner Wohnung <strong>ausziehen musste</strong>, aus der Prenzlauer Allee und hier in diese Ecke.</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Kurz danach hat man kaum noch <strong>alte Menschen</strong> im Prenzlauer Berg gesehen, weil die alle die Wohnung nicht mehr bezahlen konnten und <strong>umgezogen</strong> sind."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Weil sie diese schönen, großen <strong>Altbauwohnungen</strong> nicht mehr bezahlen konnten."</p>
+      </div>
+
+      <!-- 📍 Abschnitt 3: Bernauer Straße -->
+      <div style="background:#e3f2fd;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#0d47a1;font-size:.92rem">📍 Die Bernauer Straße — damals und heute</strong>
+        <p style="margin:8px 0 0">🎤 <em>Was hat sich in Berlin in den letzten 30 Jahren verändert?</em><br>→ Vor 40 Jahren war es ja, da bin ich hier an der <strong>gleichen Stelle</strong> gewesen und habe mir die Bernauer Straße angeschaut. Das ist <strong>erschütternd</strong> damals gewesen und heute hat sich das ja wirklich fantastisch geändert.</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Das war eine der <strong>tödlichsten Ecken</strong> vor 30 Jahren, die es überhaupt gab. Die Mauer ging direkt da lang. Und jetzt ist das hier jeden Sonntag <strong>die Hölle los</strong>. Also so richtig der <strong>Trödelmarkt</strong> und so. Alle Touristen kommen hierhin — so ein <strong>Epizentrum</strong>."</p>
+        <p style="margin:6px 0 0;background:#fff;border-radius:6px;padding:8px 12px;font-size:.82rem">🔍 Auch heute noch kann man sehen, wo in Berlin damals die Mauer stand. Denn überall dort gibt es heute noch eine Linie aus <strong>Pflastersteinen</strong>.</p>
+      </div>
+
+      <!-- 🧱 Abschnitt 4: Persönliche Erinnerungen -->
+      <div style="background:#fce4ec;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#880e4f;font-size:.92rem">🧱 Persönliche Erinnerungen an den Mauerfall</strong>
+        <p style="margin:8px 0 0">🎤 <em>Wo kommen Sie her?</em><br>→ Aus West… Ich komme aus <strong>Ostberlin</strong>.</p>
+        <p style="margin:6px 0 0">→ Ich bin total froh über den Fall der Mauer, weil man <strong>reisen</strong> konnte. Und das war die Hauptsache.</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Ich habe als Kind den Mauerbau, zwar im Fernsehen, aber sehr bewusst miterlebt. Und habe damals als Kind <strong>geheult</strong> und genauso sind mir die Tränen gekommen, als die Mauer fiel. Ich fand das <strong>großartig</strong>."</p>
+        <p style="margin:6px 0 0">→ Ich war ungefähr 22, habe <strong>geschlafen</strong> leider. Aber am nächsten Morgen habe ich mein Kind in die <strong>Kinderkrippe</strong> gebracht. Und bin mit meiner Mutter <strong>in den Westen</strong> gefahren.</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„War <strong>unglaublich</strong>. Sind wir erst auf dem <strong>Ku'damm</strong>. Dann bin ich wieder zurück, habe mein Kind abgeholt und bin abends an der Kreuzberg. Es war einfach <strong>irre</strong> für uns. Als <strong>Ostdeutsche</strong> war das <strong>Wahnsinn</strong>. Damit haben wir nicht gerechnet."</p>
+      </div>
+
+      <!-- 📺 Abschnitt 5: Die Nacht des Mauerfalls -->
+      <div style="background:#ede7f6;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#4a148c;font-size:.92rem">📺 Die Nacht des Mauerfalls</strong>
+        <p style="margin:8px 0 0;font-style:italic;color:#555">„Man hat in den letzten Tagen, Wochen ständig <strong>Nachrichten</strong> gehört. Um 19 Uhr habe ich gesehen, oh, <strong>die Mauer ist auf</strong>."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Ich habe dann meine Gastgeber angerufen. Ich habe gesagt, wir lassen das mit dem Essen. Wir müssen jetzt <strong>Fernsehen gucken</strong>. Weil das sind so beeindruckende, <strong>berührende</strong> Bilder."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Ich habe selbst <strong>geweint</strong>, als ich gesehen habe, wie die Ostberliner nach Westberlin gekommen sind. Und die Westberliner haben dann so auf die <strong>Trabis</strong> draufgeschlagen und haben gesagt: ‚Toll, <strong>geil</strong>!' Das war das Hauptwort: <strong>Wahnsinn</strong>."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Ich bin dann in dieser Nacht noch zur Mauer gefahren. Habe <strong>fünf Stunden</strong> gebraucht. Und es war unglaublich."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Also ich habe auch am Ku'damm gewohnt und ich konnte <strong>14 Tage</strong> nicht in meine Wohnung. Weil es war so voll, dass man nirgendswo mehr parken konnte."</p>
+      </div>
+
+      <!-- 🖼️ Abschnitt 6: Schwedter Straße -->
+      <div style="background:#e8eaf0;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#37474f;font-size:.92rem">🖼️ An der Schwedter Straße</strong>
+        <p style="margin:6px 0 0;font-size:.82rem;color:#666;font-style:italic">Cari steht an der Schwedter Straße, wo früher auch die Mauer stand. An der Hauswand hinter ihr sieht man, wie es 1989 aussah, als die Mauer geöffnet wurde.</p>
+        <p style="margin:8px 0 0">🎤 <em>Wie haben Sie den Mauerfall erlebt?</em><br>→ Das war eine ganz tolle Sache. Das war <strong>sagenhaft</strong>, <strong>friedlich</strong>, dass das so rumging. So ein <strong>Regime</strong>, so ein Staat, der so dastand, einfach das aufzugeben.</p>
+        <p style="margin:6px 0 0">🎤 <em>Wo waren Sie zu der Zeit?</em><br>→ In <strong>Thüringen</strong>. In Erfurt. Ich wollte am liebsten gleich <strong>losfahren</strong> über die Grenze.</p>
+      </div>
+
+      <!-- ⚖️ Abschnitt 7: Positiv & Negativ -->
+      <div style="background:#fff8e1;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#f57f17;font-size:.92rem">⚖️ Positiv &amp; Negativ — Die Bilanz nach 30 Jahren</strong>
+        <p style="margin:8px 0 0;font-style:italic;color:#555">„Also negative Sachen gibt es nicht. Es hat sich grundsätzlich mal irgendwie das Leben der Stadt total geändert. Weil vorher waren es <strong>zwei Städte</strong>. Und das ist halt wirklich mal <strong>zusammengewachsen</strong>."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Also negativ ist natürlich, dass die <strong>Preise immens hochgegangen</strong> sind, gerade fürs Wohnen. Aber das Schöne ist, dass es wirklich <strong>internationaler</strong> geworden ist und auch viele <strong>junge Leute</strong> nachgekommen sind."</p>
+      </div>
+
+      <!-- 🌍 Abschnitt 8: Multikulturelles Berlin -->
+      <div style="background:#e0f2f1;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#00695c;font-size:.92rem">🌍 Das multikulturelle Berlin</strong>
+        <p style="margin:8px 0 0;font-style:italic;color:#555">„Es sind viele <strong>Sprachen</strong> schon hier bekannt in Berlin. Gerade hier am Prenzlauer Berg ist ein <strong>Multikulti-Land</strong> hier. Man muss nur auf den <strong>Spielplatz</strong> gehen und kann alle Sprachen der Welt hören."</p>
+        <p style="margin:6px 0 0">🎤 <em>Und nervt Sie das ab und zu oder genießen Sie das?</em><br>→ Ich <strong>freue</strong> mich darüber. Weil das wichtig ist. Dass man auf der ganzen Welt zu verstehen ist und sich zu verstehen geben kann. Und die Kinder lernen <strong>spielend</strong>.</p>
+      </div>
+
+      <!-- 🕊️ Abschnitt 9: Die Wende -->
+      <div style="background:#f3e5f5;border-radius:8px;padding:14px 18px;margin-bottom:12px">
+        <strong style="color:#6a1b9a;font-size:.92rem">🕊️ Die Wende — Glück und Herausforderung</strong>
+        <p style="margin:8px 0 0;font-style:italic;color:#555">„Also zum Besseren hat sich gewendet, dass ich ohne die <strong>Wende</strong> meine eigentliche Arbeit nicht gefunden hätte. Das war ein großes <strong>Glück</strong> für mich."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Dass die Mauer gefallen ist, ist das Beste. Die Menschen, die zusammenleben, manches lernen müssen, <strong>neu lernen</strong> müssen. Jeder hat seine Vorstellung von gewissen Lebensweisheiten. Das muss man <strong>zusammenbringen</strong>."</p>
+        <p style="margin:6px 0 0;font-style:italic;color:#555">„Aber ich sage, wer kennt denn sonst von Thüringen jemanden aus Niedersachsen. Man muss sich einfach <strong>zuhören</strong>, man muss <strong>aufeinander zugehen</strong>. Und das ist wichtig."</p>
+      </div>
+
+      <!-- Pull Quote -->
+      <div style="background:linear-gradient(135deg,rgba(27,94,32,.08),rgba(46,125,50,.04));border:1px solid rgba(27,94,32,.2);border-radius:10px;padding:14px 20px;margin:16px 0;font-size:.9rem;text-align:center;color:#1b5e20;font-weight:600">
+        „Man muss sich einfach zuhören, man muss aufeinander zugehen. Und das ist wichtig."
+      </div>
+
+      <!-- 📖 预习笔记（直接可见） -->
+      <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:14px 18px;margin-top:16px;font-size:.84rem;line-height:1.8;color:#5d4037">
+        <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+        • <strong>der Mauerfall</strong> 柏林墙倒塌 | <em>das Ende der Berliner Mauer am 9. November 1989</em><br>
+        • <strong>die Mauer, -n</strong> 墙（特指柏林墙） | <em>die Wand, die Ost- und Westberlin trennte</em><br>
+        • <strong>die Wiedervereinigung</strong> 两德统一 | <em>die Vereinigung von DDR und BRD 1990</em><br>
+        • <strong>die Gentrifizierung</strong> 绅士化 | <em>Prozess, bei dem ärmere Bewohner aus einem Stadtteil verdrängt werden</em><br>
+        • <strong>die Altbauwohnung, -en</strong> 老式公寓 | <em>Wohnung in einem Haus aus der Zeit vor 1945, oft hohe Decken</em><br>
+        • <strong>die Einschusslöcher (Pl.)</strong> 弹孔 | <em>Löcher von Kugeln im Zweiten Weltkrieg</em><br>
+        • <strong>sanieren</strong> 修缮、翻新 | <em>ein altes Gebäude reparieren und modernisieren</em><br>
+        • <strong>der Trödelmarkt, -¨e</strong> 跳蚤市场 | <em>Markt, auf dem gebrauchte Dinge verkauft werden</em><br>
+        • <strong>erschütternd</strong> 令人震惊的 | <em>emotional sehr stark bewegend, schockierend</em><br>
+        • <strong>die Pflastersteine (Pl.)</strong> 铺路石 | <em>Steine auf dem Boden; in Berlin markieren sie den ehemaligen Mauerverlauf</em><br>
+        • <strong>der Trabi, -s</strong> 特拉比（东德小车） | <em>Trabant, das typische Auto der DDR</em><br>
+        • <strong>die Kinderkrippe, -n</strong> 托儿所 | <em>Betreuung für Kinder unter 3 Jahren (DDR-Begriff)</em><br>
+        • <strong>der Ku'damm (Kurfürstendamm)</strong> 选帝侯大街 | <em>berühmte Einkaufsstraße in Westberlin</em><br>
+        • <strong>der Wahnsinn</strong> 疯狂、不可思议 | <em>etwas Unglaubliches, Verrücktes</em><br>
+        • <strong>zusammenwachsen</strong> 融合、共同成长 | <em>langsam eine Einheit werden</em><br>
+        • <strong>aufeinander zugehen</strong> 互相走近 | <em>Kontakt aufnehmen, sich einander annähern</em><br>
+      </div>
+
+    </div><!-- /正文区 -->
+  </div><!-- /Easy German 321 主卡片 -->
+
+  <!-- ═══ Easy German 321 · 词汇表 ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-vocab')" style="margin-top:10px">📚 显示/隐藏词汇表 — Easy German 321</button>
+  <div class="answer-box" id="eg321-vocab" style="font-size:.86rem;line-height:2;color:#2d3748">
+    • <strong>der Mauerfall</strong> = 柏林墙倒塌 · <strong>die Mauer, -n</strong> = 墙（特指柏林墙）<br>
+    • <strong>die Wende, -n</strong> = 转折、两德统一 · <strong>die Wiedervereinigung</strong> = 两德统一<br>
+    • <strong>die Gentrifizierung</strong> = 绅士化（城区改造致原住民被迫迁出）<br>
+    • <strong>die Altbauwohnung, -en</strong> = 老式公寓（战前建筑，高层高、木地板）<br>
+    • <strong>die Einschusslöcher (Pl.)</strong> = 弹孔 · <strong>die Pflastersteine (Pl.)</strong> = 铺路石<br>
+    • <strong>der Trödelmarkt, -¨e</strong> = 跳蚤市场 · <strong>der Trabi, -s (Trabant)</strong> = 特拉比（东德小车）<br>
+    • <strong>die Kinderkrippe, -n</strong> = 托儿所（东德用语） · <strong>der Ku'damm</strong> = 选帝侯大街<br>
+    • <strong>sanieren</strong> = 修缮、翻新 · <strong>erschütternd</strong> = 令人震惊的、震撼的<br>
+    • <strong>bewegend / berührend</strong> = 感人的 · <strong>plötzlich</strong> = 突然地<br>
+    • <strong>zusammenwachsen (wächst zusammen, wuchs zusammen, ist zusammengewachsen)</strong> = 融合<br>
+    • <strong>aufeinander zugehen</strong> = 互相走近 · <strong>der Wahnsinn</strong> = 疯狂、不可思议<br>
+    • <strong>die DDR</strong> = 东德 · <strong>die BRD</strong> = 西德 · <strong>Ostberlin / Westberlin</strong> = 东/西柏林<br>
+    • <strong>Ostdeutsche / Westdeutsche</strong> = 东德人 / 西德人 · <strong>der Lebensstandard</strong> = 生活水平<br>
+    • <strong>das Regime, -s</strong> = 政权 · <strong>die Grenze, -n</strong> = 边界 · <strong>sagenhaft</strong> = 传奇般的<br>
+  </div>
+
+  <!-- ═══ Easy German 321 · 语法解析 ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-grammatik')">📖 显示/隐藏语法解析 — Easy German 321</button>
+  <div class="answer-box" id="eg321-grammatik" style="font-size:.86rem;line-height:1.85;color:#2d3748">
+
+    <strong>1. Präteritum</strong> 书面过去时 | <em>schriftliche Vergangenheit</em><br>
+    🇩🇪 Formel: <em>sein → war / haben → hatte / werden → wurde / geben → gab</em><br>
+    🇨🇳 规则：口语用 Perfekt（hat…gesehen），书面叙述用 Präteritum（war, hatte, gab）。采访中两种混合出现。<br>
+    📖 文中例句 / Textbeleg:<br>
+    <em>„Das <strong>war</strong> eine der tödlichsten Ecken, die es überhaupt <strong>gab</strong>."</em> — 那是当时最致命的地段之一。<br>
+    ⚠️ 考点：B1 写作中描述过去事件时，sein/haben/werden 用 Präteritum，其他动词可用 Perfekt。<br><br>
+
+    <strong>2. weil-Satz（原因从句）</strong> 原因从句 | <em>Kausalsatz</em><br>
+    🇩🇪 Formel: <em>Hauptsatz, weil + Subjekt + … + Verb (am Ende).</em><br>
+    🇨🇳 规则：weil 引导的原因从句，变位动词放在从句末尾。<br>
+    📖 文中例句 / Textbeleg:<br>
+    <em>„Ich bin total froh über den Fall der Mauer, <strong>weil</strong> man reisen <strong>konnte</strong>."</em> — 我很高兴柏林墙倒塌了，因为可以旅行了。<br>
+    ⚠️ 考点：口语中常有人说 "weil man konnte reisen"（动词不在末尾），但考试中必须动词置尾。<br><br>
+
+    <strong>3. Plusquamperfekt</strong> 过去完成时 | <em>Vorvergangenheit</em><br>
+    🇩🇪 Formel: <em>hatte/war + Partizip II</em><br>
+    🇨🇳 规则：表示过去之过去（在 Präteritum 之前发生的事情）。口语中较少使用，常用 Perfekt 替代。<br>
+    📖 文中例句 / Textbeleg:<br>
+    <em>„Ich <strong>hatte</strong> ein einjähriges Kind."</em> — 我当时有一个一岁的孩子。<br>
+    ⚠️ 考点：B1 阅读中识别即可，写作中用 Präteritum/Perfekt 通常足够。<br><br>
+
+    <strong>4. Komparativ + werden</strong> 比较级 + 变得 | <em>Veränderung ausdrücken</em><br>
+    🇩🇪 Formel: <em>Adjektiv + -er + werden / sein</em><br>
+    🇨🇳 规则：用形容词比较级 + werden 表达变化趋势。<br>
+    📖 文中例句 / Textbeleg:<br>
+    <em>„Berlin ist <strong>voller</strong> geworden, <strong>bunter</strong>, gefährlicher, lauter."</em> — 柏林变得更拥挤、更多元、更危险、更喧闹。<br>
+    ⚠️ 考点：viel → mehr, gut → besser, hoch → höher 是不规则比较级，考试高频。<br><br>
+
+    <strong>5. Modalpartikeln</strong> 情态小品词 | <em>Abtönungspartikeln</em><br>
+    🇩🇪 Formel: <em>denn / ja / mal / halt / eigentlich</em>（不影响句意，表达语气）<br>
+    🇨🇳 规则：口语高频使用，表达惊讶、强调、缓和等语气，书面语少用。<br>
+    📖 文中例句 / Textbeleg:<br>
+    <em>„Wer kennt <strong>denn</strong> sonst von Thüringen jemanden aus Niedersachsen?"</em> — 不然图林根的人怎么认识下萨克森的人呢？<br>
+    <em>„Das ist <strong>halt</strong> wirklich mal zusammengewachsen."</em> — 这确实真正融合了。<br>
+    ⚠️ 考点：理解听力/阅读中的语气即可，B1 写作中不强制要求使用。
+
+  </div>
+
+  <!-- ═══ Easy German 321 · 背景知识 ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-hintergrund')">🏭 显示/隐藏背景知识 — Easy German 321</button>
+  <div class="answer-box" id="eg321-hintergrund" style="font-size:.87rem;line-height:1.85;color:#2d3748">
+
+    <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <strong style="color:#1a5a2a;font-size:.95rem">🧱 Die Berliner Mauer (1961–1989)</strong><br>
+      🇩🇪 Die Berliner Mauer wurde am 13. August 1961 von der DDR gebaut. Sie trennte Ostberlin von Westberlin. 28 Jahre lang war die Stadt geteilt. Viele Menschen starben bei Fluchtversuchen. Am 9. November 1989 fiel die Mauer. Das war das Ende der deutschen Teilung.<br>
+      🇨🇳 柏林墙于1961年8月13日由东德修建，将东柏林与西柏林分隔开来。28年间城市分裂，许多人在试图翻墙逃亡时死亡。1989年11月9日柏林墙倒塌，标志着德国分裂的结束。
+    </div>
+
+    <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <strong style="color:#e65100;font-size:.95rem">🏘️ Prenzlauer Berg</strong><br>
+      🇩🇪 Prenzlauer Berg ist ein Stadtteil im Osten Berlins. Vor der Wende war es ein Arbeiterbezirk mit vielen alten, nicht renovierten Häusern. Nach 1990 wurde der Stadtteil saniert und wurde zu einem der beliebtesten Wohngebiete Berlins. Die Mieten stiegen stark. Viele ältere Bewohner mussten wegziehen.<br>
+      🇨🇳 普伦茨劳贝格是柏林东部的一个城区。柏林墙倒塌前是工人区，有许多未经翻修的老房子。1990年后城区被改造，成为柏林最受欢迎的住宅区之一，房租大幅上涨，许多老居民被迫搬离。
+    </div>
+
+    <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <strong style="color:#0d47a1;font-size:.95rem">📍 Bernauer Straße</strong><br>
+      🇩🇪 Die Bernauer Straße war ein symbolischer Ort der deutschen Teilung. Die Mauer verlief direkt an dieser Straße. Die Häuser auf der Ostseite standen in Ostberlin, die Straße selbst gehörte zu Westberlin. Viele Menschen sprangen aus den Fenstern in den Westen. Heute ist dort die Gedenkstätte Berliner Mauer.<br>
+      🇨🇳 贝尔瑙大街是德国分裂的象征性地标。柏林墙沿此街而建，东侧的房屋属于东柏林，而街道本身属于西柏林。许多人从窗户跳下逃向西德。如今这里设有柏林墙纪念馆。
+    </div>
+
+    <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <strong style="color:#880e4f;font-size:.95rem">🚗 Der Trabi (Trabant)</strong><br>
+      🇩🇪 Der Trabant, kurz „Trabi", war das meistverkaufte Auto in der DDR. Er hatte einen kleinen Zweitaktmotor und eine Karosserie aus Kunststoff. Die Wartezeit für einen neuen Trabi betrug bis zu 15 Jahre. Nach dem Mauerfall sah man Tausende Trabis auf den Straßen Westberlins — ein Symbol der Wiedervereinigung.<br>
+      🇨🇳 特拉班特（简称"特拉比"）是东德销量最高的汽车，采用小型二冲程发动机和塑料车身。购买新特拉比的等待时间长达15年。柏林墙倒塌后，成千上万辆特拉比出现在西柏林街头，成为统一的象征。
+    </div>
+
+  </div>
+
+  <!-- ═══ Easy German 321 · 词汇搭配 ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-kollokation')">🔗 显示/隐藏词汇搭配 — Easy German 321</button>
+  <div class="answer-box" id="eg321-kollokation">
+  <table style="width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6">
+    <tr style="background:#1b5e20;color:#fff">
+      <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+      <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+      <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">die Mauer fällt</td>
+      <td style="padding:8px 12px">柏林墙倒塌 | <em>die Mauer öffnet sich</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Am 9. November 1989 <strong>fiel die Mauer</strong>.</em><br><span style="color:#666">1989年11月9日，柏林墙倒塌了。</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">eine Wohnung nicht mehr bezahlen können</td>
+      <td style="padding:8px 12px">付不起房租 | <em>sich die Miete nicht mehr leisten können</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Viele Alte <strong>konnten ihre Wohnung nicht mehr bezahlen</strong>.</em><br><span style="color:#666">许多老人再也付不起房租了。</span></td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">aus der Wohnung ausziehen müssen</td>
+      <td style="padding:8px 12px">被迫搬出公寓 | <em>gezwungen sein, die Wohnung zu verlassen</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Ich <strong>musste aus meiner Wohnung ausziehen</strong>.</em><br><span style="color:#666">我不得不从我的公寓搬出来。</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">die Hölle ist los</td>
+      <td style="padding:8px 12px">热闹非凡、人山人海 | <em>es ist sehr voll und laut, viel los</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Jetzt ist hier jeden Sonntag <strong>die Hölle los</strong>.</em><br><span style="color:#666">现在每个星期天这里都热闹非凡。</span></td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">Tränen kommen jdm.</td>
+      <td style="padding:8px 12px">流泪 | <em>weinen, emotional berührt sein</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Mir <strong>sind die Tränen gekommen</strong>, als die Mauer fiel.</em><br><span style="color:#666">柏林墙倒塌时我流泪了。</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">in den Westen fahren</td>
+      <td style="padding:8px 12px">去西德 | <em>nach Westdeutschland reisen</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Ich bin mit meiner Mutter <strong>in den Westen gefahren</strong>.</em><br><span style="color:#666">我和妈妈去了西德。</span></td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">nicht damit rechnen</td>
+      <td style="padding:8px 12px">没预料到 | <em>etwas nicht erwarten</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Damit <strong>haben</strong> wir <strong>nicht gerechnet</strong>.</em><br><span style="color:#666">我们没预料到这个。</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">sich gut/schlecht verändern</td>
+      <td style="padding:8px 12px">变好/变坏 | <em>positiv/negativ anders werden</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Einiges hat <strong>sich zum Guten, einiges zum Schlechten verändert</strong>.</em><br><span style="color:#666">有些事情变好了，有些事情变坏了。</span></td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">aufeinander zugehen</td>
+      <td style="padding:8px 12px">互相走近、主动交流 | <em>aktiv Kontakt suchen, sich annähern</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Man muss <strong>aufeinander zugehen</strong>.</em><br><span style="color:#666">人们必须互相走近。</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">Friedlich sein</td>
+      <td style="padding:8px 12px">和平的 | <em>ohne Gewalt</em></td>
+      <td style="padding:8px 12px;font-size:.81rem"><em>Das war <strong>friedlich</strong>, dass das so rumging.</em><br><span style="color:#666">这件事就这样和平地过去了。</span></td>
+    </tr>
+  </table>
+  </div>
+
+  <!-- ═══ Easy German 321 · Redemittel ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-redemittel')">💬 显示/隐藏常用表达 — Easy German 321</button>
+  <div class="answer-box" id="eg321-redemittel">
+  <table style="width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6">
+    <tr style="background:#1b5e20;color:#fff">
+      <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+      <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+      <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">描述变化 / Veränderung beschreiben</td>
+      <td style="padding:8px 12px"><em>Berlin ist voller, bunter und internationaler geworden.</em></td>
+      <td style="padding:8px 12px">柏林变得更拥挤、更多元、更国际化。</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">对比过去和现在 / früher vs. heute</td>
+      <td style="padding:8px 12px"><em>Früher war das eine tödliche Ecke, heute ist hier ein Trödelmarkt.</em></td>
+      <td style="padding:8px 12px">过去那是一个致命的地段，今天这里有个跳蚤市场。</td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">表达感受 / Gefühle ausdrücken</td>
+      <td style="padding:8px 12px"><em>Ich fand das großartig. / Es war einfach irre für uns.</em></td>
+      <td style="padding:8px 12px">我觉得这太棒了。/ 对我们来说简直疯了。</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">表达遗憾 / Bedauern ausdrücken</td>
+      <td style="padding:8px 12px"><em>Oh Mist! Das tut mir leid.</em></td>
+      <td style="padding:8px 12px">哎呀！我很难过/遗憾。</td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">表达观点 / Meinung äußern</td>
+      <td style="padding:8px 12px"><em>Also negative Sachen gibt es nicht. / Das ist das Beste.</em></td>
+      <td style="padding:8px 12px">没有负面的事。/ 这是最好的。</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">表达重要性 / Wichtigkeit betonen</td>
+      <td style="padding:8px 12px"><em>Man muss sich einfach zuhören. Und das ist wichtig.</em></td>
+      <td style="padding:8px 12px">人们必须互相倾听。这很重要。</td>
+    </tr>
+    <tr style="background:#f9fbe7">
+      <td style="font-weight:700;padding:8px 12px">引述他人观点 / Fremde Meinung wiedergeben</td>
+      <td style="padding:8px 12px"><em>Viele sagen, dass die Mieten zu hoch sind.</em></td>
+      <td style="padding:8px 12px">很多人说房租太高了。</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;padding:8px 12px">平衡观点 / Vor- und Nachteile nennen</td>
+      <td style="padding:8px 12px"><em>Einiges hat sich zum Guten und einiges zum Schlechten verändert.</em></td>
+      <td style="padding:8px 12px">有些事情变好了，有些事情变坏了。</td>
+    </tr>
+  </table>
+  </div>
+
+  <!-- ═══ Easy German 321 · 仿写例句 ═══ -->
+  <button class="btn btn-show" onclick="a2ToggleAns('eg321-beispiele')">✍️ 显示/隐藏仿写例句 — Easy German 321</button>
+  <div class="answer-box" id="eg321-beispiele" style="font-size:.86rem;line-height:1.9;color:#2d3748">
+
+    <strong>🔹 Muster 1: 描述城市变化（Komparativ + werden）</strong><br>
+    🇩🇪 <em>Berlin ist <strong>voller</strong>, <strong>bunter</strong> und <strong>internationaler</strong> geworden.</em><br>
+    🇨🇳 柏林变得更拥挤、更多元、更国际化了。<br>
+    👉 <em>Nachbau: ___ ist ___ (Adj.-er) , ___ (Adj.-er) und ___ (Adj.-er) geworden.</em><br><br>
+
+    <strong>🔹 Muster 2: 表达原因（weil + 动词置尾）</strong><br>
+    🇩🇪 <em>Ich bin froh, <strong>weil</strong> man jetzt überall hin reisen <strong>kann</strong>.</em><br>
+    🇨🇳 我很高兴，因为现在可以到处旅行了。<br>
+    👉 <em>Nachbau: Ich bin ___ , weil ___ (Subjekt) ___ (Objekt) ___ (Verb am Ende).</em><br><br>
+
+    <strong>🔹 Muster 3: 描述过去之过去（Plusquamperfekt）</strong><br>
+    🇩🇪 <em>Ich <strong>hatte</strong> die Nachrichten im Fernsehen <strong>gesehen</strong>, dann bin ich zur Mauer gefahren.</em><br>
+    🇨🇳 我在电视上看了新闻，然后我就去柏林墙了。<br>
+    👉 <em>Nachbau: Ich hatte ___ (Partizip II), dann ___ (Präteritum/Perfekt) ich ___.</em><br><br>
+
+    <strong>🔹 Muster 4: 对比 früher vs. heute</strong><br>
+    🇩🇪 <em><strong>Früher war</strong> hier die Mauer, <strong>heute ist</strong> hier ein Trödelmarkt.</em><br>
+    🇨🇳 过去这里是柏林墙，今天这里是个跳蚤市场。<br>
+    👉 <em>Nachbau: Früher war/en ___ (Nomen/Nom.), heute ist/sind ___ (Nomen/Nom.).</em><br><br>
+
+    <strong>🔹 Muster 5: 表达"必须互相……"（Modalverb + Reziprok）</strong><br>
+    🇩🇪 <em>Man <strong>muss</strong> sich einfach <strong>zuhören</strong> und <strong>aufeinander zugehen</strong>.</em><br>
+    🇨🇳 人们必须互相倾听、互相走近。<br>
+    👉 <em>Nachbau: Man muss sich ___ (Infinitiv) und ___ (Infinitiv mit zu/Präfix).</em><br><br>
+
+  </div>
+
+  <!-- ═══ Easy German 321 · 互动练习 ═══ -->
+  <div style="background:#f1f8e9;border-radius:12px;padding:18px 22px;margin-top:20px;border:1px solid #c8e6c9">
+    <strong style="color:#1b5e20;font-size:.95rem">📝 互动练习 — Easy German 321</strong>
+    <p style="font-size:.82rem;color:#555;margin:4px 0 12px">Ordnen Sie zu: Welche Aussage gehört zu welchem Thema?</p>
+
+    <div class="mcq-list" id="eg321-mcq">
+
+      <div class="mcq-item" data-ans="A" style="margin-bottom:14px">
+        <p style="font-weight:600;color:#2d3748">1. „Ich bin total froh über den Fall der Mauer, weil man reisen konnte." — Worüber spricht die Person?</p>
+        <div class="mcq-options" style="font-size:.84rem">
+          <label style="margin-right:18px"><input type="radio" name="eg321-q1" value="A"> A) Reisefreiheit nach dem Mauerfall</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q1" value="B"> B) Die steigenden Mieten in Berlin</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q1" value="C"> C) Der Trödelmarkt an der Bernauer Straße</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-ans="B" style="margin-bottom:14px">
+        <p style="font-weight:600;color:#2d3748">2. „Kurz danach hat man kaum noch alte Menschen im Prenzlauer Berg gesehen." — Was ist der Grund?</p>
+        <div class="mcq-options" style="font-size:.84rem">
+          <label style="margin-right:18px"><input type="radio" name="eg321-q2" value="A"> A) Sie sind alle in den Westen gezogen.</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q2" value="B"> B) Sie konnten die Wohnung nicht mehr bezahlen.</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q2" value="C"> C) Es gab keine alten Wohnungen mehr.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-ans="A" style="margin-bottom:14px">
+        <p style="font-weight:600;color:#2d3748">3. „Das war eine der tödlichsten Ecken vor 30 Jahren." — Welcher Ort ist gemeint?</p>
+        <div class="mcq-options" style="font-size:.84rem">
+          <label style="margin-right:18px"><input type="radio" name="eg321-q3" value="A"> A) Die Bernauer Straße</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q3" value="B"> B) Der Kurfürstendamm</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q3" value="C"> C) Der Prenzlauer Berg</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-ans="C" style="margin-bottom:14px">
+        <p style="font-weight:600;color:#2d3748">4. Welches Wort beschreibt die Reaktion der Ostberliner am 9. November 1989?</p>
+        <div class="mcq-options" style="font-size:.84rem">
+          <label style="margin-right:18px"><input type="radio" name="eg321-q4" value="A"> A) Traurig</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q4" value="B"> B) Ärgerlich</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q4" value="C"> C) Wahnsinn</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-ans="B" style="margin-bottom:14px">
+        <p style="font-weight:600;color:#2d3748">5. „Man muss sich einfach zuhören, man muss aufeinander zugehen." — Was drückt dieser Satz aus?</p>
+        <div class="mcq-options" style="font-size:.84rem">
+          <label style="margin-right:18px"><input type="radio" name="eg321-q5" value="A"> A) Man soll mehr reisen.</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q5" value="B"> B) Ost- und Westdeutsche sollen sich annähern.</label>
+          <label style="margin-right:18px"><input type="radio" name="eg321-q5" value="C"> C) Berliner sollen lauter sprechen.</label>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="btn btn-check" onclick="a2CheckMCQ('eg321-mcq')" style="margin-right:6px">✅ 批改答案</button>
+    <button class="btn btn-show" onclick="a2ToggleAns('eg321-explain')" style="margin-right:6px">📖 显示/隐藏解析</button>
+    <button class="btn btn-reset" onclick="a2ResetMCQ('eg321-mcq')">🔄 重置</button>
+    <div id="eg321-mcq-score"></div>
+
+    <div class="answer-box" id="eg321-explain" style="font-size:.84rem;line-height:1.8;color:#2d3748;margin-top:12px">
+      <strong>📖 解析 / Erläuterung：</strong><br><br>
+
+      <strong>1. → A) Reisefreiheit nach dem Mauerfall</strong><br>
+      🇩🇪 原文依据：<em>„Ich bin total froh über den Fall der Mauer, weil man reisen konnte."</em><br>
+      🇨🇳 解析：关键词是 "weil man reisen konnte"（因为可以旅行了），直接指向 Reisefreiheit（旅行自由）。B/C 在原文其他部分出现，但与这句话无关。<br><br>
+
+      <strong>2. → B) Sie konnten die Wohnung nicht mehr bezahlen.</strong><br>
+      🇩🇪 原文依据：<em>„weil die alle die Wohnung nicht mehr bezahlen konnten und umgezogen sind"</em><br>
+      🇨🇳 解析：原文明确说老人因为付不起房租被迫搬家。A 太宽泛，C 无中生有。<br><br>
+
+      <strong>3. → A) Die Bernauer Straße</strong><br>
+      🇩🇪 原文依据：<em>„Das sieht man an der Straße ziemlich gut, weil das war eine der tödlichsten Ecken"</em><br>
+      🇨🇳 解析：受访者站在 Bernauer Straße 说 "das war eine der tödlichsten Ecken"，指的就是这条街。B（Ku'damm）是西柏林商业街，C（Prenzlauer Berg）是城区。<br><br>
+
+      <strong>4. → C) Wahnsinn</strong><br>
+      🇩🇪 原文依据：<em>„Das war das Hauptwort: Wahnsinn."</em> / <em>„Es war einfach irre für uns. Als Ostdeutsche war das Wahnsinn."</em><br>
+      🇨🇳 解析：文中多处用 "Wahnsinn"（疯狂/不可思议）形容 Ostberliner 的反应，并明确说 "Das war das Hauptwort: Wahnsinn"。A 和 B 与文中情绪相反。<br><br>
+
+      <strong>5. → B) Ost- und Westdeutsche sollen sich annähern.</strong><br>
+      🇩🇪 原文依据：<em>„Es gab eine DDR, es gab eine BRD. Jeder hat seine Vorstellung ... Das muss man zusammenbringen. Man muss sich einfach zuhören, man muss aufeinander zugehen."</em><br>
+      🇨🇳 解析：这句话直接讨论东西德人如何相处，"zuhören"（倾听）和 "aufeinander zugehen"（互相走近）指向相互理解与融合。A 太窄，C 完全不相关。
+    </div>
+  </div>
+
+  <!-- 来源标注 -->
+  <div style="background:#f1f8e9;border-radius:8px;padding:10px 16px;margin-top:14px;font-size:.78rem;color:#555">
+    📺 Quelle: Easy German (YouTube) · Folge 321 · <em>Berlin 30 years after the fall of the wall</em> (2019) · In Kooperation mit <a href="https://www.thelocal.de" target="_blank" rel="noopener" style="color:#1b5e20">The Local Germany</a>
   </div>
 
 
