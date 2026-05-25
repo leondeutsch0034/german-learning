@@ -2301,13 +2301,41 @@
       #page-b1lesen div[id*="erlebnis-redemittel"] td{padding:.25rem .35rem!important}
       /* 按钮缩小 */
       #page-b1lesen button[onclick*="erlebnis"]{font-size:.74rem!important;padding:5px 10px!important}
-      /* Easy German 321 MCQ + 表格 */
+      /* ── Easy German 321 · 手机竖屏适配 ── */
+      /* 主卡片 */
+      #eg321-main{padding:12px 10px!important;margin-top:.8rem!important;margin-bottom:.8rem!important}
+      #eg321-main>div:first-of-type{padding:12px 14px 14px!important}
+      #eg321-main>div:first-of-type>div:first-child>div:first-child{font-size:1rem!important}
+      #eg321-main>div:first-of-type>div:first-child>span{font-size:.68rem!important;padding:.15rem .5rem!important}
+      #eg321-main>div:first-of-type>div:last-child{font-size:.74rem!important}
+      /* 正文区 padding */
+      #eg321-main>div:last-child{padding:12px 10px 14px!important;font-size:.8rem!important;line-height:1.7!important}
+      /* Cari 开场 — 纵向堆叠 */
+      #eg321-main div[style*="display:flex"][style*="gap:12px"]{flex-direction:column!important;align-items:center!important;text-align:center!important;padding:10px 12px!important}
+      #eg321-main div[style*="display:flex"][style*="gap:12px"] div:last-child{font-size:.78rem!important;line-height:1.55!important}
+      /* 访谈小节 — 减小内边距 */
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"]{padding:10px 12px!important;margin-bottom:8px!important}
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] strong{font-size:.82rem!important}
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] p,
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] em{font-size:.78rem!important;line-height:1.55!important}
+      /* Pull Quote */
+      #eg321-main div[style*="background:linear-gradient(135deg,rgba(27,94,32"]{font-size:.8rem!important;padding:10px 12px!important;margin:12px 0!important}
+      /* 预习笔记 */
+      #eg321-main div[style*="border-left:4px solid #e6a817"]{font-size:.74rem!important;line-height:1.55!important;padding:10px 12px!important}
+      /* MCQ */
       #page-b1lesen div[id="eg321-mcq"] .mcq-item p{font-size:.8rem!important;line-height:1.45!important}
-      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.74rem!important}
+      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.74rem!important;display:block!important;margin-bottom:3px!important}
+      /* 互动练习容器 */
+      #page-b1lesen div[id="eg321-mcq"]+button+button+button+div+div{font-size:.78rem!important;line-height:1.65!important}
+      /* 表格 */
       #page-b1lesen div[id*="eg321-kollokation"] table,
-      #page-b1lesen div[id*="eg321-redemittel"] table{font-size:.72rem!important}
+      #page-b1lesen div[id*="eg321-redemittel"] table{font-size:.72rem!important;display:block!important;overflow-x:auto!important}
       #page-b1lesen div[id*="eg321-kollokation"] td,
-      #page-b1lesen div[id*="eg321-redemittel"] td{padding:.25rem .35rem!important}
+      #page-b1lesen div[id*="eg321-kollokation"] th,
+      #page-b1lesen div[id*="eg321-redemittel"] td,
+      #page-b1lesen div[id*="eg321-redemittel"] th{padding:.25rem .35rem!important}
+      /* 按钮缩小 */
+      #page-b1lesen button[onclick*="eg321"]{font-size:.74rem!important;padding:5px 10px!important}
     }
 
     /* 特小屏（≤380px）：Galaxy Fold / iPhone SE 1st gen 等 */
@@ -2363,9 +2391,34 @@
       #page-b1lesen div[style*="border-left:4px solid #e6a817"]{font-size:.68rem!important;padding:6px 10px!important}
       #page-b1lesen div[id*="erlebnis-kollokation"] table,
       #page-b1lesen div[id*="erlebnis-redemittel"] table{font-size:.66rem!important}
-      /* 特小屏 Easy German 321 */
+      /* ── 特小屏 Easy German 321 ── */
+      /* 主卡片极致压缩 */
+      #eg321-main{padding:8px 6px!important}
+      #eg321-main>div:first-of-type{padding:10px 10px 12px!important}
+      #eg321-main>div:first-of-type>div:first-child>div:first-child{font-size:.88rem!important}
+      #eg321-main>div:first-of-type>div:first-child>span{font-size:.62rem!important}
+      #eg321-main>div:first-of-type>div:last-child{font-size:.68rem!important}
+      /* 正文 */
+      #eg321-main>div:last-child{padding:10px 8px 12px!important;font-size:.74rem!important;line-height:1.55!important}
+      /* Cari 开场 */
+      #eg321-main div[style*="display:flex"][style*="gap:12px"] div:last-child{font-size:.72rem!important}
+      /* 访谈小节 */
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"]{padding:8px 9px!important}
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] strong{font-size:.76rem!important}
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] p,
+      #eg321-main div[style*="border-radius:8px"][style*="padding:14px 18px"] em{font-size:.72rem!important;line-height:1.45!important}
+      /* Pull Quote */
+      #eg321-main div[style*="background:linear-gradient(135deg,rgba(27,94,32"]{font-size:.74rem!important;padding:8px 10px!important}
+      /* 预习笔记 */
+      #eg321-main div[style*="border-left:4px solid #e6a817"]{font-size:.68rem!important;line-height:1.45!important;padding:8px 10px!important}
+      /* MCQ 全宽堆叠 */
       #page-b1lesen div[id="eg321-mcq"] .mcq-item p{font-size:.72rem!important}
-      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.68rem!important}
+      #page-b1lesen div[id="eg321-mcq"] .mcq-options label{font-size:.66rem!important;display:block!important;margin:2px 0!important}
+      /* 表格极致小字 */
+      #page-b1lesen div[id*="eg321-kollokation"] table,
+      #page-b1lesen div[id*="eg321-redemittel"] table{font-size:.66rem!important}
+      /* 按钮 */
+      #page-b1lesen button[onclick*="eg321"]{font-size:.68rem!important;padding:4px 8px!important}
     }
   </style>
 </head>
@@ -27035,7 +27088,7 @@ function lxqResetMCQ(id) {
       </div>
 
   <!-- ═══ Easy German 321 · Berlin 30 Jahre nach dem Mauerfall ═══ -->
-  <div style="background:#fff;border:2px solid #1b5e20;border-radius:12px;overflow:hidden;margin-top:1.2rem;margin-bottom:1.2rem">
+  <div id="eg321-main" style="background:#fff;border:2px solid #1b5e20;border-radius:12px;overflow:hidden;margin-top:1.2rem;margin-bottom:1.2rem">
     <!-- 标题栏 -->
     <div style="background:linear-gradient(135deg,#1b5e20,#2e7d32);padding:16px 24px 18px">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
