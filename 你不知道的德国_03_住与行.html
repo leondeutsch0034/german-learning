@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>你不知道的德国 · 03 | 房租居然"冷"的？| Leon 德语</title>
+<meta name="description" content="德国租房要自己刷墙、现金才是王道、晚上不能洗澡？6 个连德国人自己都想吐槽的生活真相。">
+<meta property="og:title" content="你不知道的德国 · 03 | 房租居然"冷"的？">
+<meta property="og:description" content="德国租房要自己刷墙、现金才是王道、晚上不能洗澡？6 个德国住与行真相。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.8;
+  }
+
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,20,40,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  /* ── 桌面宽版：居中文章 ── */
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  /* ── 封面 Hero ── */
+  .cover {
+    position:relative; margin:0 -20px 0; overflow:hidden;
+    height:clamp(360px,60vh,520px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px 24px;
+    background:linear-gradient(160deg,#1a3050 0%,#0f1e3a 30%,#0a1428 70%);
+  }
+  .cover-img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 40%,rgba(10,20,40,0.85) 75%,#0a1428);
+  }
+  .cover-text { position:relative; z-index:2; }
+  .cover .series {
+    display:inline-block; background:var(--gold); color:var(--bg);
+    padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800;
+    letter-spacing:0.05em; margin-bottom:12px;
+  }
+  .cover h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2;
+    color:#fff; margin-bottom:8px;
+  }
+  .cover .sub {
+    font-size:0.95rem; color:rgba(255,255,255,0.7);
+  }
+
+  /* ── 故事卡片（桌面） ── */
+  .story { margin:40px 0; }
+  .story .story-img-wrap {
+    position:relative; border-radius:14px; overflow:hidden;
+    margin-bottom:16px; aspect-ratio:4/3;
+    background:linear-gradient(135deg,#1e3a5f 0%,#0f1e3a 40%,#1a3050 100%);
+  }
+  .story .story-img {
+    position:absolute; inset:0; object-fit:cover; display:block; z-index:1;
+  }
+  .story .story-num {
+    position:absolute; top:12px; left:12px; z-index:2;
+    background:rgba(10,20,40,0.75); color:var(--gold);
+    padding:3px 12px; border-radius:10px; font-size:0.78rem; font-weight:700;
+    backdrop-filter:blur(4px);
+  }
+  .story h2 {
+    font-size:1.3rem; font-weight:800; color:var(--gold); margin-bottom:8px;
+  }
+  .story p { margin-bottom:10px; font-size:0.95rem; }
+  .story .funfact {
+    background:rgba(246,211,101,0.06); border-left:3px solid var(--gold);
+    padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:var(--gold-light);
+  }
+
+  /* ── 词汇小课堂 ── */
+  .wortschatz {
+    margin:40px 0; padding:28px 24px;
+    background:rgba(246,211,101,0.04); border:1px solid rgba(246,211,101,0.15);
+    border-radius:16px;
+  }
+  .wortschatz h2 {
+    font-size:1.3rem; font-weight:800; color:var(--gold); text-align:center;
+    margin-bottom:6px;
+  }
+  .wortschatz .ws-sub {
+    text-align:center; font-size:0.85rem; color:var(--dim); margin-bottom:24px;
+  }
+  .wort-item {
+    background:var(--card); border-radius:12px; padding:18px 20px;
+    margin-bottom:14px; border-left:3px solid var(--gold);
+  }
+  .wort-item .wi-head {
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .wort-item .wi-de {
+    font-size:1.1rem; font-weight:800; color:var(--gold);
+  }
+  .wort-item .wi-zh {
+    font-size:0.85rem; color:var(--dim);
+  }
+  .wort-item .wi-scene {
+    font-size:0.9rem; color:var(--text); line-height:1.7; margin-top:8px;
+  }
+  .wort-item .wi-say {
+    display:inline-block; background:rgba(246,211,101,0.08);
+    padding:6px 14px; border-radius:8px; margin:6px 0;
+    font-size:0.9rem; color:var(--gold-light); font-style:italic;
+  }
+  .wort-item .wi-tone {
+    font-size:0.82rem; color:var(--dim); margin-top:4px;
+  }
+
+  /* ── 软广告 ── */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.22); border-radius:14px;
+    padding:28px; margin:40px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .footer {
+    text-align:center; padding:32px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
+
+  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  @media (max-width:600px) {
+    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    body { padding:0; }
+
+    .topbar { padding:7px 14px; font-size:0.76rem; }
+
+    .page { max-width:100%; padding:0; }
+
+    .cover {
+      margin:0; border-radius:0; height:100dvh;
+      min-height:100dvh; padding:50px 18px 32px;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .cover-img { border-radius:0; font-size:4rem !important; }
+
+    .story {
+      min-height:100dvh; margin:0; padding:50px 18px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .story .story-img-wrap {
+      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+    }
+    .story .story-img { font-size:3rem !important; }
+    .story h2 { font-size:1.2rem; text-align:center; }
+    .story p { font-size:0.9rem; }
+    .story .funfact { font-size:0.84rem; }
+
+    .wortschatz {
+      min-height:100dvh; margin:0; border-radius:0;
+      display:flex; flex-direction:column; justify-content:center;
+      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .wortschatz h2 { font-size:1.15rem; }
+    .wort-item { padding:14px 16px; }
+    .wort-item .wi-de { font-size:1rem; }
+    .wort-item .wi-scene { font-size:0.84rem; }
+
+    .soft-cta {
+      min-height:100dvh; margin:0; border-radius:0;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+
+    .footer {
+      min-height:100dvh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center;
+      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .footer .links { flex-direction:column; align-items:center; }
+
+    .story.overflow { justify-content:flex-start; overflow-y:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="cover">
+    <img class="cover-img" src="https://images.pexels.com/photos/31991339/pexels-photo-31991339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="German old town street Bremen" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      <div class="series">你不知道的德国 · 03</div>
+      <h1>房租居然"冷"的？<br>现金才是王？</h1>
+      <p class="sub">住与行的世界 · 6 个连德国人自己都想吐槽的生活真相</p>
+    </div>
+  </div>
+
+  <!-- ═══ 故事 1：Kaltmiete vs Warmmiete ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/14865959/pexels-photo-14865959.jpeg?auto=compress&cs=tinysrgb&w=600" alt="European apartment building" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">01</div>
+    </div>
+    <h2>房租是"冷"的</h2>
+    <p>在中国租房，"月租 3000 包物业"。在德国，你看到的租金是<strong style="color:var(--gold);"> Kaltmiete（冷租）</strong>——只含房子本身，不含水、电、暖气、垃圾费。</p>
+    <p>加上这些"Nebenkosten"（附加费），实际支付的<strong style="color:var(--gold);">Warmmiete（暖租）</strong>可能比广告上的冷租高 30%-50%。冬天的暖气费一结算，房东可能让你补交几百欧。</p>
+    <p>而且冷租暖租都不含电费——电费要你自己去跟电力公司签合同。一个 40㎡ 的公寓，每月电费轻松 40-60€。</p>
+    <div class="funfact">
+      💡 德国租房广告写"2-Zimmer, 65m², 650€ KM"——KM 就是 Kaltmiete。新手以为 650€ 全包，老手会直接追问："Nebenkosten 多少？Heizung 含不含？"
+    </div>
+  </div>
+
+  <!-- ═══ 故事 2：现金为王 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/210679/pexels-photo-210679.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Euro cash notes and coins" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">02</div>
+    </div>
+    <h2>带卡出门？你可能会饿死</h2>
+    <p>2024 年了，在柏林你掏出信用卡："对不起，我们只收 EC 卡。" 你掏出 EC 卡："对不起，只收现金。"</p>
+    <p>德国人对<strong style="color:var(--gold);">现金（Bargeld）</strong>的执念天下闻名。很多面包房、小餐馆、酒吧、甚至一些诊所——<strong>只收现金</strong>。你问为什么？回答永远是："Datenschutz（数据保护）"和"War schon immer so（一直都这样）"。</p>
+    <p>刚来德国时必须养成一个习惯：出门前检查钱包里有没有现金。不是"够不够"——而是"有没有"。没带现金等于没带钱。</p>
+    <div class="funfact">
+      💡 德国民调显示，超过 60% 的德国人认为现金"不可或缺"。疫情期间很多小店终于装了刷卡机，结果疫情一过——又改回了"Nur Bares（仅限现金）"。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 3：Ruhezeit 安静时间 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/10163483/pexels-photo-10163483.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Quiet residential street at night" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">03</div>
+    </div>
+    <h2>晚上 10 点后，不能洗澡？</h2>
+    <p>在中国，深夜洗澡洗衣服是日常。在德国——<strong style="color:var(--gold);">Ruhezeit（安静时间）</strong>：晚上 22:00 到早上 6:00，以及周日和法定节假日全天。</p>
+    <p>这段期间禁止一切噪音活动：钻孔、钉钉子、弹钢琴、用吸尘器、开洗衣机。有些租房合同甚至会写"夜间不得淋浴"——因为水管声可能吵到邻居。</p>
+    <p>乍一看觉得夸张，但德国的住宅隔音普遍一般（老建筑多），而邻居真的会报警。不是威胁——是真报警。</p>
+    <div class="funfact">
+      💡 德国人搬家后第一件事不是整理行李，而是挨家挨户敲门自我介绍——顺便问清楚谁是"Ruhezeit 纠察队长"。每个居民楼至少有一个对分贝极度敏感的老爷爷/老太太。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 4：SCHUFA 信用评分 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/7821687/pexels-photo-7821687.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person filling out paperwork form" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">04</div>
+    </div>
+    <h2>一个你不知道的分数，决定你的一切</h2>
+    <p>在中国，租房看身份证和工作证明。在德国，房东要你的<strong style="color:var(--gold);">SCHUFA-Auskunft</strong>（信用证明）。</p>
+    <p>SCHUFA 是德国最大的信用评分机构，几乎每个成年德国人都有一个 SCHUFA 分数。这个分数决定你<strong style="color:var(--gold);">能不能租房、办银行卡、签手机合约、分期付款</strong>——甚至有些雇主会查。</p>
+    <p>最魔幻的是——很多刚来的外国人根本没有 SCHUFA 记录，没有记录=不可信，于是陷入"没有 SCHUFA 租不到房→没有住址不能注册→注册不了就没有 SCHUFA"的死循环。</p>
+    <div class="funfact">
+      💡 SCHUFA 的评分算法不公开，但已知会看你：是否有多个银行账户、是否频繁搬家、是否有逾期账单。德国人小心翼翼维护自己的 SCHUFA，就像中国人维护芝麻信用分——但 SCHUFA 一出问题，影响比芝麻信用严重得多。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 5：Vereinskultur 协会文化 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/29788280/pexels-photo-29788280.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Community outdoor gathering" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">05</div>
+    </div>
+    <h2>德国人什么都"入会"</h2>
+    <p>你在德国交的朋友，十个有九个是在<strong style="color:var(--gold);">Verein（协会）</strong>里认识的。德国有超过 60 万个注册协会——从足球俱乐部、射击协会、合唱团，到兔子养殖协会、仙人掌爱好者协会、甚至"反协会协会"。</p>
+    <p>Verein 不是兴趣小组，是<strong style="color:var(--gold);">德国社会的骨架</strong>。交年费、选主席、做会议记录——一切按章程来。很多德国人的周末不是在协会就是在去协会的路上。</p>
+    <p>想融入德国社会？找一个当地的 Verein 加入，比上 10 个交友 App 都管用。消防队、急救队、体育俱乐部——大部分都是靠 Ehrenamt（志愿工作）运转的。</p>
+    <div class="funfact">
+      💡 德国的志愿者消防队（Freiwillige Feuerwehr）在中小城市是标配——不是职业消防员，而是加入协会的普通市民。火警一响，面包师、会计、老师放下手头的事就去救火。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 6：搬家刷墙 + 交房 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/8481711/pexels-photo-8481711.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person painting wall renovation" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">06</div>
+    </div>
+    <h2>搬家？先把墙刷回白色</h2>
+    <p>在中国，租房到期交钥匙走人。在德国——<strong style="color:var(--gold);">你要把整间房子重新粉刷一遍</strong>，不然押金别想拿回来。</p>
+    <p>很多德国租房合同里有一句"Schönheitsreparaturen"（美观修缮），规定了租客要定期刷墙、补洞。你住了三年，墙有点黄了？刷。你在墙上打了几个钉子挂画？退租前补好、磨平、刷漆。</p>
+    <p>更夸张的是，有些房东要求退租时墙壁必须<strong style="color:var(--gold);">"neutral gestrichen"（中性色）</strong>——也就是白色。你之前刷了淡黄色？刷回去。刷了浅灰色？刷回去。</p>
+    <div class="funfact">
+      💡 德国建材市场（如 Obi、Bauhaus）门口常年有专门租给搬家党的油漆工具。退租刷墙在德国是成年礼级别的体验——每个德国人都至少经历过一次"连夜刷墙赶交房"的绝望。
+    </div>
+  </div>
+
+  <!-- ═══ 词汇小课堂 ═══ -->
+  <div class="wortschatz">
+    <h2>📖 词汇小课堂</h2>
+    <p class="ws-sub">每一个德国生活真相背后，都藏着一个关键词。学会它们，你就懂了德国。</p>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Kaltmiete</span>
+        <span class="wi-zh">冷租（不含附加费）</span>
+      </div>
+      <div class="wi-scene">租房广告上标的是 Kaltmiete，真正每个月从账户扣走的是 Warmmiete。永远要问："Ist das Kaltmiete oder Warmmiete?"</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Nebenkosten</span>
+        <span class="wi-zh">附加费用（水电暖垃圾）</span>
+      </div>
+      <div class="wi-scene">简称 NK。包括 Heizung（暖气）、Wasser（水）、Müllgebühren（垃圾费）、Hausreinigung（楼道清洁）等。年底会结算一次，用多了要补交。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">das Bargeld</span>
+        <span class="wi-zh">现金</span>
+      </div>
+      <div class="wi-scene">在德国是刚需，不是备选。常用句："Nehmen Sie Bargeld?"（你们收现金吗？）——虽然答案通常是 ja。更该问的是："Kann ich mit Karte zahlen?"（能刷卡吗？）</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Ruhezeit</span>
+        <span class="wi-zh">安静时间</span>
+      </div>
+      <div class="wi-scene">22:00–6:00 + 周日及节假日全天。这段时间连玻璃瓶扔进回收桶的声音都会被嫌弃。德语关键词：Ruhestörung（噪音扰民）。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die SCHUFA</span>
+        <span class="wi-zh">信用评分机构</span>
+      </div>
+      <div class="wi-scene">全称 Schutzgemeinschaft für allgemeine Kreditsicherung。租房、办卡、签手机——房东和商家都要你的 SCHUFA-Auskunft。每年有一次免费查询权。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">der Verein</span>
+        <span class="wi-zh">协会 / 俱乐部</span>
+      </div>
+      <div class="wi-scene">德国有 60 多万个 eingetragener Verein (e.V.)。加入方式："Ich möchte dem Verein beitreten."（我想加入这个协会。）会费叫 Mitgliedsbeitrag。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">das Ehrenamt</span>
+        <span class="wi-zh">志愿工作 / 荣誉职位</span>
+      </div>
+      <div class="wi-scene">不计报酬的社会服务。德国消防、救援、体育、文化——大量靠 Ehrenamtliche（志愿者）维持。在简历上是加分项，体现了"社会责任感"。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Schönheitsreparaturen</span>
+        <span class="wi-zh">美观修缮（租客义务）</span>
+      </div>
+      <div class="wi-scene">租房合同里的关键字。通常包括：刷墙、补洞、修门框。退租前必须完成，否则 Kaution（押金）会被扣。德国建材市场排长队买漆的，八成是周末要交房的。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Kaution</span>
+        <span class="wi-zh">租房押金</span>
+      </div>
+      <div class="wi-scene">通常为 3 个月冷租（3 Monatskaltmieten）。退租后房东有权扣留 3-6 个月，等 Nebenkosten 年度结算完才退。刚来德国租房，学费 + 押金 + 第一个月房租 + 家具——一次性支出轻松过 3000€。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head">
+        <span class="wi-de">die Anmeldung</span>
+        <span class="wi-zh">户口登记</span>
+      </div>
+      <div class="wi-scene">搬进新家后<strong>14 天内</strong>必须去 Bürgeramt（市民局）登记住址，否则罚款。你需要房东签字的 Wohnungsgeberbestätigung（住房提供者确认函）才能登记。没有 Anmeldung = 没有税号 = 没有银行卡 = 无法工作。</div>
+    </div>
+  </div>
+
+  <!-- ═══ 软广告 ═══ -->
+  <div class="soft-cta">
+    <h3>🇩🇪 在德国生活，不会德语寸步难行</h3>
+    <p>找房看合同、办 Anmeldung、跟邻居沟通 Ruhezeit、看医生预约——<br>所有这些场景，都需要德语。光靠英语，在德国活不下来。</p>
+    <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 去 Leon 德语学习中心</a>
+    <span class="sub-link">leonsdeutschzentrum.com</span>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>更多德国故事</h3>
+    <p>关注 Leon 德语学习中心，每周带你看见课本之外的德国。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">🏠 学习中心首页</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon Deutschlernzentrum · 德语学习，不止于课本</div>
+  </div>
+
+</div>
+
+</body>
+</html>
