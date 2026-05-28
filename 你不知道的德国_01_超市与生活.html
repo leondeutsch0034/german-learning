@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>你不知道的德国 · 01 | 超市里的瓶子为什么这么贵？| Leon 德语</title>
+<meta name="description" content="第一视角带你逛德国超市：一个矿泉水瓶多收 25 欧分，周日全城关门，租房居然没有厨房？？6 个让人目瞪口呆的德国生活真相。">
+<meta property="og:title" content="你不知道的德国 · 01 | 超市里瓶子为什么这么贵？">
+<meta property="og:description" content="一个矿泉水瓶多收 25 欧分，周日全城关门，租房不带厨房——6 个德国生活真相。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.8;
+  }
+
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,20,40,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  /* ── 桌面宽版：居中文章 ── */
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  /* ── 封面 Hero ── */
+  .cover {
+    position:relative; margin:0 -20px 0; overflow:hidden;
+    height:clamp(360px,60vh,520px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px 24px;
+    background:linear-gradient(160deg,#1a3050 0%,#0f1e3a 30%,#0a1428 70%);
+  }
+  .cover-img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 40%,rgba(10,20,40,0.85) 75%,#0a1428);
+  }
+  .cover-text { position:relative; z-index:2; }
+  .cover .series {
+    display:inline-block; background:var(--gold); color:var(--bg);
+    padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800;
+    letter-spacing:0.05em; margin-bottom:12px;
+  }
+  .cover h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2;
+    color:#fff; margin-bottom:8px;
+  }
+  .cover .sub {
+    font-size:0.95rem; color:rgba(255,255,255,0.7);
+  }
+
+  /* ── 故事卡片（桌面） ── */
+  .story { margin:40px 0; }
+  .story .story-img-wrap {
+    position:relative; border-radius:14px; overflow:hidden;
+    margin-bottom:16px; aspect-ratio:4/3;
+    background:linear-gradient(135deg,#1e3a5f 0%,#0f1e3a 40%,#1a3050 100%);
+  }
+  .story .story-img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    position:relative; z-index:1;
+  }
+  .story .story-num {
+    position:absolute; top:12px; left:12px;
+    background:rgba(10,20,40,0.75); color:var(--gold);
+    padding:3px 12px; border-radius:10px; font-size:0.78rem; font-weight:700;
+    backdrop-filter:blur(4px);
+  }
+  .story h2 {
+    font-size:1.3rem; font-weight:800; color:var(--gold); margin-bottom:8px;
+  }
+  .story p { margin-bottom:10px; font-size:0.95rem; }
+  .story .funfact {
+    background:rgba(246,211,101,0.06); border-left:3px solid var(--gold);
+    padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:var(--gold-light);
+  }
+
+  /* ── 软广告 ── */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.22); border-radius:14px;
+    padding:28px; margin:40px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .footer {
+    text-align:center; padding:32px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
+
+  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  @media (max-width:600px) {
+    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    body { padding:0; }
+
+    .topbar { padding:7px 14px; font-size:0.76rem; }
+
+    .page { max-width:100%; padding:0; }
+
+    .cover {
+      margin:0; border-radius:0; height:100dvh;
+      min-height:100dvh; padding:50px 18px 32px;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .cover-img { border-radius:0; }
+
+    .story {
+      min-height:100dvh; margin:0; padding:50px 18px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .story .story-img-wrap {
+      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+    }
+    .story h2 { font-size:1.2rem; text-align:center; }
+    .story p { font-size:0.9rem; }
+    .story .funfact { font-size:0.84rem; }
+
+    .soft-cta {
+      min-height:100dvh; margin:0; border-radius:0;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+
+    .footer {
+      min-height:100dvh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center;
+      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .footer .links { flex-direction:column; align-items:center; }
+
+    .story.overflow { justify-content:flex-start; overflow-y:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="cover">
+    <img class="cover-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80" alt="German street" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      <div class="series">你不知道的德国 · 01</div>
+      <h1>一个矿泉水瓶<br>多收 25 欧分？？</h1>
+      <p class="sub">第一视角带你逛德国超市 · 6 个让人目瞪口呆的生活真相</p>
+    </div>
+  </div>
+
+  <!-- ═══ 故事 1：瓶子押金 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bottles" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">01</div>
+    </div>
+    <h2>瓶子比水还贵</h2>
+    <p>刚到德国第一天，去超市买水。标签写着 0.19€，结账却是 0.44€。</p>
+    <p>我以为算错了，收银员面无表情地指了指小票上的一行：<strong style="color:var(--gold);">Pfand 0.25€</strong>。</p>
+    <p>一个矿泉水瓶，押金比水本身还贵。后来才知道，德国几乎所有饮料瓶都有押金——矿泉水、啤酒、可乐，每个瓶子 0.08-0.25€。</p>
+    <div class="funfact">
+      💡 德国人从不随手扔瓶子。不是因为环保意识（当然也有），而是因为每个瓶子都是钱。学生在派对结束后靠捡瓶子能凑出一顿饭钱。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 2：周日全城关门 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=600&q=80" alt="Empty German street Sunday" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">02</div>
+    </div>
+    <h2>周日，全城关门</h2>
+    <p>来德国的第一个周日，我信心满满地出门采购。结果——超市铁门紧闭，商场一片漆黑，街上安静得像过年。</p>
+    <p>德国的"周日休息"是<strong style="color:var(--gold);">法律规定的</strong>，不是商家自己决定的。只有加油站、火车站和少数面包房开门。</p>
+    <p>周六超市里人山人海、排队到门口的画面，每个留德华人都经历过——因为大家都赶在关门前囤货。</p>
+    <div class="funfact">
+      💡 周六下午 4 点后的德国超市，蔬菜区像被洗劫过一样。在德国生活，你很快就会学会"周五六囤货，周日不出门"。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 3：租房不带厨房 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Empty kitchen" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">03</div>
+    </div>
+    <h2>租房，厨房要自己装</h2>
+    <p>在中国租房，厨房水电煤气一应俱全。在德国，你看好一套房，走进去发现——厨房位置只有<strong style="color:var(--gold);">几根水管和两个墙洞</strong>。</p>
+    <p>没有橱柜。没有灶台。没有冰箱。<strong>什么都没有。</strong></p>
+    <p>德国人搬家会把整个厨房拆走带走。你作为租客，要么自己花钱装，要么祈祷上个租客把厨房卖给你。</p>
+    <div class="funfact">
+      💡 在德国租房广告上，"EBK"（Einbauküche，嵌入式厨房）是一个超级卖点。有 EBK 的房子比没有的贵不少，但抢的人也多得多。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 4：3000 种面包 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="German bread" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">04</div>
+    </div>
+    <h2>德国面包，世界遗产</h2>
+    <p>来之前：面包不就是面包？来之后：我错了。</p>
+    <p>德国有<strong style="color:var(--gold);">超过 3000 种面包</strong>——黑麦面包、全麦面包、碱水面包、南瓜籽面包、土豆面包……德国面包文化已经入选联合国非物质文化遗产。</p>
+    <p>每个街角都有一家面包房，早上 6 点飘出来的麦香是德国最准时的闹钟。最魔幻的是——回国后再吃面包，觉得索然无味。</p>
+    <div class="funfact">
+      💡 德国面包师需要 3 年培训才能出师。一个 Brezel（碱水面包）看起来简单，从面团到成品要经过碱水浸泡、撒盐、烘烤精确控制。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 5：垃圾分类 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="Recycling bins" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">05</div>
+    </div>
+    <h2>扔垃圾是一门学问</h2>
+    <p>在中国，垃圾分"可回收"和"不可回收"。在德国，垃圾分<strong style="color:var(--gold);">5 个桶</strong>：</p>
+    <p>🟡 黄桶（包装物）· 🟤 棕桶（有机垃圾）· ⚫ 黑桶（剩余垃圾）· 🟢 绿桶（废纸）· ⚪ 玻璃按颜色分开扔。</p>
+    <p>刚来德国时，每次扔东西都要站在垃圾桶前发 10 秒呆——这个是纸还是包装？酸奶杯要冲洗吗？</p>
+    <div class="funfact">
+      💡 德国有"垃圾警察"——如果垃圾分类不对，整栋楼的垃圾桶可能被拒绝清运。邻居甚至会贴纸条提醒你分类错误（如果被发现了的话）。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 6：裸体文化 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&q=80" alt="German park" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">06</div>
+    </div>
+    <h2>公园里有人不穿衣服</h2>
+    <p>第一次在慕尼黑的英国花园散步，路过一片草坪——有人打排球，有人晒太阳，有人看书。都、不、穿、衣、服。</p>
+    <p>德国的"FKK"（Frei-Körper-Kultur，自由身体文化）有百年历史。不是色情，而是一种<strong style="color:var(--gold);">回归自然的生活态度</strong>。公园有专门的 FKK 区域，桑拿也是男女混蒸且必须全裸。</p>
+    <div class="funfact">
+      💡 德国桑拿不是"能不能穿泳衣"的问题，而是穿了会被赶出去。混蒸、全裸、毛巾垫在身下是标准操作。第一次去的中国人通常要做很久心理建设。
+    </div>
+  </div>
+
+  <!-- ═══ 弱广告 ═══ -->
+  <div class="soft-cta">
+    <h3>🇩🇪 想真正看懂德国？</h3>
+    <p>语言是文化的钥匙。每一个德国生活冷知识背后，都藏着一个德语单词。<br>比如 Pfand、Feierabend、Gemütlichkeit——翻译不出来，但懂德语你就懂了。</p>
+    <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 开始学德语</a>
+    <span class="sub-link">leonsdeutschzentrum.com</span>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>更多德国故事</h3>
+    <p>关注 Leon 德语学习中心，每周带你看见课本之外的德国。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>

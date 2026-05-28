@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>德语 A1 语法速查 | der/die/das + sein/haben 一次搞懂 | Leon 德语学习中心</title>
+<meta name="description" content="德语名词性别不再靠猜！der/die/das 词尾规律大全 + sein vs haben 终极区分法。A1 最容易栽的两个坑，15 分钟彻底搞懂。附速查表可截图保存。">
+<meta property="og:title" content="德语 A1 语法速查 | der/die/das + sein/haben">
+<meta property="og:description" content="A1 最容易栽的两个坑，15 分钟彻底搞懂。附速查表可截图保存。">
+<meta property="og:url" content="https://leonsdeutschzentrum.com/">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg-deep:#0a1428;
+    --bg-card:#0f1e3a;
+    --bg-card2:#111f38;
+    --gold:#f6d365;
+    --gold-dim:#b8860b;
+    --gold-light:#fde68a;
+    --text:#e2e8f0;
+    --text-dim:#94a3b8;
+    --accent-red:#f87171;
+    --accent-green:#4ade80;
+    --accent-purple:#7c3aed;
+    --der-color:#c9963a;
+    --die-color:#f6d365;
+    --das-color:#94a3b8;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg-deep);
+    color:var(--text);
+    line-height:1.7;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align:center; padding:clamp(40px,8vw,80px) 20px clamp(32px,5vw,56px);
+    background:linear-gradient(180deg,#0d1b33 0%,#0a1428 60%,#0f1e3a 100%);
+    position:relative; overflow:hidden;
+  }
+  .hero::after {
+    content:''; position:absolute;
+    bottom:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent);
+  }
+  .hero-eyebrow {
+    display:inline-block;
+    background:rgba(246,211,101,0.12); border:1px solid rgba(246,211,101,0.3);
+    color:var(--gold-light); padding:6px 20px; border-radius:20px;
+    font-size:0.85rem; font-weight:700; letter-spacing:0.06em;
+    margin-bottom:24px;
+  }
+  .hero h1 {
+    font-size:clamp(1.8rem,5vw,3rem); font-weight:900; line-height:1.2;
+    background:linear-gradient(100deg,#ffd770 0%,#fff3b8 25%,#fff 45%,#ffe088 65%,#ffc448 100%);
+    background-size:200% auto;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+    max-width:700px; margin:0 auto 16px;
+  }
+  .hero .sub {
+    font-size:clamp(1rem,2vw,1.25rem); color:var(--text-dim);
+    max-width:520px; margin:0 auto;
+  }
+
+  /* ── Section ── */
+  .section {
+    max-width:800px; margin:0 auto; padding:clamp(32px,5vw,56px) 20px;
+  }
+  .section h2 {
+    font-size:clamp(1.4rem,3vw,1.9rem); font-weight:800; color:var(--gold);
+    text-align:center; margin-bottom:8px;
+  }
+  .section .section-sub {
+    text-align:center; color:var(--text-dim); font-size:0.95rem; margin-bottom:32px;
+  }
+
+  /* ── 钩子卡片 ── */
+  .hook-row {
+    display:flex; gap:16px; margin-bottom:28px; flex-wrap:wrap;
+  }
+  .hook-card {
+    flex:1; min-width:200px;
+    background:var(--bg-card); border:1px solid rgba(246,211,101,0.12);
+    border-radius:12px; padding:20px; text-align:center;
+  }
+  .hook-card .emoji { font-size:2rem; margin-bottom:8px; }
+  .hook-card .wrong { color:var(--accent-red); text-decoration:line-through; font-size:1rem; }
+  .hook-card .right { color:var(--accent-green); font-weight:700; font-size:1.1rem; margin-top:4px; }
+
+  /* ── 速查卡片（der/die/das 三栏） ── */
+  .gender-cards {
+    display:flex; gap:16px; margin:24px 0; flex-wrap:wrap;
+  }
+  .gender-card {
+    flex:1; min-width:180px; border-radius:14px; overflow:hidden;
+  }
+  .gender-card .gc-header {
+    text-align:center; padding:14px 10px; font-weight:800; font-size:1.3rem;
+  }
+  .gender-card .gc-body { padding:16px; font-size:0.9rem; line-height:1.9; }
+  .gender-card.der { background:#1a1410; border:1px solid rgba(184,134,11,0.3); }
+  .gender-card.der .gc-header { background:rgba(184,134,11,0.25); color:var(--der-color); }
+  .gender-card.der .gc-body { background:rgba(184,134,11,0.04); }
+  .gender-card.der .gc-body strong { color:var(--der-color); }
+  .gender-card.die { background:#1a170a; border:1px solid rgba(246,211,101,0.3); }
+  .gender-card.die .gc-header { background:rgba(246,211,101,0.15); color:var(--die-color); }
+  .gender-card.die .gc-body { background:rgba(246,211,101,0.03); }
+  .gender-card.die .gc-body strong { color:var(--die-color); }
+  .gender-card.das { background:#101418; border:1px solid rgba(148,163,184,0.3); }
+  .gender-card.das .gc-header { background:rgba(148,163,184,0.15); color:var(--das-color); }
+  .gender-card.das .gc-body { background:rgba(148,163,184,0.03); }
+  .gender-card.das .gc-body strong { color:var(--das-color); }
+
+  /* ── sein/haben 对比表 ── */
+  .vs-table {
+    width:100%; border-collapse:collapse; margin:24px 0; font-size:0.95rem;
+  }
+  .vs-table th {
+    background:var(--bg-card); color:var(--gold); padding:14px 16px;
+    font-weight:700; text-align:center; border:1px solid rgba(246,211,101,0.15);
+  }
+  .vs-table td {
+    background:rgba(15,30,58,0.5); padding:12px 16px; text-align:center;
+    border:1px solid rgba(246,211,101,0.08);
+  }
+  .vs-table .de { color:var(--gold); font-weight:700; }
+
+  /* ── 亮点框 ── */
+  .callout {
+    background:rgba(246,211,101,0.06); border:1px solid rgba(246,211,101,0.2);
+    border-radius:12px; padding:24px; margin:24px 0; text-align:center;
+  }
+  .callout strong { color:var(--gold); }
+  .callout.tip {
+    background:rgba(74,222,128,0.06); border-color:rgba(74,222,128,0.2);
+  }
+  .callout.tip strong { color:var(--accent-green); }
+
+  /* ── 弱广告 ── */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.06));
+    border:1px solid rgba(246,211,101,0.25); border-radius:16px;
+    padding:clamp(20px,3vw,32px); margin:32px 0; text-align:center;
+  }
+  .soft-cta h3 {
+    color:var(--gold); font-size:1.1rem; margin-bottom:8px;
+  }
+  .soft-cta p { color:var(--text-dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a {
+    display:inline-block;
+    background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg-deep); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.95rem; transition:0.2s;
+  }
+  .soft-cta a:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link {
+    display:block; margin-top:10px; font-size:0.8rem; color:var(--gold-dim);
+  }
+  .soft-cta .sub-link a { background:none; color:var(--gold-dim); padding:0; font-weight:400; }
+  .soft-cta .sub-link a:hover { transform:none; box-shadow:none; text-decoration:underline; }
+
+  /* ── 测验 ── */
+  .quiz-block {
+    background:var(--bg-card); border-radius:12px; padding:24px; margin:24px 0;
+  }
+  .quiz-block .q {
+    padding:12px 16px; margin-bottom:8px; border-radius:8px;
+    background:rgba(15,30,58,0.6); font-size:1rem;
+  }
+  .quiz-block .q .num { color:var(--gold); font-weight:700; margin-right:12px; }
+  .quiz-block .q .blank {
+    display:inline-block; width:60px; border-bottom:2px dashed var(--gold);
+    text-align:center; color:var(--gold); margin:0 4px;
+  }
+
+  /* ── 底部 ── */
+  .footer-cta {
+    text-align:center; padding:40px 20px 56px;
+    background:linear-gradient(180deg,var(--bg-deep),#0d1b30);
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer-cta h3 { font-size:1.3rem; color:var(--gold); margin-bottom:8px; }
+  .footer-cta p { color:var(--text-dim); font-size:0.9rem; margin-bottom:20px; }
+  .footer-cta .links { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .footer-cta .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.9rem;
+    padding:8px 20px; border:1px solid rgba(246,211,101,0.2); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer-cta .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer-cta .copyright { margin-top:24px; font-size:0.78rem; color:#475569; }
+
+  /* ── 作弊条（可截图） ── */
+  .cheatsheet {
+    background:#fff; color:#1a202c; border-radius:16px; padding:28px;
+    margin:24px 0; font-size:0.92rem; line-height:1.8;
+    box-shadow:0 8px 40px rgba(0,0,0,0.3);
+  }
+  .cheatsheet h3 { text-align:center; color:#1a202c; font-size:1.2rem; margin-bottom:16px; }
+  .cheatsheet table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+  .cheatsheet table th { background:#1e3a5f; color:#fff; padding:8px; font-size:0.8rem; }
+  .cheatsheet table td { padding:7px 8px; border-bottom:1px solid #e2e8f0; }
+  .cheatsheet table .cs-gold { background:#fff8e1; font-weight:700; }
+
+  /* ── 响应式 ── */
+  @media (max-width:600px) {
+    .gender-cards { flex-direction:column; }
+    .hook-row { flex-direction:column; }
+    .vs-table { font-size:0.8rem; }
+    .vs-table th, .vs-table td { padding:8px 6px; }
+    .footer-cta .links { flex-direction:column; align-items:center; }
+  }
+
+  /* ── 顶部导航条 ── */
+  .topbar {
+    position:sticky; top:0; z-index:99;
+    background:rgba(10,20,40,0.95); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 20px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--text-dim); font-weight:400; }
+  .topbar a.nav-link {
+    color:var(--text-dim); text-decoration:none; margin-left:16px; font-size:0.8rem;
+  }
+  .topbar a.nav-link:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ═══════ 顶部导航 ═══════ -->
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <div>
+    <a class="nav-link" href="https://leonsdeutschzentrum.com/">← 返回主站</a>
+  </div>
+</div>
+
+<!-- ═══════ Hero ═══════ -->
+<div class="hero">
+  <div class="hero-eyebrow">A1 语法速查</div>
+  <h1>der / die / das + sein / haben<br>一次搞懂</h1>
+  <p class="sub">A1 最容易栽的两个语法坑。15 分钟看懂规律，以后不用死记硬背。</p>
+</div>
+
+<!-- ═══════ 钩子区 ═══════ -->
+<div class="section">
+  <div class="hook-row">
+    <div class="hook-card">
+      <div class="emoji">🤯</div>
+      <div class="wrong">Ich bin hungrig</div>
+      <div class="right">→ Ich habe Hunger</div>
+      <div style="color:var(--text-dim);font-size:.8rem;margin-top:6px;">德国人听了会愣一下</div>
+    </div>
+    <div class="hook-card">
+      <div class="emoji">👧</div>
+      <div style="font-size:1rem;">"女孩" = <strong style="color:var(--das-color);">das</strong> Mädchen</div>
+      <div style="color:var(--text-dim);font-size:.8rem;margin-top:6px;">因为 -chen 永远是中性</div>
+    </div>
+    <div class="hook-card">
+      <div class="emoji">📋</div>
+      <div style="font-size:1rem;">歌德 A1 考试</div>
+      <div style="color:var(--accent-red);font-size:.8rem;margin-top:6px;">名词性别错 = 扣分</div>
+      <div style="color:var(--text-dim);font-size:.8rem;">阳性四格 der → den</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ Section 1：der/die/das ═══════ -->
+<div class="section">
+  <h2>名词"性别"：der / die / das</h2>
+  <p class="section-sub">德语每个名词都有固定性别。好消息是：词尾有规律，覆盖 A1 阶段 80% 以上的词。</p>
+
+  <div class="gender-cards">
+    <!-- der -->
+    <div class="gender-card der">
+      <div class="gc-header">der 阳性</div>
+      <div class="gc-body">
+        <strong>-er</strong> &nbsp;Lehrer · Computer<br>
+        <strong>-el</strong> &nbsp;Schlüssel · Löffel<br>
+        <strong>-en</strong> &nbsp;Garten · Wagen<br>
+        <strong>-ig</strong> &nbsp;König · Honig<br>
+        <strong>-ling</strong> &nbsp;Lehrling · Frühling<br>
+        <strong>月份/星期</strong> &nbsp;Januar · Montag<br>
+        <strong>方位</strong> &nbsp;Norden · Süden
+      </div>
+    </div>
+    <!-- die -->
+    <div class="gender-card die">
+      <div class="gc-header">die 阴性</div>
+      <div class="gc-body">
+        <strong>-e</strong> &nbsp;Lampe · Tasche · Blume<br>
+        <strong>-heit</strong> &nbsp;Gesundheit · Freiheit<br>
+        <strong>-keit</strong> &nbsp;Möglichkeit<br>
+        <strong>-ung</strong> &nbsp;Übung · Zeitung<br>
+        <strong>-schaft</strong> &nbsp;Freundschaft<br>
+        <strong>-tion</strong> &nbsp;Information · Situation<br>
+        <strong>-tät / -ie / -ik</strong> &nbsp;Uni · Musik
+      </div>
+    </div>
+    <!-- das -->
+    <div class="gender-card das">
+      <div class="gc-header">das 中性</div>
+      <div class="gc-body">
+        <strong>-chen</strong> &nbsp;Mädchen · Brötchen<br>
+        <strong>-lein</strong> &nbsp;Fräulein · Büchlein<br>
+        <strong>-ment</strong> &nbsp;Dokument · Instrument<br>
+        <strong>-um</strong> &nbsp;Zentrum · Museum<br>
+        <strong>-nis</strong> &nbsp;Ergebnis · Erlebnis<br>
+        <strong>动词→名词</strong> &nbsp;das Essen · Lernen<br>
+        <strong>Ge-开头</strong> &nbsp;das Geschenk
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <strong>💡 复合词规则：</strong>性别看最后一个词！<br>
+    <span style="font-size:0.9rem;">die Woche + das Ende = <strong>das</strong> Wochenende · der Kühl + der Schrank = <strong>der</strong> Kühlschrank</span>
+  </div>
+
+  <!-- 弱广告位 1 -->
+  <div class="soft-cta">
+    <h3>📖 记单词最好的方式：边读边记</h3>
+    <p>词尾规律 + 正确发音 = 双重记忆锚点。发音错了，拼写也会跟着错。</p>
+    <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 免费试用德语发音器</a>
+    <div class="sub-link"><a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">de.leonsdeutschzentrum.com</a></div>
+  </div>
+</div>
+
+<!-- ═══════ Section 2：sein vs haben ═══════ -->
+<div class="section">
+  <h2>sein vs haben：到底怎么分？</h2>
+  <p class="section-sub">中文说"我很 XX"，德语经常是"我有 XX"。这是中德思维差异，不是语法例外。</p>
+
+  <table class="vs-table">
+    <tr><th></th><th>sein — 是 / 在</th><th>haben — 有</th></tr>
+    <tr>
+      <td><strong>身份</strong></td>
+      <td class="de">Ich bin Leon.</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td><strong>位置</strong></td>
+      <td class="de">Ich bin in Berlin.</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td><strong>状态</strong></td>
+      <td class="de">Ich bin müde.</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td><strong>年龄</strong></td>
+      <td class="de">Ich bin 20.</td>
+      <td style="color:var(--accent-red);">❌ Ich habe 20 Jahre</td>
+    </tr>
+    <tr>
+      <td><strong>拥有</strong></td>
+      <td>——</td>
+      <td class="de">Ich habe einen Hund.</td>
+    </tr>
+    <tr>
+      <td><strong>感受</strong></td>
+      <td style="color:var(--accent-red);">❌ Ich bin hungrig</td>
+      <td class="de">Ich habe Hunger.</td>
+    </tr>
+    <tr>
+      <td><strong>日程</strong></td>
+      <td>——</td>
+      <td class="de">Ich habe Unterricht.</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>🔥 A1 口语必备 5 句（全部背下来）：</strong><br>
+    Ich <strong>habe</strong> Hunger. &nbsp;|&nbsp; Ich <strong>habe</strong> Durst. &nbsp;|&nbsp;
+    Ich <strong>habe</strong> Angst. &nbsp;|&nbsp; Ich <strong>habe</strong> Glück. &nbsp;|&nbsp;
+    Ich <strong>habe</strong> Kopfschmerzen.
+  </div>
+</div>
+
+<!-- ═══════ Section 3：考试怎么考 ═══════ -->
+<div class="section">
+  <h2>歌德 A1 考试怎么扣分？</h2>
+  <p class="section-sub">知道了 der/die/das 还不够——考试里它会变形。</p>
+
+  <table class="vs-table">
+    <tr><th>格</th><th>der（阳性）</th><th>die（阴性）</th><th>das（中性）</th></tr>
+    <tr>
+      <td><strong>Nominativ</strong><br><span style="font-size:.8rem;color:var(--text-dim);">第一格 · 主语</span></td>
+      <td class="de">der</td><td class="de">die</td><td class="de">das</td>
+    </tr>
+    <tr>
+      <td><strong>Akkusativ</strong><br><span style="font-size:.8rem;color:var(--text-dim);">第四格 · 宾语</span></td>
+      <td style="color:var(--accent-red);font-weight:700;">den</td>
+      <td class="de">die</td><td class="de">das</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>⚠️ 只有阳性四格会变：der → den</strong><br>
+    <span style="font-size:0.9rem;">Ich sehe <strong style="color:var(--accent-red);">den</strong> Mann. · Ich kaufe <strong style="color:var(--accent-red);">den</strong> Tisch.</span><br>
+    <span style="font-size:0.85rem;color:var(--text-dim);">阴性和中性四格不变：Ich sehe die Lampe. · Ich kaufe das Buch.</span>
+  </div>
+
+  <!-- 弱广告位 2 -->
+  <div class="soft-cta">
+    <h3>🗣️ 发音是听力的基础</h3>
+    <p>歌德 A1 听力考的就是发音辨识。你自己读不准，别人说你也听不懂。</p>
+    <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器 · 免费试用</a>
+    <div class="sub-link">音素级评分 · AI 精准纠音 · A1/A2 分级内容</div>
+  </div>
+</div>
+
+<!-- ═══════ Section 4：速查表（截图保存） ═══════ -->
+<div class="section">
+  <h2>📸 速查表 · 截图保存</h2>
+  <p class="section-sub">一张图带走，随时翻出来看。</p>
+
+  <div class="cheatsheet">
+    <h3>📋 德语 A1 名词性别速查卡</h3>
+    <table>
+      <tr><th>词尾</th><th>性别</th><th>例子</th></tr>
+      <tr><td>-er, -el, -en</td><td class="cs-gold">der</td><td>Lehrer, Schlüssel, Garten</td></tr>
+      <tr><td>-ig, -ling</td><td class="cs-gold">der</td><td>König, Lehrling</td></tr>
+      <tr><td>月份/星期/方位</td><td class="cs-gold">der</td><td>Januar, Montag, Norden</td></tr>
+      <tr><td>-e</td><td class="cs-gold">die</td><td>Lampe, Tasche, Blume</td></tr>
+      <tr><td>-heit, -keit</td><td class="cs-gold">die</td><td>Gesundheit, Möglichkeit</td></tr>
+      <tr><td>-ung</td><td class="cs-gold">die</td><td>Übung, Zeitung, Wohnung</td></tr>
+      <tr><td>-schaft, -tion, -tät, -ie, -ik</td><td class="cs-gold">die</td><td>Freundschaft, Information, Musik</td></tr>
+      <tr><td>-chen, -lein</td><td class="cs-gold">das</td><td>Mädchen, Brötchen</td></tr>
+      <tr><td>-ment, -um, -nis</td><td class="cs-gold">das</td><td>Dokument, Zentrum, Ergebnis</td></tr>
+      <tr><td>动词原形→名词</td><td class="cs-gold">das</td><td>das Essen, das Schwimmen</td></tr>
+    </table>
+    <div style="text-align:center;margin-top:14px;font-size:.75rem;color:#64748b;">
+      Leon 德语学习中心 · leonsdeutschzentrum.com
+    </div>
+  </div>
+
+  <div class="cheatsheet" style="margin-top:16px;">
+    <h3>📋 sein vs haben 速查卡</h3>
+    <table>
+      <tr><th>场景</th><th>用哪个</th><th>例句</th></tr>
+      <tr><td>身份/位置/状态</td><td class="cs-gold">sein</td><td>Ich <b>bin</b> müde / in Berlin / Student.</td></tr>
+      <tr><td>年龄</td><td class="cs-gold">sein</td><td>Ich <b>bin</b> 20 Jahre alt.</td></tr>
+      <tr><td>拥有</td><td class="cs-gold">haben</td><td>Ich <b>habe</b> einen Hund.</td></tr>
+      <tr><td>饥饿/口渴/害怕/幸运/疼痛</td><td class="cs-gold">haben</td><td>Ich <b>habe</b> Hunger / Durst / Angst.</td></tr>
+      <tr><td>日程/课程</td><td class="cs-gold">haben</td><td>Ich <b>habe</b> Deutschunterricht.</td></tr>
+    </table>
+    <div style="text-align:center;margin-top:14px;font-size:.75rem;color:#64748b;">
+      Leon 德语学习中心 · leonsdeutschzentrum.com
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ Section 5：小测验 ═══════ -->
+<div class="section">
+  <h2>试试看 ✏️</h2>
+  <p class="section-sub">做完对答案，看看你掌握了多少。</p>
+
+  <div class="quiz-block">
+    <h3 style="color:var(--gold);margin-bottom:16px;">Part 1：填 der / die / das</h3>
+    <div class="q"><span class="num">1</span> ___ Lehrer &nbsp;<span style="color:var(--text-dim);">（老师）</span></div>
+    <div class="q"><span class="num">2</span> ___ Gesundheit &nbsp;<span style="color:var(--text-dim);">（健康）</span></div>
+    <div class="q"><span class="num">3</span> ___ Mädchen &nbsp;<span style="color:var(--text-dim);">（女孩）</span></div>
+    <div class="q"><span class="num">4</span> ___ Foto &nbsp;<span style="color:var(--text-dim);">（照片）</span></div>
+    <div class="q"><span class="num">5</span> ___ Name &nbsp;<span style="color:var(--text-dim);">（名字）</span></div>
+  </div>
+
+  <div class="quiz-block" style="margin-top:12px;">
+    <h3 style="color:var(--gold);margin-bottom:16px;">Part 2：填 sein / haben 的正确形式</h3>
+    <div class="q"><span class="num">6</span> Ich <span class="blank"></span> Durst.</div>
+    <div class="q"><span class="num">7</span> Er <span class="blank"></span> Arzt.</div>
+    <div class="q"><span class="num">8</span> <span class="blank"></span> du müde?</div>
+    <div class="q"><span class="num">9</span> Ich <span class="blank"></span> 25 Jahre alt.</div>
+    <div class="q"><span class="num">10</span> Sie <span class="blank"></span> Angst vor Hunden.</div>
+  </div>
+
+  <details style="margin-top:16px;">
+    <summary style="cursor:pointer;color:var(--gold);font-weight:700;font-size:1rem;">👇 点我看答案</summary>
+    <div style="background:var(--bg-card);border-radius:8px;padding:16px;margin-top:8px;font-size:.9rem;line-height:2;">
+      1. <strong>der</strong> Lehrer &nbsp;|&nbsp;
+      2. <strong>die</strong> Gesundheit &nbsp;|&nbsp;
+      3. <strong>das</strong> Mädchen &nbsp;|&nbsp;
+      4. <strong>das</strong> Foto &nbsp;|&nbsp;
+      5. <strong>der</strong> Name<br>
+      6. Ich <strong>habe</strong> Durst. &nbsp;|&nbsp;
+      7. Er <strong>ist</strong> Arzt. &nbsp;|&nbsp;
+      8. <strong>Bist</strong> du müde?<br>
+      9. Ich <strong>bin</strong> 25 Jahre alt. &nbsp;|&nbsp;
+      10. Sie <strong>hat</strong> Angst vor Hunden.
+    </div>
+  </details>
+</div>
+
+<!-- ═══════ Footer ═══════ -->
+<div class="footer-cta">
+  <h3>想系统学好德语？</h3>
+  <p>Leon 德语学习中心 — 对标歌德学院 A1/A2，十年教学方法论沉淀。</p>
+  <div class="links">
+    <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+    <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+    <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+  </div>
+  <div class="copyright">
+    &copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com
+  </div>
+</div>
+
+</body>
+</html>

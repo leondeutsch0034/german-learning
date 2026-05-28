@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>你不知道的德国 · 02 | 窗户为什么有两个把手？| Leon 德语</title>
+<meta name="description" content="德国窗户能斜开能平开、看病先找家庭医生、啤酒纯度写了500年的法律——6 个只有德国才有的规则与习惯。">
+<meta property="og:title" content="你不知道的德国 · 02 | 窗户为什么有两个把手？">
+<meta property="og:description" content="德国窗户能斜开能平开、大学免费但难毕业、什么事都要预约——6 个德国规则与习惯。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.8;
+  }
+
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,20,40,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  .cover {
+    position:relative; margin:0 -20px 0; overflow:hidden;
+    height:clamp(360px,60vh,520px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px 24px;
+    background:linear-gradient(160deg,#1a3050 0%,#0f1e3a 30%,#0a1428 70%);
+  }
+  .cover-img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 40%,rgba(10,20,40,0.85) 75%,#0a1428);
+  }
+  .cover-text { position:relative; z-index:2; }
+  .cover .series {
+    display:inline-block; background:var(--gold); color:var(--bg);
+    padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800;
+    letter-spacing:0.05em; margin-bottom:12px;
+  }
+  .cover h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2;
+    color:#fff; margin-bottom:8px;
+  }
+  .cover .sub {
+    font-size:0.95rem; color:rgba(255,255,255,0.7);
+  }
+
+  .story { margin:40px 0; }
+  .story .story-img-wrap {
+    position:relative; border-radius:14px; overflow:hidden;
+    margin-bottom:16px; aspect-ratio:4/3;
+    background:linear-gradient(135deg,#1e3a5f 0%,#0f1e3a 40%,#1a3050 100%);
+  }
+  .story .story-img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    position:relative; z-index:1;
+  }
+  .story .story-num {
+    position:absolute; top:12px; left:12px;
+    background:rgba(10,20,40,0.75); color:var(--gold);
+    padding:3px 12px; border-radius:10px; font-size:0.78rem; font-weight:700;
+    backdrop-filter:blur(4px);
+    z-index:2;
+  }
+  .story h2 {
+    font-size:1.3rem; font-weight:800; color:var(--gold); margin-bottom:8px;
+  }
+  .story p { margin-bottom:10px; font-size:0.95rem; }
+  .story .funfact {
+    background:rgba(246,211,101,0.06); border-left:3px solid var(--gold);
+    padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:var(--gold-light);
+  }
+
+  /* ── 词汇小课堂 ── */
+  .wortschatz {
+    margin:40px 0; padding:28px 24px;
+    background:rgba(246,211,101,0.04); border:1px solid rgba(246,211,101,0.15);
+    border-radius:16px;
+  }
+  .wortschatz h2 {
+    font-size:1.3rem; font-weight:800; color:var(--gold); text-align:center;
+    margin-bottom:6px;
+  }
+  .wortschatz .ws-sub {
+    text-align:center; font-size:0.85rem; color:var(--dim); margin-bottom:24px;
+  }
+  .wort-item {
+    background:var(--card); border-radius:12px; padding:18px 20px;
+    margin-bottom:14px; border-left:3px solid var(--gold);
+  }
+  .wort-item .wi-head {
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .wort-item .wi-de {
+    font-size:1.1rem; font-weight:800; color:var(--gold);
+  }
+  .wort-item .wi-zh {
+    font-size:0.85rem; color:var(--dim);
+  }
+  .wort-item .wi-scene {
+    font-size:0.9rem; color:var(--text); line-height:1.7; margin-top:8px;
+  }
+  .wort-item .wi-say {
+    display:inline-block; background:rgba(246,211,101,0.08);
+    padding:6px 14px; border-radius:8px; margin:6px 0;
+    font-size:0.9rem; color:var(--gold-light); font-style:italic;
+  }
+  .wort-item .wi-tone {
+    font-size:0.82rem; color:var(--dim); margin-top:4px;
+  }
+
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.22); border-radius:14px;
+    padding:28px; margin:40px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .footer {
+    text-align:center; padding:32px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
+
+  @media (max-width:600px) {
+    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    body { padding:0; }
+
+    .topbar { padding:7px 14px; font-size:0.76rem; }
+
+    .page { max-width:100%; padding:0; }
+
+    .cover {
+      margin:0; border-radius:0; height:100dvh;
+      min-height:100dvh; padding:50px 18px 32px;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .cover-img { border-radius:0; }
+
+    .story {
+      min-height:100dvh; margin:0; padding:50px 18px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .story .story-img-wrap {
+      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+    }
+    .story h2 { font-size:1.2rem; text-align:center; }
+    .story p { font-size:0.9rem; }
+    .story .funfact { font-size:0.84rem; }
+
+    /* 词汇课堂：内容多，允许内部滚动 */
+    .wortschatz {
+      min-height:100dvh; margin:0; border-radius:0; border:none;
+      padding:50px 16px 32px;
+      display:flex; flex-direction:column; justify-content:flex-start;
+      scroll-snap-align:start; scroll-snap-stop:always;
+      overflow-y:auto;
+    }
+    .wortschatz h2 { font-size:1.15rem; text-align:center; }
+    .wortschatz .ws-sub { font-size:0.8rem; margin-bottom:18px; }
+    .wort-item { padding:12px 14px; margin-bottom:10px; }
+    .wort-item .wi-de { font-size:0.95rem; }
+    .wort-item .wi-zh { font-size:0.78rem; }
+    .wort-item .wi-scene { font-size:0.84rem; line-height:1.6; }
+    .wort-item .wi-say { font-size:0.82rem; padding:5px 10px; }
+    .wort-item .wi-tone { font-size:0.78rem; }
+
+    .soft-cta {
+      min-height:100dvh; margin:0; border-radius:0;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+
+    .footer {
+      min-height:100dvh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center;
+      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .footer .links { flex-direction:column; align-items:center; }
+
+    .story.overflow { justify-content:flex-start; overflow-y:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="cover">
+    <img class="cover-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80" alt="German window" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      <div class="series">你不知道的德国 · 02</div>
+      <h1>窗户为什么<br>有两个把手？</h1>
+      <p class="sub">6 个只有德国才有的规则与习惯 · 每一个都能逼疯外国人</p>
+    </div>
+  </div>
+
+  <!-- ═══ 故事 1：德国窗户 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="German tilt-turn window" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">01</div>
+    </div>
+    <h2>一扇窗，两种开法</h2>
+    <p>第一次在德国租房，我对着窗户研究了五分钟——把手朝上，窗户上部斜开一条缝（Kipp）；把手横过来，整扇窗向内平开（Dreh）。</p>
+    <p>这就是德国独有的<strong style="color:var(--gold);">内开内倒窗</strong>（Dreh-Kipp-Fenster），几乎每一栋德国建筑都装这种窗。全世界大多数国家用推拉窗或外开窗，只有德语区对这种窗有执念。</p>
+    <p>更夸张的是德国人的通风方式——<strong style="color:var(--gold);">Stoßlüften</strong>（冲击通风）：每天早中晚各一次，把窗户完全打开 5-10 分钟，让空气彻底对流，然后关上。不是开条缝一整天，而是一次性"换气"。</p>
+    <div class="funfact">
+      💡 德国租房合同里可能写明"租客有 Stoßlüften 义务"。如果因为长期不开窗导致墙体发霉，维修费由租客承担。德国人觉得全天开小缝=浪费暖气+不换气。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 2：大学免费但难毕业 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&q=80" alt="German university" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">02</div>
+    </div>
+    <h2>大学免费，但别高兴太早</h2>
+    <p>"德国大学不要学费"——这句话吸引了无数中国留学生。确实，绝大多数德国公立大学<strong style="color:var(--gold);">不收学费</strong>（巴符州除外），每学期只需交一两百欧的注册费，还含一张全州交通票。</p>
+    <p>但免费不代表好混。德国大学是典型的<strong style="color:var(--gold);">宽进严出</strong>：没有辅导员追着你交作业，没有补考无限次，一门课考不过 3 次就永远失去在全德国任何大学读这个专业的资格。</p>
+    <p>在德国读大学，你要自己安排课表、自己找实习、自己搞定所有行政手续。没有"班主任"，没有任何人会主动通知你任何事。</p>
+    <div class="funfact">
+      💡 德国大学本科平均毕业时间是 8-10 个学期（4-5 年），不是规定的 6 个学期。延毕在德国太正常了，没人觉得你"掉队"。相反，按时毕业的人才会被问"你是不是没有生活"。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 3：预约文化 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="Calendar and clock" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">03</div>
+    </div>
+    <h2>没有 Termin，寸步难行</h2>
+    <p>在中国，理发走进店里说一声就行。在德国，你要<strong style="color:var(--gold);">提前一周预约</strong>。</p>
+    <p>在中国，去政府办事当天取号排队。在德国，外管局（Ausländerbehörde）的预约可能要<strong style="color:var(--gold);">等 3 个月</strong>。你想直接冲进去？门口保安面无表情："Haben Sie einen Termin？（您有预约吗？）"</p>
+    <p>看病、理发、办签证、银行开户、甚至去朋友家做客——德国人默认任何事情都需要 Termin。不打招呼直接上门（除了至亲好友）在德国被认为是极度不礼貌的。</p>
+    <div class="funfact">
+      💡 德国人手一本日历，不是手机日历，是纸质的。预约文化深到骨髓——德语句子"Ich habe einen Termin"（我有个预约）是外国人最早学会的救命句之一。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 4：准时不是提前 ═══ -->
+  <div class="story">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80" alt="German train station clock" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">04</div>
+    </div>
+    <h2>德国火车，准时是意外</h2>
+    <p>"德国人很准时"——这个刻板印象被<strong style="color:var(--gold);">德国铁路（Deutsche Bahn）</strong>彻底击穿了。</p>
+    <p>2024 年 DB 长途列车准点率<strong style="color:var(--gold);">只有 62%</strong>，在欧洲排名倒数。晚点半小时是日常，晚点一小时不稀奇。最魔幻的是——列车开一半宣布取消，全车人下车在陌生城市等下一班。</p>
+    <p>然而德国人对"个人准时"依然有执念。迟到超过 5 分钟一定要发消息道歉；大学讨论课迟到会被全场注视；牙医迟到 15 分钟你不用道歉——但你迟到 15 分钟你可能就被取消了名额。</p>
+    <div class="funfact">
+      💡 德语里有一个词叫"Pünktlichkeit"（准时），但还有一个词叫"DB-Verspätung"（德铁晚点）。德国人自嘲："德铁晚点不是 bug，是 feature。"
+    </div>
+  </div>
+
+  <!-- ═══ 故事 5：家庭医生制度 ═══ -->
+  <div class="story overflow">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Doctor's office" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">05</div>
+    </div>
+    <h2>看病不直接去医院</h2>
+    <p>在德国生病了，你的第一反应可能是"去医院"。但德国人会告诉你：<strong style="color:var(--gold);">先去找家庭医生（Hausarzt）</strong>。</p>
+    <p>德国的医疗体系是一个层层分级的"守门人系统"：你长期注册一位家庭医生（通常是全科医生），任何身体不适先找他。他认为需要专科医生时，<strong style="color:var(--gold);">给你开转诊单</strong>（Überweisung），你才能去看专科。你直接冲去大医院急诊，护士先评估——如果不是紧急情况，可能要在大厅坐 4-6 小时而且可能被医院劝退。</p>
+    <p>唯一的例外是：紧急情况直接打 112，救护车送你去最近的医院。但感冒发烧这种事，老老实实约 Hausarzt。</p>
+    <div class="funfact">
+      💡 德国的医保（Krankenkasse）是强制性的，全民必须参保。公立保险按收入比例收费，一人参保全家受益。但看牙医时你会发现——补牙材料分三档，第三档要自费。"免费医疗"不等于"零自费"。
+    </div>
+  </div>
+
+  <!-- ═══ 故事 6：啤酒纯净法 ═══ -->
+  <div class="story overflow">
+    <div class="story-img-wrap">
+      <img class="story-img" src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80" alt="German beer" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-num">06</div>
+    </div>
+    <h2>啤酒成分，法律说了算</h2>
+    <p>德国啤酒好喝是有原因的——因为法律规定了<strong style="color:var(--gold);">只能放 4 种原料</strong>。</p>
+    <p>1516 年，巴伐利亚公爵颁布了<strong style="color:var(--gold);">《啤酒纯净法》</strong>（Reinheitsgebot），规定啤酒只能用水、大麦、啤酒花酿造。后来加了酵母，变成 4 种。这是全世界最古老的食品安全法规，至今仍然有效——虽然是修订版。</p>
+    <p>在德国超市买啤酒，标签上会写"Gebraut nach dem deutschen Reinheitsgebot"（按德国纯净法酿造）。这不是广告词，而是法律声明。加了香精、糖浆的"精酿"在德国没有资格叫啤酒。</p>
+    <div class="funfact">
+      💡 德国有超过 1500 家啤酒厂、5000 多种啤酒品牌。每个小镇都有自己的啤酒厂。在德国，"本地啤酒"才是最好的——如果你在科隆点了杜塞尔多夫的 Altbier，或者在杜塞点了科隆的 Kölsch，可能会被服务员提醒"您点错了"。这不是玩笑，是城市荣誉。
+    </div>
+  </div>
+
+  <!-- ═══ 词汇小课堂 ═══ -->
+  <div class="wortschatz">
+    <h2>📖 词汇小课堂</h2>
+    <p class="ws-sub">这些词德国人日常就是这么说的——不是课本德语，是真实生活中的话</p>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">auf Kipp</span><span class="wi-zh">窗户斜开一条缝</span></div>
+      <div class="wi-scene">室友从厨房探头：<span class="wi-say">„Mach mal kurz auf Kipp, hier riecht's nach Zwiebeln."</span>（开条缝，一股洋葱味）</div>
+      <div class="wi-tone">不是专业词，住了德国房子自然就会说。每天伸手做的动作。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">Stoßlüften</span><span class="wi-zh">冲击通风——窗户全开几分钟后关上</span></div>
+      <div class="wi-scene">冬天早上德国室友哗啦把窗全拉开，站在冷风里说：<span class="wi-say">„Einmal kurz stoßlüften, dann ist die Luft wieder frisch."</span>你说不冷吗？他回：<span class="wi-say">„Die Wände kühlen nicht aus, nur die Luft tauscht sich aus. Das ist effizient."</span></div>
+      <div class="wi-tone">"高效"（effizient）是德国人夸一件事的最高评价。Stoßlüften = 德式效率在通风这件事上的体现。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">der Termin, -e</span><span class="wi-zh">预约</span></div>
+      <div class="wi-scene">打电话给牙医：<span class="wi-say">„Nächster freier Termin ist in drei Wochen."</span>（最早空档三周后）。冲进外管局门口，保安面无表情：<span class="wi-say">„Haben Sie einen Termin?"</span>——这句是反问，实际意思是"没预约你在这干嘛"。同事提前下班：<span class="wi-say">„Ich hab um 14 Uhr einen Termin beim Zahnarzt, bin dann weg."</span></div>
+      <div class="wi-tone">在德国，Termin 是这个社会运转的基本单位。没有 Termin = 你不存在。你手机里会存 20+ 个不同的 Termin，连"自由的下午"都说 „Heute Nachmittag hab ich frei, also keinen Termin."</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">die Ausländerbehörde, -n</span><span class="wi-zh">外管局（外国人管理局）</span></div>
+      <div class="wi-scene">留学生之间："明天要去外管局"——另一个回：<span class="wi-say">„Oh je. Nimm alles mit. Passfoto, Immatrikulationsbescheinigung, Kontoauszug, alles. Lieber zu viel als zu wenig."</span></div>
+      <div class="wi-tone">外国人听到就血压升高的词。以排队久、态度冷、材料多著称。但该办的事总会办成——效率低但不耍你。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">die Pünktlichkeit</span><span class="wi-zh">准时（名词）</span></div>
+      <div class="wi-scene">德国人迟到会提前发消息：<span class="wi-say">„Komme 5 Minuten später, Zug hatte Verspätung."</span>——"德铁晚点"是万能的迟到理由，没人怀疑你。被德铁坑了之后德国人只说：<span class="wi-say">„Naja, DB halt."</span>（嘛，德铁嘛）</div>
+      <div class="wi-tone">"准时是尊重问题"——教授会这么说。但现实是德铁准点率 62%，德国人自己对 Pünktlichkeit 已经不好意思了。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">die DB-Verspätung</span><span class="wi-zh">德铁晚点（文化梗，不是官方词）</span></div>
+      <div class="wi-scene">你准时到火车站，朋友没到。他发消息：<span class="wi-say">„DB. Sorry. 20 Minuten später."</span>就三个词，不需要解释。到了之后也不激动：<span class="wi-say">„Naja, DB halt."</span>（嘛，德铁嘛）</div>
+      <div class="wi-tone">德国人最经典的认命表达。像中国人吐槽国足——不需要解释，懂的都懂。Naja, DB halt = "就这样吧还能怎么办"。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">der Hausarzt, -¨e</span><span class="wi-zh">家庭医生（你长期注册的全科医生）</span></div>
+      <div class="wi-scene">同事请病假不说"我去看病"，说：<span class="wi-say">„Ich bin beim Hausarzt."</span>医生开了病假条（俗称 gelber Schein 黄单子）→ 拍照发老板。老板不会问你怎么了，这是隐私。</div>
+      <div class="wi-tone">德国人说 „mein Hausarzt" 有一种"这是我的人"的感觉。搬到新城市第一件事是 Anmeldung（上户口），第二件事就是找一个 Hausarzt 注册。有人跟同一个 Hausarzt 几十年。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">die Überweisung, -en</span><span class="wi-zh">转诊单（家庭医生开给你的专科通行证）</span></div>
+      <div class="wi-scene">Hausarzt 说：<span class="wi-say">„Ich schreibe Ihnen eine Überweisung zum Orthopäden."</span>到了专科前台，没这个单子的话：<span class="wi-say">„Ohne Überweisung geht das leider nicht."</span></div>
+      <div class="wi-tone">„geht leider nicht" 是德国生活高频句式——温和但坚定地告诉你这事没可能。你会在银行、外管局、市政厅反复听到。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">die Krankenkasse, -n</span><span class="wi-zh">医保（全民强制参保）</span></div>
+      <div class="wi-scene">德国人聊天：<span class="wi-say">„Bei welcher Krankenkasse bist du?"</span>（你哪家医保的？）→ "Techniker. Und du?" → "AOK. Aber ich überleg zu wechseln."（但我考虑换一家）然后两人深入探讨 Bonusprogramm（积分换现金）、Zusatzleistung（洗牙报销）、Beitragssatz（费率）。</div>
+      <div class="wi-tone">每家保险每年涨价幅度不同，所以德国人真的会聊这个——跟中国人聊公积金差不多。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">das Reinheitsgebot</span><span class="wi-zh">啤酒纯净法（1516年颁布，世界最古老食品安全法规）</span></div>
+      <div class="wi-scene">在啤酒花园，德国人指着你的杯子：<span class="wi-say">„Das ist richtiges Bier. Nur Wasser, Malz, Hopfen, Hefe. Reinheitsgebot. Nicht so wie bei euch... was ist da eigentlich drin?"</span>他不是挑衅，是真心好奇。标签上那句 „Gebraut nach dem deutschen Reinheitsgebot" 读起来像尊严宣言，不是广告文案。</div>
+      <div class="wi-tone">德国人骨子里觉得成分简单的东西才是好的。面包也一样——只有水、面粉、酵母、盐。超市白面包在他们眼里是异端。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">das Kölsch / das Altbier</span><span class="wi-zh">科隆啤酒 / 杜塞尔多夫老啤</span></div>
+      <div class="wi-scene">科隆酒吧里你点了 Altbier，吧台笑着但坚定：<span class="wi-say">„Wir sind in Köln. Hier gibt's Kölsch. Möchtest du ein Kölsch?"</span>旁边德国人小声跟你说：<span class="wi-say">„Das ist so ein Ding zwischen Köln und Düsseldorf. Seit hundert Jahren."</span></div>
+      <div class="wi-tone">莱茵兰地区的"啤酒城市认同"。不是真吵架，是仪式感的互怼。你在科隆说 „Ein Kölsch, bitte." 服务员会对你笑——因为你"做对了"。</div>
+    </div>
+
+    <div class="wort-item">
+      <div class="wi-head"><span class="wi-de">geht leider nicht</span><span class="wi-zh">"这个不行"（德语生活第一拒绝句）</span></div>
+      <div class="wi-scene">银行："我要开个账户" → „Ohne Termin geht das leider nicht." 面包店下午六点零一分："我还要买面包" → „Die Kasse ist schon zu, geht leider nicht." 市政厅："我忘带护照复印件了" → „Geht leider nicht ohne Ausweis."</div>
+      <div class="wi-tone">语气温和，但没有任何商量余地。德国生活最熟悉的陌生人。你待一个月就会在自己脑子里用这个句式思考。</div>
+    </div>
+  </div>
+
+  <!-- ═══ 弱广告 ═══ -->
+  <div class="soft-cta">
+    <h3>🇩🇪 想真正理解这些规则？</h3>
+    <p>每个德国奇葩规则背后，都藏着一个德语词汇和文化逻辑。<br>比如 Stoßlüften、Termin、Reinheitsgebot——学会这些词，你就懂了德国人。</p>
+    <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 开始学德语</a>
+    <span class="sub-link">leonsdeutschzentrum.com</span>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>更多德国故事</h3>
+    <p>关注 Leon 德语学习中心，每周带你看见课本之外的德国。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>

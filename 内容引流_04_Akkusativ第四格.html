@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>德语 A1：Akkusativ 第四格 | 为什么 der 变成 den？| Leon 德语</title>
+<meta name="description" content="A1 最让人崩溃的瞬间：der Mann 为什么突然变成 den Mann？5 分钟搞懂德语第四格 Akkusativ，附常见动词表和速查卡。">
+<meta property="og:title" content="德语 A1：Akkusativ 第四格 | der 为什么变成 den？">
+<meta property="og:description" content="5 分钟搞懂第四格，附常见动词表和速查卡可截图保存。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --red:#f87171; --green:#4ade80;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+  }
+
+  /* ── 桌面：普通文章流 ── */
+  .topbar {
+    position:sticky; top:0; z-index:99;
+    background:rgba(10,20,40,0.95); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 20px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  .hero {
+    text-align:center; padding:clamp(36px,6vw,64px) 0 clamp(28px,4vw,44px);
+    position:relative;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent);
+  }
+  .hero .eyebrow {
+    display:inline-block; background:rgba(246,211,101,0.12);
+    border:1px solid rgba(246,211,101,0.3); color:var(--gold-light);
+    padding:6px 20px; border-radius:20px; font-size:0.85rem; font-weight:700;
+    letter-spacing:0.06em; margin-bottom:20px;
+  }
+  .hero h1 {
+    font-size:clamp(1.8rem,4.5vw,2.6rem); font-weight:900; line-height:1.2;
+    background:linear-gradient(100deg,#ffd770,#fff3b8 25%,#fff 45%,#ffe088 65%,#ffc448);
+    background-size:200% auto;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+    max-width:640px; margin:0 auto 12px;
+  }
+  .hero .sub { font-size:1.05rem; color:var(--dim); max-width:480px; margin:0 auto; }
+
+  .sec { padding:32px 0; }
+  .sec + .sec { border-top:1px solid rgba(246,211,101,0.06); }
+  .sec h2 {
+    font-size:1.5rem; font-weight:800; color:var(--gold); margin-bottom:12px;
+  }
+  .sec h3 {
+    font-size:1.1rem; font-weight:700; color:var(--gold-light); margin:20px 0 8px;
+  }
+  .sec p { margin-bottom:12px; }
+
+  .sec table {
+    width:100%; border-collapse:collapse; margin:14px 0; font-size:0.92rem;
+  }
+  .sec table th {
+    background:var(--card); color:var(--gold); padding:11px 10px; text-align:center;
+    border:1px solid rgba(246,211,101,0.15); font-weight:700;
+  }
+  .sec table td {
+    background:rgba(15,30,58,0.5); padding:9px 10px; text-align:center;
+    border:1px solid rgba(246,211,101,0.08);
+  }
+  .sec table .de { color:var(--gold); font-weight:700; }
+  .sec table .warn { color:var(--red); font-weight:700; }
+
+  .callout {
+    background:rgba(246,211,101,0.06); border:1px solid rgba(246,211,101,0.2);
+    border-radius:12px; padding:20px 24px; margin:16px 0; text-align:center;
+    font-size:0.95rem;
+  }
+  .callout strong { color:var(--gold); }
+
+  .example {
+    background:var(--card); border-left:3px solid var(--gold);
+    padding:14px 20px; border-radius:0 8px 8px 0; margin:10px 0;
+    font-size:0.95rem;
+  }
+  .example .wrong { color:var(--red); text-decoration:line-through; margin-right:12px; }
+  .example .right { color:var(--green); font-weight:600; }
+
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.07),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.2); border-radius:14px;
+    padding:24px; margin:20px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.05rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.88rem; margin-bottom:14px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .cheatsheet {
+    background:#fff; color:#1a202c; border-radius:14px; padding:24px;
+    margin:20px 0; font-size:0.9rem; line-height:1.9;
+    box-shadow:0 6px 32px rgba(0,0,0,0.3);
+  }
+  .cheatsheet h3 { color:#1a202c !important; text-align:center; font-size:1.1rem; margin-bottom:12px; }
+  .cheatsheet table { font-size:0.84rem; }
+  .cheatsheet table th { background:#1e3a5f !important; color:#fff !important; font-size:0.78rem; padding:8px 6px; }
+  .cheatsheet table td { padding:7px 6px; border-bottom:1px solid #e2e8f0; }
+  .cheatsheet .hl { background:#fff8e1; font-weight:700; }
+  .cheatsheet .cs-foot { text-align:center; margin-top:12px; font-size:.72rem; color:#64748b; }
+
+  .quiz { background:var(--card); border-radius:12px; padding:20px 24px; margin:16px 0; }
+  .quiz .q { padding:10px 14px; margin-bottom:6px; border-radius:8px; background:rgba(15,30,58,0.6); font-size:0.95rem; }
+  .quiz .q .num { color:var(--gold); font-weight:700; margin-right:10px; }
+  .quiz .q .blank { display:inline-block; width:56px; border-bottom:2px dashed var(--gold); text-align:center; color:var(--gold); margin:0 4px; }
+
+  .footer {
+    text-align:center; padding:36px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:#475569; }
+
+  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  @media (max-width:600px) {
+    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    body { padding:0; background:#0a1428; }
+
+    .topbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      padding:8px 14px; font-size:0.78rem;
+    }
+
+    .page { max-width:100%; padding:0; }
+
+    .sec {
+      min-height:100dvh;
+      padding:50px 16px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+      border:none;
+    }
+    .hero {
+      min-height:100dvh;
+      padding:50px 16px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+    }
+    .hero::after { display:none; }
+
+    .sec + .sec { border:none; }
+
+    .sec h2 { font-size:1.3rem; text-align:center; }
+    .sec h3 { font-size:1rem; text-align:center; }
+    .sec table { font-size:0.76rem; }
+    .sec table th, .sec table td { padding:6px 3px; }
+    .callout { font-size:0.88rem; padding:16px 18px; }
+    .example { font-size:0.88rem; }
+    .cheatsheet { padding:16px; font-size:0.82rem; margin:0; }
+    .cheatsheet table { font-size:0.72rem; }
+    .cheatsheet h3 { font-size:1rem; }
+    .quiz { padding:16px; margin:0; }
+    .quiz .q { font-size:0.88rem; padding:8px 10px; }
+    .soft-cta { padding:18px; margin:0; }
+    .footer { padding:24px 16px; scroll-snap-align:start; }
+    .footer .links { flex-direction:column; align-items:center; }
+
+    .sec.overflow { justify-content:flex-start; overflow-y:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 截屏 1：封面 ═══ -->
+  <div class="hero">
+    <div class="eyebrow">A1 语法 · 第 4 期</div>
+    <h1>der 为什么<br>变成 den？</h1>
+    <p class="sub">Akkusativ 第四格 — A1 最让人崩溃的瞬间，5 分钟搞懂。</p>
+  </div>
+
+  <!-- ═══ 截屏 2：钩子 ═══ -->
+  <div class="sec">
+    <h2>你说的是……</h2>
+    <div class="example">
+      <div style="color:var(--dim);font-size:.85rem;margin-bottom:4px;">你以为的正确：</div>
+      <span class="wrong">Ich sehe <b>der</b> Mann.</span>
+    </div>
+    <div class="example" style="border-left-color:var(--green);margin-top:14px;">
+      <div style="color:var(--dim);font-size:.85rem;margin-bottom:4px;">德语实际说的：</div>
+      <span class="right">Ich sehe <b>den</b> Mann.</span>
+    </div>
+    <p style="text-align:center;color:var(--red);font-weight:700;font-size:1.1rem;margin-top:16px;">
+      为什么 der 突然变成了 den？？
+    </p>
+    <div class="callout" style="margin-top:16px;">
+      <strong>冠词在句子里会变形</strong><br>
+      <span style="font-size:.88rem;">就像中文的"我"和"我的"不一样</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 3：什么是第四格 ═══ -->
+  <div class="sec">
+    <h2>什么是第四格？</h2>
+    <div class="callout">
+      <strong>Akkusativ = 第四格 = 宾语格</strong><br>
+      <span style="font-size:.9rem;">动作直接作用的对象 → 第四格</span>
+    </div>
+    <div class="example" style="margin-top:16px;">
+      Ich sehe <b style="color:var(--gold);">den Mann</b>.<br>
+      <span style="color:var(--dim);font-size:.85rem;">→ 我看到<b>谁</b>？→ den Mann（第四格）</span>
+    </div>
+    <div class="example">
+      Ich kaufe <b style="color:var(--gold);">einen Tisch</b>.<br>
+      <span style="color:var(--dim);font-size:.85rem;">→ 我买<b>什么</b>？→ einen Tisch（第四格）</span>
+    </div>
+    <p style="text-align:center;color:var(--gold);font-weight:700;margin-top:12px;">
+      判断口诀：问 Wen? / Was?
+    </p>
+  </div>
+
+  <!-- ═══ 截屏 4：冠词变化表 ═══ -->
+  <div class="sec">
+    <h2>冠词怎么变？</h2>
+    <p style="text-align:center;margin-bottom:12px;">好消息：<strong style="color:var(--green);">只有阳性会变！</strong></p>
+    <table>
+      <tr><th>性别</th><th>Nominativ<span style="font-size:.72rem;color:var(--dim);"><br>第一格（主语）</span></th><th>Akkusativ<span style="font-size:.72rem;color:var(--gold);"><br>第四格（宾语）</span></th><th>变化？</th></tr>
+      <tr>
+        <td>阳性</td><td class="de">der</td><td class="warn">den</td>
+        <td style="color:var(--red);font-weight:700;">变了！</td>
+      </tr>
+      <tr>
+        <td>阴性</td><td class="de">die</td><td class="de">die</td>
+        <td style="color:var(--green);">不变</td>
+      </tr>
+      <tr>
+        <td>中性</td><td class="de">das</td><td class="de">das</td>
+        <td style="color:var(--green);">不变</td>
+      </tr>
+      <tr>
+        <td>复数</td><td class="de">die</td><td class="de">die</td>
+        <td style="color:var(--green);">不变</td>
+      </tr>
+    </table>
+    <div class="callout" style="margin-top:12px;">
+      <strong>🔥 核心：der → den，其他全不变！</strong><br>
+      <span style="font-size:.82rem;">ein → <b style="color:var(--red);">einen</b>（阳性），eine / ein 不变</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 5：高频动词表 ═══ -->
+  <div class="sec overflow">
+    <h2>A1 高频四格动词</h2>
+    <p style="text-align:center;color:var(--dim);font-size:.88rem;">看到这些动词，后面的名词大概率是第四格</p>
+    <table>
+      <tr><th>动词</th><th>意思</th><th>例句</th></tr>
+      <tr><td class="de">haben</td><td>有</td><td>Ich habe <b style="color:var(--red);">einen</b> Hund.</td></tr>
+      <tr><td class="de">sehen</td><td>看见</td><td>Ich sehe <b style="color:var(--red);">den</b> Mann.</td></tr>
+      <tr><td class="de">kaufen</td><td>买</td><td>Ich kaufe <b style="color:var(--red);">einen</b> Tisch.</td></tr>
+      <tr><td class="de">essen</td><td>吃</td><td>Ich esse <b style="color:var(--red);">einen</b> Apfel.</td></tr>
+      <tr><td class="de">trinken</td><td>喝</td><td>Ich trinke <b style="color:var(--red);">einen</b> Kaffee.</td></tr>
+      <tr><td class="de">lesen</td><td>读</td><td>Ich lese <b style="color:var(--red);">einen</b> Text.</td></tr>
+      <tr><td class="de">finden</td><td>觉得</td><td>Ich finde <b style="color:var(--red);">den</b> Film gut.</td></tr>
+      <tr><td class="de">brauchen</td><td>需要</td><td>Ich brauche <b style="color:var(--red);">einen</b> Stift.</td></tr>
+    </table>
+  </div>
+
+  <!-- ═══ 截屏 6：弱广告 ═══ -->
+  <div class="sec">
+    <div class="soft-cta">
+      <h3>🎤 读出来，语法才记得牢</h3>
+      <p>把这些例句大声读出来——音素级 AI 评分会告诉你读得对不对。读对了，语法自然内化。</p>
+      <a class="cta-btn" href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">免费试用德语发音器</a>
+      <span class="sub-link">de.leonsdeutschzentrum.com</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 7：速查卡 ═══ -->
+  <div class="sec">
+    <h2>📸 截图保存</h2>
+    <div class="cheatsheet">
+      <h3>Akkusativ 第四格速查卡</h3>
+      <table>
+        <tr><th>性别</th><th>Nom.（主语）</th><th>Akk.（宾语）</th><th>不定冠词 Akk.</th></tr>
+        <tr><td>阳性</td><td>der</td><td class="hl" style="color:#c00;">den</td><td class="hl" style="color:#c00;">einen</td></tr>
+        <tr><td>阴性</td><td>die</td><td>die</td><td>eine</td></tr>
+        <tr><td>中性</td><td>das</td><td>das</td><td>ein</td></tr>
+        <tr><td>复数</td><td>die</td><td>die</td><td>—</td></tr>
+      </table>
+      <div class="cs-foot">Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 8：测验 ═══ -->
+  <div class="sec">
+    <h2>试试看 ✏️</h2>
+    <div class="quiz">
+      <div class="q"><span class="num">1</span> Ich sehe <span class="blank"></span> Mann. <span style="color:var(--dim);">（我看到那个男人）</span></div>
+      <div class="q"><span class="num">2</span> Er kauft <span class="blank"></span> Lampe. <span style="color:var(--dim);">（他买那盏灯）</span></div>
+      <div class="q"><span class="num">3</span> Wir essen <span class="blank"></span> Apfel. <span style="color:var(--dim);">（吃一个苹果）</span></div>
+      <div class="q"><span class="num">4</span> Hast du <span class="blank"></span> Buch? <span style="color:var(--dim);">（你有那本书吗？）</span></div>
+      <div class="q"><span class="num">5</span> Ich brauche <span class="blank"></span> Stift. <span style="color:var(--dim);">（我需要一支笔）</span></div>
+    </div>
+    <details style="margin-top:12px;">
+      <summary style="cursor:pointer;color:var(--gold);font-weight:700;">👇 点我看答案</summary>
+      <div style="background:var(--card);border-radius:8px;padding:12px 16px;margin-top:8px;font-size:.9rem;line-height:2;">
+        1. <strong>den</strong> &nbsp;|&nbsp;
+        2. <strong>die</strong>（阴性不变）&nbsp;|&nbsp;
+        3. <strong>einen</strong> &nbsp;|&nbsp;
+        4. <strong>das</strong>（中性不变）&nbsp;|&nbsp;
+        5. <strong>einen</strong>
+      </div>
+    </details>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>想系统学好德语？</h3>
+    <p>Leon 德语学习中心 — 对标歌德学院 A1/A2，十年方法论沉淀。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>

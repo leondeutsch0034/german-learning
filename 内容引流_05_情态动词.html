@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>德语 A1：情态动词 | wollen 和 möchten 差在哪？| Leon 德语</title>
+<meta name="description" content="wollen 和 möchten 都是'想要'，但说错了德国人会误会你。5 分钟搞懂 6 个情态动词，附变位表和速查卡。">
+<meta property="og:title" content="德语 A1：情态动词 | wollen 和 möchten 差在哪？">
+<meta property="og:description" content="5 分钟搞懂 6 个情态动词，附变位表截图保存。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --red:#f87171; --green:#4ade80;
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+  }
+
+  /* ── 桌面：普通文章流 ── */
+  .topbar {
+    position:sticky; top:0; z-index:99;
+    background:rgba(10,20,40,0.95); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 20px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  /* 德国国旗色条 */
+  .flag-stripes {
+    display:flex; height:6px; border-radius:3px; overflow:hidden;
+    width:72px; margin:0 auto 28px;
+  }
+  .flag-stripes span { flex:1; }
+  .flag-stripes .fs-black { background:#000; }
+  .flag-stripes .fs-red { background:#dd0000; }
+  .flag-stripes .fs-gold { background:#ffcc00; }
+
+  .hero {
+    text-align:center; padding:clamp(36px,6vw,64px) 0 clamp(28px,4vw,44px);
+    position:relative;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent);
+  }
+  .hero .eyebrow {
+    display:inline-block; background:rgba(246,211,101,0.12);
+    border:1px solid rgba(246,211,101,0.3); color:var(--gold-light);
+    padding:6px 20px; border-radius:20px; font-size:0.85rem; font-weight:700;
+    letter-spacing:0.06em; margin-bottom:20px;
+  }
+  .hero h1 {
+    font-size:clamp(1.8rem,4.5vw,2.6rem); font-weight:900; line-height:1.2;
+    background:linear-gradient(100deg,#ffd770,#fff3b8 25%,#fff 45%,#ffe088 65%,#ffc448);
+    background-size:200% auto;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+    max-width:680px; margin:0 auto 12px;
+  }
+  .hero .sub { font-size:1.05rem; color:var(--dim); max-width:480px; margin:0 auto; }
+
+  /* 内容块 */
+  .sec { padding:32px 0; }
+  .sec + .sec { border-top:1px solid rgba(246,211,101,0.06); }
+  .sec h2 {
+    font-size:1.5rem; font-weight:800; color:var(--gold); margin-bottom:12px;
+  }
+  .sec h3 {
+    font-size:1.1rem; font-weight:700; color:var(--gold-light); margin:20px 0 8px;
+  }
+  .sec p { margin-bottom:12px; }
+
+  .sec table {
+    width:100%; border-collapse:collapse; margin:14px 0; font-size:0.92rem;
+  }
+  .sec table th {
+    background:var(--card); color:var(--gold); padding:11px 10px; text-align:center;
+    border:1px solid rgba(246,211,101,0.15); font-weight:700;
+  }
+  .sec table td {
+    background:rgba(15,30,58,0.5); padding:9px 10px; text-align:center;
+    border:1px solid rgba(246,211,101,0.08);
+  }
+  .sec table .de { color:var(--gold); font-weight:700; }
+
+  .callout {
+    background:rgba(246,211,101,0.06); border:1px solid rgba(246,211,101,0.2);
+    border-radius:12px; padding:20px 24px; margin:16px 0; text-align:center;
+    font-size:0.95rem;
+  }
+  .callout strong { color:var(--gold); }
+
+  .example {
+    background:var(--card); border-left:3px solid var(--gold);
+    padding:14px 20px; border-radius:0 8px 8px 0; margin:10px 0;
+    font-size:0.95rem;
+  }
+  .example .wrong { color:var(--red); text-decoration:line-through; margin-right:12px; }
+  .example .right { color:var(--green); font-weight:600; }
+
+  /* 对比卡 */
+  .compare-row { display:flex; gap:14px; margin:14px 0; flex-wrap:wrap; }
+  .compare-card {
+    flex:1; min-width:180px; background:var(--card); border-radius:10px;
+    padding:16px; text-align:center; border:1px solid rgba(246,211,101,0.1);
+  }
+  .compare-card .word { font-size:1.3rem; font-weight:800; color:var(--gold); margin-bottom:4px; }
+  .compare-card .means { font-size:0.85rem; color:var(--dim); }
+
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.07),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.2); border-radius:14px;
+    padding:24px; margin:20px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.05rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.88rem; margin-bottom:14px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .cheatsheet {
+    background:#fff; color:#1a202c; border-radius:14px; padding:24px;
+    margin:20px 0; font-size:0.9rem; line-height:1.9;
+    box-shadow:0 6px 32px rgba(0,0,0,0.3);
+  }
+  .cheatsheet h3 { color:#1a202c !important; text-align:center; font-size:1.1rem; margin-bottom:12px; }
+  .cheatsheet table { font-size:0.82rem; }
+  .cheatsheet table th { background:#1e3a5f !important; color:#fff !important; font-size:0.76rem; padding:8px 6px; }
+  .cheatsheet table td { padding:7px 6px; border-bottom:1px solid #e2e8f0; }
+  .cheatsheet .hl { background:#fff8e1; font-weight:700; }
+  .cheatsheet .cs-foot { text-align:center; margin-top:12px; font-size:.72rem; color:#64748b; }
+
+  .quiz { background:var(--card); border-radius:12px; padding:20px 24px; margin:16px 0; }
+  .quiz .q { padding:10px 14px; margin-bottom:6px; border-radius:8px; background:rgba(15,30,58,0.6); font-size:0.95rem; }
+  .quiz .q .num { color:var(--gold); font-weight:700; margin-right:10px; }
+  .quiz .q .blank { display:inline-block; width:64px; border-bottom:2px dashed var(--gold); text-align:center; color:var(--gold); margin:0 4px; }
+
+  .footer {
+    text-align:center; padding:36px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:#475569; }
+
+  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  @media (max-width:600px) {
+    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    body { padding:0; background:#0a1428; }
+
+    .topbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      padding:8px 14px; font-size:0.78rem;
+      scroll-snap-align:none;
+    }
+
+    .page { max-width:100%; padding:0; }
+
+    /* 每个 sec 变成一屏 */
+    .sec {
+      min-height:100dvh;
+      padding:50px 16px 24px; /* 50px 顶部给 topbar 让位 */
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+      border:none;
+    }
+    .hero {
+      min-height:100dvh;
+      padding:50px 16px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+    }
+    .hero::after { display:none; }
+
+    /* 桌面分隔线在手机变 snap 间距 */
+    .sec + .sec { border:none; }
+
+    /* 紧凑元素 */
+    .sec h2 { font-size:1.3rem; text-align:center; }
+    .sec h3 { font-size:1rem; text-align:center; }
+    .sec table { font-size:0.76rem; }
+    .sec table th, .sec table td { padding:6px 3px; }
+    .callout { font-size:0.88rem; padding:16px 18px; }
+    .example { font-size:0.88rem; }
+    .compare-row { flex-direction:column; }
+    .cheatsheet { padding:16px; font-size:0.82rem; margin:0; }
+    .cheatsheet table { font-size:0.72rem; }
+    .cheatsheet h3 { font-size:1rem; }
+    .quiz { padding:16px; margin:0; }
+    .quiz .q { font-size:0.88rem; padding:8px 10px; }
+    .soft-cta { padding:18px; margin:0; }
+    .footer {
+      min-height:100dvh; padding:50px 16px 24px;
+      display:flex; flex-direction:column; justify-content:center;
+      scroll-snap-align:start; scroll-snap-stop:always;
+    }
+    .footer .links { flex-direction:column; align-items:center; }
+
+    /* 如果内容超出一屏，允许内部滚动 */
+    .sec.overflow { justify-content:flex-start; overflow-y:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 截屏 1：封面 ═══ -->
+  <div class="hero">
+    <div class="flag-stripes"><span class="fs-black"></span><span class="fs-red"></span><span class="fs-gold"></span></div>
+    <div class="eyebrow">A1 语法 · 第 5 期</div>
+    <h1>wollen 和 möchten<br>差在哪？</h1>
+    <p class="sub">6 个情态动词 — 德语里"想"有三种说法，用错了德国人会误会你。</p>
+  </div>
+
+  <!-- ═══ 截屏 2：钩子 ═══ -->
+  <div class="sec">
+    <h2>点咖啡时你说……</h2>
+    <div class="example">
+      <span class="wrong">Ich will einen Kaffee.</span>
+    </div>
+    <p style="text-align:center;color:var(--dim);">德国人内心：这人怎么跟小孩一样……</p>
+    <div class="example" style="border-left-color:var(--green);margin-top:16px;">
+      <span class="right">Ich möchte einen Kaffee.</span>
+    </div>
+    <p style="text-align:center;color:var(--dim);">得体、礼貌、像个大人。</p>
+    <div class="callout" style="margin-top:20px;">
+      <strong>will = "我就要！！"（强烈/任性）</strong><br>
+      <strong style="color:var(--green);">möchte = "我想要~"（礼貌）</strong><br>
+      <span style="font-size:.85rem;">点餐、请求、跟不熟的人说话 → 永远用 möchte</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 3：结构 ═══ -->
+  <div class="sec">
+    <h2>情态动词的句子结构</h2>
+    <div class="callout">
+      <strong>主语 + 情态动词（变位）+ … + 动词原形（句末）</strong>
+    </div>
+    <div class="example" style="margin-top:16px;">
+      Ich <b style="color:var(--gold);">kann</b> gut Deutsch <b style="color:var(--gold);">sprechen</b>.
+      <br><span style="color:var(--dim);font-size:.85rem;">我会说好德语 → 动词 sprechen 被"踢"到句末</span>
+    </div>
+    <p style="text-align:center;color:var(--red);font-weight:700;margin-top:16px;">
+      这是德语最核心的"框架结构"<br>情态动词 + 句末动词 = 一个框架
+    </p>
+  </div>
+
+  <!-- ═══ 截屏 4：6 个情态动词 ═══ -->
+  <div class="sec overflow">
+    <h2>6 个情态动词一览</h2>
+    <table>
+      <tr><th>动词</th><th>意思</th><th>ich / er</th><th>du</th><th>wir/sie</th></tr>
+      <tr><td class="de">können</td><td>能/会</td><td>kann</td><td>kannst</td><td>können</td></tr>
+      <tr><td class="de">müssen</td><td>必须</td><td>muss</td><td>musst</td><td>müssen</td></tr>
+      <tr><td class="de">wollen</td><td>想要（强）</td><td>will</td><td>willst</td><td>wollen</td></tr>
+      <tr><td class="de">möchten</td><td>想要（礼）</td><td>möchte</td><td>möchtest</td><td>möchten</td></tr>
+      <tr><td class="de">dürfen</td><td>被允许</td><td>darf</td><td>darfst</td><td>dürfen</td></tr>
+      <tr><td class="de">sollen</td><td>应该</td><td>soll</td><td>sollst</td><td>sollen</td></tr>
+    </table>
+    <div class="callout" style="margin-top:12px;">
+      <strong>🔥 ich/er 变位都不加词尾！</strong><br>
+      <span style="font-size:.82rem;">ich kann（不是 kanne）· er muss（不是 musst）</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 5：wollen vs möchten vs müssen/sollen ═══ -->
+  <div class="sec">
+    <h2>三组最容易混的</h2>
+    <div class="compare-row">
+      <div class="compare-card">
+        <div class="word">wollen</div>
+        <div class="means">强烈"想要"</div>
+        <div style="color:var(--red);font-size:.78rem;margin-top:4px;">⚠️ 像小孩撒娇</div>
+        <div style="font-size:.82rem;color:var(--dim);margin-top:6px;">Ich will ein Eis!</div>
+      </div>
+      <div class="compare-card">
+        <div class="word">möchten</div>
+        <div class="means">礼貌"想要"</div>
+        <div style="color:var(--green);font-size:.78rem;margin-top:4px;">✅ 点餐用这个</div>
+        <div style="font-size:.82rem;color:var(--dim);margin-top:6px;">Ich möchte ein Eis.</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-card">
+        <div class="word">müssen</div>
+        <div class="means">必须（自发）</div>
+        <div style="font-size:.78rem;color:var(--dim);margin-top:4px;">我自己觉得必须</div>
+        <div style="font-size:.82rem;color:var(--dim);margin-top:6px;">Ich muss gehen.</div>
+      </div>
+      <div class="compare-card">
+        <div class="word">sollen</div>
+        <div class="means">应该（被要求）</div>
+        <div style="font-size:.78rem;color:var(--dim);margin-top:4px;">别人让我/叫我</div>
+        <div style="font-size:.82rem;color:var(--dim);margin-top:6px;">Ich soll gehen.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 6：A1 必背例句 ═══ -->
+  <div class="sec overflow">
+    <h2>A1 必背例句</h2>
+    <div class="example">Ich <b style="color:var(--gold);">kann</b> Klavier <b style="color:var(--gold);">spielen</b>.<br><span style="color:var(--dim);font-size:.85rem;">我会弹钢琴。</span></div>
+    <div class="example">Du <b style="color:var(--gold);">musst</b> jetzt <b style="color:var(--gold);">schlafen</b> gehen.<br><span style="color:var(--dim);font-size:.85rem;">你现在必须去睡觉。</span></div>
+    <div class="example">Er <b style="color:var(--gold);">möchte</b> einen Kaffee <b style="color:var(--gold);">bestellen</b>.<br><span style="color:var(--dim);font-size:.85rem;">他想点一杯咖啡。</span></div>
+    <div class="example">Hier <b style="color:var(--gold);">darf</b> man nicht <b style="color:var(--gold);">rauchen</b>.<br><span style="color:var(--dim);font-size:.85rem;">这里不允许吸烟。</span></div>
+
+    <!-- 弱广告 —— 自然融入例句区 -->
+    <div class="soft-cta" style="margin-top:20px;">
+      <h3>🎤 读出来，语法才记得牢</h3>
+      <p>AI 音素级评分，帮你抓到每个发音细节。</p>
+      <a class="cta-btn" href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">免费试用发音器</a>
+      <span class="sub-link">de.leonsdeutschzentrum.com</span>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 7：速查卡 ═══ -->
+  <div class="sec overflow">
+    <h2>📸 截图保存</h2>
+    <div class="cheatsheet">
+      <h3>6 大情态动词速查卡</h3>
+      <table>
+        <tr><th>动词</th><th>意思</th><th>ich/er</th><th>du</th><th>例句</th></tr>
+        <tr><td class="hl">können</td><td>能/会</td><td>kann</td><td>kannst</td><td>Ich kann schwimmen.</td></tr>
+        <tr><td class="hl">müssen</td><td>必须</td><td>muss</td><td>musst</td><td>Du musst lernen.</td></tr>
+        <tr><td class="hl">wollen</td><td>想要（强）</td><td>will</td><td>willst</td><td>Er will gehen.</td></tr>
+        <tr><td class="hl">möchten</td><td>想要（礼）</td><td>möchte</td><td>möchtest</td><td>Ich möchte zahlen.</td></tr>
+        <tr><td class="hl">dürfen</td><td>被允许</td><td>darf</td><td>darfst</td><td>Darf ich rein?</td></tr>
+        <tr><td class="hl">sollen</td><td>应该</td><td>soll</td><td>sollst</td><td>Du sollst kommen.</td></tr>
+      </table>
+      <div class="cs-foot">Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+    </div>
+  </div>
+
+  <!-- ═══ 截屏 8：测验 ═══ -->
+  <div class="sec">
+    <h2>试试看 ✏️</h2>
+    <div class="quiz">
+      <div class="q"><span class="num">1</span> Ich <span class="blank"></span> gut schwimmen. <span style="color:var(--dim);">（können）</span></div>
+      <div class="q"><span class="num">2</span> Du <span class="blank"></span> mehr üben. <span style="color:var(--dim);">（müssen）</span></div>
+      <div class="q"><span class="num">3</span> <span class="blank"></span> ich hier sitzen? <span style="color:var(--dim);">（dürfen）</span></div>
+      <div class="q"><span class="num">4</span> Er <span class="blank"></span> Arzt werden. <span style="color:var(--dim);">（wollen）</span></div>
+      <div class="q"><span class="num">5</span> Ich <span class="blank"></span> eine Cola, bitte. <span style="color:var(--dim);">（möchten）</span></div>
+    </div>
+    <details style="margin-top:12px;">
+      <summary style="cursor:pointer;color:var(--gold);font-weight:700;">👇 点我看答案</summary>
+      <div style="background:var(--card);border-radius:8px;padding:12px 16px;margin-top:8px;font-size:.9rem;line-height:2;">
+        1. <strong>kann</strong> &nbsp;|&nbsp;
+        2. <strong>musst</strong> &nbsp;|&nbsp;
+        3. <strong>Darf</strong> &nbsp;|&nbsp;
+        4. <strong>will</strong> &nbsp;|&nbsp;
+        5. <strong>möchte</strong>
+      </div>
+    </details>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>想系统学好德语？</h3>
+    <p>Leon 德语学习中心 — 对标歌德学院 A1/A2，十年方法论沉淀。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>
