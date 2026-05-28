@@ -3015,7 +3015,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -13334,6 +13334,22 @@ document.addEventListener('DOMContentLoaded', function() {
   if (mc) mc.textContent = MODULES.length;
   // 如果已是游客模式，补充应用锁
   if (currentUser) applyGuestLocks();
+
+  // 深链接支持：URL hash 自动跳转到对应页面/section
+  var hash = window.location.hash;
+  if (hash) {
+    var target = document.getElementById(hash.slice(1));
+    if (target) {
+      // 找到目标所在的 page 容器
+      var page = target.closest('.page');
+      if (page && page.id && page.id.startsWith('page-')) {
+        var pageId = page.id.replace('page-', '');
+        showPage(pageId);
+      }
+      // 滚动到目标 section
+      setTimeout(function() { target.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+    }
+  }
 });
 </script>
 
@@ -39304,6 +39320,40 @@ function b1S12CheckB(){
   #page-kultur .k-header { font-size:.88rem; }
   #page-kultur .k-toc ol { columns:1; }
 }
+/* —— 深色主题 section（自媒体内容）—— */
+#page-kultur .k-section.k-dark { background:#0a1428; border:1px solid rgba(246,211,101,0.08); }
+#page-kultur .k-section.k-dark .k-header { background:linear-gradient(135deg,#1e3a5f,#0f1e3a); color:#f6d365; font-size:1.05rem; border-bottom:1px solid rgba(246,211,101,0.18); }
+#page-kultur .k-section.k-dark .k-body { color:#e2e8f0; }
+#page-kultur .k-section.k-dark .k-card { background:#0f1e3a; border:1px solid rgba(246,211,101,0.08); color:#e2e8f0; }
+#page-kultur .k-section.k-dark .k-card:hover { transform:translateY(-3px); box-shadow:0 4px 18px rgba(246,211,101,0.1); border-color:rgba(246,211,101,0.25); }
+#page-kultur .k-section.k-dark .k-card .k-de { color:#f6d365; }
+#page-kultur .k-section.k-dark .k-card .k-emoji { font-size:2rem; }
+#page-kultur .k-section.k-dark .k-rule { background:rgba(246,211,101,0.05); border-left:3px solid #f6d365; color:#fde68a; }
+#page-kultur .k-section.k-dark .k-tag { background:rgba(246,211,101,0.12); color:#f6d365; }
+#page-kultur .k-section.k-dark .k-num { display:inline-block; background:rgba(10,20,40,0.8); color:#f6d365; padding:2px 10px; border-radius:8px; font-size:.75rem; font-weight:700; margin-bottom:.4rem; }
+#page-kultur .k-section.k-dark .k-funfact { background:rgba(246,211,101,0.05); border-left:3px solid #f6d365; padding:8px 14px; border-radius:0 6px 6px 0; margin-top:.6rem; font-size:.8rem; color:#fde68a; }
+#page-kultur .k-section.k-dark table { color:#e2e8f0; }
+#page-kultur .k-section.k-dark table th { background:#1e3a5f; color:#f6d365; }
+#page-kultur .k-section.k-dark table td { border-color:rgba(246,211,101,0.08); }
+#page-kultur .k-section.k-dark tr:nth-child(even) td { background:rgba(246,211,101,0.03); }
+@media(max-width:600px){
+  #page-kultur .k-section.k-dark .k-header { font-size:.88rem; padding:.6rem .9rem; }
+  #page-kultur .k-section.k-dark .k-body { padding:.8rem .8rem; }
+  #page-kultur .k-section.k-dark .k-card { padding:.8rem; }
+  #page-kultur .k-section.k-dark .k-card .k-de { font-size:.9rem; }
+  #page-kultur .k-section.k-dark .k-card .k-emoji { font-size:1.3rem; }
+  #page-kultur .k-section.k-dark .k-rule { font-size:.82rem; padding:.6rem .8rem; }
+  #page-kultur .k-section.k-dark .k-tag { font-size:.72rem; padding:.1rem .5rem; margin:.15rem .15rem 0 0; }
+  #page-kultur .k-section.k-dark .k-funfact { font-size:.74rem; padding:6px 10px; }
+  #page-kultur .k-section.k-dark table { font-size:.8rem; }
+  #page-kultur .k-section.k-dark table th,
+  #page-kultur .k-section.k-dark table td { padding:.4rem .5rem; }
+  #ks-8 .k-body>div:first-of-type,
+  #ks-9 .k-body>div:first-of-type { font-size:2rem !important; }
+  #ks-10 .k-card-grid { grid-template-columns:1fr !important; }
+  #ks-10 .k-card-grid .k-card .gc-hint { font-size:.72rem; }
+  #ks-10 .k-card-grid .k-card .gc-detail { font-size:.78rem; }
+}
 </style>
 <div style="max-width:860px;margin:0 auto">
   <div style="text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(44,95,138,.35)">
@@ -39327,6 +39377,9 @@ function b1S12CheckB(){
       <li><a href="#ks-7-4">Sommerfeste — 夏季民间节日</a></li>
       <li><a href="#ks-7-5">Herbstfeste — 秋季民间节日</a></li>
       <li><a href="#ks-7-6">Weihnachtsmärkte & Winterfeste</a></li>
+      <li><a href="#ks-8">你不知道的德国 · 01 — 超市与生活</a></li>
+      <li><a href="#ks-9">你不知道的德国 · 02 — 规则与习惯</a></li>
+      <li><a href="#ks-10">A1 语法速查卡</a></li>
     </ol>
   </div>
 
@@ -40429,6 +40482,110 @@ function b1S12CheckB(){
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ══ 八、你不知道的德国 · 01 — 超市与生活 ══ -->
+  <div class="k-section k-dark" id="ks-8" style="cursor:pointer" onclick="showPage('kultur-01')">
+    <div class="k-header">🛒 八、你不知道的德国 · 01 — 超市与生活</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🍾</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        一个矿泉水瓶多收 25 欧分、周日全城关门违法、租房居然没有厨房——6 个让人目瞪口呆的德国生活真相。封面大图 + 手机 snap-scroll 沉浸式浏览。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Pfand 瓶子押金</span>
+        <span class="k-tag">Sonntag 周日关门</span>
+        <span class="k-tag">EBK 嵌入式厨房</span>
+        <span class="k-tag">Brot 面包文化</span>
+        <span class="k-tag">Mülltrennung 垃圾分类</span>
+        <span class="k-tag">FKK 裸体文化</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 九、你不知道的德国 · 02 — 规则与习惯 ══ -->
+  <div class="k-section k-dark" id="ks-9" style="cursor:pointer" onclick="showPage('kultur-02')">
+    <div class="k-header">📋 九、你不知道的德国 · 02 — 规则与习惯</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🪟</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        窗户能斜开能平开、大学免费但难毕业、什么事都要预约、啤酒成分法律说了算——6 个只有德国才有的规则与习惯。附带 12 个核心词汇真实用法。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Dreh-Kipp-Fenster 内开内倒窗</span>
+        <span class="k-tag">Universität 大学</span>
+        <span class="k-tag">Termin 预约文化</span>
+        <span class="k-tag">DB 德铁晚点</span>
+        <span class="k-tag">Hausarzt 家庭医生</span>
+        <span class="k-tag">Reinheitsgebot 啤酒纯净法</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 十、A1 语法速查卡 ══ -->
+  <div class="k-section k-dark" id="ks-10">
+    <div class="k-header">📝 十、A1 语法速查卡</div>
+    <div class="k-body">
+      <div class="k-card-grid" style="grid-template-columns:1fr 1fr">
+        <div class="k-card" style="text-align:left;padding:1.2rem" onclick="event.stopPropagation();var ns=this.querySelectorAll('.gc-detail');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'block':'none'});this.querySelector('.gc-hint').textContent=h?'▲ 收起':'▼ 点击展开详情'">
+          <span class="k-emoji" style="font-size:1.6rem">⚡</span>
+          <div class="k-de" style="font-size:1.05rem">sein vs. haben</div>
+          <div style="font-size:.84rem;color:#94a3b8;margin-top:.3rem;line-height:1.5">"是/在" vs "有"——A1 最常用动词。</div>
+          <div class="gc-hint" style="font-size:.78rem;color:#b8860b;margin-top:.5rem;cursor:pointer">▼ 点击展开详情</div>
+          <div class="gc-detail" style="display:none;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(246,211,101,0.2);font-size:.84rem;line-height:1.7;color:#e2e8f0">
+            <div style="margin-bottom:4px"><b style="color:#f87171">❌ Ich <s>bin</s> einen Hund.</b></div>
+            <div style="margin-bottom:6px"><b style="color:#4ade80">✅ Ich <u>habe</u> einen Hund.</b></div>
+            <div style="margin-bottom:2px">Ich <b>bin</b> müde. / Ich <b>bin</b> in Berlin.</div>
+            <div style="margin-bottom:6px">Ich <b>habe</b> einen Hund. / Ich <b>habe</b> Hunger.</div>
+            <div style="background:rgba(246,211,101,0.08);padding:6px 10px;border-radius:6px;font-size:.8rem;color:#fde68a">🔑 感情/感觉前用 haben: Angst haben, Lust haben</div>
+          </div>
+        </div>
+        <div class="k-card" style="text-align:left;padding:1.2rem" onclick="event.stopPropagation();var ns=this.querySelectorAll('.gc-detail');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'block':'none'});this.querySelector('.gc-hint').textContent=h?'▲ 收起':'▼ 点击展开详情'">
+          <span class="k-emoji" style="font-size:1.6rem">📌</span>
+          <div class="k-de" style="font-size:1.05rem">der · die · das</div>
+          <div style="font-size:.84rem;color:#94a3b8;margin-top:.3rem;line-height:1.5">三个性别——记名词永远带着冠词。</div>
+          <div class="gc-hint" style="font-size:.78rem;color:#b8860b;margin-top:.5rem;cursor:pointer">▼ 点击展开详情</div>
+          <div class="gc-detail" style="display:none;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(246,211,101,0.2);font-size:.84rem;line-height:1.7;color:#e2e8f0">
+            <div style="margin-bottom:2px">• <b style="color:#f6d365">der</b> → -er, -el, -en, -ig, -ling</div>
+            <div style="margin-bottom:2px">• <b style="color:#f6d365">die</b> → -ung, -heit, -keit, -schaft, -tion, -e</div>
+            <div style="margin-bottom:8px">• <b style="color:#f6d365">das</b> → -chen, -lein, -ment, -um</div>
+            <div style="background:rgba(246,211,101,0.08);padding:6px 10px;border-radius:6px;font-size:.8rem;color:#fde68a">🔑 不是 "Tisch"，而是 "<b>der</b> Tisch"</div>
+          </div>
+        </div>
+        <div class="k-card" style="text-align:left;padding:1.2rem" onclick="event.stopPropagation();var ns=this.querySelectorAll('.gc-detail');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'block':'none'});this.querySelector('.gc-hint').textContent=h?'▲ 收起':'▼ 点击展开详情'">
+          <span class="k-emoji" style="font-size:1.6rem">🎯</span>
+          <div class="k-de" style="font-size:1.05rem">Akkusativ（第四格）</div>
+          <div style="font-size:.84rem;color:#94a3b8;margin-top:.3rem;line-height:1.5">阳性 der → den，其余不变。</div>
+          <div class="gc-hint" style="font-size:.78rem;color:#b8860b;margin-top:.5rem;cursor:pointer">▼ 点击展开详情</div>
+          <div class="gc-detail" style="display:none;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(246,211,101,0.2);font-size:.84rem;line-height:1.7;color:#e2e8f0">
+            <div style="margin-bottom:2px">• der → <b style="color:#4ade80">den</b>（唯一变化！）</div>
+            <div style="margin-bottom:2px">• die → die · das → das</div>
+            <div style="margin-bottom:6px">• ein → <b style="color:#4ade80">einen</b></div>
+            <div style="margin-bottom:2px">Ich sehe <b>den</b> Mann.</div>
+            <div>Ich habe <b>einen</b> Tisch.</div>
+          </div>
+        </div>
+        <div class="k-card" style="text-align:left;padding:1.2rem" onclick="event.stopPropagation();var ns=this.querySelectorAll('.gc-detail');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'block':'none'});this.querySelector('.gc-hint').textContent=h?'▲ 收起':'▼ 点击展开详情'">
+          <span class="k-emoji" style="font-size:1.6rem">🧩</span>
+          <div class="k-de" style="font-size:1.05rem">Modalverben（情态动词）</div>
+          <div style="font-size:.84rem;color:#94a3b8;margin-top:.3rem;line-height:1.5">6 个情态动词，动词放句末。</div>
+          <div class="gc-hint" style="font-size:.78rem;color:#b8860b;margin-top:.5rem;cursor:pointer">▼ 点击展开详情</div>
+          <div class="gc-detail" style="display:none;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(246,211,101,0.2);font-size:.84rem;line-height:1.7;color:#e2e8f0">
+            <div style="margin-bottom:2px">• <b style="color:#f6d365">können</b> 能/会 · <b style="color:#f6d365">müssen</b> 必须</div>
+            <div style="margin-bottom:2px">• <b style="color:#f6d365">dürfen</b> 可以 · <b style="color:#f6d365">wollen</b> 想要</div>
+            <div style="margin-bottom:6px">• <b style="color:#f6d365">sollen</b> 应该 · <b style="color:#f6d365">möchten</b> 想要(礼貌)</div>
+            <div style="background:rgba(246,211,101,0.08);padding:6px 10px;border-radius:6px;font-size:.8rem;color:#fde68a">🔑 情态动词第二位 + 原形动词<b>句末</b> = Satzklammer</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+        <span onclick="event.stopPropagation();showPage('grammar-cards')" style="display:inline-block;background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#f6d365;font-weight:700;padding:8px 20px;border-radius:20px;font-size:.82rem;cursor:pointer;border:1px solid rgba(246,211,101,0.2);transition:0.2s" onmouseover="this.style.borderColor='#f6d365';this.style.boxShadow='0 2px 12px rgba(246,211,101,0.15)'" onmouseout="this.style.borderColor='rgba(246,211,101,0.2)';this.style.boxShadow=''">📖 der/die/das + sein/haben</span>
+        <span onclick="event.stopPropagation();showPage('grammar-ak')" style="display:inline-block;background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#f6d365;font-weight:700;padding:8px 20px;border-radius:20px;font-size:.82rem;cursor:pointer;border:1px solid rgba(246,211,101,0.2);transition:0.2s" onmouseover="this.style.borderColor='#f6d365';this.style.boxShadow='0 2px 12px rgba(246,211,101,0.15)'" onmouseout="this.style.borderColor='rgba(246,211,101,0.2)';this.style.boxShadow=''">📖 Akkusativ 第四格</span>
+        <span onclick="event.stopPropagation();showPage('grammar-mv')" style="display:inline-block;background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#f6d365;font-weight:700;padding:8px 20px;border-radius:20px;font-size:.82rem;cursor:pointer;border:1px solid rgba(246,211,101,0.2);transition:0.2s" onmouseover="this.style.borderColor='#f6d365';this.style.boxShadow='0 2px 12px rgba(246,211,101,0.15)'" onmouseout="this.style.borderColor='rgba(246,211,101,0.2)';this.style.boxShadow=''">📖 情态动词</span>
+      </div>
     </div>
   </div>
 
@@ -42314,6 +42471,51 @@ function b1S12CheckB(){
     src="https://en.leonsdeutschzentrum.com/"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     allow="microphone"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 01 ══════════ -->
+<div id="page-kultur-01" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_01_超市与生活.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 02 ══════════ -->
+<div id="page-kultur-02" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_02_规则与习惯.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ A1 语法速查卡 ══════════ -->
+<div id="page-grammar-cards" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="德语A1语法速查_内容引流页.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ Akkusativ 第四格 ══════════ -->
+<div id="page-grammar-ak" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="内容引流_04_Akkusativ第四格.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 情态动词 ══════════ -->
+<div id="page-grammar-mv" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="内容引流_05_情态动词.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
