@@ -2419,6 +2419,34 @@
       #page-b1lesen div[id*="eg321-redemittel"] table{font-size:.66rem!important}
       /* 按钮 */
       #page-b1lesen button[onclick*="eg321"]{font-size:.68rem!important;padding:4px 8px!important}
+      /* 特小屏 🎵 Deutschland 歌词解析 · 词汇双列变单列 */
+      #page-b1lesen div[id="b1-deutschland-wortschatz"] div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:.2rem 0!important;font-size:.73rem!important;line-height:1.65!important}
+      #page-b1lesen div[id="b1-deutschland-wortschatz"]{padding:.6rem .7rem!important}
+      #page-b1lesen div[id="b1-deutschland-wortschatz"] > div[style*="font-weight:700"]{font-size:.78rem!important;margin-bottom:.4rem!important}
+      /* 文化梗卡片全宽压缩 */
+      #page-b1lesen div[id="b1-deutschland-kultur"]{padding:.6rem .7rem!important}
+      #page-b1lesen div[id="b1-deutschland-kultur"] > div{padding:10px 12px!important;margin-bottom:8px!important}
+      #page-b1lesen div[id="b1-deutschland-kultur"] > div > strong{font-size:.78rem!important}
+      #page-b1lesen div[id="b1-deutschland-kultur"] > div{font-size:.72rem!important;line-height:1.55!important}
+      /* 语法点睛压缩 */
+      #page-b1lesen div[id="b1-deutschland-grammatik"]{padding:.6rem .7rem!important;font-size:.73rem!important;line-height:1.6!important}
+      #page-b1lesen div[id="b1-deutschland-grammatik"] strong{font-size:.78rem!important}
+      /* 歌词 Transkript 按钮堆叠 + 缩小 */
+      #page-b1lesen button[onclick^="B1DeuLied"]{font-size:.66rem!important;padding:.3rem .55rem!important}
+      /* 歌词区整体压缩 */
+      #page-b1lesen div[id="b1-deutschland-transkript"]{padding:.5rem .6rem!important}
+      #page-b1lesen div[id="b1-deutschland-trans-full"] > div,
+      #page-b1lesen div[id="b1-deutschland-trans-blank"] > div{padding:.5rem .6rem!important}
+      #page-b1lesen div[id="b1-deutschland-trans-full"] p,
+      #page-b1lesen div[id="b1-deutschland-trans-blank"] p{font-size:.72rem!important;line-height:1.65!important}
+      #page-b1lesen div[id="b1-deutschland-trans-full"] div[style*="font-size:.92rem"],
+      #page-b1lesen div[id="b1-deutschland-trans-blank"] div[style*="font-size:.92rem"]{font-size:.74rem!important}
+      #page-b1lesen div[id="b1-deutschland-trans-full"] div[style*="font-size:.88rem"],
+      #page-b1lesen div[id="b1-deutschland-trans-blank"] div[style*="font-size:.88rem"]{font-size:.7rem!important}
+      #page-b1lesen div[id="b1-deutschland-trans-full"] div[style*="font-size:.9rem"],
+      #page-b1lesen div[id="b1-deutschland-trans-blank"] div[style*="font-size:.9rem"]{font-size:.72rem!important}
+      /* 歌曲简介框压缩 */
+      #page-b1lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
   </style>
 </head>
@@ -3015,7 +3043,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -28178,6 +28206,466 @@ function lxqResetMCQ(id) {
       </div>
 
       <!-- ════════════════════════════════════════════════════════ -->
+      <!-- 🎵 Deutschland — Die Prinzen · Lied zum Mitsingen          -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <div style="border-top:2px solid #1565c0;margin-top:1.5rem;padding-top:1rem"></div>
+      <div style="font-weight:700;color:#0d47a1;font-size:1.05rem;margin-bottom:.6rem">🎵 Deutschland — Die Prinzen &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">— 2006 WM · Lied zum Mitsingen</span></div>
+
+      <!-- 歌曲简介 -->
+      <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem">
+        <div style="font-weight:700;color:#0d47a1;font-size:.93rem;margin-bottom:.4rem">🎸 Über das Lied</div>
+        <div style="font-size:.88rem;color:#1a3a5c;line-height:1.85">
+          „Deutschland"（又名 „Das alles ist Deutschland"）是莱比锡 A-cappella-Band <strong>Die Prinzen</strong> 2001 年专辑《D》中的歌曲，在 <strong>2006 年德国世界杯</strong>期间风靡全球。歌词以<strong>讽刺自嘲</strong>的口吻调侃德国人的刻板印象——爱车如命、纳税冠军、准时整洁、战车基因……表面骄傲，实则句句反讽。Refrain 朗朗上口，是绝佳的德语文化入门曲。<br>
+          <strong>Niveau:</strong> B1 · 歌词含讽刺/双关/俗语，适合文化讨论课
+        </div>
+      </div>
+
+      <!-- ═══ 歌词解析 ═══ -->
+      <div style="margin-bottom:1rem">
+
+        <!-- 📖 词汇解析 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-wortschatz')">📖 歌词词汇解析 / Wortschatz</button>
+        <div class="answer-box" id="b1-deutschland-wortschatz" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
+
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Strophe 1 · Nationalstolz（讽刺语气）</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1rem;margin-bottom:1rem">
+            <div><strong>erfinden</strong> (erfand, hat erfunden) = 发明</div>
+            <div><strong>der Kunde, -n</strong> = 顾客</div>
+            <div><strong>freundlich</strong> = 友好的 → <strong>am freundlichsten</strong> = 最友好的</div>
+            <div><strong>bescheiden</strong> = 谦虚的（反讽：德国人并不）</div>
+            <div><strong>der Sport</strong> = 体育</div>
+            <div><strong>die Steuer, -n</strong> = 税</div>
+            <div><strong>der Weltrekord, -e</strong> = 世界纪录</div>
+            <div><strong>bereisen</strong> = 游历</div>
+            <div><strong>der Besucher, -</strong> = 访客</div>
+            <div><strong>wohnen</strong> = 居住</div>
+            <div><strong>das Volk, -¨er</strong> = 民族/人民</div>
+            <div><strong>gefallen</strong> (gefällt, gefiel, hat gefallen) = 使…喜欢</div>
+          </div>
+
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Refrain · 核心句型</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1rem;margin-bottom:1rem">
+            <div><strong>das alles</strong> = 这一切</div>
+            <div><strong>nirgendwo anders</strong> = 别处没有任何地方</div>
+            <div><strong>nur hier</strong> = 只在这里</div>
+            <div><strong>leben</strong> = 生活/活着</div>
+            <div><strong>sterben</strong> (stirbt, starb, ist gestorben) = 死亡</div>
+            <div><strong>nirgendwo</strong> = 无处/没有任何地方</div>
+          </div>
+
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Zwischenspiel · 名梗</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1rem;margin-bottom:1rem">
+            <div><strong>die Kleinigkeit, -en</strong> = 小事</div>
+            <div><strong>verkehrt</strong> = 错误的/不对的</div>
+            <div><strong>und zwar</strong> = 而且/就是</div>
+            <div><strong>fahren</strong> (fährt, fuhr, ist gefahren) = 驾驶</div>
+          </div>
+
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Strophe 2 · Selbstkritik（粗俗但真实）</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1rem;margin-bottom:1rem">
+            <div><strong>sich (D) einbilden auf + A</strong> = 自以为是/自负于</div>
+            <div><strong>geil</strong> = 酷/爽（口语）</div>
+            <div><strong>das Arschloch, -¨er</strong> = 混蛋（粗话）</div>
+            <div><strong>sich beschweren über + A</strong> = 抱怨</div>
+            <div><strong>der Kanake, -n</strong> = 外国佬（贬义，指移民）</div>
+            <div><strong>das Ficken</strong> = 性交（粗话，讽刺性旅游）</div>
+            <div><strong>vertrauen + D</strong> = 信任</div>
+            <div><strong>küssen</strong> = 亲吻</div>
+            <div><strong>die Stelle, -n</strong> = 地点/位置</div>
+            <div><strong>das Bett, -en</strong> = 床</div>
+            <div><strong>der Hund, -e</strong> = 狗</div>
+            <div><strong>die Katze, -n</strong> = 猫</div>
+            <div><strong>nett</strong> = 友善的/和蔼的</div>
+          </div>
+
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Strophe 3 · 军事梗</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1rem;margin-bottom:0">
+            <div><strong>die Fresse, -n</strong> = 嘴/脸（粗话）</div>
+            <div><strong>hauen</strong> (haut, haute, hat gehauen) = 打/揍</div>
+            <div><strong>das Feuerlegen</strong> = 纵火</div>
+            <div><strong>die Ordnung</strong> = 秩序</div>
+            <div><strong>die Sauberkeit</strong> = 清洁/干净</div>
+            <div><strong>der Krieg, -e</strong> = 战争</div>
+            <div><strong>bereit</strong> = 准备好的</div>
+            <div><strong>der Gruß, -¨e</strong> = 问候/致意</div>
+            <div><strong>stolz auf + A</strong> = 为…骄傲</div>
+            <div><strong>endlich</strong> = 终于</div>
+            <div><strong>einsehen</strong> (sieht ein, sah ein, hat eingesehen) = 认识到/承认</div>
+          </div>
+        </div>
+
+        <!-- 🎭 文化梗解析 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-kultur')" style="margin-top:.5rem">🎭 文化梗解析 / Kulturelle Referenzen</button>
+        <div class="answer-box" id="b1-deutschland-kultur" style="background:#fff;border:2px solid #e6a817;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
+
+          <div style="background:#fff8e1;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+            <strong style="color:#e65100;font-size:.93rem">📺 „Wetten, dass...?"</strong><br>
+            🇩🇪 <em>„Wetten, dass...?"</em> war die erfolgreichste Fernsehshow im deutschen Sprachraum (1981–2014, moderiert von Frank Elstner, dann Thomas Gottschalk). Gäste wetteten, dass sie verrückte Dinge können — z. B. ein Auto am Geruch erkennen.<br>
+            🇨🇳 „Wetten, dass...?"（"打赌…？"）是德语区最成功的电视综艺节目（1981–2014），嘉宾打赌自己能完成各种疯狂挑战。歌词说"当然是德国人发明的"——在讽刺德国人什么功劳都要往自己身上揽。
+          </div>
+
+          <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+            <strong style="color:#0d47a1;font-size:.93rem">🏎️ Schumacher × Mercedes</strong><br>
+            🇩🇪 Michael Schumacher ist der erfolgreichste Formel-1-Fahrer aller Zeiten — aber er fuhr fast seine ganze Karriere für <strong>Ferrari</strong> (Italien), nicht für Mercedes (Deutschland). Die Zeile „Nur eine Kleinigkeit ist hier verkehrt — und zwar, dass Schumacher keinen Mercedes fährt" ist pure Selbstironie: Alles an Deutschland ist perfekt — bis auf diese eine lächerliche Ausnahme.<br>
+            🇨🇳 舒马赫是史上最成功的 F1 车手，但他职业生涯几乎全在意大利法拉利车队度过，而不是德国梅赛德斯。歌词说"只有一个小问题——舒马赫不开奔驰"——是典型的德式自嘲：德国一切都完美，除了这一个小到可笑的瑕疵。
+          </div>
+
+          <div style="background:#f3e5f5;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+            <strong style="color:#6a1b9a;font-size:.93rem">🇩🇪 → 🐷 Deutsch → Schwein</strong><br>
+            🇩🇪 Am Ende des Liedes wird aus „Deutsch, deutsch, deutsch" plötzlich „Schwein, Schwein, Schwein". Das ist kein Zufall — es spielt auf das Klischee an, dass Deutsche oft als „Schweine" bezeichnet werden (im Kriegskontext, aber auch ironisch unter Fußballfans). Gleichzeitig ist das Schwein in Deutschland ein <strong>Glückssymbol</strong> („Schwein haben" = Glück haben). Doppeldeutig!<br>
+            🇨🇳 歌曲结尾把 "Deutsch" 突然换成 "Schwein"（猪）——不是随意改的。"Schwein" 在德语中有双重含义：一是骂人的话（德国猪），二是幸运的象征（"Schwein haben" = 走运）。这个词的替换把整首歌的讽刺张力推到顶点。
+          </div>
+
+          <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+            <strong style="color:#1a5a2a;font-size:.93rem">🚗 „Wir lieben unsere Autos mehr als unsere Frauʼn"</strong><br>
+            🇩🇪 Diese Zeile ist das Herzstück der deutschen Autokultur-Satire. Deutschland ist das Land von BMW, Mercedes, Audi, VW und Porsche — das Auto gilt als Statussymbol Nr. 1. Die Übertreibung „mehr als unsere Frauen" zeigt, wie absurd diese Priorität eigentlich ist.<br>
+            🇨🇳 "我们爱车胜过爱老婆"——这是整首歌对德国汽车文化最犀利的讽刺。德国是宝马、奔驰、奥迪、大众、保时捷的故乡，汽车是第一地位象征。故意夸张到"胜过老婆"来揭示这种价值观的荒谬。
+          </div>
+
+          <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:0">
+            <strong style="color:#c62828;font-size:.93rem">🔥 „Ordnung und Sauberkeit" + „für ʼnen Krieg bereit"</strong><br>
+            🇩🇪 Zwei klassische Deutschland-Klischees in einem Atemzug: Die Deutschen lieben Ordnung („Ordnung muss sein!") und Sauberkeit (Kehrwoche, Mülltrennung) — aber sie sind auch „jederzeit für einen Krieg bereit". Das ist eine bissige Anspielung auf die deutsche Militärgeschichte.<br>
+            🇨🇳 两个经典德国刻板印象并列：爱秩序（"必须有秩序！"）和爱干净（扫除周、垃圾分类）——但紧接着"随时准备打仗"，是对德国军事历史的尖锐讽刺。反差制造笑点。
+          </div>
+        </div>
+
+        <!-- 📝 语法点睛 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-grammatik')" style="margin-top:.5rem">📝 语法点睛 / Grammatik im Lied</button>
+        <div class="answer-box" id="b1-deutschland-grammatik" style="background:#fff;border:2px solid #2e7d32;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
+
+          <strong>1. Superlativ</strong> 最高级 | <em>am ……-sten / die ……-sten</em><br>
+          🇩🇪 Formel: <em>am + Adjektiv + (e)sten → Prädikativ · der/die/das + Adjektiv + (e)ste → attributiv</em><br>
+          🇨🇳 规则：副词用 am -sten（am freundlichsten），定语用 der/die/das -ste（die Allerbesten, das freundlichste Volk）<br>
+          📖 文中例句：<em>„Wir sind <strong>die freundlichsten Kunden</strong> auf dieser Welt"</em> — 我们是世界上<strong>最友好的顾客</strong><br>
+          📖 <em>„die <strong>Allerbesten</strong> in jedem Sport"</em> — 每项运动的<strong>最强王者</strong>（aller- 加强最高级语气）<br>
+          ⚠️ 考点：B1 最高级分 Prädikativ（am schönsten）和 attributiv（das schönste），aller- 是加强前缀。<br><br>
+
+          <strong>2. Verb + Präposition</strong> 动词固定介词搭配 | <em>feste Präpositionen</em><br>
+          🇩🇪 Formel: <em>warten auf + A · sich beschweren über + A · vertrauen + D · stolz sein auf + A · sich einbilden auf + A</em><br>
+          🇨🇳 规则：德语动词常与固定介词搭配使用，介词后的格不可省略，必须整组背诵<br>
+          📖 文中例句：<em>„Auf diese Art von Besuchern <strong>warten</strong> wir"</em> — 我们<strong>等待</strong>这类访客（warten auf + A）<br>
+          📖 <em>„deutschen Autos können wir <strong>vertrauʼn</strong>"</em> — 我们可以<strong>信任</strong>德国车（vertrauen + D，直接跟第三格无介词）<br>
+          ⚠️ 考点：B1 阅读/语法填空常考介词+格——warten auf + A（第四格），vertrauen + D（第三格，无介词）是两个高频考点。<br><br>
+
+          <strong>3. „Es gibt" + Akkusativ</strong> 存在句型 | <em>Existenzsatz</em><br>
+          🇩🇪 Formel: <em>Es gibt + Akkusativ（永远单数 gibt，不管后面的名词是什么数）</em><br>
+          🇨🇳 规则：es gibt 表示"存在/有"，后面永远跟第四格（Akkusativ），且 gibt 永远不变（不分单复数）<br>
+          📖 文中例句：<em>„<strong>Es gibt</strong> manchen, der sich gern über Kanaken beschwert"</em> — <strong>有</strong>些人喜欢抱怨外国佬<br>
+          ⚠️ 考点：A1 基础句型但 B1 仍常考——注意 es gibt + A（不是 N），且过去式 es gab + A。<br><br>
+
+          <strong>4. Trennbare Verben</strong> 可分动词 | <em>ein·bilden, ein·sehen, auf·stehen</em><br>
+          🇩🇪 Formel: <em>Präfix + Verb → Präfix ans Satzende: Sie bilden sich viel auf Deutschland <strong>ein</strong>.</em><br>
+          🇨🇳 规则：可分动词在句中前缀放到句尾。sich (D) einbilden = 自负；einsehen = 认识到<br>
+          📖 文中例句：<em>„Es bilden sich viele was auf Deutschland <strong>ein</strong>"</em> — 很多人以德国<strong>自居</strong><br>
+          📖 <em>„seht es endlich <strong>ein</strong>"</em> — 终于<strong>承认</strong>吧<br>
+          ⚠️ 考点：B1 写作中可分动词前缀位置错误是高频扣分点。主句动词第二位变位，前缀句尾。<br><br>
+
+          <strong>5. Indikativ vs. Konjunktiv II（反讽语气）</strong> | <em>Ironie durch Übertreibung</em><br>
+          🇩🇪 Formel: <em>全部用 Indikativ 陈述句，但内容夸张到荒谬 → 听众自行识别反讽</em><br>
+          🇨🇳 规则：这首歌没有用 Konjunktiv II（wären, hätten, könnten），而是用最直白的陈述句（sind, haben, können）把荒谬的事实讲得像真的一样——这是德语讽刺文学的核心技法<br>
+          📖 文中例句：<em>„Wir <strong>sind</strong> überall die Besten, natürlich auch im Bett"</em> — 我们<strong>是</strong>各方面最棒的，床上当然也是<br>
+          ⚠️ 语言点：这种无标记反讽对德语学习者来说很难识别——必须结合语气、语境和文化知识才能判断。这首歌是训练"听出反讽"绝佳材料。
+        </div>
+
+      </div>
+
+      <!-- 🔉 音频播放 -->
+      <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:12px;padding:.8rem 1rem;margin-bottom:1rem;border:2px dashed #1565c0">
+        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap">
+          <span style="font-size:1.3rem">🔊</span>
+          <span style="font-weight:700;color:#0d47a1;font-size:.93rem">Deutschland — Die Prinzen</span>
+          <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .6rem;border-radius:10px">3:37</span>
+        </div>
+        <audio controls preload="metadata" style="width:100%;outline:none">
+          <source src="audio/deutschland-die-prinzen.mp3" type="audio/mpeg">
+          你的浏览器不支持音频播放。
+        </audio>
+        <div style="font-size:.73rem;color:#1565c0;margin-top:.4rem;text-align:center">💿 把 mp3 文件放到网站目录的 <code>audio/</code> 文件夹下，命名为 <code>deutschland-die-prinzen.mp3</code> 即可自动加载</div>
+      </div>
+
+      <!-- ═══ 歌词 Transkript ═══ -->
+      <div style="margin-top:1rem">
+        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-transkript')">📄 显示/隐藏歌词 Transkript</button>
+        <div class="answer-box" id="b1-deutschland-transkript" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem">
+          <div style="font-weight:700;color:#0d47a1;font-size:.95rem;margin-bottom:.8rem;text-align:center;padding-bottom:.5rem;border-bottom:2px dashed #bbdefb">🎧 Deutschland — Die Prinzen · Liedtext</div>
+
+          <!-- 模式切换 -->
+          <div style="display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap;justify-content:center">
+            <button onclick="B1DeuLiedTransMode('full')" id="b1-deutschland-mode-full" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整歌词</button>
+            <button onclick="B1DeuLiedTransMode('blank')" id="b1-deutschland-mode-blank" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写练习</button>
+            <button onclick="B1DeuLiedRevealAll()" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示答案</button>
+            <button onclick="B1DeuLiedHideAll()" style="padding:.4rem .9rem;border:2px solid #c62828;background:#fff;color:#c62828;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+          </div>
+
+          <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-bottom:.9rem;font-size:.78rem;color:#5d4037;line-height:1.6;text-align:center">
+            💡 切换到「✏️ 听写练习」模式 → 边听歌边在脑中补全词 → <strong>双击空格</strong>显示答案
+          </div>
+
+          <!-- ═══════════ 模式 1 · 完整歌词 ═══════════ -->
+          <div id="b1-deutschland-trans-full">
+
+            <!-- Intro -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Intro</div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238;letter-spacing:.5px">
+                Deutsch, deutsch, deutsch, deutsch, deutsch, deutsch
+              </p>
+            </div>
+
+            <!-- 🔉 音频提示 -->
+            <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+              <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+                <span style="font-size:1.1rem">🔊</span>
+                <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Deutschland — Die Prinzen</span>
+                <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边读 📖</span>
+              </div>
+              <div style="font-size:.75rem;color:#1565c0;margin-top:.3rem">⬆ 播放上方音频，跟随歌词阅读</div>
+            </div>
+
+            <!-- Strophe 1 · Stolz -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 1 · Nationalstolz (ironisch)</div>
+              <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                Natürlich hat ein Deutscher „Wetten, dass...?" erfunden<br>
+                Vielen Dank für die schönen Stunden<br>
+                Wir sind die freundlichsten Kunden auf dieser Welt<br>
+                Wir sind bescheiden, wir haben Geld<br>
+                Die Allerbesten in jedem Sport<br>
+                Die Steuern hier sind Weltrekord<br>
+                Bereisen Sie Deutschland und bleiben Sie hier!<br>
+                Auf diese Art von Besuchern warten wir<br>
+                Es kann jeder hier wohnen, dem es gefällt<br>
+                Wir sind das freundlichste Volk auf dieser Welt
+              </p>
+            </div>
+
+            <!-- Refrain -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Refrain</div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238">
+                <strong>Das alles ist Deutschland</strong><br>
+                Das alles sind wir<br>
+                Das gibt es nirgendwo anders<br>
+                Nur hier, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind alles wir<br>
+                Wir leben und wir sterben hier
+              </p>
+            </div>
+
+            <!-- Zwischenspiel 1 -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🔁 Zwischenspiel</div>
+              <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                Deutsch, deutsch, deutsch, deutsch<br>
+                Deutsch, deutsch, deutsch, deutsch<br>
+                <span style="font-size:.84rem;color:#555">Nur eine Kleinigkeit ist hier verkehrt —<br>
+                Und zwar, dass Schumacher keinen Mercedes fährt</span>
+              </p>
+            </div>
+
+            <!-- Strophe 2 · Selbstkritik -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 2 · Selbstkritik (satirisch)</div>
+              <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                Es bilden sich viele was auf Deutschland ein<br>
+                Und mancher findet es geil, ein Arschloch zu sein<br>
+                Es gibt manchen, der sich gern über Kanaken beschwert<br>
+                Und zum Ficken jedes Jahr nach Thailand fährt<br>
+                Wir lieben unsere Autos mehr als unsere Frauʼn<br>
+                Denn deutschen Autos können wir vertrauʼn<br>
+                Gott hat die Erde nur einmal geküsst<br>
+                Genau an dieser Stelle, wo jetzt Deutschland ist<br>
+                Wir sind überall die Besten, natürlich auch im Bett<br>
+                Und zu Hunden und Katzen besonders nett
+              </p>
+            </div>
+
+            <!-- Refrain -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Refrain</div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238">
+                <strong>Das alles ist Deutschland</strong><br>
+                Das alles sind wir<br>
+                Das gibt es nirgendwo anders<br>
+                Nur hier, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind alles wir<br>
+                Wir leben und wir sterben hier
+              </p>
+            </div>
+
+            <!-- Strophe 3 · Mehr Satire -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 3 · Mehr Satire</div>
+              <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                Wir sind besonders gut im Auf-die-Fresse-hauʼn<br>
+                Auch im Feuerlegen kann man uns vertrauʼn<br>
+                Wir stehʼn auf Ordnung und Sauberkeit<br>
+                Wir sind jederzeit für ʼnen Krieg bereit<br>
+                Schönen Gruß an die Welt, seht es endlich ein<br>
+                Wir können stolz auf Deutschland sein
+              </p>
+            </div>
+
+            <!-- Zwischenspiel 2 -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🔁 Zwischenspiel</div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238;letter-spacing:.5px">
+                Schwein, Schwein, Schwein, Schwein<br>
+                Schwein, Schwein, Schwein, Schwein
+              </p>
+            </div>
+
+            <!-- Refrain ×2 -->
+            <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:0;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Refrain (2×)</div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238">
+                <strong>Das alles ist Deutschland</strong><br>
+                Das alles sind wir<br>
+                Das gibt es nirgendwo anders<br>
+                Nur hier, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind alles wir<br>
+                Wir leben und wir sterben hier<br><br>
+                <strong>Das alles ist Deutschland</strong><br>
+                Das alles sind wir<br>
+                Das gibt es nirgendwo anders<br>
+                Nur hier, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind alles wir<br>
+                Wir leben und wir sterben hier
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ═══════════ 模式 2 · 听写练习 ═══════════ -->
+          <div id="b1-deutschland-trans-blank" style="display:none">
+
+            <!-- Intro · Blank（不挖空） -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Intro <span style="font-size:.78rem;color:#888;font-weight:400">· mitsingen!</span></div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238;letter-spacing:.5px">
+                Deutsch, deutsch, deutsch, deutsch, deutsch, deutsch
+              </p>
+            </div>
+
+            <!-- 🔉 音频提示 -->
+            <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+              <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+                <span style="font-size:1.1rem">🔊</span>
+                <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Deutschland — Die Prinzen</span>
+                <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边填 ✏️</span>
+              </div>
+              <div style="font-size:.75rem;color:#1565c0;margin-top:.3rem">⬆ 播放上方音频，填空补全歌词</div>
+            </div>
+
+            <!-- Strophe 1 · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 1 · Nationalstolz <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                Natürlich hat ein Deutscher „Wetten, dass...?" <span class="b1fb-gap" data-ans="erfunden">____</span><br>
+                Vielen Dank für die <span class="b1fb-gap" data-ans="schönen">____</span> Stunden<br>
+                Wir sind die <span class="b1fb-gap" data-ans="freundlichsten">____</span> Kunden auf dieser <span class="b1fb-gap" data-ans="Welt">____</span><br>
+                Wir sind <span class="b1fb-gap" data-ans="bescheiden">____</span>, wir haben <span class="b1fb-gap" data-ans="Geld">____</span><br>
+                Die <span class="b1fb-gap" data-ans="Allerbesten">____</span> in jedem <span class="b1fb-gap" data-ans="Sport">____</span><br>
+                Die <span class="b1fb-gap" data-ans="Steuern">____</span> hier sind <span class="b1fb-gap" data-ans="Weltrekord">____</span><br>
+                Bereisen Sie Deutschland und <span class="b1fb-gap" data-ans="bleiben">____</span> Sie hier!<br>
+                Auf diese Art von Besuchern <span class="b1fb-gap" data-ans="warten">____</span> wir<br>
+                Es kann jeder hier <span class="b1fb-gap" data-ans="wohnen">____</span>, dem es gefällt<br>
+                Wir sind das freundlichste <span class="b1fb-gap" data-ans="Volk">____</span> auf dieser Welt
+              </p>
+            </div>
+
+            <!-- Refrain · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Refrain <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.9rem;line-height:2.1;color:#263238">
+                Das <span class="b1fb-gap" data-ans="alles">____</span> ist Deutschland<br>
+                Das alles <span class="b1fb-gap" data-ans="sind">____</span> wir<br>
+                Das gibt es <span class="b1fb-gap" data-ans="nirgendwo">____</span> anders<br>
+                <span class="b1fb-gap" data-ans="Nur">____</span> hier, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind <span class="b1fb-gap" data-ans="alles">____</span> wir<br>
+                Wir <span class="b1fb-gap" data-ans="leben">____</span> und wir <span class="b1fb-gap" data-ans="sterben">____</span> hier
+              </p>
+            </div>
+
+            <!-- Zwischenspiel 1 · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🔁 Zwischenspiel <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                Deutsch, deutsch, deutsch, deutsch<br>
+                Deutsch, deutsch, deutsch, deutsch<br>
+                Nur eine <span class="b1fb-gap" data-ans="Kleinigkeit">____</span> ist hier <span class="b1fb-gap" data-ans="verkehrt">____</span><br>
+                Und zwar, dass <span class="b1fb-gap" data-ans="Schumacher">____</span> keinen <span class="b1fb-gap" data-ans="Mercedes">____</span> fährt
+              </p>
+            </div>
+
+            <!-- Strophe 2 · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 2 · Selbstkritik <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                Es bilden sich viele was auf Deutschland <span class="b1fb-gap" data-ans="ein">____</span><br>
+                Und mancher findet es geil, ein Arschloch zu sein<br>
+                Es gibt manchen, der sich gern über Kanaken <span class="b1fb-gap" data-ans="beschwert">____</span><br>
+                Und zum Ficken jedes Jahr nach <span class="b1fb-gap" data-ans="Thailand">____</span> fährt<br>
+                Wir lieben unsere <span class="b1fb-gap" data-ans="Autos">____</span> mehr als unsere <span class="b1fb-gap" data-ans="Frauʼn">____</span><br>
+                Denn deutschen Autos können wir <span class="b1fb-gap" data-ans="vertrauʼn">____</span><br>
+                Gott hat die <span class="b1fb-gap" data-ans="Erde">____</span> nur einmal <span class="b1fb-gap" data-ans="geküsst">____</span><br>
+                Genau an dieser <span class="b1fb-gap" data-ans="Stelle">____</span>, wo jetzt Deutschland ist<br>
+                Wir sind überall die Besten, natürlich auch im <span class="b1fb-gap" data-ans="Bett">____</span><br>
+                Und zu <span class="b1fb-gap" data-ans="Hunden">____</span> und <span class="b1fb-gap" data-ans="Katzen">____</span> besonders <span class="b1fb-gap" data-ans="nett">____</span>
+              </p>
+            </div>
+
+            <!-- Refrain · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🎵 Refrain <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.9rem;line-height:2.1;color:#263238">
+                Das <span class="b1fb-gap" data-ans="alles">____</span> ist Deutschland<br>
+                Das alles <span class="b1fb-gap" data-ans="sind">____</span> wir<br>
+                Das gibt es nirgendwo <span class="b1fb-gap" data-ans="anders">____</span><br>
+                Nur <span class="b1fb-gap" data-ans="hier">____</span>, nur hier!<br>
+                Das alles ist Deutschland<br>
+                Das sind alles wir<br>
+                Wir leben und wir sterben <span class="b1fb-gap" data-ans="hier">____</span>
+              </p>
+            </div>
+
+            <!-- Strophe 3 · Blank -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Strophe 3 · Mehr Satire <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+              <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                Wir sind <span class="b1fb-gap" data-ans="besonders">____</span> gut im Auf-die-Fresse-hauʼn<br>
+                Auch im <span class="b1fb-gap" data-ans="Feuerlegen">____</span> kann man uns vertrauʼn<br>
+                Wir stehʼn auf <span class="b1fb-gap" data-ans="Ordnung">____</span> und <span class="b1fb-gap" data-ans="Sauberkeit">____</span><br>
+                Wir sind jederzeit für ʼnen <span class="b1fb-gap" data-ans="Krieg">____</span> <span class="b1fb-gap" data-ans="bereit">____</span><br>
+                Schönen <span class="b1fb-gap" data-ans="Gruß">____</span> an die Welt, seht es endlich ein<br>
+                Wir können <span class="b1fb-gap" data-ans="stolz">____</span> auf Deutschland sein
+              </p>
+            </div>
+
+            <!-- Zwischenspiel 2 · Blank（不挖空） -->
+            <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:0;text-align:center">
+              <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">🔁 Zwischenspiel <span style="font-size:.78rem;color:#888;font-weight:400">· mitsingen!</span></div>
+              <p style="margin:0;font-size:.9rem;line-height:1.95;color:#263238;letter-spacing:.5px">
+                Schwein, Schwein, Schwein, Schwein<br>
+                Schwein, Schwein, Schwein, Schwein
+              </p>
+            </div>
+
+          </div>
+
+          <!-- 学习提示 -->
+          <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-top:.8rem;font-size:.8rem;color:#5d4037;line-height:1.6">
+            💡 <strong>Tipp:</strong> 这首歌表面骄傲实则反讽——先完整听 2 遍感受语气，再切换到「✏️ 听写练习」填空。重点抓 <em>Refrain（Das alles ist...）、讽刺关键词（Weltrekord, Allerbesten, Krieg bereit）、文化梗（Schumacher, Mercedes, Wetten dass）</em>。课堂讨论题：哪些是讽刺？哪些是真的？😄
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════ -->
       <!-- 补充单元 · Wer hat an der Uhr gedreht? — Zeitgefühl       -->
       <!-- ════════════════════════════════════════════════════════ -->
       <div style="border-top:2px solid #1a5a2a;margin-top:1.5rem;padding-top:1rem"></div>
@@ -36400,6 +36888,31 @@ function B1S8ClownRevealAll(){
 function B1S8ClownHideAll(){
   document.querySelectorAll('#b1s6-clown-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
 }
+// ═══ 🎵 Deutschland — Die Prinzen · Transkript 模式切换 ═══
+function B1DeuLiedTransMode(mode){
+  const full = document.getElementById('b1-deutschland-trans-full');
+  const blank = document.getElementById('b1-deutschland-trans-blank');
+  const btnFull = document.getElementById('b1-deutschland-mode-full');
+  const btnBlank = document.getElementById('b1-deutschland-mode-blank');
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = '';
+    if(btnFull){ btnFull.style.background='#fff'; btnFull.style.color='#1565c0'; }
+    if(btnBlank){ btnBlank.style.background='#1565c0'; btnBlank.style.color='#fff'; }
+  } else {
+    full.style.display = '';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#1565c0'; btnFull.style.color='#fff'; }
+    if(btnBlank){ btnBlank.style.background='#fff'; btnBlank.style.color='#1565c0'; }
+  }
+}
+function B1DeuLiedRevealAll(){
+  document.querySelectorAll('#b1-deutschland-trans-blank .b1fb-gap').forEach(g=>g.classList.add('revealed'));
+}
+function B1DeuLiedHideAll(){
+  document.querySelectorAll('#b1-deutschland-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
+}
 // ═══ Section 11 · Reihenfolge + Früher/Heute ═══
 function b1S11CheckOrder(){
   var answers = {a:'3', b:'4', c:'1', d:'2'};
@@ -39350,7 +39863,9 @@ function b1S12CheckB(){
   #page-kultur .k-section.k-dark table td { padding:.4rem .5rem; }
   #ks-8 .k-body>div:first-of-type,
   #ks-9 .k-body>div:first-of-type,
-  #ks-10 .k-body>div:first-of-type { font-size:2rem !important; }
+  #ks-10 .k-body>div:first-of-type,
+  #ks-11 .k-body>div:first-of-type,
+  #ks-12 .k-body>div:first-of-type { font-size:2rem !important; }
 }
 </style>
 <div style="max-width:860px;margin:0 auto">
@@ -39378,6 +39893,8 @@ function b1S12CheckB(){
       <li><a href="#ks-8">你不知道的德国 · 01 — 超市与生活</a></li>
       <li><a href="#ks-9">你不知道的德国 · 02 — 规则与习惯</a></li>
       <li><a href="#ks-10">你不知道的德国 · 03 — 住与行</a></li>
+      <li><a href="#ks-11">你不知道的德国 · 04 — 工作与职场</a></li>
+      <li><a href="#ks-12">你不知道的德国 · 05 — 交通与出行</a></li>
     </ol>
   </div>
 
@@ -40538,6 +41055,49 @@ function b1S12CheckB(){
         <span class="k-tag">SCHUFA 信用评分</span>
         <span class="k-tag">Verein 协会文化</span>
         <span class="k-tag">Schönheitsreparaturen 刷墙</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+  <!-- ══ 十一、你不知道的德国 · 04 — 工作与职场 ══ -->
+  <div class="k-section k-dark" id="ks-11" style="cursor:pointer" onclick="showPage('kultur-04')">
+    <div class="k-header">💼 十一、你不知道的德国 · 04 — 工作与职场</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">💼</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        工资是工会谈出来的、下班后老板不能找你、30天年假不放假违法、公司里有一个"员工议会"能拦住裁员——6个连德国人自己都觉得"太德国了"的职场真相。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Tarifvertrag 集体工资</span>
+        <span class="k-tag">Probezeit 试用期</span>
+        <span class="k-tag">Urlaubstag 30天年假</span>
+        <span class="k-tag">Krankmeldung 病假</span>
+        <span class="k-tag">Feierabend 下班文化</span>
+        <span class="k-tag">Betriebsrat 企业工会</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 十二、你不知道的德国 · 05 — 交通与出行 ══ -->
+  <div class="k-section k-dark" id="ks-12" style="cursor:pointer" onclick="showPage('kultur-05')">
+    <div class="k-header">🚗 十二、你不知道的德国 · 05 — 交通与出行</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🚗</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        驾照要花3000欧、没有绿色贴纸不能进城、自行车比汽车大、堵车时必须让出救命通道——6个德国道路交通的生存法则。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Führerschein 驾照</span>
+        <span class="k-tag">Umweltzone 环保区</span>
+        <span class="k-tag">Fahrradstraße 自行车街</span>
+        <span class="k-tag">Rettungsgasse 救急车道</span>
+        <span class="k-tag">Blitzer 测速</span>
+        <span class="k-tag">Carsharing 共享汽车</span>
       </div>
       <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
     </div>
@@ -42451,6 +43011,24 @@ function b1S12CheckB(){
 <div id="page-kultur-03" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="你不知道的德国_03_住与行.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 04 ══════════ -->
+<div id="page-kultur-04" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_04_工作与职场.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 05 ══════════ -->
+<div id="page-kultur-05" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_05_交通与出行.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
