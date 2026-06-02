@@ -2456,7 +2456,7 @@
 <div id="login-overlay" style="
   position:fixed;inset:0;z-index:999999;
   background:#0a1428;
-  display:flex;align-items:center;justify-content:center;
+  display:none;align-items:center;justify-content:center;
   font-family:'Segoe UI',sans-serif;
 ">
   <div style="
@@ -2609,7 +2609,7 @@ var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schre
 // A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
 (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s5','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1l-s11','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
+var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1l-s11','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -2840,12 +2840,8 @@ function createLoginPromptCard() {
       currentTier = s.tier || 'basic'; showMain(s.user); return;
     }
   } catch(e) {}
-  // 未进入：阻止F12
-  document.addEventListener('keydown', function(e) {
-    if (document.getElementById('login-overlay').style.display !== 'none') {
-      if (e.key === 'F12') e.preventDefault();
-    }
-  });
+  // 无会话：直接以游客身份进入首页
+  showMain('guest');
 })();
 </script>
 <!-- ══════════════ 登录遮罩结束 ══════════════ -->
@@ -16051,6 +16047,14 @@ function brToggleSample4() {
       Deutschland liegt im Zentrum von (West-)Europa. Es hat <strong>neun Nachbarländer</strong>. Im Osten liegt <strong>Polen</strong>, hier spricht man Polnisch. Südlich von Polen liegt <strong>Tschechien</strong>, dort spricht man Tschechisch. Südlich von Deutschland liegen <strong>Österreich</strong> und die <strong>Schweiz</strong>. In Österreich spricht man Deutsch und Slowenisch. Westlich von Österreich liegt die Schweiz. Hier spricht man vier Sprachen: Deutsch, Italienisch, Französisch und Rätoromanisch. Französisch spricht man in <strong>Frankreich</strong>. Das liegt südwestlich von Deutschland. Im Westen und Nordwesten sind <strong>Luxemburg</strong>, <strong>Belgien</strong> und die <strong>Niederlande</strong>. In Luxemburg spricht man drei Sprachen: Deutsch, Französisch und Luxemburgisch. Das ist die Nationalsprache in Luxemburg. In Belgien spricht man auch drei Sprachen: Niederländisch, Deutsch und Französisch. In den Niederlanden spricht man Niederländisch und Friesisch. Nördlich von Deutschland liegt <strong>Dänemark</strong>. In Dänemark spricht man Dänisch und Deutsch.
     </div>
 
+    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
+      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
+      <audio controls style="width:100%;max-width:500px;height:36px" preload="metadata">
+        <source src="" type="audio/mpeg">
+      </audio>
+      <!-- TODO: 上传音频后替换 src 路径 -->
+    </div>
+
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter 关键词：</strong><br>
       · <strong>Nachbarland</strong>（邻国）· <strong>Sprache</strong>（语言）· <strong>man spricht …</strong>（人们说……）<br>
@@ -21875,10 +21879,10 @@ document.addEventListener('click', function(e) {
     <a href="#a2l-s5" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">3 · Als Au-pair arbeiten</a>
     <a href="#a2l-s6" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">4 · Au-pair in Freiburg</a>
     <a href="#a2l-s7" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">5 · Au-pair vermisst!</a>
-    <a href="#a2l-s8" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">6 · Menschen ohne Arbeit</a>
-    <a href="#a2l-s9" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">7 · Eine Oma für Paul</a>
-    <a href="#a2l-s10" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">8 · Mit dem Hundeschlitten</a>
-    <a href="#a2l-s11" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">9 · Mit dem Fahrrad</a>
+    <a href="#a2l-s8" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">5 · Menschen ohne Arbeit</a>
+    <a href="#a2l-s9" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">6 · Eine Oma für Paul</a>
+    <a href="#a2l-s10" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">7 · Mit dem Hundeschlitten</a>
+    <a href="#a2l-s11" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">8 · Mit dem Fahrrad</a>
     <!-- 第12项:城市与文化合并组 -->
     <div style="grid-column:1/-1">
       <div onclick="var sub=this.nextElementSibling;var open=sub.style.display!=='grid';sub.style.display=open?'grid':'none';this.querySelector('.toc-arrow').textContent=open?'▼':'▶';"
@@ -26288,14 +26292,13 @@ function lxqResetMCQ(id) {
       <a href="#b1l-s1" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">1 · 🏛️ Brandenburger Tor — Zeitgeschichte</a>
       <a href="#b1l-s2" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">2 · ⏰ Wo bleibt die Zeit? — Zeitverwendung</a>
       <a href="#b1l-s3" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">3 · 🎓 Erasmus+ Programm — EU-Bildungsprogramm</a>
-      <a href="#b1l-s4" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">4 · 🕰️ Alltag — Leserbriefe & Familie Born</a>
-      <a href="#b1l-s5" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">5 · 🆘 Alltagsprobleme & Notfälle</a>
-      <a href="#b1l-s6" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">6 · 👫 Typisch Mann?! Typisch Frau?!</a>
-      <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">7 · 📝 Zertifikatstraining — Lesen Teil 1</a>
-      <a href="#b1l-s8" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">8 · 🎧 Zertifikatstraining — Hören Teil 1</a>
-      <a href="#b1l-s9" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">9 · 🏭 Arbeit im Wandel — Das Ruhrgebiet</a>
-      <a href="#b1l-s10" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 🎓 Schule und Berufe — Das deutsche Schulsystem</a>
-      <a href="#b1l-s11" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">11 · 📋 Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</a>
+      <a href="#b1l-s4" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">4 · 🕰️ Alltag &amp; 🆘 Alltagsprobleme</a>
+      <a href="#b1l-s6" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">5 · 👫 Typisch Mann?! Typisch Frau?!</a>
+      <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">6 · 📝 Zertifikatstraining — Lesen Teil 1</a>
+      <a href="#b1l-s8" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">7 · 🎧 Zertifikatstraining — Hören Teil 1</a>
+      <a href="#b1l-s9" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">8 · 🏭 Arbeit im Wandel — Das Ruhrgebiet</a>
+      <a href="#b1l-s10" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">9 · 🎓 Schule und Berufe — Das deutsche Schulsystem</a>
+      <a href="#b1l-s11" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 📋 Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</a>
       <a href="#b1l-s12" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">12 · 🎤 Präsentation vorbereiten &amp; durchführen</a>
       <a href="#b1l-s13" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">13 · 🎤 Präsentation II — Eisbrecher, Fragen &amp; Workshop</a>
     </div>
@@ -29821,6 +29824,184 @@ function lxqResetMCQ(id) {
             </div>
           </div>
 
+          <!-- ════════════════════════════════════════════════════════════════ -->
+          <!-- 🎧 Emma Koretzki · Studienberatung Transkript（听力原文双模式）  -->
+          <!-- ════════════════════════════════════════════════════════════════ -->
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:3px dashed #fb8c00">
+
+            <div style="background:linear-gradient(135deg,#e65100,#fb8c00);color:#fff;padding:.9rem 1.2rem;border-radius:12px;margin-bottom:1rem;box-shadow:0 4px 12px rgba(230,81,0,.3)">
+              <div style="font-weight:700;font-size:1.05rem;margin-bottom:.2rem">📄 Transkript · Emma Koretzki — Studienberatung</div>
+              <div style="font-size:.85rem;opacity:.95">Hörverstehen · Beratungsgespräch Track 1.03 · 听写双模式</div>
+            </div>
+
+            <!-- ═══ 听力原文 Transkript ═══ -->
+            <button class="btn btn-show" onclick="a2ToggleAns('b1s3emma-transkript')">📄 显示/隐藏听力原文 Transkript</button>
+            <div class="answer-box" id="b1s3emma-transkript" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem">
+              <div style="font-weight:700;color:#0d47a1;font-size:.95rem;margin-bottom:.8rem;text-align:center;padding-bottom:.5rem;border-bottom:2px dashed #bbdefb">🎧 Transkript · Beratungsgespräch mit Adrian Bucher (Track 1.03)</div>
+
+              <!-- 模式切换 -->
+              <div style="display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap;justify-content:center">
+                <button onclick="B1S3EmmaTransMode('full')" id="b1s3emma-mode-full" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+                <button onclick="B1S3EmmaTransMode('blank')" id="b1s3emma-mode-blank" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写练习</button>
+                <button onclick="B1S3EmmaRevealAll()" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示答案</button>
+                <button onclick="B1S3EmmaHideAll()" style="padding:.4rem .9rem;border:2px solid #c62828;background:#fff;color:#c62828;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+              </div>
+
+              <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-bottom:.9rem;font-size:.78rem;color:#5d4037;line-height:1.6;text-align:center">
+                💡 切换到「✏️ 听写练习」模式 → 边听音频边在脑中补全词 → <strong>双击空格</strong>显示答案
+              </div>
+
+              <!-- ═══════════ 模式 1 · 完整原文 ═══════════ -->
+              <div id="b1s3emma-trans-full">
+
+                <!-- 📌 Dialog 1 · Begrüßung -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 1 · Begrüßung 👋</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Herein!<br>
+                    <strong>👤 Emma:</strong> Guten Morgen, ich bin Emma Koretzki. Ich habe einen Termin zur Studienberatung.<br>
+                    <strong>👤 Adrian Bucher:</strong> Morgen, Frau Koretzki. Bitte nehmen Sie Platz. Ich bin Adrian Bucher. Sie sind also auf der Suche nach einem Studienfach?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 2 · Emmas Dilemma -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 2 · Emmas Dilemma 😕</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Emma:</strong> Naja, ich bin noch nicht so sicher... Meine Mutter meint, ich sollte an meine Zukunft denken und Jura oder Medizin studieren. Aber das interessiert mich nicht so sehr. Und mein Vater findet, ich müsste zuerst eine Ausbildung machen.<br>
+                    <strong>👤 Adrian Bucher:</strong> Aha, hm. Das könnten Sie natürlich tun.<br>
+                    <strong>👤 Emma:</strong> Ja, und meine Freundinnen finden, ich könnte Lehrerin werden, weil ich Kinder mag. Aber ich weiß nicht. Die Entscheidung ist echt schwierig. Ich hoffe, Sie können mir helfen.
+                  </p>
+                </div>
+
+                <!-- 🔊 中间嵌入音频 · 完整模式 -->
+                <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+                  <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                    <span style="font-size:1.1rem">🔊</span>
+                    <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Beratungsgespräch Track 1.03</span>
+                    <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边读 📖</span>
+                  </div>
+                  <audio controls preload="metadata" style="width:100%;outline:none">
+                    <source src="audio/b1-emma-studienberatung.mp3" type="audio/mpeg">
+                    <source src="audio/b1-emma-studienberatung.m4a" type="audio/mp4">
+                    你的浏览器不支持音频播放。
+                  </audio>
+                </div>
+
+                <!-- 📌 Dialog 3 · Die richtige Frage -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 3 · Die richtige Frage 💡</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Naja, das sind ja schon viele gute Tipps und Ratschläge. Ich finde, Sie sollten studieren, was Sie interessiert. Gibt es da etwas, was Sie besonders gut können oder gerne machen?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 4 · Emmas Interessen -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 4 · Emmas Interessen ✍️</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Emma:</strong> Ja, ich schreibe gern und lese ziemlich viel. Und ich reise gern. Fremdsprachen finde ich auch sehr wichtig. Meine Noten in Deutsch, Englisch und Spanisch waren immer super. Was meinen Sie, könnte ich vielleicht irgendwas mit Medien studieren?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 5 · Der Vorschlag -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 5 · Der Vorschlag 🎯</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Irgendwas mit Medien? Ja klar, Sie könnten z.B. Journalismus im Bachelor studieren.<br>
+                    <strong>👤 Emma:</strong> Aha. Müsste ich da eine Aufnahmeprüfung machen?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 6 · Der Weg nach vorn -->
+                <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:0">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 6 · Der Weg nach vorn 🚀</div>
+                  <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Nein, an der Uni nicht, nicht im Bachelor. Sie haben Abitur und gute Deutsch- und Fremdsprachenkenntnisse und Sie schreiben gern. Das sind gute Voraussetzungen. Sie sollten vielleicht erst ein Praktikum bei einer Zeitung oder beim Radio machen. Und im BA könnten Sie dann ein oder zwei Semester im Ausland studieren, z.B. mit Erasmus+.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- ═══════════ 模式 2 · 听写练习（双击显示答案）═══════════ -->
+              <div id="b1s3emma-trans-blank" style="display:none">
+
+                <!-- 📌 Dialog 1 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 1 · Begrüßung 👋 <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> <span class="b1fb-gap" data-ans="Herein">____</span>!<br>
+                    <strong>👤 Emma:</strong> Guten Morgen, ich bin Emma Koretzki. Ich habe einen <span class="b1fb-gap" data-ans="Termin">____</span> zur <span class="b1fb-gap" data-ans="Studienberatung">____</span>.<br>
+                    <strong>👤 Adrian Bucher:</strong> Morgen, Frau Koretzki. Bitte <span class="b1fb-gap" data-ans="nehmen">____</span> Sie <span class="b1fb-gap" data-ans="Platz">____</span>. Ich bin Adrian Bucher. Sie sind also auf der <span class="b1fb-gap" data-ans="Suche">____</span> nach einem <span class="b1fb-gap" data-ans="Studienfach">____</span>?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 2 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 2 · Emmas Dilemma 😕 <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Emma:</strong> Naja, ich bin noch nicht so <span class="b1fb-gap" data-ans="sicher">____</span>... Meine Mutter meint, ich sollte an meine <span class="b1fb-gap" data-ans="Zukunft">____</span> denken und <span class="b1fb-gap" data-ans="Jura">____</span> oder <span class="b1fb-gap" data-ans="Medizin">____</span> studieren. Aber das <span class="b1fb-gap" data-ans="interessiert">____</span> mich nicht so sehr. Und mein Vater findet, ich müsste zuerst eine <span class="b1fb-gap" data-ans="Ausbildung">____</span> machen.<br>
+                    <strong>👤 Adrian Bucher:</strong> Aha, hm. Das <span class="b1fb-gap" data-ans="könnten">____</span> Sie natürlich tun.<br>
+                    <strong>👤 Emma:</strong> Ja, und meine Freundinnen finden, ich könnte <span class="b1fb-gap" data-ans="Lehrerin">____</span> werden, weil ich Kinder mag. Aber ich weiß nicht. Die <span class="b1fb-gap" data-ans="Entscheidung">____</span> ist echt <span class="b1fb-gap" data-ans="schwierig">____</span>. Ich hoffe, Sie können mir <span class="b1fb-gap" data-ans="helfen">____</span>.
+                  </p>
+                </div>
+
+                <!-- 🔊 音频 · 听写模式 -->
+                <div style="background:linear-gradient(135deg,#ffecb3,#ffe082);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #fb8c00">
+                  <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                    <span style="font-size:1.1rem">🔊</span>
+                    <span style="font-weight:700;color:#e65100;font-size:.85rem">Beratungsgespräch Track 1.03</span>
+                    <span style="font-size:.75rem;color:#e65100;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边填 ✏️</span>
+                  </div>
+                  <audio controls preload="metadata" style="width:100%;outline:none">
+                    <source src="audio/b1-emma-studienberatung.mp3" type="audio/mpeg">
+                    <source src="audio/b1-emma-studienberatung.m4a" type="audio/mp4">
+                    你的浏览器不支持音频播放。
+                  </audio>
+                </div>
+
+                <!-- 📌 Dialog 3 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 3 · Die richtige Frage 💡 <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Naja, das sind ja schon viele gute <span class="b1fb-gap" data-ans="Tipps">____</span> und <span class="b1fb-gap" data-ans="Ratschläge">____</span>. Ich finde, Sie sollten studieren, was Sie <span class="b1fb-gap" data-ans="interessiert">____</span>. Gibt es da etwas, was Sie besonders gut <span class="b1fb-gap" data-ans="können">____</span> oder gerne <span class="b1fb-gap" data-ans="machen">____</span>?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 4 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 4 · Emmas Interessen ✍️ <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Emma:</strong> Ja, ich <span class="b1fb-gap" data-ans="schreibe">____</span> gern und <span class="b1fb-gap" data-ans="lese">____</span> ziemlich viel. Und ich <span class="b1fb-gap" data-ans="reise">____</span> gern. <span class="b1fb-gap" data-ans="Fremdsprachen">____</span> finde ich auch sehr wichtig. Meine <span class="b1fb-gap" data-ans="Noten">____</span> in Deutsch, Englisch und Spanisch waren immer super. Was meinen Sie, könnte ich vielleicht <span class="b1fb-gap" data-ans="irgendwas">____</span> mit <span class="b1fb-gap" data-ans="Medien">____</span> studieren?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 5 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 5 · Der Vorschlag 🎯 <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Irgendwas mit Medien? Ja klar, Sie könnten z.B. <span class="b1fb-gap" data-ans="Journalismus">____</span> im <span class="b1fb-gap" data-ans="Bachelor">____</span> studieren.<br>
+                    <strong>👤 Emma:</strong> Aha. Müsste ich da eine <span class="b1fb-gap" data-ans="Aufnahmeprüfung">____</span> machen?
+                  </p>
+                </div>
+
+                <!-- 📌 Dialog 6 · Blank -->
+                <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:0">
+                  <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Dialog 6 · Der Weg nach vorn 🚀 <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                  <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                    <strong>👤 Adrian Bucher:</strong> Nein, an der Uni nicht, nicht im Bachelor. Sie haben <span class="b1fb-gap" data-ans="Abitur">____</span> und gute Deutsch- und <span class="b1fb-gap" data-ans="Fremdsprachenkenntnisse">____</span> und Sie schreiben gern. Das sind gute <span class="b1fb-gap" data-ans="Voraussetzungen">____</span>. Sie sollten vielleicht erst ein <span class="b1fb-gap" data-ans="Praktikum">____</span> bei einer <span class="b1fb-gap" data-ans="Zeitung">____</span> oder beim <span class="b1fb-gap" data-ans="Radio">____</span> machen. Und im BA könnten Sie dann ein oder zwei Semester im <span class="b1fb-gap" data-ans="Ausland">____</span> studieren, z.B. mit <span class="b1fb-gap" data-ans="Erasmus">____</span>+.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- 学习提示 -->
+              <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-top:.8rem;font-size:.8rem;color:#5d4037;line-height:1.6">
+                💡 <strong>Tipp:</strong> 先做听力题（不看文字），再核对原文——重点观察自己漏掉的关键词（z. B. <em>Studienberatung, Ausbildung, interessiert, Fremdsprachen, Journalismus, Aufnahmeprüfung, Voraussetzungen, Erasmus</em>）。
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -29899,6 +30080,32 @@ function b1Emma7bCheck(){
   });
   const scoreEl = document.getElementById('emma-7b-score');
   if(scoreEl) scoreEl.innerHTML = `<span style="color:${correct===total?'#2e7d32':'#e65100'}">${correct}/${total} 正确</span>`;
+}
+
+// ═══ Emma Koretzki · Studienberatung Transkript 模式切换 ═══
+function B1S3EmmaTransMode(mode){
+  const full = document.getElementById('b1s3emma-trans-full');
+  const blank = document.getElementById('b1s3emma-trans-blank');
+  const btnFull = document.getElementById('b1s3emma-mode-full');
+  const btnBlank = document.getElementById('b1s3emma-mode-blank');
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = '';
+    if(btnFull){ btnFull.style.background='#fff'; btnFull.style.color='#1565c0'; }
+    if(btnBlank){ btnBlank.style.background='#1565c0'; btnBlank.style.color='#fff'; }
+  } else {
+    full.style.display = '';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#1565c0'; btnFull.style.color='#fff'; }
+    if(btnBlank){ btnBlank.style.background='#fff'; btnBlank.style.color='#1565c0'; }
+  }
+}
+function B1S3EmmaRevealAll(){
+  document.querySelectorAll('#b1s3emma-trans-blank .b1fb-gap').forEach(g=>g.classList.add('revealed'));
+}
+function B1S3EmmaHideAll(){
+  document.querySelectorAll('#b1s3emma-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
 }
 </script>
 
@@ -30796,19 +31003,11 @@ function b1Emma7bCheck(){
       </div>
     </div>
 
-  </div>
-</div>
-</div>
-</div>
-
-<!-- ════════════════════════════════════════════════════════════════════════ -->
-<!-- B1 阅读 5 · Alltagsprobleme & Notfälle · Lektion 3                       -->
-<!-- ════════════════════════════════════════════════════════════════════════ -->
-<div id="b1l-s5-wrapper" style="display:none">
-<div style="max-width:860px;margin:0 auto">
-<div class="section" id="b1l-s5">
-  <div class="section-header">阅读 5 · 🆘 Alltagsprobleme & Notfälle &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Lektion 3 · 6 Alltagsprobleme + Notfälle + weil / deshalb</span></div>
-  <div class="section-body">
+<!-- ════════════════════════ -->
+<!-- 合并：原阅读 5 内容 -->
+<!-- ════════════════════════ -->
+<div style="border-top:2px dashed rgba(0,0,0,.1);margin:2rem 0 1.5rem"></div>
+<div style="font-weight:700;font-size:1.05rem;margin-bottom:1rem;color:#2d3748">🆘 5 · Alltagsprobleme & Notfälle &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Lektion 3 · 6 Alltagsprobleme + Notfälle + weil / deshalb</span></div>
 
     <!-- 单元导航 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.5rem;margin-bottom:1.2rem">
@@ -37071,7 +37270,7 @@ function b1S12CheckB(){
     if(!page) return;
     const inner = page.querySelector(':scope > div');
     if(!inner) return;
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s5-wrapper','b1l-s5'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13']].forEach(function(pair){
       const wrapper = document.getElementById(pair[0]);
       const existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
