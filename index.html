@@ -2480,6 +2480,21 @@
     #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.6); box-shadow:0 4px 16px rgba(246,211,101,.15); }
     @media(max-width:900px){ #page-wds .wds-grid{grid-template-columns:repeat(2,1fr)} }
     @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:16px 14px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.82rem} #page-wds .wds-grid-card .wgc-zh{font-size:.74rem} }
+    /* ── 分享卡片全屏弹窗 ── */
+    #wds-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
+    #wds-share-overlay.show { display:flex; }
+    #wds-share-overlay .share-close { position:absolute; top:16px; right:20px; background:rgba(255,255,255,.08); border:none; color:#94a3b8; font-size:1.5rem; width:40px; height:40px; border-radius:50%; cursor:pointer; transition:.2s; z-index:1; }
+    #wds-share-overlay .share-close:hover { background:rgba(255,255,255,.15); color:#fde68a; }
+    #wds-share-card { max-width:420px; width:100%; text-align:center; padding:40px 28px 32px; background:linear-gradient(160deg,#0f1e3a 0%,#162d4a 40%,#1a3050 100%); border:1px solid rgba(246,211,101,.3); border-radius:20px; box-shadow:0 8px 40px rgba(0,0,0,.5); }
+    #wds-share-card .share-emoji { font-size:5rem; display:block; margin-bottom:16px; line-height:1.1; }
+    #wds-share-card .share-de { font-size:1.15rem; color:#fde68a; font-weight:600; line-height:1.65; margin-bottom:14px; }
+    #wds-share-card .share-zh { font-size:.92rem; color:#94a3b8; line-height:1.55; margin-bottom:24px; }
+    #wds-share-card .share-brand { font-size:.78rem; color:#64748b; border-top:1px solid rgba(246,211,101,.12); padding-top:16px; }
+    #wds-share-card .share-brand span { color:#f6d365; font-weight:700; }
+    #wds-share-card .share-url { font-size:.7rem; color:#64748b; margin-top:6px; }
+    #wds-share-card .share-hint { margin-top:18px; font-size:.7rem; color:rgba(246,211,101,.5); animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @media(max-width:600px){ #wds-share-card{padding:32px 22px 28px} #wds-share-card .share-emoji{font-size:4rem} #wds-share-card .share-de{font-size:1.05rem} #wds-share-card .share-zh{font-size:.85rem} }
   </style>
 </head>
 <body>
@@ -2966,6 +2981,7 @@ function createLoginPromptCard() {
     var dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
     return dayOfYear % window.WDS_FACTS.length;
   }
+  window.getWDSIndex = getTodayIndex;
 
   function renderWDS() {
     var wrap = document.getElementById('wds-card-wrap');
@@ -2997,10 +3013,33 @@ function createLoginPromptCard() {
       html += '<span class="wgc-emoji">' + f.e + '</span>';
       html += '<div class="wgc-de">' + f.de + '</div>';
       html += '<div class="wgc-zh">' + f.zh + '</div>';
+      html += '<div style="text-align:right;margin-top:10px"><button onclick="event.stopPropagation();openWDSShare(' + i + ')" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.2);color:#f6d365;padding:4px 12px;border-radius:12px;font-size:.7rem;cursor:pointer;transition:.2s" onmouseover="this.style.background=\'rgba(246,211,101,.25)\'" onmouseout="this.style.background=\'rgba(246,211,101,.12)\'">📸 分享</button></div>';
       html += '</div>';
     }
     grid.innerHTML = html;
   };
+
+  /* 分享卡片：打开全屏弹窗 */
+  window.openWDSShare = function(index) {
+    var fact = window.WDS_FACTS[index];
+    document.getElementById('share-emoji').textContent = fact.e;
+    document.getElementById('share-de').innerHTML = fact.de;
+    document.getElementById('share-zh').innerHTML = fact.zh;
+    document.getElementById('wds-share-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeWDSShare = function() {
+    document.getElementById('wds-share-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  };
+  // 点击遮罩空白处关闭
+  document.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('wds-share-overlay')) closeWDSShare();
+  });
+  // ESC 关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeWDSShare();
+  });
 
   window.dismissWDS = function() {
     localStorage.setItem('wds-dismissed', new Date().toDateString());
@@ -3163,7 +3202,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -3366,7 +3405,10 @@ document.addEventListener('keydown', function(e) {
     <div class="wds-zh" id="wds-zh"></div>
     <div class="wds-footer">
       <span id="wds-num"></span>
-      <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 30 条冷知识 →</a>
+      <span>
+        <button onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);color:#f6d365;padding:5px 14px;border-radius:14px;font-size:.72rem;cursor:pointer;margin-right:8px;transition:.2s" onmouseover="this.style.background='rgba(246,211,101,.25)'" onmouseout="this.style.background='rgba(246,211,101,.12)'">📸 分享</button>
+        <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 30 条 →</a>
+      </span>
     </div>
   </div>
 </div>
@@ -40307,7 +40349,13 @@ function b1S12CheckB(){
   #ks-14 .k-body>div:first-of-type,
   #ks-15 .k-body>div:first-of-type,
   #ks-16 .k-body>div:first-of-type,
-  #ks-17 .k-body>div:first-of-type { font-size:2rem !important; }
+  #ks-17 .k-body>div:first-of-type,
+  #ks-18 .k-body>div:first-of-type,
+  #ks-19 .k-body>div:first-of-type,
+  #ks-20 .k-body>div:first-of-type,
+  #ks-21 .k-body>div:first-of-type,
+  #ks-22 .k-body>div:first-of-type,
+  #ks-23 .k-body>div:first-of-type { font-size:2rem !important; }
 }
 </style>
 <div style="max-width:860px;margin:0 auto">
@@ -40342,6 +40390,12 @@ function b1S12CheckB(){
       <li><a href="#ks-15">你不知道的德国 · 08 — 节日与庆祝</a></li>
       <li><a href="#ks-16">你不知道的德国 · 09 — 育儿与教育</a></li>
       <li><a href="#ks-17">你不知道的德国 · 10 — 环保与能源</a></li>
+      <li><a href="#ks-18">你不知道的德国 · 11 — 医疗与健康</a></li>
+      <li><a href="#ks-19">你不知道的德国 · 12 — 数字生活</a></li>
+      <li><a href="#ks-20">你不知道的德国 · 13 — 历史记忆</a></li>
+      <li><a href="#ks-21">你不知道的德国 · 14 — 理财与储蓄</a></li>
+      <li><a href="#ks-22">你不知道的德国 · 15 — 宠物与动物</a></li>
+      <li><a href="#ks-23">你不知道的德国 · 16 — 度假与休闲</a></li>
     </ol>
   </div>
 
@@ -41642,6 +41696,126 @@ function b1S12CheckB(){
         <span class="k-tag">Mehrweg 可重复使用</span>
         <span class="k-tag">Balkonkraftwerk 阳台发电</span>
         <span class="k-tag">Ökostrom 绿色电力</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 十八、你不知道的德国 · 11 — 医疗与健康 ══ -->
+  <div class="k-section k-dark" id="ks-18" style="cursor:pointer" onclick="showPage('kultur-11')">
+    <div class="k-header">🏥 十八、你不知道的德国 · 11 — 医疗与健康</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🏥</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        公保私保的阶级鸿沟、药房只开一门一窗、急救三层体系、自然疗法的合法江湖地位——6个德国医疗体系的底层密码。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Krankenversicherung 医保</span>
+        <span class="k-tag">Apotheke 药房</span>
+        <span class="k-tag">Notarzt 急救</span>
+        <span class="k-tag">Heilpraktiker 自然疗法</span>
+        <span class="k-tag">Reha 康复</span>
+        <span class="k-tag">Impfpflicht 疫苗</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 十九、你不知道的德国 · 12 — 数字生活 ══ -->
+  <div class="k-section k-dark" id="ks-19" style="cursor:pointer" onclick="showPage('kultur-12')">
+    <div class="k-header">💻 十九、你不知道的德国 · 12 — 数字生活</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">💻</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        传真机是合法通信方式、数据保护写入宪法、宽带不如罗马尼亚、手机合同18页起——6个让外国人目瞪口呆的德国数字化悖论。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Fax 传真</span>
+        <span class="k-tag">Datenschutz 数据保护</span>
+        <span class="k-tag">Breitbandausbau 宽带</span>
+        <span class="k-tag">Handyvertrag 手机合同</span>
+        <span class="k-tag">Bargeldlos 无现金化</span>
+        <span class="k-tag">Digitale Behorde 数字政务</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 二十、你不知道的德国 · 13 — 历史记忆 ══ -->
+  <div class="k-section k-dark" id="ks-20" style="cursor:pointer" onclick="showPage('kultur-13')">
+    <div class="k-header">🧱 二十、你不知道的德国 · 13 — 历史记忆</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🧱</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        10欧元一块的绊脚石让路人低头铭记、柏林墙倒塌源于一场新闻发布会口误、东德人排队9年等一辆塑料车——6个德国记忆文化的密码。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Stolpersteine 绊脚石</span>
+        <span class="k-tag">Mauerfall 柏林墙倒塌</span>
+        <span class="k-tag">DDR-Alltag 东德日常</span>
+        <span class="k-tag">Vergangenheitsbewältigung 历史反思</span>
+        <span class="k-tag">Denkmalschutz 文物保护</span>
+        <span class="k-tag">Einheit 统一日</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 二十一、你不知道的德国 · 14 — 理财与储蓄 ══ -->
+  <div class="k-section k-dark" id="ks-21" style="cursor:pointer" onclick="showPage('kultur-14')">
+    <div class="k-header">💰 二十一、你不知道的德国 · 14 — 理财与储蓄</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">💰</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        21世纪还在用存折、只有18%的人买股票、"债务刹车"写进宪法、一个私营公司掌握6800万人的信用评分——6个德国理财文化的底层密码。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Sparbuch 存折</span>
+        <span class="k-tag">Aktienkultur 股票文化</span>
+        <span class="k-tag">Bausparvertrag 建房储蓄</span>
+        <span class="k-tag">Schuldenbremse 债务刹车</span>
+        <span class="k-tag">SCHUFA 信用评分</span>
+        <span class="k-tag">Riester-Rente 养老金</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 二十二、你不知道的德国 · 15 — 宠物与动物 ══ -->
+  <div class="k-section k-dark" id="ks-22" style="cursor:pointer" onclick="showPage('kultur-15')">
+    <div class="k-header">🐕 二十二、你不知道的德国 · 15 — 宠物与动物</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🐕</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        养狗要先交税、养狗需要考驾照、打死一只黄蜂罚款5万欧元、柏林市区有5000头野猪学会了看红绿灯——6个德国人与动物的故事。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Hundesteuer 狗税</span>
+        <span class="k-tag">Hundeführerschein 狗驾照</span>
+        <span class="k-tag">Katzenkultur 猫文化</span>
+        <span class="k-tag">Tierheim 动物收容所</span>
+        <span class="k-tag">Wildschwein 野猪</span>
+        <span class="k-tag">Wespe 黄蜂</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 二十三、你不知道的德国 · 16 — 度假与休闲 ══ -->
+  <div class="k-section k-dark" id="ks-23" style="cursor:pointer" onclick="showPage('kultur-16')">
+    <div class="k-header">🏖️ 二十三、你不知道的德国 · 16 — 度假与休闲</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🏖️</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        年假30天起步、全球旅行支出第一、20万公里徒步路线、2000+天然浴场湖泊、定居式露营是退休生活方式——6个德国度假密码。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Urlaubstag 年假</span>
+        <span class="k-tag">Reisefieber 旅行热</span>
+        <span class="k-tag">Wanderweg 徒步</span>
+        <span class="k-tag">Badesee 天然湖</span>
+        <span class="k-tag">Ferienwohnung 度假公寓</span>
+        <span class="k-tag">Camping 露营</span>
       </div>
       <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
     </div>
@@ -43605,6 +43779,19 @@ function b1S12CheckB(){
   </iframe>
 </div>
 
+<!-- ══════════ 分享卡片弹窗 ══════════ -->
+<div id="wds-share-overlay">
+  <button class="share-close" onclick="closeWDSShare()">✕</button>
+  <div id="wds-share-card">
+    <span class="share-emoji" id="share-emoji"></span>
+    <div class="share-de" id="share-de"></div>
+    <div class="share-zh" id="share-zh"></div>
+    <div class="share-brand"><span>Leons Deutschzentrum</span> · 每日德国冷知识</div>
+    <div class="share-url">leonsdeutschzentrum.com</div>
+    <div class="share-hint">📸 截图分享到小红书 / 朋友圈</div>
+  </div>
+</div>
+
 <!-- ══════════ Wusstest du schon? 全部冷知识展示 ══════════ -->
 <div id="page-wds" class="page">
   <div class="wds-page-header">
@@ -43633,6 +43820,44 @@ function b1S12CheckB(){
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 11 ══════════ -->
+<div id="page-kultur-11" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_11_医疗与健康.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 12 ══════════ -->
+<div id="page-kultur-12" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_12_数字生活.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 13 ══════════ -->
+<div id="page-kultur-13" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe src="你不知道的德国_13_历史记忆.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 14 ══════════ -->
+<div id="page-kultur-14" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe src="你不知道的德国_14_理财与储蓄.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 15 ══════════ -->
+<div id="page-kultur-15" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe src="你不知道的德国_15_宠物与动物.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 16 ══════════ -->
+<div id="page-kultur-16" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe src="你不知道的德国_16_度假与休闲.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ A1 语法速查卡 ══════════ -->
