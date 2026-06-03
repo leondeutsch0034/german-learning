@@ -2448,6 +2448,38 @@
       /* 歌曲简介框压缩 */
       #page-b1lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
+    /* ── Wusstest du schon? 每日冷知识卡片 ── */
+    #wds-card-wrap { margin:0 auto 24px; max-width:860px; padding:0 20px; }
+    #wds-card { background:linear-gradient(135deg,#0f1e3a 0%,#162d4a 50%,#1a3050 100%); border:1px solid rgba(246,211,101,.25); border-radius:16px; padding:20px 24px; position:relative; transition:all .3s ease; cursor:default; }
+    #wds-card:hover { border-color:rgba(246,211,101,.5); box-shadow:0 4px 24px rgba(246,211,101,.1); }
+    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.7rem; font-weight:700; padding:3px 12px; border-radius:10px; margin-bottom:12px; letter-spacing:.03em; }
+    #wds-card .wds-emoji { font-size:2.5rem; display:block; margin-bottom:10px; }
+    #wds-card .wds-de { font-size:1rem; color:#fde68a; font-weight:600; line-height:1.6; margin-bottom:8px; }
+    #wds-card .wds-zh { font-size:.85rem; color:#94a3b8; line-height:1.55; }
+    #wds-card .wds-close { position:absolute; top:12px; right:16px; background:none; border:none; color:#64748b; font-size:1.2rem; cursor:pointer; padding:4px 8px; border-radius:50%; transition:all .2s; line-height:1; }
+    #wds-card .wds-close:hover { color:#fde68a; background:rgba(246,211,101,.1); }
+    #wds-card .wds-footer { margin-top:14px; display:flex; align-items:center; justify-content:space-between; font-size:.72rem; color:#64748b; }
+    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.75rem; transition:.2s; }
+    #wds-card .wds-more:hover { color:#fde68a; text-decoration:underline; }
+    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{padding:16px 18px;border-radius:12px} #wds-card .wds-emoji{font-size:2rem} #wds-card .wds-de{font-size:.92rem} #wds-card .wds-zh{font-size:.8rem} }
+    /* ── WDS 全部冷知识展示页 ── */
+    #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#162d4a); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+    #page-wds .wds-page-header { text-align:center; margin-bottom:32px; }
+    #page-wds .wds-page-header h2 { color:#f6d365; font-size:1.6rem; margin-bottom:6px; }
+    #page-wds .wds-page-header p { color:#64748b; font-size:.88rem; }
+    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1000px; margin:0 auto; }
+    #page-wds .wds-grid-card { background:#0f1e3a; border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px 18px; transition:all .25s; }
+    #page-wds .wds-grid-card:hover { border-color:rgba(246,211,101,.35); box-shadow:0 4px 20px rgba(246,211,101,.08); transform:translateY(-2px); }
+    #page-wds .wds-grid-card.today { border-color:rgba(246,211,101,.5); box-shadow:0 0 0 2px rgba(246,211,101,.15),0 4px 20px rgba(246,211,101,.12); background:#162d4a; }
+    #page-wds .wds-grid-card .wgc-emoji { font-size:2rem; display:block; margin-bottom:6px; }
+    #page-wds .wds-grid-card .wgc-num { font-size:.65rem; color:#64748b; float:right; }
+    #page-wds .wds-grid-card .wgc-de { font-size:.88rem; color:#fde68a; font-weight:600; line-height:1.55; margin-bottom:6px; }
+    #page-wds .wds-grid-card .wgc-zh { font-size:.78rem; color:#94a3b8; line-height:1.5; }
+    #page-wds .wds-page-back { text-align:center; margin-top:36px; }
+    #page-wds .wds-page-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2e527c); color:#fde68a; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(246,211,101,.25); transition:.2s; }
+    #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.6); box-shadow:0 4px 16px rgba(246,211,101,.15); }
+    @media(max-width:900px){ #page-wds .wds-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:16px 14px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.82rem} #page-wds .wds-grid-card .wgc-zh{font-size:.74rem} }
   </style>
 </head>
 <body>
@@ -2892,6 +2924,98 @@ function createLoginPromptCard() {
 })();
 </script>
 
+<!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
+<script>
+(function(){
+  window.WDS_FACTS = [
+    {e:'🍺', de:'Das <b>Reinheitsgebot</b> von 1516 ist das älteste Lebensmittelgesetz der Welt — älter als Deutschland selbst. Bier darf nur Wasser, Hopfen und Malz enthalten.', zh:'1516年的<b>啤酒纯净法</b>是世界上最古老的食品安全法规，比"德国"这个国家还古老350年。啤酒只能用啤酒花、麦芽和水酿造。'},
+    {e:'🛒', de:'Eine Wasserflasche kostet 25 Cent extra. Das ist das <b>Pfand</b>. Du bekommst das Geld zurück, wenn du die Flasche zurückbringst.', zh:'在德国买一瓶水多付25欧分<b>押金</b>。退瓶时拿回钱。德国人家里都攒着几箱空瓶，去超市第一站不是购物而是退瓶机。'},
+    {e:'😴', de:'Am <b>Sonntag</b> sind alle Geschäfte zu. Nur Tankstellen und Bahnhöfe haben offen. Das ist im Gesetz so festgelegt.', zh:'德国<b>周日</b>所有商店关门——法律规定。只有加油站和火车站开门。周六超市人满为患，因为大家都在囤周末的粮。'},
+    {e:'🪟', de:'Deutsche Fenster können zwei Dinge: ganz auf (<b>Drehen</b>) oder nur oben kippen (<b>Kippen</b>). Diese Technik ist weltweit einzigartig.', zh:'德国窗户有两种开法：平开（<b>Drehen</b>）和斜开（<b>Kippen</b>）。全世界独一份的设计，连美国人都专门拍YouTube视频惊叹。'},
+    {e:'🗑️', de:'In Deutschland gibt es 4 bis 6 verschiedene <b>Mülltonnen</b>: Papier, Plastik, Bio, Restmüll, Glas (nach Farben). Falscher Müll kostet Geld.', zh:'德国每个家庭有4-6个<b>垃圾桶</b>：纸、塑料、有机、残余、玻璃按颜色分。扔错了可能被罚款或整栋楼的垃圾桶被拒收。'},
+    {e:'💶', de:'Deutsche lieben <b>Bargeld</b>. Viele Restaurants und Cafés nehmen keine Kreditkarte. "Nur Bares ist Wahres" sagt man.', zh:'德国人热爱<b>现金</b>。很多餐厅和咖啡馆不收信用卡。德国谚语说"Nur Bares ist Wahres"——只有现金才是真的。'},
+    {e:'🏠', de:'In Deutschland gibt es zwei Miet-Begriffe: <b>Kaltmiete</b> (nur das Zimmer) und <b>Warmmiete</b> (mit Heizung und Wasser). Der Unterschied kann 30% sein.', zh:'德国租房有两个概念：<b>冷租</b>（纯房租）和<b>暖租</b>（含暖气和水）。两者差距可能达30%。看房时问清楚是冷是暖！'},
+    {e:'🤫', de:'Von 22 Uhr bis 6 Uhr ist <b>Ruhezeit</b>. Keine laute Musik, kein Staubsaugen, keine Waschmaschine. Am Sonntag den ganzen Tag.', zh:'晚10点到早6点是<b>安静时间</b>，不能放音乐、用吸尘器或洗衣机。周日全天安静。邻居真的会报警。'},
+    {e:'🚆', de:'Die <b>Deutsche Bahn</b> ist bekannt für Verspätungen. 2024 war nur jeder dritte Fernzug pünktlich. Die Deutschen beschweren sich gern darüber.', zh:'<b>德铁</b>以晚点出名。2024年只有1/3的长途列车准点。德国人最爱抱怨的话题之一。'},
+    {e:'🏥', de:'In Deutschland musst du <b>krankenversichert</b> sein. Das ist Gesetz. Ohne Versicherung bekommst du kein Visum, keine Wohnung, keinen Job.', zh:'在德国<b>医保是强制</b>的——法律规定的。没有医保，签证、租房、工作全都办不了。'},
+    {e:'📅', de:'Für alles brauchst du einen <b>Termin</b>: Arzt, Amt, sogar Friseur. Ohne Termin? Keine Chance. "Haben Sie einen Termin?" ist der wichtigste Satz.', zh:'看医生、去政府部门、甚至理发都要<b>预约</b>。"Haben Sie einen Termin?"（您有预约吗？）是你最先学会的德语句子之一。'},
+    {e:'🍞', de:'Deutschland hat über 3.000 <b>Brotsorten</b>. Die deutsche Brotkultur ist UNESCO-Weltkulturerbe. Jede Region hat ihr eigenes Brot.', zh:'德国有超过3000种<b>面包</b>。德国面包文化是联合国教科文组织世界文化遗产。每个地区都有自己的特色面包。'},
+    {e:'🎓', de:'Die <b>Universität</b> in Deutschland ist fast kostenlos — auch für internationale Studenten. Man zahlt nur einen Semesterbeitrag von 150-350 €.', zh:'德国<b>大学</b>几乎免费——国际学生也一样。每学期只交150-350欧的学期费，含交通票。'},
+    {e:'🚲', de:'Es gibt mehr <b>Fahrräder</b> als Autos in Deutschland. Viele Städte haben spezielle Fahrradstraßen, wo Fahrräder Vorfahrt haben.', zh:'德国<b>自行车</b>比汽车还多。很多城市有专门的自行车街，汽车必须让行自行车。'},
+    {e:'📝', de:'Eine Firma namens <b>SCHUFA</b> gibt dir eine Punktzahl. Diese Zahl entscheidet: Bekommst du eine Wohnung? Einen Handyvertrag? Einen Kredit?', zh:'一个叫<b>SCHUFA</b>的公司给你打分。这个分数决定你能不能租房、签手机合同、贷款。连德国人自己都觉得它太神秘了。'},
+    {e:'⚽', de:'Es gibt über 600.000 <b>Vereine</b> in Deutschland. Fast jeder Deutsche ist Mitglied in einem Verein — Sport, Musik, Garten, sogar Karneval.', zh:'德国有超60万个<b>协会</b>。几乎每个德国人都参加至少一个协会——运动、音乐、园艺甚至狂欢节都有协会。'},
+    {e:'🎄', de:'Im Dezember gibt es in jeder Stadt einen <b>Weihnachtsmarkt</b>. Glühwein, Lebkuchen, Lichter — eine deutsche Erfindung, die um die Welt geht.', zh:'每年12月每个城市都有<b>圣诞市场</b>。热红酒、姜饼、彩灯——这是德国发明，现在遍布全世界。'},
+    {e:'🍖', de:'Die <b>Currywurst</b> ist Deutschlands Fast-Food-Icon. In Berlin gibt es sogar ein Currywurst-Museum. Jedes Jahr essen Deutsche 800 Millionen Currywürste.', zh:'<b>咖喱香肠</b>是德国快餐之王。柏林甚至有咖喱香肠博物馆。德国人每年吃掉8亿根咖喱香肠。'},
+    {e:'🌿', de:'Deutschland produziert über 50% seines Stroms aus <b>erneuerbarer Energie</b>: Wind, Sonne und Wasser. "Energiewende" heißt das.', zh:'德国超过50%的电力来自<b>可再生能源</b>——风能、太阳能、水能。这叫"能源转型"（Energiewende），是德国国策。'},
+    {e:'🏰', de:'Deutschland hat über 25.000 <b>Burgen und Schlösser</b> — mehr als jedes andere Land der Welt. Manche sind Hotels, in anderen kann man wohnen.', zh:'德国有超过25000座<b>城堡和宫殿</b>——全世界最多。有些改成了酒店，有些可以租来住。'},
+    {e:'📵', de:'Deutsche lieben <b>Privatsphäre</b>. Google Street View? In Deutschland fast nicht verfügbar. Viele Häuser sind absichtlich verpixelt.', zh:'德国人极度重视<b>隐私</b>。谷歌街景在德国几乎看不到——很多人主动申请把自己的房子打马赛克。'},
+    {e:'🚦', de:'Bei Rot über die Straße gehen? Das machen nur Touristen. Eltern sagen ihren Kindern: "<b>Bei Rot musst du stehen</b>, bei Grün kannst du gehen."', zh:'在德国只有游客才闯红灯。父母从小教孩子<b>"红灯停，绿灯行"</b>——就算凌晨3点没车，德国人也站着等绿灯。'},
+    {e:'🧾', de:'Für alles gibt es eine <b>Quittung</b> — auch für einen 2-€-Kaffee. Deutsche lieben Dokumente und Belege. "Belege aufheben!" ist das Motto.', zh:'在德国一切都要<b>发票</b>——连2欧的咖啡也开。德国人爱文件和凭证，"保留票据！"是生活信条。'},
+    {e:'🍻', de:'Das <b>Oktoberfest</b> in München ist das größte Volksfest der Welt — 6 Millionen Besucher. Aber Achtung: Es beginnt im September, nicht im Oktober!', zh:'慕尼黑<b>啤酒节</b>是世界最大民俗节日，每年六百万人参加。注意：它在九月开始，不是十月！'},
+    {e:'🌬️', de:'Deutsche lüften mehrmals am Tag: alle Fenster ganz auf für 5 Minuten. Das heißt <b>Stoßlüften</b>. Frische Luft ist sehr wichtig.', zh:'德国人每天<b>开窗通风</b>好几次：所有窗户全开5分钟。这叫"冲击通风"（Stoßlüften），是德国文化必修课。'},
+    {e:'🚰', de:'<b>Leitungswasser</b> in Deutschland ist streng kontrolliert — oft sauberer als Flaschenwasser. Im Restaurant kostet es aber Geld.', zh:'德国<b>自来水</b>经过严格检测——常常比瓶装水还干净。但在餐厅点一杯自来水要付钱，因为服务费。'},
+    {e:'🥾', de:'<b>Wandern</b> ist der deutsche Volkssport Nummer eins. Es gibt über 200.000 Kilometer Wanderwege. Das ist fünfmal um die Erde.', zh:'<b>徒步</b>是德国的国民运动第一号。有超过20万公里徒步路线——可以绕地球五圈。'},
+    {e:'🎭', de:'Im Februar feiern Deutsche <b>Karneval</b>. In Köln ist die ganze Stadt eine Woche lang eine Party. "Kölle Alaaf!" rufen die Leute.', zh:'每年二月德国人庆祝<b>狂欢节</b>。科隆整座城市疯一整周。人们高喊"Kölle Alaaf!"（科隆万岁！）。'},
+    {e:'🔑', de:'Einen <b>Schlüssel</b> nachmachen? Du brauchst oft die Erlaubnis vom Vermieter. Deutsche Sicherheitsschlösser sind besonders geschützt.', zh:'在德国<b>配钥匙</b>常常需要房东书面许可。德国安全锁芯有专利保护，不像中国路边摊随便配。'},
+    {e:'📺', de:'Jeder Haushalt zahlt 18,36 € pro Monat für <b>Rundfunkbeitrag</b> — auch wenn du keinen Fernseher hast. Das finanziert ARD, ZDF und Deutschlandradio.', zh:'每个德国家庭每月交18.36欧<b>广播电视费</b>——就算你没有电视也得交。这笔钱支撑着德国的公共广播系统。'}
+  ];
+
+  function getTodayIndex() {
+    var start = new Date(new Date().getFullYear(), 0, 0);
+    var diff = new Date() - start;
+    var dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+    return dayOfYear % window.WDS_FACTS.length;
+  }
+
+  function renderWDS() {
+    var wrap = document.getElementById('wds-card-wrap');
+    if (!wrap) return;
+    var today = new Date().toDateString();
+    if (localStorage.getItem('wds-dismissed') === today) {
+      wrap.style.display = 'none';
+      return;
+    }
+    var fact = window.WDS_FACTS[getTodayIndex()];
+    document.getElementById('wds-emoji').textContent = fact.e;
+    document.getElementById('wds-de').innerHTML = fact.de;
+    document.getElementById('wds-zh').innerHTML = fact.zh;
+    document.getElementById('wds-num').textContent = '#' + (getTodayIndex() + 1) + ' / ' + window.WDS_FACTS.length;
+  }
+
+  /* 全部冷知识展示页 grid */
+  window.renderWDSGrid = function() {
+    var grid = document.getElementById('wds-grid');
+    if (!grid || grid.children.length > 0) return; // 只渲染一次
+    var todayIdx = getTodayIndex();
+    var facts = window.WDS_FACTS;
+    var html = '';
+    for (var i = 0; i < facts.length; i++) {
+      var f = facts[i];
+      var isToday = (i === todayIdx) ? ' today' : '';
+      html += '<div class="wds-grid-card' + isToday + '">';
+      html += '<span class="wgc-num">#' + (i + 1) + '</span>';
+      html += '<span class="wgc-emoji">' + f.e + '</span>';
+      html += '<div class="wgc-de">' + f.de + '</div>';
+      html += '<div class="wgc-zh">' + f.zh + '</div>';
+      html += '</div>';
+    }
+    grid.innerHTML = html;
+  };
+
+  window.dismissWDS = function() {
+    localStorage.setItem('wds-dismissed', new Date().toDateString());
+    var wrap = document.getElementById('wds-card-wrap');
+    if (wrap) wrap.style.display = 'none';
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderWDS);
+  } else {
+    renderWDS();
+  }
+})();
+</script>
+
 <!-- ══════════ 模块注册表（导航栏+首页卡片共用，增删模块只需改这里） ══════════ -->
 <script>
 // 15张卡片看作一个整体，沿大标题渐变色依次过渡：金→橘→粉→金
@@ -3039,7 +3163,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -3230,6 +3354,21 @@ document.addEventListener('keydown', function(e) {
   </div>
   <a href="about.html" style="display:inline-block;margin-top:18px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📘 了解本站与教学理念 →</a>
   <a href="preise.html" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📋 了解完整价格体系 →</a>
+</div>
+
+<!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
+<div id="wds-card-wrap">
+  <div id="wds-card">
+    <button class="wds-close" onclick="dismissWDS()" title="今日不再显示">×</button>
+    <span class="wds-badge">🇩🇪 Wusstest du schon?</span>
+    <span class="wds-emoji" id="wds-emoji"></span>
+    <div class="wds-de" id="wds-de"></div>
+    <div class="wds-zh" id="wds-zh"></div>
+    <div class="wds-footer">
+      <span id="wds-num"></span>
+      <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 30 条冷知识 →</a>
+    </div>
+  </div>
 </div>
 
 <!-- 模块标题 -->
@@ -13346,6 +13485,8 @@ function showPage(id) {
   var btn = document.getElementById('nav-' + id);
   if (btn) btn.classList.add('active');
   window.scrollTo(0, 0);
+  // 全部冷知识页：渲染grid
+  if (id === 'wds' && window.renderWDSGrid) window.renderWDSGrid();
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
 }
@@ -26293,8 +26434,7 @@ function lxqResetMCQ(id) {
       <a href="#b1l-s3" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">3 · 🎓 Erasmus+ Programm — EU-Bildungsprogramm</a>
       <a href="#b1l-s4" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">4 · 🕰️ Alltag &amp; 🆘 Alltagsprobleme</a>
       <a href="#b1l-s6" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">5 · 👫 Typisch Mann?! Typisch Frau?!</a>
-      <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">6 · 📝 Zertifikatstraining — Lesen Teil 1</a>
-      <a href="#b1l-s8" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">7 · 🎧 Zertifikatstraining — Hören Teil 1</a>
+      <a href="#b1l-s7" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">6+7 · 📝🎧 Zertifikatstraining — Lesen Teil 1 + Hören Teil 1</a>
       <a href="#b1l-s9" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">8 · 🏭 Arbeit im Wandel — Das Ruhrgebiet</a>
       <a href="#b1l-s10" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">9 · 🎓 Schule und Berufe — Das deutsche Schulsystem</a>
       <a href="#b1l-s11" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 📋 Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</a>
@@ -27667,7 +27807,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 61 · Mauerfall — Zeitzeugen-Interviews ═══ -->
-  <div style="border-top:2px solid #1a3a5c;margin-top:24px;padding-top:18px">
+  <div style="border-top:2px solid #1a3a5c;margin-top:40px;padding-top:24px">
     <div style="font-weight:700;color:#1a3a5c;font-size:1.05rem;margin-bottom:4px">📺 Easy German 61 · 25 Jahre Mauerfall — Zeitzeugen erzählen</div>
     <div style="font-size:.82rem;color:#666;margin-bottom:14px">Folge 61 · 9. November 2014 · B1 视听理解 + 阅读理解</div>
 
@@ -28096,7 +28236,7 @@ function lxqResetMCQ(id) {
       </div>
 
       <!-- 阅读 5 · Richtig oder falsch -->
-      <div style="font-weight:700;color:#1a5a2a;font-size:.93rem;margin:1.2rem 0 .5rem;border-top:2px solid #1a5a2a;padding-top:1rem">📋 Übung 7 · a) Welche Aussagen sind richtig? Kreuzen Sie an und korrigieren Sie die falschen.</div>
+      <div style="font-weight:700;color:#1a5a2a;font-size:.93rem;margin:2.5rem 0 .5rem;border-top:2px solid #1a5a2a;padding-top:1.5rem">📋 Übung 7 · a) Welche Aussagen sind richtig? Kreuzen Sie an und korrigieren Sie die falschen.</div>
       <div style="background:#fff;border:1px solid #cfd8dc;border-radius:10px;padding:1rem 1.2rem;font-size:.9rem;line-height:1.95;margin-bottom:1rem">
         <div style="cursor:pointer;padding:.4rem 0;border-bottom:1px dashed #eee" onclick="var n=this.querySelector('.zrf');n.style.display=n.style.display==='none'?'inline':'none'">
           <strong>1. ☐</strong> Die meiste Zeit des Lebens verbringen die Deutschen für ihre Arbeit.
@@ -28210,7 +28350,7 @@ function lxqResetMCQ(id) {
       <!-- ════════════════════════════════════════════════════════ -->
       <!-- 🎵 Deutschland — Die Prinzen · Lied zum Mitsingen          -->
       <!-- ════════════════════════════════════════════════════════ -->
-      <div style="border-top:2px solid #1565c0;margin-top:1.5rem;padding-top:1rem"></div>
+      <div style="border-top:2px solid #1565c0;margin-top:2.8rem;padding-top:1.6rem"></div>
       <div style="font-weight:700;color:#0d47a1;font-size:1.05rem;margin-bottom:.6rem">🎵 Deutschland — Die Prinzen &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">— 2006 WM · Lied zum Mitsingen</span></div>
 
       <!-- 歌曲简介 -->
@@ -28670,7 +28810,7 @@ function lxqResetMCQ(id) {
       <!-- ════════════════════════════════════════════════════════ -->
       <!-- 补充单元 · Wer hat an der Uhr gedreht? — Zeitgefühl       -->
       <!-- ════════════════════════════════════════════════════════ -->
-      <div style="border-top:2px solid #1a5a2a;margin-top:1.5rem;padding-top:1rem"></div>
+      <div style="border-top:2px solid #1a5a2a;margin-top:2.8rem;padding-top:1.6rem"></div>
       <div style="font-weight:700;color:#1a5a2a;font-size:1.05rem;margin-bottom:.6rem">⏱️ Wer hat an der Uhr gedreht? &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">— Subjektives Zeitgefühl</span></div>
 
       <!-- a) Zwei-Minuten-Test -->
@@ -28782,7 +28922,7 @@ function lxqResetMCQ(id) {
       <!-- ════════════════════════════════════════════════════════ -->
       <!-- 补充单元 · Nachdenken über die Zeit — Zeitkurve           -->
       <!-- ════════════════════════════════════════════════════════ -->
-      <div style="border-top:2px solid #1a5a2a;margin-top:1.5rem;padding-top:1rem"></div>
+      <div style="border-top:2px solid #1a5a2a;margin-top:2.8rem;padding-top:1.6rem"></div>
       <div style="font-weight:700;color:#1a5a2a;font-size:1.05rem;margin-bottom:.6rem">📊 Nachdenken über die Zeit &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">— Subjektives Zeitempfinden im Alltag</span></div>
 
       <!-- a) Zeitkurve zeichnen -->
@@ -28957,6 +29097,109 @@ function lxqResetMCQ(id) {
           <div style="font-weight:700;color:#bf6a00;margin-bottom:.4rem">🔑 Nützliche Adjektive</div>
           <div style="font-size:.85rem;line-height:2">spannend <span class="znz2" style="display:none;color:#888">令人兴奋的</span> · langweilig <span class="znz2" style="display:none;color:#888">无聊的</span> · stressig <span class="znz2" style="display:none;color:#888">有压力的</span> · entspannt <span class="znz2" style="display:none;color:#888">放松的</span> · hektisch <span class="znz2" style="display:none;color:#888">忙乱的</span> · aufregend <span class="znz2" style="display:none;color:#888">激动人心的</span></div>
         </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- 📖 课外延伸阅读 · Unterwegs in Zeit und Raum — Zeitmaschine -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <div style="border-top:2px solid #6a1b9a;margin-top:2.8rem;padding-top:1.6rem"></div>
+      <div style="font-weight:700;color:#6a1b9a;font-size:1.05rem;margin-bottom:.6rem">📖 课外延伸阅读 · Unterwegs in Zeit und Raum &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">— Menschheitstraum Zeitmaschine</span></div>
+
+      <!-- a) 猜想任务 -->
+      <div style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem">
+        <div style="font-weight:700;color:#6a1b9a;font-size:.95rem;margin-bottom:.3rem">🤖 a) Menschheitstraum Zeitmaschine</div>
+        <div style="font-size:.9rem;color:#4a148c;line-height:1.75">
+          Sammeln Sie Vermutungen über das Forschungsprojekt von <strong>Dr. Huang Nguyen</strong> am soziologischen Institut der Universität Potsdam. Was könnte das Ziel sein? Was wird wohl untersucht?
+        </div>
+      </div>
+
+      <!-- b) 阅读文章 -->
+      <div style="font-weight:700;color:#6a1b9a;font-size:.93rem;margin:1.2rem 0 .5rem">📰 b) Lesen Sie den Artikel und vergleichen Sie mit Ihren Vermutungen aus a).</div>
+
+      <div style="background:#fff;border:1px solid #cfd8dc;border-radius:12px;padding:0;margin-bottom:1.2rem;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+        <div style="background:#6a1b9a;color:#fff;padding:.5rem 1.2rem;font-size:.85rem;display:flex;justify-content:space-between;align-items:center">
+          <span><em>Forschungsprojekt · Universität Potsdam</em></span>
+          <span style="font-size:.78rem;opacity:.85">Soziologisches Institut</span>
+        </div>
+
+        <div style="padding:1.2rem 1.4rem" onclick="var n=this.querySelector('.zr-cn');n.style.display=n.style.display==='none'?'block':'none'">
+          <h2 style="font-family:Georgia,serif;font-size:1.4rem;color:#4a148c;margin:0 0 .3rem;letter-spacing:-.01em">Unterwegs in Zeit und Raum</h2>
+          <p style="font-size:.82rem;color:#888;margin:0 0 1rem;font-style:italic">Warum uns die Zeitmaschine so fasziniert — und was die Forschung dazu sagt</p>
+
+          <div style="font-family:Georgia,serif;font-size:.93rem;line-height:1.95;color:#1a1a1a">
+            <p style="margin:0 0 .6rem">Während wir uns im Raum problemlos vor- und zurückbewegen können, können wir in der Zeit nur in Gedanken vor- oder zurückgehen. Wir können also einen konkreten Ort, an dem z.B. etwas Wichtiges geschehen ist, immer wieder besuchen. Je nachdem, wo wir uns gerade befinden, ist er mal weit entfernt, mal ganz in der Nähe. Obwohl ein Ort sich mit der Zeit sehr verändern kann, bleibt seine Position immer gleich. Einen konkreten Moment können wir aber <strong>nie wieder erleben</strong> — egal, ob er weit in der Vergangenheit liegt oder erst vorgestern passiert ist. Und genau das weckt unser Interesse und unsere Fantasie.</p>
+
+            <p style="margin:0 0 .6rem">Kein Wunder also, dass uns die Science-Fiction in Büchern und Filmen immer wieder Zeitmaschinen vorstellt, mit denen die Held*innen in die Vergangenheit oder in die Zukunft reisen. Davon werden wir Menschen sicher noch sehr lange träumen. Und genau darum geht es in unserem Forschungsprojekt am soziologischen Institut der Universität Potsdam. Aus den in der Umfrage gewonnenen Daten erstellen wir eine <strong>interaktive Karte</strong> der genannten Ziele in Vergangenheit und Zukunft.</p>
+
+            <p style="margin:0">Wohin möchten <strong>Sie</strong> durch Zeit und Raum reisen?<br>
+            Machen Sie mit und beantworten Sie unseren Fragebogen: <span style="color:#6a1b9a;font-weight:600">www.pmz.example.com</span></p>
+
+            <!-- 中文参考（点击正文显示） -->
+            <div class="zr-cn" style="display:none;margin-top:1rem;padding:.8rem 1rem;background:#f3e5f5;border-radius:8px;border-top:1px dashed #b39ddb;font-size:.83rem;color:#4a148c;line-height:1.75">
+              <p style="margin:0"><strong>中文参考：</strong>我们在空间中可以自如前进后退，但在时间里只能在脑海中回顾或展望。我们可以一次次重访发生过重要事件的某个具体地点——随着我们位置的改变，它有时远在天边有时近在眼前。虽然一个地方会随着时间大不相同，但它的空间位置永远不变。然而，某一个具体的时刻，我们<strong>永远无法重新经历</strong>——不论远在久远的过去，还是前天刚过。这正是撩拨我们兴趣和想象力的关键所在。也难怪科幻小说和电影不断展现时光机，让主角穿梭古今未来。我们人类对这个梦的追逐恐怕还长着呢。而这也正是我们波茨坦大学社会学研究所在做的课题：从问卷调查数据中，我们绘制出一张互动地图，呈现人们想要回到过去或飞往未来的那些目标地点。你想穿越时空去哪里？快来参与我们的问卷吧。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- c) 角色扮演 -->
+      <div style="background:#fff;border:1px solid #cfd8dc;border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem">
+        <div style="font-weight:700;color:#6a1b9a;font-size:.9rem;margin-bottom:.6rem">🎭 c) Wählen Sie Rolle A oder B und lesen Sie die Fragen vor.</div>
+        <div style="font-size:.87rem;line-height:2;color:#37474f">
+          <div style="margin-bottom:.6rem">Ihr Partner / Ihre Partnerin antwortet mit Informationen aus dem Text.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem;background:#fafafa;border-radius:8px;padding:.8rem 1rem">
+            <div style="border-right:1px dashed #ddd;padding-right:.8rem">
+              <div style="font-weight:700;color:#6a1b9a;margin-bottom:.4rem">🔵 Rolle A — Fragen</div>
+              <div style="line-height:2.2">1. Worum geht es in dem Forschungsprojekt?<br>2. Was fasziniert die Menschen an Zeitreisen?<br>3. Was erstellt das Institut aus den Umfragedaten?</div>
+            </div>
+            <div style="padding-left:.8rem">
+              <div style="font-weight:700;color:#e91e63;margin-bottom:.4rem">🔴 Rolle B — Fragen</div>
+              <div style="line-height:2.2">1. Was kann man im Raum, aber nicht in der Zeit?<br>2. Warum träumen wir so gern von Zeitmaschinen?<br>3. Wie kann man bei dem Projekt mitmachen?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- d) 问卷总结 -->
+      <div style="background:linear-gradient(135deg,#e8f0f8,#bbdefb);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem">
+        <div style="font-weight:700;color:#1a3a5c;font-size:.93rem;margin-bottom:.4rem">📋 d) Wählen Sie einen der drei Fragebögen und fassen Sie zusammen.</div>
+        <div style="font-size:.88rem;color:#1a3a5c;line-height:1.85">
+          Lesen Sie die Angaben und fassen Sie sie für Ihren Partner / Ihre Partnerin in einer gemeinsamen Sprache zusammen.
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:.8rem 1rem;margin-top:.6rem;font-size:.85rem;line-height:2;color:#37474f">
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:.3rem">📌 Redemittel · Zusammenfassung</div>
+          ▸ Die Umfrage zeigt, dass …<br>
+          ▸ Die meisten Befragten möchten in … reisen, weil …<br>
+          ▸ Interessant ist, dass …<br>
+          ▸ Zusammenfassend kann man sagen, dass …
+        </div>
+      </div>
+
+      <!-- 词汇盒 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem">
+        <div style="background:#f3e5f5;border-radius:10px;padding:.8rem 1rem" onclick="var ns=this.querySelectorAll('.zzr1');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'inline':'none'})">
+          <div style="font-weight:700;color:#6a1b9a;margin-bottom:.4rem">🚀 Zeit &amp; Raum</div>
+          <div style="font-size:.85rem;line-height:2">der Raum <span class="zzr1" style="display:none;color:#888">空间</span> · sich bewegen <span class="zzr1" style="display:none;color:#888">移动</span> · die Gedanken <span class="zzr1" style="display:none;color:#888">思想/念头</span> · der Ort, -e <span class="zzr1" style="display:none;color:#888">地点</span> · die Vergangenheit <span class="zzr1" style="display:none;color:#888">过去</span> · die Zukunft <span class="zzr1" style="display:none;color:#888">未来</span> · geschehen <span class="zzr1" style="display:none;color:#888">发生</span> · der Moment, -e <span class="zzr1" style="display:none;color:#888">时刻</span></div>
+        </div>
+        <div style="background:#e8eaf6;border-radius:10px;padding:.8rem 1rem" onclick="var ns=this.querySelectorAll('.zzr2');var h=ns[0]&&ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'inline':'none'})">
+          <div style="font-weight:700;color:#283593;margin-bottom:.4rem">🔬 Forschung</div>
+          <div style="font-size:.85rem;line-height:2">die Zeitmaschine, -n <span class="zzr2" style="display:none;color:#888">时光机</span> · die Umfrage, -n <span class="zzr2" style="display:none;color:#888">问卷调查</span> · das Forschungsprojekt, -e <span class="zzr2" style="display:none;color:#888">研究项目</span> · die interaktive Karte <span class="zzr2" style="display:none;color:#888">互动地图</span> · die Daten (Pl.) <span class="zzr2" style="display:none;color:#888">数据</span> · nennen <span class="zzr2" style="display:none;color:#888">列举/说出</span> · der Fragebogen, -¨ <span class="zzr2" style="display:none;color:#888">问卷</span></div>
+        </div>
+      </div>
+
+      <!-- 学习笔记 -->
+      <div style="background:#f3e5f5;border-left:4px solid #6a1b9a;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#4a148c">
+        <strong>📖 学习笔记 / Lernwortschatz：</strong><br>
+        • <strong>sich bewegen</strong> 移动 | <em>die Position oder den Ort verändern (hin und her / vor und zurück)</em><br>
+        • <strong>geschehen</strong> (geschah, ist geschehen) 发生 | <em>passieren, sich ereignen (etwas Wichtiges ist geschehen)</em><br>
+        • <strong>wecken</strong> 唤醒/引起 | <em>Interesse / Neugier / Fantasie wecken — ein Gefühl oder eine Reaktion auslösen</em><br>
+        • <strong>die Fantasie, -n</strong> 想象力 | <em>die Fähigkeit, sich Dinge im Geist vorzustellen, die nicht real sind</em><br>
+        • <strong>die Science-Fiction</strong> 科幻 | <em>Literatur- und Filmgenre über Zukunft, Technik und fremde Welten</em><br>
+        • <strong>träumen von + D</strong> 梦想 | <em>einen starken Wunsch haben (wir träumen von Zeitreisen)</em><br>
+        • <strong>gewinnen</strong> (gewann, hat gewonnen) 获得 | <em>etwas bekommen oder erzeugen (Daten gewinnen = Daten erheben/sammeln)</em><br>
+        • <strong>die interaktive Karte</strong> 互动地图 | <em>digitale Landkarte, die man anklicken und erkunden kann</em><br>
+        • <strong>der Fragebogen, -¨</strong> 问卷 | <em>Liste mit Fragen für eine Umfrage oder Studie (Frage + Bogen)</em><br>
+        • <strong>mitmachen</strong> 参与 | <em>an etwas teilnehmen, sich beteiligen (Machen Sie mit!)</em>
       </div>
 
     </div>
@@ -29701,7 +29944,7 @@ function lxqResetMCQ(id) {
             </div>
 
             <!-- Aufgabe 7b · Zeilennummer ergänzen -->
-            <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px dashed #fb8c00">
+            <div style="margin-top:2.8rem;padding-top:1.6rem;border-top:1px dashed #fb8c00">
               <div style="font-weight:700;color:#e65100;font-size:.95rem;margin-bottom:.4rem">7b · Wie formuliert Emma die Angaben a-e?</div>
               <div style="font-size:.86rem;color:#5d4037;margin-bottom:.7rem">Lesen Sie den Tagebucheintrag noch einmal. Markieren Sie die passende Stelle und tragen Sie die <strong>Zeilennummer</strong> ein.</div>
 
@@ -32672,7 +32915,7 @@ function B1S3EmmaHideAll(){
 <div id="b1l-s7-wrapper" style="display:none">
 <div style="max-width:860px;margin:0 auto">
 <div class="section" id="b1l-s7">
-  <div class="section-header">阅读 7 · 📝 Zertifikatstraining — Lesen Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Blog lesen + Richtig/Falsch · 10 Minuten</span></div>
+  <div class="section-header">阅读 6+7 · 📝🎧 Zertifikatstraining — Lesen Teil 1 + Hören Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Blog lesen + Hörverstehen</span></div>
   <div class="section-body">
 
     <!-- 考试说明 -->
@@ -32963,19 +33206,11 @@ function B1S3EmmaHideAll(){
       </div>
     </div>
 
-  </div>
-</div>
-</div>
-</div>
 
-<!-- ════════════════════════════════════════════════════════════════ -->
-<!-- B1 阅读 8 · Zertifikatstraining — Hören Teil 1                -->
-<!-- ════════════════════════════════════════════════════════════════ -->
-<div id="b1l-s8-wrapper" style="display:none">
-<div style="max-width:860px;margin:0 auto">
-<div class="section" id="b1l-s8">
-  <div class="section-header">阅读 8 · 🎧 Zertifikatstraining — Hören Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Hörverstehen</span></div>
-  <div class="section-body">
+
+  <!-- ═══ Zertifikatstraining — Hören Teil 1 ═══ -->
+  <div style="border-top:2px solid #1a5a2a;margin-top:2.8rem;padding-top:1.6rem"></div>
+  <div style="font-weight:700;color:#1a5a2a;font-size:1.05rem;margin-bottom:.6rem">🎧 Zertifikatstraining — Hören Teil 1 &nbsp;<span style="font-size:.78rem;font-weight:400;opacity:.75">B1 · Hörverstehen</span></div>
 
     <!-- 考试说明卡片 -->
     <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -33348,7 +33583,11 @@ function B1S3EmmaHideAll(){
     </div>
 
   </div>
-</div></div></div>
+
+    </div><!-- close merged section-body -->
+  </div><!-- close merged section -->
+</div><!-- close max-width wrapper -->
+</div><!-- close b1l-s7-wrapper -->
 
 <!-- ════════════════════════════════════════════════════════════════════════ -->
 <!-- B1 阅读 9 · Arbeit im Wandel · Das Ruhrgebiet                          -->
@@ -37269,7 +37508,7 @@ function b1S12CheckB(){
     if(!page) return;
     const inner = page.querySelector(':scope > div');
     if(!inner) return;
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s8-wrapper','b1l-s8'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13']].forEach(function(pair){
       const wrapper = document.getElementById(pair[0]);
       const existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
@@ -40067,7 +40306,8 @@ function b1S12CheckB(){
   #ks-13 .k-body>div:first-of-type,
   #ks-14 .k-body>div:first-of-type,
   #ks-15 .k-body>div:first-of-type,
-  #ks-16 .k-body>div:first-of-type { font-size:2rem !important; }
+  #ks-16 .k-body>div:first-of-type,
+  #ks-17 .k-body>div:first-of-type { font-size:2rem !important; }
 }
 </style>
 <div style="max-width:860px;margin:0 auto">
@@ -40101,6 +40341,7 @@ function b1S12CheckB(){
       <li><a href="#ks-14">你不知道的德国 · 07 — 饮食与社交</a></li>
       <li><a href="#ks-15">你不知道的德国 · 08 — 节日与庆祝</a></li>
       <li><a href="#ks-16">你不知道的德国 · 09 — 育儿与教育</a></li>
+      <li><a href="#ks-17">你不知道的德国 · 10 — 环保与能源</a></li>
     </ol>
   </div>
 
@@ -41266,9 +41507,6 @@ function b1S12CheckB(){
     </div>
   </div>
 
-</div>
-</div>
-
   <!-- ══ 十一、你不知道的德国 · 04 — 工作与职场 ══ -->
   <div class="k-section k-dark" id="ks-11" style="cursor:pointer" onclick="showPage('kultur-04')">
     <div class="k-header">💼 十一、你不知道的德国 · 04 — 工作与职场</div>
@@ -41309,9 +41547,6 @@ function b1S12CheckB(){
     </div>
   </div>
 
-</div>
-</div>
-
   <!-- ══ 十三、你不知道的德国 · 06 — 落地德国 ══ -->
   <div class="k-section k-dark" id="ks-13" style="cursor:pointer" onclick="showPage('kultur-06')">
     <div class="k-header">✈️ 十三、你不知道的德国 · 06 — 落地德国</div>
@@ -41331,9 +41566,6 @@ function b1S12CheckB(){
       <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
     </div>
   </div>
-
-</div>
-</div>
 
   <!-- ══ 十四、你不知道的德国 · 07 — 饮食与社交 ══ -->
   <div class="k-section k-dark" id="ks-14" style="cursor:pointer" onclick="showPage('kultur-07')">
@@ -41355,9 +41587,6 @@ function b1S12CheckB(){
     </div>
   </div>
 
-</div>
-</div>
-
   <!-- ══ 十五、你不知道的德国 · 08 — 节日与庆祝 ══ -->
   <div class="k-section k-dark" id="ks-15" style="cursor:pointer" onclick="showPage('kultur-08')">
     <div class="k-header">🎄 十五、你不知道的德国 · 08 — 节日与庆祝</div>
@@ -41378,9 +41607,6 @@ function b1S12CheckB(){
     </div>
   </div>
 
-</div>
-</div>
-
   <!-- ══ 十六、你不知道的德国 · 09 — 育儿与教育 ══ -->
   <div class="k-section k-dark" id="ks-16" style="cursor:pointer" onclick="showPage('kultur-09')">
     <div class="k-header">👶 十六、你不知道的德国 · 09 — 育儿与教育</div>
@@ -41396,6 +41622,26 @@ function b1S12CheckB(){
         <span class="k-tag">Ganztagsschule 全日制</span>
         <span class="k-tag">Ausbildung 双元制</span>
         <span class="k-tag">Abitur 高考</span>
+      </div>
+      <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
+    </div>
+  </div>
+
+  <!-- ══ 十七、你不知道的德国 · 10 — 环保与能源 ══ -->
+  <div class="k-section k-dark" id="ks-17" style="cursor:pointer" onclick="showPage('kultur-10')">
+    <div class="k-header">🌍 十七、你不知道的德国 · 10 — 环保与能源</div>
+    <div class="k-body" style="text-align:center;padding:2rem 1.5rem">
+      <div style="font-size:3rem;margin-bottom:.8rem">🌍</div>
+      <div class="k-rule" style="display:inline-block;text-align:left;max-width:600px">
+        电费全欧最贵却全民支持、风力发电机被邻居抵制、高速不限速的环保悖论、阳台太阳能插上插座就发电——6个德国环保密码。
+      </div>
+      <div style="margin-top:1rem">
+        <span class="k-tag">Energiewende 能源转型</span>
+        <span class="k-tag">Windrad 风力发电</span>
+        <span class="k-tag">Tempolimit 限速之争</span>
+        <span class="k-tag">Mehrweg 可重复使用</span>
+        <span class="k-tag">Balkonkraftwerk 阳台发电</span>
+        <span class="k-tag">Ökostrom 绿色电力</span>
       </div>
       <div style="margin-top:1.5rem;display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-weight:700;padding:10px 32px;border-radius:24px;font-size:.92rem;text-decoration:none;transition:0.2s;cursor:pointer" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(246,211,101,0.35)'" onmouseout="this.style.opacity='1';this.style.transform='';this.style.boxShadow=''">📖 阅读完整文章 →</div>
     </div>
@@ -43359,10 +43605,31 @@ function b1S12CheckB(){
   </iframe>
 </div>
 
+<!-- ══════════ Wusstest du schon? 全部冷知识展示 ══════════ -->
+<div id="page-wds" class="page">
+  <div class="wds-page-header">
+    <h2>🇩🇪 Wusstest du schon?</h2>
+    <p>30 条德国冷知识 — 每天一条，一个月不重样</p>
+  </div>
+  <div class="wds-grid" id="wds-grid"></div>
+  <div class="wds-page-back">
+    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+  </div>
+</div>
+
 <!-- ══════════ 你不知道的德国 · 09 ══════════ -->
 <div id="page-kultur-09" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="你不知道的德国_09_育儿与教育.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 你不知道的德国 · 10 ══════════ -->
+<div id="page-kultur-10" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="你不知道的德国_10_环保与能源.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
