@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Leons Deutschzentrum — 知识图谱</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a1428;overflow:hidden;font-family:'PingFang SC','Microsoft YaHei',sans-serif}
+canvas{display:block}
+#info{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(246,211,101,.6);font-size:.7rem;letter-spacing:.05em;pointer-events:none;z-index:1}
+#title{position:fixed;top:30px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;z-index:1}
+#title h1{font-size:1.3rem;color:#fde68a;font-weight:800;letter-spacing:.03em;text-shadow:0 0 30px rgba(246,211,101,.3)}
+#title p{font-size:.68rem;color:#64748b;margin-top:4px}
+</style>
+</head>
+<body>
+<div id="title">
+  <h1>Leons Deutschzentrum</h1>
+  <p>歌德 A1/A2 · 知识体系全景</p>
+</div>
+<div id="info">🖱 拖拽旋转 · 滚轮缩放</div>
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.157.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/" } }
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+// ── 场景 ──
+const scene = new THREE.Scene();
+
+// ── 相机 ──
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
+camera.position.set(0, 1.5, 10);
+
+// ── WebGL渲染器 ──
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+document.body.appendChild(renderer.domElement);
+
+// ── CSS2D渲染器(文字标签) ──
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = 'absolute';
+labelRenderer.domElement.style.top = '0px';
+labelRenderer.domElement.style.pointerEvents = 'none';
+document.body.appendChild(labelRenderer.domElement);
+
+// ── OrbitControls ──
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.3;
+controls.minDistance = 5;
+controls.maxDistance = 18;
+controls.target.set(0, 0, 0);
+
+// ── 光 ──
+scene.add(new THREE.AmbientLight(0x334466, 1.8));
+const dLight = new THREE.DirectionalLight(0xf6d365, 2.5);
+dLight.position.set(5, 8, 5);
+scene.add(dLight);
+const dLight2 = new THREE.DirectionalLight(0x4a7ab5, 1.5);
+dLight2.position.set(-5, -2, -3);
+scene.add(dLight2);
+
+// ── 星场背景 ──
+const starsGeo = new THREE.BufferGeometry();
+const starsCount = 800;
+const starsPos = new Float32Array(starsCount * 3);
+for (let i=0; i<starsCount*3; i+=3) {
+  const r = 20 + Math.random() * 15;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  starsPos[i] = r * Math.sin(phi) * Math.cos(theta);
+  starsPos[i+1] = r * Math.sin(phi) * Math.sin(theta);
+  starsPos[i+2] = r * Math.cos(phi);
+}
+starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
+const starsMat = new THREE.PointsMaterial({color:0x8899bb, size:0.04, transparent:true, opacity:0.7});
+scene.add(new THREE.Points(starsGeo, starsMat));
+
+// ── 中心球体 ──
+const coreGeo = new THREE.SphereGeometry(0.45, 64, 64);
+const coreMat = new THREE.MeshStandardMaterial({color:0xf6d365, emissive:0xb8860b, emissiveIntensity:0.6, roughness:0.25, metalness:0.5});
+const core = new THREE.Mesh(coreGeo, coreMat);
+scene.add(core);
+
+// ── 光环 ──
+const ringGeo = new THREE.TorusGeometry(0.72, 0.02, 16, 100);
+const ringMat = new THREE.MeshStandardMaterial({color:0xfde68a, emissive:0xf6d365, emissiveIntensity:0.4, roughness:0.3});
+const ring = new THREE.Mesh(ringGeo, ringMat);
+ring.rotation.x = Math.PI/3;
+scene.add(ring);
+const ring2Geo = new THREE.TorusGeometry(0.85, 0.015, 16, 100);
+const ring2 = new THREE.Mesh(ring2Geo, ringMat.clone());
+ring2.rotation.x = -Math.PI/4;
+ring2.rotation.y = Math.PI/3;
+scene.add(ring2);
+
+// ── 中心标签 ──
+const centerDiv = document.createElement('div');
+centerDiv.innerHTML = '<div style="color:#0a1428;font-weight:800;font-size:.9rem;text-align:center;background:linear-gradient(135deg,#f6d365,#fde68a);padding:6px 14px;border-radius:14px;white-space:nowrap;box-shadow:0 0 20px rgba(246,211,101,.5)">🇩🇪 Leon 德语</div>';
+const centerLabel = new CSS2DObject(centerDiv);
+centerLabel.position.set(0, -0.85, 0);
+scene.add(centerLabel);
+
+// ── 数据节点 ──
+const categories = [
+  { name:'📖 语法', color:'#f6d365', desc:'19个专题·A1全考点', items:['动词变位','sein/haben','情态动词','可分动词','冠词变格','宾格/与格','现在完成时','形容词变格','介词','连词语序','否定','疑问句','人称代词','物主冠词','名词复数','数字时间','祈使句','反身代词','比较级'] },
+  { name:'🎧 听力', color:'#60a5fa', desc:'31篇原文·调速练习', items:['A1日常对话','购物场景','问路指路','餐厅点餐','预约看病','自我介绍','数字日期','天气交通','家庭介绍','工作面试'] },
+  { name:'✍️ 写作', color:'#4ade80', desc:'15套模拟·标准范文', items:['邮件写作','书信格式','邀请函','请假条','个人介绍','看图写话','填表练习','便条留言','描述日程'] },
+  { name:'🗣️ 口语', color:'#f87171', desc:'AI音素评分·3部分', items:['自我介绍','提问回答','提出请求','日常对话','图片描述','角色扮演'] },
+  { name:'📚 阅读', color:'#c084fc', desc:'31篇分级·A1-B1', items:['A1短文','A2长文','广告阅读','邮件阅读','通知公告','简单新闻','城市介绍','人物传记'] },
+  { name:'🏙️ Klipp-Klapp', color:'#fb923c', desc:'3D城市导航·翻翻书', items:['方向指路','建筑名称','交通工具','问路句型','城市探索','互动问答'] },
+  { name:'🇩🇪 文化', color:'#fde68a', desc:'你不知道的德国·深度', items:['超市生活','规则习惯','住与行','工作职场','交通出行','落地德国','饮食社交','节日庆祝'] },
+  { name:'📊 数据', color:'#2dd4bf', desc:'学习追踪·进度图表', items:['打卡日历','正确率曲线','词汇积累','学习时长','弱项分析','考试模拟分'] },
+];
+
+// ── 生成分支节点 ──
+const branchGroup = new THREE.Group();
+scene.add(branchGroup);
+
+const mainNodes = [];
+const radius = 3.2;
+categories.forEach((cat, i) => {
+  const angle = (i / categories.length) * Math.PI * 2;
+  const x = Math.cos(angle) * radius;
+  const z = Math.sin(angle) * radius;
+  const y = (Math.random() - 0.5) * 1.2;
+
+  // 主节点球
+  const nodeGeo = new THREE.SphereGeometry(0.22, 32, 32);
+  const nodeMat = new THREE.MeshStandardMaterial({color:new THREE.Color(cat.color), emissive:new THREE.Color(cat.color), emissiveIntensity:0.5, roughness:0.3, metalness:0.4});
+  const node = new THREE.Mesh(nodeGeo, nodeMat);
+  node.position.set(x, y, z);
+  branchGroup.add(node);
+  mainNodes.push({node, x, y, z, color:cat.color});
+
+  // 主标签
+  const div = document.createElement('div');
+  div.innerHTML = `<div style="color:${cat.color};font-weight:700;font-size:.75rem;text-align:center;background:rgba(10,20,40,.85);padding:3px 10px;border-radius:10px;border:1px solid ${cat.color}33;white-space:nowrap;text-shadow:0 0 8px ${cat.color}44">${cat.name}<br><span style="font-size:.6rem;color:#94a3b8;font-weight:400">${cat.desc}</span></div>`;
+  const label = new CSS2DObject(div);
+  label.position.set(x, y + 0.38, z);
+  branchGroup.add(label);
+
+  // 子节点
+  const subRadius = 1.0;
+  cat.items.forEach((item, j) => {
+    const subAngle = (j / cat.items.length) * Math.PI * 2;
+    const sx = x + Math.cos(subAngle) * subRadius * 0.7;
+    const sy = y + (Math.random()-0.5)*0.6;
+    const sz = z + Math.sin(subAngle) * subRadius * 0.7;
+
+    const subGeo = new THREE.SphereGeometry(0.07, 16, 16);
+    const subMat = new THREE.MeshStandardMaterial({color:new THREE.Color(cat.color), emissive:new THREE.Color(cat.color), emissiveIntensity:0.3, roughness:0.4});
+    const subNode = new THREE.Mesh(subGeo, subMat);
+    subNode.position.set(sx, sy, sz);
+    branchGroup.add(subNode);
+
+    // 连线
+    const midX = (x + sx) / 2;
+    const midY = (y + sy) / 2;
+    const midZ = (z + sz) / 2;
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(x, y, z),
+      new THREE.Vector3(midX + (Math.random()-0.5)*0.2, midY + (Math.random()-0.5)*0.2, midZ + (Math.random()-0.5)*0.2),
+      new THREE.Vector3(sx, sy, sz)
+    ]);
+    const lineMat = new THREE.LineBasicMaterial({color:new THREE.Color(cat.color), transparent:true, opacity:0.2});
+    branchGroup.add(new THREE.Line(lineGeo, lineMat));
+  });
+
+  // 中心到主节点连线
+  const coreLineGeo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(x*0.5, y*0.5, z*0.5),
+    new THREE.Vector3(x, y, z)
+  ]);
+  const coreLine = new THREE.Line(coreLineGeo, new THREE.LineBasicMaterial({color:new THREE.Color(cat.color), transparent:true, opacity:0.35}));
+  branchGroup.add(coreLine);
+});
+
+// ── 粒子环 ──
+const particlesGeo = new THREE.BufferGeometry();
+const pCount = 300;
+const pPos = new Float32Array(pCount * 3);
+for (let i=0; i<pCount*3; i+=3) {
+  const r = 3.6 + Math.random() * 1.2;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  pPos[i] = r * Math.sin(phi) * Math.cos(theta);
+  pPos[i+1] = r * Math.sin(phi) * Math.sin(theta);
+  pPos[i+2] = r * Math.cos(phi);
+}
+particlesGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+const particlesMat = new THREE.PointsMaterial({color:0xf6d365, size:0.035, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending});
+const particles = new THREE.Points(particlesGeo, particlesMat);
+scene.add(particles);
+
+// ── 外部网壳 ──
+const shellGeo = new THREE.IcosahedronGeometry(4.2, 2);
+const shellWire = new THREE.LineBasicMaterial({color:0x334466, transparent:true, opacity:0.12});
+const shell = new THREE.LineSegments(new THREE.WireframeGeometry(shellGeo), shellWire);
+scene.add(shell);
+
+// ── 动画循环 ──
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  ring.rotation.z += 0.0015;
+  ring2.rotation.z -= 0.001;
+  ring2.rotation.x += 0.0005;
+  particles.rotation.y += 0.0006;
+  particles.rotation.x += 0.0003;
+  branchGroup.rotation.y += 0.0004;
+  renderer.render(scene, camera);
+  labelRenderer.render(scene, camera);
+}
+animate();
+
+// ── 响应式 ──
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>
