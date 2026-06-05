@@ -1,237 +1,376 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Leons Deutschzentrum — 知识图谱</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Leon 德语知识图谱</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a1428;overflow:hidden;font-family:'PingFang SC','Microsoft YaHei',sans-serif}
+body{background:#0a0f1a;overflow:hidden;font-family:'PingFang SC','Microsoft YaHei',sans-serif}
 canvas{display:block}
-#info{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(246,211,101,.6);font-size:.7rem;letter-spacing:.05em;pointer-events:none;z-index:1}
-#title{position:fixed;top:30px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;z-index:1}
-#title h1{font-size:1.3rem;color:#fde68a;font-weight:800;letter-spacing:.03em;text-shadow:0 0 30px rgba(246,211,101,.3)}
-#title p{font-size:.68rem;color:#64748b;margin-top:4px}
+#search-bar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:20;display:flex;gap:6px}
+#search-input{width:300px;max-width:72vw;padding:10px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:rgba(10,15,26,.92);color:#fff;font-size:.82rem;outline:none;font-family:inherit;backdrop-filter:blur(10px)}
+#search-input::placeholder{color:rgba(255,255,255,.35)}
+#search-input:focus{border-color:#f6d365;box-shadow:0 0 20px rgba(246,211,101,.15)}
+#search-clear{display:none;background:none;border:none;color:#888;font-size:.85rem;cursor:pointer}
+#hint{position:fixed;top:58px;left:50%;transform:translateX(-50%);font-size:.62rem;color:rgba(255,255,255,.28);pointer-events:none;z-index:9;text-align:center;white-space:nowrap}
+#legend{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px;pointer-events:none}
+#legend .lg{display:flex;align-items:center;gap:8px;font-size:.64rem}
+#legend .lg .d{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+#legend .lg .l{color:#9aa7bd}
+#lvkey{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:9px;pointer-events:none}
+#lvkey .lv{display:flex;align-items:center;gap:7px;font-size:.62rem;color:#8595ad}
+#lvkey .lv b{color:#f6d365;font-size:.66rem}
+.node-lbl{color:#fff;font-weight:700;font-size:.58rem;text-align:center;white-space:nowrap;pointer-events:none;transition:opacity .25s}
+.shell-lbl{font-weight:800;font-size:.7rem;letter-spacing:1px;pointer-events:none;opacity:.5}
+/* 节点详情卡 */
+#node-card{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);z-index:30;width:340px;max-width:90vw;background:linear-gradient(160deg,rgba(15,30,58,.97),rgba(10,20,40,.97));border:1px solid rgba(246,211,101,.4);border-radius:18px;padding:18px 20px 16px;box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 24px rgba(246,211,101,.12);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .28s,transform .28s}
+#node-card.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#node-card .nc-close{position:absolute;top:10px;right:14px;color:#7f8da3;background:none;border:none;font-size:1.05rem;cursor:pointer;line-height:1}
+#node-card .nc-close:hover{color:#fff}
+#node-card .nc-badges{display:flex;gap:7px;margin-bottom:9px;flex-wrap:wrap}
+#node-card .nc-badge{font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px}
+#node-card .nc-title{color:#fff;font-size:1.18rem;font-weight:800;margin-bottom:6px}
+#node-card .nc-rel{color:#9aa7bd;font-size:.72rem;line-height:1.6;margin-bottom:13px;min-height:1.2em}
+#node-card .nc-rel b{color:#f6d365;font-weight:700}
+#node-card .nc-go{display:block;width:100%;text-align:center;padding:11px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:.9rem;color:#1a1206;background:linear-gradient(135deg,#f6d365,#fbbf24);box-shadow:0 4px 14px rgba(246,211,101,.3);transition:transform .15s,box-shadow .15s}
+#node-card .nc-go:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(246,211,101,.45)}
+#node-card .nc-go:active{transform:translateY(0)}
+@media(max-width:600px){#legend{gap:7px;right:8px}#lvkey{left:8px}#node-card{bottom:14px;padding:15px 16px 13px}}
 </style>
 </head>
 <body>
-<div id="title">
-  <h1>Leons Deutschzentrum</h1>
-  <p>歌德 A1/A2 · 知识体系全景</p>
+<div id="search-bar">
+  <input id="search-input" type="text" placeholder="搜语法点... (如 Passiv / Konjunktiv / Dativ)" autocomplete="off">
+  <button id="search-clear" onclick="clearSearch()">✕</button>
 </div>
-<div id="info">🖱 拖拽旋转 · 滚轮缩放</div>
+<div id="hint">🖱 拖拽旋转 · 滚轮缩放 · 点小球查看关联并跳转 · 内圈A1→外圈B1</div>
+<div id="legend"></div>
+<div id="lvkey"></div>
+
+<div id="node-card">
+  <button class="nc-close" onclick="closeCard()">✕</button>
+  <div class="nc-badges" id="nc-badges"></div>
+  <div class="nc-title" id="nc-title"></div>
+  <div class="nc-rel" id="nc-rel"></div>
+  <button class="nc-go" id="nc-go">📖 前往学习这一节</button>
+</div>
 
 <script type="importmap">
 { "imports": { "three": "https://unpkg.com/three@0.157.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/" } }
 </script>
-
 <script type="module">
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 
-// ── 场景 ──
+// ── 数据模型 ──
+// g=类别(决定颜色+所在臂)  lv=级别(决定半径:a1内/a2中/b1外)  s=锚点  page=目标页(级别页)
+// page 缺省时由级别推断：a1→grammar, a2→a2grammar, b1→b1grammar
+const NODES = [
+  // 动词 Verben
+  {id:'praesens',n:'Präsens 现在时',g:'动词',lv:'a1',s:'s3'},
+  {id:'sein_haben',n:'sein / haben',g:'动词',lv:'a1',s:'s4'},
+  {id:'modal_a1',n:'情态动词',g:'动词',lv:'a1',s:'s5'},
+  {id:'trennbar',n:'可分动词',g:'动词',lv:'a1',s:'s6'},
+  {id:'perfekt',n:'Perfekt 完成时',g:'动词',lv:'a2',s:'s17'},
+  {id:'modal_a2',n:'情态动词过去时',g:'动词',lv:'a2',s:'a2g-s5'},
+  {id:'reflexiv',n:'反身代词',g:'动词',lv:'a2',s:'a2g-s7'},
+  {id:'praeteritum',n:'Präteritum 过去式',g:'动词',lv:'b1',s:'b1s4'},
+  {id:'plusquam',n:'过去完成时',g:'动词',lv:'b1',s:'b1s3'},
+  {id:'passiv',n:'Passiv 被动态',g:'动词',lv:'b1',s:'b1s9'},
+  {id:'futur',n:'Futur 将来时',g:'动词',lv:'b1',s:'b1s12'},
+  {id:'lassen',n:'lassen 使役',g:'动词',lv:'b1',s:'b1s13'},
+  {id:'verbprep',n:'动词+介词搭配',g:'动词',lv:'b1',s:'b1s6'},
+  // 句法 Syntax
+  {id:'satzstellung',n:'句子语序',g:'句法',lv:'a1',s:'s13'},
+  {id:'frage',n:'疑问句',g:'句法',lv:'a1',s:'s12'},
+  {id:'negation',n:'否定 nicht/kein',g:'句法',lv:'a1',s:'s11'},
+  {id:'weil',n:'weil 原因从句',g:'句法',lv:'a2',s:'a2g-s1'},
+  {id:'finalsatz',n:'damit / um…zu',g:'句法',lv:'a2',s:'a2g-s12'},
+  {id:'relativ',n:'关系从句',g:'句法',lv:'b1',s:'b1s20'},
+  {id:'konjunktiv',n:'Konjunktiv II 虚拟式',g:'句法',lv:'b1',s:'b1s8'},
+  {id:'infinitiv_zu',n:'Infinitiv + zu',g:'句法',lv:'b1',s:'b1s19'},
+  {id:'indirfrage',n:'间接问句',g:'句法',lv:'b1',s:'b1s18'},
+  // 格位 Kasus
+  {id:'nomakk',n:'Nominativ / Akkusativ',g:'格位',lv:'a1',s:'s9'},
+  {id:'dativ',n:'Dativ 第三格',g:'格位',lv:'a2',s:'a2g-s4'},
+  {id:'wechsel',n:'Wechselpräp. 双向介词',g:'格位',lv:'a2',s:'s16'},
+  {id:'genitiv',n:'Genitiv 属格',g:'格位',lv:'b1',s:'b1s15'},
+  // 名词 Nomen
+  {id:'artikel',n:'冠词 Artikel',g:'名词',lv:'a1',s:'s7'},
+  {id:'plural',n:'名词复数',g:'名词',lv:'a1',s:'s8'},
+  {id:'possessiv',n:'物主冠词',g:'名词',lv:'a1',s:'s10'},
+  {id:'komposita',n:'复合名词',g:'名词',lv:'b1',s:'b1s1'},
+  {id:'ndekl',n:'n-变化弱变化',g:'名词',lv:'b1',s:'b1s16'},
+  {id:'adjnomen',n:'形容词名词化',g:'名词',lv:'b1',s:'b1s17'},
+  // 形容词 Adjektive
+  {id:'adj_a1',n:'形容词谓语用法',g:'形容词',lv:'a1',s:'s18'},
+  {id:'adj_dekl',n:'形容词定语变格',g:'形容词',lv:'a2',s:'s19'},
+  // 词汇 Wortschatz
+  {id:'pronomen',n:'人称代词',g:'词汇',lv:'a1',s:'s2'},
+  {id:'alphabet',n:'字母与发音',g:'词汇',lv:'a1',s:'s1'},
+  {id:'zahlen',n:'数字·日期·时间',g:'词汇',lv:'a1',s:'s15'},
+  {id:'praep',n:'介词 Präpositionen',g:'词汇',lv:'a1',s:'s16'},
+  {id:'konj',n:'连词 Konjunktionen',g:'词汇',lv:'a1',s:'s14'},
+  {id:'pronadv',n:'代副词',g:'词汇',lv:'b1',s:'b1s7'},
+];
+
+// 关联（用于点击高亮 + 弹卡里的"相关知识点"），跨级链条尽量从内指向外
+const LINKS = [
+  ['praesens','perfekt'],['perfekt','praeteritum'],['praeteritum','plusquam'],
+  ['praesens','modal_a1'],['modal_a1','modal_a2'],['modal_a2','konjunktiv'],
+  ['trennbar','praesens'],['trennbar','perfekt'],['reflexiv','dativ'],['reflexiv','modal_a2'],
+  ['sein_haben','perfekt'],['sein_haben','passiv'],['perfekt','passiv'],['praeteritum','passiv'],
+  ['futur','praesens'],['lassen','reflexiv'],['verbprep','pronadv'],['verbprep','dativ'],
+  ['satzstellung','frage'],['satzstellung','negation'],['satzstellung','weil'],
+  ['weil','konj'],['weil','finalsatz'],['finalsatz','infinitiv_zu'],['weil','relativ'],
+  ['relativ','konjunktiv'],['frage','indirfrage'],['indirfrage','relativ'],
+  ['nomakk','dativ'],['dativ','genitiv'],['dativ','wechsel'],['wechsel','praep'],['praep','verbprep'],
+  ['artikel','nomakk'],['artikel','plural'],['artikel','possessiv'],['artikel','adj_dekl'],
+  ['komposita','plural'],['ndekl','nomakk'],['adjnomen','adj_dekl'],
+  ['adj_a1','adj_dekl'],['pronomen','possessiv'],['pronadv','praep'],
+];
+
+const GC = {'动词':'#ff6b6b','句法':'#c792ea','格位':'#ffd93d','名词':'#6bc5ff','形容词':'#4ecdc4','词汇':'#ff8c42'};
+const CATS = ['动词','句法','格位','名词','形容词','词汇'];
+const LV = {a1:{r:2.8,label:'A1'},a2:{r:4.2,label:'A2'},b1:{r:5.7,label:'B1'}};
+const PAGE_BY_LV = {a1:'grammar',a2:'a2grammar',b1:'b1grammar'};
+const linkMap = {}; NODES.forEach(d=>linkMap[d.id]=new Set());
+LINKS.forEach(([a,b])=>{ if(linkMap[a]&&linkMap[b]){linkMap[a].add(b);linkMap[b].add(a);} });
+const nameById = {}; NODES.forEach(d=>nameById[d.id]=d.n);
+// ── 分层星系布局 ──
+// 6 个类别各占球面一个主方向；同臂内同级别的多个节点在该方向附近散开
+const armDir = {};
+CATS.forEach((c,i)=>{
+  const az = (i/CATS.length)*Math.PI*2;            // 方位角
+  const el = (i%2===0? 0.35 : -0.35);              // 交替上下倾斜，避免挤在赤道
+  armDir[c] = new THREE.Vector3(Math.cos(az)*Math.cos(el), Math.sin(el), Math.sin(az)*Math.cos(el)).normalize();
+});
+// 给每个节点算位置
+const byCatLv = {};
+NODES.forEach(d=>{ const k=d.g+'|'+d.lv; (byCatLv[k]=byCatLv[k]||[]).push(d); });
+const nodePosMap = {};
+NODES.forEach(d=>{
+  const group = byCatLv[d.g+'|'+d.lv];
+  const idx = group.indexOf(d), cnt = group.length;
+  const base = armDir[d.g];
+  // 在臂方向周围构造一个正交基，用来把同组节点散开成小扇形
+  const up = Math.abs(base.y)>0.9 ? new THREE.Vector3(1,0,0) : new THREE.Vector3(0,1,0);
+  const t1 = new THREE.Vector3().crossVectors(base,up).normalize();
+  const t2 = new THREE.Vector3().crossVectors(base,t1).normalize();
+  const spread = cnt>1 ? 0.55 : 0;                 // 同组散开角度
+  const ang = cnt>1 ? (idx/(cnt-1)-0.5)*2 : 0;     // -1..1
+  const ang2 = ((idx*0.7)%1-0.5);                  // 第二维错位
+  const dir = base.clone()
+    .addScaledVector(t1, Math.sin(ang*Math.PI*0.5)*spread)
+    .addScaledVector(t2, ang2*spread*0.8)
+    .normalize();
+  const pos = dir.multiplyScalar(LV[d.lv].r);
+  nodePosMap[d.id] = pos;
+});
+
+const nodeMeshes = [];
+const haloByMesh = new Map();
+const labelByMesh = new Map();
+
 const scene = new THREE.Scene();
-
-// ── 相机 ──
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
-camera.position.set(0, 1.5, 10);
-
-// ── WebGL渲染器 ──
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.5, 80);
+camera.position.set(0, 1, 15);
 const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 document.body.appendChild(renderer.domElement);
-
-// ── CSS2D渲染器(文字标签) ──
-const labelRenderer = new CSS2DRenderer();
-labelRenderer.setSize(window.innerWidth, window.innerHeight);
-labelRenderer.domElement.style.position = 'absolute';
-labelRenderer.domElement.style.top = '0px';
-labelRenderer.domElement.style.pointerEvents = 'none';
-document.body.appendChild(labelRenderer.domElement);
-
-// ── OrbitControls ──
+const lr = new CSS2DRenderer();
+lr.setSize(window.innerWidth, window.innerHeight);
+lr.domElement.style.position='absolute';lr.domElement.style.top='0';lr.domElement.style.pointerEvents='none';
+document.body.appendChild(lr.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.08;
-controls.autoRotate = true;
-controls.autoRotateSpeed = 0.3;
-controls.minDistance = 5;
-controls.maxDistance = 18;
-controls.target.set(0, 0, 0);
+controls.enableDamping=true;controls.dampingFactor=.06;controls.autoRotate=true;controls.autoRotateSpeed=.35;
+controls.minDistance=7;controls.maxDistance=30;controls.target.set(0,0,0);
 
-// ── 光 ──
-scene.add(new THREE.AmbientLight(0x334466, 1.8));
-const dLight = new THREE.DirectionalLight(0xf6d365, 2.5);
-dLight.position.set(5, 8, 5);
-scene.add(dLight);
-const dLight2 = new THREE.DirectionalLight(0x4a7ab5, 1.5);
-dLight2.position.set(-5, -2, -3);
-scene.add(dLight2);
+scene.add(new THREE.AmbientLight(0x334466, 1.6));
+const dl = new THREE.DirectionalLight(0xffffff, 2);dl.position.set(5,8,5);scene.add(dl);
+scene.add(new THREE.DirectionalLight(0x8899cc, 1).position.set(-5,-3,-5));
 
-// ── 星场背景 ──
-const starsGeo = new THREE.BufferGeometry();
-const starsCount = 800;
-const starsPos = new Float32Array(starsCount * 3);
-for (let i=0; i<starsCount*3; i+=3) {
-  const r = 20 + Math.random() * 15;
-  const theta = Math.random() * Math.PI * 2;
-  const phi = Math.acos(2 * Math.random() - 1);
-  starsPos[i] = r * Math.sin(phi) * Math.cos(theta);
-  starsPos[i+1] = r * Math.sin(phi) * Math.sin(theta);
-  starsPos[i+2] = r * Math.cos(phi);
-}
-starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
-const starsMat = new THREE.PointsMaterial({color:0x8899bb, size:0.04, transparent:true, opacity:0.7});
-scene.add(new THREE.Points(starsGeo, starsMat));
-
-// ── 中心球体 ──
-const coreGeo = new THREE.SphereGeometry(0.45, 64, 64);
-const coreMat = new THREE.MeshStandardMaterial({color:0xf6d365, emissive:0xb8860b, emissiveIntensity:0.6, roughness:0.25, metalness:0.5});
-const core = new THREE.Mesh(coreGeo, coreMat);
-scene.add(core);
-
-// ── 光环 ──
-const ringGeo = new THREE.TorusGeometry(0.72, 0.02, 16, 100);
-const ringMat = new THREE.MeshStandardMaterial({color:0xfde68a, emissive:0xf6d365, emissiveIntensity:0.4, roughness:0.3});
-const ring = new THREE.Mesh(ringGeo, ringMat);
-ring.rotation.x = Math.PI/3;
-scene.add(ring);
-const ring2Geo = new THREE.TorusGeometry(0.85, 0.015, 16, 100);
-const ring2 = new THREE.Mesh(ring2Geo, ringMat.clone());
-ring2.rotation.x = -Math.PI/4;
-ring2.rotation.y = Math.PI/3;
-scene.add(ring2);
-
-// ── 中心标签 ──
-const centerDiv = document.createElement('div');
-centerDiv.innerHTML = '<div style="color:#0a1428;font-weight:800;font-size:.9rem;text-align:center;background:linear-gradient(135deg,#f6d365,#fde68a);padding:6px 14px;border-radius:14px;white-space:nowrap;box-shadow:0 0 20px rgba(246,211,101,.5)">🇩🇪 Leon 德语</div>';
-const centerLabel = new CSS2DObject(centerDiv);
-centerLabel.position.set(0, -0.85, 0);
-scene.add(centerLabel);
-
-// ── 数据节点 ──
-const categories = [
-  { name:'📖 语法', color:'#f6d365', desc:'19个专题·A1全考点', items:['动词变位','sein/haben','情态动词','可分动词','冠词变格','宾格/与格','现在完成时','形容词变格','介词','连词语序','否定','疑问句','人称代词','物主冠词','名词复数','数字时间','祈使句','反身代词','比较级'] },
-  { name:'🎧 听力', color:'#60a5fa', desc:'31篇原文·调速练习', items:['A1日常对话','购物场景','问路指路','餐厅点餐','预约看病','自我介绍','数字日期','天气交通','家庭介绍','工作面试'] },
-  { name:'✍️ 写作', color:'#4ade80', desc:'15套模拟·标准范文', items:['邮件写作','书信格式','邀请函','请假条','个人介绍','看图写话','填表练习','便条留言','描述日程'] },
-  { name:'🗣️ 口语', color:'#f87171', desc:'AI音素评分·3部分', items:['自我介绍','提问回答','提出请求','日常对话','图片描述','角色扮演'] },
-  { name:'📚 阅读', color:'#c084fc', desc:'31篇分级·A1-B1', items:['A1短文','A2长文','广告阅读','邮件阅读','通知公告','简单新闻','城市介绍','人物传记'] },
-  { name:'🏙️ Klipp-Klapp', color:'#fb923c', desc:'3D城市导航·翻翻书', items:['方向指路','建筑名称','交通工具','问路句型','城市探索','互动问答'] },
-  { name:'🇩🇪 文化', color:'#fde68a', desc:'你不知道的德国·深度', items:['超市生活','规则习惯','住与行','工作职场','交通出行','落地德国','饮食社交','节日庆祝'] },
-  { name:'📊 数据', color:'#2dd4bf', desc:'学习追踪·进度图表', items:['打卡日历','正确率曲线','词汇积累','学习时长','弱项分析','考试模拟分'] },
-];
-
-// ── 生成分支节点 ──
-const branchGroup = new THREE.Group();
-scene.add(branchGroup);
-
-const mainNodes = [];
-const radius = 3.2;
-categories.forEach((cat, i) => {
-  const angle = (i / categories.length) * Math.PI * 2;
-  const x = Math.cos(angle) * radius;
-  const z = Math.sin(angle) * radius;
-  const y = (Math.random() - 0.5) * 1.2;
-
-  // 主节点球
-  const nodeGeo = new THREE.SphereGeometry(0.22, 32, 32);
-  const nodeMat = new THREE.MeshStandardMaterial({color:new THREE.Color(cat.color), emissive:new THREE.Color(cat.color), emissiveIntensity:0.5, roughness:0.3, metalness:0.4});
-  const node = new THREE.Mesh(nodeGeo, nodeMat);
-  node.position.set(x, y, z);
-  branchGroup.add(node);
-  mainNodes.push({node, x, y, z, color:cat.color});
-
-  // 主标签
-  const div = document.createElement('div');
-  div.innerHTML = `<div style="color:${cat.color};font-weight:700;font-size:.75rem;text-align:center;background:rgba(10,20,40,.85);padding:3px 10px;border-radius:10px;border:1px solid ${cat.color}33;white-space:nowrap;text-shadow:0 0 8px ${cat.color}44">${cat.name}<br><span style="font-size:.6rem;color:#94a3b8;font-weight:400">${cat.desc}</span></div>`;
-  const label = new CSS2DObject(div);
-  label.position.set(x, y + 0.38, z);
-  branchGroup.add(label);
-
-  // 子节点
-  const subRadius = 1.0;
-  cat.items.forEach((item, j) => {
-    const subAngle = (j / cat.items.length) * Math.PI * 2;
-    const sx = x + Math.cos(subAngle) * subRadius * 0.7;
-    const sy = y + (Math.random()-0.5)*0.6;
-    const sz = z + Math.sin(subAngle) * subRadius * 0.7;
-
-    const subGeo = new THREE.SphereGeometry(0.07, 16, 16);
-    const subMat = new THREE.MeshStandardMaterial({color:new THREE.Color(cat.color), emissive:new THREE.Color(cat.color), emissiveIntensity:0.3, roughness:0.4});
-    const subNode = new THREE.Mesh(subGeo, subMat);
-    subNode.position.set(sx, sy, sz);
-    branchGroup.add(subNode);
-
-    // 连线
-    const midX = (x + sx) / 2;
-    const midY = (y + sy) / 2;
-    const midZ = (z + sz) / 2;
-    const lineGeo = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(x, y, z),
-      new THREE.Vector3(midX + (Math.random()-0.5)*0.2, midY + (Math.random()-0.5)*0.2, midZ + (Math.random()-0.5)*0.2),
-      new THREE.Vector3(sx, sy, sz)
-    ]);
-    const lineMat = new THREE.LineBasicMaterial({color:new THREE.Color(cat.color), transparent:true, opacity:0.2});
-    branchGroup.add(new THREE.Line(lineGeo, lineMat));
-  });
-
-  // 中心到主节点连线
-  const coreLineGeo = new THREE.BufferGeometry().setFromPoints([
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(x*0.5, y*0.5, z*0.5),
-    new THREE.Vector3(x, y, z)
-  ]);
-  const coreLine = new THREE.Line(coreLineGeo, new THREE.LineBasicMaterial({color:new THREE.Color(cat.color), transparent:true, opacity:0.35}));
-  branchGroup.add(coreLine);
+// 远景星点
+const sg = new THREE.BufferGeometry();
+const sp = new Float32Array(1200*3);
+for(let i=0;i<1200*3;i+=3){const rr=30+Math.random()*20,th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);sp[i]=rr*Math.sin(ph)*Math.cos(th);sp[i+1]=rr*Math.sin(ph)*Math.sin(th);sp[i+2]=rr*Math.cos(ph);}
+sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0x667799,size:.04,opacity:.6})));
+// ── 三层级别壳层 ──
+['a1','a2','b1'].forEach(lv=>{
+  const r = LV[lv].r;
+  const wire = new THREE.LineSegments(
+    new THREE.WireframeGeometry(new THREE.SphereGeometry(r, 22, 14)),
+    new THREE.LineBasicMaterial({color:0x3a4d70, transparent:true, opacity: lv==='a1'?0.10:lv==='a2'?0.07:0.05})
+  );
+  scene.add(wire);
+  // 壳层等级标签（飘在顶部）
+  const sd = document.createElement('div');
+  sd.className='shell-lbl';
+  sd.style.color = lv==='a1'?'#9fe0c0':lv==='a2'?'#9ec5f0':'#f0c79e';
+  sd.textContent = LV[lv].label;
+  const sl = new CSS2DObject(sd);
+  sl.position.set(0, r+0.25, 0);
+  scene.add(sl);
 });
 
-// ── 粒子环 ──
-const particlesGeo = new THREE.BufferGeometry();
-const pCount = 300;
-const pPos = new Float32Array(pCount * 3);
-for (let i=0; i<pCount*3; i+=3) {
-  const r = 3.6 + Math.random() * 1.2;
-  const theta = Math.random() * Math.PI * 2;
-  const phi = Math.acos(2 * Math.random() - 1);
-  pPos[i] = r * Math.sin(phi) * Math.cos(theta);
-  pPos[i+1] = r * Math.sin(phi) * Math.sin(theta);
-  pPos[i+2] = r * Math.cos(phi);
-}
-particlesGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-const particlesMat = new THREE.PointsMaterial({color:0xf6d365, size:0.035, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending});
-const particles = new THREE.Points(particlesGeo, particlesMat);
+// 中心发光球 + 标签
+const core = new THREE.Mesh(new THREE.SphereGeometry(0.55,64,64), new THREE.MeshStandardMaterial({color:0xffd93d, emissive:0xff8c00, emissiveIntensity:.85, roughness:.2, metalness:.5}));
+scene.add(core);
+const glow = new THREE.Mesh(new THREE.SphereGeometry(1.25,32,32), new THREE.MeshBasicMaterial({color:0xffd93d, transparent:true, opacity:.08}));
+scene.add(glow);
+const coreDiv = document.createElement('div');
+coreDiv.innerHTML=`<div style="text-align:center;white-space:nowrap;pointer-events:none">
+  <div style="color:#1a1206;font-weight:800;font-size:.92rem;letter-spacing:.5px;text-shadow:0 0 6px #ffe9a8,0 0 12px #ffd93d,0 1px 2px rgba(255,255,255,.6)">Leon 德语</div>
+  <div style="color:#1a1206;font-weight:700;font-size:.52rem;margin-top:2px;text-shadow:0 0 5px #ffe9a8,0 1px 2px rgba(255,255,255,.6)">leonsdeutschzentrum.com</div>
+</div>`;
+const coreLabel = new CSS2DObject(coreDiv);
+coreLabel.position.set(0,0,0);
+scene.add(coreLabel);
+
+// ── 节点 ──
+const nodeGroup = new THREE.Group();scene.add(nodeGroup);
+const lineGroup = new THREE.Group();scene.add(lineGroup);
+NODES.forEach(d=>{
+  const pos = nodePosMap[d.id];
+  const c = GC[d.g]||'#fff';
+  const sz = d.lv==='a1'?0.22:d.lv==='a2'?0.2:0.18;
+  const halo = new THREE.Mesh(new THREE.SphereGeometry(sz+0.1,16,16), new THREE.MeshBasicMaterial({color:new THREE.Color(c), transparent:true, opacity:.22}));
+  halo.position.copy(pos);nodeGroup.add(halo);
+  const mesh = new THREE.Mesh(new THREE.SphereGeometry(sz,24,24), new THREE.MeshStandardMaterial({color:new THREE.Color(c), emissive:new THREE.Color(c), emissiveIntensity:.6, roughness:.25, metalness:.4}));
+  mesh.position.copy(pos);mesh.userData=d;nodeGroup.add(mesh);
+  nodeMeshes.push(mesh);haloByMesh.set(mesh,halo);
+  const div = document.createElement('div');
+  div.className='node-lbl';
+  div.style.textShadow=`0 0 6px ${c},0 0 3px rgba(0,0,0,.8)`;
+  div.textContent=d.n;
+  const lbl = new CSS2DObject(div);
+  lbl.position.copy(pos.clone().add(new THREE.Vector3(0,sz+0.12,0)));
+  nodeGroup.add(lbl);labelByMesh.set(mesh,div);
+});
+
+// ── 连线（默认很淡，点击时相关线点亮）──
+const lineByPair = [];
+LINKS.forEach(([a,b])=>{
+  const pA=nodePosMap[a],pB=nodePosMap[b];if(!pA||!pB)return;
+  const mid=new THREE.Vector3().addVectors(pA,pB).multiplyScalar(.5).multiplyScalar(1.04);
+  const curve=new THREE.QuadraticBezierCurve3(pA.clone(),mid,pB.clone());
+  const ca = GC[NODES.find(n=>n.id===a)?.g]||'#888';
+  const mat = new THREE.LineBasicMaterial({color:new THREE.Color(ca), transparent:true, opacity:.12});
+  const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(24)), mat);
+  lineGroup.add(line);
+  lineByPair.push({a,b,mat});
+});
+
+// 漂浮粒子
+const pg=new THREE.BufferGeometry();const pp=new Float32Array(400*3);
+for(let i=0;i<400*3;i+=3){const dir=new THREE.Vector3(Math.random()-.5,Math.random()-.5,Math.random()-.5).normalize();const rr=LV.b1.r+(Math.random()-.5)*1.5;pp[i]=dir.x*rr;pp[i+1]=dir.y*rr;pp[i+2]=dir.z*rr;}
+pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+const particles=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffd93d,size:.04,opacity:.4,blending:THREE.AdditiveBlending}));
 scene.add(particles);
 
-// ── 外部网壳 ──
-const shellGeo = new THREE.IcosahedronGeometry(4.2, 2);
-const shellWire = new THREE.LineBasicMaterial({color:0x334466, transparent:true, opacity:0.12});
-const shell = new THREE.LineSegments(new THREE.WireframeGeometry(shellGeo), shellWire);
-scene.add(shell);
+// ── 图例 ──
+document.getElementById('legend').innerHTML=Object.entries(GC).map(([g,c])=>`<div class="lg"><div class="d" style="background:${c};box-shadow:0 0 8px ${c}"></div><span class="l">${g}</span></div>`).join('');
+document.getElementById('lvkey').innerHTML=['a1','a2','b1'].map(lv=>`<div class="lv"><b>${LV[lv].label}</b><span>${lv==='a1'?'内圈·基础':lv==='a2'?'中圈·进阶':'外圈·高阶'}</span></div>`).join('');
+// ── 跳转 ──
+function jumpTo(node){
+  const sec = node.s;
+  if(!sec) return;
+  try{ window.parent.postMessage({type:'goto-section',section:sec},'*'); }catch(e){}
+  try{ if(window.parent && typeof window.parent.gotoSection==='function') window.parent.gotoSection(sec); }
+  catch(e){ try{window.location.hash='#'+sec;}catch(e2){} }
+}
 
-// ── 动画循环 ──
-function animate() {
+// ── 高亮某节点及其关联 ──
+let activeId = null;
+function setHighlight(id){
+  activeId = id;
+  const rel = id? linkMap[id] : null;
+  nodeMeshes.forEach(m=>{
+    const d=m.userData, halo=haloByMesh.get(m), lbl=labelByMesh.get(m);
+    let state; // 1=主角 2=相关 0=暗淡 -1=正常
+    if(!id) state=-1;
+    else if(d.id===id) state=1;
+    else if(rel.has(d.id)) state=2;
+    else state=0;
+    if(state===-1){ m.material.emissive.set(m.material.color);m.material.emissiveIntensity=.6;m.scale.setScalar(1);halo.material.opacity=.22;lbl.style.opacity=1; }
+    else if(state===1){ m.material.emissive.set(0xffffff);m.material.emissiveIntensity=1.6;m.scale.setScalar(1.8);halo.material.opacity=.5;lbl.style.opacity=1; }
+    else if(state===2){ m.material.emissive.set(m.material.color);m.material.emissiveIntensity=1;m.scale.setScalar(1.3);halo.material.opacity=.4;lbl.style.opacity=1; }
+    else { m.material.emissive.set(m.material.color);m.material.emissiveIntensity=.2;m.scale.setScalar(.7);halo.material.opacity=.06;lbl.style.opacity=.2; }
+  });
+  lineByPair.forEach(L=>{
+    const on = id && (L.a===id||L.b===id);
+    L.mat.opacity = id ? (on?.7:.03) : .12;
+  });
+}
+
+// ── 详情卡 ──
+const card=document.getElementById('node-card');
+const LVTXT={a1:'A1 基础',a2:'A2 进阶',b1:'B1 高阶'};
+let cardNode=null;
+function openCard(d){
+  cardNode=d;
+  const c=GC[d.g];
+  document.getElementById('nc-badges').innerHTML=
+    `<span class="nc-badge" style="background:${c}33;color:${c};border:1px solid ${c}66">${d.g}</span>`+
+    `<span class="nc-badge" style="background:rgba(246,211,101,.15);color:#f6d365;border:1px solid rgba(246,211,101,.4)">${LVTXT[d.lv]}</span>`;
+  document.getElementById('nc-title').textContent=d.n;
+  const rel=[...linkMap[d.id]].map(rid=>nameById[rid]);
+  document.getElementById('nc-rel').innerHTML = rel.length
+    ? '🔗 相关知识点：<b>'+rel.join('</b> · <b>')+'</b>'
+    : '🔗 这是一个独立知识点';
+  card.classList.add('show');
+}
+window.closeCard=function(){ card.classList.remove('show'); cardNode=null; setHighlight(null); };
+document.getElementById('nc-go').onclick=function(){ if(cardNode) jumpTo(cardNode); };
+
+// ── 点击拾取 ──
+const raycaster=new THREE.Raycaster();const mouse=new THREE.Vector2();
+let downXY=null;
+renderer.domElement.addEventListener('pointerdown',e=>{downXY=[e.clientX,e.clientY];});
+window.addEventListener('click',ev=>{
+  if(ev.target.closest('#node-card')||ev.target.tagName==='INPUT'||ev.target.tagName==='BUTTON')return;
+  // 拖拽旋转后不触发点击
+  if(downXY){const dx=ev.clientX-downXY[0],dy=ev.clientY-downXY[1];if(dx*dx+dy*dy>36){downXY=null;return;}}
+  mouse.x=(ev.clientX/window.innerWidth)*2-1;mouse.y=-(ev.clientY/window.innerHeight)*2+1;
+  raycaster.setFromCamera(mouse,camera);
+  const hits=raycaster.intersectObjects(nodeMeshes);
+  if(hits.length>0){
+    const d=hits[0].object.userData;
+    setHighlight(d.id);
+    openCard(d);
+  }else{
+    window.closeCard();
+  }
+});
+
+// ── 搜索 ──
+const si=document.getElementById('search-input');const sc=document.getElementById('search-clear');
+si.addEventListener('input',()=>{
+  const q=si.value.trim().toLowerCase();sc.style.display=q?'inline':'none';
+  if(!q){ setHighlight(activeId); return; }
+  nodeMeshes.forEach(m=>{
+    const d=m.userData,halo=haloByMesh.get(m),lbl=labelByMesh.get(m);
+    const match=d.n.toLowerCase().includes(q)||d.g.includes(q)||d.id.includes(q)||d.lv.includes(q);
+    if(match){m.material.emissive.set(0xffffff);m.material.emissiveIntensity=1.6;m.scale.setScalar(1.7);halo.material.opacity=.5;lbl.style.opacity=1;}
+    else{m.material.emissive.set(m.material.color);m.material.emissiveIntensity=.2;m.scale.setScalar(.65);halo.material.opacity=.05;lbl.style.opacity=.15;}
+  });
+});
+window.clearSearch=function(){si.value='';sc.style.display='none';setHighlight(activeId);};
+
+// ── 渲染循环 ──
+function animate(){
   requestAnimationFrame(animate);
+  controls.autoRotate = !activeId;          // 选中后停转，方便看
   controls.update();
-  ring.rotation.z += 0.0015;
-  ring2.rotation.z -= 0.001;
-  ring2.rotation.x += 0.0005;
-  particles.rotation.y += 0.0006;
-  particles.rotation.x += 0.0003;
-  branchGroup.rotation.y += 0.0004;
-  renderer.render(scene, camera);
-  labelRenderer.render(scene, camera);
+  particles.rotation.y+=.0003;particles.rotation.x+=.0002;
+  glow.scale.setScalar(1+Math.sin(Date.now()*.001)*.1);
+  renderer.render(scene,camera);lr.render(scene,camera);
 }
 animate();
-
-// ── 响应式 ──
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  labelRenderer.setSize(window.innerWidth, window.innerHeight);
-});
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);lr.setSize(window.innerWidth,window.innerHeight);});
 </script>
 </body>
 </html>

@@ -376,7 +376,7 @@
     .toc-item,.toc-grid a{background:#ebf4ff;color:#2b6cb0;padding:8px 14px;border-radius:10px;font-size:.9rem;text-decoration:none;display:block;transition:.2s}
     .toc-item:hover,.toc-grid a:hover{background:#2b6cb0;color:#fff}
     /* Section cards */
-    .section{background:#fff;border-radius:16px;padding:28px 30px;margin-bottom:26px;box-shadow:0 3px 14px rgba(0,0,0,.08)}
+    .section{background:#fff;border-radius:16px;padding:28px 30px;margin-bottom:26px;box-shadow:0 3px 14px rgba(0,0,0,.08);scroll-margin-top:64px}
     #page-b1grammar .section{overflow-x:auto}
     .section-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #ebf4ff}
     .section-num{background:linear-gradient(135deg,#2b6cb0,#63b3ed);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0}
@@ -13545,6 +13545,34 @@ function showPage(id) {
   if (currentUser === 'guest') applyGuestLocks();
 }
 
+// 知识图谱3D / 任意深链接：跳转到某个 section（自动定位它所在的 page，再平滑滚动过去）
+// 不写死 grammar —— 节点 s 字段指向哪个 section，就跳哪里，将来指向其它文章/级别也通用
+window.gotoSection = function(secId) {
+  if (!secId) return;
+  var target = document.getElementById(secId);
+  if (!target) return;
+  var page = target.closest('.page');
+  if (page && page.id && page.id.indexOf('page-') === 0) {
+    var pageId = page.id.slice(5); // 去掉 'page-'
+    showPage(pageId); // showPage 内含权限校验 + scrollTo(0,0)
+  }
+  // showPage 会把页面顶到最上面，所以延迟一帧再滚到目标 section
+  setTimeout(function() {
+    var t = document.getElementById(secId);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 120);
+};
+
+// 接收来自 iframe（知识图谱3D 等）的跳转请求。
+// 用 postMessage 而非直接 window.parent.gotoSection()，因为本地 file:// 下
+// 浏览器把每个文件当独立 origin，直接跨 iframe 访问父页面函数会被同源策略拦截。
+window.addEventListener('message', function(ev) {
+  var data = ev.data;
+  if (data && data.type === 'goto-section' && typeof data.section === 'string') {
+    gotoSection(data.section);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
   document.getElementById('page-index').style.display = 'block';
@@ -13557,18 +13585,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // 深链接支持：URL hash 自动跳转到对应页面/section
   var hash = window.location.hash;
   if (hash) {
-    var target = document.getElementById(hash.slice(1));
-    if (target) {
-      // 找到目标所在的 page 容器
-      var page = target.closest('.page');
-      if (page && page.id && page.id.startsWith('page-')) {
-        var pageId = page.id.replace('page-', '');
-        showPage(pageId);
-      }
-      // 滚动到目标 section
-      setTimeout(function() { target.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
-    }
+    gotoSection(hash.slice(1));
   }
+});
+
+// 运行中 hash 变化也跳转（3D 图旧兜底逻辑 / 浏览器前进后退都能用）
+window.addEventListener('hashchange', function() {
+  var h = window.location.hash;
+  if (h) gotoSection(h.slice(1));
 });
 </script>
 
