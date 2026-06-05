@@ -3405,6 +3405,7 @@ document.addEventListener('keydown', function(e) {
   <a href="about.html" style="display:inline-block;margin-top:18px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📘 了解本站与教学理念 →</a>
   <a href="preise.html" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📋 了解完整价格体系 →</a>
   <a href="#" onclick="showPage('wissensgraph');return false" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.35);border-radius:20px;color:#6ee7b7;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(52,211,153,.18)';this.style.borderColor='rgba(52,211,153,.6)'" onmouseout="this.style.background='rgba(52,211,153,.08)';this.style.borderColor='rgba(52,211,153,.35)'">🌐 3D 知识图谱 →</a>
+  <a href="#" onclick="showPage('vocab-index');return false" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(199,146,234,.08);border:1px solid rgba(199,146,234,.35);border-radius:20px;color:#d8b4fe;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(199,146,234,.18)';this.style.borderColor='rgba(199,146,234,.6)'" onmouseout="this.style.background='rgba(199,146,234,.08)';this.style.borderColor='rgba(199,146,234,.35)'">🔗 单词关联索引 →</a>
 </div>
 
 <!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
@@ -17301,6 +17302,8 @@ function brToggleSample4() {
    B1 阅读 — MCQ / passage / answer-box 样式
    ═══════════════════════════════════════════ */
 #page-b1lesen .section{margin-bottom:48px}
+/* 从单词索引跳转过来时，标题不被顶栏遮挡 */
+#page-a2lesen .section, #page-b1lesen .section{scroll-margin-top:64px}
 #page-b1lesen .mcq-list{list-style:none;padding:0}
 #page-b1lesen .mcq-item{margin-bottom:1.2rem}
 #page-b1lesen .mcq-item p{font-weight:600;margin-bottom:.5rem;font-size:.94rem}
@@ -43853,6 +43856,15 @@ function b1S12CheckB(){
 <div id="page-wissensgraph" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="知识图谱3D.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 单词关联索引 ══════════ -->
+<div id="page-vocab-index" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="词汇索引.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
