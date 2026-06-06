@@ -2667,7 +2667,7 @@ var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schre
 // A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
 (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1l-s11','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
+var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1l-s11','b1l-s14','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -17333,6 +17333,8 @@ function brToggleSample4() {
 #page-b1lesen #b1s9-fh-score{text-align:center;margin-top:8px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s10-s9-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s1-erlebnis-mcq-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
+#page-b1lesen #b1s14-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1s14-rede-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #eg321-mcq-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen .score-badge{display:inline-block;background:#1a5a2a;color:#fff;border-radius:2rem;padding:.25rem .9rem;font-size:.85rem;font-weight:700}
 
@@ -26521,6 +26523,7 @@ function lxqResetMCQ(id) {
       <a href="#b1l-s11" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">10 · 📋 Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</a>
       <a href="#b1l-s12" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">12 · 🎤 Präsentation vorbereiten &amp; durchführen</a>
       <a href="#b1l-s13" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">13 · 🎤 Präsentation II — Eisbrecher, Fragen &amp; Workshop</a>
+      <a href="#b1l-s14" style="color:#1a5a2a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background=''">14 · 🤝 Das Ehrenamt lebt! — Engagement &amp; Ehrenamt</a>
     </div>
   </div>
 
@@ -37205,6 +37208,32 @@ document.addEventListener('dblclick', function(e){
   }
 });
 
+// ═══ Section 14 · Aufgabe 3 · Rede des Bürgermeisters · Transkript 模式切换 ═══
+function B1s14rTransMode(mode){
+  const full = document.getElementById('b1s14r-trans-full');
+  const blank = document.getElementById('b1s14r-trans-blank');
+  const btnFull = document.getElementById('b1s14r-mode-full');
+  const btnBlank = document.getElementById('b1s14r-mode-blank');
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = '';
+    if(btnFull){ btnFull.style.background='#fff'; btnFull.style.color='#1565c0'; }
+    if(btnBlank){ btnBlank.style.background='#1565c0'; btnBlank.style.color='#fff'; }
+  } else {
+    full.style.display = '';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#1565c0'; btnFull.style.color='#fff'; }
+    if(btnBlank){ btnBlank.style.background='#fff'; btnBlank.style.color='#1565c0'; }
+  }
+}
+function B1s14rRevealAll(){
+  document.querySelectorAll('#b1s14r-trans-blank .b1fb-gap').forEach(g=>g.classList.add('revealed'));
+}
+function B1s14rHideAll(){
+  document.querySelectorAll('#b1s14r-trans-blank .b1fb-gap').forEach(g=>g.classList.remove('revealed'));
+}
+
 // ═══ Section 11 · Übungen 4 · 听力原文 模式切换 ═══
 function b1s11TransMode(mode){
   const full = document.getElementById('b1s11-trans-full');
@@ -37589,7 +37618,7 @@ function b1S12CheckB(){
     if(!page) return;
     const inner = page.querySelector(':scope > div');
     if(!inner) return;
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14']].forEach(function(pair){
       const wrapper = document.getElementById(pair[0]);
       const existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
@@ -39311,6 +39340,1026 @@ function b1S12CheckB(){
     <div style="background:#f1f8e9;border-radius:8px;padding:10px 16px;margin-top:18px;font-size:.78rem;color:#555">
       📖 Quelle: <em>Linie 1 B1</em> · Kapitel 9 · <em>Ein Produkt präsentieren · Eisbrecher · Fragen &amp; Antworten</em> (adaptiert &amp; erweitert)
     </div>
+
+  </div><!-- /section-body -->
+</div><!-- /section -->
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- B1 阅读 14 · Das Ehrenamt lebt! — Engagement & Ehrenamt           -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s14-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s14">
+  <div class="section-header">阅读 14 · 🤝 Das Ehrenamt lebt! &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Engagement &amp; Ehrenamt · Zeitungsartikel</span></div>
+  <div class="section-body">
+
+<!-- ═══ Hier lernen Sie ═══ -->
+<div style="background:linear-gradient(135deg,#e8f5e9,#a3c94f);border-radius:14px;padding:18px 22px;margin-bottom:20px">
+  <div style="font-weight:700;color:#33691e;font-size:1.05rem;margin-bottom:.5rem">🟢 HIER LERNEN SIE / 本课你将学会</div>
+  <div style="font-size:.9rem;color:#33510f;line-height:1.95">
+    ▶ über <strong>Engagement und Ehrenamt</strong> sprechen <span style="color:#5d6d2e">— 谈论公益参与和志愿服务</span><br>
+    ▶ einen <strong>(Sport-)Verein vorstellen</strong> <span style="color:#5d6d2e">— 介绍一个（体育）协会/社团</span><br>
+    ▶ <strong>Bedingungen und Wünsche</strong> nennen <span style="color:#5d6d2e">— 表达条件和愿望（Konjunktiv II）</span><br>
+    ▶ eine <strong>Diskussion führen</strong> <span style="color:#5d6d2e">— 主持/参与一场讨论</span>
+  </div>
+</div>
+<!-- B1S14_BODY -->
+
+<!-- ═══ Hauptartikel · Das Ehrenamt lebt! ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#7a9c2e,#a3c94f);padding:16px 28px 18px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div style="color:#fff;font-size:1.3rem;font-weight:700">🤝 Das Ehrenamt lebt!</div>
+      <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">Zeitungsartikel · von Maria Merkle</span>
+    </div>
+    <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Engagierte Bürgerinnen und Bürger im Rathaus geehrt — 投身公益的市民在市政厅受表彰</div>
+  </div>
+  <div style="padding:22px 28px 26px;font-size:.9rem;line-height:1.95;color:#2d3748">
+
+    <!-- Bildunterschrift Feuerwehr -->
+    <div style="background:#f1f8e9;border-left:4px solid #94b43b;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:16px;font-size:.85rem;color:#4e5d2e;font-style:italic">
+      🚒 <strong>Paula Fröhlich</strong>, Mechanikerin, bei einer Übung der Freiwilligen Feuerwehr:<br>
+      „Ich will in meiner Freizeit etwas Sinnvolles tun, darum mache ich mit. Helfen macht Spaß!"
+    </div>
+
+    <p style="margin:0 0 .8rem">Zum <strong>Internationalen Tag des Ehrenamtes</strong> am 5. Dezember erhielten wieder vier Bürgerinnen und Bürger im Rathaus von Unterrödingen einen Preis für ihr <strong>Engagement</strong>. <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.5</span> Geehrt wurden in diesem Jahr <strong>Paula Fröhlich</strong>, die seit ihrer Kindheit Mitglied bei der <strong>Freiwilligen Feuerwehr</strong> ist, <strong>Friedrich Baur</strong>, der seit mehr als 25 Jahren beim <strong>Naturschutzbund (NABU)</strong> aktiv ist, <strong>Marc Kling</strong>, der in seiner Tierarztpraxis einmal pro Woche Hunde von wohnungslosen Menschen kostenlos behandelt, <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.10</span> und <strong>Tekla Pawlak</strong>, die seit fünfzehn Jahren ältere Menschen besucht und ihnen ihre Zeit <strong>schenkt</strong>.</p>
+
+    <p style="margin:0 0 .8rem">Bürgermeister <strong>Matthias Sigl</strong> lobte die vier Frauen und Männer für ihr Engagement. „Sie haben ein Ehrenamt <strong>übernommen</strong> und setzen sich schon seit vielen Jahren <strong>in ihrer Freizeit und ohne Bezahlung</strong> für andere Menschen ein. <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.15</span> Ohne ihren Einsatz würde vieles in unserer Gesellschaft nicht funktionieren", sagte er in seiner Rede vor mehr als dreihundert Gästen.</p>
+
+    <p style="margin:0 0 .4rem">Zum Schluss <strong>zitierte</strong> er noch das Sprichwort: <span style="color:#94b43b;font-size:.72rem;font-weight:700">Z.20</span> „Viele kleine Leute an vielen kleinen Orten, die viele kleine Schritte tun, können die Welt verändern." Und meinte: „Genau das tun Sie und die vielen anderen ehrenamtlichen Helferinnen und Helfer in unserer Stadt. Deshalb ist es mir eine große Freude, heute Danke zu sagen."</p>
+
+    <!-- 📖 预习笔记 -->
+    <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:16px;font-size:.84rem;line-height:1.8;color:#5d4037">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>das Ehrenamt, -¨er</strong> 义务职务/志愿岗位 | <em>eine freiwillige Tätigkeit ohne Bezahlung</em><br>
+      • <strong>das Engagement</strong> (无复数) 投入/积极参与 | <em>der aktive Einsatz für eine Sache</em><br>
+      • <strong>geehrt werden</strong> 受表彰 | <em>einen Preis oder eine Auszeichnung bekommen</em><br>
+      • <strong>die/der Freiwillige, -n</strong> 志愿者 | <em>jemand, der etwas ohne Zwang und ohne Geld macht</em><br>
+      • <strong>die Freiwillige Feuerwehr</strong> 志愿消防队 | <em>Feuerwehr aus ehrenamtlichen Mitgliedern</em><br>
+      • <strong>der Naturschutzbund (NABU)</strong> 自然保护联盟 | <em>eine Organisation, die die Natur schützt</em><br>
+      • <strong>der/die Wohnungslose, -n</strong> 无家可归者 | <em>ein Mensch, der keine Wohnung hat</em><br>
+      • <strong>sich einsetzen für + A</strong> 为……而努力 | <em>sich für etwas oder jemanden stark machen</em><br>
+      • <strong>etwas übernehmen</strong> 承担/接手 | <em>eine Aufgabe annehmen und tragen</em><br>
+      • <strong>jdm. seine Zeit schenken</strong> 把时间献给某人 | <em>freiwillig Zeit für jemanden geben</em><br>
+      • <strong>der Einsatz, -¨e</strong> 投入/行动 | <em>die Arbeit und Mühe für eine Sache</em><br>
+      • <strong>die Bezahlung</strong> 报酬 | <em>das Geld, das man für Arbeit bekommt</em><br>
+      • <strong>zitieren</strong> 引用 | <em>die Worte von jemand anderem genau wiederholen</em><br>
+      • <strong>das Sprichwort, -¨er</strong> 谚语 | <em>ein bekannter, kurzer Satz mit einer Lebensweisheit</em><br>
+      • <strong>die Gesellschaft, -en</strong> 社会 | <em>alle Menschen, die zusammenleben</em><br>
+      • <strong>der/die Ehrenamtliche, -n</strong> 志愿工作者 | <em>jemand, der ein Ehrenamt ausübt</em>
+    </div>
+  </div>
+</div>
+<!-- B1S14_PORTRAITS -->
+
+<!-- ═══ Drei Porträts · O-Töne der Geehrten ═══ -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+  <div style="background:linear-gradient(135deg,#558b2f,#7cb342);padding:14px 24px 16px">
+    <div style="color:#fff;font-size:1.1rem;font-weight:700">💬 Die Geehrten erzählen — 受表彰者自述</div>
+    <div style="color:rgba(255,255,255,.85);font-size:.82rem;margin-top:3px">Warum engagieren sie sich? — 他们为什么投身公益？</div>
+  </div>
+  <div style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px">
+
+    <!-- Friedrich Baur -->
+    <div style="background:#f1f8e9;border-radius:10px;padding:14px 18px;border-left:5px solid #7cb342">
+      <div style="font-size:.9rem;line-height:1.85;color:#2d3748;font-style:italic">„Für mich waren der <strong>Schutz und die Pflege des Waldes</strong> schon immer wichtig. Wenn wir z. B. nicht regelmäßig <strong>Müll sammeln würden</strong>, wäre unser Wald ziemlich <strong>vermüllt</strong>. Mir macht es einfach Spaß, gemeinsam mit anderen aktiv zu sein."</div>
+      <div style="margin-top:8px;font-size:.8rem;color:#558b2f;font-weight:700">🌳 Friedrich Baur, Rentner — beim Müllsammeln im Wald</div>
+      <div style="font-size:.8rem;color:#777;margin-top:4px">🇨🇳 「对我来说，保护和养护森林一直很重要。比如要是我们不定期捡垃圾，我们的森林就会被垃圾糟蹋。和别人一起行动让我觉得很开心。」— 退休人员，在林中捡垃圾</div>
+    </div>
+
+    <!-- Tekla Pawlak -->
+    <div style="background:#fff8e1;border-radius:10px;padding:14px 18px;border-left:5px solid #f9a825">
+      <div style="font-size:.9rem;line-height:1.85;color:#2d3748;font-style:italic">„Ich wollte <strong>für andere da sein</strong>, deshalb habe ich mich bei einem <strong>Besuchsdienst</strong> gemeldet. Ich besuche ältere Menschen und unterhalte mich mit ihnen. Sie geben mir das Gefühl, dass sie mich <strong>brauchen</strong>. Das ist ein gutes Gefühl."</div>
+      <div style="margin-top:8px;font-size:.8rem;color:#ef6c00;font-weight:700">👵 Tekla Pawlak, Verkäuferin — im Gespräch mit einer Seniorin im „Seniorenheim am Wald"</div>
+      <div style="font-size:.8rem;color:#777;margin-top:4px">🇨🇳 「我想为他人付出，所以报名参加了一个探访服务。我去看望老人，和他们聊天。他们让我感到他们需要我。这是一种很好的感觉。」— 售货员，在『林边养老院』与一位老太太交谈</div>
+    </div>
+
+    <!-- Marc Kling -->
+    <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;border-left:5px solid #1e88e5">
+      <div style="font-size:.9rem;line-height:1.85;color:#2d3748;font-style:italic">„Der Hund ist oft der <strong>einzige Freund</strong> von wohnungslosen Menschen. Durch meine Arbeit kann ich nicht nur den Hunden, sondern auch ihren <strong>Besitzerinnen und Besitzern helfen</strong>. Das macht mir große Freude. Ich würde gern noch mehr tun. Aber das geht leider nicht."</div>
+      <div style="margin-top:8px;font-size:.8rem;color:#1565c0;font-weight:700">🐕 Marc Kling, Tierarzt — mit einem Patienten in seiner Praxis</div>
+      <div style="font-size:.8rem;color:#777;margin-top:4px">🇨🇳 「狗常常是无家可归者唯一的朋友。通过我的工作，我不仅能帮助这些狗，也能帮助它们的主人。这让我非常快乐。我很想做得更多，但可惜做不到。」— 兽医，在诊所里给一位『病患』看诊</div>
+    </div>
+
+  </div>
+</div>
+<!-- B1S14_RESOURCES -->
+
+<!-- 📚 词汇表 -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-vocab')" style="margin-top:6px">📚 显示/隐藏词汇语法</button>
+<div class="answer-box" id="b1s14-vocab">
+  • <strong>das Ehrenamt, -¨er</strong> = 义务职务/志愿岗位 · <strong>das Engagement</strong> = 投入/积极参与<br>
+  • <strong>der/die Ehrenamtliche, -n</strong> = 志愿工作者 · <strong>der/die Freiwillige, -n</strong> = 志愿者<br>
+  • <strong>der Einsatz, -¨e</strong> = 投入/出动 · <strong>die Bezahlung, -en</strong> = 报酬<br>
+  • <strong>die Feuerwehr, -en</strong> = 消防队 · <strong>der Naturschutzbund</strong> = 自然保护联盟（NABU）<br>
+  • <strong>die Tierarztpraxis, ...praxen</strong> = 兽医诊所 · <strong>der/die Wohnungslose, -n</strong> = 无家可归者<br>
+  • <strong>der Besuchsdienst, -e</strong> = 探访服务 · <strong>das Seniorenheim, -e</strong> = 养老院<br>
+  • <strong>die Pflege</strong> = 养护/照料 · <strong>der Schutz</strong> = 保护 · <strong>der Müll</strong> = 垃圾<br>
+  • <strong>das Sprichwort, -¨er</strong> = 谚语 · <strong>die Gesellschaft, -en</strong> = 社会<br>
+  • <strong>der Bürgermeister, -</strong> = 市长 · <strong>das Rathaus, -¨er</strong> = 市政厅 · <strong>der Gast, -¨e</strong> = 客人<br>
+  • <strong>(jdn.) ehren</strong> = 表彰 · <strong>geehrt werden</strong> = 受表彰（被动）<br>
+  • <strong>etwas übernehmen (übernimmt, übernahm, hat übernommen)</strong> = 承担/接手<br>
+  • <strong>sich einsetzen für + A</strong> = 为……而努力 · <strong>sich melden bei + D</strong> = 报名/联系<br>
+  • <strong>jdm. etwas schenken</strong> = 把……赠予某人 · <strong>jdn. brauchen</strong> = 需要某人<br>
+  • <strong>zitieren</strong> = 引用 · <strong>loben</strong> = 称赞 · <strong>verändern</strong> = 改变<br>
+  • <strong>vermüllt</strong> = 被垃圾糟蹋的 · <strong>sinnvoll</strong> = 有意义的 · <strong>kostenlos</strong> = 免费的 · <strong>regelmäßig</strong> = 定期的
+</div>
+<!-- B1S14_GRAMMAR -->
+
+<!-- 📖 语法解析 -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-grammatik')">📖 显示/隐藏语法解析</button>
+<div class="answer-box" id="b1s14-grammatik">
+
+  <strong>1. Konjunktiv II — Bedingungen &amp; Wünsche</strong> 第二虚拟式（条件与愿望）| <em>würde + Infinitiv / wäre / hätte</em><br>
+  🇩🇪 Formel: <em>Wenn …, würde/wäre/hätte … (irreale Bedingung)</em><br>
+  🇨🇳 规则：表达不真实/假设的条件和愿望。多数动词用 <strong>würde + 不定式</strong>，sein→<strong>wäre</strong>，haben→<strong>hätte</strong>，können→<strong>könnte</strong>。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„Ohne ihren Einsatz <strong>würde</strong> vieles … nicht <strong>funktionieren</strong>."</em> — 没有他们的投入，很多事都将无法运转。<br>
+  <em>„Wenn wir … nicht … Müll sammeln <strong>würden</strong>, <strong>wäre</strong> unser Wald ziemlich vermüllt."</em> — 要是我们不捡垃圾，森林就会被垃圾糟蹋。<br>
+  ⚠️ 考点：这一课的核心语法。条件句两半都常用虚拟式；愿望句 <em>„Ich würde gern noch mehr tun"</em>（我很想做更多）也是 Konjunktiv II。<br><br>
+
+  <strong>2. Relativsatz</strong> 关系从句 | <em>der/die/das + … + Verb am Ende</em><br>
+  🇩🇪 Formel: <em>…, der/die/das + Nebensatz (Verb am Ende)</em><br>
+  🇨🇳 规则：用关系代词 der/die/das 连接，动词放从句末尾。关系代词的性数与先行词一致，格由它在从句中的角色决定。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„Paula Fröhlich, <strong>die</strong> seit ihrer Kindheit Mitglied … <strong>ist</strong>"</em> — 自童年起就是成员的 Paula。<br>
+  <em>„Marc Kling, <strong>der</strong> … Hunde … kostenlos <strong>behandelt</strong>"</em> — 免费给狗看病的 Marc。<br>
+  ⚠️ 考点：文中四位获奖者各带一个关系从句介绍，是典型的"人物 + der/die + Tätigkeit"结构。<br><br>
+
+  <strong>3. Passiv im Präteritum</strong> 过去时被动态 | <em>wurde + Partizip II</em><br>
+  🇩🇪 Formel: <em>wurden + Partizip II (am Ende)</em><br>
+  🇨🇳 规则：被动语态强调动作本身，施动者常省略。过去时被动 = <strong>wurde/wurden + 第二分词</strong>。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„<strong>Geehrt wurden</strong> in diesem Jahr Paula Fröhlich …"</em> — 今年受表彰的是 Paula Fröhlich……<br>
+  ⚠️ 考点：句首把 Partizip II（geehrt）提前是新闻德语强调重点的常见手法；主语在后。<br><br>
+
+  <strong>4. Präteritum</strong> 书面过去时 | <em>schriftliche Vergangenheit</em><br>
+  🇩🇪 Formel: <em>erhielten · lobte · sagte · zitierte · meinte</em><br>
+  🇨🇳 规则：新闻报道、记叙文用 Präteritum（书面过去时），口语里同样意思用 Perfekt。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„… <strong>erhielten</strong> wieder vier Bürgerinnen und Bürger … einen Preis."</em> — 四位市民再次获奖。<br>
+  <em>„Bürgermeister Matthias Sigl <strong>lobte</strong> die vier Frauen und Männer."</em> — 市长称赞了这四人。<br>
+  ⚠️ 考点：报道动词 sagen/meinen/zitieren 几乎都用 Präteritum；erhalten→erhielt 是不规则。<br><br>
+
+  <strong>5. Verben mit Präposition</strong> 动词介词搭配 | <em>feste Präposition</em><br>
+  🇩🇪 Formel: <em>sich einsetzen <strong>für</strong> + A · sich melden <strong>bei</strong> + D · Mitglied sein <strong>bei</strong> + D</em><br>
+  🇨🇳 规则：很多动词带固定介词，介词决定后面的格。需整体记忆。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„… setzen sich … <strong>für</strong> andere Menschen <strong>ein</strong>."</em> — 为他人付出。<br>
+  <em>„… habe ich mich <strong>bei</strong> einem Besuchsdienst <strong>gemeldet</strong>."</em> — 我报名参加了探访服务。<br>
+  ⚠️ 考点：sich einsetzen für + 第四格；sich melden bei + 第三格。可分动词前缀 ein-/an- 放句末。<br><br>
+
+  <strong>6. seit + Dativ (Zeitdauer)</strong> seit + 第三格（持续时间）| <em>Dauer bis jetzt</em><br>
+  🇩🇪 Formel: <em>seit + Dativ + Präsens</em><br>
+  🇨🇳 规则：seit 表示"从……至今持续"，后接第三格，动词用现在时（动作仍在继续）。<br>
+  📖 文中例句 / Textbeleg:<br>
+  <em>„… der <strong>seit mehr als 25 Jahren</strong> beim NABU aktiv <strong>ist</strong>."</em> — 他在 NABU 已活跃 25 年多。<br>
+  ⚠️ 考点：中文"已经……了"对应德语 seit + 现在时，不能用过去时。<br>
+</div>
+<!-- B1S14_HINTERGRUND -->
+
+<!-- 🏛️ 背景知识 -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-hintergrund')">🏛️ 显示/隐藏背景知识</button>
+<div class="answer-box" id="b1s14-hintergrund">
+<div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+
+  <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+    <strong style="color:#1a5a2a;font-size:.95rem">🗓️ Der Internationale Tag des Ehrenamtes — 国际志愿者日</strong><br>
+    🇩🇪 Der 5. Dezember ist der „Internationale Tag des Ehrenamtes". Die UNO hat diesen Tag 1985 eingeführt. An diesem Tag sagt man den vielen freiwilligen Helfern Danke. In Deutschland gibt es oft Feiern im Rathaus, und manche Städte geben einen Preis für besonderes Engagement.<br>
+    🇨🇳 12 月 5 日是"国际志愿者日"，由联合国于 1985 年设立。这一天人们向众多志愿者致谢。在德国，市政厅常会举办庆祝活动，有些城市还会为突出的公益参与颁奖。
+  </div>
+
+  <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+    <strong style="color:#e65100;font-size:.95rem">🚒 Die Freiwillige Feuerwehr — 志愿消防队</strong><br>
+    🇩🇪 In Deutschland sind die meisten Feuerwehren <em>freiwillig</em>. Das heißt: Die Mitglieder haben einen normalen Beruf und helfen in ihrer Freizeit. Nur große Städte haben eine Berufsfeuerwehr. Über eine Million Menschen sind bei der Freiwilligen Feuerwehr aktiv.<br>
+    🇨🇳 在德国，大多数消防队是"志愿"性质的：成员有自己的正职，在业余时间出动救援。只有大城市才有职业消防队。德国有一百多万人活跃在志愿消防队。
+  </div>
+
+  <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+    <strong style="color:#1565c0;font-size:.95rem">🌳 Der NABU — 自然保护联盟</strong><br>
+    🇩🇪 NABU bedeutet „Naturschutzbund Deutschland". Das ist eine der größten Umweltorganisationen in Deutschland. Viele Mitglieder arbeiten ehrenamtlich: Sie sammeln Müll, pflanzen Bäume oder schützen Vögel und Tiere.<br>
+    🇨🇳 NABU 全称"德国自然保护联盟"，是德国最大的环保组织之一。许多成员是志愿者：他们捡垃圾、种树、保护鸟类和动物。
+  </div>
+
+  <div style="background:#f3e5f5;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+    <strong style="color:#6a1b9a;font-size:.95rem">🤝 Das Ehrenamt in Deutschland — 德国的志愿文化</strong><br>
+    🇩🇪 Ungefähr jeder dritte Mensch in Deutschland engagiert sich ehrenamtlich — im Sportverein, bei der Feuerwehr, in der Kirche oder im sozialen Bereich. Man bekommt kein Geld dafür. Das Ehrenamt ist ein wichtiger Teil der deutschen Gesellschaft.<br>
+    🇨🇳 德国大约每三人就有一人从事志愿服务——在体育协会、消防队、教会或社会服务领域。这些工作没有报酬。志愿服务是德国社会的重要组成部分。
+  </div>
+
+  <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:0">
+    <strong style="color:#ad1457;font-size:.95rem">👵 Der Besuchsdienst — 探访服务</strong><br>
+    🇩🇪 Viele alte Menschen leben allein und sind oft einsam. Beim „Besuchsdienst" besuchen Freiwillige regelmäßig ältere Menschen, reden mit ihnen oder gehen mit ihnen spazieren. So bekommen die Senioren Gesellschaft und fühlen sich nicht allein.<br>
+    🇨🇳 许多老人独居，常感到孤独。在"探访服务"中，志愿者定期看望老人，与他们聊天或一起散步。这样老人有了陪伴，不再感到孤单。
+  </div>
+
+</div>
+</div>
+<!-- B1S14_KOLLOKATION -->
+
+<!-- 🔗 词汇搭配 -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-kollokation')">🔗 显示/隐藏词汇搭配</button>
+<div class="answer-box" id="b1s14-kollokation">
+<table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+  <tr style="background:#1a5a2a;color:#fff">
+    <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+    <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+    <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">ein Ehrenamt übernehmen</td>
+    <td style="padding:8px 12px">承担一份志愿工作 | <em>eine freiwillige Aufgabe annehmen</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Sie <strong>haben ein Ehrenamt übernommen</strong>.</em><br><span style="color:#666">他们承担了一份志愿工作。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">sich einsetzen für + A</td>
+    <td style="padding:8px 12px">为……而努力/挺身而出 | <em>sich für etwas stark machen</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Sie <strong>setzen sich für</strong> andere Menschen <strong>ein</strong>.</em><br><span style="color:#666">他们为他人而付出。</span></td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">einen Preis erhalten</td>
+    <td style="padding:8px 12px">获奖 | <em>eine Auszeichnung bekommen</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Vier Bürger <strong>erhielten einen Preis</strong>.</em><br><span style="color:#666">四位市民获了奖。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">Mitglied sein bei + D</td>
+    <td style="padding:8px 12px">是……的成员 | <em>zu einer Gruppe gehören</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Sie ist <strong>Mitglied bei</strong> der Feuerwehr.</em><br><span style="color:#666">她是消防队的成员。</span></td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">sich melden bei + D</td>
+    <td style="padding:8px 12px">报名/联系 | <em>Kontakt aufnehmen, sich anmelden</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Ich habe mich <strong>bei</strong> einem Besuchsdienst <strong>gemeldet</strong>.</em><br><span style="color:#666">我报名参加了探访服务。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">für jdn. da sein</td>
+    <td style="padding:8px 12px">陪伴/支持某人 | <em>jemandem helfen und ihn unterstützen</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Ich wollte <strong>für andere da sein</strong>.</em><br><span style="color:#666">我想为他人付出。</span></td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">Müll sammeln</td>
+    <td style="padding:8px 12px">捡垃圾 | <em>Abfall aufsammeln</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Wir <strong>sammeln</strong> regelmäßig <strong>Müll</strong> im Wald.</em><br><span style="color:#666">我们定期在林中捡垃圾。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">jdm. seine Zeit schenken</td>
+    <td style="padding:8px 12px">把时间献给某人 | <em>freiwillig Zeit für jemanden geben</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Sie <strong>schenkt</strong> älteren Menschen <strong>ihre Zeit</strong>.</em><br><span style="color:#666">她把自己的时间献给老人。</span></td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">Spaß machen</td>
+    <td style="padding:8px 12px">带来乐趣 | <em>Freude bereiten</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Helfen <strong>macht</strong> einfach <strong>Spaß</strong>.</em><br><span style="color:#666">帮助别人就是很有乐趣。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">eine Rede halten</td>
+    <td style="padding:8px 12px">作演讲/致辞 | <em>vor Publikum sprechen</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Der Bürgermeister <strong>hielt eine Rede</strong>.</em><br><span style="color:#666">市长发表了讲话。</span></td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">die Welt verändern</td>
+    <td style="padding:8px 12px">改变世界 | <em>etwas Großes bewirken</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Kleine Schritte können <strong>die Welt verändern</strong>.</em><br><span style="color:#666">小小的步伐能改变世界。</span></td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">etwas Sinnvolles tun</td>
+    <td style="padding:8px 12px">做有意义的事 | <em>eine nützliche Tätigkeit ausüben</em></td>
+    <td style="padding:8px 12px;font-size:.83rem"><em>Ich will <strong>etwas Sinnvolles tun</strong>.</em><br><span style="color:#666">我想做点有意义的事。</span></td>
+  </tr>
+</table>
+</div>
+<!-- B1S14_REDEMITTEL -->
+
+<!-- 💬 常用表达 Redemittel -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-redemittel')">💬 显示/隐藏常用表达</button>
+<div class="answer-box" id="b1s14-redemittel">
+<table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+  <tr style="background:#1a5a2a;color:#fff">
+    <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+    <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+    <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">说明动机 / Motiv nennen</td>
+    <td style="padding:8px 12px"><em>Ich engagiere mich, weil ich anderen helfen möchte.</em></td>
+    <td style="padding:8px 12px">我做志愿是因为我想帮助别人。</td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">表达愿望 / Wunsch äußern</td>
+    <td style="padding:8px 12px"><em>Ich würde gern noch mehr tun.</em></td>
+    <td style="padding:8px 12px">我很想做得更多。</td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">表达条件 / Bedingung nennen</td>
+    <td style="padding:8px 12px"><em>Wenn wir nicht helfen würden, wäre vieles schlechter.</em></td>
+    <td style="padding:8px 12px">如果我们不帮忙，很多事都会更糟。</td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">介绍协会 / Verein vorstellen</td>
+    <td style="padding:8px 12px"><em>Ich bin seit … Jahren Mitglied bei … . Wir treffen uns …</em></td>
+    <td style="padding:8px 12px">我加入……已经……年了。我们每……见面……</td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">表达感受 / Gefühl ausdrücken</td>
+    <td style="padding:8px 12px"><em>Das gibt mir das Gefühl, dass man mich braucht.</em></td>
+    <td style="padding:8px 12px">这让我感到自己被需要。</td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">表达观点 / Meinung äußern</td>
+    <td style="padding:8px 12px"><em>Meiner Meinung nach ist das Ehrenamt sehr wichtig.</em></td>
+    <td style="padding:8px 12px">在我看来，志愿服务非常重要。</td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">致谢 / sich bedanken</td>
+    <td style="padding:8px 12px"><em>Es ist mir eine große Freude, Danke zu sagen.</em></td>
+    <td style="padding:8px 12px">能说一声谢谢，是我莫大的荣幸。</td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">称赞 / loben</td>
+    <td style="padding:8px 12px"><em>Ich finde es toll, dass Sie sich so engagieren.</em></td>
+    <td style="padding:8px 12px">您这么积极投入，我觉得很了不起。</td>
+  </tr>
+  <tr style="background:#f9fbe7">
+    <td style="font-weight:700;padding:8px 12px">引用谚语 / Sprichwort zitieren</td>
+    <td style="padding:8px 12px"><em>Es gibt ein Sprichwort, das sagt: …</em></td>
+    <td style="padding:8px 12px">有一句谚语说：……</td>
+  </tr>
+  <tr style="background:#fff">
+    <td style="font-weight:700;padding:8px 12px">讨论提议 / Vorschlag in Diskussion</td>
+    <td style="padding:8px 12px"><em>Ich schlage vor, dass wir … . Was meinst du dazu?</em></td>
+    <td style="padding:8px 12px">我建议我们……，你怎么看？</td>
+  </tr>
+</table>
+</div>
+<!-- B1S14_BEISPIELE -->
+
+<!-- ✍️ 仿写例句 -->
+<button class="btn btn-show" onclick="a2ToggleAns('b1s14-beispiele')">✍️ 显示/隐藏仿写例句</button>
+<div class="answer-box" id="b1s14-beispiele">
+<div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+  <strong>🔹 Muster 1: 人物 + Relativsatz 介绍获奖者</strong><br>
+  🇩🇪 <em>Geehrt wurde <strong>Paula Fröhlich, die seit ihrer Kindheit Mitglied bei der Feuerwehr ist</strong>.</em><br>
+  🇨🇳 受表彰的是 Paula Fröhlich，她从童年起就是消防队的成员。<br>
+  👉 <em>Nachbau: Geehrt wurde ___ (Name), der/die ___ (Relativsatz, Verb am Ende).</em><br><br>
+
+  <strong>🔹 Muster 2: irreale Bedingung 不真实条件（Konjunktiv II）</strong><br>
+  🇩🇪 <em>Wenn wir nicht regelmäßig Müll <strong>sammeln würden</strong>, <strong>wäre</strong> unser Wald vermüllt.</em><br>
+  🇨🇳 要是我们不定期捡垃圾，我们的森林就会被垃圾糟蹋。<br>
+  👉 <em>Nachbau: Wenn ___ nicht ___ würde, wäre/hätte ___ (Folge).</em><br><br>
+
+  <strong>🔹 Muster 3: Motiv mit „deshalb" 说明动机</strong><br>
+  🇩🇪 <em>Ich wollte für andere da sein, <strong>deshalb</strong> habe ich mich bei einem Besuchsdienst gemeldet.</em><br>
+  🇨🇳 我想为他人付出，所以报名参加了探访服务。<br>
+  👉 <em>Nachbau: Ich wollte ___, deshalb habe ich ___ (Perfekt).</em><br><br>
+
+  <strong>🔹 Muster 4: nicht nur … sondern auch 递进</strong><br>
+  🇩🇪 <em>Durch meine Arbeit kann ich <strong>nicht nur</strong> den Hunden, <strong>sondern auch</strong> ihren Besitzern helfen.</em><br>
+  🇨🇳 通过我的工作，我不仅能帮助狗，也能帮助它们的主人。<br>
+  👉 <em>Nachbau: … kann ich nicht nur ___, sondern auch ___ helfen/machen.</em><br><br>
+
+  <strong>🔹 Muster 5: Wunsch im Konjunktiv II 表达愿望</strong><br>
+  🇩🇪 <em>Ich <strong>würde gern</strong> noch mehr <strong>tun</strong>, aber das geht leider nicht.</em><br>
+  🇨🇳 我很想做得更多，但可惜做不到。<br>
+  👉 <em>Nachbau: Ich würde gern ___ (Infinitiv), aber ___ .</em>
+</div>
+</div>
+<!-- B1S14_MCQ -->
+
+<!-- 📝 互动练习 -->
+<div style="background:#e8f5e9;border-radius:12px;padding:16px 20px;margin-top:18px">
+  <div style="font-weight:700;color:#1a5a2a;font-size:1rem;margin-bottom:6px">📝 Leseverstehen — Richtig oder falsch?</div>
+  <div style="font-size:.82rem;color:#555;margin-bottom:12px">阅读理解：根据文章判断对错。A = richtig（对），B = falsch（错）。</div>
+
+  <div class="mcq-list" id="b1s14-mcq">
+    <div class="mcq-item" data-ans="A">
+      <p><strong>1.</strong> Der Internationale Tag des Ehrenamtes ist am 5. Dezember.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q1" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q1" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="B">
+      <p><strong>2.</strong> Die vier geehrten Personen bekommen für ihr Engagement Geld.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q2" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q2" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="A">
+      <p><strong>3.</strong> Friedrich Baur ist seit mehr als 25 Jahren beim Naturschutzbund (NABU) aktiv.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q3" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q3" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="A">
+      <p><strong>4.</strong> Marc Kling behandelt einmal pro Woche Hunde von wohnungslosen Menschen kostenlos.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q4" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q4" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="B">
+      <p><strong>5.</strong> Tekla Pawlak besucht seit fünf Jahren ältere Menschen.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q5" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q5" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="A">
+      <p><strong>6.</strong> Bürgermeister Sigl hielt seine Rede vor mehr als dreihundert Gästen.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q6" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q6" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="B">
+      <p><strong>7.</strong> Paula Fröhlich ist erst seit Kurzem bei der Freiwilligen Feuerwehr.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q7" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q7" value="B"> B) falsch</label>
+      </div>
+    </div>
+    <div class="mcq-item" data-ans="A">
+      <p><strong>8.</strong> Das Sprichwort sagt, dass viele kleine Schritte die Welt verändern können.</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b1s14-q8" value="A"> A) richtig</label>
+        <label><input type="radio" name="b1s14-q8" value="B"> B) falsch</label>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-check" onclick="a2CheckMCQ('b1s14-mcq')">批改答案</button>
+  <button class="btn btn-show" onclick="a2ToggleAns('b1s14-explain')">显示/隐藏解析</button>
+  <button class="btn btn-reset" onclick="a2ResetMCQ('b1s14-mcq')">重置</button>
+  <div id="b1s14-mcq-score"></div>
+
+  <div class="answer-box" id="b1s14-explain">
+    <strong>📖 解析 / Erläuterung：</strong><br><br>
+    <strong>1. → A) richtig</strong><br>
+    🇩🇪 <em>„Zum Internationalen Tag des Ehrenamtes am 5. Dezember …"</em><br>
+    🇨🇳 文章开头明确写明日期就是 12 月 5 日。<br><br>
+    <strong>2. → B) falsch</strong><br>
+    🇩🇪 <em>„… setzen sich … ohne Bezahlung für andere Menschen ein."</em><br>
+    🇨🇳 他们是"无报酬"地付出，得到的是奖项（Preis）而非金钱。<br><br>
+    <strong>3. → A) richtig</strong><br>
+    🇩🇪 <em>„Friedrich Baur, der seit mehr als 25 Jahren beim Naturschutzbund (NABU) aktiv ist"</em><br>
+    🇨🇳 原文直接说明他在 NABU 已活跃 25 年多。<br><br>
+    <strong>4. → A) richtig</strong><br>
+    🇩🇪 <em>„Marc Kling, der … einmal pro Woche Hunde von wohnungslosen Menschen kostenlos behandelt"</em><br>
+    🇨🇳 每周一次、免费、给无家可归者的狗看病，全部对应。<br><br>
+    <strong>5. → B) falsch</strong><br>
+    🇩🇪 <em>„Tekla Pawlak, die seit fünfzehn Jahren ältere Menschen besucht …"</em><br>
+    🇨🇳 是 <strong>fünfzehn（15）</strong>年，不是五年。注意 fünf 与 fünfzehn 的区别，这是典型陷阱。<br><br>
+    <strong>6. → A) richtig</strong><br>
+    🇩🇪 <em>„… sagte er in seiner Rede vor mehr als dreihundert Gästen."</em><br>
+    🇨🇳 讲话面对 300 多位来宾，正确。<br><br>
+    <strong>7. → B) falsch</strong><br>
+    🇩🇪 <em>„Paula Fröhlich, die seit ihrer Kindheit Mitglied bei der Freiwilligen Feuerwehr ist"</em><br>
+    🇨🇳 她"从童年起"就是成员，不是"最近才"加入。seit ihrer Kindheit = 时间很长。<br><br>
+    <strong>8. → A) richtig</strong><br>
+    🇩🇪 <em>„Viele kleine Leute … die viele kleine Schritte tun, können die Welt verändern."</em><br>
+    🇨🇳 谚语原话即此意：许多小人物的小步伐能改变世界。
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- 课本配套任务 · Aufgabe 3 + Aufgabe 4                   -->
+<!-- ════════════════════════════════════════════════════ -->
+<div style="background:#fff;border:2px solid #a3c94f;border-radius:14px;padding:0;margin-top:22px;margin-bottom:14px;overflow:hidden">
+  <div style="background:linear-gradient(90deg,#558b2f,#7cb342);color:#fff;padding:12px 18px;font-weight:700;font-size:.97rem">
+    🗣️ Aufgaben aus dem Kursbuch — 课本配套任务
+  </div>
+  <div style="padding:16px 20px">
+
+    <!-- Aufgabe 3 -->
+    <div style="background:#f1f8e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+      <div style="font-weight:700;color:#33691e;font-size:.97rem;margin-bottom:8px">3 · 🔊 Die Rede des Bürgermeisters — 市长的演讲 <span style="background:#7cb342;color:#fff;font-size:.7rem;padding:2px 8px;border-radius:10px;margin-left:6px">Track 1.29</span></div>
+      <div style="font-size:.88rem;line-height:1.85;color:#2d3748">
+        <p style="margin:0 0 .6rem"><strong>a) Hören (听力)</strong><br>
+        🇩🇪 Hören Sie die Rede. Welche Informationen sind neu? Notieren und vergleichen Sie.<br>
+        🇨🇳 听这段演讲。哪些信息是新的（文章里没有的）？记下来并互相比较。</p>
+
+        <!-- ═══ 听力原文 Transkript · Track 1.29（听力原文 skill 双模式范式）═══ -->
+        <div style="margin-top:1rem">
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s14r-transkript')">📄 显示/隐藏听力原文 Transkript</button>
+          <div class="answer-box" id="b1s14r-transkript" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem">
+            <div style="font-weight:700;color:#0d47a1;font-size:.95rem;margin-bottom:.8rem;text-align:center;padding-bottom:.5rem;border-bottom:2px dashed #bbdefb">🎧 Transkript 1.29 · Die Rede des Bürgermeisters</div>
+
+            <!-- 模式切换 -->
+            <div style="display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap;justify-content:center">
+              <button onclick="B1s14rTransMode('full')" id="b1s14r-mode-full" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#1565c0;color:#fff;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+              <button onclick="B1s14rTransMode('blank')" id="b1s14r-mode-blank" style="padding:.4rem .9rem;border:2px solid #1565c0;background:#fff;color:#1565c0;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写练习</button>
+              <button onclick="B1s14rRevealAll()" style="padding:.4rem .9rem;border:2px solid #2e7d32;background:#fff;color:#2e7d32;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示答案</button>
+              <button onclick="B1s14rHideAll()" style="padding:.4rem .9rem;border:2px solid #c62828;background:#fff;color:#c62828;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+            </div>
+
+            <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-bottom:.9rem;font-size:.78rem;color:#5d4037;line-height:1.6;text-align:center">
+              💡 切换到「✏️ 听写练习」模式 → 边听音频边在脑中补全词 → <strong>双击空格</strong>显示答案
+            </div>
+
+            <!-- ═══════════ 模式 1 · 完整原文 ═══════════ -->
+            <div id="b1s14r-trans-full">
+
+              <!-- 段落 1 · 完整 -->
+              <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 1 · Begrüßung &amp; Bedeutung des Ehrenamts</div>
+                <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                  Guten Abend, liebe Mitbürgerinnen und Mitbürger. Ich möchte Sie sehr herzlich zu dieser Feierstunde begrüßen und freue mich, dass so viele von Ihnen heute Abend ins Rathaus gekommen sind. Wir alle wissen, wie wichtig das Ehrenamt für unsere Gesellschaft ist. Darum können wir uns alle freuen, dass jede und jeder Dritte in Deutschland sich ehrenamtlich und ohne Bezahlung engagiert.
+                </p>
+              </div>
+
+              <!-- 🔊 音频 · 完整模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Rede des Bürgermeisters · 1.29</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边读 📖</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rede-buergermeister-1.29.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 段落 2 · 完整 -->
+              <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 2 · Engagement in Unterrödingen</div>
+                <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                  Ich bin sehr froh, dass es auch sehr viele Menschen in Unterrödingen gibt, die Verantwortung übernehmen und freiwillig helfen. Sie verbringen Zeit mit Seniorinnen und Senioren, helfen armen und wohnungslosen Menschen, arbeiten im Tier- und Naturschutz oder in Sportvereinen als Trainerin oder Trainer, um nur einige Beispiele zu nennen. Warum engagieren sich so viele? Das ist ganz einfach: Freiwillig etwas für andere tun, macht glücklich. Das haben mir die Preisträgerinnen und Preisträger in einem Gespräch heute Nachmittag auch gesagt.
+                </p>
+              </div>
+
+              <!-- 段落 3 · 完整 -->
+              <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 3 · Die vier Preisträger</div>
+                <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                  Wir ehren heute Abend Friedrich Baur, der seit mehr als 25 Jahren im Umwelt- und Naturschutz aktiv ist, Paula Fröhlich, die seit ihrer Kindheit bei der Freiwilligen Feuerwehr ist und hilft, Leben zu retten, Tekla Pawlak, die seit fünfzehn Jahren ältere Menschen wöchentlich besucht und ihnen viel Zeit schenkt, sowie Marc Kling, der ein Herz für Tiere hat und seit mehr als zehn Jahren Hunde von wohnungslosen Menschen kostenlos in seiner Praxis behandelt. Sie alle haben ein Ehrenamt übernommen und setzen sich schon seit vielen Jahren in ihrer Freizeit und ohne Bezahlung für andere Menschen ein. Ohne ihren Einsatz würde vieles in unserer Gesellschaft nicht funktionieren.
+                </p>
+              </div>
+
+              <!-- 🔊 音频 2 · 完整模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Rede des Bürgermeisters · 1.29</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边读 📖</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rede-buergermeister-1.29.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 段落 4 · 完整（末段，去 margin-bottom）-->
+              <div style="background:#f5f9ff;border-left:4px solid #1565c0;border-radius:8px;padding:.8rem 1rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 4 · Sprichwort &amp; Dank</div>
+                <p style="margin:0;font-size:.88rem;line-height:1.95;color:#263238">
+                  In einem afrikanischen Sprichwort heißt es: „Viele kleine Leute an vielen kleinen Orten, die viele kleine Schritte tun, können die Welt verändern." Genau das tun Sie und die vielen anderen freiwilligen Helferinnen und Helfer in unserer Stadt. Deshalb ist es mir eine Freude, Danke zu sagen. Ich gratuliere Ihnen allen ganz herzlich zum Ehrenamtspreis der Stadt Unterrödingen.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- ═══════════ 模式 2 · 听写练习（双击显示答案）═══════════ -->
+            <div id="b1s14r-trans-blank" style="display:none">
+
+              <!-- 段落 1 · Blank -->
+              <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 1 · Begrüßung &amp; Bedeutung des Ehrenamts <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                  Guten Abend, liebe Mitbürgerinnen und Mitbürger. Ich möchte Sie sehr herzlich zu dieser <span class="b1fb-gap" data-ans="Feierstunde">____</span> begrüßen und freue mich, dass so viele von Ihnen heute Abend ins <span class="b1fb-gap" data-ans="Rathaus">____</span> gekommen sind. Wir alle wissen, wie wichtig das <span class="b1fb-gap" data-ans="Ehrenamt">____</span> für unsere <span class="b1fb-gap" data-ans="Gesellschaft">____</span> ist. Darum können wir uns alle freuen, dass jede und jeder <span class="b1fb-gap" data-ans="Dritte">____</span> in Deutschland sich <span class="b1fb-gap" data-ans="ehrenamtlich">____</span> und ohne <span class="b1fb-gap" data-ans="Bezahlung">____</span> engagiert.
+                </p>
+              </div>
+
+              <!-- 🔊 音频 · 听写模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Rede des Bürgermeisters · 1.29</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边填 ✏️</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rede-buergermeister-1.29.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 段落 2 · Blank -->
+              <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 2 · Engagement in Unterrödingen <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                  Ich bin sehr froh, dass es auch sehr viele Menschen in Unterrödingen gibt, die <span class="b1fb-gap" data-ans="Verantwortung">____</span> übernehmen und <span class="b1fb-gap" data-ans="freiwillig">____</span> helfen. Sie verbringen Zeit mit Seniorinnen und Senioren, helfen armen und <span class="b1fb-gap" data-ans="wohnungslosen">____</span> Menschen, arbeiten im Tier- und <span class="b1fb-gap" data-ans="Naturschutz">____</span> oder in Sportvereinen als Trainerin oder Trainer, um nur einige Beispiele zu nennen. Warum engagieren sich so viele? Das ist ganz einfach: Freiwillig etwas für andere tun, macht <span class="b1fb-gap" data-ans="glücklich">____</span>. Das haben mir die <span class="b1fb-gap" data-ans="Preisträgerinnen">____</span> und Preisträger in einem Gespräch heute Nachmittag auch gesagt.
+                </p>
+              </div>
+
+              <!-- 段落 3 · Blank -->
+              <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem;margin-bottom:.9rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 3 · Die vier Preisträger <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                  Wir ehren heute Abend Friedrich Baur, der seit mehr als 25 Jahren im Umwelt- und Naturschutz <span class="b1fb-gap" data-ans="aktiv">____</span> ist, Paula Fröhlich, die seit ihrer <span class="b1fb-gap" data-ans="Kindheit">____</span> bei der Freiwilligen Feuerwehr ist und hilft, Leben zu <span class="b1fb-gap" data-ans="retten">____</span>, Tekla Pawlak, die seit fünfzehn Jahren ältere Menschen <span class="b1fb-gap" data-ans="wöchentlich">____</span> besucht und ihnen viel Zeit <span class="b1fb-gap" data-ans="schenkt">____</span>, sowie Marc Kling, der ein <span class="b1fb-gap" data-ans="Herz">____</span> für Tiere hat und seit mehr als zehn Jahren Hunde von wohnungslosen Menschen <span class="b1fb-gap" data-ans="kostenlos">____</span> in seiner Praxis behandelt. Sie alle haben ein Ehrenamt <span class="b1fb-gap" data-ans="übernommen">____</span> und setzen sich schon seit vielen Jahren in ihrer Freizeit und ohne Bezahlung für andere Menschen <span class="b1fb-gap" data-ans="ein">____</span>. Ohne ihren <span class="b1fb-gap" data-ans="Einsatz">____</span> würde vieles in unserer Gesellschaft nicht funktionieren.
+                </p>
+              </div>
+
+              <!-- 🔊 音频 2 · 听写模式 -->
+              <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:10px;padding:.7rem .9rem;margin-bottom:.9rem;border:2px dashed #1565c0">
+                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap">
+                  <span style="font-size:1.1rem">🔊</span>
+                  <span style="font-weight:700;color:#0d47a1;font-size:.85rem">Rede des Bürgermeisters · 1.29</span>
+                  <span style="font-size:.75rem;color:#1565c0;background:#fff;padding:.15rem .5rem;border-radius:10px">边听边填 ✏️</span>
+                </div>
+                <audio controls preload="metadata" style="width:100%;outline:none">
+                  <source src="audio/b1-rede-buergermeister-1.29.mp3" type="audio/mpeg">
+                  你的浏览器不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 段落 4 · Blank（末段）-->
+              <div style="background:#fff9e6;border-left:4px solid #fb8c00;border-radius:8px;padding:.8rem 1rem">
+                <div style="font-weight:700;color:#c2185b;font-size:.92rem;margin-bottom:.4rem">📌 Teil 4 · Sprichwort &amp; Dank <span style="font-size:.78rem;color:#888;font-weight:400">· 双击空格显示答案</span></div>
+                <p style="margin:0;font-size:.88rem;line-height:2.1;color:#263238">
+                  In einem <span class="b1fb-gap" data-ans="afrikanischen">____</span> Sprichwort heißt es: „Viele kleine Leute an vielen kleinen <span class="b1fb-gap" data-ans="Orten">____</span>, die viele kleine <span class="b1fb-gap" data-ans="Schritte">____</span> tun, können die Welt <span class="b1fb-gap" data-ans="verändern">____</span>." Genau das tun Sie und die vielen anderen freiwilligen Helferinnen und Helfer in unserer Stadt. Deshalb ist es mir eine <span class="b1fb-gap" data-ans="Freude">____</span>, Danke zu sagen. Ich <span class="b1fb-gap" data-ans="gratuliere">____</span> Ihnen allen ganz herzlich zum <span class="b1fb-gap" data-ans="Ehrenamtspreis">____</span> der Stadt Unterrödingen.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- 🆕 新信息对照表（任务 a 自查）-->
+            <div style="background:#fffde7;border-radius:8px;padding:12px 16px;margin-top:14px;font-size:.84rem;line-height:1.85;color:#5d4037">
+              <strong>🆕 Neue Informationen — 演讲比文章新增的信息（任务 a 自查）：</strong><br>
+              • <strong>Jede/r Dritte</strong> in Deutschland engagiert sich ehrenamtlich. — 德国每三人就有一人做志愿。<br>
+              • <strong>„Freiwillig etwas für andere tun, macht glücklich."</strong> — 市长点出做公益让人幸福的原因。<br>
+              • Paula Fröhlich hilft, <strong>Leben zu retten</strong>. — 补充了她"救人性命"。<br>
+              • Marc Kling <strong>hat ein Herz für Tiere</strong>. — 补充了他"对动物有爱心"。<br>
+              • Das Sprichwort ist ein <strong>afrikanisches</strong> Sprichwort. — 文章没说出处，演讲点明是非洲谚语。<br>
+              • Der Preis heißt <strong>„Ehrenamtspreis der Stadt Unterrödingen"</strong>. — 点明奖项全名。
+            </div>
+
+            <!-- 学习提示 -->
+            <div style="background:#fff8e1;border-radius:6px;padding:.5rem .8rem;margin-top:.8rem;font-size:.8rem;color:#5d4037;line-height:1.6">
+              💡 <strong>Tipp:</strong> 先做听力题（不看文字），再核对原文——重点观察自己漏掉的关键词（z. B. <em>Feierstunde, Verantwortung, wohnungslos, Einsatz, Ehrenamtspreis</em>）。
+            </div>
+          </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- 演讲原文 · 文章转 Section 教学模块（归属 🎤 Rede）      -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <div style="background:#ede7f6;border-radius:12px;padding:14px 18px;margin-top:14px;margin-bottom:6px">
+          <div style="font-weight:700;color:#4527a0;font-size:.95rem;margin-bottom:4px">🎤 Lernmaterial zur Rede — 演讲原文配套学习</div>
+          <div style="font-size:.82rem;color:#5e35b1;line-height:1.6">把市长演讲当成一篇独立的口语体短文来精读：词汇、语法、搭配、表达、仿写、练习全套。</div>
+        </div>
+
+        <!-- 📚 演讲词汇表 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-vocab')">📚 🎤 词汇语法</button>
+        <div class="answer-box" id="b1s14-rede-vocab">
+          • <strong>die Feierstunde, -n</strong> = 庆典/典礼 · <strong>der/die Mitbürger/in, -</strong> = 市民/同胞<br>
+          • <strong>begrüßen</strong> = 致欢迎词/问候 · <strong>der/die Preisträger/in, -</strong> = 获奖者<br>
+          • <strong>die Verantwortung, -en</strong> = 责任 · <strong>(Verantwortung) übernehmen</strong> = 承担（责任）<br>
+          • <strong>der Umweltschutz</strong> = 环境保护 · <strong>der Naturschutz</strong> = 自然保护<br>
+          • <strong>der Einsatz, -¨e</strong> = 投入/出动 · <strong>das Zusammenleben</strong> = 共同生活<br>
+          • <strong>retten</strong> = 拯救 · <strong>(jdm.) gratulieren zu + D</strong> = 祝贺某人……<br>
+          • <strong>der Ehrenamtspreis, -e</strong> = 志愿服务奖 · <strong>das Sprichwort, -¨er</strong> = 谚语<br>
+          • <strong>sich engagieren</strong> = 投身/积极参与 · <strong>ehrenamtlich</strong> = 义务的/志愿的<br>
+          • <strong>glücklich</strong> = 幸福的 · <strong>freiwillig</strong> = 自愿的 · <strong>herzlich</strong> = 衷心的<br>
+          • <strong>ein Herz für + A haben</strong> = 对……有爱心 · <strong>wöchentlich</strong> = 每周的
+        </div>
+
+        <!-- 📖 演讲语法解析 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-grammatik')">📖 🎤 语法解析</button>
+        <div class="answer-box" id="b1s14-rede-grammatik">
+
+          <strong>1. Indirekter Fragesatz</strong> 间接疑问从句 | <em>wissen, wie/warum + … + Verb am Ende</em><br>
+          🇩🇪 Formel: <em>Wir wissen, <strong>wie wichtig</strong> das Ehrenamt … <strong>ist</strong>.</em><br>
+          🇨🇳 规则：把疑问句嵌入主句，用疑问词（wie/warum/was）引导，动词放从句末尾。<br>
+          📖 文中例句 / Textbeleg:<br>
+          <em>„Wir alle wissen, <strong>wie wichtig</strong> das Ehrenamt für unsere Gesellschaft <strong>ist</strong>."</em> — 我们都知道志愿服务对社会有多重要。<br>
+          ⚠️ 考点：间接疑问句没有问号，动词到句尾；演讲、口语里很常见。<br><br>
+
+          <strong>2. Infinitiv mit „zu"</strong> 带 zu 不定式 | <em>…, um … zu / hilft, … zu …</em><br>
+          🇩🇪 Formel: <em>hilft, Leben zu retten · um einige Beispiele zu nennen</em><br>
+          🇨🇳 规则：动词/形容词后接 „zu + 不定式"；„um … zu" 表示目的（为了……）。<br>
+          📖 文中例句 / Textbeleg:<br>
+          <em>„… hilft, Leben <strong>zu retten</strong>"</em> — 帮助拯救生命。<br>
+          <em>„…, <strong>um</strong> nur einige Beispiele <strong>zu nennen</strong>."</em> — 仅举几个例子。<br>
+          ⚠️ 考点：„es ist mir eine Freude, Danke <strong>zu sagen</strong>" 也是同一结构。<br><br>
+
+          <strong>3. Konjunktiv II — irreale Folge</strong> 第二虚拟式（不真实结果）| <em>würde + Infinitiv</em><br>
+          🇩🇪 Formel: <em>Ohne …, würde … nicht funktionieren.</em><br>
+          🇨🇳 规则：用 würde + 不定式表达假设的、不真实的结果。<br>
+          📖 文中例句 / Textbeleg:<br>
+          <em>„Ohne ihren Einsatz <strong>würde</strong> vieles … nicht <strong>funktionieren</strong>."</em> — 没有他们的投入，许多事都将无法运转。<br>
+          ⚠️ 考点：ohne + 名词 = 隐含的条件句，主句用 Konjunktiv II。<br><br>
+
+          <strong>4. Relativsatz (Reihung)</strong> 关系从句（并列罗列）| <em>…, der/die … ist/hilft/besucht</em><br>
+          🇩🇪 Formel: <em>Name, der/die + Nebensatz (Verb am Ende)</em><br>
+          🇨🇳 规则：用关系从句逐一介绍多位获奖者，是表彰演讲的典型句式。<br>
+          📖 文中例句 / Textbeleg:<br>
+          <em>„… Tekla Pawlak, <strong>die</strong> seit fünfzehn Jahren ältere Menschen wöchentlich <strong>besucht</strong> …"</em> — 十五年来每周探访老人的 Tekla Pawlak。<br>
+          ⚠️ 考点：多个关系从句用逗号 + sowie/und 串联，注意每个动词都到从句末尾。<br><br>
+
+          <strong>5. dass-Satz nach Gefühlsausdruck</strong> 表情绪后接 dass 从句 | <em>sich freuen, dass …</em><br>
+          🇩🇪 Formel: <em>Ich freue mich, <strong>dass</strong> … gekommen sind.</em><br>
+          🇨🇳 规则：表达情绪的动词（sich freuen / froh sein）后用 dass 从句说明原因，动词到句尾。<br>
+          📖 文中例句 / Textbeleg:<br>
+          <em>„… freue mich, <strong>dass</strong> so viele von Ihnen … gekommen <strong>sind</strong>."</em> — 很高兴这么多人到场。<br>
+          ⚠️ 考点：„Ich bin sehr froh, dass …" 同结构，演讲开场高频。
+        </div>
+
+        <!-- 🔗 演讲词汇搭配 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-kollokation')">🔗 🎤 词汇搭配</button>
+        <div class="answer-box" id="b1s14-rede-kollokation">
+        <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+          <tr style="background:#4527a0;color:#fff">
+            <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
+            <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
+            <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">jdn. herzlich begrüßen</td>
+            <td style="padding:8px 12px">热忱欢迎某人 | <em>jemanden freundlich willkommen heißen</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Ich möchte Sie <strong>herzlich begrüßen</strong>.</em><br><span style="color:#666">我衷心欢迎各位。</span></td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">Verantwortung übernehmen</td>
+            <td style="padding:8px 12px">承担责任 | <em>für etwas die Verantwortung tragen</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Menschen, die <strong>Verantwortung übernehmen</strong>.</em><br><span style="color:#666">承担责任的人。</span></td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">Leben retten</td>
+            <td style="padding:8px 12px">拯救生命 | <em>jemanden vor dem Tod bewahren</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Die Feuerwehr hilft, <strong>Leben zu retten</strong>.</em><br><span style="color:#666">消防队帮助拯救生命。</span></td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">ein Herz für + A haben</td>
+            <td style="padding:8px 12px">对……有爱心 | <em>jemanden/etwas sehr mögen</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Er <strong>hat ein Herz für</strong> Tiere.</em><br><span style="color:#666">他对动物很有爱心。</span></td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">jdm. gratulieren zu + D</td>
+            <td style="padding:8px 12px">为……祝贺某人 | <em>jemandem Glückwünsche aussprechen</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Ich <strong>gratuliere</strong> Ihnen <strong>zum</strong> Preis.</em><br><span style="color:#666">我祝贺您获奖。</span></td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">eine Freude sein</td>
+            <td style="padding:8px 12px">是一种荣幸/喜悦 | <em>etwas, das Freude bereitet</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Es ist mir <strong>eine Freude</strong>, Danke zu sagen.</em><br><span style="color:#666">能说声谢谢，是我的荣幸。</span></td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">Beispiele nennen</td>
+            <td style="padding:8px 12px">举例 | <em>Beispiele angeben</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>…, um nur einige Beispiele <strong>zu nennen</strong>.</em><br><span style="color:#666">仅举几个例子。</span></td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">Zeit verbringen mit + D</td>
+            <td style="padding:8px 12px">与……共度时光 | <em>Zeit zusammen mit jemandem nutzen</em></td>
+            <td style="padding:8px 12px;font-size:.83rem"><em>Sie <strong>verbringen Zeit mit</strong> Senioren.</em><br><span style="color:#666">他们陪伴老人度过时光。</span></td>
+          </tr>
+        </table>
+        </div>
+
+        <!-- 💬 演讲 Redemittel -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-redemittel')">💬 🎤 常用表达（演讲句式）</button>
+        <div class="answer-box" id="b1s14-rede-redemittel">
+        <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+          <tr style="background:#4527a0;color:#fff">
+            <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
+            <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
+            <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">开场致辞 / begrüßen</td>
+            <td style="padding:8px 12px"><em>Liebe Mitbürgerinnen und Mitbürger, ich möchte Sie herzlich begrüßen.</em></td>
+            <td style="padding:8px 12px">亲爱的市民们，我衷心欢迎各位。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">表达高兴 / sich freuen</td>
+            <td style="padding:8px 12px"><em>Ich freue mich (sehr), dass so viele gekommen sind.</em></td>
+            <td style="padding:8px 12px">我很高兴这么多人到场。</td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">点明主题 / Thema nennen</td>
+            <td style="padding:8px 12px"><em>Wir alle wissen, wie wichtig … ist.</em></td>
+            <td style="padding:8px 12px">我们都知道……有多重要。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">表彰 / ehren</td>
+            <td style="padding:8px 12px"><em>Wir ehren heute Abend …, der/die …</em></td>
+            <td style="padding:8px 12px">今晚我们表彰……，他/她……</td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">强调重要性 / betonen</td>
+            <td style="padding:8px 12px"><em>Ohne ihren Einsatz würde vieles nicht funktionieren.</em></td>
+            <td style="padding:8px 12px">没有他们的投入，许多事都无法运转。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="font-weight:700;padding:8px 12px">引用谚语 / zitieren</td>
+            <td style="padding:8px 12px"><em>In einem Sprichwort heißt es: „…"</em></td>
+            <td style="padding:8px 12px">有一句谚语说：「……」</td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="font-weight:700;padding:8px 12px">致谢与祝贺 / danken</td>
+            <td style="padding:8px 12px"><em>Es ist mir eine Freude, Danke zu sagen. Ich gratuliere Ihnen herzlich.</em></td>
+            <td style="padding:8px 12px">能说声谢谢是我的荣幸，衷心祝贺各位。</td>
+          </tr>
+        </table>
+        </div>
+
+        <!-- ✍️ 演讲仿写例句 -->
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-beispiele')">✍️ 🎤 仿写例句（写一篇致辞）</button>
+        <div class="answer-box" id="b1s14-rede-beispiele">
+        <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+          <strong>🔹 Muster 1: 开场问候 + 高兴（dass-Satz）</strong><br>
+          🇩🇪 <em>Liebe Gäste, ich <strong>freue mich, dass</strong> so viele gekommen <strong>sind</strong>.</em><br>
+          🇨🇳 亲爱的来宾，我很高兴这么多人到场。<br>
+          👉 <em>Nachbau: Liebe ___, ich freue mich, dass ___ (Verb am Ende).</em><br><br>
+
+          <strong>🔹 Muster 2: 点题（indirekter Fragesatz）</strong><br>
+          🇩🇪 <em>Wir alle wissen, <strong>wie wichtig</strong> das Ehrenamt <strong>ist</strong>.</em><br>
+          🇨🇳 我们都知道志愿服务有多重要。<br>
+          👉 <em>Nachbau: Wir alle wissen, wie ___ ___ ist.</em><br><br>
+
+          <strong>🔹 Muster 3: 表彰某人（Relativsatz）</strong><br>
+          🇩🇪 <em>Wir ehren heute <strong>Frau X, die seit … Jahren … hilft</strong>.</em><br>
+          🇨🇳 今天我们表彰 X 女士，她……年来一直帮助……<br>
+          👉 <em>Nachbau: Wir ehren heute ___, der/die seit ___ Jahren ___ (Verb am Ende).</em><br><br>
+
+          <strong>🔹 Muster 4: 强调重要性（Konjunktiv II + ohne）</strong><br>
+          🇩🇪 <em><strong>Ohne</strong> ihren Einsatz <strong>würde</strong> vieles nicht <strong>funktionieren</strong>.</em><br>
+          🇨🇳 没有他们的投入，许多事都将无法运转。<br>
+          👉 <em>Nachbau: Ohne ___ würde ___ nicht ___ (Infinitiv).</em><br><br>
+
+          <strong>🔹 Muster 5: 收尾致谢（Infinitiv mit zu）</strong><br>
+          🇩🇪 <em>Es ist mir eine Freude, Danke <strong>zu sagen</strong>.</em><br>
+          🇨🇳 能说一声谢谢，是我莫大的荣幸。<br>
+          👉 <em>Nachbau: Es ist mir eine ___ , ___ zu ___ (Infinitiv).</em>
+        </div>
+        </div>
+
+        <!-- 📝 演讲互动练习 -->
+        <div style="background:#ede7f6;border-radius:12px;padding:16px 20px;margin-top:14px">
+          <div style="font-weight:700;color:#4527a0;font-size:1rem;margin-bottom:6px">📝 Hörverstehen — Richtig oder falsch?</div>
+          <div style="font-size:.82rem;color:#5e35b1;margin-bottom:12px">听演讲（或读原文）后判断对错。A = richtig，B = falsch。</div>
+
+          <div class="mcq-list" id="b1s14-rede-mcq">
+            <div class="mcq-item" data-ans="A">
+              <p><strong>1.</strong> Laut dem Bürgermeister engagiert sich jede/r Dritte in Deutschland ehrenamtlich.</p>
+              <div class="mcq-options">
+                <label><input type="radio" name="b1s14r-q1" value="A"> A) richtig</label>
+                <label><input type="radio" name="b1s14r-q1" value="B"> B) falsch</label>
+              </div>
+            </div>
+            <div class="mcq-item" data-ans="A">
+              <p><strong>2.</strong> Der Bürgermeister sagt, dass freiwillige Arbeit für andere glücklich macht.</p>
+              <div class="mcq-options">
+                <label><input type="radio" name="b1s14r-q2" value="A"> A) richtig</label>
+                <label><input type="radio" name="b1s14r-q2" value="B"> B) falsch</label>
+              </div>
+            </div>
+            <div class="mcq-item" data-ans="B">
+              <p><strong>3.</strong> Marc Kling behandelt die Hunde gegen Bezahlung.</p>
+              <div class="mcq-options">
+                <label><input type="radio" name="b1s14r-q3" value="A"> A) richtig</label>
+                <label><input type="radio" name="b1s14r-q3" value="B"> B) falsch</label>
+              </div>
+            </div>
+            <div class="mcq-item" data-ans="A">
+              <p><strong>4.</strong> Das Sprichwort am Ende der Rede kommt aus Afrika.</p>
+              <div class="mcq-options">
+                <label><input type="radio" name="b1s14r-q4" value="A"> A) richtig</label>
+                <label><input type="radio" name="b1s14r-q4" value="B"> B) falsch</label>
+              </div>
+            </div>
+            <div class="mcq-item" data-ans="A">
+              <p><strong>5.</strong> Der Preis heißt „Ehrenamtspreis der Stadt Unterrödingen".</p>
+              <div class="mcq-options">
+                <label><input type="radio" name="b1s14r-q5" value="A"> A) richtig</label>
+                <label><input type="radio" name="b1s14r-q5" value="B"> B) falsch</label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-check" onclick="a2CheckMCQ('b1s14-rede-mcq')">批改答案</button>
+          <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede-explain')">显示/隐藏解析</button>
+          <button class="btn btn-reset" onclick="a2ResetMCQ('b1s14-rede-mcq')">重置</button>
+          <div id="b1s14-rede-mcq-score"></div>
+
+          <div class="answer-box" id="b1s14-rede-explain">
+            <strong>📖 解析 / Erläuterung：</strong><br><br>
+            <strong>1. → A) richtig</strong><br>
+            🇩🇪 <em>„… dass jede und jeder Dritte in Deutschland sich ehrenamtlich … engagiert."</em><br>
+            🇨🇳 演讲明确说"每三人有一人"做志愿。<br><br>
+            <strong>2. → A) richtig</strong><br>
+            🇩🇪 <em>„Freiwillig etwas für andere tun, macht glücklich."</em><br>
+            🇨🇳 市长直接点出做公益让人幸福。<br><br>
+            <strong>3. → B) falsch</strong><br>
+            🇩🇪 <em>„… Hunde … <strong>kostenlos</strong> in seiner Praxis behandelt."</em><br>
+            🇨🇳 是"免费（kostenlos）"看病，不是收费。<br><br>
+            <strong>4. → A) richtig</strong><br>
+            🇩🇪 <em>„In einem <strong>afrikanischen</strong> Sprichwort heißt es: …"</em><br>
+            🇨🇳 演讲点明谚语来自非洲。<br><br>
+            <strong>5. → A) richtig</strong><br>
+            🇩🇪 <em>„Ich gratuliere Ihnen … zum <strong>Ehrenamtspreis der Stadt Unterrödingen</strong>."</em><br>
+            🇨🇳 结尾点明奖项全名，正确。
+          </div>
+        </div>
+
+        <p style="margin:14px 0 0"><strong>b) Eine Rede halten (作演讲 · Partnerübung)</strong><br>
+        🇩🇪 Partner/in A liest den Satzanfang vor, Partner/in B beendet den Satz. Achten Sie auf die Intonation.<br>
+        🇨🇳 搭档 A 读出句子开头，搭档 B 把句子补完整。注意语调（Intonation）。</p>
+      </div>
+
+      <!-- Partnerübung: Satzanfänge -->
+      <div style="background:#fff;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:.86rem;line-height:1.9;color:#2d3748">
+        <div style="font-weight:700;color:#558b2f;margin-bottom:6px">✍️ Satzanfänge — 句子开头（A 读，B 补完）</div>
+        • <em>Heute möchte ich vier Menschen ehren, die …</em><br>
+        • <em>Sie engagieren sich seit vielen Jahren, ohne …</em><br>
+        • <em>Ohne ihren Einsatz würde …</em><br>
+        • <em>Es gibt ein schönes Sprichwort, das sagt: …</em><br>
+        • <em>Deshalb ist es mir eine große Freude, …</em>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px dashed #c5d99b;color:#666;font-size:.82rem">
+          💡 <strong>Intonation-Tipp：</strong>陈述句句末语调下降 ↘；表达感谢/感情时（„eine große Freude")可稍微上扬再下降，听起来更真诚。
+        </div>
+      </div>
+
+      <!-- 参考演讲全文（拼合句子答案） -->
+      <button class="btn btn-show" onclick="a2ToggleAns('b1s14-rede')" style="margin-top:12px">🔊 显示/隐藏参考演讲（完整句）</button>
+      <div class="answer-box" id="b1s14-rede">
+        <div style="font-size:.86rem;line-height:1.95">
+          <strong>📢 Beispielrede des Bürgermeisters：</strong><br><br>
+          🇩🇪 <em>„Heute möchte ich vier Menschen ehren, <strong>die sich seit Jahren freiwillig für andere einsetzen</strong>. Sie engagieren sich seit vielen Jahren, <strong>ohne dafür Geld zu bekommen</strong>. Ohne ihren Einsatz <strong>würde vieles in unserer Gesellschaft nicht funktionieren</strong>. Es gibt ein schönes Sprichwort, das sagt: <strong>‚Viele kleine Leute an vielen kleinen Orten, die viele kleine Schritte tun, können die Welt verändern.'</strong> Deshalb ist es mir eine große Freude, <strong>heute Danke zu sagen</strong>."</em><br><br>
+          🇨🇳 「今天我想表彰四个人，他们多年来一直自愿为他人付出。他们投身公益多年，却分文不取。没有他们的付出，我们社会中的很多事都将无法运转。有一句美好的谚语说：『许多小人物，在许多小地方，迈出许多小步伐，就能改变世界。』因此，今天能说一声谢谢，是我莫大的荣幸。」
+        </div>
+      </div>
+    </div>
+
+    <!-- Aufgabe 4 -->
+    <div style="background:#fff8e1;border-radius:10px;padding:14px 18px">
+      <div style="font-weight:700;color:#e65100;font-size:.97rem;margin-bottom:8px">4 · 💭 Was würdest du gern machen? — 你愿意做什么？ <span style="background:#f9a825;color:#fff;font-size:.7rem;padding:2px 8px;border-radius:10px;margin-left:6px">Sprechen · Konjunktiv II</span></div>
+      <div style="font-size:.88rem;line-height:1.85;color:#2d3748">
+        <p style="margin:0 0 .6rem"><strong>a) Ein Ehrenamt wählen (选一个志愿岗位 · Fragen &amp; Antworten)</strong><br>
+        🇩🇪 Wählen Sie ein Ehrenamt. Fragen und antworten Sie. Die Redemittel helfen.<br>
+        🇨🇳 选一个志愿岗位，互相提问和回答。用上面的 Redemittel 帮忙。</p>
+        <p style="margin:0"><strong>b) Diskutieren (讨论)</strong><br>
+        🇩🇪 Wo haben Sie sich schon freiwillig engagiert? Wo würden Sie (nicht) gern mitarbeiten? Warum? Diskutieren Sie.<br>
+        🇨🇳 你已经在哪里做过志愿服务？你（不）愿意在哪里参与？为什么？展开讨论。</p>
+      </div>
+
+      <!-- Sprechblasen -->
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+        <div style="background:#c8e6c9;border-radius:14px 14px 14px 4px;padding:8px 14px;font-size:.86rem;color:#1b5e20;align-self:flex-start;max-width:85%">
+          💬 <em>Ich habe schon …</em> <span style="color:#558b2f;font-size:.8rem">（讲已经做过的：Perfekt 现在完成时）</span>
+        </div>
+        <div style="background:#ffe0b2;border-radius:14px 14px 4px 14px;padding:8px 14px;font-size:.86rem;color:#e65100;align-self:flex-end;max-width:85%">
+          💬 <em>Ich würde (nicht) gern …</em> <span style="color:#bf6a00;font-size:.8rem">（讲愿不愿意：Konjunktiv II）</span>
+        </div>
+      </div>
+
+      <!-- 志愿岗位选项 + 句型支架 -->
+      <button class="btn btn-show" onclick="a2ToggleAns('b1s14-ehrenamt')" style="margin-top:12px">💭 显示/隐藏志愿岗位 &amp; 句型支架</button>
+      <div class="answer-box" id="b1s14-ehrenamt">
+        <div style="font-size:.86rem;line-height:1.9">
+          <strong>🏷️ Ehrenämter zur Auswahl — 可选的志愿岗位：</strong><br>
+          🚒 bei der Freiwilligen Feuerwehr 志愿消防 · 🌳 beim Naturschutz 自然保护 · 👵 im Besuchsdienst für Senioren 老人探访<br>
+          🐕 im Tierheim 动物收容所 · ⚽ im Sportverein 体育协会 · 📚 in der Hausaufgabenhilfe 课业辅导 · 🍲 in der Tafel 食物银行<br><br>
+
+          <strong>🗣️ Fragen — 提问句型：</strong><br>
+          • <em>Wo würdest du gern mitarbeiten?</em> — 你愿意在哪里参与？<br>
+          • <em>Warum (nicht)?</em> — 为什么（不）？<br>
+          • <em>Hast du dich schon mal freiwillig engagiert?</em> — 你做过志愿服务吗？<br><br>
+
+          <strong>✅ Antworten — 回答支架：</strong><br>
+          • <em>Ich habe schon <strong>im Tierheim mitgeholfen</strong>, das hat mir Spaß gemacht.</em><br>
+          &nbsp;&nbsp;🇨🇳 我已经在动物收容所帮过忙，那让我很开心。<br>
+          • <em>Ich würde gern <strong>im Sportverein mitarbeiten</strong>, weil ich gern mit Kindern arbeite.</em><br>
+          &nbsp;&nbsp;🇨🇳 我愿意在体育协会帮忙，因为我喜欢和孩子打交道。<br>
+          • <em>Ich würde nicht gern <strong>bei der Feuerwehr mitmachen</strong>, weil das zu gefährlich wäre.</em><br>
+          &nbsp;&nbsp;🇨🇳 我不太愿意加入消防队，因为那太危险了。
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 来源标注 -->
+<div style="background:#f1f8e9;border-radius:8px;padding:10px 16px;margin-top:18px;font-size:.78rem;color:#555">
+  📖 Quelle: Zeitungsartikel <em>„Das Ehrenamt lebt!"</em> · von Maria Merkle · Thema: Engagement &amp; Ehrenamt (adaptiert für B1)
+</div>
+
+
+
+
+
+
+
+
+
 
   </div><!-- /section-body -->
 </div><!-- /section -->
