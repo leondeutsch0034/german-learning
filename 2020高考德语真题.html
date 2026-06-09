@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026年高考德语真题 · 全国新高考卷</title>
+<style>
+:root{
+  --bg:#060e1b;--card:#0d1a30;--card2:#101f3b;--border:rgba(184,134,11,.15);
+  --gold:#b8860b;--gl:#f0c850;--gp:#fde68a;--tx:#e2e8f0;--t2:#8ea0b8;--t3:#556278;
+  --grn:#4ade80;--red:#ef4444;--blue:#60a5fa;--rbg:rgba(239,68,68,.08);--gbg:rgba(74,222,128,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--tx);line-height:1.72;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse at 50% 0%,rgba(30,60,100,.25) 0%,transparent 60%);
+  background-attachment:fixed;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(170deg,#040c18,#0a1428 30%,#0f1e3a 65%,#152a50);
+  padding:clamp(32px,5vw,52px) clamp(16px,4vw,32px) clamp(24px,4vw,40px);text-align:center;
+  border-bottom:2px solid var(--gold);position:relative;overflow:hidden;
+}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 130%,rgba(184,134,11,.1) 0%,transparent 60%)}
+.hero>*{position:relative;z-index:1}
+.hero .tag{display:inline-block;padding:5px 20px;border:1px solid rgba(184,134,11,.35);border-radius:20px;color:var(--gl);font-size:.78rem;letter-spacing:3px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.2rem,3vw,1.75rem);font-weight:800;letter-spacing:1px;background:linear-gradient(135deg,var(--gp),var(--gl),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{color:var(--t2);font-size:.88rem;margin-top:6px}
+
+/* Top bar */
+.tbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  background:rgba(6,14,27,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.05);padding:8px clamp(12px,3vw,28px);font-size:.8rem;color:var(--t2);
+}
+.tbar .stats{display:flex;gap:16px;flex-wrap:wrap}
+.tbar .stats span{white-space:nowrap}
+.tbar .stats b{color:var(--gl)}
+.tbar .btns{display:flex;gap:6px;flex-wrap:wrap}
+.tbar button,.tbar .mode-switch{
+  background:rgba(184,134,11,.1);border:1px solid rgba(184,134,11,.2);color:var(--gl);
+  padding:5px 12px;border-radius:16px;cursor:pointer;font-size:.76rem;transition:all .2s;white-space:nowrap;
+}
+.tbar button:hover,.tbar .mode-switch:hover{background:rgba(184,134,11,.2)}
+.tbar button.active,.tbar .mode-switch.active{background:rgba(184,134,11,.22);border-color:var(--gold)}
+
+/* Layout */
+.wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:175px 1fr;gap:22px;padding:22px clamp(12px,3vw,22px) 50px;align-items:start}
+@media(max-width:768px){.wrap{grid-template-columns:1fr;padding:12px 8px 40px}}
+
+/* Sidebar */
+.side{position:sticky;top:62px;background:var(--card);border-radius:10px;padding:16px 12px;border:1px solid var(--border);font-size:.8rem}
+.side h4{font-size:.72rem;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.side a{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;color:var(--t2);text-decoration:none;transition:all .15s;margin-bottom:1px;font-size:.78rem}
+.side a:hover,.side a.on{background:rgba(184,134,11,.1);color:var(--gl)}
+.side a .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.side a .score{font-size:.68rem;color:var(--t3);margin-left:auto}
+.side .divider{border-top:1px solid rgba(255,255,255,.05);margin:10px 0;padding-top:8px}
+@media(max-width:768px){.side{display:none}}
+
+/* Mobile nav */
+.mnav{display:none;position:sticky;top:46px;z-index:49;background:rgba(6,14,27,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05);overflow-x:auto;white-space:nowrap;padding:7px 8px;gap:5px}
+.mnav a{display:inline-block;padding:4px 11px;border-radius:14px;font-size:.72rem;color:var(--t2);text-decoration:none;border:1px solid rgba(255,255,255,.06)}
+.mnav a.on{background:rgba(184,134,11,.12);border-color:var(--gold);color:var(--gl)}
+@media(max-width:768px){.mnav{display:flex}}
+
+/* Section */
+.sec{background:var(--card);border-radius:12px;padding:clamp(16px,3vw,30px) clamp(14px,3vw,26px);margin-bottom:18px;border:1px solid var(--border);position:relative;scroll-margin-top:100px;transition:box-shadow .3s}
+.sec::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--gl),var(--gold));border-radius:12px 0 0 12px}
+.sec .sh{display:flex;align-items:flex-start;gap:10px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.05)}
+.sec .badge{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;background:linear-gradient(135deg,#b8860b,#d4a020);color:#0a1428}
+.sec .badge.w{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+.sec .st{font-size:1.02rem;font-weight:700;color:var(--gl)}
+.sec .ss{font-size:.78rem;color:var(--t2);margin-top:2px}
+.sec .score-bar{font-size:.75rem;color:var(--t3);margin-top:4px}
+.sec .score-bar b{color:var(--gl)}
+
+/* Question card */
+.q{padding:11px 13px;margin-bottom:6px;background:var(--card2);border-radius:7px;border:1px solid transparent;transition:all .2s;cursor:default;position:relative}
+.q:hover{border-color:rgba(184,134,11,.12)}
+.q.done{border-color:rgba(255,255,255,.06)}
+.q.correct{border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04)}
+.q.wrong{border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.04)}
+.q .qn{display:inline-block;min-width:28px;color:var(--gl);font-weight:700;font-size:.85rem;vertical-align:top}
+.q .qt{font-size:.9rem;display:inline}
+.q .blank{display:inline-block;min-width:44px;border-bottom:2px dashed var(--gold);text-align:center;color:var(--gl);margin:0 2px;padding:0 5px;font-size:.85rem}
+.q .result{display:none;font-size:.75rem;margin-left:6px;font-weight:600}
+.q .result.show{display:inline}
+.q .result.ok{color:var(--grn)}.q .result.no{color:var(--red)}
+
+/* Options */
+.os{display:grid;grid-template-columns:1fr 1fr;gap:1px 12px;margin-top:5px;font-size:.86rem}
+@media(max-width:480px){.os{grid-template-columns:1fr}}
+.o{display:flex;align-items:center;padding:5px 9px;border-radius:5px;cursor:pointer;transition:all .15s;gap:8px;border:1px solid transparent}
+.o:hover{background:rgba(255,255,255,.025)}
+.o .k{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-weight:700;font-size:.7rem;flex-shrink:0;border:1.5px solid rgba(184,134,11,.25);color:var(--gl);transition:all .2s}
+.o.chosen{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.2);border-radius:5px}
+.o.chosen .k{background:var(--blue);border-color:var(--blue);color:#fff}
+.o.correct .k{background:var(--grn);border-color:var(--grn);color:#000}
+.o.wrong .k{background:var(--red);border-color:var(--red);color:#fff}
+.o.reveal{pointer-events:none}
+.o.reveal.correct{background:rgba(74,222,128,.06)}
+.o.reveal.wrong{background:rgba(239,68,68,.04)}
+
+/* Passage */
+.pass{background:rgba(0,0,0,.15);padding:clamp(12px,2vw,18px) clamp(12px,2vw,18px);border-radius:8px;margin-bottom:14px;font-size:.9rem;line-height:1.9;border-left:3px solid rgba(184,134,11,.3)}
+.pass .bl{display:inline-block;min-width:30px;border-bottom:2px dashed var(--gold);text-align:center;color:var(--gl);margin:0 1px;padding:0 3px;font-weight:600;font-size:.85rem}
+
+/* Writing */
+.wbox{background:rgba(184,134,11,.03);border:1px dashed rgba(184,134,11,.18);padding:16px 20px;border-radius:8px}
+.wbox h4{color:var(--gl);margin-bottom:8px;font-size:.93rem}
+
+/* Info */
+.info{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.12);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.82rem;color:var(--t2)}
+.info strong{color:#93c5fd}
+
+/* Toast */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:99;background:var(--card);border:1px solid var(--gl);color:var(--gl);padding:8px 22px;border-radius:22px;font-size:.82rem;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+
+/* FAB */
+.fab{position:fixed;bottom:22px;right:22px;z-index:60;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--bg);border:none;cursor:pointer;font-size:1.2rem;box-shadow:0 4px 16px rgba(184,134,11,.3);transition:all .2s;display:none}
+.fab.show{display:flex;align-items:center;justify-content:center}
+.fab:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(184,134,11,.4)}
+@media(max-width:768px){.fab.show{display:flex}}
+
+/* Footer */
+.ft{text-align:center;padding:24px 20px;color:var(--t3);font-size:.7rem;border-top:1px solid rgba(255,255,255,.03)}
+.ft a{color:var(--gl);text-decoration:none}
+
+/* Print */
+@media print{
+  body{background:#fff;color:#111;font-size:10.5pt;background-image:none}
+  .hero{background:#fff;border-bottom:1px solid #ccc;padding:18px}.hero h1{-webkit-text-fill-color:#111}
+  .tbar,.side,.mnav,.fab,.toast{display:none!important}
+  .wrap{display:block;max-width:100%;padding:0}
+  .sec{background:#fff;border:1px solid #ddd;break-inside:avoid;margin-bottom:10px;padding:14px}.sec::before{background:#999}
+  .q{background:#fafafa;border:1px solid #eee}.os{grid-template-columns:1fr 1fr}
+  .pass{background:#fafafa;border-left:2px solid #999}
+  .o.chosen,.o.correct,.o.wrong,.o.reveal{background:transparent!important;border-color:transparent!important}
+  .o .k{background:#eee!important;border-color:#ccc!important;color:#333!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="tag">2026 全国新高考卷</div>
+  <h1>2026 年普通高等学校招生全国统一考试</h1>
+  <div class="sub">Deutsch · 德语 · 2026 年 6 月 8 日</div>
+</div>
+
+<!-- Top bar -->
+<div class="tbar">
+  <div class="stats">
+    <span>⏱<b>120分钟</b></span><span>📝<b>150分</b></span><span>📖笔试<b>115分</b></span>
+    <span style="color:var(--gl)" id="totalScore"></span>
+  </div>
+  <div class="btns">
+    <button class="mode-switch active" data-mode="practice" onclick="setMode('practice')">✏️ 练习模式</button>
+    <button class="mode-switch" data-mode="browse" onclick="setMode('browse')">📖 浏览模式</button>
+    <button onclick="resetAll()">🔄 重新开始</button>
+    <button onclick="revealAll()">👁 显示答案</button>
+  </div>
+</div>
+
+<!-- Mobile nav -->
+<nav class="mnav" id="mnav">
+  <a href="#s1" class="on">语法 1-15</a><a href="#s2">完形 16-35</a>
+  <a href="#s3">阅读A</a><a href="#s4">阅读B</a><a href="#s5">阅读C</a><a href="#s6">阅读D</a><a href="#s7">写作</a>
+</nav>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- FAB -->
+<button class="fab" id="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Layout -->
+<div class="wrap">
+
+<!-- Sidebar -->
+<nav class="side" id="side">
+  <h4>📋 试卷导航</h4>
+  <a href="#s1" class="on"><span class="dot"></span>单项填空 1-15<span class="score" id="ss1"></span></a>
+  <a href="#s2"><span class="dot"></span>完形填空 16-35<span class="score" id="ss2"></span></a>
+  <a href="#s3"><span class="dot"></span>阅读理解 A<span class="score" id="ss3"></span></a>
+  <a href="#s4"><span class="dot"></span>阅读理解 B<span class="score" id="ss4"></span></a>
+  <a href="#s5"><span class="dot"></span>阅读理解 C<span class="score" id="ss5"></span></a>
+  <a href="#s6"><span class="dot"></span>阅读理解 D<span class="score" id="ss6"></span></a>
+  <a href="#s7"><span class="dot"></span>写作</a>
+  <div class="divider"></div>
+  <a href="#" onclick="revealAll();return false"><span class="dot" style="background:var(--grn)"></span>显示/隐藏答案</a>
+  <a href="#" onclick="resetAll();return false"><span class="dot" style="background:var(--red)"></span>重新开始</a>
+</nav>
+
+<!-- ============ MAIN ============ -->
+<div class="main">
+
+<div class="info">
+  <strong>📌 注意事项</strong> &nbsp;1. 答卷前将姓名、准考证号填写在答题卡上。&nbsp;2. 选择题用铅笔涂答题卡。&nbsp;3. 考试结束后将试卷和答题卡一并交回。<br>
+  <span style="font-size:.76rem;color:var(--t3)">* 听力部分（30分）由各省考试院统一播放录音，此处暂缺。</span>
+</div>
+
+<!-- ===== S1: 单项填空 1-15 ===== -->
+<div class="sec" id="s1">
+  <div class="sh"><div class="badge">一</div><div><div class="st">语言知识运用 · 第一节：单项填空</div><div class="ss">15 小题 × 1 分 = 15 分 &nbsp;|&nbsp; 点击选项作答</div><div class="score-bar">本节得分：<b id="s1score">0 / 15</b></div></div></div>
+
+  <div class="q" data-q="1" data-ans="B"><span class="qn">1.</span><span class="qt">Ich möchte mein Deutsch verbessern, <span class="blank">_____</span> besuche ich den Sprachkurs.</span><span class="result" id="r1"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>denn</div><div class="o" data-v="B"><span class="k">B</span>deshalb</div><div class="o" data-v="C"><span class="k">C</span>weil</div><div class="o" data-v="D"><span class="k">D</span>weshalb</div></div></div>
+  <div class="q" data-q="2" data-ans="A"><span class="qn">2.</span><span class="qt">Holger ist ganz <span class="blank">_____</span>, weil er alle Prüfungen mit der Note 1 bestanden hat.</span><span class="result" id="r2"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>stolz</div><div class="o" data-v="B"><span class="k">B</span>enttäuscht</div><div class="o" data-v="C"><span class="k">C</span>nervös</div><div class="o" data-v="D"><span class="k">D</span>bescheiden</div></div></div>
+  <div class="q" data-q="3" data-ans="C"><span class="qn">3.</span><span class="qt">Ich bin heute so viel gelaufen, <span class="blank">_____</span> ich mich jetzt nicht bewegen kann.</span><span class="result" id="r3"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>wie</div><div class="o" data-v="B"><span class="k">B</span>weil</div><div class="o" data-v="C"><span class="k">C</span>dass</div><div class="o" data-v="D"><span class="k">D</span>dadurch</div></div></div>
+  <div class="q" data-q="4" data-ans="A"><span class="qn">4.</span><span class="qt">Der junge Sportler hat im Endspiel den alten Weltrekord <span class="blank">_____</span>.</span><span class="result" id="r4"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>gebrochen</div><div class="o" data-v="B"><span class="k">B</span>zerbrochen</div><div class="o" data-v="C"><span class="k">C</span>eingebrochen</div><div class="o" data-v="D"><span class="k">D</span>ausgebrochen</div></div></div>
+  <div class="q" data-q="5" data-ans="A"><span class="qn">5.</span><span class="qt">An dem Experiment haben sich 5000 Menschen aus 70 Ländern <span class="blank">_____</span>.</span><span class="result" id="r5"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>beteiligt</div><div class="o" data-v="B"><span class="k">B</span>mitgearbeitet</div><div class="o" data-v="C"><span class="k">C</span>mitgemacht</div><div class="o" data-v="D"><span class="k">D</span>teilgenommen</div></div></div>
+  <div class="q" data-q="6" data-ans="B"><span class="qn">6.</span><span class="qt">Woher kommt der Kollege, <span class="blank">_____</span> du die E-Mail geschrieben hast?</span><span class="result" id="r6"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>das</div><div class="o" data-v="B"><span class="k">B</span>dem</div><div class="o" data-v="C"><span class="k">C</span>dessen</div><div class="o" data-v="D"><span class="k">D</span>deren</div></div></div>
+  <div class="q" data-q="7" data-ans="C"><span class="qn">7.</span><span class="qt">In <span class="blank">_____</span> Ferien macht sie eine Reise nach Berlin.</span><span class="result" id="r7"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>der</div><div class="o" data-v="B"><span class="k">B</span>die</div><div class="o" data-v="C"><span class="k">C</span>den</div><div class="o" data-v="D"><span class="k">D</span>dem</div></div></div>
+  <div class="q" data-q="8" data-ans="A"><span class="qn">8.</span><span class="qt"><span class="blank">_____</span> ist schön, dass du zu meiner Geburtstagsparty kommst.</span><span class="result" id="r8"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Es</div><div class="o" data-v="B"><span class="k">B</span>Was</div><div class="o" data-v="C"><span class="k">C</span>Das</div><div class="o" data-v="D"><span class="k">D</span>Dieses</div></div></div>
+  <div class="q" data-q="9" data-ans="D"><span class="qn">9.</span><span class="qt">Die Musik hat eine <span class="blank">_____</span> Wirkung auf mich.</span><span class="result" id="r9"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>ruhige</div><div class="o" data-v="B"><span class="k">B</span>beunruhigte</div><div class="o" data-v="C"><span class="k">C</span>beruhigte</div><div class="o" data-v="D"><span class="k">D</span>beruhigende</div></div></div>
+  <div class="q" data-q="10" data-ans="D"><span class="qn">10.</span><span class="qt">Es ist schon April, aber es ist ganz plötzlich kalt <span class="blank">_____</span>.</span><span class="result" id="r10"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>werden</div><div class="o" data-v="B"><span class="k">B</span>worden</div><div class="o" data-v="C"><span class="k">C</span>gewesen</div><div class="o" data-v="D"><span class="k">D</span>geworden</div></div></div>
+  <div class="q" data-q="11" data-ans="B"><span class="qn">11.</span><span class="qt">Ich bin es <span class="blank">_____</span>, alle Informationen im Internet zu suchen.</span><span class="result" id="r11"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>verwohnt</div><div class="o" data-v="B"><span class="k">B</span>gewohnt</div><div class="o" data-v="C"><span class="k">C</span>angewöhnt</div><div class="o" data-v="D"><span class="k">D</span>gewöhnlich</div></div></div>
+  <div class="q" data-q="12" data-ans="C"><span class="qn">12.</span><span class="qt">Wir gehen <span class="blank">_____</span> aus, dass die Anzahl der Kunden wieder ansteigt.</span><span class="result" id="r12"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>daran</div><div class="o" data-v="B"><span class="k">B</span>dafür</div><div class="o" data-v="C"><span class="k">C</span>davon</div><div class="o" data-v="D"><span class="k">D</span>daraus</div></div></div>
+  <div class="q" data-q="13" data-ans="C"><span class="qn">13.</span><span class="qt">Nach dem Unfall muss die Stadt Sicherheitsmaßnahmen <span class="blank">_____</span>.</span><span class="result" id="r13"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>greifen</div><div class="o" data-v="B"><span class="k">B</span>nehmen</div><div class="o" data-v="C"><span class="k">C</span>treffen</div><div class="o" data-v="D"><span class="k">D</span>bringen</div></div></div>
+  <div class="q" data-q="14" data-ans="D"><span class="qn">14.</span><span class="qt">Wenn ich Zeit <span class="blank">_____</span>, <span class="blank">_____</span> ich nach Rom gefahren.</span><span class="result" id="r14"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>hätte ... würde</div><div class="o" data-v="B"><span class="k">B</span>hatte ... hätte</div><div class="o" data-v="C"><span class="k">C</span>gehabt hätte ... würde</div><div class="o" data-v="D"><span class="k">D</span>gehabt hätte ... wäre</div></div></div>
+  <div class="q" data-q="15" data-ans="B"><span class="qn">15.</span><span class="qt">Die Hausarbeit <span class="blank">_____</span> bis morgen abzugeben.</span><span class="result" id="r15"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>war</div><div class="o" data-v="B"><span class="k">B</span>ist</div><div class="o" data-v="C"><span class="k">C</span>hatte</div><div class="o" data-v="D"><span class="k">D</span>hat</div></div></div>
+</div>
+
+<!-- ===== S2: 完形填空 16-35 ===== -->
+<div class="sec" id="s2">
+  <div class="sh"><div class="badge">二</div><div><div class="st">语言知识运用 · 第二节：完形填空</div><div class="ss">20 小题 × 1 分 = 20 分 &nbsp;|&nbsp; Geschichte der Schokolade</div><div class="score-bar">本节得分：<b id="s2score">0 / 20</b></div></div></div>
+
+  <div class="pass" style="margin-bottom:16px">
+    <p style="text-align:center;font-weight:700;color:var(--gl);margin-bottom:12px;font-size:.98rem">Geschichte der Schokolade</p>
+    <p>Es gibt nur wenige Leute, <span class="bl">16</span> ein Stück Schokolade ablehnen können. Allerdings kennt nicht <span class="bl">17</span> ihre interessante Geschichte. Die ersten Kakaoplantagen gab es schon im sechsten Jahrhundert in Mittelamerika, <span class="bl">18</span> man die Kakaobohnen auch als Zahlungsmittel benutzte. Kolumbus <span class="bl">19</span> als erster Europäer, dass die Kakaobohnen als Münzen und zur Zubereitung eines Getränks dienten. <span class="bl">20</span> aber interessierte der Kakao nicht, weil er den Seeweg nach Indien entdecken <span class="bl">21</span>. Schließlich war <span class="bl">22</span> der Spanier H. Cortez, der den Kakao nach Europa brachte.</p>
+    <p style="margin-top:10px">Bis <span class="bl">23</span> 17. Jahrhundert war Schokolade fast überall in Europa nur als Getränk berühmt, das besonders <span class="bl">24</span> wegen seiner stärkenden <span class="bl">25</span> empfohlen wurde. Noch bis 19. Jahrhundert wurde Schokolade in Apotheken <span class="bl">26</span> „Kräftigungsmittel" verkauft. Der Schweizer Daniel Peter <span class="bl">27</span> 1875 die Milchschokolade. Vier Jahre <span class="bl">28</span> hatte Rudolph Lindt die geniale <span class="bl">29</span>, Kakaobutter zur Schokoladenmasse zu geben. <span class="bl">30</span> wurde Schokolade erstmalig ohne Zusatz von Zucker, Honig oder Nüssen <span class="bl">31</span> einem Genussmittel. Und die Schweizer wurden <span class="bl">32</span> bald in der ganzen Welt als hervorragende Schokoladenhersteller <span class="bl">33</span>.</p>
+    <p style="margin-top:10px">Der <span class="bl">34</span> der Schokolade erfolgte in der „Chocolaterie". Meist <span class="bl">35</span> es sich dabei um Verkaufsstätten direkt bei der Produktion.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:.85rem">
+    <div class="q" data-q="16" data-ans="A"><span class="qn">16.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r16"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>die</div><div class="o" data-v="B"><span class="k">B</span>denen</div><div class="o" data-v="C"><span class="k">C</span>der</div><div class="o" data-v="D"><span class="k">D</span>den</div></div></div>
+    <div class="q" data-q="17" data-ans="B"><span class="qn">17.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r17"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>jemand</div><div class="o" data-v="B"><span class="k">B</span>jeder</div><div class="o" data-v="C"><span class="k">C</span>niemand</div><div class="o" data-v="D"><span class="k">D</span>alle</div></div></div>
+    <div class="q" data-q="18" data-ans="A"><span class="qn">18.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r18"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>wo</div><div class="o" data-v="B"><span class="k">B</span>wohin</div><div class="o" data-v="C"><span class="k">C</span>woher</div><div class="o" data-v="D"><span class="k">D</span>worauf</div></div></div>
+    <div class="q" data-q="19" data-ans="A"><span class="qn">19.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r19"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>entdeckte</div><div class="o" data-v="B"><span class="k">B</span>erlebte</div><div class="o" data-v="C"><span class="k">C</span>erfand</div><div class="o" data-v="D"><span class="k">D</span>erfuhr</div></div></div>
+    <div class="q" data-q="20" data-ans="B"><span class="qn">20.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r20"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Er</div><div class="o" data-v="B"><span class="k">B</span>Ihn</div><div class="o" data-v="C"><span class="k">C</span>Ihm</div><div class="o" data-v="D"><span class="k">D</span>Sein</div></div></div>
+    <div class="q" data-q="21" data-ans="A"><span class="qn">21.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r21"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>wollte</div><div class="o" data-v="B"><span class="k">B</span>sollte</div><div class="o" data-v="C"><span class="k">C</span>könnte</div><div class="o" data-v="D"><span class="k">D</span>müsste</div></div></div>
+    <div class="q" data-q="22" data-ans="A"><span class="qn">22.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r22"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>dann</div><div class="o" data-v="B"><span class="k">B</span>danach</div><div class="o" data-v="C"><span class="k">C</span>damals</div><div class="o" data-v="D"><span class="k">D</span>daran</div></div></div>
+    <div class="q" data-q="23" data-ans="B"><span class="qn">23.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r23"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>im</div><div class="o" data-v="B"><span class="k">B</span>ins</div><div class="o" data-v="C"><span class="k">C</span>am</div><div class="o" data-v="D"><span class="k">D</span>zum</div></div></div>
+    <div class="q" data-q="24" data-ans="A"><span class="qn">24.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r24"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>morgens</div><div class="o" data-v="B"><span class="k">B</span>abends</div><div class="o" data-v="C"><span class="k">C</span>nachts</div><div class="o" data-v="D"><span class="k">D</span>tagsüber</div></div></div>
+    <div class="q" data-q="25" data-ans="A"><span class="qn">25.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r25"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Wirkung</div><div class="o" data-v="B"><span class="k">B</span>Leistung</div><div class="o" data-v="C"><span class="k">C</span>Kraft</div><div class="o" data-v="D"><span class="k">D</span>Stärke</div></div></div>
+    <div class="q" data-q="26" data-ans="A"><span class="qn">26.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r26"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>als</div><div class="o" data-v="B"><span class="k">B</span>wie</div><div class="o" data-v="C"><span class="k">C</span>für</div><div class="o" data-v="D"><span class="k">D</span>zum</div></div></div>
+    <div class="q" data-q="27" data-ans="C"><span class="qn">27.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r27"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>fand</div><div class="o" data-v="B"><span class="k">B</span>suchte</div><div class="o" data-v="C"><span class="k">C</span>erfand</div><div class="o" data-v="D"><span class="k">D</span>entdeckte</div></div></div>
+    <div class="q" data-q="28" data-ans="C"><span class="qn">28.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r28"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>früher</div><div class="o" data-v="B"><span class="k">B</span>vorher</div><div class="o" data-v="C"><span class="k">C</span>später</div><div class="o" data-v="D"><span class="k">D</span>nachher</div></div></div>
+    <div class="q" data-q="29" data-ans="A"><span class="qn">29.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r29"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Idee</div><div class="o" data-v="B"><span class="k">B</span>Ahnung</div><div class="o" data-v="C"><span class="k">C</span>Einfall</div><div class="o" data-v="D"><span class="k">D</span>Gedanke</div></div></div>
+    <div class="q" data-q="30" data-ans="D"><span class="qn">30.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r30"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Davor</div><div class="o" data-v="B"><span class="k">B</span>Daraus</div><div class="o" data-v="C"><span class="k">C</span>Davon</div><div class="o" data-v="D"><span class="k">D</span>Damit</div></div></div>
+    <div class="q" data-q="31" data-ans="B"><span class="qn">31.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r31"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>in</div><div class="o" data-v="B"><span class="k">B</span>zu</div><div class="o" data-v="C"><span class="k">C</span>als</div><div class="o" data-v="D"><span class="k">D</span>wie</div></div></div>
+    <div class="q" data-q="32" data-ans="D"><span class="qn">32.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r32"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>erst</div><div class="o" data-v="B"><span class="k">B</span>denn</div><div class="o" data-v="C"><span class="k">C</span>noch</div><div class="o" data-v="D"><span class="k">D</span>schon</div></div></div>
+    <div class="q" data-q="33" data-ans="A"><span class="qn">33.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r33"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>bekannt</div><div class="o" data-v="B"><span class="k">B</span>gekannt</div><div class="o" data-v="C"><span class="k">C</span>erkannt</div><div class="o" data-v="D"><span class="k">D</span>verkannt</div></div></div>
+    <div class="q" data-q="34" data-ans="B"><span class="qn">34.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r34"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Kunde</div><div class="o" data-v="B"><span class="k">B</span>Verkauf</div><div class="o" data-v="C"><span class="k">C</span>Betrieb</div><div class="o" data-v="D"><span class="k">D</span>Produkt</div></div></div>
+    <div class="q" data-q="35" data-ans="B"><span class="qn">35.</span><span class="qt"><span class="blank">_____</span></span><span class="result" id="r35"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>ging</div><div class="o" data-v="B"><span class="k">B</span>handelte</div><div class="o" data-v="C"><span class="k">C</span>betraf</div><div class="o" data-v="D"><span class="k">D</span>behandelte</div></div></div>
+  </div>
+</div>
+
+<!-- ===== S3: 阅读A ===== -->
+<div class="sec" id="s3">
+  <div class="sh"><div class="badge">A</div><div><div class="st">阅读理解 · Passage A</div><div class="ss">德国年轻人乐观度调查 &nbsp;|&nbsp; 题号 36–40 · 5题 × 2.5分 = 12.5分</div><div class="score-bar">本节得分：<b id="s3score">0 / 5</b></div></div></div>
+  <div class="pass"><p>Die jungen Deutschen schauen eher mit etwas mehr Optimismus und innerer Ruhe in die Zukunft als junge Menschen in den anderen fünf europäischen Ländern: Italien, Großbritannien, Holland, Spanien und Tschechien. Das ist das zentrale Ergebnis einer großen Umfrage des Meinungsforschungsinstituts YouGov unter 6000 Menschen zwischen 18 und 30 Jahren.</p><p style="margin-top:10px">Einen Grund zum Händeklatschen haben Politiker und Gesellschaftsforscher aber auch in Deutschland nicht. Denn laut YouGov rechnet mit 43 Prozent nicht einmal jeder zweite junge Deutsche damit, dass er mit Blick auf sein Einkommen und seinen Lebensstandard ein besseres Leben haben wird als die Generation seiner Eltern. In Spanien blicken allerdings nur 29 Prozent der Befragten optimistisch in die Zukunft, in Italien sogar nur 23 Prozent. In Großbritannien sind es immerhin 33 Prozent und in Tschechien 39 Prozent. Die Autoren der Studie meinen, dass der Blick junger Menschen auf ihre persönliche Zukunft stark von der wirtschaftlichen und sozialen Situation im jeweiligen Land abhängt.</p><p style="margin-top:10px">Fast zwei Drittel, 65 Prozent der 18- bis 30-Jährigen in Deutschland glauben, dass sie auch ohne Ausbildung oder Studium einen interessanten Arbeitsplatz finden können, und 87 Prozent sind fest davon überzeugt, zukünftig einen gut bezahlten Job zu bekommen. Gut 70 Prozent der deutschen Befragten meinen allerdings, eine interessante Arbeit sei schwer zu kriegen. In Südeuropa zeigt sich, dass die Jugendlichen weit mehr Angst vor Arbeitslosigkeit haben und sie auch bereit wären, wegen einer Arbeitsstelle ihre Hobbys und Freunde aufzugeben — viel mehr als die jungen Deutschen.</p></div>
+  <div class="q" data-q="36" data-ans="B"><span class="qn">36.</span><span class="qt">Zu welchem Ergebnis ist die Umfrage gekommen?</span><span class="result" id="r36"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Mehr junge Deutsche suchen nach innerer Ruhe.</div><div class="o" data-v="B"><span class="k">B</span>Mehr junge Deutsche haben optimistische Zukunftseinstellung.</div><div class="o" data-v="C"><span class="k">C</span>Junge Europäer in den anderen fünf Ländern sind so optimistisch wie junge Deutsche.</div><div class="o" data-v="D"><span class="k">D</span>Junge Deutsche sind pessimistischer als die in den anderen fünf europäischen Ländern.</div></div></div>
+  <div class="q" data-q="37" data-ans="C"><span class="qn">37.</span><span class="qt">Welche der folgenden Aussagen ist dem Text nach <em>falsch</em>?</span><span class="result" id="r37"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Deutschland ist ein wirtschaftlich starkes Land.</div><div class="o" data-v="B"><span class="k">B</span>Junge Briten sehen optimistischer als junge Italiener in die Zukunft.</div><div class="o" data-v="C"><span class="k">C</span>Über die Hälfte junger Deutscher glaubt an ein besseres Leben als das ihrer Eltern.</div><div class="o" data-v="D"><span class="k">D</span>Die optimistische Einstellung hängt von Wirtschafts- und Soziallage ab.</div></div></div>
+  <div class="q" data-q="38" data-ans="B"><span class="qn">38.</span><span class="qt">Gut 70% der deutschen Befragten ______.</span><span class="result" id="r38"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>finden ohne Ausbildung oder Studium eine Arbeit</div><div class="o" data-v="B"><span class="k">B</span>meinen, eine interessante Arbeit sei schwer zu kriegen</div><div class="o" data-v="C"><span class="k">C</span>sind überzeugt von einem gut bezahlten Job in Zukunft</div><div class="o" data-v="D"><span class="k">D</span>leben in einem Land mit schwächerer Wirtschaft</div></div></div>
+  <div class="q" data-q="39" data-ans="D"><span class="qn">39.</span><span class="qt">Im Vergleich zu den jungen Südeuropäern ______.</span><span class="result" id="r39"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>sind junge Deutsche nicht selbständig</div><div class="o" data-v="B"><span class="k">B</span>haben junge Deutsche große Angst vor Arbeitslosigkeit</div><div class="o" data-v="C"><span class="k">C</span>wollen junge Deutsche wegen Arbeit Hobbys und Freunde aufgeben</div><div class="o" data-v="D"><span class="k">D</span>wollen junge Deutsche nicht wegen Arbeit auf Hobbys und Freunde verzichten</div></div></div>
+  <div class="q" data-q="40" data-ans="A"><span class="qn">40.</span><span class="qt">Welche Überschrift passt zu dem Text?</span><span class="result" id="r40"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Optimistischere junge Deutsche</div><div class="o" data-v="B"><span class="k">B</span>Statt Arbeit Hobbys und Freunde</div><div class="o" data-v="C"><span class="k">C</span>Unselbständige junge Generation</div><div class="o" data-v="D"><span class="k">D</span>Junge Menschen und ihre Arbeit</div></div></div>
+</div>
+
+<!-- ===== S4: 阅读B ===== -->
+<div class="sec" id="s4">
+  <div class="sh"><div class="badge">B</div><div><div class="st">阅读理解 · Passage B</div><div class="ss">法国反食品浪费法 &nbsp;|&nbsp; 题号 41–45 · 5题 × 2.5分 = 12.5分</div><div class="score-bar">本节得分：<b id="s4score">0 / 5</b></div></div></div>
+  <div class="pass"><p>Obst und Gemüse, Brot, Fleisch — Lebensmittel, deren Haltbarkeitsdatum abgelaufen ist, dürfen in Frankreich von Supermärkten nicht mehr einfach vernichtet werden. Stattdessen müssen die Märkte die noch genießbaren Produkte an gemeinnützige Organisationen spenden, die das Essen an Bedürftige verteilen. Das hat Frankreichs Parlament im Kampf gegen die Verschwendung von Lebensmitteln beschlossen. In Deutschland läuft die Verteilung auf freiwilliger Basis. Es existieren zwar bereits Verträge von Supermärkten mit den „Tafeln", doch ein Gesetz gibt es nicht.</p><p style="margin-top:10px">Neben den Spenden enthält das neue Gesetz weitere Regeln: Können die übrig gebliebenen Lebensmittel nicht mehr gegessen werden, müssen sie zu Tierfutter verarbeitet werden. Außerdem dürfen Supermärkte Lebensmittel künftig nicht mehr absichtlich verderben, bevor sie weggeworfen werden. Und auch für die Empfängerorganisationen gibt es Vorschriften: Sie müssen die gespendeten Lebensmittel unter hygienischen Umständen sammeln und halten, und sie müssen das Essen später mit „Würde" verteilen, dürfen es zum Beispiel nicht einfach auf der Straße ausgeben.</p><p style="margin-top:10px">Das Gesetz geht auf eine Petition zurück, die von dem französischen Gemeinderat Arash Derambarsh gestartet wurde und auf change.org mehr als 200.000 Unterstützer sammelte. Ziel war es, ein Gesetz zu bekommen, das alle Supermärkte dazu zwingt, unverkaufte Produkte zu verteilen. Ganz erreicht wurde dieses Ziel allerdings nicht: Das Gesetz gilt nur für große Supermärkte mit einer Verkaufsfläche von 400 Quadratmetern und mehr.</p></div>
+  <div class="q" data-q="41" data-ans="A"><span class="qn">41.</span><span class="qt">Die übrig gebliebenen Lebensmittel in Supermärkten können jetzt ______.</span><span class="result" id="r41"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>gespendet werden</div><div class="o" data-v="B"><span class="k">B</span>weiter verkauft werden</div><div class="o" data-v="C"><span class="k">C</span>einfach vernichtet werden</div><div class="o" data-v="D"><span class="k">D</span>einfach weggeworfen werden</div></div></div>
+  <div class="q" data-q="42" data-ans="C"><span class="qn">42.</span><span class="qt">Welches Ziel soll das Gesetz erreichen?</span><span class="result" id="r42"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Hilfsorganisationen fördern.</div><div class="o" data-v="B"><span class="k">B</span>Mehr Essen für alle sparen.</div><div class="o" data-v="C"><span class="k">C</span>Weniger Lebensmittel verschwenden.</div><div class="o" data-v="D"><div class="o" data-v="D"><span class="k">D</span>Mehr Verträge mit Einrichtungen erhalten.</div></div></div></div>
+  <div class="q" data-q="43" data-ans="B"><span class="qn">43.</span><span class="qt">Welche Aussage ist dem Text nach richtig?</span><span class="result" id="r43"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Deutschland hat auch ein Gesetz zur Lebensmittelverteilung.</div><div class="o" data-v="B"><span class="k">B</span>Das Gesetz enthält auch Regeln für die Empfängerorganisationen.</div><div class="o" data-v="C"><span class="k">C</span>Supermärkte dürfen Lebensmittel unter keinen Umständen verderben.</div><div class="o" data-v="D"><span class="k">D</span>Das Gesetz gilt für alle Supermärkte in Frankreich.</div></div></div>
+  <div class="q" data-q="44" data-ans="A"><span class="qn">44.</span><span class="qt">Was soll mit nicht mehr essbaren Lebensmitteln geschehen?</span><span class="result" id="r44"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Zu Tierfutter verarbeiten.</div><div class="o" data-v="B"><span class="k">B</span>Einfach vernichten.</div><div class="o" data-v="C"><span class="k">C</span>An Bedürftige verteilen.</div><div class="o" data-v="D"><span class="k">D</span>Auf der Straße ausgeben.</div></div></div>
+  <div class="q" data-q="45" data-ans="B"><span class="qn">45.</span><span class="qt">Welche Überschrift passt zu dem Text?</span><span class="result" id="r45"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Ein französischer Gemeinderat</div><div class="o" data-v="B"><span class="k">B</span>Gegen Verschwendung von Lebensmitteln</div><div class="o" data-v="C"><span class="k">C</span>Das neue Gesetz in Deutschland</div><div class="o" data-v="D"><span class="k">D</span>Strengere Regeln für Supermärkte</div></div></div>
+</div>
+
+<!-- ===== S5: 阅读C ===== -->
+<div class="sec" id="s5">
+  <div class="sh"><div class="badge">C</div><div><div class="st">阅读理解 · Passage C</div><div class="ss">Shareconomy 共享经济 &nbsp;|&nbsp; 题号 46–50 · 5题 × 2.5分 = 12.5分</div><div class="score-bar">本节得分：<b id="s5score">0 / 5</b></div></div></div>
+  <div class="pass"><p>Wer würde nicht gerne in einer Großstadt wie Berlin einen schönen Garten besitzen und dort Obst und Gemüse anbauen? Unter „www.garten-teilen.de" kann man schnell etwas finden. Auf dieser Webseite finden Anbieter und Suchende einfach zusammen. Oder der „Kleiderkreisel": Hinter dieser Plattform (www.kleiderkreisel.de) steckt die Tauschbörse für Kleidung, Schmuck und Selbstgemachtes. Sie kommt ursprünglich aus Litauen. Hier kann man Kleidung kaufen, verkaufen, tauschen und verschenken. Das Ganze funktioniert auch mit Büchern wie auf „Bookelo.com": Das ist eine Art Online-Bücherei, und zwar direkt von Leser zu Leser. Über eine Online-Plattform sieht man, welche Bücher von anderen Nutzern in der Umgebung vorhanden sind. Nach diesem Prinzip gibt es weitere Plattformen, über die man Fahrräder, Spielzeuge und vieles mehr tauscht oder teilt.</p><p style="margin-top:10px">Eine Gesellschaft, in der das Teilen von Dingen oder Dienstleistungen im Vordergrund steht, wird neudeutsch als „Shareconomy" bezeichnet — ein Wort, das aus den englischen Begriffen „Share" = teilen und „economy" = Wirtschaft gebildet wurde. Dahinter stecken meist private Initiativen, die ihre Dienste kostenlos anbieten. Bei den Carsharing-Projekten allerdings gibt es auch kommerzielle Anbieter neben reinen Privatanbietern. Hier geht es weniger ums Teilen als ums Mieten. Das Internet und auch die Sozialen Netzwerke bieten eine sehr gute Plattform für Initiativen verschiedener Art.</p><p style="margin-top:10px">Professor Harald Heinrichs an der Leuphana Universität Lüneburg hat in einer Befragung herausgefunden, dass jeder zweite Deutsche bereits Teil der „Shareconomy" ist. Besonders jüngere Menschen haben die Vorteile einer Ökonomie des Teilens wieder entdeckt und beleben sie dank der Internettechnologie neu.</p></div>
+  <div class="q" data-q="46" data-ans="A"><span class="qn">46.</span><span class="qt">Woher stammt der „Kleiderkreisel"?</span><span class="result" id="r46"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Aus Litauen.</div><div class="o" data-v="B"><span class="k">B</span>Aus Deutschland.</div><div class="o" data-v="C"><span class="k">C</span>Aus einer Tauschbörse.</div><div class="o" data-v="D"><span class="k">D</span>Aus einem Kleiderstoff.</div></div></div>
+  <div class="q" data-q="47" data-ans="C"><span class="qn">47.</span><span class="qt">Was kann man auf „Bookelo.com" machen?</span><span class="result" id="r47"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Bücher prüfen.</div><div class="o" data-v="B"><span class="k">B</span>Bücher verfassen.</div><div class="o" data-v="C"><span class="k">C</span>Bücher mit anderen tauschen.</div><div class="o" data-v="D"><span class="k">D</span>Erfahren, welche Bücher Bestseller sind.</div></div></div>
+  <div class="q" data-q="48" data-ans="D"><span class="qn">48.</span><span class="qt">Was unterscheidet Carsharing von anderen Angeboten?</span><span class="result" id="r48"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Carsharing ist kostenlos.</div><div class="o" data-v="B"><span class="k">B</span>Nur Privatanbieter nutzen Carsharing.</div><div class="o" data-v="C"><span class="k">C</span>Bei Carsharing geht es nur ums Teilen.</div><div class="o" data-v="D"><span class="k">D</span>Kommerzielles Interesse spielt große Rolle.</div></div></div>
+  <div class="q" data-q="49" data-ans="B"><span class="qn">49.</span><span class="qt">Welche Aussage ist dem Text nach richtig?</span><span class="result" id="r49"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>„Shareconomy" betont private Initiativen.</div><div class="o" data-v="B"><span class="k">B</span>Es geht um Teilen von Dingen und Dienstleistungen.</div><div class="o" data-v="C"><span class="k">C</span>Es geht um Teilen von Initiativen und Ideen.</div><div class="o" data-v="D"><span class="k">D</span>Das Wort setzt sich aus neudeutschen Begriffen zusammen.</div></div></div>
+  <div class="q" data-q="50" data-ans="B"><span class="qn">50.</span><span class="qt">Jüngere Menschen ______.</span><span class="result" id="r50"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>haben die Technologie entwickelt</div><div class="o" data-v="B"><span class="k">B</span>haben „Shareconomy" durch Internet belebt</div><div class="o" data-v="C"><span class="k">C</span>haben die Vorteile bekannt gemacht</div><div class="o" data-v="D"><span class="k">D</span>haben die Vorteile mit entdeckt</div></div></div>
+</div>
+
+<!-- ===== S6: 阅读D ===== -->
+<div class="sec" id="s6">
+  <div class="sh"><div class="badge">D</div><div><div class="st">阅读理解 · Passage D</div><div class="ss">中国人心血管健康问题 &nbsp;|&nbsp; 题号 51–55 · 5题 × 2.5分 = 12.5分</div><div class="score-bar">本节得分：<b id="s6score">0 / 5</b></div></div></div>
+  <div class="pass"><p>Innerhalb von nur 20 Jahren haben sich die gesundheitlichen Probleme der chinesischen Bevölkerung dramatisch verändert. Mittlerweile leiden immer mehr Chinesen an Herz-Kreislauf-Erkrankungen, warnen US-Forscher der Harvard-Universität. Aus ihren Analysen geht hervor, dass von 6,8 Millionen Chinesen über 35 Jahre, die im Jahr 2011 starben, etwa drei Millionen auch Herzkrankheiten und Kreislaufleiden hatten.</p><p style="margin-top:10px">Die US-Wissenschaftler glauben, dass der Wandel im Lebensstil dafür verantwortlich ist. Der geschehe gleichzeitig mit dem schnellen Wachstum der chinesischen Wirtschaft in den vergangenen Jahrzehnten. Der Wechsel von traditionellen zu eher westlichen Gewohnheiten sowie die Urbanisierung und Industrialisierung hätten hohen Blutdruck und Fettleibigkeit in China zu Volkskrankheiten gemacht.</p><p style="margin-top:10px">Hinzu komme, dass viele Chinesen rauchten, viel tränken und sich zu wenig bewegten. Dies und die steigende Zahl an Menschen, die in Fast-Food-Restaurants essen, erhöhe die Wahrscheinlichkeit, an Herz-Kreislauf-Erkrankungen zu leiden, deutlich. Für ihre Studie wertete das Team um die Gesundheitswissenschaftlerin Yanping Li Gesundheitsdaten von 26 000 Menschen aus neun chinesischen Provinzen aus. Dazu verglichen sie über einen Zeitraum von 1991 bis 2011 etwa Werte wie Cholesterin- und Blutzuckerspiegel, Blutdruck und Gewicht.</p><p style="margin-top:10px">Mehr und mehr Menschen essen demnach viel rotes Fleisch, trinken zuckerhaltige Getränke, essen zu salzig und zu wenig Gemüse. All dies sind bekannte Risikofaktoren für Herzkrankheiten. Herz-Kreislauf-Erkrankungen sind damit in China mittlerweile Todesursache Nummer eins. Im Jahr 1979 etwa hatten nur 7,7 Prozent der Chinesen einen erhöhten Blutdruck. 2010 waren es bereits 33,5 Prozent. Dies sei vergleichbar mit dem Wert für erwachsene US-Bürger.</p></div>
+  <div class="q" data-q="51" data-ans="D"><span class="qn">51.</span><span class="qt">Laut US-Forscher ______.</span><span class="result" id="r51"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>leiden junge Chinesen unter 35 an Herzkrankheiten</div><div class="o" data-v="B"><span class="k">B</span>starben 2011 6,8 Mio. Chinesen an Herzkrankheiten</div><div class="o" data-v="C"><span class="k">C</span>Gesundheitsprobleme zeigen kleine Veränderungen</div><div class="o" data-v="D"><span class="k">D</span>Zahl der Herz-Kreislauf-Kranken wächst</div></div></div>
+  <div class="q" data-q="52" data-ans="B"><span class="qn">52.</span><span class="qt">Hauptursache für Herzkrankheiten der Chinesen?</span><span class="result" id="r52"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Chinesen bewegen sich viel.</div><div class="o" data-v="B"><span class="k">B</span>Lebensstil hat sich verändert.</div><div class="o" data-v="C"><span class="k">C</span>Chinesen bevorzugen traditionelle Gewohnheiten.</div><div class="o" data-v="D"><span class="k">D</span>Wirtschaft entwickelte sich langsam.</div></div></div>
+  <div class="q" data-q="53" data-ans="C"><span class="qn">53.</span><span class="qt">Das Forschungsteam von Frau Yanping Li ______.</span><span class="result" id="r53"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>schätzte Größe und Gewicht</div><div class="o" data-v="B"><span class="k">B</span>bewertete Gesundheitsdaten ganz Chinas</div><div class="o" data-v="C"><span class="k">C</span>verglich Gesundheitswerte von 1991 bis 2011</div><div class="o" data-v="D"><span class="k">D</span>fand: Chinesen rauchen, trinken wenig, bewegen sich viel</div></div></div>
+  <div class="q" data-q="54" data-ans="A"><span class="qn">54.</span><span class="qt">Wodurch erhöht sich das Risiko von Herzkrankheiten?</span><span class="result" id="r54"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Zu viel Salz essen.</div><div class="o" data-v="B"><span class="k">B</span>Sehr viel Gemüse essen.</div><div class="o" data-v="C"><span class="k">C</span>Viel weißes Fleisch essen.</div><div class="o" data-v="D"><span class="k">D</span>Getränke ohne Zucker trinken.</div></div></div>
+  <div class="q" data-q="55" data-ans="A"><span class="qn">55.</span><span class="qt">Welche Aussage ist dem Text nach richtig?</span><span class="result" id="r55"></span><div class="os"><div class="o" data-v="A"><span class="k">A</span>Herz-Kreislauf-Krankheiten sind Todesursache Nr. 1 in China.</div><div class="o" data-v="B"><span class="k">B</span>1979 litten schon viele Chinesen an erhöhtem Blutdruck.</div><div class="o" data-v="C"><span class="k">C</span>USA hat viel mehr Bluthochdruck-Patienten als China.</div><div class="o" data-v="D"><span class="k">D</span>2010 hatte knapp ein Drittel der Chinesen niedrigen Blutdruck.</div></div></div>
+</div>
+
+<!-- ===== S7: 写作 ===== -->
+<div class="sec" id="s7">
+  <div class="sh"><div class="badge w">写</div><div><div class="st">第四部分：写作 <small style="font-weight:400;color:var(--t2)">Schreiben</small></div><div class="ss">满分 35 分</div></div></div>
+  <div class="wbox">
+    <h4>✍️ 书面表达</h4>
+    <p style="font-size:.9rem;line-height:1.9">Nach der Hochschulaufnahmeprüfung machen viele Schülerinnen und Schüler eine Reise oder veranstalten eine große Party, um den Schulabschluss zu feiern. <strong style="color:var(--gl)">Wie möchten Sie Ihre Schulabschlussfeier planen? Wo und mit wem?</strong></p>
+    <p style="margin-top:10px;font-size:.85rem;color:var(--t2)">Schreiben Sie mindestens <strong style="color:var(--tx)">150 Wörter</strong>. Geben Sie Ihrem Aufsatz eine <strong style="color:var(--tx)">Überschrift</strong>.</p>
+  </div>
+</div>
+
+</div><!-- /main -->
+</div><!-- /wrap -->
+
+<div class="ft">2026年6月8日 · 仅供学习交流</div>
+
+<script>
+// ============ CORE ENGINE ============
+let mode = 'practice'; // 'practice' | 'browse'
+const answered = {}; // qNum -> chosenValue
+
+document.querySelectorAll('.o').forEach(opt => {
+  opt.addEventListener('click', function(e){
+    if(mode === 'browse') return;
+    const qEl = this.closest('.q');
+    if(!qEl) return;
+    const qNum = qEl.dataset.q;
+    if(answered[qNum] !== undefined) return; // already answered
+    const chosen = this.dataset.v;
+    const correct = qEl.dataset.ans;
+
+    // Mark chosen
+    this.classList.add('chosen');
+    answered[qNum] = chosen;
+
+    // Show result
+    const resultEl = document.getElementById('r'+qNum);
+    if(resultEl){
+      if(chosen === correct){
+        resultEl.textContent = '✓ 正确';
+        resultEl.className = 'result show ok';
+        qEl.classList.add('correct','done');
+      } else {
+        resultEl.textContent = '✗ 错误 (答案: '+correct+')';
+        resultEl.className = 'result show no';
+        qEl.classList.add('wrong','done');
+      }
+    }
+
+    // Highlight all options
+    qEl.querySelectorAll('.o').forEach(o => {
+      o.classList.add('reveal');
+      if(o.dataset.v === correct) o.classList.add('correct');
+      if(o.dataset.v === chosen && chosen !== correct) o.classList.add('wrong');
+    });
+
+    updateScores();
+    toast(chosen === correct ? '✅ 正确！' : '❌ 错误，正确答案是 '+correct);
+  });
+});
+
+function updateScores(){
+  let totalCorrect = 0, totalQuestions = 0;
+  ['s1','s2','s3','s4','s5','s6'].forEach(secId => {
+    const sec = document.getElementById(secId);
+    if(!sec) return;
+    const qs = sec.querySelectorAll('.q[data-ans]');
+    let correct = 0;
+    qs.forEach(q => {
+      const qNum = q.dataset.q;
+      if(answered[qNum] === q.dataset.ans) correct++;
+    });
+    const scoreEl = document.getElementById(secId+'score');
+    if(scoreEl) scoreEl.textContent = correct + ' / ' + qs.length;
+    const ssEl = document.getElementById('ss'+secId.slice(1));
+    if(ssEl) ssEl.textContent = correct+'/'+qs.length;
+    totalCorrect += correct;
+    totalQuestions += qs.length;
+  });
+  const totalEl = document.getElementById('totalScore');
+  if(totalEl && totalQuestions > 0) totalEl.textContent = '✅ '+totalCorrect+'/'+totalQuestions;
+}
+
+function resetAll(){
+  answered.__proto__ = null; // clear object
+  Object.keys(answered).forEach(k => delete answered[k]);
+  document.querySelectorAll('.q').forEach(q => {
+    q.classList.remove('correct','wrong','done');
+  });
+  document.querySelectorAll('.o').forEach(o => {
+    o.classList.remove('chosen','correct','wrong','reveal');
+  });
+  document.querySelectorAll('.result').forEach(r => {
+    r.textContent = ''; r.className = 'result';
+  });
+  updateScores();
+  document.getElementById('totalScore').textContent = '';
+  setMode('practice');
+  document.querySelector('.mode-switch[data-mode="practice"]').classList.add('active');
+  document.querySelector('.mode-switch[data-mode="browse"]').classList.remove('active');
+  toast('🔄 已重置，重新开始吧！');
+}
+
+function revealAll(){
+  document.querySelectorAll('.q[data-ans]').forEach(q => {
+    const qNum = q.dataset.q;
+    const correct = q.dataset.ans;
+    if(answered[qNum] === undefined){
+      answered[qNum] = null; // mark as revealed
+    }
+    const resultEl = document.getElementById('r'+qNum);
+    if(resultEl && answered[qNum] !== correct){
+      if(answered[qNum] === null){
+        resultEl.textContent = '答案: '+correct;
+        resultEl.className = 'result show ok';
+      }
+    }
+    q.classList.add('done');
+    q.querySelectorAll('.o').forEach(o => {
+      o.classList.add('reveal');
+      if(o.dataset.v === correct) o.classList.add('correct');
+      if(answered[qNum] && answered[qNum] !== null && o.dataset.v === answered[qNum] && answered[qNum] !== correct) o.classList.add('wrong');
+    });
+  });
+  updateScores();
+  toast('👁 答案已显示');
+}
+
+function setMode(m){
+  mode = m;
+  document.querySelectorAll('.mode-switch').forEach(b => b.classList.toggle('active', b.dataset.mode === m));
+  toast(m === 'practice' ? '✏️ 练习模式：点击选项立即判分' : '📖 浏览模式：点击选项不判分');
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tid); t._tid = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+// FAB + IntersectionObserver
+const fab = document.getElementById('fab');
+window.addEventListener('scroll', () => {
+  fab.classList.toggle('show', window.scrollY > 400);
+});
+
+// Nav active state
+const secs = document.querySelectorAll('.sec[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const id = e.target.id;
+      document.querySelectorAll('.side a[href="#"]').forEach(l => {});
+      document.querySelectorAll('.side a[href^="#"]').forEach(l => l.classList.toggle('on', l.getAttribute('href')==='#'+id));
+      document.querySelectorAll('.mnav a').forEach(l => l.classList.toggle('on', l.getAttribute('href')==='#'+id));
+    }
+  });
+}, {rootMargin:'-35% 0px -60% 0px'});
+secs.forEach(s => observer.observe(s));
+
+updateScores();
+</script>
+</body>
+</html>
