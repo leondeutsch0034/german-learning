@@ -65,11 +65,14 @@
     #main-nav {
       position: sticky; top: 0; z-index: 999;
       background: #0a1428;
-      display: flex; flex-wrap: wrap; gap: 4px;
       padding: 8px 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.4);
       border-bottom: 1px solid rgba(246,211,101,.15);
       transition: transform 0.3s ease;
+    }
+    #main-nav .nav-inner {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      max-width: 1100px; margin: 0 auto;
     }
     #main-nav.nav-hidden { transform: translateY(-110%); }
     .nav-btn {
@@ -140,7 +143,7 @@
 
     /* ── Hero ── */
     #page-index .hero {
-      text-align:center;padding:56px 20px 48px;max-width:860px;margin:0 auto;
+      text-align:center;padding:56px 20px 48px;max-width:1100px;margin:0 auto;
       animation:fadeUp .7s ease both;
     }
     #page-index .hero-eyebrow {
@@ -162,6 +165,18 @@
     }
     #page-index .hero-sub {
       color:rgba(255,245,230,.85);font-size:1.05rem;line-height:1.65;margin-bottom:28px;
+    }
+    #page-index .hero-links {
+      display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;
+    }
+    #page-index .hero-btn {
+      display:inline-block;padding:8px 18px;
+      background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);
+      border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;
+      text-decoration:none;letter-spacing:.02em;transition:.25s;
+    }
+    #page-index .hero-btn:hover {
+      background:rgba(246,211,101,.16);border-color:rgba(246,211,101,.55);
     }
     /* Stats row */
     #page-index .stats-row {
@@ -187,30 +202,30 @@
       max-width:1100px;margin:0 auto 18px;
       display:flex;align-items:center;gap:12px;
       font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-      color:rgba(220,140,120,.45);
+      color:rgba(246,211,101,.55);
     }
     #page-index .sec-title::after {
-      content:'';flex:1;height:1px;background:rgba(200,80,60,.15);
+      content:'';flex:1;height:1px;background:rgba(246,211,101,.18);
     }
 
     /* Cards grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;max-width:1100px;margin:0 auto 44px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;max-width:1100px;margin:0 auto 44px}
     #page-index .card{
-      border-radius:20px;padding:26px 24px 22px;cursor:pointer;
+      border-radius:18px;padding:26px 24px 22px;cursor:pointer;
       text-decoration:none;display:block;position:relative;overflow:hidden;
-      border:1px solid rgba(255,215,120,.35);
-      background:linear-gradient(140deg,#8a0e14,#a31920);
+      border:1px solid rgba(246,211,101,.16);
+      background:#10203c;
       transition:transform .25s,box-shadow .25s,border-color .25s;
     }
     #page-index .card::after{
       content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(255,215,120,.1),transparent 60%);
+      background:linear-gradient(135deg,rgba(246,211,101,.05),transparent 55%);
       pointer-events:none;
     }
     #page-index .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 24px 48px rgba(80,10,10,.5);
-      border-color:rgba(255,220,130,.6);
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(10,20,50,.5);
+      border-color:rgba(246,211,101,.5);
     }
     /* 夜空 → 星光渐进式：深夜蓝 → 青金 → 金术 */
     #page-index .c1{background:linear-gradient(140deg,#0f1e3a,#1e3a5f)} /* 深夜 */
@@ -1244,7 +1259,7 @@
        ================================================================ */
 
     /* 导航栏：自动换行 */
-    #main-nav {
+    #main-nav .nav-inner {
       flex-wrap: wrap !important;
       overflow-x: visible;
     }
@@ -1265,7 +1280,8 @@
 
     /* 手机竖屏（≤ 600px） */
     @media (max-width: 600px) {
-      #main-nav { padding: 8px; gap: 6px; display: grid; grid-template-columns: repeat(3, 1fr); flex-wrap: unset; overflow-x: visible; }
+      #main-nav { padding: 8px; }
+      #main-nav .nav-inner { gap: 6px; display: grid; grid-template-columns: repeat(3, 1fr); flex-wrap: unset; }
       #main-nav::-webkit-scrollbar { display: none; }
       .nav-btn { font-size: 0.74rem; height: 40px; width: 100%; min-width: 0; padding: 0 6px; white-space: normal; line-height: 1.15; }
       #page-index { padding: 8px !important; }
@@ -1379,7 +1395,8 @@
 
     /* 手机横屏（高 ≤ 500px + landscape） */
     @media (max-height: 500px) and (orientation: landscape) {
-      #main-nav { padding: 4px 8px; gap: 4px; display: grid; grid-template-columns: repeat(6, 1fr); flex-wrap: unset; overflow-x: visible; }
+      #main-nav { padding: 4px 8px; }
+      #main-nav .nav-inner { gap: 4px; display: grid; grid-template-columns: repeat(6, 1fr); flex-wrap: unset; }
       #main-nav::-webkit-scrollbar { display: none; }
       .nav-btn { font-size: 0.72rem; height: 34px; width: 100%; min-width: 0; padding: 0 6px; white-space: normal; line-height: 1.1; }
       #page-index { padding: 8px 12px !important; }
@@ -2449,7 +2466,7 @@
       #page-b1lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
     /* ── Wusstest du schon? 每日冷知识卡片 ── */
-    #wds-card-wrap { margin:0 auto 24px; max-width:860px; padding:0 20px; }
+    #wds-card-wrap { margin:0 auto 24px; max-width:1100px; padding:0 20px; }
     #wds-card { background:linear-gradient(135deg,#0f1e3a 0%,#162d4a 50%,#1a3050 100%); border:1px solid rgba(246,211,101,.25); border-radius:16px; padding:20px 24px; position:relative; transition:all .3s ease; cursor:default; }
     #wds-card:hover { border-color:rgba(246,211,101,.5); box-shadow:0 4px 24px rgba(246,211,101,.1); }
     #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.7rem; font-weight:700; padding:3px 12px; border-radius:10px; margin-bottom:12px; letter-spacing:.03em; }
@@ -3382,7 +3399,7 @@ function renderNav() {
     h += '<button onclick="showPage(\'' + m.id + '\')" id="nav-' + m.id + '" class="nav-btn">' + m.icon + ' ' + m.navLabel + lockIcon + '</button>';
   }
   h += '<button id="search-nav-btn" onclick="openSearch()" class="nav-btn" style="background:linear-gradient(90deg,#5b21b6,#7c3aed);color:#fff;opacity:1;border-color:rgba(196,181,253,.6);font-weight:600">🔍 搜索</button>';
-  document.write(h);
+  document.write('<div class="nav-inner">' + h + '</div>');
 }
 
 function renderCards() {
@@ -3623,15 +3640,17 @@ document.addEventListener('keydown', function(e) {
   <h1>Leons Deutschzentrum</h1>
   <p class="hero-sub">歌德学院考试备考 &nbsp;·&nbsp; 完整学习包<br>语法 · 听力 · 写作 · 综合练习 · 全交互评分</p>
   <div class="stats-row">
-    <div class="stat-chip"><div class="stat-num" id="module-count">15</div><div class="stat-lbl">学习模块</div></div>
-    <div class="stat-chip"><div class="stat-num">200<span style="font-size:1rem">+</span></div><div class="stat-lbl">练习题</div></div>
+    <div class="stat-chip"><div class="stat-num" id="module-count">22</div><div class="stat-lbl">学习模块</div></div>
+    <div class="stat-chip"><div class="stat-num">300<span style="font-size:1rem">+</span></div><div class="stat-lbl">练习题</div></div>
     <div class="stat-chip"><div class="stat-num">25<span style="font-size:1rem">+</span></div><div class="stat-lbl">语法要点</div></div>
     <div class="stat-chip"><div class="stat-num">4</div><div class="stat-lbl">考试技能</div></div>
   </div>
-  <a href="about.html" style="display:inline-block;margin-top:18px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📘 了解本站与教学理念 →</a>
-  <a href="preise.html" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.35);border-radius:20px;color:#fde68a;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(246,211,101,.18)';this.style.borderColor='rgba(246,211,101,.6)'" onmouseout="this.style.background='rgba(246,211,101,.08)';this.style.borderColor='rgba(246,211,101,.35)'">📋 了解完整价格体系 →</a>
-  <a href="#" onclick="showPage('wissensgraph');return false" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.35);border-radius:20px;color:#6ee7b7;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(52,211,153,.18)';this.style.borderColor='rgba(52,211,153,.6)'" onmouseout="this.style.background='rgba(52,211,153,.08)';this.style.borderColor='rgba(52,211,153,.35)'">🌐 3D 知识图谱 →</a>
-  <a href="#" onclick="showPage('vocab-index');return false" style="display:inline-block;margin-top:10px;padding:8px 20px;background:rgba(199,146,234,.08);border:1px solid rgba(199,146,234,.35);border-radius:20px;color:#d8b4fe;font-size:.82rem;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.02em" onmouseover="this.style.background='rgba(199,146,234,.18)';this.style.borderColor='rgba(199,146,234,.6)'" onmouseout="this.style.background='rgba(199,146,234,.08)';this.style.borderColor='rgba(199,146,234,.35)'">🔗 单词关联索引 →</a>
+  <div class="hero-links">
+  <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
+  <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
+  <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
+  <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
+  </div>
 </div>
 
 <!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
@@ -3653,7 +3672,7 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <!-- 模块标题 -->
-<div class="sec-title" style="color:rgba(220,140,120,.5);">学习模块</div>
+<div class="sec-title">📚 学习模块</div>
 
 <!-- 主要模块 -->
 <div class="grid">
@@ -3662,7 +3681,7 @@ document.addEventListener('keydown', function(e) {
 
 
 <!-- 考试说明标题 -->
-<div class="sec-title" style="color:rgba(220,140,120,.5);">考试结构</div>
+<div class="sec-title">🎯 考试结构</div>
 
 <!-- 歌德A1考试说明 -->
 <div class="info-section">
@@ -3700,7 +3719,7 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <!-- 学习进度标题 -->
-<div class="sec-title" style="color:rgba(220,140,120,.5);">我的进度</div>
+<div class="sec-title">📋 我的进度</div>
 
 <!-- 学习进度追踪 -->
 <div class="tracker">
@@ -3714,7 +3733,7 @@ document.addEventListener('keydown', function(e) {
 
 <footer>
   🇩🇪 Viel Erfolg bei der Prüfung! &nbsp; 祝考试顺利！<br>
-  Goethe-Zertifikat A1 · 学习材料由 Claude AI 基于 Studio 21 A1 / 交际德语教程 制作
+  Leons Deutschzentrum · Goethe-Zertifikat A1 / A2 / B1 备考 · 语法 · 听力 · 写作 · 发音 · 文化
 </footer>
 
 </div>
