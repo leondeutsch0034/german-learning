@@ -89,6 +89,28 @@
     .nav-btn.active { opacity: 1; background:linear-gradient(90deg,#1e3a5f,#2e527c); color:#fde68a; border-color:rgba(246,211,101,.9); border-width:2px; box-shadow:0 2px 12px rgba(246,211,101,.4); }
     #search-nav-btn { }
 
+    /* 隐藏顶部栏目条（保留元素以兼容滚动/showPage 脚本），改用右下角浮动按钮 */
+    #main-nav { display: none !important; }
+    #float-nav {
+      position: fixed; right: 16px; bottom: 20px; z-index: 9000;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    #float-nav .float-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid rgba(246,211,101,.5);
+      background: linear-gradient(135deg,#1e3a5f,#2e527c);
+      color: #fde68a; font-size: 1.25rem; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      transition: 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #float-nav .float-btn:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(246,211,101,.45); }
+    #float-nav .float-btn.search { background: linear-gradient(135deg,#5b21b6,#7c3aed); color: #fff; border-color: rgba(196,181,253,.55); }
+    @media(max-width:600px){
+      #float-nav { right: 12px; bottom: 14px; gap: 8px; }
+      #float-nav .float-btn { width: 44px; height: 44px; font-size: 1.15rem; }
+    }
+
     /* user status bar */
     #user-status-bar {
       display: none;
@@ -3429,6 +3451,12 @@ function renderCards() {
 <nav id="main-nav">
   <script>renderNav();</script>
 </nav>
+
+<!-- 右下角浮动按钮：返回首页 + 搜索（替代顶部栏目条） -->
+<div id="float-nav">
+  <button class="float-btn search" onclick="openSearch()" title="搜索">🔍</button>
+  <button class="float-btn" onclick="showPage('index')" title="返回首页">🏠</button>
+</div>
 
 <!-- ══════════ 搜索弹窗 ══════════ -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;z-index:99997;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)" onclick="if(event.target===this)closeSearch()">
@@ -46732,7 +46760,8 @@ function b1S12CheckB(){
     <div class="se-eplist">
       <button class="se-ep cur" data-ep="1" onclick="showSerieEp(1)">第 1 集 · 落地与登记</button>
       <button class="se-ep" data-ep="2" onclick="showSerieEp(2)">第 2 集 · 开银行账户</button>
-      <span class="se-ep soon">第 3 集 · 看医生（敬请期待）</span>
+      <button class="se-ep" data-ep="3" onclick="showSerieEp(3)">第 3 集 · 看医生</button>
+      <span class="se-ep soon">第 4 集（敬请期待）</span>
     </div>
 
     <!-- ───── 第 1 集 ───── -->
@@ -46924,12 +46953,297 @@ function b1S12CheckB(){
       </div>
     </div>
 
-    <div class="se-next" onclick="showSerieEp(1)" style="cursor:pointer">
-      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
-      <div class="se-next-title">第 3 集：林夏生病去看医生</div>
-      <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……第 3 集正在制作中。<br><span style="color:#8b7bb8;font-weight:700">← 回看第 1 集</span></div>
+    <div class="se-next" onclick="showSerieEp(3)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 3 集：林夏生病去看医生 →</div>
+      <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……她能顺利看上病吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 3 集 →</span></div>
     </div>
     </div><!-- /第2集 -->
+
+    <!-- ───── 第 3 集 ───── -->
+    <div class="se-episode" data-ep="3" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">来德国两周了，落户和银行终于搞定。这周慕尼黑一直下雨，林夏每天在外面跑来跑去，加上时差还没倒过来，今天早上醒来——嗓子痛、头昏、浑身发冷。今天的任务：第一次在德国看医生。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🤒 林夏在国内很少去医院，小病扛一扛就过去了。但在德国，<b>Krankenversicherung</b>（医保）是强制的，每个月都在交保费。她在网上搜了半天，终于搞懂了：要先找 <b>Hausarzt</b>（家庭医生），不能直接去大医院。于是她拨通了一家 Praxis 的电话……
+    </div>
+
+    <!-- 对话 1: 打电话预约 -->
+    <div class="se-sec-title">🗣️ 对话一 · Am Telefon（打电话预约）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">📞</div>
+        <div class="se-bubble">
+          <div class="se-spk">Praxis Dr. Weber</div>
+          <div class="se-de">Praxis Dr. Weber, <b>guten Tag</b>. Was kann ich für Sie tun?</div>
+          <div class="se-zh">韦伯医生诊所，您好。我能帮您什么？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Guten Tag, ich bin <b>krank</b>. Kann ich heute einen <b>Termin</b> bekommen?</div>
+          <div class="se-zh">您好，我生病了。今天能约到吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">📞</div>
+        <div class="se-bubble">
+          <div class="se-spk">Praxis Dr. Weber</div>
+          <div class="se-de">Sind Sie schon <b>Patientin</b> bei uns?</div>
+          <div class="se-zh">您是我们这儿的病人吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Nein, ich bin <b>neu</b> hier. Ich bin <b>Studentin</b>.</div>
+          <div class="se-zh">不是，我是新来的。我是学生。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">📞</div>
+        <div class="se-bubble">
+          <div class="se-spk">Praxis Dr. Weber</div>
+          <div class="se-de">Kein Problem. Welche <b>Krankenversicherung</b> haben Sie?</div>
+          <div class="se-zh">没问题。您是哪家医保公司的？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich bin bei der <b>TK</b> <b>versichert</b>. (Techniker Krankenkasse)</div>
+          <div class="se-zh">我保的是 TK（技术人员医保）。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">📞</div>
+        <div class="se-bubble">
+          <div class="se-spk">Praxis Dr. Weber</div>
+          <div class="se-de">Gut. Was für <b>Symptome</b> haben Sie?</div>
+          <div class="se-zh">好的。您有什么症状？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich habe <b>Fieber</b>, <b>Husten</b> und <b>Halsschmerzen</b>. Mein Kopf tut auch weh.</div>
+          <div class="se-zh">我发烧、咳嗽、嗓子疼。头也疼。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">📞</div>
+        <div class="se-bubble">
+          <div class="se-spk">Praxis Dr. Weber</div>
+          <div class="se-de">Kommen Sie heute um <b>15 Uhr</b>. Bringen Sie bitte Ihre <b>Versichertenkarte</b> mit.</div>
+          <div class="se-zh">今天下午 3 点来吧。请带上您的医保卡。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Okay, 15 Uhr. <b>Vielen Dank!</b> Auf Wiederhören.</div>
+          <div class="se-zh">好，下午 3 点。非常感谢！再见（电话用语）。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 对话 2: 在诊所 -->
+    <div class="se-sec-title">🗣️ 对话二 · In der Praxis（在诊所）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🩺</div>
+        <div class="se-bubble">
+          <div class="se-spk">前台</div>
+          <div class="se-de">Guten Tag! Sie sind Frau Lin? Ihre <b>Versichertenkarte</b>, bitte.</div>
+          <div class="se-zh">您好！您是林女士吧？请出示您的医保卡。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, <b>hier</b>, bitte.</div>
+          <div class="se-zh">是的，给您。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🩺</div>
+        <div class="se-bubble">
+          <div class="se-spk">前台</div>
+          <div class="se-de">Danke. Bitte nehmen Sie im <b>Wartezimmer</b> Platz. Der Arzt ruft Sie dann auf.</div>
+          <div class="se-zh">谢谢。请在候诊室稍坐。医生会叫您的。</div>
+        </div>
+      </div>
+    </div>
+    <div class="se-intro" style="margin-top:18px">
+      ⏳ 林夏在候诊室等了 25 分钟。虽然约了时间，但德国诊所通常还是要等的。终于，前台叫了她的名字。
+    </div>
+    <div class="se-dialog" style="margin-top:14px">
+      <div class="se-line right">
+        <div class="se-who">🩺</div>
+        <div class="se-bubble">
+          <div class="se-spk">前台</div>
+          <div class="se-de">Frau Lin, bitte <b>kommen Sie mit</b>. Zimmer 3.</div>
+          <div class="se-zh">林女士，请跟我来。3 号诊室。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de">Guten Tag, ich bin <b>Dr. Weber</b>. Was kann ich für Sie tun?</div>
+          <div class="se-zh">您好，我是韦伯医生。哪儿不舒服？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich <b>fühle</b> mich nicht gut. Ich habe Fieber und mein Hals <b>tut weh</b>. Ich kann auch schlecht <b>schlucken</b>.</div>
+          <div class="se-zh">我感觉不太舒服。发烧了，嗓子疼。吞咽也困难。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de"><b>Seit wann</b> haben Sie diese Symptome?</div>
+          <div class="se-zh">这些症状从什么时候开始的？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Seit <b>gestern Abend</b>. Heute Morgen war es viel <b>schlimmer</b>.</div>
+          <div class="se-zh">从昨晚开始的。今天早上严重多了。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de">Machen Sie bitte den <b>Mund</b> auf. Sagen Sie „Aaaah"… Ja, der Hals ist <b>stark gerötet</b>. Sie haben eine <b>Erkältung</b>.</div>
+          <div class="se-zh">请张开嘴。说"啊——"……咽喉红肿得厉害。您感冒了。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ist es <b>schlimm</b>?</div>
+          <div class="se-zh">严重吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de">Nein, <b>keine Sorge</b>. Ich <b>verschreibe</b> Ihnen ein Medikament. <b>Ruhen Sie sich aus</b> und trinken Sie viel <b>Tee</b>.</div>
+          <div class="se-zh">不严重，别担心。我给您开个药。多休息，多喝茶。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Brauche ich eine <b>Krankschreibung</b>? Für die <b>Uni</b>?</div>
+          <div class="se-zh">我需要病假条吗？给大学用的？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de">Ja, <b>selbstverständlich</b>. Hier — <b>krankgeschrieben</b> für drei Tage. Und hier ist Ihr <b>Rezept</b>. Die <b>Apotheke</b> ist gleich nebenan.</div>
+          <div class="se-zh">当然。这是病假三天。这是您的处方。药房就在隔壁。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Vielen Dank</b>, Herr Doktor!</div>
+          <div class="se-zh">非常感谢，医生！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍⚕️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Dr. Weber</div>
+          <div class="se-de"><b>Gute Besserung!</b></div>
+          <div class="se-zh">祝您早日康复！</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 词汇 -->
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">krank</div><div class="w-zh">生病的</div></div>
+      <div class="se-word"><div class="w-de">der Termin</div><div class="w-zh">预约</div></div>
+      <div class="se-word"><div class="w-de">die Krankenversicherung</div><div class="w-zh">医疗保险</div></div>
+      <div class="se-word"><div class="w-de">versichert (bei)</div><div class="w-zh">在……投保的</div></div>
+      <div class="se-word"><div class="w-de">die Versichertenkarte</div><div class="w-zh">医保卡</div></div>
+      <div class="se-word"><div class="w-de">das Symptom</div><div class="w-zh">症状</div></div>
+      <div class="se-word"><div class="w-de">der Hals / Halsschmerzen</div><div class="w-zh">咽喉 / 咽喉痛</div></div>
+      <div class="se-word"><div class="w-de">der Husten</div><div class="w-zh">咳嗽</div></div>
+      <div class="se-word"><div class="w-de">das Fieber</div><div class="w-zh">发烧</div></div>
+      <div class="se-word"><div class="w-de">schlucken</div><div class="w-zh">吞咽</div></div>
+      <div class="se-word"><div class="w-de">sich fühlen</div><div class="w-zh">感觉（反身动词）</div></div>
+      <div class="se-word"><div class="w-de">wehtun</div><div class="w-zh">疼痛（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">die Erkältung</div><div class="w-zh">感冒</div></div>
+      <div class="se-word"><div class="w-de">verschreiben</div><div class="w-zh">开（药方）</div></div>
+      <div class="se-word"><div class="w-de">das Rezept</div><div class="w-zh">处方</div></div>
+      <div class="se-word"><div class="w-de">das Medikament</div><div class="w-zh">药物</div></div>
+      <div class="se-word"><div class="w-de">die Krankschreibung</div><div class="w-zh">病假条</div></div>
+      <div class="se-word"><div class="w-de">krankgeschrieben</div><div class="w-zh">被开了病假的（形容词）</div></div>
+      <div class="se-word"><div class="w-de">sich ausruhen</div><div class="w-zh">休息（反身动词）</div></div>
+      <div class="se-word"><div class="w-de">die Apotheke</div><div class="w-zh">药房</div></div>
+      <div class="se-word"><div class="w-de">Gute Besserung!</div><div class="w-zh">祝早日康复！（固定表达）</div></div>
+      <div class="se-word"><div class="w-de">Auf Wiederhören</div><div class="w-zh">再见（电话用语）</div></div>
+    </div>
+
+    <!-- 文化坑点 -->
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🏥</div>
+        <div class="se-trap-tx"><b>Hausarzt 是守门人。</b>在德国看病，小病先找 <b>Hausarzt</b>（家庭医生/全科医生），不能像国内那样直接去大医院。只有 Hausarzt 觉得有必要，才会开转诊单（Überweisung）让你去看专科医生。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💳</div>
+        <div class="se-trap-tx"><b>Versichertenkarte 就是通行证。</b>每次看病第一件事就是刷卡。没带卡要么回家拿，要么自费——账单会让你后悔。医保卡放钱包里随身带。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">⏰</div>
+        <div class="se-trap-tx"><b>约了时间也要等。</b>在德国诊所，即使有 Termin，候诊等 20–40 分钟也正常。这和国内挂号即看完全不同。带本书或者复习一下德语吧。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📋</div>
+        <div class="se-trap-tx"><b>病假条是大学硬通货。</b>德国大学考勤严格，生病必须有医生开的 <b>Krankschreibung</b>（病假条）。自己说"我病了"不算数。超过 3 天必须交假条。</div>
+      </div>
+    </div>
+
+    <!-- 下集预告 -->
+    <div class="se-next" onclick="showSerieEp(4)" style="cursor:pointer;opacity:.65" title="敬请期待">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
+      <div class="se-next-title">第 4 集：林夏去药房取药</div>
+      <div class="se-next-desc">拿着处方的林夏走进隔壁的 Apotheke。可是店员说她还得付一笔 <b>Zuzahlung</b>（自付额）……她才发现，德国药房不卖化妆品，那是 <b>Drogeriemarkt</b> 的事。第 4 集正在制作中。</div>
+    </div>
+    </div><!-- /第3集 -->
 
     <div class="se-back">
       <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
