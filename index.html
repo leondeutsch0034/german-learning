@@ -2464,22 +2464,40 @@
     @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{padding:16px 18px;border-radius:12px} #wds-card .wds-emoji{font-size:2rem} #wds-card .wds-de{font-size:.92rem} #wds-card .wds-zh{font-size:.8rem} }
     /* ── WDS 全部冷知识展示页 ── */
     #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#162d4a); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
-    #page-wds .wds-page-header { text-align:center; margin-bottom:32px; }
+    #page-wds .wds-page-header { text-align:center; margin-bottom:24px; }
     #page-wds .wds-page-header h2 { color:#f6d365; font-size:1.6rem; margin-bottom:6px; }
     #page-wds .wds-page-header p { color:#64748b; font-size:.88rem; }
-    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1000px; margin:0 auto; }
-    #page-wds .wds-grid-card { background:#0f1e3a; border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px 18px; transition:all .25s; }
+    /* 搜索 + 统计条 */
+    #page-wds .wds-tools { max-width:1040px; margin:0 auto 26px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; }
+    #page-wds .wds-search-box { position:relative; flex:1; min-width:240px; max-width:440px; }
+    #page-wds .wds-search-box svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; fill:rgba(246,211,101,.45); pointer-events:none; }
+    #page-wds #wds-search { width:100%; box-sizing:border-box; background:rgba(246,211,101,.06); border:1px solid rgba(246,211,101,.22); color:#fde68a; border-radius:24px; padding:11px 40px 11px 38px; font-size:.9rem; outline:none; transition:.2s; }
+    #page-wds #wds-search::placeholder { color:rgba(148,163,184,.65); }
+    #page-wds #wds-search:focus { border-color:rgba(246,211,101,.6); background:rgba(246,211,101,.1); box-shadow:0 0 0 3px rgba(246,211,101,.08); }
+    #page-wds .wds-search-clear { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:4px 8px; line-height:1; border-radius:50%; transition:.2s; display:none; }
+    #page-wds .wds-search-clear:hover { color:#fde68a; background:rgba(246,211,101,.12); }
+    #page-wds .wds-count { font-size:.78rem; color:#64748b; white-space:nowrap; }
+    #page-wds .wds-count b { color:#f6d365; font-weight:700; }
+    #page-wds .wds-empty { display:none; text-align:center; color:#64748b; font-size:.9rem; padding:50px 20px; }
+    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-rows:1fr; gap:16px; max-width:1040px; margin:0 auto; }
+    #page-wds .wds-grid-card { background:#0f1e3a; border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 18px 16px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
     #page-wds .wds-grid-card:hover { border-color:rgba(246,211,101,.35); box-shadow:0 4px 20px rgba(246,211,101,.08); transform:translateY(-2px); }
     #page-wds .wds-grid-card.today { border-color:rgba(246,211,101,.5); box-shadow:0 0 0 2px rgba(246,211,101,.15),0 4px 20px rgba(246,211,101,.12); background:#162d4a; }
-    #page-wds .wds-grid-card .wgc-emoji { font-size:2rem; display:block; margin-bottom:6px; }
-    #page-wds .wds-grid-card .wgc-num { font-size:.65rem; color:#64748b; float:right; }
-    #page-wds .wds-grid-card .wgc-de { font-size:.88rem; color:#fde68a; font-weight:600; line-height:1.55; margin-bottom:6px; }
+    #page-wds .wds-grid-card .wgc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    #page-wds .wds-grid-card .wgc-emoji { font-size:2rem; line-height:1; }
+    #page-wds .wds-grid-card .wgc-num { font-size:.62rem; font-weight:700; color:#94a3b8; background:rgba(148,163,184,.1); border:1px solid rgba(148,163,184,.18); padding:3px 9px; border-radius:20px; letter-spacing:.03em; }
+    #page-wds .wds-grid-card.today .wgc-num { color:#0a1428; background:linear-gradient(135deg,#b8860b,#f6d365); border-color:transparent; }
+    #page-wds .wds-grid-card .wgc-today-tag { font-size:.6rem; font-weight:700; color:#0a1428; background:linear-gradient(135deg,#f6d365,#fde68a); padding:3px 8px; border-radius:20px; margin-right:6px; }
+    #page-wds .wds-grid-card .wgc-de { font-size:.88rem; color:#fde68a; font-weight:600; line-height:1.55; margin-bottom:8px; overflow-wrap:break-word; word-break:break-word; }
     #page-wds .wds-grid-card .wgc-zh { font-size:.78rem; color:#94a3b8; line-height:1.5; }
+    #page-wds .wds-grid-card .wgc-share { align-self:flex-end; margin-top:auto; padding-top:12px; background:none; border:none; color:#f6d365; font-size:.72rem; cursor:pointer; opacity:.65; transition:.2s; }
+    #page-wds .wds-grid-card .wgc-share:hover { opacity:1; }
+    #page-wds .wds-grid-card mark { background:rgba(246,211,101,.28); color:#fff; border-radius:3px; padding:0 1px; }
     #page-wds .wds-page-back { text-align:center; margin-top:36px; }
     #page-wds .wds-page-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2e527c); color:#fde68a; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(246,211,101,.25); transition:.2s; }
     #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.6); box-shadow:0 4px 16px rgba(246,211,101,.15); }
     @media(max-width:900px){ #page-wds .wds-grid{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:16px 14px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.82rem} #page-wds .wds-grid-card .wgc-zh{font-size:.74rem} }
+    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:15px 15px 13px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.82rem} #page-wds .wds-grid-card .wgc-zh{font-size:.74rem} #page-wds .wds-tools{margin-bottom:20px} }
     /* ── 分享卡片全屏弹窗 ── */
     #wds-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
     #wds-share-overlay.show { display:flex; }
@@ -2495,6 +2513,104 @@
     #wds-share-card .share-hint { margin-top:18px; font-size:.7rem; color:rgba(246,211,101,.5); animation:pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
     @media(max-width:600px){ #wds-share-card{padding:32px 22px 28px} #wds-share-card .share-emoji{font-size:4rem} #wds-share-card .share-de{font-size:1.05rem} #wds-share-card .share-zh{font-size:.85rem} }
+    /* ── 地道德语「德国人才不这么说」 ── */
+    #page-echt { background:linear-gradient(180deg,#06141c,#0a2530,#0e3540); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+    #page-echt .echt-header { text-align:center; margin-bottom:22px; }
+    #page-echt .echt-header h2 { color:#22d3ee; font-size:1.6rem; margin-bottom:6px; }
+    #page-echt .echt-header p { color:#5b8a98; font-size:.88rem; }
+    #page-echt .echt-tools { max-width:1040px; margin:0 auto 22px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; }
+    #page-echt .echt-search-box { position:relative; flex:1; min-width:240px; max-width:440px; }
+    #page-echt .echt-search-box svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; fill:rgba(34,211,238,.5); pointer-events:none; }
+    #page-echt #echt-search { width:100%; box-sizing:border-box; background:rgba(34,211,238,.06); border:1px solid rgba(34,211,238,.22); color:#a5f3fc; border-radius:24px; padding:11px 40px 11px 38px; font-size:.9rem; outline:none; transition:.2s; }
+    #page-echt #echt-search::placeholder { color:rgba(91,138,152,.8); }
+    #page-echt #echt-search:focus { border-color:rgba(34,211,238,.6); background:rgba(34,211,238,.1); box-shadow:0 0 0 3px rgba(34,211,238,.08); }
+    #page-echt .echt-search-clear { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#5b8a98; font-size:1.1rem; cursor:pointer; padding:4px 8px; line-height:1; border-radius:50%; transition:.2s; display:none; }
+    #page-echt .echt-search-clear:hover { color:#a5f3fc; background:rgba(34,211,238,.12); }
+    #page-echt .echt-cats { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:1040px; margin:0 auto 24px; }
+    #page-echt .echt-cat { background:rgba(34,211,238,.07); border:1px solid rgba(34,211,238,.2); color:#7dd3e8; font-size:.76rem; padding:6px 14px; border-radius:20px; cursor:pointer; transition:.2s; }
+    #page-echt .echt-cat:hover { border-color:rgba(34,211,238,.5); color:#a5f3fc; }
+    #page-echt .echt-cat.active { background:linear-gradient(135deg,#0e7490,#22d3ee); color:#06141c; font-weight:700; border-color:transparent; }
+    #page-echt .echt-count { font-size:.78rem; color:#5b8a98; white-space:nowrap; }
+    #page-echt .echt-count b { color:#22d3ee; font-weight:700; }
+    #page-echt .echt-empty { display:none; text-align:center; color:#5b8a98; font-size:.9rem; padding:50px 20px; }
+    #page-echt .echt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:1fr; gap:16px; max-width:1040px; margin:0 auto; }
+    #page-echt .echt-card { background:#0a2028; border:1px solid rgba(34,211,238,.13); border-radius:16px; padding:18px 18px 16px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
+    #page-echt .echt-card:hover { border-color:rgba(34,211,238,.35); box-shadow:0 4px 20px rgba(34,211,238,.08); transform:translateY(-2px); }
+    #page-echt .echt-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    #page-echt .echt-scene { font-size:.7rem; color:#06141c; background:linear-gradient(135deg,#0e7490,#22d3ee); padding:4px 11px; border-radius:20px; font-weight:700; }
+    #page-echt .echt-num { font-size:.62rem; font-weight:700; color:#5b8a98; }
+    #page-echt .echt-rows { display:flex; gap:10px; }
+    #page-echt .echt-col { flex:1; min-width:0; border-radius:12px; padding:12px 12px 13px; }
+    #page-echt .echt-col.book { background:rgba(148,163,184,.07); border:1px solid rgba(148,163,184,.16); }
+    #page-echt .echt-col.real { background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.28); }
+    #page-echt .echt-col-label { font-size:.62rem; font-weight:700; letter-spacing:.04em; margin-bottom:7px; display:flex; align-items:center; gap:4px; }
+    #page-echt .echt-col.book .echt-col-label { color:#94a3b8; }
+    #page-echt .echt-col.real .echt-col-label { color:#22d3ee; }
+    #page-echt .echt-de { font-size:.92rem; font-weight:600; line-height:1.45; }
+    #page-echt .echt-col.book .echt-de { color:#cbd5e1; }
+    #page-echt .echt-col.real .echt-de { color:#a5f3fc; }
+    #page-echt .echt-note { font-size:.76rem; color:#7e9aa6; line-height:1.55; margin-top:12px; padding-top:11px; border-top:1px solid rgba(34,211,238,.1); }
+    #page-echt .echt-note b { color:#7dd3e8; font-weight:700; }
+    #page-echt mark { background:rgba(34,211,238,.3); color:#fff; border-radius:3px; padding:0 1px; }
+    #page-echt .echt-back { text-align:center; margin-top:36px; }
+    #page-echt .echt-back a { display:inline-block; background:linear-gradient(135deg,#0e7490,#155e75); color:#a5f3fc; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(34,211,238,.25); transition:.2s; }
+    #page-echt .echt-back a:hover { border-color:rgba(34,211,238,.6); box-shadow:0 4px 16px rgba(34,211,238,.15); }
+    @media(max-width:760px){ #page-echt .echt-grid{grid-template-columns:1fr} }
+    @media(max-width:600px){ #page-echt{padding:20px 12px 40px} #page-echt .echt-rows{flex-direction:column;gap:8px} #page-echt .echt-header h2{font-size:1.3rem} #page-echt .echt-de{font-size:.86rem} }
+    /* ── 德语连续剧「林夏在德国」 ── */
+    #page-serie { background:linear-gradient(180deg,#0d0820,#1a1035,#241548); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; }
+    #page-serie .se-wrap { max-width:760px; margin:0 auto; }
+    #page-serie .se-header { text-align:center; margin-bottom:24px; }
+    #page-serie .se-header .se-show { font-size:.72rem; color:#a78bfa; letter-spacing:.18em; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-header h2 { color:#c4b5fd; font-size:1.7rem; margin-bottom:8px; }
+    #page-serie .se-header .se-sub { color:#8b7bb8; font-size:.88rem; }
+    /* 剧集进度条 */
+    #page-serie .se-eplist { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
+    #page-serie .se-ep { font-size:.74rem; padding:6px 13px; border-radius:20px; border:1px solid rgba(167,139,250,.25); color:#a78bfa; background:rgba(167,139,250,.06); font-family:inherit; cursor:pointer; transition:.2s; }
+    #page-serie button.se-ep:hover { border-color:rgba(167,139,250,.6); color:#c4b5fd; }
+    #page-serie .se-ep.cur { background:linear-gradient(135deg,#7c3aed,#a78bfa); color:#0d0820; font-weight:700; border-color:transparent; }
+    #page-serie .se-ep.soon { opacity:.5; font-style:italic; cursor:default; }
+    /* 人物卡 */
+    #page-serie .se-cast { display:flex; gap:14px; align-items:center; background:rgba(167,139,250,.07); border:1px solid rgba(167,139,250,.2); border-radius:16px; padding:16px 18px; margin-bottom:24px; }
+    #page-serie .se-cast .se-avatar { font-size:2.6rem; flex-shrink:0; width:58px; height:58px; display:flex; align-items:center; justify-content:center; background:rgba(167,139,250,.12); border-radius:50%; }
+    #page-serie .se-cast .se-name { font-size:1rem; font-weight:700; color:#c4b5fd; margin-bottom:3px; }
+    #page-serie .se-cast .se-bio { font-size:.8rem; color:#9d8cc4; line-height:1.5; }
+    /* 本集导语 */
+    #page-serie .se-intro { background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(167,139,250,.05)); border-left:3px solid #a78bfa; border-radius:8px; padding:14px 18px; margin-bottom:26px; font-size:.9rem; color:#cbb8f0; line-height:1.65; }
+    /* 区块标题 */
+    #page-serie .se-sec-title { display:flex; align-items:center; gap:8px; font-size:1.05rem; font-weight:700; color:#c4b5fd; margin:30px 0 16px; }
+    #page-serie .se-sec-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(167,139,250,.4),transparent); }
+    /* 对话气泡 */
+    #page-serie .se-dialog { display:flex; flex-direction:column; gap:14px; }
+    #page-serie .se-line { display:flex; gap:10px; max-width:90%; }
+    #page-serie .se-line.right { align-self:flex-end; flex-direction:row-reverse; }
+    #page-serie .se-line .se-who { font-size:1.5rem; flex-shrink:0; width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgba(167,139,250,.1); border-radius:50%; }
+    #page-serie .se-bubble { background:#1c1338; border:1px solid rgba(167,139,250,.18); border-radius:14px; padding:11px 15px; }
+    #page-serie .se-line.right .se-bubble { background:rgba(124,58,237,.18); border-color:rgba(167,139,250,.3); }
+    #page-serie .se-bubble .se-spk { font-size:.66rem; color:#8b7bb8; font-weight:700; margin-bottom:4px; }
+    #page-serie .se-bubble .se-de { font-size:.95rem; color:#ede9fe; font-weight:600; line-height:1.5; }
+    #page-serie .se-bubble .se-de b { color:#c4b5fd; }
+    #page-serie .se-bubble .se-zh { font-size:.78rem; color:#9d8cc4; line-height:1.5; margin-top:5px; }
+    /* 词汇表 */
+    #page-serie .se-vocab { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    #page-serie .se-vocab .se-word { background:rgba(167,139,250,.06); border:1px solid rgba(167,139,250,.16); border-radius:10px; padding:10px 13px; }
+    #page-serie .se-vocab .se-word .w-de { font-size:.88rem; color:#c4b5fd; font-weight:700; }
+    #page-serie .se-vocab .se-word .w-zh { font-size:.76rem; color:#9d8cc4; margin-top:2px; }
+    /* 文化坑点 */
+    #page-serie .se-traps { display:flex; flex-direction:column; gap:12px; }
+    #page-serie .se-trap { display:flex; gap:11px; background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.22); border-radius:12px; padding:13px 15px; }
+    #page-serie .se-trap .se-trap-ic { font-size:1.3rem; flex-shrink:0; }
+    #page-serie .se-trap .se-trap-tx { font-size:.84rem; color:#d4c9b0; line-height:1.6; }
+    #page-serie .se-trap .se-trap-tx b { color:#fbbf24; }
+    /* 下集预告 */
+    #page-serie .se-next { margin-top:32px; background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(167,139,250,.06)); border:1px dashed rgba(167,139,250,.4); border-radius:16px; padding:20px 22px; text-align:center; }
+    #page-serie .se-next .se-next-tag { font-size:.7rem; color:#a78bfa; letter-spacing:.15em; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-next .se-next-title { font-size:1.05rem; color:#c4b5fd; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-next .se-next-desc { font-size:.83rem; color:#9d8cc4; line-height:1.6; }
+    #page-serie .se-back { text-align:center; margin-top:34px; }
+    #page-serie .se-back a { display:inline-block; background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#ede9fe; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(167,139,250,.3); transition:.2s; }
+    #page-serie .se-back a:hover { border-color:rgba(167,139,250,.7); box-shadow:0 4px 16px rgba(167,139,250,.2); }
+    @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
   </style>
 </head>
 <body>
@@ -3013,7 +3129,37 @@ function createLoginPromptCard() {
     {e:'🪪', de:'Jeder Deutsche ab 16 muss einen <b>Personalausweis</b> haben. Es gibt eine <b>Ausweispflicht</b> — aber keine Mitführpflicht. Man muss einen haben, aber nicht immer dabei.', zh:'每个德国人16岁起必须有<b>身份证</b>。有<b>持证义务</b>但没有随身携带义务——你得拥有一张，但不一定时刻带在身上。警察查到了可以跟你回家看。'},
     {e:'🌈', de:'Die <b>Reisekrankenversicherung</b> ist eine rein deutsche Erfindung. Vor jeder Reise checken Deutsche: Habe ich eine Auslandskrankenversicherung? Sicher ist sicher.', zh:'<b>旅行医保</b>是典型的德国发明。每次出行前德国人必查：我有境外医保吗？安全第一。'},
     {e:'🦊', de:'In Deutschland leben wieder mehr als <b>30.000 Wildtiere</b> in Städten: Füchse, Wildschweine, Waschbären, sogar Biber. Berlin hat mehr Wildschweine als jede andere Hauptstadt.', zh:'德国城市里住着超过<b>3万只野生动物</b>：狐狸、野猪、浣熊、甚至河狸。柏林是全欧洲野猪最多的首都，它们在居民区翻垃圾、逛公园，市民早已司空见惯。'},
-    {e:'📻', de:'Der <b>Tatort</b> ist die erfolgreichste Krimiserie im deutschen Fernsehen — seit 1970! Jeden Sonntag um 20:15 Uhr schauen Millionen zu. Danach diskutiert ganz Deutschland mit.', zh:'<b>《犯罪现场》</b>是德国电视史上最成功的侦探系列剧——从1970年播到现在！每周日晚8:15数百万人收看，播完后全德国一起讨论谁是凶手。连瑞士和奥地利也一起制作。'}
+    {e:'📻', de:'Der <b>Tatort</b> ist die erfolgreichste Krimiserie im deutschen Fernsehen — seit 1970! Jeden Sonntag um 20:15 Uhr schauen Millionen zu. Danach diskutiert ganz Deutschland mit.', zh:'<b>《犯罪现场》</b>是德国电视史上最成功的侦探系列剧——从1970年播到现在！每周日晚8:15数百万人收看，播完后全德国一起讨论谁是凶手。连瑞士和奥地利也一起制作。'},
+    {e:'🥨', de:'Die <b>Brezel</b> ist ein typisch deutsches Gebäck — besonders in Bayern. Die Form mit den verschlungenen Armen soll betende Mönche darstellen.', zh:'<b>德式碱水结</b>（Brezel）是典型的德国烘焙，尤其在巴伐利亚常见。它那交叉缠绕的形状据说模仿的是双臂祈祷的修士。'},
+    {e:'🎆', de:'An <b>Silvester</b> (31. Dezember) schauen fast alle Deutschen denselben englischen Sketch: "Dinner for One". Und viele gießen <b>Blei</b>, um die Zukunft zu deuten.', zh:'<b>跨年夜</b>（12月31日）几乎全德国人都看同一部英语短剧《一个人的晚餐》（Dinner for One）。还有人玩"<b>熔铅占卜</b>"——把熔铅倒进冷水，看凝固的形状预测来年运势。'},
+    {e:'🤝', de:'Im Deutschen gibt es zwei Wörter für "du": das vertraute <b>du</b> und das höfliche <b>Sie</b>. Das Falsche zu benutzen kann unhöflich wirken.', zh:'德语里"你"有两种说法：亲近的 <b>du</b> 和礼貌的 <b>Sie</b>。用错了可能显得失礼——什么时候能从 Sie 改口为 du，是门大学问，通常由年长或地位高的一方提出。'},
+    {e:'🐻', de:'Die <b>Gummibärchen</b> wurden 1922 in Bonn erfunden. Die Firma heißt <b>Haribo</b> — das steht für Hans Riegel, Bonn.', zh:'<b>小熊软糖</b>1922年诞生于波恩。品牌名 <b>Haribo</b> 其实是缩写：HAns RIegel, BOnn（创始人名字 + 城市）。如今风靡全球。'},
+    {e:'🎒', de:'Am ersten Schultag bekommt jedes Kind eine <b>Schultüte</b> — eine große Tüte voller Süßigkeiten und kleiner Geschenke. Das Fest heißt <b>Einschulung</b>.', zh:'德国孩子第一天上学会收到一个<b>"入学礼筒"</b>（Schultüte）——一个装满糖果和小礼物的大纸筒。这个仪式叫 <b>Einschulung</b>，全家会一起庆祝拍照。'},
+    {e:'🥙', de:'Der <b>Döner Kebab</b>, wie wir ihn kennen, wurde in <b>Berlin</b> erfunden — nicht in der Türkei! Heute ist er eines der beliebtesten Fast Foods.', zh:'我们今天吃的<b>土耳其烤肉卷</b>（Döner）其实是在<b>柏林</b>定型的——不是土耳其！由土耳其移民改良而成，如今是德国最受欢迎的快餐之一。'},
+    {e:'🥿', de:'In deutschen Wohnungen zieht man die Schuhe aus und trägt <b>Hausschuhe</b>. Als Gast bekommt man oft ein Paar angeboten.', zh:'进德国人家里要脱鞋，换上<b>室内拖鞋</b>（Hausschuhe）。做客时主人常常会递给你一双——这点和中国习惯很像。'},
+    {e:'👢', de:'Am <b>6. Dezember</b> kommt der <b>Nikolaus</b>. Kinder stellen abends ihre Stiefel vor die Tür — am Morgen sind sie voller Süßigkeiten.', zh:'<b>12月6日</b>是<b>圣尼古拉斯日</b>。孩子们前一晚把擦亮的靴子放在门口，第二天早上就装满了糖果和坚果——表现不好的据说会收到一根树枝。'},
+    {e:'🐰', de:'Zu <b>Ostern</b> versteckt der <b>Osterhase</b> bunte Eier im Garten. Die Kinder müssen sie suchen. Eier und Hasen sind Symbole für neues Leben.', zh:'<b>复活节</b>时，<b>复活节兔子</b>会把彩蛋藏在花园里，孩子们到处找蛋。彩蛋和兔子都象征新生命——这是德国仅次于圣诞的大节日。'},
+    {e:'📏', de:'Das Papierformat <b>DIN A4</b> ist eine deutsche Erfindung. "DIN" steht für deutsche Normen — es gibt Tausende davon, für fast alles.', zh:'<b>A4纸</b>（DIN A4）是德国制定的标准。"DIN"代表德国工业标准——德国有上万条 DIN 标准，从纸张大小到螺丝尺寸，万物皆可标准化。'},
+    {e:'🏷️', de:'<b>"Made in Germany"</b> war ursprünglich eine Warnung! 1887 sollten die Briten so vor billigen deutschen Waren gewarnt werden. Heute ist es ein Gütesiegel.', zh:'<b>"德国制造"</b>最初竟是个警告标签！1887年英国人想用它提醒消费者远离廉价德国货。结果几十年后，它反倒成了高品质的代名词。'},
+    {e:'🌳', de:'Das Wort <b>Kindergarten</b> ist deutsch — und wird in vielen Sprachen genauso benutzt, auch im Englischen. Erfunden hat ihn Friedrich Fröbel im Jahr 1840.', zh:'<b>Kindergarten（幼儿园）</b>是个德语词——英语等很多语言直接照搬不翻译。它由福禄贝尔于1840年创办，理念是"孩子像花园里的植物一样自然成长"。'},
+    {e:'🧹', de:'In Süddeutschland gibt es die <b>Kehrwoche</b>: Jede Woche ist eine andere Familie im Haus für die Treppe und den Gehweg verantwortlich.', zh:'德国南部有<b>"轮值打扫周"</b>（Kehrwoche）：楼里每家轮流负责一周的楼梯和门前人行道清洁。施瓦本地区尤其认真，谁偷懒邻里皆知。'},
+    {e:'🍰', de:'Am Wochenende gibt es nachmittags <b>Kaffee und Kuchen</b> — so wie der englische Tee um fünf. Eine wichtige Tradition, oft mit der Familie.', zh:'周末下午是<b>"咖啡配蛋糕"</b>时间（Kaffee und Kuchen）——相当于英式下午茶。这是德国重要的社交传统，一般和家人朋友一起，配上自制蛋糕。'},
+    {e:'💊', de:'Das Medikament <b>Aspirin</b> wurde von der deutschen Firma <b>Bayer</b> erfunden. Es ist eines der meistverkauften Medikamente der Welt.', zh:'<b>阿司匹林</b>是德国<b>拜耳</b>公司1899年发明的，是全世界销量最高的药品之一。Aspirin 这个名字至今仍是拜耳的商标。'},
+    {e:'🚗', de:'<b>Carl Benz</b> baute 1886 das erste Auto der Welt. Seine Frau Bertha machte die erste lange Autofahrt — heimlich, ohne ihn zu fragen!', zh:'<b>卡尔·本茨</b>1886年造出世界第一辆汽车。第一次长途驾驶却是他妻子贝塔完成的——她没打招呼，偷偷开车回娘家，顺便给汽车做了世界首次"路测"。'},
+    {e:'📖', de:'<b>Johannes Gutenberg</b> erfand um 1450 den Buchdruck mit beweglichen Lettern. Das veränderte die Welt — Bücher wurden plötzlich für alle bezahlbar.', zh:'<b>古腾堡</b>约1450年发明了活字印刷术，彻底改变了世界——书籍第一次变得人人买得起。他常被评为"千年最有影响力的人物"。'},
+    {e:'🎄', de:'Der geschmückte <b>Weihnachtsbaum</b> kommt aus Deutschland. Von hier verbreitete sich die Tradition im 19. Jahrhundert in die ganze Welt.', zh:'装饰<b>圣诞树</b>的传统源自德国。19世纪由此传向全世界——连英国王室都是德国亲王阿尔伯特带过去的习俗。'},
+    {e:'🩻', de:'<b>Wilhelm Röntgen</b> entdeckte 1895 die <b>Röntgenstrahlen</b> (X-Strahlen). Dafür bekam er 1901 den allerersten Nobelpreis für Physik.', zh:'<b>伦琴</b>1895年发现了<b>X射线</b>（德语就叫"伦琴射线"）。他凭此在1901年获得史上第一个诺贝尔物理学奖——而且放弃了专利，让全人类免费使用。'},
+    {e:'🌸', de:'Das <b>Eau de Cologne</b> — "Wasser aus Köln" — ist das berühmteste Parfüm der Stadt. Die Marke <b>4711</b> gibt es seit über 200 Jahren.', zh:'<b>古龙水</b>（Eau de Cologne）字面意思就是"科隆之水"——它正是诞生于科隆。老牌 <b>4711</b> 已有200多年历史，名字来自当年那栋楼的门牌号。'},
+    {e:'🥔', de:'Die <b>Kartoffel</b> ist ein wichtiges deutsches Grundnahrungsmittel. Es gibt unzählige Gerichte: Kartoffelsalat, Bratkartoffeln, Klöße und Pommes.', zh:'<b>土豆</b>是德国最重要的主食之一，做法五花八门：土豆沙拉、煎土豆、土豆丸子、薯条……德国人甚至被邻国戏称为"Kartoffel（土豆）"。'},
+    {e:'☕', de:'Die Deutschen trinken mehr <b>Kaffee</b> als Bier oder Wasser! Pro Kopf sind es etwa 160 Liter im Jahr. Kaffee ist das beliebteste Getränk des Landes.', zh:'德国人喝<b>咖啡</b>比喝啤酒、甚至比喝水还多！人均每年约160升。咖啡才是德国真正的"国民饮料"——和啤酒的刻板印象正好相反。'},
+    {e:'🎟️', de:'Mit dem <b>Deutschlandticket</b> kann man für rund 58 € im Monat alle Busse, U-Bahnen und Regionalzüge im ganzen Land benutzen.', zh:'凭<b>"德国全境票"</b>（Deutschlandticket），每月约58欧元就能坐遍全国的公交、地铁和区域火车。2023年推出后大受欢迎——但价格年年看涨。'},
+    {e:'🌍', de:'<b>Deutsch</b> ist die Muttersprache von rund 100 Millionen Menschen — mehr als jede andere Sprache in der EU. Man spricht es auch in Österreich und der Schweiz.', zh:'<b>德语</b>是约1亿人的母语，是欧盟内母语人口最多的语言——超过法语和意大利语。除德国外，奥地利、瑞士、列支敦士登也讲德语。'},
+    {e:'🗣️', de:'Deutschland hat viele <b>Dialekte</b>: Bayerisch, Sächsisch, Plattdeutsch und mehr. Manchmal verstehen sich Deutsche aus dem Norden und Süden kaum!', zh:'德国<b>方言</b>众多：巴伐利亚语、萨克森语、低地德语……差异大到南北德国人有时几乎听不懂对方。课本里学的"标准德语"（Hochdeutsch）才是通用语。'},
+    {e:'🔧', de:'Nicht jeder studiert. Viele machen eine <b>Ausbildung</b>: Man lernt im Betrieb und in der Schule gleichzeitig. Dieses <b>duale System</b> ist weltberühmt.', zh:'在德国不是人人都上大学。很多人选择<b>"职业培训"</b>（Ausbildung）：一边在企业实习，一边在学校上课。这套<b>双元制</b>体系全球闻名，是德国制造的人才基石。'},
+    {e:'🏖️', de:'Deutsche Arbeitnehmer haben oft <b>30 Tage Urlaub</b> im Jahr — viel mehr als in vielen anderen Ländern. Urlaub ist den Deutschen sehr wichtig.', zh:'德国上班族每年通常有<b>30天带薪假</b>——远超许多国家。假期对德国人极其重要，且受法律保护：休假时老板原则上不能拿工作打扰你。'},
+    {e:'🧸', de:'Der <b>Teddybär</b> wurde von der Deutschen <b>Margarete Steiff</b> erfunden. Ihre Stofftiere mit dem "Knopf im Ohr" sind bis heute weltberühmt.', zh:'<b>泰迪熊</b>是德国人<b>玛格丽特·施泰夫</b>发明的。她家的毛绒玩具以"耳朵里的金属纽扣"为标志，至今全球闻名，老款更是收藏家的抢手货。'},
+    {e:'🚦', de:'In Ostdeutschland hat die Fußgängerampel eine eigene Figur: das <b>Ampelmännchen</b> mit Hut. Es ist heute ein beliebtes Souvenir aus Berlin.', zh:'东德的人行红绿灯有个专属形象：戴帽子的<b>"小红绿灯人"</b>（Ampelmännchen）。两德统一后它不仅没被淘汰，反而成了柏林最受欢迎的纪念品。'},
+    {e:'🧱', de:'Am <b>9. November 1989</b> fiel die <b>Berliner Mauer</b>. Sie hatte Deutschland 28 Jahre lang in Ost und West geteilt. Heute kann man noch Reste sehen.', zh:'<b>1989年11月9日</b>，<b>柏林墙</b>倒塌。它曾将德国分裂为东西两半长达28年。如今柏林仍保留着部分墙体遗址，成了著名的露天历史见证。'}
   ];
 
   function getTodayIndex() {
@@ -3048,16 +3194,54 @@ function createLoginPromptCard() {
     var html = '';
     for (var i = 0; i < facts.length; i++) {
       var f = facts[i];
-      var isToday = (i === todayIdx) ? ' today' : '';
-      html += '<div class="wds-grid-card' + isToday + '">';
-      html += '<span class="wgc-num">#' + (i + 1) + '</span>';
+      var isToday = (i === todayIdx);
+      // 纯文本（去标签）用于搜索匹配
+      var plain = (f.de + ' ' + f.zh).replace(/<[^>]+>/g, '');
+      html += '<div class="wds-grid-card' + (isToday ? ' today' : '') + '" data-idx="' + i + '" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      html += '<div class="wgc-top">';
       html += '<span class="wgc-emoji">' + f.e + '</span>';
+      html += '<span>' + (isToday ? '<span class="wgc-today-tag">今日</span>' : '') + '<span class="wgc-num">#' + (i + 1) + '</span></span>';
+      html += '</div>';
       html += '<div class="wgc-de">' + f.de + '</div>';
       html += '<div class="wgc-zh">' + f.zh + '</div>';
-      html += '<div style="text-align:right;margin-top:10px"><button onclick="event.stopPropagation();openWDSShare(' + i + ')" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.2);color:#f6d365;padding:4px 12px;border-radius:12px;font-size:.7rem;cursor:pointer;transition:.2s" onmouseover="this.style.background=\'rgba(246,211,101,.25)\'" onmouseout="this.style.background=\'rgba(246,211,101,.12)\'">📸 分享</button></div>';
+      html += '<button class="wgc-share" onclick="event.stopPropagation();openWDSShare(' + i + ')">📸 分享</button>';
       html += '</div>';
     }
     grid.innerHTML = html;
+    updateWDSCount(facts.length, facts.length);
+  };
+
+  function updateWDSCount(shown, total) {
+    var el = document.getElementById('wds-count');
+    if (!el) return;
+    el.innerHTML = (shown === total)
+      ? '共 <b>' + total + '</b> 条'
+      : '找到 <b>' + shown + '</b> / ' + total + ' 条';
+  }
+
+  /* 搜索过滤 */
+  window.filterWDS = function(q) {
+    var grid = document.getElementById('wds-grid');
+    if (!grid) return;
+    q = (q || '').trim().toLowerCase();
+    var clearBtn = document.getElementById('wds-search-clear');
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+    var cards = grid.querySelectorAll('.wds-grid-card');
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var match = !q || cards[i].getAttribute('data-text').indexOf(q) !== -1;
+      cards[i].style.display = match ? '' : 'none';
+      if (match) shown++;
+    }
+    var empty = document.getElementById('wds-empty');
+    if (empty) empty.style.display = (shown === 0) ? 'block' : 'none';
+    updateWDSCount(shown, cards.length);
+  };
+
+  window.clearWDSSearch = function() {
+    var input = document.getElementById('wds-search');
+    if (input) { input.value = ''; input.focus(); }
+    window.filterWDS('');
   };
 
   /* 分享卡片：打开全屏弹窗 */
@@ -3156,10 +3340,6 @@ var MODULES = [
     desc:'A2级别听力训练 · 对话理解 · 填空选择',
     tags:'A2听力 · 对话 · 综合理解',
     c1:'#a83820', c2:'#fdb899', locked:false },
-  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitle:'德国文化',
-    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
-    tags:'文化知识 · 城市 · 风俗 · 阅读',
-    c1:'#a06018', c2:'#fdc090', locked:false },
   { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写',
     desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
     tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
@@ -3179,7 +3359,19 @@ var MODULES = [
   { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitle:'高考德语',
     desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
     tags:'高考真题 · 新高考卷 · 备考 · 2020',
-    c1:'#b45309', c2:'#fbbf24', locked:false }
+    c1:'#b45309', c2:'#fbbf24', locked:false },
+  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitle:'德国文化',
+    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
+    tags:'文化知识 · 城市 · 风俗 · 阅读',
+    c1:'#a06018', c2:'#fdc090', locked:false },
+  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitle:'德国人才不这么说',
+    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
+    tags:'地道表达 · 课本对照 · 口语 · 搜索',
+    c1:'#0e7490', c2:'#22d3ee', locked:false },
+  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitle:'林夏在德国',
+    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
+    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
+    c1:'#7c3aed', c2:'#c4b5fd', locked:false }
 ];
 
 function renderNav() {
@@ -3247,7 +3439,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -3454,7 +3646,7 @@ document.addEventListener('keydown', function(e) {
       <span id="wds-num"></span>
       <span>
         <button onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);color:#f6d365;padding:5px 14px;border-radius:14px;font-size:.72rem;cursor:pointer;margin-right:8px;transition:.2s" onmouseover="this.style.background='rgba(246,211,101,.25)'" onmouseout="this.style.background='rgba(246,211,101,.12)'">📸 分享</button>
-        <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 60 条 →</a>
+        <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 90 条 →</a>
       </span>
     </div>
   </div>
@@ -13506,6 +13698,8 @@ function showPage(id) {
   window.scrollTo(0, 0);
   // 全部冷知识页：渲染grid
   if (id === 'wds' && window.renderWDSGrid) window.renderWDSGrid();
+  // 地道德语页：渲染对照卡片
+  if (id === 'echt' && window.renderEchtGrid) window.renderEchtGrid();
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
 }
@@ -46365,13 +46559,380 @@ function b1S12CheckB(){
 <div id="page-wds" class="page">
   <div class="wds-page-header">
     <h2>🇩🇪 Wusstest du schon?</h2>
-    <p>60 条德国冷知识 — 每天一条，两个月不重样</p>
+    <p>90 条德国冷知识 — 每天一条，三个月不重样</p>
+  </div>
+  <div class="wds-tools">
+    <div class="wds-search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="wds-search" type="text" placeholder="搜索关键词（中德文均可，如 Bier、押金、城堡）" oninput="filterWDS(this.value)">
+      <button class="wds-search-clear" id="wds-search-clear" onclick="clearWDSSearch()" title="清空">×</button>
+    </div>
+    <span class="wds-count" id="wds-count"></span>
   </div>
   <div class="wds-grid" id="wds-grid"></div>
+  <div class="wds-empty" id="wds-empty">🔍 没有找到匹配的冷知识，换个关键词试试</div>
   <div class="wds-page-back">
     <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
   </div>
 </div>
+
+<!-- ══════════ 德国人才不这么说 · 地道德语对照 ══════════ -->
+<div id="page-echt" class="page">
+  <div class="echt-header">
+    <h2>💬 德国人才不这么说</h2>
+    <p>课本教的 vs 德国人日常真正说的 — 左右对照，告别哑巴德语</p>
+  </div>
+  <div class="echt-tools">
+    <div class="echt-search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="echt-search" type="text" placeholder="搜索关键词（中德文均可，如 谢谢、Tschüss、点餐）" oninput="filterEcht()">
+      <button class="echt-search-clear" id="echt-search-clear" onclick="clearEchtSearch()" title="清空">×</button>
+    </div>
+    <span class="echt-count" id="echt-count"></span>
+  </div>
+  <div class="echt-cats" id="echt-cats"></div>
+  <div class="echt-grid" id="echt-grid"></div>
+  <div class="echt-empty" id="echt-empty">🔍 没有找到匹配的表达，换个关键词或分类试试</div>
+  <div class="echt-back">
+    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+  </div>
+</div>
+<script>
+(function(){
+  window.ECHT_FACTS = [
+    {cat:'打招呼', book:'Guten Tag! Wie geht es Ihnen?', real:'Hallo! Alles gut?', note:'课本里的 <b>Wie geht es Ihnen?</b> 太正式，朋友间几乎没人这么说。日常一句 <b>Alles gut?</b>（一切都好吧？）或 <b>Na?</b> 就够了，对方回 <b>Ja, und dir?</b>。'},
+    {cat:'告别', book:'Auf Wiedersehen!', real:'Tschüss! / Ciao!', note:'<b>Auf Wiedersehen</b> 用在很正式的场合（医生、政府）。日常告别德国人说 <b>Tschüss</b>，南德爱说 <b>Ciao</b>，还有 <b>Bis dann!</b>（回头见）。'},
+    {cat:'点餐', book:'Ich möchte einen Kaffee, bitte.', real:'Ich hätt’ gern einen Kaffee.', note:'<b>Ich möchte</b> 没错，但德国人点单更爱用 <b>Ich hätte gern …</b>（我想要……），听起来更礼貌自然。口语里 hätte 常缩成 <b>hätt’</b>。'},
+    {cat:'道谢', book:'Danke schön. — Bitte schön.', real:'Danke! — Klar! / Kein Ding!', note:'回应"谢谢"，课本教 <b>Bitte schön</b>，但年轻人更常说 <b>Klar!</b>（应该的）、<b>Kein Ding!</b>（小事一桩）或 <b>Gerne!</b>。'},
+    {cat:'听不懂', book:'Können Sie das bitte wiederholen?', real:'Wie bitte? / Häh?', note:'没听清，课本整句很长。德国人就一句 <b>Wie bitte?</b>（您说什么？）。非常随意的场合年轻人会说 <b>Häh?</b>——但对长辈别用，显得没礼貌。'},
+    {cat:'表示赞同', book:'Das ist eine sehr gute Idee.', real:'Klingt gut! / Passt!', note:'同意别人时不用每次都说整句。<b>Klingt gut!</b>（听着不错）、<b>Passt!</b>（行！南德超常用）、<b>Auf jeden Fall!</b>（必须的）都很地道。'},
+    {cat:'口头禅', book:'（课本没有）', real:'Genau. / Ach so! / Na ja …', note:'这三个是德国人嘴边的高频词：<b>Genau</b>（没错，附和万能词）、<b>Ach so!</b>（哦原来如此）、<b>Na ja …</b>（这个嘛……，委婉表示不太认同）。学会立刻像本地人。'},
+    {cat:'很好/很棒', book:'Das ist sehr gut.', real:'Super! / Geil! / Mega!', note:'夸东西好，口语很少说 sehr gut。年轻人爱用 <b>Super</b>、<b>Mega</b>、<b>Geil</b>（原意不雅，现在纯指"超赞"）、<b>Hammer!</b>。'},
+    {cat:'询问近况', book:'Was machen Sie beruflich?', real:'Und was machst du so?', note:'闲聊问"你是做什么的"，加个小词 <b>so</b> 立刻变随意：<b>Was machst du so?</b>。德国口语里 <b>so</b>、<b>halt</b>、<b>eben</b> 这类填充词到处都是。'},
+    {cat:'表示惊讶', book:'Das ist unglaublich!', real:'Echt? / Wirklich? / Krass!', note:'吃惊时，<b>Echt?</b>（真的假的？）使用频率最高，<b>Krass!</b> 表示"太夸张了/绝了"，好坏都能用。'},
+    {cat:'拒绝/算了', book:'Nein, danke. Ich möchte nicht.', real:'Nee, lass mal. / Passt schon.', note:'婉拒别人，<b>Nee</b> 是 nein 的口语版，<b>Lass mal</b>（算了吧）、<b>Passt schon</b>（不用了，够了）都很自然，不会显得生硬。'},
+    {cat:'打电话', book:'Hallo, hier spricht Lin Xia.', real:'Hallo, Lin Xia hier.', note:'接打电话报名字，课本的 <b>hier spricht …</b> 偏书面。日常直接 <b>… hier</b> 或 <b>Hier ist …</b> 更常见。'},
+    {cat:'周末愉快', book:'Ich wünsche Ihnen ein schönes Wochenende.', real:'Schönes Wochenende!', note:'德国人超爱互道祝福，但都用短句：<b>Schönes Wochenende!</b>、<b>Schönen Feierabend!</b>（下班愉快）、<b>Schön’ Tag noch!</b>（今天愉快）。整句 Ich wünsche Ihnen 只在正式书信里用。'},
+    {cat:'超市结账', book:'Möchten Sie mit Karte bezahlen?', real:'Zahlen Sie bar oder mit Karte?', note:'超市收银最高频的一句就是 <b>Bar oder Karte?</b>（现金还是刷卡？）。结账后还常被问 <b>Brauchen Sie eine Tüte?</b>（需要袋子吗？）——袋子要另花钱，记得自带。'},
+    {cat:'超市', book:'Ich brauche eine Plastiktüte.', real:'Eine Tüte, bitte. / Geht’s auch ohne?', note:'德国超市塑料袋要收费，环保意识强。要袋子说 <b>Eine Tüte, bitte</b>；不要就摆手 <b>Nein danke, geht so</b>（不用了，这样就行）。'},
+    {cat:'找东西', book:'Wo kann ich Milch finden?', real:'Wo finde ich die Milch?', note:'在店里问东西在哪，德国人用 <b>Wo finde ich …?</b> 更顺口。或者直接问店员 <b>Haben Sie …?</b>（你们有……吗？）。'},
+    {cat:'租房看房', book:'Ich interessiere mich für die Wohnung.', real:'Ist die Wohnung noch frei?', note:'问房子还在不在，最实用一句 <b>Ist die Wohnung noch frei?</b>（房子还空着吗？）。看房叫 <b>Besichtigung</b>，约看房说 <b>Kann ich die Wohnung besichtigen?</b>。'},
+    {cat:'坐车问路', book:'Entschuldigung, wo ist der Bahnhof?', real:'Wie komme ich zum Bahnhof?', note:'问路别只问"在哪"，德国人爱问"怎么去"：<b>Wie komme ich zu/zum/zur …?</b>。听回答留意 <b>links</b>（左）、<b>rechts</b>（右）、<b>geradeaus</b>（直走）。'},
+    {cat:'买车票', book:'Ich möchte eine Fahrkarte kaufen.', real:'Einmal nach München, bitte.', note:'买票超简洁：<b>Einmal nach + 地名</b>（去某地，一张）。来回票说 <b>hin und zurück</b>，单程 <b>einfach</b>。'},
+    {cat:'迟到道歉', book:'Es tut mir sehr leid, dass ich zu spät bin.', real:'Sorry, bin ein bisschen spät dran.', note:'德国人很看重守时。轻微迟到口语说 <b>Sorry, ich bin spät dran</b>（抱歉我赶不及了）。正式场合才用整句 <b>Es tut mir leid</b>。'},
+    {cat:'网购/二手', book:'Wie viel kostet das?', real:'Was ist der letzte Preis?', note:'在 eBay Kleinanzeigen 砍价，灵魂一问是 <b>Was letzte Preis?</b>（最低多少？语法不标准但人人这么发）。还价说 <b>Würden Sie … nehmen?</b>（您能…成交吗？）。'},
+    {cat:'约时间', book:'Wann haben Sie Zeit?', real:'Wann passt es dir? / Wann hast du Zeit?', note:'约朋友别太正式，<b>Wann passt es dir?</b>（你什么时候方便？）最自然。敲定了说 <b>Passt!</b>（就这么定）或 <b>Abgemacht!</b>（说好了）。'},
+    {cat:'表示没问题', book:'Das ist kein Problem.', real:'Kein Stress. / Passt schon.', note:'安慰别人"没事的"，口语爱说 <b>Kein Stress</b>、<b>Passt schon</b>、<b>Halb so wild</b>（没那么严重啦）。'},
+    {cat:'干杯', book:'Auf Ihre Gesundheit!', real:'Prost! / Zum Wohl!', note:'喝酒干杯就一个词 <b>Prost!</b>（啤酒常用）或 <b>Zum Wohl!</b>（葡萄酒更搭）。注意：碰杯时一定要看着对方的眼睛，不然据说会"七年厄运"。'},
+    {cat:'吃饭祝好', book:'Ich wünsche Ihnen einen guten Appetit.', real:'Guten Appetit! / Mahlzeit!', note:'开饭前说 <b>Guten Appetit!</b>。在公司食堂或同事间，中午一句 <b>Mahlzeit!</b> 既是"开动"也是"中午好"，万能。'},
+    {cat:'表示累了', book:'Ich bin sehr müde.', real:'Ich bin fix und fertig. / Ich bin platt.', note:'累瘫了别只会 müde。<b>Ich bin fix und fertig</b>（我彻底不行了）、<b>Ich bin platt</b>（我累趴了）更生动地道。'},
+    {cat:'听懂确认', book:'Habe ich Sie richtig verstanden?', real:'Alles klar! / Verstanden.', note:'表示"懂了"，口语 <b>Alles klar!</b> 使用率极高，既表示明白也表示"没问题，搞定"。简短点就 <b>Klar</b> 或 <b>Passt</b>。'},
+    {cat:'随口附和', book:'Das stimmt.', real:'Stimmt. / Ja, genau. / Eben.', note:'附和别人说得对，<b>Genau</b> 和 <b>Eben</b>（正是如此）是德国人挂嘴边的词，比完整句 Das stimmt 更自然。'}
+  ];
+
+  var echtActiveCat = '全部';
+
+  window.renderEchtGrid = function() {
+    var grid = document.getElementById('echt-grid');
+    if (!grid || grid.children.length > 0) return;
+    var facts = window.ECHT_FACTS;
+    // 分类按钮
+    var cats = ['全部'];
+    for (var i = 0; i < facts.length; i++) if (cats.indexOf(facts[i].cat) === -1) cats.push(facts[i].cat);
+    var catHtml = '';
+    for (var c = 0; c < cats.length; c++) {
+      catHtml += '<button class="echt-cat' + (cats[c] === '全部' ? ' active' : '') + '" data-cat="' + cats[c] + '" onclick="setEchtCat(\'' + cats[c] + '\')">' + cats[c] + '</button>';
+    }
+    document.getElementById('echt-cats').innerHTML = catHtml;
+    // 卡片
+    var html = '';
+    for (var j = 0; j < facts.length; j++) {
+      var f = facts[j];
+      var plain = (f.cat + ' ' + f.book + ' ' + f.real + ' ' + f.note).replace(/<[^>]+>/g, '');
+      html += '<div class="echt-card" data-cat="' + f.cat + '" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      html += '<div class="echt-card-top"><span class="echt-scene">' + f.cat + '</span><span class="echt-num">#' + (j + 1) + '</span></div>';
+      html += '<div class="echt-rows">';
+      html += '<div class="echt-col book"><div class="echt-col-label">📖 课本这么教</div><div class="echt-de">' + f.book + '</div></div>';
+      html += '<div class="echt-col real"><div class="echt-col-label">🇩🇪 德国人这么说</div><div class="echt-de">' + f.real + '</div></div>';
+      html += '</div>';
+      html += '<div class="echt-note">💡 ' + f.note + '</div>';
+      html += '</div>';
+    }
+    grid.innerHTML = html;
+    applyEchtFilter();
+  };
+
+  window.setEchtCat = function(cat) {
+    echtActiveCat = cat;
+    var btns = document.querySelectorAll('#echt-cats .echt-cat');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.toggle('active', btns[i].getAttribute('data-cat') === cat);
+    applyEchtFilter();
+  };
+
+  window.filterEcht = function() { applyEchtFilter(); };
+
+  function applyEchtFilter() {
+    var grid = document.getElementById('echt-grid');
+    if (!grid) return;
+    var input = document.getElementById('echt-search');
+    var q = input ? input.value.trim().toLowerCase() : '';
+    var clearBtn = document.getElementById('echt-search-clear');
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+    var cards = grid.querySelectorAll('.echt-card');
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var okCat = (echtActiveCat === '全部') || cards[i].getAttribute('data-cat') === echtActiveCat;
+      var okText = !q || cards[i].getAttribute('data-text').indexOf(q) !== -1;
+      var match = okCat && okText;
+      cards[i].style.display = match ? '' : 'none';
+      if (match) shown++;
+    }
+    var empty = document.getElementById('echt-empty');
+    if (empty) empty.style.display = (shown === 0) ? 'block' : 'none';
+    var cnt = document.getElementById('echt-count');
+    if (cnt) cnt.innerHTML = (shown === cards.length) ? '共 <b>' + cards.length + '</b> 组' : '找到 <b>' + shown + '</b> / ' + cards.length + ' 组';
+  }
+
+  window.clearEchtSearch = function() {
+    var input = document.getElementById('echt-search');
+    if (input) { input.value = ''; input.focus(); }
+    applyEchtFilter();
+  };
+})();
+</script>
+
+<!-- ══════════ 德语连续剧 · 林夏在德国 ══════════ -->
+<div id="page-serie" class="page">
+  <div class="se-wrap">
+    <div class="se-header">
+      <div class="se-show">DEUTSCHE SERIE · 德语连续剧</div>
+      <h2>🎬 林夏在德国</h2>
+      <div class="se-sub">跟着林夏在德国生活，每集一个真实场景 · A1–A2 难度</div>
+    </div>
+
+    <div class="se-eplist">
+      <button class="se-ep cur" data-ep="1" onclick="showSerieEp(1)">第 1 集 · 落地与登记</button>
+      <button class="se-ep" data-ep="2" onclick="showSerieEp(2)">第 2 集 · 开银行账户</button>
+      <span class="se-ep soon">第 3 集 · 看医生（敬请期待）</span>
+    </div>
+
+    <!-- ───── 第 1 集 ───── -->
+    <div class="se-episode" data-ep="1">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">23 岁，刚到慕尼黑读研的中国留学生。德语 A2 水平，热情但有点路痴。这是她独自在德国的第一天。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🛬 林夏的飞机刚降落在慕尼黑机场。她拖着两个大箱子，要先去 <b>Bürgeramt</b>（市民局）办落户登记（Anmeldung）——这是每个住在德国的人到埠后必做的第一件大事。可她连地铁口都还没找到……
+    </div>
+
+    <!-- 对话 -->
+    <div class="se-sec-title">🗣️ 本集对话 · Am Flughafen</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Entschuldigung, wie komme ich zur <b>U-Bahn</b>?</div>
+          <div class="se-zh">不好意思，请问地铁怎么走？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👮</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Immer <b>geradeaus</b>, dann die Rolltreppe nach unten. Wohin möchten Sie denn?</div>
+          <div class="se-zh">一直往前走，然后坐扶梯下去。您要去哪儿呢？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Zum <b>Bürgeramt</b>. Ich muss mich <b>anmelden</b>.</div>
+          <div class="se-zh">去市民局。我得办落户登记。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👮</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Haben Sie schon einen <b>Termin</b>? Ohne Termin geht da meistens nichts.</div>
+          <div class="se-zh">您预约了吗？没预约的话那边基本办不了事。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh… einen Termin? Das wusste ich nicht. <b>Mist!</b></div>
+          <div class="se-zh">啊……还要预约？我都不知道。糟糕！</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 词汇 -->
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die U-Bahn</div><div class="w-zh">地铁</div></div>
+      <div class="se-word"><div class="w-de">geradeaus</div><div class="w-zh">一直往前（方向词）</div></div>
+      <div class="se-word"><div class="w-de">das Bürgeramt</div><div class="w-zh">市民局 / 户籍登记处</div></div>
+      <div class="se-word"><div class="w-de">sich anmelden</div><div class="w-zh">登记落户（反身动词）</div></div>
+      <div class="se-word"><div class="w-de">der Termin</div><div class="w-zh">预约</div></div>
+      <div class="se-word"><div class="w-de">Mist! （口语）</div><div class="w-zh">糟糕！见鬼！</div></div>
+    </div>
+
+    <!-- 文化坑点 -->
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">📅</div>
+        <div class="se-trap-tx"><b>没预约寸步难行。</b>在德国办几乎所有官方事务都要先在网上抢 <b>Termin</b>，热门城市的落户预约可能要等好几周。落地前就该先约好。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🏠</div>
+        <div class="se-trap-tx"><b>Anmeldung 是一切的起点。</b>没有这张落户证明（Meldebescheinigung），就办不了银行卡、手机卡、保险，连工资都难发。它是德国生活的"第一把钥匙"。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">⏰</div>
+        <div class="se-trap-tx"><b>法律有期限。</b>原则上搬入新住址后 <b>14 天内</b>必须完成登记，超期理论上可能被罚款。别拖。</div>
+      </div>
+    </div>
+
+    <!-- 下集预告 -->
+    <div class="se-next" onclick="showSerieEp(2)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 2 集：林夏去银行开账户 →</div>
+      <div class="se-next-desc">拿到落户证明的林夏，终于要去银行开她的第一个德国账户了。可银行职员一连串的 Girokonto、IBAN、Schufa 把她问懵了……这次她能顺利办下来吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 2 集 →</span></div>
+    </div>
+    </div><!-- /第1集 -->
+
+    <!-- ───── 第 2 集 ───── -->
+    <div class="se-episode" data-ep="2" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">落户登记终于搞定，手里攥着那张宝贵的 Meldebescheinigung（落户证明）。今天的任务：开一个德国银行账户，这样才能交房租、收奖学金。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🏦 没有银行账户，房租交不了、奖学金也收不到。林夏走进一家 <b>Sparkasse</b>（储蓄银行），想开一个日常用的 <b>Girokonto</b>（活期账户）。柜台的 Müller 先生开始问她一连串问题……
+    </div>
+
+    <div class="se-sec-title">🗣️ 本集对话 · In der Bank</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Guten Tag, ich möchte ein <b>Konto eröffnen</b>.</div>
+          <div class="se-zh">您好，我想开一个账户。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Müller 先生</div>
+          <div class="se-de">Gerne. Ein <b>Girokonto</b>, nehme ich an? Haben Sie Ihren <b>Ausweis</b> und die <b>Anmeldung</b> dabei?</div>
+          <div class="se-zh">乐意效劳。我猜是活期账户吧？您带了身份证和落户证明吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, hier. Reisepass und <b>Meldebescheinigung</b>.</div>
+          <div class="se-zh">带了，给您。护照和落户证明。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Müller 先生</div>
+          <div class="se-de">Perfekt. Sie bekommen dann Ihre <b>IBAN</b> und in ein paar Tagen die <b>EC-Karte</b> per Post.</div>
+          <div class="se-zh">完美。您会拿到账号（IBAN），过几天银行卡会邮寄到家。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Super! Und was kostet das Konto <b>im Monat</b>?</div>
+          <div class="se-zh">太好了！这个账户每月要多少钱？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Müller 先生</div>
+          <div class="se-de">Für Studenten ist es <b>kostenlos</b>. Willkommen bei uns!</div>
+          <div class="se-zh">学生免费。欢迎成为我们的客户！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">ein Konto eröffnen</div><div class="w-zh">开一个账户</div></div>
+      <div class="se-word"><div class="w-de">das Girokonto</div><div class="w-zh">活期/日常账户</div></div>
+      <div class="se-word"><div class="w-de">der Ausweis</div><div class="w-zh">身份证件</div></div>
+      <div class="se-word"><div class="w-de">die Meldebescheinigung</div><div class="w-zh">落户证明</div></div>
+      <div class="se-word"><div class="w-de">die IBAN</div><div class="w-zh">国际银行账号</div></div>
+      <div class="se-word"><div class="w-de">die EC-Karte</div><div class="w-zh">借记卡（德国常用）</div></div>
+      <div class="se-word"><div class="w-de">kostenlos</div><div class="w-zh">免费的</div></div>
+      <div class="se-word"><div class="w-de">im Monat</div><div class="w-zh">每月</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">💳</div>
+        <div class="se-trap-tx"><b>先有落户，才能开户。</b>开账户必须出示 <b>Meldebescheinigung</b>（落户证明），所以第 1 集的 Anmeldung 是前提。两件事环环相扣，顺序不能乱。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🎓</div>
+        <div class="se-trap-tx"><b>学生账户多半免费。</b>普通 Girokonto 常有月费（5–10 欧），但学生凭学生证可办 <b>免费版</b>。开户时一定主动说自己是 Student/in。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💵</div>
+        <div class="se-trap-tx"><b>EC 卡 ≠ 信用卡。</b>德国人日常刷的是借记卡 <b>EC-Karte / Girocard</b>，直接从账户扣款。很多小店只收它和现金，不收 Visa/Master 信用卡。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(1)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
+      <div class="se-next-title">第 3 集：林夏生病去看医生</div>
+      <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……第 3 集正在制作中。<br><span style="color:#8b7bb8;font-weight:700">← 回看第 1 集</span></div>
+    </div>
+    </div><!-- /第2集 -->
+
+    <div class="se-back">
+      <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+    </div>
+  </div>
+</div>
+<script>
+  window.showSerieEp = function(ep) {
+    var page = document.getElementById('page-serie');
+    if (!page) return;
+    var eps = page.querySelectorAll('.se-episode');
+    for (var i = 0; i < eps.length; i++) {
+      eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? '' : 'none';
+    }
+    var tabs = page.querySelectorAll('.se-eplist .se-ep[data-ep]');
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].classList.toggle('cur', tabs[j].getAttribute('data-ep') == ep);
+    }
+    page.scrollIntoView({ block: 'start' });
+    window.scrollTo(0, 0);
+  };
+</script>
 
 <!-- ══════════ 你不知道的德国 · 09 ══════════ -->
 <div id="page-kultur-09" class="page" style="background:#0a1428;min-height:100vh;padding:0">
