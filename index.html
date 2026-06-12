@@ -2590,6 +2590,7 @@
     #page-echt .echt-col.real .echt-de { color:#a5f3fc; }
     #page-echt .echt-note { font-size:.76rem; color:#7e9aa6; line-height:1.55; margin-top:12px; padding-top:11px; border-top:1px solid rgba(34,211,238,.1); }
     #page-echt .echt-note b { color:#7dd3e8; font-weight:700; }
+    #page-echt .echt-watermark { margin-top:14px; padding-top:9px; border-top:1px solid rgba(34,211,238,.05); text-align:right; font-size:.56rem; color:rgba(34,211,238,.13); letter-spacing:.04em; }
     #page-echt mark { background:rgba(34,211,238,.3); color:#fff; border-radius:3px; padding:0 1px; }
     #page-echt .echt-back { text-align:center; margin-top:36px; }
     #page-echt .echt-back a { display:inline-block; background:linear-gradient(135deg,#0e7490,#155e75); color:#a5f3fc; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(34,211,238,.25); transition:.2s; }
@@ -2649,6 +2650,12 @@
     #page-serie .se-back { text-align:center; margin-top:34px; }
     #page-serie .se-back a { display:inline-block; background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#ede9fe; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(167,139,250,.3); transition:.2s; }
     #page-serie .se-back a:hover { border-color:rgba(167,139,250,.7); box-shadow:0 4px 16px rgba(167,139,250,.2); }
+    /* 每集末尾水印（截图时自然带网址） */
+    #page-serie .se-watermark { margin-top:28px; padding-top:16px; border-top:1px solid rgba(167,139,250,.12); text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; }
+    #page-serie .se-watermark .sw-brand { font-size:.68rem; color:rgba(167,139,250,.55); letter-spacing:.04em; }
+    #page-serie .se-watermark .sw-url { font-size:.62rem; color:rgba(167,139,250,.35); }
+    #page-serie .se-watermark .sw-share { display:inline-block; font-size:.7rem; color:rgba(167,139,250,.45); cursor:pointer; background:none; border:1px solid rgba(167,139,250,.15); padding:4px 14px; border-radius:12px; transition:.2s; text-decoration:none; }
+    #page-serie .se-watermark .sw-share:hover { color:#c4b5fd; border-color:rgba(167,139,250,.4); background:rgba(167,139,250,.05); }
     @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
   </style>
 </head>
@@ -3484,7 +3491,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -46640,7 +46647,8 @@ function b1S12CheckB(){
   <div class="echt-cats" id="echt-cats"></div>
   <div class="echt-grid" id="echt-grid"></div>
   <div class="echt-empty" id="echt-empty">🔍 没有找到匹配的表达，换个关键词或分类试试</div>
-  <div class="echt-back">
+  <div class="echt-back" style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
+    <a href="#" onclick="showPage('echt-share');return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
     <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
   </div>
 </div>
@@ -46703,6 +46711,7 @@ function b1S12CheckB(){
       html += '<div class="echt-col real"><div class="echt-col-label">🇩🇪 德国人这么说</div><div class="echt-de">' + f.real + '</div></div>';
       html += '</div>';
       html += '<div class="echt-note">💡 ' + f.note + '</div>';
+      html += '<div class="echt-watermark">Leons Deutschzentrum</div>';
       html += '</div>';
     }
     grid.innerHTML = html;
@@ -46761,7 +46770,10 @@ function b1S12CheckB(){
       <button class="se-ep cur" data-ep="1" onclick="showSerieEp(1)">第 1 集 · 落地与登记</button>
       <button class="se-ep" data-ep="2" onclick="showSerieEp(2)">第 2 集 · 开银行账户</button>
       <button class="se-ep" data-ep="3" onclick="showSerieEp(3)">第 3 集 · 看医生</button>
-      <span class="se-ep soon">第 4 集（敬请期待）</span>
+      <button class="se-ep" data-ep="4" onclick="showSerieEp(4)">第 4 集 · 药房取药</button>
+      <button class="se-ep" data-ep="5" onclick="showSerieEp(5)">第 5 集 · 大学注册</button>
+      <button class="se-ep" data-ep="6" onclick="showSerieEp(6)">第 6 集 · 超市购物</button>
+      <span class="se-ep soon">第 7 集（敬请期待）</span>
     </div>
 
     <!-- ───── 第 1 集 ───── -->
@@ -46856,6 +46868,11 @@ function b1S12CheckB(){
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 2 集：林夏去银行开账户 →</div>
       <div class="se-next-desc">拿到落户证明的林夏，终于要去银行开她的第一个德国账户了。可银行职员一连串的 Girokonto、IBAN、Schufa 把她问懵了……这次她能顺利办下来吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 2 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第1集 -->
 
@@ -46957,6 +46974,11 @@ function b1S12CheckB(){
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 3 集：林夏生病去看医生 →</div>
       <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……她能顺利看上病吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 3 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第2集 -->
 
@@ -47238,14 +47260,618 @@ function b1S12CheckB(){
     </div>
 
     <!-- 下集预告 -->
-    <div class="se-next" onclick="showSerieEp(4)" style="cursor:pointer;opacity:.65" title="敬请期待">
-      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
-      <div class="se-next-title">第 4 集：林夏去药房取药</div>
-      <div class="se-next-desc">拿着处方的林夏走进隔壁的 Apotheke。可是店员说她还得付一笔 <b>Zuzahlung</b>（自付额）……她才发现，德国药房不卖化妆品，那是 <b>Drogeriemarkt</b> 的事。第 4 集正在制作中。</div>
+    <div class="se-next" onclick="showSerieEp(4)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 4 集：林夏去药房取药 →</div>
+      <div class="se-next-desc">拿着处方的林夏走进隔壁的 Apotheke。可是店员说她还得付一笔 <b>Zuzahlung</b>（自付额）……她才发现，德国药房不卖化妆品，那是 <b>Drogeriemarkt</b> 的事。<br><span style="color:#a78bfa;font-weight:700">点这里看第 4 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第3集 -->
 
-    <div class="se-back">
+    <!-- ───── 第 4 集 ───── -->
+    <div class="se-episode" data-ep="4" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">感冒还没全好，嗓子还有点哑。林夏拿着韦伯医生开的处方走出诊所——隔壁就是一家 Apotheke。她推门进去，一股草药味扑面而来。在德国，药房和她在国内熟悉的「药店」完全是两回事。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      💊 在中国，药店可以买到感冒药、创可贴、洗发水、甚至零食。但在德国，<b>Apotheke</b> 只管药品，化妆品和日用品要去 <b>Drogeriemarkt</b>（如 dm、Rossmann）。而且拿处方药，居然还要自己付一笔 <b>Zuzahlung</b>（自付额）……
+    </div>
+
+    <div class="se-sec-title">🗣️ 本集对话 · In der Apotheke（在药房）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Guten Tag! Was kann ich für Sie tun?</div>
+          <div class="se-zh">您好！我能帮您什么？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Guten Tag, ich habe ein <b>Rezept</b> von Dr. Weber.</div>
+          <div class="se-zh">您好，我有张韦伯医生开的处方。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Ja, darf ich mal sehen? … Ein <b>Antibiotikum</b>. Haben Sie das schon einmal <b>eingenommen</b>?</div>
+          <div class="se-zh">好的，我看一下……是抗生素。您以前服用过这个药吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Nein, das ist <b>das erste Mal</b>.</div>
+          <div class="se-zh">没有，第一次用这个药。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Gut. Es gibt eine <b>Zuzahlung</b> von <b>5 Euro</b>.</div>
+          <div class="se-zh">好的。需要自付 5 欧元。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Zuzahlung</b>? Ich dachte, die <b>Krankenversicherung</b> zahlt alles?</div>
+          <div class="se-zh">自付额？我还以为医保全包了呢？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Fast alles. Bei Medikamenten zahlen Sie <b>10% dazu</b> — mindestens 5 Euro, <b>höchstens</b> 10 Euro.</div>
+          <div class="se-zh">几乎全包。药品您需要自付 10%——最低 5 欧，最高不超过 10 欧。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ach so. Okay, hier sind 5 Euro.</div>
+          <div class="se-zh">原来如此。好的，这是 5 欧元。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Danke. Also: <b>dreimal täglich</b> nach dem Essen. Und bitte <b>kein Alkohol</b>!</div>
+          <div class="se-zh">谢谢。用法：每日三次，饭后服用。还有——服药期间不要喝酒！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Verstanden</b>. Kein Alkohol. Äh, eine Frage — <b>verkaufen</b> Sie auch <b>Shampoo</b>?</div>
+          <div class="se-zh">明白了，不喝酒。呃，顺便问一下——你们卖洗发水吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">(lacht) Nein, Shampoo und <b>Kosmetik</b> finden Sie im <b>Drogeriemarkt</b> — zum Beispiel <b>dm</b> oder <b>Rossmann</b>. Wir verkaufen nur <b>Medikamente</b>.</div>
+          <div class="se-zh">（笑）没有，洗发水和化妆品您得去日化店——比如 dm 或 Rossmann。我们只卖药品。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ach so! In China ist das <b>anders</b>… Vielen Dank! <b>Auf Wiedersehen!</b></div>
+          <div class="se-zh">原来是这样！在中国不一样……谢谢您！再见！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💊</div>
+        <div class="se-bubble">
+          <div class="se-spk">药剂师</div>
+          <div class="se-de">Gerne. <b>Gute Besserung!</b></div>
+          <div class="se-zh">不客气。祝您早日康复！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Apotheke</div><div class="w-zh">药房</div></div>
+      <div class="se-word"><div class="w-de">der Apotheker / -in</div><div class="w-zh">药剂师</div></div>
+      <div class="se-word"><div class="w-de">das Rezept</div><div class="w-zh">处方</div></div>
+      <div class="se-word"><div class="w-de">rezeptpflichtig</div><div class="w-zh">处方药（需处方才能买）</div></div>
+      <div class="se-word"><div class="w-de">rezeptfrei</div><div class="w-zh">非处方药（可直接买）</div></div>
+      <div class="se-word"><div class="w-de">die Zuzahlung</div><div class="w-zh">自付额 / 共付额</div></div>
+      <div class="se-word"><div class="w-de">das Antibiotikum</div><div class="w-zh">抗生素</div></div>
+      <div class="se-word"><div class="w-de">die Tablette</div><div class="w-zh">药片</div></div>
+      <div class="se-word"><div class="w-de">einnehmen</div><div class="w-zh">服用（药）</div></div>
+      <div class="se-word"><div class="w-de">die Packung</div><div class="w-zh">包装 / 一盒</div></div>
+      <div class="se-word"><div class="w-de">dreimal täglich</div><div class="w-zh">每日三次</div></div>
+      <div class="se-word"><div class="w-de">nach dem Essen</div><div class="w-zh">饭后</div></div>
+      <div class="se-word"><div class="w-de">der Alkohol</div><div class="w-zh">酒精 / 酒</div></div>
+      <div class="se-word"><div class="w-de">der Drogeriemarkt</div><div class="w-zh">日化用品店（dm/Rossmann）</div></div>
+      <div class="se-word"><div class="w-de">das Shampoo</div><div class="w-zh">洗发水</div></div>
+      <div class="se-word"><div class="w-de">die Kosmetik</div><div class="w-zh">化妆品</div></div>
+      <div class="se-word"><div class="w-de">verkaufen</div><div class="w-zh">出售</div></div>
+      <div class="se-word"><div class="w-de">anders</div><div class="w-zh">不同的</div></div>
+      <div class="se-word"><div class="w-de">Verstanden!</div><div class="w-zh">明白了！（口语）</div></div>
+      <div class="se-word"><div class="w-de">Gute Besserung!</div><div class="w-zh">祝您早日康复！</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🏪</div>
+        <div class="se-trap-tx"><b>Apotheke ≠ 药妆店。</b>德国药房严格只卖药品和健康产品。想买洗发水、化妆品、面膜？去 <b>dm</b> 或 <b>Rossmann</b> 这样的 Drogeriemarkt。这是两个完全不同的世界。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💰</div>
+        <div class="se-trap-tx"><b>处方药要自付一部分。</b>德国公保（gesetzliche KV）报销处方药，但个人需付 <b>10%</b> 的药价，下限 5 欧、上限 10 欧。这叫 Zuzahlung——别以为医保全包。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🏷️</div>
+        <div class="se-trap-tx"><b>分清 rezeptpflichtig 和 rezeptfrei。</b>前者必须凭医生处方（Rezept）购买，后者可以直接在药房柜台买。感冒冲剂、润喉糖之类通常是 rezeptfrei。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🌙</div>
+        <div class="se-trap-tx"><b>药房晚上和周末关门——但有 Notdienst。</b>每个城市每晚轮流有一家药房值夜班（Notdienst），紧急时可以查到。不是 24 小时便利店。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(5)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 5 集：林夏去大学注册 →</div>
+      <div class="se-next-desc">病好了，药也吃了。林夏今天要去 LMU 正式注册——带齐护照、录取通知书、医保证明、证件照……德国的大学注册必须本人到场，而且 Immatrikulationsbescheinigung 是她接下来享受一切学生福利的起点。<br><span style="color:#a78bfa;font-weight:700">点这里看第 5 集 →</span></div>
+    </div>
+    </div><!-- /第4集 -->
+
+    <!-- ───── 第 5 集 ───── -->
+    <div class="se-episode" data-ep="5" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">感冒终于好了！今天是真正的大日子——去大学正式注册。林夏在国内就拿到了 LMU 的 Zulassungsbescheid（录取通知书），但德国的 Immatrikulation 必须本人到场，还要带一堆材料。她昨晚对着清单翻了半天文件夹。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🎓 在德国，拿到录取通知书（Zulassungsbescheid）只是第一步。正式注册（<b>Immatrikulation</b>）必须本人到校，带上护照、证件照、医保证明……缺一样都不行。办完后拿到 <b>Immatrikulationsbescheinigung</b>（注册证明）和 <b>Studentenausweis</b>（学生证），这张学生证就是万能通行卡。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Im Internationalen Büro（在国际处）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Guten Tag! Wie kann ich Ihnen helfen?</div>
+          <div class="se-zh">您好！需要帮什么忙？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Guten Tag, ich möchte mich <b>immatrikulieren</b>. Hier ist mein <b>Zulassungsbescheid</b>.</div>
+          <div class="se-zh">您好，我想办理注册。这是我的录取通知书。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Danke. Haben Sie Ihren <b>Pass</b> und ein <b>Passfoto</b> dabei?</div>
+          <div class="se-zh">谢谢。您带了护照和证件照吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, <b>hier</b>, bitte.</div>
+          <div class="se-zh">带了，给您。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Und den <b>Nachweis</b> der <b>Krankenversicherung</b>?</div>
+          <div class="se-zh">还有医保证明呢？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, von der <b>TK</b>. Hier.</div>
+          <div class="se-zh">有，TK 的。给您。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Gut, alles <b>vollständig</b>. Moment… So, hier ist Ihre <b>Immatrikulationsbescheinigung</b>. Und das ist Ihr <b>Studentenausweis</b>.</div>
+          <div class="se-zh">好的，材料齐全。稍等……好了，这是您的注册证明。还有您的学生证。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Super! Danke! Eine Frage noch — wie bekomme ich das <b>Semesterticket</b>?</div>
+          <div class="se-zh">太好了！谢谢！再问一下——我怎么拿到学期票？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Das Semesterticket ist im <b>Semesterbeitrag enthalten</b>. Mit Ihrem Studentenausweis können Sie in ganz München <b>Bus, U-Bahn und Tram</b> fahren.</div>
+          <div class="se-zh">学期票已经包含在学期费里了。拿着学生证，您可以在整个慕尼黑免费坐公交、地铁和有轨电车。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Wirklich?</b> Das ist ja <b>toll!</b> Und was kann ich sonst noch mit dem Ausweis machen?</div>
+          <div class="se-zh">真的吗？太棒了！学生证还能做什么？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">工作人员</div>
+          <div class="se-de">Sie zahlen damit in der <b>Mensa</b> und können Bücher in der <b>Bibliothek ausleihen</b>. Und viele <b>Museen</b> geben <b>Studentenrabatt</b>.</div>
+          <div class="se-zh">用它可以在食堂刷卡消费，在图书馆借书。而且很多博物馆给学生打折。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Perfekt!</b> Vielen Dank für Ihre Hilfe!</div>
+          <div class="se-zh">太完美了！感谢您的帮助！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Eine neue Bekanntschaft（偶遇新同学）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">陌生女生</div>
+          <div class="se-de">Entschuldigung, bist du auch <b>neu</b> hier?</div>
+          <div class="se-zh">不好意思，你也是新来的吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja! Ich bin Lin Xia. Ich komme aus <b>China</b>.</div>
+          <div class="se-zh">对！我叫林夏。我来自中国。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Cool! Ich bin Anna. Ich komme aus <b>Hamburg</b>. Weißt du, wo die <b>Mensa</b> ist? Ich habe <b>Hunger</b>!</div>
+          <div class="se-zh">酷！我是 Anna，从汉堡来的。你知道食堂在哪儿吗？我饿了！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Keine Ahnung, ich <b>suche</b> auch…</div>
+          <div class="se-zh">不知道，我也在找……</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de"><b>Komm</b>, wir suchen <b>zusammen</b>!</div>
+          <div class="se-zh">走，我们一起找吧！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Gute Idee! <b>Los geht's!</b></div>
+          <div class="se-zh">好主意！出发！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Immatrikulation</div><div class="w-zh">大学注册</div></div>
+      <div class="se-word"><div class="w-de">sich immatrikulieren</div><div class="w-zh">注册入学（动词）</div></div>
+      <div class="se-word"><div class="w-de">der Zulassungsbescheid</div><div class="w-zh">录取通知书</div></div>
+      <div class="se-word"><div class="w-de">das Passfoto</div><div class="w-zh">证件照</div></div>
+      <div class="se-word"><div class="w-de">der Nachweis</div><div class="w-zh">证明 / 凭证</div></div>
+      <div class="se-word"><div class="w-de">vollständig</div><div class="w-zh">完整的 / 齐全的</div></div>
+      <div class="se-word"><div class="w-de">die Immatrikulationsbescheinigung</div><div class="w-zh">注册证明</div></div>
+      <div class="se-word"><div class="w-de">der Studentenausweis</div><div class="w-zh">学生证</div></div>
+      <div class="se-word"><div class="w-de">der Semesterbeitrag</div><div class="w-zh">学期费（含学期票）</div></div>
+      <div class="se-word"><div class="w-de">das Semesterticket</div><div class="w-zh">学期票（交通通票）</div></div>
+      <div class="se-word"><div class="w-de">enthalten</div><div class="w-zh">包含在内的</div></div>
+      <div class="se-word"><div class="w-de">die Mensa</div><div class="w-zh">大学食堂</div></div>
+      <div class="se-word"><div class="w-de">die Bibliothek</div><div class="w-zh">图书馆</div></div>
+      <div class="se-word"><div class="w-de">ausleihen</div><div class="w-zh">借阅 / 借出</div></div>
+      <div class="se-word"><div class="w-de">der Studentenrabatt</div><div class="w-zh">学生折扣</div></div>
+      <div class="se-word"><div class="w-de">die Tram</div><div class="w-zh">有轨电车</div></div>
+      <div class="se-word"><div class="w-de">zusammen</div><div class="w-zh">一起</div></div>
+      <div class="se-word"><div class="w-de">Keine Ahnung!</div><div class="w-zh">不知道！（口语）</div></div>
+      <div class="se-word"><div class="w-de">Los geht's!</div><div class="w-zh">出发！走起！（口语）</div></div>
+      <div class="se-word"><div class="w-de">Hunger haben</div><div class="w-zh">饿了</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">📋</div>
+        <div class="se-trap-tx"><b>Immatrikulation 必须本人到场。</b>和中国大学邮寄注册不同，德国大学通常要求本人到 <b>Internationales Büro</b> 或 Studierendensekretariat 办理，带着所有原件。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🚌</div>
+        <div class="se-trap-tx"><b>Semesterticket 是学生最大福利之一。</b>交完 Semesterbeitrag（通常 100–400 欧），整个学期在本州甚至全德免费乘坐公共交通。慕尼黑的学生票覆盖 MVV 全区域。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💳</div>
+        <div class="se-trap-tx"><b>学生证 = 万能卡。</b>食堂消费、图书馆借书、打印复印、甚至部分博物馆免费——全刷这张卡。丢了补办又贵又慢。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💰</div>
+        <div class="se-trap-tx"><b>Semesterbeitrag ≠ 学费（Studiengebühren）。</b>德国大多数州不收学费，学期费主要用于学生服务（交通票、学生会）。巴符州除外——非欧盟学生要交学费。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(6)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 6 集：林夏在超市购物 →</div>
+      <div class="se-next-desc">注册完毕，冰箱空空如也。林夏第一次独自走进德国超市——全是德语标签、要自己称重、结账时收银员扫得飞快……还有神秘的 <b>Pfand</b>（押金）系统等着她。<br><span style="color:#a78bfa;font-weight:700">点这里看第 6 集 →</span></div>
+    </div>
+    </div><!-- /第5集 -->
+
+    <!-- ───── 第 6 集 ───── -->
+    <div class="se-episode" data-ep="6" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">注册办完了，学生证拿到了，Anna 说好了明天一起去食堂。林夏回到宿舍，打开冰箱——空的。今晚必须去超市采购。她在国内从没自己买过菜，现在要独自面对全是德语标签的德国超市……</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🛒 在中国，超市结账有人帮你装袋，蔬菜水果不用自己称。但在德国的 <b>Edeka</b>（或 Aldi、Lidl、Rewe），一切都不一样：蔬果要先自己在 <b>Waage</b>（秤）上称重贴标签、收银员扫码快如闪电、你得自己手忙脚乱地装袋、还有每瓶水都要多付的 <b>Pfand</b>（押金）……
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Obst & Gemüse（蔬果区——和 Anna 一起）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">So, das ist der <b>Edeka</b>. Was brauchst du?</div>
+          <div class="se-zh">好啦，这就是 Edeka。你需要什么？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Alles!</b> Mein <b>Kühlschrank</b> ist <b>leer</b>.</div>
+          <div class="se-zh">全部都要！我的冰箱是空的。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Okay, zuerst <b>Obst</b> und <b>Gemüse</b>. Du musst es <b>selbst wiegen!</b></div>
+          <div class="se-zh">好，先买蔬果。你得自己称重！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Wiegen?</b> Wo? Ich dachte, das macht die <b>Kassiererin</b>?</div>
+          <div class="se-zh">称重？在哪儿称？我还以为是收银员称呢？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Nein, hier an der <b>Waage</b>. Du legst die Bananen drauf, drückst auf Bananen, und der <b>Aufkleber</b> kommt raus. Ohne Aufkleber <b>geht es nicht</b> an der Kasse.</div>
+          <div class="se-zh">不，在这边的秤上。把香蕉放上去，按一下"香蕉"按钮，贴纸就出来了。没有贴纸收银处没法结账。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ach so! In China ist das ganz anders. <b>Gut zu wissen!</b></div>
+          <div class="se-zh">原来如此！在中国完全不一样。还好你告诉我！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · An der Kasse（收银台——速度与激情）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">💁‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">收银员</div>
+          <div class="se-de">(schnell) GutenTagbrauchenSieeine<b>Tüte</b>?</div>
+          <div class="se-zh">（超快语速）您好要袋子吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Äh… Wie bitte? <b>Langsamer</b>, bitte?</div>
+          <div class="se-zh">呃……您说什么？请慢一点？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💁‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">收银员</div>
+          <div class="se-de">(lächelt) Ob Sie eine <b>Tüte</b> brauchen. Kostet <b>25 Cent</b>.</div>
+          <div class="se-zh">（微笑）您需不需要袋子。25 欧分一个。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ach so! Ja, eine Tüte, bitte.</div>
+          <div class="se-zh">噢！是的，请给我一个袋子。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（小声提醒）</div>
+          <div class="se-de">Du musst <b>selbst einpacken</b>. <b>Schnell!</b></div>
+          <div class="se-zh">你得自己装袋。快！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(手忙脚乱地装袋) Das ist ja <b>stressig!</b></div>
+          <div class="se-zh">（慌张装袋）这也太紧张了吧！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">💁‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">收银员</div>
+          <div class="se-de"><b>Bar</b> oder <b>mit Karte</b>?</div>
+          <div class="se-zh">付现金还是刷卡？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Mit <b>Karte</b>, bitte. …Moment, was ist das für <b>25 Cent extra</b> auf dem <b>Kassenbon</b>?</div>
+          <div class="se-zh">刷卡。……等一下，小票上这多出来的 25 欧分是什么？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Das ist <b>Pfand</b> auf der <b>Flasche</b>. Die bringst du <b>zurück</b>, dann bekommst du das Geld <b>wieder</b>.</div>
+          <div class="se-zh">那是瓶子的押金。你把瓶子退回来，钱就还给你。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh, das ist gut für die <b>Umwelt!</b></div>
+          <div class="se-zh">哦，这样环保挺好！</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🛍️ 出了超市，林夏发誓下次一定自己带布袋——25 Cent 一个塑料袋也太贵了。Anna 在旁边笑："Willkommen in Deutschland!"
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">der Supermarkt</div><div class="w-zh">超市</div></div>
+      <div class="se-word"><div class="w-de">der Einkaufswagen</div><div class="w-zh">购物车</div></div>
+      <div class="se-word"><div class="w-de">der Kühlschrank</div><div class="w-zh">冰箱</div></div>
+      <div class="se-word"><div class="w-de">leer</div><div class="w-zh">空的</div></div>
+      <div class="se-word"><div class="w-de">das Obst</div><div class="w-zh">水果</div></div>
+      <div class="se-word"><div class="w-de">das Gemüse</div><div class="w-zh">蔬菜</div></div>
+      <div class="se-word"><div class="w-de">die Waage</div><div class="w-zh">秤</div></div>
+      <div class="se-word"><div class="w-de">wiegen / abwiegen</div><div class="w-zh">称重</div></div>
+      <div class="se-word"><div class="w-de">der Aufkleber</div><div class="w-zh">贴纸标签</div></div>
+      <div class="se-word"><div class="w-de">die Kasse</div><div class="w-zh">收银台</div></div>
+      <div class="se-word"><div class="w-de">die Tüte</div><div class="w-zh">袋子（购物袋）</div></div>
+      <div class="se-word"><div class="w-de">selbst einpacken</div><div class="w-zh">自己装袋</div></div>
+      <div class="se-word"><div class="w-de">bar / mit Karte zahlen</div><div class="w-zh">现金 / 刷卡支付</div></div>
+      <div class="se-word"><div class="w-de">der Kassenbon</div><div class="w-zh">小票 / 收据</div></div>
+      <div class="se-word"><div class="w-de">der Pfand / die Pfandflasche</div><div class="w-zh">押金 / 押金瓶</div></div>
+      <div class="se-word"><div class="w-de">zurückbringen</div><div class="w-zh">退回 / 带回</div></div>
+      <div class="se-word"><div class="w-de">die Umwelt</div><div class="w-zh">环境</div></div>
+      <div class="se-word"><div class="w-de">im Angebot</div><div class="w-zh">特价 / 打折</div></div>
+      <div class="se-word"><div class="w-de">Gut zu wissen!</div><div class="w-zh">幸好知道！（实用口语）</div></div>
+      <div class="se-word"><div class="w-de">stressig</div><div class="w-zh">有压力的 / 紧张的</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">⚖️</div>
+        <div class="se-trap-tx"><b>蔬果自己称！</b>在德国超市，散装蔬果必须在 <b>Waage</b> 自己称重、贴上 <b>Aufkleber</b>。没有贴纸的蔬果收银台根本扫不了——收银员会让你回去称。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">⚡</div>
+        <div class="se-trap-tx"><b>收银员扫得飞快，自己装袋！</b>德国收银效率极高，顾客必须一边付款一边自己装袋。东西堆成山也别慌——先付完钱，推到旁边慢慢装。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🔄</div>
+        <div class="se-trap-tx"><b>Pfand 押金系统。</b>大多数塑料瓶、玻璃瓶和易拉罐上面都有 Pfand 标志（0.08–0.25 欧）。别直接扔垃圾桶——攒一堆拿去超市的 <b>Pfandautomat</b>（退瓶机）退掉，能换回不少钱。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🥚</div>
+        <div class="se-trap-tx"><b>鸡蛋不冷藏，袋子不免费。</b>德国超市鸡蛋常温摆放（因为鸡蛋不洗、保留天然保护膜）。塑料袋每个 10–25 Cent，建议自带布袋或背包。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💳</div>
+        <div class="se-trap-tx"><b>很多店不收信用卡。</b>德国超市习惯刷 <b>EC-Karte</b>（借记卡）或付现金。Visa/Master 信用卡在小超市和小吃店几乎刷不了。出门带现金是常态。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(7)" style="cursor:pointer;opacity:.65" title="敬请期待">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
+      <div class="se-next-title">第 7 集：林夏去图书馆学习</div>
+      <div class="se-next-desc">采购完毕、宿舍收拾妥当，林夏该开始学习了。她想去 <b>Bibliothek</b>（图书馆）找个安静的位置，却发现德国大学的图书馆和自习室规则跟国内完全不同……第 7 集正在制作中。</div>
+    </div>
+    </div><!-- /第6集 -->
+
+    <div class="se-back" style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
+      <a href="#" onclick="showPage('serie-share');return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
       <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
     </div>
   </div>
@@ -47344,6 +47970,24 @@ function b1S12CheckB(){
 <!-- ══════════ 你不知道的德国 · 17 ══════════ -->
 <div id="page-kultur-17" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe src="你不知道的德国_17_高考后留学德国.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
+</div>
+
+<!-- ══════════ 地道德语 · 分享版 ══════════ -->
+<div id="page-echt-share" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="地道德语_引流.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 林夏在德国 · 分享版 ══════════ -->
+<div id="page-serie-share" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="林夏在德国_引流.html"
+    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    loading="lazy">
+  </iframe>
 </div>
 
 <!-- ══════════ A1 语法速查卡 ══════════ -->
