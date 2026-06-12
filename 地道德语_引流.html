@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>德国人才不这么说 | 课本德语 vs 真实口语 · Leon 德语</title>
+<meta name="description" content="德国人日常真正说的德语，和课本教的完全不一样。5 组高频表达对比，让你告别哑巴德语，开口就像本地人。">
+<meta property="og:title" content="德国人才不这么说 | 课本德语 vs 真实口语">
+<meta property="og:description" content="5 组高频表达对比，让你开口就像本地人。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
+    --cyan:#22d3ee; --cyan-bg:rgba(34,211,238,.07);
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.8;
+  }
+
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,20,40,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  /* ── 封面 Hero ── */
+  .cover {
+    position:relative; margin:0 -20px 0; overflow:hidden;
+    height:clamp(360px,60vh,520px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px 24px;
+    background:linear-gradient(160deg,#06141c 0%,#0e3540 40%,#0a1428 70%);
+  }
+  .cover-img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 30%,rgba(10,20,40,0.85) 70%,#0a1428);
+  }
+  .cover-text { position:relative; z-index:2; }
+  .cover .series {
+    display:inline-block; background:var(--cyan); color:#06141c;
+    padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800;
+    letter-spacing:0.05em; margin-bottom:12px;
+  }
+  .cover h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2;
+    color:#fff; margin-bottom:8px;
+  }
+  .cover .sub {
+    font-size:0.95rem; color:rgba(255,255,255,0.7);
+  }
+
+  /* ── 对比卡片 ── */
+  .compare-card { margin:36px 0; }
+  .compare-card .card-inner {
+    background:var(--card); border-radius:14px; overflow:hidden;
+    border:1px solid rgba(34,211,238,.12);
+  }
+  .compare-card .card-head {
+    background:rgba(34,211,238,.08); padding:12px 18px;
+    display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid rgba(34,211,238,.1);
+  }
+  .compare-card .card-num {
+    background:var(--cyan); color:#06141c; width:28px; height:28px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:0.82rem;
+  }
+  .compare-card .card-scene { color:var(--cyan); font-weight:700; font-size:0.9rem; }
+  .compare-card .card-body { padding:18px; }
+  .compare-card .row { display:flex; gap:12px; margin-bottom:14px; flex-direction:column; }
+  .compare-card .row-item { padding:14px 18px; border-radius:10px; font-size:0.95rem; }
+  .compare-card .row-item.book {
+    background:rgba(148,163,184,.06); border:1px solid rgba(148,163,184,.15);
+    border-left:3px solid var(--dim);
+  }
+  .compare-card .row-item.real {
+    background:rgba(34,211,238,.06); border:1px solid rgba(34,211,238,.18);
+    border-left:3px solid var(--cyan);
+  }
+  .compare-card .row-label { font-size:0.75rem; font-weight:700; margin-bottom:4px; }
+  .compare-card .row-label.book-l { color:var(--dim); }
+  .compare-card .row-label.real-l { color:var(--cyan); }
+  .compare-card .row-de { font-size:1.1rem; font-weight:700; color:#fff; }
+  .compare-card .note {
+    background:rgba(34,211,238,.04); border-left:3px solid var(--cyan);
+    padding:10px 16px; border-radius:0 8px 8px 0; font-size:0.88rem;
+    color:#7dd3e8; margin-top:8px;
+  }
+
+  /* ── 软广告 ── */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.22); border-radius:14px;
+    padding:28px; margin:40px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+
+  .footer { text-align:center; padding:32px 0 48px; border-top:1px solid rgba(34,211,238,0.1); }
+  .footer p { color:var(--dim); font-size:0.85rem; }
+
+  /* ══════ 手机 ══════ */
+  @media (max-width:600px) {
+    body { padding:0; }
+    .topbar { padding:7px 14px; font-size:0.76rem; }
+    .page { max-width:100%; padding:0; }
+    .cover {
+      margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh;
+      min-height:100dvh; padding:50px 18px 32px;
+    }
+    .cover-img { border-radius:0 0 16px 16px; }
+    .compare-card { margin:0 12px 16px; }
+    .compare-card .card-body { padding:14px; }
+    .soft-cta { margin:24px 12px; border-radius:14px; padding:28px 18px; }
+    .footer { padding:28px 18px 40px; }
+    .footer .links { flex-direction:column; align-items:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="cover">
+    <img class="cover-img" src="https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?w=800&q=80" alt="German conversation" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      <div class="series">💬 地道德语</div>
+      <h1>课本教的<br>德国人根本不这么说</h1>
+      <p class="sub">5 组高频表达对比 · 告别哑巴德语 · 开口就像本地人</p>
+    </div>
+  </div>
+
+  <!-- ═══ 对比卡片 1 ═══ -->
+  <div class="compare-card">
+    <div class="card-inner">
+      <div class="card-head"><div class="card-num">1</div><div class="card-scene">打招呼</div></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row-item book">
+            <div class="row-label book-l">📖 课本这么教</div>
+            <div class="row-de">Guten Tag! Wie geht es Ihnen?</div>
+          </div>
+          <div class="row-item real">
+            <div class="row-label real-l">🇩🇪 德国人这么说</div>
+            <div class="row-de">Hallo! Alles gut?</div>
+          </div>
+        </div>
+        <div class="note">💡 课本里的 <b>Wie geht es Ihnen?</b> 太正式，朋友间几乎没人这么说。日常一句 <b>Alles gut?</b> 或 <b>Na?</b> 就够了。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 对比卡片 2 ═══ -->
+  <div class="compare-card">
+    <div class="card-inner">
+      <div class="card-head"><div class="card-num">2</div><div class="card-scene">点餐</div></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row-item book">
+            <div class="row-label book-l">📖 课本这么教</div>
+            <div class="row-de">Ich möchte einen Kaffee, bitte.</div>
+          </div>
+          <div class="row-item real">
+            <div class="row-label real-l">🇩🇪 德国人这么说</div>
+            <div class="row-de">Ich hätt' gern einen Kaffee.</div>
+          </div>
+        </div>
+        <div class="note">💡 <b>Ich möchte</b> 没错，但德国人点单更爱用 <b>Ich hätte gern …</b>，听起来更礼貌自然。口语里 hätte 常缩成 <b>hätt'</b>。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 对比卡片 3 ═══ -->
+  <div class="compare-card">
+    <div class="card-inner">
+      <div class="card-head"><div class="card-num">3</div><div class="card-scene">口头禅</div></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row-item book">
+            <div class="row-label book-l">📖 课本这么教</div>
+            <div class="row-de">（课本里没有教过）</div>
+          </div>
+          <div class="row-item real">
+            <div class="row-label real-l">🇩🇪 德国人这么说</div>
+            <div class="row-de">Genau. / Ach so! / Na ja …</div>
+          </div>
+        </div>
+        <div class="note">💡 这三个词是德国人嘴边的高频词：<b>Genau</b>（没错，附和万能词）、<b>Ach so!</b>（哦原来如此）、<b>Na ja …</b>（这个嘛……，委婉表示不太认同）。学会立刻像本地人。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 对比卡片 4 ═══ -->
+  <div class="compare-card">
+    <div class="card-inner">
+      <div class="card-head"><div class="card-num">4</div><div class="card-scene">很好/很棒</div></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row-item book">
+            <div class="row-label book-l">📖 课本这么教</div>
+            <div class="row-de">Das ist sehr gut.</div>
+          </div>
+          <div class="row-item real">
+            <div class="row-label real-l">🇩🇪 德国人这么说</div>
+            <div class="row-de">Super! / Geil! / Mega!</div>
+          </div>
+        </div>
+        <div class="note">💡 夸东西好，口语很少说 sehr gut。年轻人爱用 <b>Super</b>、<b>Mega</b>、<b>Geil</b>（原意不雅，现在纯指"超赞"）、<b>Hammer!</b>。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 对比卡片 5 ═══ -->
+  <div class="compare-card">
+    <div class="card-inner">
+      <div class="card-head"><div class="card-num">5</div><div class="card-scene">干杯</div></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row-item book">
+            <div class="row-label book-l">📖 课本这么教</div>
+            <div class="row-de">Auf Ihre Gesundheit!</div>
+          </div>
+          <div class="row-item real">
+            <div class="row-label real-l">🇩🇪 德国人这么说</div>
+            <div class="row-de">Prost! / Zum Wohl!</div>
+          </div>
+        </div>
+        <div class="note">💡 喝酒干杯就一个词 <b>Prost!</b>。注意：碰杯时一定要看着对方的眼睛，不然据说会"七年厄运"。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 软广告 ═══ -->
+  <div class="soft-cta">
+    <h3>🇩🇪 还有 20+ 组地道德语对比</h3>
+    <p>打招呼、点餐、问路、砍价、迟到道歉……每个场景都有一句"课本不会教"的地道说法。<br>打开 Leons Deutschzentrum，左右对照，看一眼就会。</p>
+    <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">💬 查看全部地道德语 →</a>
+    
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>更多德语学习资源</h3>
+    <p>关注 Leon 德语学习中心，让德语不再"哑巴"。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">Leons Deutschzentrum</div>
+  </div>
+
+</div>
+
+</body>
+</html>
