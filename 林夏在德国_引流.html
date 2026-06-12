@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>林夏在德国 · 第1集 | 落地与登记 · Leon 德语</title>
+<meta name="description" content="跟着23岁中国留学生林夏，走进真实的德国生活。第1集：落地慕尼黑机场，第一件事就是去市民局办落户登记——可她连地铁口还没找到。">
+<meta property="og:title" content="林夏在德国 · 第1集 | 落地与登记">
+<meta property="og:description" content="跟着林夏走进真实德国生活。第1集：落地慕尼黑，市民局落户登记。">
+<meta property="og:type" content="article">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
+    --purple:#a78bfa; --purple-bg:rgba(167,139,250,.07);
+  }
+
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.8;
+  }
+
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,20,40,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(246,211,101,0.12);
+    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-size:0.85rem;
+  }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+
+  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
+
+  /* ── 封面 Hero ── */
+  .cover {
+    position:relative; margin:0 -20px 0; overflow:hidden;
+    height:clamp(360px,60vh,520px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px 24px;
+    background:linear-gradient(160deg,#2e1065 0%,#1e1b4b 40%,#0a1428 70%);
+  }
+  .cover-img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 30%,rgba(10,20,40,0.85) 70%,#0a1428);
+  }
+  .cover-text { position:relative; z-index:2; }
+  .cover .series {
+    display:inline-block; background:var(--purple); color:#fff;
+    padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800;
+    letter-spacing:0.05em; margin-bottom:12px;
+  }
+  .cover h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2;
+    color:#fff; margin-bottom:8px;
+  }
+  .cover .sub {
+    font-size:0.95rem; color:rgba(255,255,255,0.7);
+  }
+
+  /* ── 人物卡片 ── */
+  .cast-card {
+    background:var(--card); border-radius:14px; padding:24px;
+    display:flex; gap:16px; align-items:center; margin:36px 0;
+    border:1px solid rgba(167,139,250,.12);
+  }
+  .cast-card .cast-avatar { font-size:3rem; }
+  .cast-card .cast-name { font-size:1.15rem; font-weight:700; color:var(--purple); }
+  .cast-card .cast-bio { font-size:0.9rem; color:var(--dim); margin-top:4px; }
+
+  /* ── 剧情简介 ── */
+  .intro-box {
+    background:rgba(167,139,250,.05); border:1px solid rgba(167,139,250,.15);
+    border-radius:12px; padding:18px 22px; margin:24px 0;
+    font-size:0.95rem; color:#c4b5fd; line-height:1.8;
+  }
+  .intro-box b { color:var(--purple); }
+
+  /* ── 对话 ── */
+  .section-title {
+    font-size:1rem; font-weight:700; color:var(--gold); margin:32px 0 16px;
+    padding-bottom:8px; border-bottom:1px solid rgba(246,211,101,.1);
+  }
+  .dialog {}
+  .line { display:flex; gap:12px; margin-bottom:16px; align-items:flex-start; }
+  .line.right { flex-direction:row-reverse; }
+  .line .who { font-size:2rem; flex-shrink:0; }
+  .line .bubble {
+    background:var(--card); border-radius:14px; padding:14px 18px;
+    max-width:80%; border:1px solid rgba(167,139,250,.1);
+  }
+  .line.right .bubble { background:rgba(167,139,250,.08); border-color:rgba(167,139,250,.18); }
+  .bubble .spk { font-size:0.72rem; font-weight:700; color:var(--purple); margin-bottom:4px; }
+  .bubble .de { font-size:1rem; color:#fff; font-weight:600; line-height:1.5; }
+  .bubble .de b { color:var(--gold); }
+  .bubble .zh { font-size:0.85rem; color:var(--dim); margin-top:4px; }
+
+  /* ── 词汇标签 ── */
+  .vocab-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .vocab-tags .vt {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(167,139,250,.08); border:1px solid rgba(167,139,250,.18);
+    padding:6px 14px; border-radius:20px; font-size:0.82rem;
+  }
+  .vt .vt-de { color:var(--purple); font-weight:700; }
+  .vt .vt-zh { color:var(--dim); }
+
+  /* ── 文化注释 ── */
+  .kultur-note {
+    background:rgba(246,211,101,.04); border:1px solid rgba(246,211,101,.12);
+    border-radius:12px; padding:18px 22px; margin:24px 0;
+    font-size:0.9rem; color:var(--gold-light); line-height:1.7;
+  }
+  .kultur-note .kl { font-weight:700; color:var(--gold); }
+
+  /* ── 软广告 ── */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+    border:1px solid rgba(246,211,101,0.22); border-radius:14px;
+    padding:28px; margin:40px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:var(--bg); font-weight:700; padding:10px 28px; border-radius:24px;
+    text-decoration:none; font-size:0.92rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
+  .soft-cta .sub-link { display:block; margin-top:8px; font-size:0.78rem; color:var(--gold-dim); }
+
+  .footer {
+    text-align:center; padding:32px 0 48px;
+    border-top:1px solid rgba(246,211,101,0.1);
+  }
+  .footer h3 { font-size:1.1rem; color:var(--gold); margin-bottom:6px; }
+  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
+  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .footer .links a {
+    color:var(--gold-dim); text-decoration:none; font-size:0.85rem;
+    padding:8px 18px; border:1px solid rgba(246,211,101,0.18); border-radius:20px;
+    transition:0.2s;
+  }
+  .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
+  .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
+
+  /* ══════ 手机 ══════ */
+  @media (max-width:600px) {
+    body { padding:0; }
+    .topbar { padding:7px 14px; font-size:0.76rem; }
+    .page { max-width:100%; padding:0; }
+    .cover {
+      margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh;
+      min-height:100dvh; padding:50px 18px 32px;
+    }
+    .cover-img { border-radius:0 0 16px 16px; }
+    .cast-card { margin:0 12px 16px; flex-direction:column; text-align:center; }
+    .intro-box { margin:16px 12px; }
+    .section-title { margin:28px 12px 12px; }
+    .dialog { margin:0 12px; }
+    .bubble { max-width:85%; }
+    .vocab-tags { margin:12px; }
+    .kultur-note { margin:16px 12px; }
+    .soft-cta { margin:24px 12px; border-radius:14px; padding:28px 18px; }
+    .footer { padding:28px 18px 40px; }
+    .footer .links { flex-direction:column; align-items:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="cover">
+    <img class="cover-img" src="https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?w=800&q=80" alt="Munich Airport" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      <div class="series">🎬 林夏在德国 · 第 1 集</div>
+      <h1>一个人落地慕尼黑<br>第一关不是德语</h1>
+      <p class="sub">而是——你得先有个 Termin（预约）</p>
+    </div>
+  </div>
+
+  <!-- ═══ 人物介绍 ═══ -->
+  <div class="cast-card">
+    <div class="cast-avatar">👩🏻‍🎓</div>
+    <div>
+      <div class="cast-name">林夏 / Lin Xia</div>
+      <div class="cast-bio">23 岁，刚到慕尼黑读研的中国留学生。德语 A2 水平，热情但有点路痴。这是她独自在德国的第一天。</div>
+    </div>
+  </div>
+
+  <!-- ═══ 剧情简介 ═══ -->
+  <div class="intro-box">
+    🛬 林夏的飞机刚降落在慕尼黑机场。她拖着两个大箱子，要先去 <b>Bürgeramt</b>（市民局）办落户登记（Anmeldung）——每个住在德国的人到埠后必做的第一件大事。可她连地铁口都还没找到……
+  </div>
+
+  <!-- ═══ 对话 ═══ -->
+  <div class="section-title">🗣️ 本集对话 · 在机场问路</div>
+  <div class="dialog">
+    <div class="line">
+      <div class="who">👩🏻‍🎓</div>
+      <div class="bubble">
+        <div class="spk">林夏</div>
+        <div class="de">Entschuldigung, wie komme ich zur <b>U-Bahn</b>?</div>
+        <div class="zh">不好意思，请问地铁怎么走？</div>
+      </div>
+    </div>
+    <div class="line right">
+      <div class="who">👮</div>
+      <div class="bubble">
+        <div class="spk">工作人员</div>
+        <div class="de">Immer <b>geradeaus</b>, dann die Rolltreppe nach unten. Wohin möchten Sie denn?</div>
+        <div class="zh">一直往前走，然后坐扶梯下去。您要去哪儿呢？</div>
+      </div>
+    </div>
+    <div class="line">
+      <div class="who">👩🏻‍🎓</div>
+      <div class="bubble">
+        <div class="spk">林夏</div>
+        <div class="de">Zum <b>Bürgeramt</b>. Ich muss mich <b>anmelden</b>.</div>
+        <div class="zh">去市民局。我得办落户登记。</div>
+      </div>
+    </div>
+    <div class="line right">
+      <div class="who">👮</div>
+      <div class="bubble">
+        <div class="spk">工作人员</div>
+        <div class="de">Haben Sie schon einen <b>Termin</b>? Ohne Termin geht da meistens nichts.</div>
+        <div class="zh">您预约了吗？没预约的话那边基本办不了事。</div>
+      </div>
+    </div>
+    <div class="line">
+      <div class="who">👩🏻‍🎓</div>
+      <div class="bubble">
+        <div class="spk">林夏</div>
+        <div class="de">Oh… einen Termin? Das wusste ich nicht. <b>Mist!</b></div>
+        <div class="zh">啊……还要预约？我都不知道。糟糕！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 词汇 ═══ -->
+  <div class="section-title">📒 本集重点词汇</div>
+  <div class="vocab-tags">
+    <div class="vt"><span class="vt-de">die U-Bahn</span><span class="vt-zh">地铁</span></div>
+    <div class="vt"><span class="vt-de">geradeaus</span><span class="vt-zh">一直往前</span></div>
+    <div class="vt"><span class="vt-de">das Bürgeramt</span><span class="vt-zh">市民局</span></div>
+    <div class="vt"><span class="vt-de">sich anmelden</span><span class="vt-zh">登记/落户</span></div>
+    <div class="vt"><span class="vt-de">der Termin</span><span class="vt-zh">预约</span></div>
+    <div class="vt"><span class="vt-de">Mist!</span><span class="vt-zh">糟糕！</span></div>
+    <div class="vt"><span class="vt-de">wusste</span><span class="vt-zh">wissen 过去式·知道</span></div>
+  </div>
+
+  <!-- ═══ 文化注释 ═══ -->
+  <div class="kultur-note">
+    <div class="kl">🇩🇪 德国生存法则 #1：预约是空气和水</div>
+    <p style="margin-bottom:8px">在德国，<b>办任何事都要预约</b>——落户、延签、看医生、甚至理发。没有 Termin 直接去叫" spontan "，大部分时候会被拒绝。市民局的预约需要提前数周在官网抢，热门城市（慕尼黑、柏林）常要等 4-6 周。</p>
+    <p style="margin-bottom:8px"><b>Anmeldung（落户登记）</b>是德国生活的起点：你必须在搬进新住址的 <b>14 天内</b> 完成登记，否则会罚款。拿到 <b>Meldebescheinigung</b>（登记证明）后，才能办银行开户、延签、税号等一切手续。</p>
+  </div>
+
+  <!-- ═══ 软广告 ═══ -->
+  <div class="soft-cta">
+    <h3>🇩🇪 追更林夏的德国冒险</h3>
+    <p>第 2 集：林夏去开银行账户，结果被一份 20 页的合同吓傻了。<br>第 3 集：第一次在德国看医生，发现药房和药店是两个世界。<br>每集学 6-8 个核心词汇 + 1 个德国生存法则。</p>
+    <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎬 看全部剧集 →</a>
+    <span class="sub-link">leonsdeutschzentrum.com</span>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="footer">
+    <h3>更多德语学习资源</h3>
+    <p>关注 Leon 德语学习中心，用故事学会真德语。</p>
+    <div class="links">
+      <a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 德语学习主站</a>
+      <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
+      <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
+    </div>
+    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>
