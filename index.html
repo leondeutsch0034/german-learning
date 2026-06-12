@@ -2598,44 +2598,102 @@
     @media(max-width:760px){ #page-echt .echt-grid{grid-template-columns:1fr} }
     @media(max-width:600px){ #page-echt{padding:20px 12px 40px} #page-echt .echt-rows{flex-direction:column;gap:8px} #page-echt .echt-header h2{font-size:1.3rem} #page-echt .echt-de{font-size:.86rem} }
     /* ── 德语连续剧「林夏在德国」 ── */
-    #page-serie { background:linear-gradient(180deg,#0d0820,#1a1035,#241548); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; }
-    #page-serie .se-wrap { max-width:760px; margin:0 auto; }
+    #page-serie { background:linear-gradient(180deg,#06141c,#0a2530,#0e3540); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; position:relative; overflow:hidden; }
+    /* 达尔文效应：左上角射出的震撼光束 */
+    #page-serie::before {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:
+        /* 主光束 — 从左上角向右下辐射 */
+        radial-gradient(ellipse 120% 80% at 0% 0%,
+          rgba(34,211,238,.18) 0%,
+          rgba(14,116,144,.10) 25%,
+          rgba(6,20,28,.00) 55%
+        ),
+        /* 第二道光束 — 略偏右，制造层次 */
+        radial-gradient(ellipse 90% 60% at 5% 2%,
+          rgba(167,243,252,.12) 0%,
+          transparent 50%
+        ),
+        /* 锐利光束线 — 斜向贯穿 */
+        linear-gradient(142deg,
+          rgba(34,211,238,.22) 0%,
+          rgba(34,211,238,.08) 8%,
+          transparent 18%,
+          transparent 28%,
+          rgba(167,243,252,.06) 32%,
+          transparent 45%
+        ),
+        /* 底部散射柔光 */
+        radial-gradient(ellipse 140% 60% at 85% 90%,
+          rgba(34,211,238,.06) 0%,
+          transparent 60%
+        );
+      animation: darwinBeam 8s ease-in-out infinite alternate;
+    }
+    @keyframes darwinBeam {
+      0% { opacity:.85; transform:scale(1); }
+      100% { opacity:1; transform:scale(1.03); }
+    }
+    /* 浮动微粒 — 光束中的尘埃 */
+    #page-serie::after {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:
+        radial-gradient(1px 1px at 15% 8%,  rgba(167,243,252,.9), transparent),
+        radial-gradient(1px 1px at 28% 14%, rgba(34,211,238,.7), transparent),
+        radial-gradient(1.5px 1.5px at 35% 22%, rgba(167,243,252,.6), transparent),
+        radial-gradient(1px 1px at 22% 18%, rgba(34,211,238,.5), transparent),
+        radial-gradient(1.5px 1.5px at 42% 30%, rgba(167,243,252,.4), transparent),
+        radial-gradient(1px 1px at 18% 12%, rgba(34,211,238,.8), transparent),
+        radial-gradient(2px 2px at 55% 40%, rgba(34,211,238,.35), transparent),
+        radial-gradient(1px 1px at 62% 48%, rgba(167,243,252,.3), transparent),
+        radial-gradient(1.5px 1.5px at 75% 58%, rgba(34,211,238,.25), transparent),
+        radial-gradient(1px 1px at 38% 28%, rgba(167,243,252,.55), transparent),
+        radial-gradient(1.5px 1.5px at 48% 36%, rgba(34,211,238,.4), transparent),
+        radial-gradient(1px 1px at 68% 52%, rgba(167,243,252,.3), transparent);
+      animation: darwinDust 12s linear infinite;
+    }
+    @keyframes darwinDust {
+      0% { transform:translateY(0); opacity:.7; }
+      50% { transform:translateY(-6px); opacity:1; }
+      100% { transform:translateY(0); opacity:.7; }
+    }
+    #page-serie .se-wrap { max-width:760px; margin:0 auto; position:relative; z-index:1; }
     #page-serie .se-header { text-align:center; margin-bottom:24px; }
-    #page-serie .se-header .se-show { font-size:.72rem; color:#a78bfa; letter-spacing:.18em; font-weight:700; margin-bottom:8px; }
-    #page-serie .se-header h2 { color:#c4b5fd; font-size:1.7rem; margin-bottom:8px; }
-    #page-serie .se-header .se-sub { color:#8b7bb8; font-size:.88rem; }
+    #page-serie .se-header .se-show { font-size:.72rem; color:#22d3ee; letter-spacing:.18em; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-header h2 { color:#a5f3fc; font-size:1.7rem; margin-bottom:8px; }
+    #page-serie .se-header .se-sub { color:#5b8a98; font-size:.88rem; }
     /* 剧集进度条 */
     #page-serie .se-eplist { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
-    #page-serie .se-ep { font-size:.74rem; padding:6px 13px; border-radius:20px; border:1px solid rgba(167,139,250,.25); color:#a78bfa; background:rgba(167,139,250,.06); font-family:inherit; cursor:pointer; transition:.2s; }
-    #page-serie button.se-ep:hover { border-color:rgba(167,139,250,.6); color:#c4b5fd; }
-    #page-serie .se-ep.cur { background:linear-gradient(135deg,#7c3aed,#a78bfa); color:#0d0820; font-weight:700; border-color:transparent; }
+    #page-serie .se-ep { font-size:.74rem; padding:6px 13px; border-radius:20px; border:1px solid rgba(34,211,238,.25); color:#7dd3e8; background:rgba(34,211,238,.06); font-family:inherit; cursor:pointer; transition:.2s; }
+    #page-serie button.se-ep:hover { border-color:rgba(34,211,238,.6); color:#a5f3fc; }
+    #page-serie .se-ep.cur { background:linear-gradient(135deg,#0e7490,#22d3ee); color:#06141c; font-weight:700; border-color:transparent; }
     #page-serie .se-ep.soon { opacity:.5; font-style:italic; cursor:default; }
     /* 人物卡 */
-    #page-serie .se-cast { display:flex; gap:14px; align-items:center; background:rgba(167,139,250,.07); border:1px solid rgba(167,139,250,.2); border-radius:16px; padding:16px 18px; margin-bottom:24px; }
-    #page-serie .se-cast .se-avatar { font-size:2.6rem; flex-shrink:0; width:58px; height:58px; display:flex; align-items:center; justify-content:center; background:rgba(167,139,250,.12); border-radius:50%; }
-    #page-serie .se-cast .se-name { font-size:1rem; font-weight:700; color:#c4b5fd; margin-bottom:3px; }
-    #page-serie .se-cast .se-bio { font-size:.8rem; color:#9d8cc4; line-height:1.5; }
+    #page-serie .se-cast { display:flex; gap:14px; align-items:center; background:rgba(34,211,238,.07); border:1px solid rgba(34,211,238,.2); border-radius:16px; padding:16px 18px; margin-bottom:24px; }
+    #page-serie .se-cast .se-avatar { font-size:2.6rem; flex-shrink:0; width:58px; height:58px; display:flex; align-items:center; justify-content:center; background:rgba(34,211,238,.12); border-radius:50%; }
+    #page-serie .se-cast .se-name { font-size:1rem; font-weight:700; color:#a5f3fc; margin-bottom:3px; }
+    #page-serie .se-cast .se-bio { font-size:.8rem; color:#7e9aa6; line-height:1.5; }
     /* 本集导语 */
-    #page-serie .se-intro { background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(167,139,250,.05)); border-left:3px solid #a78bfa; border-radius:8px; padding:14px 18px; margin-bottom:26px; font-size:.9rem; color:#cbb8f0; line-height:1.65; }
+    #page-serie .se-intro { background:linear-gradient(135deg,rgba(14,116,144,.12),rgba(34,211,238,.05)); border-left:3px solid #22d3ee; border-radius:8px; padding:14px 18px; margin-bottom:26px; font-size:.9rem; color:#7dd3e8; line-height:1.65; }
     /* 区块标题 */
-    #page-serie .se-sec-title { display:flex; align-items:center; gap:8px; font-size:1.05rem; font-weight:700; color:#c4b5fd; margin:30px 0 16px; }
-    #page-serie .se-sec-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(167,139,250,.4),transparent); }
+    #page-serie .se-sec-title { display:flex; align-items:center; gap:8px; font-size:1.05rem; font-weight:700; color:#a5f3fc; margin:30px 0 16px; }
+    #page-serie .se-sec-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(34,211,238,.4),transparent); }
     /* 对话气泡 */
     #page-serie .se-dialog { display:flex; flex-direction:column; gap:14px; }
     #page-serie .se-line { display:flex; gap:10px; max-width:90%; }
     #page-serie .se-line.right { align-self:flex-end; flex-direction:row-reverse; }
-    #page-serie .se-line .se-who { font-size:1.5rem; flex-shrink:0; width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgba(167,139,250,.1); border-radius:50%; }
-    #page-serie .se-bubble { background:#1c1338; border:1px solid rgba(167,139,250,.18); border-radius:14px; padding:11px 15px; }
-    #page-serie .se-line.right .se-bubble { background:rgba(124,58,237,.18); border-color:rgba(167,139,250,.3); }
-    #page-serie .se-bubble .se-spk { font-size:.66rem; color:#8b7bb8; font-weight:700; margin-bottom:4px; }
-    #page-serie .se-bubble .se-de { font-size:.95rem; color:#ede9fe; font-weight:600; line-height:1.5; }
-    #page-serie .se-bubble .se-de b { color:#c4b5fd; }
-    #page-serie .se-bubble .se-zh { font-size:.78rem; color:#9d8cc4; line-height:1.5; margin-top:5px; }
+    #page-serie .se-line .se-who { font-size:1.5rem; flex-shrink:0; width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgba(34,211,238,.1); border-radius:50%; }
+    #page-serie .se-bubble { background:#0a2028; border:1px solid rgba(34,211,238,.18); border-radius:14px; padding:11px 15px; }
+    #page-serie .se-line.right .se-bubble { background:rgba(14,116,144,.18); border-color:rgba(34,211,238,.3); }
+    #page-serie .se-bubble .se-spk { font-size:.66rem; color:#5b8a98; font-weight:700; margin-bottom:4px; }
+    #page-serie .se-bubble .se-de { font-size:.95rem; color:#ecfeff; font-weight:600; line-height:1.5; }
+    #page-serie .se-bubble .se-de b { color:#a5f3fc; }
+    #page-serie .se-bubble .se-zh { font-size:.78rem; color:#7e9aa6; line-height:1.5; margin-top:5px; }
     /* 词汇表 */
     #page-serie .se-vocab { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-    #page-serie .se-vocab .se-word { background:rgba(167,139,250,.06); border:1px solid rgba(167,139,250,.16); border-radius:10px; padding:10px 13px; }
-    #page-serie .se-vocab .se-word .w-de { font-size:.88rem; color:#c4b5fd; font-weight:700; }
-    #page-serie .se-vocab .se-word .w-zh { font-size:.76rem; color:#9d8cc4; margin-top:2px; }
+    #page-serie .se-vocab .se-word { background:rgba(34,211,238,.06); border:1px solid rgba(34,211,238,.16); border-radius:10px; padding:10px 13px; }
+    #page-serie .se-vocab .se-word .w-de { font-size:.88rem; color:#a5f3fc; font-weight:700; }
+    #page-serie .se-vocab .se-word .w-zh { font-size:.76rem; color:#7e9aa6; margin-top:2px; }
     /* 文化坑点 */
     #page-serie .se-traps { display:flex; flex-direction:column; gap:12px; }
     #page-serie .se-trap { display:flex; gap:11px; background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.22); border-radius:12px; padding:13px 15px; }
@@ -2643,19 +2701,17 @@
     #page-serie .se-trap .se-trap-tx { font-size:.84rem; color:#d4c9b0; line-height:1.6; }
     #page-serie .se-trap .se-trap-tx b { color:#fbbf24; }
     /* 下集预告 */
-    #page-serie .se-next { margin-top:32px; background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(167,139,250,.06)); border:1px dashed rgba(167,139,250,.4); border-radius:16px; padding:20px 22px; text-align:center; }
-    #page-serie .se-next .se-next-tag { font-size:.7rem; color:#a78bfa; letter-spacing:.15em; font-weight:700; margin-bottom:8px; }
-    #page-serie .se-next .se-next-title { font-size:1.05rem; color:#c4b5fd; font-weight:700; margin-bottom:8px; }
-    #page-serie .se-next .se-next-desc { font-size:.83rem; color:#9d8cc4; line-height:1.6; }
+    #page-serie .se-next { margin-top:32px; background:linear-gradient(135deg,rgba(14,116,144,.18),rgba(34,211,238,.06)); border:1px dashed rgba(34,211,238,.4); border-radius:16px; padding:20px 22px; text-align:center; }
+    #page-serie .se-next .se-next-tag { font-size:.7rem; color:#22d3ee; letter-spacing:.15em; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-next .se-next-title { font-size:1.05rem; color:#a5f3fc; font-weight:700; margin-bottom:8px; }
+    #page-serie .se-next .se-next-desc { font-size:.83rem; color:#7e9aa6; line-height:1.6; }
     #page-serie .se-back { text-align:center; margin-top:34px; }
-    #page-serie .se-back a { display:inline-block; background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#ede9fe; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(167,139,250,.3); transition:.2s; }
-    #page-serie .se-back a:hover { border-color:rgba(167,139,250,.7); box-shadow:0 4px 16px rgba(167,139,250,.2); }
+    #page-serie .se-back a { display:inline-block; background:linear-gradient(135deg,#0e7490,#155e75); color:#a5f3fc; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(34,211,238,.25); transition:.2s; }
+    #page-serie .se-back a:hover { border-color:rgba(34,211,238,.6); box-shadow:0 4px 16px rgba(34,211,238,.15); }
     /* 每集末尾水印（截图时自然带网址） */
-    #page-serie .se-watermark { margin-top:28px; padding-top:16px; border-top:1px solid rgba(167,139,250,.12); text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; }
-    #page-serie .se-watermark .sw-brand { font-size:.68rem; color:rgba(167,139,250,.55); letter-spacing:.04em; }
-    #page-serie .se-watermark .sw-url { font-size:.62rem; color:rgba(167,139,250,.35); }
-    #page-serie .se-watermark .sw-share { display:inline-block; font-size:.7rem; color:rgba(167,139,250,.45); cursor:pointer; background:none; border:1px solid rgba(167,139,250,.15); padding:4px 14px; border-radius:12px; transition:.2s; text-decoration:none; }
-    #page-serie .se-watermark .sw-share:hover { color:#c4b5fd; border-color:rgba(167,139,250,.4); background:rgba(167,139,250,.05); }
+    #page-serie .se-watermark { margin-top:28px; padding-top:16px; border-top:1px solid rgba(34,211,238,.12); text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; }
+    #page-serie .se-watermark .sw-brand { font-size:.72rem; color:rgba(34,211,238,.55); letter-spacing:.04em; font-weight:600; }
+    #page-serie .se-watermark .sw-url { font-size:.66rem; color:rgba(34,211,238,.35); }
     @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
   </style>
 </head>
@@ -46867,7 +46923,7 @@ function b1S12CheckB(){
     <div class="se-next" onclick="showSerieEp(2)" style="cursor:pointer">
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 2 集：林夏去银行开账户 →</div>
-      <div class="se-next-desc">拿到落户证明的林夏，终于要去银行开她的第一个德国账户了。可银行职员一连串的 Girokonto、IBAN、Schufa 把她问懵了……这次她能顺利办下来吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 2 集 →</span></div>
+      <div class="se-next-desc">拿到落户证明的林夏，终于要去银行开她的第一个德国账户了。可银行职员一连串的 Girokonto、IBAN、Schufa 把她问懵了……这次她能顺利办下来吗？<br><span style="color:#22d3ee;font-weight:700">点这里看第 2 集 →</span></div>
     </div>
     <!-- 水印 + 分享 -->
     <div class="se-watermark">
@@ -46973,7 +47029,7 @@ function b1S12CheckB(){
     <div class="se-next" onclick="showSerieEp(3)" style="cursor:pointer">
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 3 集：林夏生病去看医生 →</div>
-      <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……她能顺利看上病吗？<br><span style="color:#a78bfa;font-weight:700">点这里看第 3 集 →</span></div>
+      <div class="se-next-desc">开学没几天林夏就感冒发烧了。在德国看病要先找 Hausarzt（家庭医生）、还要带 Versichertenkarte（医保卡）……她能顺利看上病吗？<br><span style="color:#22d3ee;font-weight:700">点这里看第 3 集 →</span></div>
     </div>
     <!-- 水印 + 分享 -->
     <div class="se-watermark">
@@ -47263,7 +47319,7 @@ function b1S12CheckB(){
     <div class="se-next" onclick="showSerieEp(4)" style="cursor:pointer">
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 4 集：林夏去药房取药 →</div>
-      <div class="se-next-desc">拿着处方的林夏走进隔壁的 Apotheke。可是店员说她还得付一笔 <b>Zuzahlung</b>（自付额）……她才发现，德国药房不卖化妆品，那是 <b>Drogeriemarkt</b> 的事。<br><span style="color:#a78bfa;font-weight:700">点这里看第 4 集 →</span></div>
+      <div class="se-next-desc">拿着处方的林夏走进隔壁的 Apotheke。可是店员说她还得付一笔 <b>Zuzahlung</b>（自付额）……她才发现，德国药房不卖化妆品，那是 <b>Drogeriemarkt</b> 的事。<br><span style="color:#22d3ee;font-weight:700">点这里看第 4 集 →</span></div>
     </div>
     <!-- 水印 + 分享 -->
     <div class="se-watermark">
@@ -47441,7 +47497,12 @@ function b1S12CheckB(){
     <div class="se-next" onclick="showSerieEp(5)" style="cursor:pointer">
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 5 集：林夏去大学注册 →</div>
-      <div class="se-next-desc">病好了，药也吃了。林夏今天要去 LMU 正式注册——带齐护照、录取通知书、医保证明、证件照……德国的大学注册必须本人到场，而且 Immatrikulationsbescheinigung 是她接下来享受一切学生福利的起点。<br><span style="color:#a78bfa;font-weight:700">点这里看第 5 集 →</span></div>
+      <div class="se-next-desc">病好了，药也吃了。林夏今天要去 LMU 正式注册——带齐护照、录取通知书、医保证明、证件照……德国的大学注册必须本人到场，而且 Immatrikulationsbescheinigung 是她接下来享受一切学生福利的起点。<br><span style="color:#22d3ee;font-weight:700">点这里看第 5 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第4集 -->
 
@@ -47658,7 +47719,12 @@ function b1S12CheckB(){
     <div class="se-next" onclick="showSerieEp(6)" style="cursor:pointer">
       <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
       <div class="se-next-title">第 6 集：林夏在超市购物 →</div>
-      <div class="se-next-desc">注册完毕，冰箱空空如也。林夏第一次独自走进德国超市——全是德语标签、要自己称重、结账时收银员扫得飞快……还有神秘的 <b>Pfand</b>（押金）系统等着她。<br><span style="color:#a78bfa;font-weight:700">点这里看第 6 集 →</span></div>
+      <div class="se-next-desc">注册完毕，冰箱空空如也。林夏第一次独自走进德国超市——全是德语标签、要自己称重、结账时收银员扫得飞快……还有神秘的 <b>Pfand</b>（押金）系统等着她。<br><span style="color:#22d3ee;font-weight:700">点这里看第 6 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第5集 -->
 
@@ -47867,6 +47933,11 @@ function b1S12CheckB(){
       <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
       <div class="se-next-title">第 7 集：林夏去图书馆学习</div>
       <div class="se-next-desc">采购完毕、宿舍收拾妥当，林夏该开始学习了。她想去 <b>Bibliothek</b>（图书馆）找个安静的位置，却发现德国大学的图书馆和自习室规则跟国内完全不同……第 7 集正在制作中。</div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+      <span class="sw-url">leonsdeutschzentrum.com</span>
     </div>
     </div><!-- /第6集 -->
 
