@@ -2505,19 +2505,21 @@
       #page-b1lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
     /* ── Wusstest du schon? 每日冷知识卡片 ── */
-    #wds-card-wrap { margin:0 auto 24px; max-width:1100px; padding:0 20px; }
-    #wds-card { background:linear-gradient(135deg,#0f1e3a 0%,#162d4a 50%,#1a3050 100%); border:1px solid rgba(246,211,101,.25); border-radius:16px; padding:20px 24px; position:relative; transition:all .3s ease; cursor:default; }
+    #wds-card-wrap { margin:0 auto 18px; max-width:800px; padding:0 20px; }
+    #wds-card { background:linear-gradient(135deg,#0f1e3a 0%,#162d4a 50%,#1a3050 100%); border:1px solid rgba(246,211,101,.25); border-radius:14px; padding:14px 20px; position:relative; transition:all .3s ease; cursor:default; display:flex; align-items:center; gap:18px; }
     #wds-card:hover { border-color:rgba(246,211,101,.5); box-shadow:0 4px 24px rgba(246,211,101,.1); }
-    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.7rem; font-weight:700; padding:3px 12px; border-radius:10px; margin-bottom:12px; letter-spacing:.03em; }
-    #wds-card .wds-emoji { font-size:2.5rem; display:block; margin-bottom:10px; }
-    #wds-card .wds-de { font-size:1rem; color:#fde68a; font-weight:600; line-height:1.6; margin-bottom:8px; }
-    #wds-card .wds-zh { font-size:.85rem; color:#94a3b8; line-height:1.55; }
-    #wds-card .wds-close { position:absolute; top:12px; right:16px; background:none; border:none; color:#64748b; font-size:1.2rem; cursor:pointer; padding:4px 8px; border-radius:50%; transition:all .2s; line-height:1; }
+    #wds-card .wds-left { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:6px; }
+    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.66rem; font-weight:700; padding:2px 10px; border-radius:8px; letter-spacing:.03em; white-space:nowrap; }
+    #wds-card .wds-emoji { font-size:2rem; }
+    #wds-card .wds-body { flex:1; min-width:0; }
+    #wds-card .wds-de { font-size:.92rem; color:#fde68a; font-weight:600; line-height:1.5; margin-bottom:2px; }
+    #wds-card .wds-zh { font-size:.8rem; color:#94a3b8; line-height:1.5; }
+    #wds-card .wds-close { position:absolute; top:10px; right:14px; background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:2px 6px; border-radius:50%; transition:all .2s; line-height:1; }
     #wds-card .wds-close:hover { color:#fde68a; background:rgba(246,211,101,.1); }
-    #wds-card .wds-footer { margin-top:14px; display:flex; align-items:center; justify-content:space-between; font-size:.72rem; color:#64748b; }
-    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.75rem; transition:.2s; }
+    #wds-card .wds-footer { margin-top:6px; display:flex; align-items:center; justify-content:space-between; font-size:.68rem; color:#64748b; }
+    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.72rem; transition:.2s; }
     #wds-card .wds-more:hover { color:#fde68a; text-decoration:underline; }
-    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{padding:16px 18px;border-radius:12px} #wds-card .wds-emoji{font-size:2rem} #wds-card .wds-de{font-size:.92rem} #wds-card .wds-zh{font-size:.8rem} }
+    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{flex-direction:column;padding:14px 16px;border-radius:12px;gap:10px;align-items:flex-start} #wds-card .wds-left{flex-direction:row;gap:8px} #wds-card .wds-emoji{font-size:1.6rem} #wds-card .wds-de{font-size:.84rem} #wds-card .wds-zh{font-size:.76rem} }
     /* ── WDS 全部冷知识展示页 ── */
     #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#162d4a); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
     #page-wds .wds-page-header { text-align:center; margin-bottom:24px; }
@@ -3817,17 +3819,21 @@ document.addEventListener('keydown', function(e) {
 <!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
 <div id="wds-card-wrap">
   <div id="wds-card">
-    <button class="wds-close" onclick="dismissWDS()" title="今日不再显示">×</button>
-    <span class="wds-badge">🇩🇪 Wusstest du schon?</span>
-    <span class="wds-emoji" id="wds-emoji"></span>
-    <div class="wds-de" id="wds-de"></div>
-    <div class="wds-zh" id="wds-zh"></div>
-    <div class="wds-footer">
-      <span id="wds-num"></span>
-      <span>
-        <button onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);color:#f6d365;padding:5px 14px;border-radius:14px;font-size:.72rem;cursor:pointer;margin-right:8px;transition:.2s" onmouseover="this.style.background='rgba(246,211,101,.25)'" onmouseout="this.style.background='rgba(246,211,101,.12)'">📸 分享</button>
-        <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 90 条 →</a>
-      </span>
+    <button class="wds-close" onclick="dismissWDS()" title="关闭">×</button>
+    <div class="wds-left">
+      <span class="wds-badge">🇩🇪 Wusstest du schon?</span>
+      <span class="wds-emoji" id="wds-emoji"></span>
+    </div>
+    <div class="wds-body">
+      <div class="wds-de" id="wds-de"></div>
+      <div class="wds-zh" id="wds-zh"></div>
+      <div class="wds-footer">
+        <span id="wds-num"></span>
+        <span>
+          <button onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);color:#f6d365;padding:4px 12px;border-radius:12px;font-size:.68rem;cursor:pointer;margin-right:8px;transition:.2s" onmouseover="this.style.background='rgba(246,211,101,.25)'" onmouseout="this.style.background='rgba(246,211,101,.12)'">📸 分享</button>
+          <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 90 条 →</a>
+        </span>
+      </div>
     </div>
   </div>
 </div>
