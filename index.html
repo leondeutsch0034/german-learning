@@ -328,6 +328,116 @@
     }
     #page-index .card:hover .card-arrow {color:#ffe088;transform:translateX(3px)}
 
+    /* ══════ 学习站二级页（A1 / A2 共用 .hub-page） ══════ */
+    .hub-page{padding-bottom:20px}
+    .hub-page .a1hub-hero{
+      position:relative;max-width:1100px;margin:0 auto;padding:34px 24px 26px;text-align:center;
+      animation:fadeUp .6s ease both;
+    }
+    .hub-page .a1hub-back{
+      position:absolute;left:24px;top:24px;
+      color:#fde68a;text-decoration:none;font-size:.8rem;font-weight:600;
+      background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.28);
+      padding:6px 14px;border-radius:18px;transition:.2s;
+    }
+    .hub-page .a1hub-back:hover{background:rgba(246,211,101,.18);border-color:rgba(246,211,101,.55)}
+    .hub-page .a1hub-eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      background:color-mix(in srgb,var(--hub,#ffdc82) 18%,transparent);
+      border:1px solid color-mix(in srgb,var(--hub,#ffdc82) 55%,transparent);
+      color:var(--hub,#ffe088);padding:5px 16px;border-radius:20px;
+      font-size:.74rem;font-weight:700;letter-spacing:.08em;margin-bottom:16px;
+    }
+    .hub-page .a1hub-hero h1{
+      font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:10px;
+      background:linear-gradient(100deg,var(--hub,#ffd770),#ffffff 50%,var(--hub,#ffc448));
+      background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;animation:shimmer 4s linear infinite;
+    }
+    .hub-page .a1hub-sub{color:rgba(255,245,230,.82);font-size:.9rem;line-height:1.6}
+    /* 推荐学习路径条 */
+    .hub-page .a1hub-path{
+      max-width:1100px;margin:0 auto 26px;
+      display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;
+      background:var(--hub-soft,rgba(255,220,130,.07));
+      border:1px solid color-mix(in srgb,var(--hub,#f6d365) 30%,transparent);
+      border-radius:14px;padding:14px 20px;
+    }
+    .hub-page .a1hub-path-lbl{font-size:.82rem;font-weight:700;color:var(--hub,#ffe088);white-space:nowrap}
+    .hub-page .a1hub-path-flow{
+      display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+      color:rgba(255,245,230,.9);font-size:.84rem;font-weight:600;
+    }
+    .hub-page .a1hub-path-flow i{color:color-mix(in srgb,var(--hub,#f6d365) 65%,transparent);font-style:normal;font-weight:700}
+    .hub-page .a1hub-sec{
+      max-width:1100px;margin:0 auto 14px;
+      display:flex;align-items:center;gap:10px;
+      font-size:.7rem;font-weight:700;letter-spacing:.1em;color:color-mix(in srgb,var(--hub,#f6d365) 70%,transparent);
+    }
+    .hub-page .a1hub-sec::after{content:'';flex:1;height:1px;background:color-mix(in srgb,var(--hub,#f6d365) 18%,transparent)}
+    /* 学习站底部页脚：居中 */
+    .hub-page footer{
+      text-align:center;max-width:1100px;margin:8px auto 0;padding:18px 20px;
+      color:rgba(230,210,180,.45);font-size:.72rem;line-height:2;
+      border-top:1px solid color-mix(in srgb,var(--hub,#f6d365) 14%,transparent);
+    }
+    /* A1 板块卡片网格 */
+    .hub-page .a1hub-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:14px;max-width:1100px;margin:0 auto 30px;
+    }
+    .hub-page .a1hub-card{
+      position:relative;display:block;text-decoration:none;
+      background:linear-gradient(150deg,#13243f,#0f1c33);
+      border:1px solid rgba(246,211,101,.16);border-left:3px solid var(--ac);
+      border-radius:16px;padding:18px 18px 16px;overflow:hidden;
+      transition:transform .25s,box-shadow .25s,border-color .25s;
+    }
+    .hub-page .a1hub-card::after{
+      content:'';position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(120% 80% at 100% 0,color-mix(in srgb,var(--ac) 14%,transparent),transparent 60%);
+    }
+    .hub-page .a1hub-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 28px rgba(8,16,40,.55);
+      border-color:rgba(246,211,101,.45);border-left-color:var(--ac);
+    }
+    .hub-page .a1hub-step{
+      position:absolute;top:14px;right:16px;
+      font-size:1.5rem;font-weight:800;line-height:1;
+      color:var(--ac);opacity:.28;
+    }
+    .hub-page .a1hub-card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .hub-page .a1hub-icon{
+      width:46px;height:46px;border-radius:13px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+      background:color-mix(in srgb,var(--ac) 18%,transparent);
+      border:1px solid color-mix(in srgb,var(--ac) 35%,transparent);
+    }
+    .hub-page .a1hub-skill{
+      font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--ac);opacity:.85;margin-bottom:2px;
+    }
+    .hub-page .a1hub-titles h3{font-size:1.08rem;font-weight:700;color:#fff8e8;line-height:1.15;margin:0}
+    .hub-page .a1hub-tip{
+      color:#ffe9c8;font-size:.82rem;font-weight:600;line-height:1.45;margin:0 0 8px;
+    }
+    .hub-page .a1hub-desc{color:rgba(255,235,215,.6);font-size:.74rem;line-height:1.5;margin:0 0 12px}
+    .hub-page .a1hub-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .hub-page .a1hub-tag{
+      flex:1;display:inline-block;background:rgba(255,220,130,.1);
+      padding:3px 9px;border-radius:7px;font-size:.66rem;color:#ffe088;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .hub-page .a1hub-go{
+      flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--ac);transition:transform .2s;
+    }
+    .hub-page .a1hub-card:hover .a1hub-go{transform:translateX(3px)}
+    @media (max-width:560px){
+      .hub-page .a1hub-back{position:static;display:inline-block;margin-bottom:14px}
+      .hub-page .a1hub-hero{padding-top:22px}
+    }
+
     /* Goethe info — 鎏金红过渡区 */
     .info-section{
       max-width:1100px;margin:0 auto 28px;
@@ -3442,23 +3552,28 @@ var MODULES = [
     desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
     tags:'AI语音 · 音素评分 · 英文练习',
     c1:'#1e40af', c2:'#60a5fa', locked:false },
-  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitle:'A1 语法',
+  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitle:'A1 语法', group:'a1',
+    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法基础', hubAccent:'#f6d365', hubTip:'打地基：先把语法点过一遍',
     desc:'完整A1语法参考 · 19个核心语法点 · 含例句与中文解释',
     tags:'字母发音 · 动词 · 冠词 · 格 · 时态',
     c1:'#b8860b', c2:'#f6d365', locked:false },
-  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitle:'A1 听力',
+  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitle:'A1 听力', group:'a1',
+    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：模拟歌德三部分听力',
     desc:'模拟歌德A1三部分听力 · 浏览器TTS朗读 · 全文字幕对照 · 16题',
     tags:'Teil 1·2·3 · Richtig/Falsch · 选择题',
     c1:'#b07a10', c2:'#f7d470', locked:false },
-  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitle:'A1 写作',
+  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitle:'A1 写作', group:'a1',
+    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：从填表到考试模拟',
     desc:'5级渐进难度 · 填表→自我介绍→日常描述→信息→考试模拟',
     tags:'⭐~⭐⭐⭐⭐⭐ · 含范文和评分',
     c1:'#a86e14', c2:'#f8d87a', locked:false },
-  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitle:'A1 综合',
+  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitle:'A1 综合', group:'a1',
+    hubStep:5, hubSkill:'Test', hubSkillZh:'综合自测', hubAccent:'#fda085', hubTip:'查漏洞：五大模块综合自测',
     desc:'冠词·动词变位·句子重组·阅读理解·词汇分类 · 全交互',
     tags:'5大模块 · 35+ 题 · 实时评分',
     c1:'#9c3a18', c2:'#fda085', locked:false },
-  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitle:'A1 阅朗读',
+  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitle:'A1 阅朗读', group:'a1',
+    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读朗读', hubAccent:'#22d3ee', hubTip:'连读写：逐词朗读 + 翻译对照',
     desc:'德语文章阅读 · 逐词朗读 · 翻译对照 · 跟读练习',
     tags:'分级阅读 · 发音练习 · 词汇积累',
     c1:'#982050', c2:'#f093fb', locked:false },
@@ -3466,35 +3581,43 @@ var MODULES = [
     desc:'统计数据表达 · 量词/百分比/近似数量 · 真实语料 · A1→C1可扩充',
     tags:'句型 · 马拉松 · 网购 · 旅游统计',
     c1:'#a03030', c2:'#f5a0b0', locked:false },
-  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitle:'A2 单元练习',
+  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitle:'A2 单元练习', group:'a2',
+    hubStep:5, hubSkill:'Test', hubSkillZh:'单元综合', hubAccent:'#fda085', hubTip:'查漏洞：单元练习 + 综合测试',
     desc:'A2级别单元练习与综合测试 · 全交互评分',
     tags:'单元测试 · 综合练习 · A2.1',
     c1:'#9a1858', c2:'#f098f8', locked:false },
-  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitle:'A2 语法',
+  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitle:'A2 语法', group:'a2',
+    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#f6d365', hubTip:'打地基：A2 语法专题逐个讲透',
     desc:'A2级别语法知识 · 专题讲解 · 互动练习',
     tags:'A2语法 · 专题训练 · 详解',
     c1:'#9a2050', c2:'#f0a0e0', locked:false },
-  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitle:'A2 阅读',
+  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitle:'A2 阅读', group:'a2',
+    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#22d3ee', hubTip:'扩词汇：文化主题阅读理解',
     desc:'A2级别阅读材料 · 文化主题 · 理解练习',
     tags:'阅读理解 · 文化主题 · A2水平',
     c1:'#a03038', c2:'#f5a8b8', locked:false },
-  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitle:'A2 写作',
+  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitle:'A2 写作', group:'a2',
+    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：书信短文表达训练',
     desc:'A2级别写作训练 · 书信短文 · 表达练习',
     tags:'写作训练 · 书信 · 短文 · A2水平',
     c1:'#a04028', c2:'#f8b888', locked:false },
-  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitle:'A2 听力',
+  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitle:'A2 听力', group:'a2',
+    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：对话理解 + 填空选择',
     desc:'A2级别听力训练 · 对话理解 · 填空选择',
     tags:'A2听力 · 对话 · 综合理解',
     c1:'#a83820', c2:'#fdb899', locked:false },
-  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写',
+  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写', group:'b1',
+    hubStep:2, hubSkill:'Übung', hubSkillZh:'语法抄写', hubAccent:'#a78bfa', hubTip:'勤练手：Grammatik aktiv 逐章抄写',
     desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
     tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
     c1:'#6b21a8', c2:'#a78bfa', locked:false },
-  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitle:'B1语法',
+  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitle:'B1语法', group:'b1',
+    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#63b3ed', hubTip:'啃难点：虚拟式 · 被动 · 从句 · 属格',
     desc:'B1进阶语法参考 · 20个核心语法点 · 含例句与中文解释',
     tags:'虚拟式 · 被动 · 从句 · 属格 · 代副词',
     c1:'#2b6cb0', c2:'#63b3ed', locked:false },
-  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitle:'B1阅读',
+  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitle:'B1阅读', group:'b1',
+    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
     desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
     tags:'B1阅读 · 进阶 · 主题阅读',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
@@ -3524,10 +3647,37 @@ var MODULES = [
     c1:'#7c3aed', c2:'#c4b5fd', locked:false }
 ];
 
+// 学习站分组：把同一级别分散的栏目收纳进一张"总模块"卡片，点进去后再分流。
+// 新增级别只需在此登记，并给对应 MODULES 项加 group:'<key>' + hub* 字段，三处自动同步。
+var HUBS = {
+  a1: { id:'a1hub', icon:'🎓', navLabel:'A1 学习站', cardTitle:'A1 学习站',
+        desc:'语法 · 听力 · 阅朗读 · 写作 · 综合 — A1 全部内容集中入口，点进按需选择',
+        tags:'歌德A1 · 五大板块 · 一站直达' },
+  a2: { id:'a2hub', icon:'🎓', navLabel:'A2 学习站', cardTitle:'A2 学习站',
+        desc:'语法 · 听力 · 阅读 · 写作 · 单元综合 — A2 全部内容集中入口，点进按需选择',
+        tags:'歌德A2 · 五大板块 · 一站直达' },
+  b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitle:'B1 学习站',
+        desc:'语法 · 语法抄写 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
+        tags:'歌德B1 · 进阶 · 一站直达' }
+};
+// hubId('a1hub') → 'a1'，找出某学习站对应的分组 key
+function hubGroupOf(hubId) {
+  for (var k in HUBS) { if (HUBS[k].id === hubId) return k; }
+  return null;
+}
+
 function renderNav() {
   var h = '<button onclick="showPage(\'index\')" id="nav-index" class="nav-btn active">🏠 首页</button>';
+  var doneGroups = {};
   for (var i = 0; i < MODULES.length; i++) {
     var m = MODULES[i];
+    if (m.group && HUBS[m.group]) {
+      if (doneGroups[m.group]) continue;     // 每个学习站在导航上只出现一次
+      doneGroups[m.group] = true;
+      var hub = HUBS[m.group];
+      h += '<button onclick="showPage(\'' + hub.id + '\')" id="nav-' + hub.id + '" class="nav-btn">' + hub.icon + ' ' + hub.navLabel + '</button>';
+      continue;
+    }
     var lockIcon = m.locked ? ' 🔒' : '';
     h += '<button onclick="showPage(\'' + m.id + '\')" id="nav-' + m.id + '" class="nav-btn">' + m.icon + ' ' + m.navLabel + lockIcon + '</button>';
   }
@@ -3537,19 +3687,59 @@ function renderNav() {
 
 function renderCards() {
   var h = '';
+  var num = 0;
+  var doneGroups = {};
   for (var i = 0; i < MODULES.length; i++) {
     var m = MODULES[i];
-    var num = (i + 1 < 10) ? '0' + (i + 1) : '' + (i + 1);
-    h += '<a class="card" href="#" onclick="showPage(\'' + m.id + '\'); return false;">';
-    h += '<div class="card-top"><div class="card-icon-wrap">' + m.icon + '</div><span class="card-num">' + num + '</span></div>';
-    h += '<h2>' + m.cardTitle + '</h2>';
-    h += '<p>' + m.desc + '</p>';
-    h += '<span class="tag">' + m.tags + '</span>';
+    var card, id;
+    if (m.group && HUBS[m.group]) {
+      if (doneGroups[m.group]) continue;     // 同组栏目在首页折叠成一张总卡片
+      doneGroups[m.group] = true;
+      card = HUBS[m.group]; id = card.id;
+    } else {
+      card = m; id = m.id;
+    }
+    num++;
+    var ns = (num < 10) ? '0' + num : '' + num;
+    h += '<a class="card" href="#" onclick="showPage(\'' + id + '\'); return false;">';
+    h += '<div class="card-top"><div class="card-icon-wrap">' + card.icon + '</div><span class="card-num">' + ns + '</span></div>';
+    h += '<h2>' + card.cardTitle + '</h2>';
+    h += '<p>' + card.desc + '</p>';
+    h += '<span class="tag">' + card.tags + '</span>';
     h += '<span class="card-arrow">→</span>';
     h += '</a>';
   }
   document.write(h);
 }
+
+// 学习站二级页：列出某分组的全部栏目，按推荐学习顺序排序，富样式卡片各自直达
+function renderHubCards(groupKey) {
+  var items = [];
+  for (var i = 0; i < MODULES.length; i++) {
+    if (MODULES[i].group === groupKey) items.push(MODULES[i]);
+  }
+  items.sort(function(a, b){ return (a.hubStep || 99) - (b.hubStep || 99); });
+  var h = '';
+  for (var j = 0; j < items.length; j++) {
+    var m = items[j];
+    var ac = m.hubAccent || '#f6d365';
+    h += '<a class="a1hub-card" href="#" onclick="showPage(\'' + m.id + '\'); return false;" style="--ac:' + ac + '">';
+    h += '<span class="a1hub-step">' + (m.hubStep || (j + 1)) + '</span>';
+    h += '<div class="a1hub-card-head">';
+    h += '<div class="a1hub-icon">' + m.icon + '</div>';
+    h += '<div class="a1hub-titles"><div class="a1hub-skill">' + (m.hubSkill || '') + '</div>';
+    h += '<h3>' + m.cardTitle + '</h3></div>';
+    h += '</div>';
+    h += '<p class="a1hub-tip">' + (m.hubTip || m.desc) + '</p>';
+    h += '<p class="a1hub-desc">' + m.desc + '</p>';
+    h += '<div class="a1hub-foot"><span class="a1hub-tag">' + m.tags + '</span><span class="a1hub-go">进入 →</span></div>';
+    h += '</a>';
+  }
+  document.write(h);
+}
+// 兼容旧调用
+function renderA1HubCards() { renderHubCards('a1'); }
+
 </script>
 
 <!-- Nav bar -->
@@ -3889,6 +4079,93 @@ document.addEventListener('keydown', function(e) {
   🇩🇪 Viel Erfolg bei der Prüfung! &nbsp; 祝考试顺利！<br>
   Leons Deutschzentrum · Goethe-Zertifikat A1 / A2 / B1 备考 · 语法 · 听力 · 写作 · 发音 · 文化
 </footer>
+
+</div>
+
+<!-- A1 学习站 — 二级聚合页：把分散的 A1 栏目集中在这里再分流 -->
+<div id="page-a1hub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat A1</div>
+    <h1>A1 学习站</h1>
+    <p class="a1hub-sub">语法 · 听力 · 阅朗读 · 写作 · 综合自测 —— A1 全部内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练</p>
+  </div>
+
+  <div class="a1hub-path">
+    <span class="a1hub-path-lbl">📈 建议学习路径</span>
+    <div class="a1hub-path-flow">
+      <span>📖 语法</span><i>→</i><span>🎧 听力</span><i>→</i><span>📖 阅朗读</span><i>→</i><span>✍️ 写作</span><i>→</i><span>📝 综合自测</span>
+    </div>
+  </div>
+
+  <div class="a1hub-sec">📚 五大板块</div>
+  <div class="a1hub-grid" id="a1hub-grid">
+    <script>renderHubCards('a1');</script>
+  </div>
+
+  <footer>
+    🇩🇪 Viel Erfolg bei der A1-Prüfung! &nbsp; 祝 A1 考试顺利！<br>
+    Leons Deutschzentrum · Goethe-Zertifikat A1 · 语法 · 听力 · 阅朗读 · 写作 · 综合
+  </footer>
+
+</div>
+
+<!-- A2 学习站 — 二级聚合页：把分散的 A2 栏目集中在这里再分流 -->
+<div id="page-a2hub" class="page hub-page" style="--hub:#67e8f9;--hub-soft:rgba(103,232,249,.13)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat A2</div>
+    <h1>A2 学习站</h1>
+    <p class="a1hub-sub">语法 · 听力 · 阅读 · 写作 · 单元综合 —— A2 全部内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练</p>
+  </div>
+
+  <div class="a1hub-path">
+    <span class="a1hub-path-lbl">📈 建议学习路径</span>
+    <div class="a1hub-path-flow">
+      <span>📖 语法</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span><i>→</i><span>📝 写作</span><i>→</i><span>📚 单元综合</span>
+    </div>
+  </div>
+
+  <div class="a1hub-sec">📚 五大板块</div>
+  <div class="a1hub-grid" id="a2hub-grid">
+    <script>renderHubCards('a2');</script>
+  </div>
+
+  <footer>
+    🇩🇪 Viel Erfolg bei der A2-Prüfung! &nbsp; 祝 A2 考试顺利！<br>
+    Leons Deutschzentrum · Goethe-Zertifikat A2 · 语法 · 听力 · 阅读 · 写作 · 单元综合
+  </footer>
+
+</div>
+
+<!-- B1 学习站 — 二级聚合页：把分散的 B1 栏目集中在这里再分流 -->
+<div id="page-b1hub" class="page hub-page" style="--hub:#93c5fd;--hub-soft:rgba(147,197,253,.13)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B1</div>
+    <h1>B1 学习站</h1>
+    <p class="a1hub-sub">语法 · 语法抄写 · 阅读 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
+  </div>
+
+  <div class="a1hub-path">
+    <span class="a1hub-path-lbl">📈 建议学习路径</span>
+    <div class="a1hub-path-flow">
+      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>📰 阅读</span>
+    </div>
+  </div>
+
+  <div class="a1hub-sec">📚 进阶板块</div>
+  <div class="a1hub-grid" id="b1hub-grid">
+    <script>renderHubCards('b1');</script>
+  </div>
+
+  <footer>
+    🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
+    Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 阅读
+  </footer>
 
 </div>
 
@@ -13908,9 +14185,17 @@ window.addEventListener('message', function(ev) {
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
   document.getElementById('page-index').style.display = 'block';
-  // 动态更新模块计数
+  // 动态更新模块计数：分组栏目在首页各折叠为 1 张总卡，计数按首页实际可见卡片数
   var mc = document.getElementById('module-count');
-  if (mc) mc.textContent = MODULES.length;
+  if (mc) {
+    var groupCount = {}, grouped = 0;
+    for (var mi = 0; mi < MODULES.length; mi++) {
+      var g = MODULES[mi].group;
+      if (g && HUBS[g]) { grouped++; groupCount[g] = 1; }
+    }
+    var hubCards = Object.keys(groupCount).length;   // 每个分组合成 1 张总卡
+    mc.textContent = MODULES.length - grouped + hubCards;
+  }
   // 如果已是游客模式，补充应用锁
   if (currentUser) applyGuestLocks();
 
