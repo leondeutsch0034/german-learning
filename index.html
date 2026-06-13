@@ -3539,114 +3539,129 @@ function createLoginPromptCard() {
 <!-- ══════════ 模块注册表（导航栏+首页卡片共用，增删模块只需改这里） ══════════ -->
 <script>
 // 15张卡片看作一个整体，沿大标题渐变色依次过渡：金→橘→粉→金
-var MODULES = [
-  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitle:'德语发音器',
-    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
-    tags:'AI语音 · 对比评分 · 精准纠音',
-    c1:'#b8860b', c2:'#f6d365', locked:false },
-  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitle:'Klipp-Klapp',
-    desc:'3D德国城市导航 · 翻翻书 · 互动问答指路',
-    tags:'3D城市 · 翻翻书 · 指路练习 · 德语互动',
-    c1:'#1e40af', c2:'#3b82f6', locked:false },
-  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitle:'英语发音器',
-    desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
-    tags:'AI语音 · 音素评分 · 英文练习',
-    c1:'#1e40af', c2:'#60a5fa', locked:false },
-  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitle:'A1 语法', group:'a1',
-    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法基础', hubAccent:'#f6d365', hubTip:'打地基：先把语法点过一遍',
-    desc:'完整A1语法参考 · 19个核心语法点 · 含例句与中文解释',
-    tags:'字母发音 · 动词 · 冠词 · 格 · 时态',
-    c1:'#b8860b', c2:'#f6d365', locked:false },
-  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitle:'A1 听力', group:'a1',
-    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：模拟歌德三部分听力',
-    desc:'模拟歌德A1三部分听力 · 浏览器TTS朗读 · 全文字幕对照 · 16题',
-    tags:'Teil 1·2·3 · Richtig/Falsch · 选择题',
-    c1:'#b07a10', c2:'#f7d470', locked:false },
-  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitle:'A1 写作', group:'a1',
-    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：从填表到考试模拟',
-    desc:'5级渐进难度 · 填表→自我介绍→日常描述→信息→考试模拟',
-    tags:'⭐~⭐⭐⭐⭐⭐ · 含范文和评分',
-    c1:'#a86e14', c2:'#f8d87a', locked:false },
-  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitle:'A1 综合', group:'a1',
-    hubStep:5, hubSkill:'Test', hubSkillZh:'综合自测', hubAccent:'#fda085', hubTip:'查漏洞：五大模块综合自测',
-    desc:'冠词·动词变位·句子重组·阅读理解·词汇分类 · 全交互',
-    tags:'5大模块 · 35+ 题 · 实时评分',
-    c1:'#9c3a18', c2:'#fda085', locked:false },
-  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitle:'A1 阅朗读', group:'a1',
-    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读朗读', hubAccent:'#22d3ee', hubTip:'连读写：逐词朗读 + 翻译对照',
-    desc:'德语文章阅读 · 逐词朗读 · 翻译对照 · 跟读练习',
-    tags:'分级阅读 · 发音练习 · 词汇积累',
-    c1:'#982050', c2:'#f093fb', locked:false },
-  { id:'daten', icon:'📊', navLabel:'数据描述', cardTitle:'数据描述',
-    desc:'统计数据表达 · 量词/百分比/近似数量 · 真实语料 · A1→C1可扩充',
-    tags:'句型 · 马拉松 · 网购 · 旅游统计',
-    c1:'#a03030', c2:'#f5a0b0', locked:false },
-  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitle:'A2 单元练习', group:'a2',
-    hubStep:5, hubSkill:'Test', hubSkillZh:'单元综合', hubAccent:'#fda085', hubTip:'查漏洞：单元练习 + 综合测试',
-    desc:'A2级别单元练习与综合测试 · 全交互评分',
-    tags:'单元测试 · 综合练习 · A2.1',
-    c1:'#9a1858', c2:'#f098f8', locked:false },
-  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitle:'A2 语法', group:'a2',
-    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#f6d365', hubTip:'打地基：A2 语法专题逐个讲透',
-    desc:'A2级别语法知识 · 专题讲解 · 互动练习',
-    tags:'A2语法 · 专题训练 · 详解',
-    c1:'#9a2050', c2:'#f0a0e0', locked:false },
-  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitle:'A2 阅读', group:'a2',
-    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#22d3ee', hubTip:'扩词汇：文化主题阅读理解',
-    desc:'A2级别阅读材料 · 文化主题 · 理解练习',
-    tags:'阅读理解 · 文化主题 · A2水平',
-    c1:'#a03038', c2:'#f5a8b8', locked:false },
-  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitle:'A2 写作', group:'a2',
-    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：书信短文表达训练',
-    desc:'A2级别写作训练 · 书信短文 · 表达练习',
-    tags:'写作训练 · 书信 · 短文 · A2水平',
-    c1:'#a04028', c2:'#f8b888', locked:false },
-  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitle:'A2 听力', group:'a2',
-    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：对话理解 + 填空选择',
-    desc:'A2级别听力训练 · 对话理解 · 填空选择',
-    tags:'A2听力 · 对话 · 综合理解',
-    c1:'#a83820', c2:'#fdb899', locked:false },
-  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写', group:'b1',
-    hubStep:2, hubSkill:'Übung', hubSkillZh:'语法抄写', hubAccent:'#a78bfa', hubTip:'勤练手：Grammatik aktiv 逐章抄写',
-    desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
-    tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
-    c1:'#6b21a8', c2:'#a78bfa', locked:false },
-  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitle:'B1语法', group:'b1',
-    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#63b3ed', hubTip:'啃难点：虚拟式 · 被动 · 从句 · 属格',
-    desc:'B1进阶语法参考 · 20个核心语法点 · 含例句与中文解释',
-    tags:'虚拟式 · 被动 · 从句 · 属格 · 代副词',
-    c1:'#2b6cb0', c2:'#63b3ed', locked:false },
-  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitle:'B1阅读', group:'b1',
-    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
-    desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
-    tags:'B1阅读 · 进阶 · 主题阅读',
-    c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
-  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitle:'LXQ定制',
-    desc:'个性化定制练习内容 · 专属学习路径',
-    tags:'定制内容 · 专属 · 进阶',
-    c1:'#a87014', c2:'#f9d880', locked:true },
-  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitle:'高考德语',
-    desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
-    tags:'高考真题 · 新高考卷 · 备考 · 2020',
-    c1:'#b45309', c2:'#fbbf24', locked:false },
-  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitle:'德国文化',
-    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
-    tags:'文化知识 · 城市 · 风俗 · 阅读',
-    c1:'#a06018', c2:'#fdc090', locked:false },
-  { id:'wissnicht', icon:'🇩🇪', navLabel:'你不知道的德国', cardTitle:'你不知道的德国',
-    desc:'17期第一视角德国真相 · 从超市、租房到高考留学 · 每期6个生活密码',
-    tags:'自媒体 · 文化揭秘 · 真实照片 · 17期',
-    c1:'#0e7490', c2:'#22d3ee', locked:false },
-  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitle:'德国人才不这么说',
-    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
-    tags:'地道表达 · 课本对照 · 口语 · 搜索',
-    c1:'#0e7490', c2:'#22d3ee', locked:false },
-  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitle:'林夏在德国',
-    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
-    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
-    c1:'#7c3aed', c2:'#c4b5fd', locked:false }
-];
+	var MODULES = [
+	  // ── 级别递进：A1 → A2 → B1（同组紧邻，首页各折叠为一张学习站卡片）──
+	  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitle:'A1 语法', group:'a1',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法基础', hubAccent:'#f6d365', hubTip:'打地基：先把语法点过一遍',
+	    desc:'完整A1语法参考 · 19个核心语法点 · 含例句与中文解释',
+	    tags:'字母发音 · 动词 · 冠词 · 格 · 时态',
+	    c1:'#b8860b', c2:'#f6d365', locked:false },
+	  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitle:'A1 听力', group:'a1',
+	    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：模拟歌德三部分听力',
+	    desc:'模拟歌德A1三部分听力 · 浏览器TTS朗读 · 全文字幕对照 · 16题',
+	    tags:'Teil 1·2·3 · Richtig/Falsch · 选择题',
+	    c1:'#b07a10', c2:'#f7d470', locked:false },
+	  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitle:'A1 阅朗读', group:'a1',
+	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读朗读', hubAccent:'#22d3ee', hubTip:'连读写：逐词朗读 + 翻译对照',
+	    desc:'德语文章阅读 · 逐词朗读 · 翻译对照 · 跟读练习',
+	    tags:'分级阅读 · 发音练习 · 词汇积累',
+	    c1:'#982050', c2:'#f093fb', locked:false },
+	  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitle:'A1 写作', group:'a1',
+	    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：从填表到考试模拟',
+	    desc:'5级渐进难度 · 填表→自我介绍→日常描述→信息→考试模拟',
+	    tags:'⭐~⭐⭐⭐⭐ · 含范文和评分',
+	    c1:'#a86e14', c2:'#f8d87a', locked:false },
+	  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitle:'A1 综合', group:'a1',
+	    hubStep:5, hubSkill:'Test', hubSkillZh:'综合自测', hubAccent:'#fda085', hubTip:'查漏洞：五大模块综合自测',
+	    desc:'冠词·动词变位·句子重组·阅读理解·词汇分类 · 全交互',
+	    tags:'5大模块 · 35+ 题 · 实时评分',
+	    c1:'#9c3a18', c2:'#fda085', locked:false },
 
+	  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitle:'A2 语法', group:'a2',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#f6d365', hubTip:'打地基：A2 语法专题逐个讲透',
+	    desc:'A2级别语法知识 · 专题讲解 · 互动练习',
+	    tags:'A2语法 · 专题训练 · 详解',
+	    c1:'#9a2050', c2:'#f0a0e0', locked:false },
+	  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitle:'A2 听力', group:'a2',
+	    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：对话理解 + 填空选择',
+	    desc:'A2级别听力训练 · 对话理解 · 填空选择',
+	    tags:'A2听力 · 对话 · 综合理解',
+	    c1:'#a83820', c2:'#fdb899', locked:false },
+	  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitle:'A2 阅读', group:'a2',
+	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#22d3ee', hubTip:'扩词汇：文化主题阅读理解',
+	    desc:'A2级别阅读材料 · 文化主题 · 理解练习',
+	    tags:'阅读理解 · 文化主题 · A2水平',
+	    c1:'#a03038', c2:'#f5a8b8', locked:false },
+	  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitle:'A2 写作', group:'a2',
+	    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：书信短文表达训练',
+	    desc:'A2级别写作训练 · 书信短文 · 表达练习',
+	    tags:'写作训练 · 书信 · 短文 · A2水平',
+	    c1:'#a04028', c2:'#f8b888', locked:false },
+	  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitle:'A2 单元练习', group:'a2',
+	    hubStep:5, hubSkill:'Test', hubSkillZh:'单元综合', hubAccent:'#fda085', hubTip:'查漏洞：单元练习 + 综合测试',
+	    desc:'A2级别单元练习与综合测试 · 全交互评分',
+	    tags:'单元测试 · 综合练习 · A2.1',
+	    c1:'#9a1858', c2:'#f098f8', locked:false },
+
+	  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitle:'B1语法', group:'b1',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#63b3ed', hubTip:'啃难点：虚拟式 · 被动 · 从句 · 属格',
+	    desc:'B1进阶语法参考 · 20个核心语法点 · 含例句与中文解释',
+	    tags:'虚拟式 · 被动 · 从句 · 属格 · 代副词',
+	    c1:'#2b6cb0', c2:'#63b3ed', locked:false },
+	  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写', group:'b1',
+	    hubStep:2, hubSkill:'Übung', hubSkillZh:'语法抄写', hubAccent:'#a78bfa', hubTip:'勤练手：Grammatik aktiv 逐章抄写',
+	    desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
+	    tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
+	    c1:'#6b21a8', c2:'#a78bfa', locked:false },
+	  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitle:'B1阅读', group:'b1',
+	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
+	    desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
+	    tags:'B1阅读 · 进阶 · 主题阅读',
+	    c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
+
+	  // ── 工具 ──
+	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitle:'德语发音器', group:'pronunciation',
+	    hubStep:1, hubSkill:'Deutsch', hubSkillZh:'德语发音', hubAccent:'#f6d365', hubTip:'AI语音评分 · 音素级纠音 · A1-B1 分级文本',
+	    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
+	    tags:'AI语音 · 对比评分 · 精准纠音',
+	    c1:'#b8860b', c2:'#f6d365', locked:false },
+	  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitle:'英语发音器', group:'pronunciation',
+	    hubStep:2, hubSkill:'English', hubSkillZh:'英语发音', hubAccent:'#60a5fa', hubTip:'English pronunciation · 音素级评分 · A1-B1 分级文本',
+	    desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
+	    tags:'AI语音 · 音素评分 · 英文练习',
+	    c1:'#1e40af', c2:'#60a5fa', locked:false },
+
+	  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitle:'Klipp-Klapp',
+	    desc:'3D德国城市导航 · 翻翻书 · 互动问答指路',
+	    tags:'3D城市 · 翻翻书 · 指路练习 · 德语互动',
+	    c1:'#1e40af', c2:'#3b82f6', locked:false },
+
+	  // ── 专项技能 ──
+	  { id:'daten', icon:'📊', navLabel:'数据描述', cardTitle:'数据描述',
+	    desc:'统计数据表达 · 量词/百分比/近似数量 · 真实语料 · A1→C1可扩充',
+	    tags:'句型 · 马拉松 · 网购 · 旅游统计',
+	    c1:'#a03030', c2:'#f5a0b0', locked:false },
+
+	  // ── 考试 ──
+	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitle:'高考德语',
+	    desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
+	    tags:'高考真题 · 新高考卷 · 备考 · 2020',
+	    c1:'#b45309', c2:'#fbbf24', locked:false },
+
+	  // ── 文化 · 自媒体 · 追更 ──
+	  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitle:'德国文化',
+	    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
+	    tags:'文化知识 · 城市 · 风俗 · 阅读',
+	    c1:'#a06018', c2:'#fdc090', locked:false },
+	  { id:'wissnicht', icon:'🇩🇪', navLabel:'你不知道的德国', cardTitle:'你不知道的德国',
+	    desc:'17期第一视角德国真相 · 从超市、租房到高考留学 · 每期6个生活密码',
+	    tags:'自媒体 · 文化揭秘 · 真实照片 · 17期',
+	    c1:'#0e7490', c2:'#22d3ee', locked:false },
+	  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitle:'德国人才不这么说',
+	    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
+	    tags:'地道表达 · 课本对照 · 口语 · 搜索',
+	    c1:'#0e7490', c2:'#22d3ee', locked:false },
+	  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitle:'林夏在德国',
+	    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
+	    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
+	    c1:'#7c3aed', c2:'#c4b5fd', locked:false },
+
+	  // ── 定制（锁定） ──
+	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitle:'LXQ定制',
+	    desc:'个性化定制练习内容 · 专属学习路径',
+	    tags:'定制内容 · 专属 · 进阶',
+	    c1:'#a87014', c2:'#f9d880', locked:true }
+	];
 // 学习站分组：把同一级别分散的栏目收纳进一张"总模块"卡片，点进去后再分流。
 // 新增级别只需在此登记，并给对应 MODULES 项加 group:'<key>' + hub* 字段，三处自动同步。
 var HUBS = {
@@ -3658,7 +3673,10 @@ var HUBS = {
         tags:'歌德A2 · 五大板块 · 一站直达' },
   b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitle:'B1 学习站',
         desc:'语法 · 语法抄写 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
-        tags:'歌德B1 · 进阶 · 一站直达' }
+        tags:'歌德B1 · 进阶 · 一站直达' },
+  pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitle:'🎙️ 发音训练',
+        desc:'德语发音器 + 英语发音器 — AI 语音识别 · 音素级评分 · 精准纠音',
+        tags:'AI语音 · 音素评分 · 德英双语' }
 };
 // hubId('a1hub') → 'a1'，找出某学习站对应的分组 key
 function hubGroupOf(hubId) {
@@ -4165,6 +4183,35 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 阅读
+  </footer>
+
+</div>
+
+<!-- 发音训练 — 二级聚合页：德语发音器 + 英语发音器 -->
+<div id="page-prhub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎙️ AI 发音训练</div>
+    <h1>发音训练</h1>
+    <p class="a1hub-sub">德语发音器 + 英语发音器<br>AI 语音识别 · 音素级评分 · 精准纠音 · 实时反馈</p>
+  </div>
+
+  <div class="a1hub-path">
+    <span class="a1hub-path-lbl">🎯 选择语种</span>
+    <div class="a1hub-path-flow">
+      <span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span>
+    </div>
+  </div>
+
+  <div class="a1hub-sec">🎙️ 发音工具</div>
+  <div class="a1hub-grid" id="prhub-grid">
+    <script>renderHubCards('pronunciation');</script>
+  </div>
+
+  <footer>
+    🎙️ AI 语音识别 · 音素级评分 · 精准纠音<br>
+    Leons Deutschzentrum · 德语发音器 · 英语发音器
   </footer>
 
 </div>
