@@ -242,24 +242,25 @@
     #page-index .hero-btn:hover {
       background:rgba(246,211,101,.16);border-color:rgba(246,211,101,.55);
     }
-    /* Stats row */
-    #page-index .stats-row {
-      display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px;
+    /* Stats bar — 统一信息栏 */
+    #page-index .stats-bar {
+      max-width:640px;margin:0 auto;
+      background:linear-gradient(135deg,rgba(255,220,130,.06),rgba(255,220,130,.03));
+      border:1px solid rgba(246,211,101,.18);border-radius:12px;
+      padding:14px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;
     }
-    #page-index .stat-chip {
-      background:rgba(255,220,130,.12);border:1px solid rgba(255,220,130,.35);
-      backdrop-filter:blur(12px);border-radius:14px;
-      padding:10px 16px;text-align:center;min-width:85px;
-      transition:.2s;
+    #page-index .stats-bar .st-line {
+      display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:6px 20px;
+      color:rgba(255,245,230,.85);font-size:.82rem;letter-spacing:.02em;white-space:nowrap;
     }
-    #page-index .stat-chip:hover{background:rgba(255,220,130,.22);border-color:rgba(255,220,130,.55)}
-    #page-index .stat-num {
-      font-size:1.35rem;font-weight:800;
+    #page-index .stats-bar .st-item {display:inline-flex;align-items:baseline;gap:5px}
+    #page-index .stats-bar .st-num {
+      font-size:1.1rem;font-weight:800;
       background:linear-gradient(90deg,#ffe088,#fff3b8);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      line-height:1.1;
     }
-    #page-index .stat-lbl {color:rgba(255,245,230,.7);font-size:.7rem;margin-top:1px}
+    #page-index .stats-bar .st-lbl {color:rgba(255,245,230,.55);font-size:.7rem}
+    #page-index .stats-bar .st-div {color:rgba(246,211,101,.2);font-size:.85rem;user-select:none}
 
     /* Section headings */
     #page-index .sec-title {
@@ -314,7 +315,8 @@
       font-size:.64rem;font-weight:700;letter-spacing:.06em;
       color:rgba(255,220,130,.5);text-transform:uppercase;
     }
-    #page-index .card h2{font-size:.98rem;margin-bottom:4px;font-weight:700;line-height:1.2;color:#fff8e8}
+    #page-index .card h2{font-size:.98rem;margin-bottom:2px;font-weight:700;line-height:1.2;color:#fff8e8}
+    #page-index .card .card-sub-de{display:block;font-size:.7rem;color:rgba(255,235,215,.5);margin-bottom:6px;letter-spacing:.04em}
     #page-index .card p{color:rgba(255,235,215,.75);font-size:.78rem;line-height:1.5;margin-bottom:8px}
     #page-index .card .tag{
       display:inline-block;background:rgba(255,220,130,.15);
@@ -2183,8 +2185,9 @@
       #page-index .card h2 { font-size: 1.05rem; }
       #page-index .card p { font-size: .82rem; }
       /* 统计数据行 */
-      #page-index .stat-chip { min-width: 80px; padding: 10px 14px; }
-      #page-index .stat-num { font-size: 1.3rem; }
+      #page-index .stats-bar { gap:6px; padding:12px 14px; }
+      #page-index .stats-bar .st-line { white-space:normal; font-size:.76rem; gap:4px 10px; }
+      #page-index .stats-bar .st-num { font-size:1rem; }
       /* Hero 区域 */
       #page-index .hero { padding: 36px 10px 28px; }
       #page-index .hero h1 { font-size: clamp(1.5rem, 8vw, 2.2rem); }
@@ -2516,7 +2519,10 @@
       .info-section { padding: 14px 10px; border-radius: 12px; }
       .exam-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .exam-part { padding: 12px 8px; }
-      .stat-chip { min-width: 60px; padding: 8px 10px; }
+      .stats-bar { gap:4px; padding:10px 10px; border-radius:10px; }
+      .stats-bar .st-line { white-space:normal; font-size:.72rem; gap:3px 8px; }
+      .stats-bar .st-num { font-size:.9rem; }
+      .stats-bar .st-lbl { font-size:.64rem; }
       header h1 { font-size: 1.2rem !important; }
       /* 关于本站 特小屏 */
       #page-index .about-wrap .about-hero { padding: 14px 10px 12px; }
@@ -3035,11 +3041,13 @@ var LOCKED_PAGES_CUSTOM = ['lixiangqin'];
 var PAGE_WHITELIST = {
   'lixiangqin': ['leon']
 };
-var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schreib-lv4', 'schreib-lv5', 'schreib-sim1', 'schreib-sim2', 'schreib-sim3', 'schreib-sim4', 'brief-format', 'brief-anrede', 'brief-umschlag', 'brief-beispiel', 'brief-uebung'];
+var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schreib-lv4', 'schreib-lv5', 'schreib-sim1', 'schreib-sim2', 'schreib-sim3', 'schreib-sim4', 'brief-format', 'brief-anrede', 'brief-umschlag', 'brief-beispiel', 'brief-uebung',
+  // B1 阅读：s2-s16 guest 不可见, A1+ (basic/full/custom) 可见
+  'b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s9','b1l-s10','b1l-s11','b1l-s12','b1l-s14','b1l-s15','b1l-s16'];
 // A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
 (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s8','b1l-s9','b1l-s10','b1l-s11','b1l-s14','b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
+var LOCKED_SECTIONS_CUSTOM = ['b1s8','b1s9','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61']
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -3527,7 +3535,7 @@ function createLoginPromptCard() {
     var wrap = document.getElementById('wds-card-wrap');
     if (wrap) wrap.style.display = 'none';
   };
-
+  window.renderWDS = renderWDS;
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', renderWDS);
   } else {
@@ -3541,123 +3549,119 @@ function createLoginPromptCard() {
 // 15张卡片看作一个整体，沿大标题渐变色依次过渡：金→橘→粉→金
 	var MODULES = [
 	  // ── 级别递进：A1 → A2 → B1（同组紧邻，首页各折叠为一张学习站卡片）──
-	  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitle:'A1 语法', group:'a1',
+	  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitleDe:'A1 Grammatik', cardSubDe:'Vollständige A1-Grammatik: 19 Themen mit Beispielen', cardTitle:'A1 语法', group:'a1',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法基础', hubAccent:'#f6d365', hubTip:'打地基：先把语法点过一遍',
 	    desc:'完整A1语法参考 · 19个核心语法点 · 含例句与中文解释',
 	    tags:'字母发音 · 动词 · 冠词 · 格 · 时态',
 	    c1:'#b8860b', c2:'#f6d365', locked:false },
-	  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitle:'A1 听力', group:'a1',
+	  { id:'hoeren', icon:'🎧', navLabel:'A1 听力', cardTitleDe:'A1 Hörverstehen', cardSubDe:'Goethe A1 Hörverstehen — 3 Teile, 16 Aufgaben', cardTitle:'A1 听力', group:'a1',
 	    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：模拟歌德三部分听力',
 	    desc:'模拟歌德A1三部分听力 · 浏览器TTS朗读 · 全文字幕对照 · 16题',
 	    tags:'Teil 1·2·3 · Richtig/Falsch · 选择题',
 	    c1:'#b07a10', c2:'#f7d470', locked:false },
-	  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitle:'A1 阅朗读', group:'a1',
+	  { id:'lesen', icon:'📖', navLabel:'A1 阅朗读', cardTitleDe:'A1 Lesen & Vorlesen', cardSubDe:'Texte lesen, vorlesen & Wortschatz aufbauen', cardTitle:'A1 阅朗读', group:'a1',
 	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读朗读', hubAccent:'#22d3ee', hubTip:'连读写：逐词朗读 + 翻译对照',
 	    desc:'德语文章阅读 · 逐词朗读 · 翻译对照 · 跟读练习',
 	    tags:'分级阅读 · 发音练习 · 词汇积累',
 	    c1:'#982050', c2:'#f093fb', locked:false },
-	  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitle:'A1 写作', group:'a1',
+	  { id:'schreiben', icon:'✍️', navLabel:'A1 写作', cardTitleDe:'A1 Schreiben', cardSubDe:'5 Stufen: Formular → Selbstvorstellung → Prüfung', cardTitle:'A1 写作', group:'a1',
 	    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：从填表到考试模拟',
 	    desc:'5级渐进难度 · 填表→自我介绍→日常描述→信息→考试模拟',
 	    tags:'⭐~⭐⭐⭐⭐ · 含范文和评分',
 	    c1:'#a86e14', c2:'#f8d87a', locked:false },
-	  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitle:'A1 综合', group:'a1',
+	  { id:'mix', icon:'📝', navLabel:'A1 综合', cardTitleDe:'A1 Gemischte Übungen', cardSubDe:'Artikel, Konjugation, Satzbau — 35+ Aufgaben', cardTitle:'A1 综合', group:'a1',
 	    hubStep:5, hubSkill:'Test', hubSkillZh:'综合自测', hubAccent:'#fda085', hubTip:'查漏洞：五大模块综合自测',
 	    desc:'冠词·动词变位·句子重组·阅读理解·词汇分类 · 全交互',
 	    tags:'5大模块 · 35+ 题 · 实时评分',
 	    c1:'#9c3a18', c2:'#fda085', locked:false },
 
-	  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitle:'A2 语法', group:'a2',
+	  { id:'a2grammar', icon:'📖', navLabel:'A2 语法', cardTitleDe:'A2 Grammatik', cardSubDe:'A2-Grammatik: Themenschwerpunkte & Übungen', cardTitle:'A2 语法', group:'a2',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#f6d365', hubTip:'打地基：A2 语法专题逐个讲透',
 	    desc:'A2级别语法知识 · 专题讲解 · 互动练习',
 	    tags:'A2语法 · 专题训练 · 详解',
 	    c1:'#9a2050', c2:'#f0a0e0', locked:false },
-	  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitle:'A2 听力', group:'a2',
+	  { id:'a2hoeren', icon:'🎧', navLabel:'A2 听力', cardTitleDe:'A2 Hörverstehen', cardSubDe:'Dialoge verstehen — Lückentexte & Multiple Choice', cardTitle:'A2 听力', group:'a2',
 	    hubStep:2, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：对话理解 + 填空选择',
 	    desc:'A2级别听力训练 · 对话理解 · 填空选择',
 	    tags:'A2听力 · 对话 · 综合理解',
 	    c1:'#a83820', c2:'#fdb899', locked:false },
-	  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitle:'A2 阅读', group:'a2',
+	  { id:'a2lesen', icon:'📰', navLabel:'A2 阅读', cardTitleDe:'A2 Leseverstehen', cardSubDe:'Kulturthemen & Leseverstehen auf A2-Niveau', cardTitle:'A2 阅读', group:'a2',
 	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#22d3ee', hubTip:'扩词汇：文化主题阅读理解',
 	    desc:'A2级别阅读材料 · 文化主题 · 理解练习',
 	    tags:'阅读理解 · 文化主题 · A2水平',
 	    c1:'#a03038', c2:'#f5a8b8', locked:false },
-	  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitle:'A2 写作', group:'a2',
+	  { id:'a2schreiben', icon:'📝', navLabel:'A2 写作', cardTitleDe:'A2 Schreiben', cardSubDe:'Briefe, Kurztexte & schriftlicher Ausdruck', cardTitle:'A2 写作', group:'a2',
 	    hubStep:4, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#c4b5fd', hubTip:'练输出：书信短文表达训练',
 	    desc:'A2级别写作训练 · 书信短文 · 表达练习',
 	    tags:'写作训练 · 书信 · 短文 · A2水平',
 	    c1:'#a04028', c2:'#f8b888', locked:false },
-	  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitle:'A2 单元练习', group:'a2',
+	  { id:'a2unit1', icon:'📚', navLabel:'A2 单元练习', cardTitleDe:'A2 Lektionsübungen', cardSubDe:'Lektionsübungen & integrierte Tests', cardTitle:'A2 单元练习', group:'a2',
 	    hubStep:5, hubSkill:'Test', hubSkillZh:'单元综合', hubAccent:'#fda085', hubTip:'查漏洞：单元练习 + 综合测试',
 	    desc:'A2级别单元练习与综合测试 · 全交互评分',
 	    tags:'单元测试 · 综合练习 · A2.1',
 	    c1:'#9a1858', c2:'#f098f8', locked:false },
 
-	  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitle:'B1语法', group:'b1',
+	  { id:'b1grammar', icon:'📘', navLabel:'B1语法', cardTitleDe:'B1 Grammatik', cardSubDe:'Konjunktiv, Passiv, Nebensätze & mehr', cardTitle:'B1语法', group:'b1',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法', hubAccent:'#63b3ed', hubTip:'啃难点：虚拟式 · 被动 · 从句 · 属格',
 	    desc:'B1进阶语法参考 · 20个核心语法点 · 含例句与中文解释',
 	    tags:'虚拟式 · 被动 · 从句 · 属格 · 代副词',
 	    c1:'#2b6cb0', c2:'#63b3ed', locked:false },
-	  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitle:'A1-B1语法抄写', group:'b1',
+	  { id:'grammatik-schreiben', icon:'✍️', navLabel:'A1-B1语法抄写', cardTitleDe:'A1–B1 Grammatiktraining', cardSubDe:'Grammatik aktiv A1–B1 — mit Lösungskontrolle', cardTitle:'A1-B1语法抄写', group:'b1',
 	    hubStep:2, hubSkill:'Übung', hubSkillZh:'语法抄写', hubAccent:'#a78bfa', hubTip:'勤练手：Grammatik aktiv 逐章抄写',
 	    desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
 	    tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
 	    c1:'#6b21a8', c2:'#a78bfa', locked:false },
-	  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitle:'B1阅读', group:'b1',
+	  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitleDe:'B1 Leseverstehen', cardSubDe:'Aktuelle Texte zu Gesellschaft & Kultur', cardTitle:'B1阅读', group:'b1',
 	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
 	    desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
 	    tags:'B1阅读 · 进阶 · 主题阅读',
 	    c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
 
 	  // ── 工具 ──
-	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitle:'德语发音器', group:'pronunciation',
+	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitleDe:'Deutsche Aussprache', cardSubDe:'KI-Spracherkennung — Phonem-für-Phonem-Bewertung', cardTitle:'德语发音器', group:'pronunciation',
 	    hubStep:1, hubSkill:'Deutsch', hubSkillZh:'德语发音', hubAccent:'#f6d365', hubTip:'AI语音评分 · 音素级纠音 · A1-B1 分级文本',
 	    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
 	    tags:'AI语音 · 对比评分 · 精准纠音',
 	    c1:'#b8860b', c2:'#f6d365', locked:false },
-	  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitle:'英语发音器', group:'pronunciation',
+	  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitleDe:'Englische Aussprache', cardSubDe:'English phoneme-level scoring & feedback', cardTitle:'英语发音器', group:'pronunciation',
 	    hubStep:2, hubSkill:'English', hubSkillZh:'英语发音', hubAccent:'#60a5fa', hubTip:'English pronunciation · 音素级评分 · A1-B1 分级文本',
 	    desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
 	    tags:'AI语音 · 音素评分 · 英文练习',
 	    c1:'#1e40af', c2:'#60a5fa', locked:false },
 
-	  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitle:'Klipp-Klapp',
+	  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitleDe:'Klipp-Klapp', cardSubDe:'3D-Stadtführer, Klappbuch & Wegbeschreibung', cardTitle:'Klipp-Klapp',
 	    desc:'3D德国城市导航 · 翻翻书 · 互动问答指路',
 	    tags:'3D城市 · 翻翻书 · 指路练习 · 德语互动',
 	    c1:'#1e40af', c2:'#3b82f6', locked:false },
 
 	  // ── 专项技能 ──
-	  { id:'daten', icon:'📊', navLabel:'数据描述', cardTitle:'数据描述',
+	  { id:'daten', icon:'📊', navLabel:'数据描述', cardTitleDe:'Daten beschreiben', cardSubDe:'Statistiken beschreiben: Mengen, Prozent, Vergleiche', cardTitle:'数据描述', group:'a2', hubStep:6, hubSkill:'Daten', hubSkillZh:'数据描述', hubAccent:'#f5a0b0', hubTip:'Zahlen & Fakten: Statistiken verstehen und beschreiben',
 	    desc:'统计数据表达 · 量词/百分比/近似数量 · 真实语料 · A1→C1可扩充',
 	    tags:'句型 · 马拉松 · 网购 · 旅游统计',
 	    c1:'#a03030', c2:'#f5a0b0', locked:false },
 
 	  // ── 考试 ──
-	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitle:'高考德语',
+	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitleDe:'Deutsch fürs Abitur (China)', cardSubDe:'Originale Abituraufgaben mit Lösungen', cardTitle:'高考德语', group:'b1', hubStep:4, hubSkill:'Prüfung', hubSkillZh:'高考德语', hubAccent:'#fbbf24', hubTip:'Originale Abituraufgaben: Gaokao Deutsch mit Lösungen',
 	    desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
 	    tags:'高考真题 · 新高考卷 · 备考 · 2020',
 	    c1:'#b45309', c2:'#fbbf24', locked:false },
 
 	  // ── 文化 · 自媒体 · 追更 ──
-	  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitle:'德国文化',
+	  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitleDe:'Deutsche Kultur', cardSubDe:'Landeskunde: Städte, Bräuche & Lesetexte', cardTitle:'德国文化',
 	    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
 	    tags:'文化知识 · 城市 · 风俗 · 阅读',
 	    c1:'#a06018', c2:'#fdc090', locked:false },
-	  { id:'wissnicht', icon:'🇩🇪', navLabel:'你不知道的德国', cardTitle:'你不知道的德国',
-	    desc:'17期第一视角德国真相 · 从超市、租房到高考留学 · 每期6个生活密码',
-	    tags:'自媒体 · 文化揭秘 · 真实照片 · 17期',
-	    c1:'#0e7490', c2:'#22d3ee', locked:false },
-	  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitle:'德国人才不这么说',
+		  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitleDe:'Echt Deutsch!', cardSubDe:'Schuldeutsch vs. echtes Deutsch — im Vergleich', cardTitle:'德国人才不这么说',
 	    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
 	    tags:'地道表达 · 课本对照 · 口语 · 搜索',
 	    c1:'#0e7490', c2:'#22d3ee', locked:false },
-	  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitle:'林夏在德国',
+	  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitleDe:'Lin Xia in Deutschland', cardSubDe:'Folge Lin Xia durch den deutschen Alltag', cardTitle:'林夏在德国',
 	    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
 	    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
 	    c1:'#7c3aed', c2:'#c4b5fd', locked:false },
 
 	  // ── 定制（锁定） ──
-	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitle:'LXQ定制',
+	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitleDe:'LXQ Individual', cardSubDe:'Personalisierte Lerninhalte & Lernpfad', cardTitle:'LXQ定制', group:'a1', hubStep:6, hubSkill:'Premium', hubSkillZh:'专属定制', hubAccent:'#f9d880', hubTip:'VIP专属：个性化定制学习路径',
 	    desc:'个性化定制练习内容 · 专属学习路径',
 	    tags:'定制内容 · 专属 · 进阶',
 	    c1:'#a87014', c2:'#f9d880', locked:true }
@@ -3665,16 +3669,16 @@ function createLoginPromptCard() {
 // 学习站分组：把同一级别分散的栏目收纳进一张"总模块"卡片，点进去后再分流。
 // 新增级别只需在此登记，并给对应 MODULES 项加 group:'<key>' + hub* 字段，三处自动同步。
 var HUBS = {
-  a1: { id:'a1hub', icon:'🎓', navLabel:'A1 学习站', cardTitle:'A1 学习站',
+  a1: { id:'a1hub', icon:'🎓', navLabel:'A1 学习站', cardTitleDe:'A1 Lernstation', cardSubDe:'Grammatik · Hören · Lesen · Schreiben · Test', cardTitle:'A1 学习站',
         desc:'语法 · 听力 · 阅朗读 · 写作 · 综合 — A1 全部内容集中入口，点进按需选择',
         tags:'歌德A1 · 五大板块 · 一站直达' },
-  a2: { id:'a2hub', icon:'🎓', navLabel:'A2 学习站', cardTitle:'A2 学习站',
+  a2: { id:'a2hub', icon:'🎓', navLabel:'A2 学习站', cardTitleDe:'A2 Lernstation', cardSubDe:'Grammatik · Grammatiktraining · Leseverstehen', cardTitle:'A2 学习站',
         desc:'语法 · 听力 · 阅读 · 写作 · 单元综合 — A2 全部内容集中入口，点进按需选择',
         tags:'歌德A2 · 五大板块 · 一站直达' },
-  b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitle:'B1 学习站',
+  b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Deutsche & englische Aussprache mit KI', cardTitle:'B1 学习站',
         desc:'语法 · 语法抄写 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
-  pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitle:'🎙️ 发音训练',
+  pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitleDe:'Aussprache-Training', cardTitle:'🎙️ 发音训练',
         desc:'德语发音器 + 英语发音器 — AI 语音识别 · 音素级评分 · 精准纠音',
         tags:'AI语音 · 音素评分 · 德英双语' }
 };
@@ -3721,7 +3725,8 @@ function renderCards() {
     var ns = (num < 10) ? '0' + num : '' + num;
     h += '<a class="card" href="#" onclick="showPage(\'' + id + '\'); return false;">';
     h += '<div class="card-top"><div class="card-icon-wrap">' + card.icon + '</div><span class="card-num">' + ns + '</span></div>';
-    h += '<h2>' + card.cardTitle + '</h2>';
+    h += '<h2>' + (card.cardTitleDe || card.cardTitle) + '</h2>';
+    if (card.cardSubDe) h += '<span class="card-sub-de">' + card.cardSubDe + '</span>';
     h += '<p>' + card.desc + '</p>';
     h += '<span class="tag">' + card.tags + '</span>';
     h += '<span class="card-arrow">→</span>';
@@ -4009,12 +4014,17 @@ document.addEventListener('keydown', function(e) {
 <div class="hero">
   <div class="hero-eyebrow">🇩🇪 &nbsp;Goethe-Zertifikat · 2026</div>
   <h1>Leons Deutschzentrum</h1>
-  <p class="hero-sub">歌德学院考试备考 &nbsp;·&nbsp; 完整学习包<br>语法 · 听力 · 写作 · 综合练习 · 全交互评分</p>
-  <div class="stats-row">
-    <div class="stat-chip"><div class="stat-num" id="module-count">22</div><div class="stat-lbl">学习模块</div></div>
-    <div class="stat-chip"><div class="stat-num">400<span style="font-size:1rem">+</span></div><div class="stat-lbl">互动练习</div></div>
-    <div class="stat-chip"><div class="stat-num">55</div><div class="stat-lbl">地道表达</div></div>
-    <div class="stat-chip"><div class="stat-num">90</div><div class="stat-lbl">冷知识</div></div>
+  <div class="stats-bar">
+    <div class="st-line">Goethe-Zertifikat A1–B1 &nbsp;·&nbsp; 语法 &nbsp;·&nbsp; 听力 &nbsp;·&nbsp; 写作 &nbsp;·&nbsp; 综合练习 &nbsp;·&nbsp; 全交互评分</div>
+    <div class="st-line">
+      <span class="st-item">📚 <span class="st-num" id="module-count">9</span><span class="st-lbl">Lernmodule</span></span>
+      <span class="st-div">·</span>
+      <span class="st-item">✍️ <span class="st-num">400<span style="font-size:.85rem">+</span></span><span class="st-lbl">Übungen</span></span>
+      <span class="st-div">·</span>
+      <span class="st-item">💬 <span class="st-num">55</span><span class="st-lbl">Echt Deutsch</span></span>
+      <span class="st-div">·</span>
+      <span class="st-item">💡 <span class="st-num">90</span><span class="st-lbl">Wusstest du?</span></span>
+    </div>
   </div>
   <div class="hero-links">
   <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
@@ -42487,7 +42497,7 @@ function b1S12CheckB(){
 <div class="section" id="b1l-s16">
   <div class="section-header">阅读 16 · 📚 大量阅读 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Extensive Reading · 多主题泛读</span></div>
   <div class="section-body">
-  <style>#b1l-s16 .section-body>div[style*="border-radius:14px;overflow:hidden;margin-bottom"]{margin-bottom:3rem!important}</style>
+  <style>#b1l-s16 .section-body>div[style*="border-radius:14px;overflow:hidden;margin-bottom"]{margin-bottom:1rem!important}</style>
 
 <!-- ═══ Hier lernen Sie ═══ -->
 <div style="background:linear-gradient(135deg,#e8f5e9,#a3c94f);border-radius:14px;padding:18px 22px;margin-bottom:20px">
@@ -42540,6 +42550,8 @@ function b1S12CheckB(){
   </div>
 </div>
 
+<div style="height:3rem"></div>
+
 <!-- ════════════════ Text 2 · Digitalisierung in Deutschland ════════════════ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
   <div style="background:linear-gradient(135deg,#1565c0,#1e88e5);padding:16px 28px 18px">
@@ -42580,6 +42592,8 @@ function b1S12CheckB(){
   </div>
 </div>
 
+<div style="height:3rem"></div>
+
 <!-- ════════════════ Text 3 · Wohnen in Deutschland ════════════════ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
   <div style="background:linear-gradient(135deg,#2e7d32,#43a047);padding:16px 28px 18px">
@@ -42619,6 +42633,8 @@ function b1S12CheckB(){
     </div>
   </div>
 </div>
+
+<div style="height:3rem"></div>
 
 <!-- ════════════════ Text 4 · Aktivurlaub liegt im Trend ════════════════ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -42978,6 +42994,8 @@ function b1S12CheckB(){
 
 </div>
 </div>
+
+<div style="height:3rem"></div>
 
 <!-- ════════════════ Text 5 · Nach Wien und in den Wienerwald ════════════════ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -43349,6 +43367,8 @@ function b1S12CheckB(){
 
 </div>
 </div>
+
+<div style="height:3rem"></div>
 
 <!-- ════════════════ Text 6 · Zertifikatstraining Lesen Teil 3 ════════════════ -->
 <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -43734,6 +43754,8 @@ function b1S12CheckB(){
 
 </div>
 </div>
+
+<div style="height:3rem"></div>
 
   </div><!-- /section-body -->
 </div><!-- /section -->
@@ -44735,27 +44757,317 @@ function b1S12CheckB(){
 </div>
 </div>
 
-<div id="page-kultur" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_目录.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
-    loading="lazy">
-  </iframe>
+<div id="page-kultur" class="page" style="background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);min-height:100vh;padding:0 0 40px">
+
+<!-- ═══ Kultur Hero ═══ -->
+<div class="kultur-hero">
+  <div class="flag-stripes" style="display:flex;height:6px;border-radius:3px;overflow:hidden;width:72px;margin:0 auto 18px"><span style="flex:1;background:#000"></span><span style="flex:1;background:#d00"></span><span style="flex:1;background:#fc0"></span></div>
+  <div class="kultur-eyebrow">Deutsche Kultur & Landeskunde</div>
+  <h1>🏰 德国文化</h1>
+  <p class="kultur-sub">17期第一视角德国真相 · 城市地理 · 日常习惯 · 节日传统<br>从课本走进真实的德国生活</p>
+</div>
+
+<!-- ═══ Section: 你不知道的德国 ═══ -->
+<div class="kultur-sec">
+  <div class="kultur-sec-title">🇩🇪 你不知道的德国 <span>Wusstest du schon? — 全部 17 期</span></div>
+  <div class="kultur-episodes">
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-01');return false">
+      <span class="k-ep-num">01</span>
+      <span class="k-ep-emoji">🛒</span>
+      <div class="k-ep-title">超市与生活</div>
+      <div class="k-ep-sub">Supermarkt & Alltag</div>
+      <div class="k-ep-desc">Pfandflaschen, Tüten, Bio-Siegel — 德国超市的生存法则</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-02');return false">
+      <span class="k-ep-num">02</span>
+      <span class="k-ep-emoji">📋</span>
+      <div class="k-ep-title">规则与习惯</div>
+      <div class="k-ep-sub">Regeln & Gewohnheiten</div>
+      <div class="k-ep-desc">Ruhezeiten, Mülltrennung, Anmeldung — 德国人的秩序世界</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-03');return false">
+      <span class="k-ep-num">03</span>
+      <span class="k-ep-emoji">🏠</span>
+      <div class="k-ep-title">住与行</div>
+      <div class="k-ep-sub">Wohnen & Mobilität</div>
+      <div class="k-ep-desc">WG, Nebenkosten, Fahrradstadt — 住在德国,行在德国</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-04');return false">
+      <span class="k-ep-num">04</span>
+      <span class="k-ep-emoji">💼</span>
+      <div class="k-ep-title">工作与职场</div>
+      <div class="k-ep-sub">Arbeit & Karriere</div>
+      <div class="k-ep-desc">Urlaub, Krankmeldung, Feierabend — 德国职场文化</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-05');return false">
+      <span class="k-ep-num">05</span>
+      <span class="k-ep-emoji">🚆</span>
+      <div class="k-ep-title">交通与出行</div>
+      <div class="k-ep-sub">Verkehr & Reisen</div>
+      <div class="k-ep-desc">Deutschlandticket, Bahn, Autobahn — 德国的交通网络</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-06');return false">
+      <span class="k-ep-num">06</span>
+      <span class="k-ep-emoji">🛬</span>
+      <div class="k-ep-title">落地德国</div>
+      <div class="k-ep-sub">Ankunft in Deutschland</div>
+      <div class="k-ep-desc">Anmeldung, Bankkonto, Krankenkasse — 抵德第一周必做清单</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-07');return false">
+      <span class="k-ep-num">07</span>
+      <span class="k-ep-emoji">🍽️</span>
+      <div class="k-ep-title">饮食与社交</div>
+      <div class="k-ep-sub">Essen & Sozialleben</div>
+      <div class="k-ep-desc">Abendbrot, Kaffeetafel, Verein — 德国人的餐桌与社交圈</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-08');return false">
+      <span class="k-ep-num">08</span>
+      <span class="k-ep-emoji">🎄</span>
+      <div class="k-ep-title">节日与庆祝</div>
+      <div class="k-ep-sub">Feste & Feiern</div>
+      <div class="k-ep-desc">Weihnachtsmarkt, Karneval, Oktoberfest — 德国人的年历</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-09');return false">
+      <span class="k-ep-num">09</span>
+      <span class="k-ep-emoji">👶</span>
+      <div class="k-ep-title">育儿与教育</div>
+      <div class="k-ep-sub">Kinder & Bildung</div>
+      <div class="k-ep-desc">Elternzeit, Kindergarten, Schulsystem — 德国养娃与求学之路</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-10');return false">
+      <span class="k-ep-num">10</span>
+      <span class="k-ep-emoji">🌍</span>
+      <div class="k-ep-title">环保与能源</div>
+      <div class="k-ep-sub">Energie & Umwelt</div>
+      <div class="k-ep-desc">Energiewende, Balkonkraftwerk, Windkraft — 德国环保密码</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-11');return false">
+      <span class="k-ep-num">11</span>
+      <span class="k-ep-emoji">🏥</span>
+      <div class="k-ep-title">医疗与健康</div>
+      <div class="k-ep-sub">Gesundheit & Medizin</div>
+      <div class="k-ep-desc">Krankenkasse, Hausarzt, Kur — 德国医疗体系</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-12');return false">
+      <span class="k-ep-num">12</span>
+      <span class="k-ep-emoji">💻</span>
+      <div class="k-ep-title">数字生活</div>
+      <div class="k-ep-sub">Digitales Leben</div>
+      <div class="k-ep-desc">Fax, Bargeld, Datenschutz — 德国数字化的魔幻现实</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-13');return false">
+      <span class="k-ep-num">13</span>
+      <span class="k-ep-emoji">🧱</span>
+      <div class="k-ep-title">历史记忆</div>
+      <div class="k-ep-sub">Erinnerungskultur</div>
+      <div class="k-ep-desc">Mauerfall, Stolpersteine, Ost/West — 德国如何面对历史</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-14');return false">
+      <span class="k-ep-num">14</span>
+      <span class="k-ep-emoji">💰</span>
+      <div class="k-ep-title">理财与储蓄</div>
+      <div class="k-ep-sub">Geld & Sparen</div>
+      <div class="k-ep-desc">Sparbuch, Bausparvertrag, Riester — 德式理财哲学</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-15');return false">
+      <span class="k-ep-num">15</span>
+      <span class="k-ep-emoji">🐕</span>
+      <div class="k-ep-title">宠物与动物</div>
+      <div class="k-ep-sub">Tiere & Haustiere</div>
+      <div class="k-ep-desc">Hundesteuer, Wolf, Tierheim — 德国人与动物</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-16');return false">
+      <span class="k-ep-num">16</span>
+      <span class="k-ep-emoji">🏖️</span>
+      <div class="k-ep-title">度假与休闲</div>
+      <div class="k-ep-sub">Urlaub & Freizeit</div>
+      <div class="k-ep-desc">30 Tage Urlaub, Camping, Schrebergarten — 德式休闲</div>
+    </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-17');return false">
+      <span class="k-ep-num">17</span>
+      <span class="k-ep-emoji">🎓</span>
+      <div class="k-ep-title">高考后留学德国</div>
+      <div class="k-ep-sub">Studium in Deutschland</div>
+      <div class="k-ep-desc">APS, Studienkolleg, TestDaF — 留学德国完整路径</div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ Section: 城市与地理 ═══ -->
+<div class="kultur-sec">
+<div class="kultur-sec-title">🗺️ 城市与地理 <span>Städte & Geografie</span></div>
+  <div class="kultur-alltag">
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">🏛️</span><span class="ka-de">Berlin</span>
+      <div class="ka-zh">柏林 · Hauptstadt</div>
+      <div class="ka-desc">Hauptstadt Deutschlands, 3,6 Mio. Einwohner. Brandenburger Tor, Museumsinsel (UNESCO), Reichstag, East Side Gallery — ein Zentrum für Kunst, Musik und Start-ups. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-berlin');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 Berlin ist die Hauptstadt von Deutschland und mit rund <strong>3,6 Millionen Einwohnern</strong> die größte Stadt des Landes. Das <strong>Brandenburger Tor</strong> ist das bekannteste Wahrzeichen und war während der Teilung Deutschlands ein Symbol des Kalten Krieges — heute steht es für die Wiedervereinigung. Die Stadt ist bekannt für ihre <strong>Museumsinsel</strong> (UNESCO-Weltkulturerbe), den <strong>Reichstag</strong> mit seiner gläsernen Kuppel und die <strong>Berliner Mauer</strong>, von der heute noch Reste wie die East Side Gallery zu sehen sind. Berlin hat drei Universitäten und ist ein wichtiges Zentrum für <strong>Kunst, Musik und Start-ups</strong>.<br><br>
+        🇨🇳 柏林是德国首都，约360万人口，全国最大城市。勃兰登堡门是最著名地标，分裂时期曾是冷战象征，今天代表统一。以博物馆岛（世界文化遗产）、玻璃穹顶国会大厦、柏林墙遗址（东边画廊）闻名。有三所大学，是艺术、音乐和创业中心。
+      </div>
+    </div>
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">💰</span><span class="ka-de">Frankfurt</span>
+      <div class="ka-zh">法兰克福 · Finanzmetropole</div>
+      <div class="ka-desc">Finanzzentrum Deutschlands, Sitz der EZB. "Mainhattan"-Skyline, größter Flughafen, Frankfurter Buchmesse — und Geburtsort Goethes. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-frankfurt');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 Frankfurt am Main ist das <strong>Finanzzentrum Deutschlands</strong> und Sitz der <strong>Europäischen Zentralbank (EZB)</strong>. Die Stadt hat eine beeindruckende Skyline mit Wolkenkratzern — "Mainhattan". Der <strong>Frankfurter Flughafen</strong> ist einer der größten Europas. Die <strong>Frankfurter Buchmesse</strong> ist die größte der Welt. Historische Altstadt mit dem <strong>Römer</strong>. Geburtsort <strong>Goethes</strong>.<br><br>
+        🇨🇳 美因河畔法兰克福是德国金融中心、欧洲央行所在地。以摩天大楼天际线著称（"美因哈顿"）。法兰克福机场是欧洲最大之一。全球最大书展。罗马广场老城区。歌德出生地。
+      </div>
+    </div>
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">🍺</span><span class="ka-de">München</span>
+      <div class="ka-zh">慕尼黑 · Bayern</div>
+      <div class="ka-desc">Hauptstadt Bayerns, 1,5 Mio. Einwohner. Oktoberfest (6 Mio. Besucher), BMW, Englischer Garten, Alte & Neue Pinakothek — Forschungs- und Technologiezentrum.</div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 München ist die <strong>Hauptstadt Bayerns</strong>, drittgrößte Stadt Deutschlands. Das <strong>Oktoberfest</strong> zieht jährlich rund 6 Mio. Besucher an. Sitz von <strong>BMW</strong>. Der <strong>Englische Garten</strong> ist einer der größten Stadtparks der Welt — größer als der Central Park. Reiche Kunstszene: <strong>Alte und Neue Pinakothek</strong>. Zwei Elite-Universitäten.<br><br>
+        🇨🇳 慕尼黑是巴伐利亚首府，德国第三大城市。啤酒节年吸引约600万游客。宝马总部。英国花园是世界最大城市公园之一，比纽约中央公园还大。老绘画馆和新绘画馆。两所精英大学。
+      </div>
+    </div>
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">⚓</span><span class="ka-de">Hamburg</span>
+      <div class="ka-zh">汉堡 · Tor zur Welt</div>
+      <div class="ka-desc">Größter Hafen Deutschlands an der Elbe. Speicherstadt (UNESCO), Elbphilharmonie, Medienhauptstadt — die Beatles spielten hier ihre ersten Konzerte. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-hamburg');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 Hamburg liegt an der <strong>Elbe</strong> und hat den <strong>größten Hafen Deutschlands</strong>. Die <strong>Speicherstadt</strong> gehört zum UNESCO-Weltkulturerbe. Die <strong>Elbphilharmonie</strong> auf einem alten Hafenspeicher ist neues Wahrzeichen. Hamburg ist Deutschlands <strong>Medienhauptstadt</strong>. Der Fischmarkt und die <strong>Reeperbahn</strong> sind legendär. Die <strong>Beatles</strong> spielten hier ihre ersten Konzerte.<br><br>
+        🇨🇳 汉堡位于易北河畔，德国最大港口。仓库城（世界文化遗产）。易北爱乐厅建在旧港仓库上，是新地标。德国媒体之都。周日鱼市和绳索街夜生活传奇。披头士在此首演。
+      </div>
+    </div>
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">⛪</span><span class="ka-de">Köln</span>
+      <div class="ka-zh">科隆 · Rheinmetropole</div>
+      <div class="ka-desc">Am Rhein, über 1 Mio. Einwohner. Kölner Dom (UNESCO, 600 Jahre Bauzeit), Karnevalshochburg, Kölsch-Bier — Medienstadt mit RTL und WDR.</div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 Köln liegt am <strong>Rhein</strong>, viertgrößte Stadt Deutschlands. Der <strong>Kölner Dom</strong> ist eine der größten gotischen Kathedralen der Welt — Bauzeit über 600 Jahre. Köln ist die <strong>Karnevalshochburg</strong>: Rosenmontagszug mit über 1 Mio. Zuschauern. Bekannt für <strong>Kölsch</strong> und rheinische <strong>Gemütlichkeit</strong>. Wichtige Medienstadt: RTL, WDR.<br><br>
+        🇨🇳 科隆位于莱茵河畔，德国第四大城市。科隆大教堂是世界最大哥特式教堂之一，建造600余年。德国狂欢节之都，玫瑰星期一游行年吸引超百万观众。以Kölsch啤酒和莱茵式惬意闻名。RTL、WDR等媒体重镇。
+      </div>
+    </div>
+    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+      <span class="ka-emoji">🌲</span><span class="ka-de">Schwarzwald</span>
+      <div class="ka-zh">黑森林 · Natur & Tradition</div>
+      <div class="ka-desc">Größtes Mittelgebirge Deutschlands in Baden-Württemberg. Kuckucksuhren (seit 18. Jh.), Schwarzwälder Kirschtorte, Wandern, Titisee — die höchsten Wasserfälle Deutschlands.</div>
+      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
+        🇩🇪 Der <strong>Schwarzwald</strong> liegt im Südwesten in <strong>Baden-Württemberg</strong>. Der Name kommt von den dichten, dunklen Tannenwäldern. Weltberühmt für <strong>Kuckucksuhren</strong> (seit dem 18. Jh. handgefertigt) und die <strong>Schwarzwälder Kirschtorte</strong>. Beliebtes Urlaubsziel zum Wandern, Mountainbiken und Skifahren. Typisch: <strong>Bollenhüte</strong> und <strong>Schwarzwaldhäuser</strong>. Der <strong>Titisee</strong> und <strong>Triberg</strong> (höchste Wasserfälle Deutschlands) sind beliebte Ausflugsziele.<br><br>
+        🇨🇳 黑森林位于德国西南巴登-符腾堡州，德国最大中等山脉。因密布深色冷杉林得名。以18世纪起手工制作的布谷鸟钟和黑森林蛋糕闻名。徒步、山地骑行和滑雪热门地。特色：红色绒球帽和深屋檐黑森林房屋。蒂蒂湖和德国最高瀑布所在地特里贝格是热门景点。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Section: 日常生活 ═══ -->
+<div class="kultur-sec">
+  <div class="kultur-sec-title">🕐 日常生活 <span>Alltag in Deutschland</span></div>
+  <div class="kultur-alltag">
+    <div class="ka-card">
+      <div class="ka-emoji">⏰</div>
+      <div class="ka-de">Pünktlichkeit</div>
+      <div class="ka-zh">守时</div>
+      <div class="ka-desc">5 Minuten zu spät? Bescheid geben. Pünktlichkeit ist in Deutschland eine Tugend.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">🏪</div>
+      <div class="ka-de">Sonntagsruhe</div>
+      <div class="ka-zh">周日休息</div>
+      <div class="ka-desc">Sonntags bleiben die Geschäfte zu. Ausnahme: Tankstellen &amp; Bahnhofs-Supermärkte.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">♻️</div>
+      <div class="ka-de">Mülltrennung</div>
+      <div class="ka-zh">垃圾分类</div>
+      <div class="ka-desc">Gelb, Grün, Blau, Schwarz — vier Tonnen. Und Pfandflaschen bringen 25 Cent.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">💶</div>
+      <div class="ka-de">Bargeld</div>
+      <div class="ka-zh">现金支付</div>
+      <div class="ka-desc">"Nur Bares ist Wahres." Viele Läden akzeptieren immer noch kein Kartenzahlung.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">🤝</div>
+      <div class="ka-de">Sie vs. du</div>
+      <div class="ka-zh">敬称与昵称</div>
+      <div class="ka-desc">Fremde, Chefs &amp; Ältere = Sie. Freunde, Familie &amp; Kinder = du. Einfach nachfragen!</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">🔇</div>
+      <div class="ka-de">Ruhezeiten</div>
+      <div class="ka-zh">安静时间</div>
+      <div class="ka-desc">13–15 Uhr &amp; ab 22 Uhr: leise sein. Sonntag = ganztägige Ruhe.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">🚰</div>
+      <div class="ka-de">Leitungswasser</div>
+      <div class="ka-zh">自来水可饮</div>
+      <div class="ka-desc">Trinkbar! Im Restaurant "Leitungswasser" bestellen, sonst kommt Mineralwasser.</div>
+    </div>
+    <div class="ka-card">
+      <div class="ka-emoji">🚇</div>
+      <div class="ka-de">ÖPNV</div>
+      <div class="ka-zh">公共交通</div>
+      <div class="ka-desc">Ticket selbst kaufen &amp; entwerten. Schwarzfahren = 60 € Strafe.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CSS for page-kultur ═══ -->
+<style>
+#page-kultur{padding-bottom:40px;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+/* Hero */
+#page-kultur .kultur-hero{text-align:center;padding:44px 20px 30px;max-width:860px;margin:0 auto}
+#page-kultur .kultur-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,220,130,.15);border:1px solid rgba(255,220,130,.4);color:#ffe088;padding:5px 16px;border-radius:20px;font-size:.74rem;font-weight:700;letter-spacing:.08em;margin-bottom:14px}
+#page-kultur .kultur-hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:10px;background:linear-gradient(100deg,#ffd770,#fff3b8 30%,#fff 50%,#ffe088 70%,#ffc448);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+#page-kultur .kultur-sub{color:rgba(255,245,230,.78);font-size:.9rem;line-height:1.65;margin:0}
+/* Section */
+#page-kultur .kultur-sec{max-width:1060px;margin:0 auto 28px;padding:0 16px}
+#page-kultur .kultur-sec-title{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:700;color:#f6d365;margin-bottom:14px}
+#page-kultur .kultur-sec-title span{font-weight:400;font-size:.78rem;color:rgba(246,211,101,.55);font-style:italic}
+/* Episodes grid */
+#page-kultur .kultur-episodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+#page-kultur .kultur-ep-card{position:relative;display:block;text-decoration:none;background:linear-gradient(150deg,#13243f,#0f1c33);border:1px solid rgba(246,211,101,.14);border-radius:14px;padding:18px 16px 16px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+#page-kultur .kultur-ep-card::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 100% 0,rgba(246,211,101,.06),transparent 60%)}
+#page-kultur .kultur-ep-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(10,20,50,.5);border-color:rgba(246,211,101,.4)}
+#page-kultur .kultur-ep-card .k-ep-num{position:absolute;top:12px;right:14px;font-size:1.4rem;font-weight:800;color:rgba(246,211,101,.18)}
+#page-kultur .kultur-ep-card .k-ep-emoji{font-size:2rem;display:block;margin-bottom:10px}
+#page-kultur .kultur-ep-card .k-ep-title{font-size:.95rem;font-weight:700;color:#fff8e8;margin-bottom:2px}
+#page-kultur .kultur-ep-card .k-ep-sub{font-size:.72rem;color:rgba(246,211,101,.6);font-style:italic;margin-bottom:6px}
+#page-kultur .kultur-ep-card .k-ep-desc{font-size:.78rem;color:rgba(255,235,215,.6);line-height:1.5}
+/* Cities grid */
+#page-kultur /* City cards: reuse ka-card + click-to-expand detail */
+#page-kultur .ka-card{cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+#page-kultur .ka-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(8,16,40,.45);border-color:rgba(246,211,101,.3)}
+/* Alltag cards */
+#page-kultur .kultur-alltag{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+#page-kultur .ka-card{background:linear-gradient(150deg,#13243f,#0f1c33);border:1px solid rgba(246,211,101,.12);border-left:3px solid #f6d365;border-radius:0 12px 12px 0;padding:14px 16px;transition:.2s}
+#page-kultur .ka-card:hover{transform:translateY(-2px);border-color:rgba(246,211,101,.3)}
+#page-kultur .ka-card .ka-emoji{font-size:1.5rem;display:inline-block;margin-right:8px;vertical-align:middle}
+#page-kultur .ka-card .ka-de{display:inline;font-size:.9rem;font-weight:700;color:#fff8e8;vertical-align:middle}
+#page-kultur .ka-card .ka-zh{font-size:.74rem;color:rgba(246,211,101,.55);margin:4px 0 6px}
+#page-kultur .ka-card .ka-desc{font-size:.76rem;color:rgba(255,235,215,.6);line-height:1.55}
+@media(max-width:560px){
+  #page-kultur .kultur-hero{padding:28px 16px 20px}
+  #page-kultur .kultur-episodes{grid-template-columns:1fr 1fr}
+  #page-kultur .kultur-alltag{grid-template-columns:1fr}
+  #page-kultur .kultur-alltag{grid-template-columns:1fr}
+}
+/* Episode top bar */
+.kultur-ep-bar{display:flex;align-items:center;gap:16px;height:44px;padding:0 16px;background:linear-gradient(180deg,rgba(246,211,101,.08),transparent)}
+.kultur-ep-back{color:#f6d365;text-decoration:none;font-size:.8rem;font-weight:600;white-space:nowrap}
+.kultur-ep-back:hover{color:#ffe088}
+.kultur-ep-bar span{color:rgba(255,245,230,.5);font-size:.78rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style>
+
 </div>
 
 <!-- ══════════ 你不知道的德国 · 01 ══════════ -->
 <div id="page-kultur-01" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_01_超市与生活.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
-    loading="lazy">
-  </iframe>
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 01 超市与生活</span></div>
+  <iframe src="你不知道的德国_01_超市与生活.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 02 ══════════ -->
 <div id="page-kultur-02" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_02_规则与习惯.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 02 规则与习惯</span></div>
+  <iframe src="你不知道的德国_02_规则与习惯.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44763,8 +45075,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 03 ══════════ -->
 <div id="page-kultur-03" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_03_住与行.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 03 住与行</span></div>
+  <iframe src="你不知道的德国_03_住与行.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44772,8 +45084,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 04 ══════════ -->
 <div id="page-kultur-04" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_04_工作与职场.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 04 工作与职场</span></div>
+  <iframe src="你不知道的德国_04_工作与职场.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44781,8 +45093,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 05 ══════════ -->
 <div id="page-kultur-05" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_05_交通与出行.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 05 交通与出行</span></div>
+  <iframe src="你不知道的德国_05_交通与出行.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44790,8 +45102,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 06 ══════════ -->
 <div id="page-kultur-06" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_06_落地德国.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 06 落地德国</span></div>
+  <iframe src="你不知道的德国_06_落地德国.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44799,8 +45111,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 07 ══════════ -->
 <div id="page-kultur-07" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_07_饮食与社交.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 07 饮食与社交</span></div>
+  <iframe src="你不知道的德国_07_饮食与社交.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -44808,8 +45120,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 08 ══════════ -->
 <div id="page-kultur-08" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_08_节日与庆祝.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 08 节日与庆祝</span></div>
+  <iframe src="你不知道的德国_08_节日与庆祝.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -46178,8 +46490,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 09 ══════════ -->
 <div id="page-kultur-09" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_09_育儿与教育.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 09 育儿与教育</span></div>
+  <iframe src="你不知道的德国_09_育儿与教育.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -46205,8 +46517,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 10 ══════════ -->
 <div id="page-kultur-10" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_10_环保与能源.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 10 环保与能源</span></div>
+  <iframe src="你不知道的德国_10_环保与能源.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -46214,8 +46526,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 11 ══════════ -->
 <div id="page-kultur-11" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_11_医疗与健康.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 11 医疗与健康</span></div>
+  <iframe src="你不知道的德国_11_医疗与健康.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -46223,8 +46535,8 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 12 ══════════ -->
 <div id="page-kultur-12" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_12_数字生活.html"
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 12 数字生活</span></div>
+  <iframe src="你不知道的德国_12_数字生活.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
@@ -46232,33 +46544,37 @@ function b1S12CheckB(){
 
 <!-- ══════════ 你不知道的德国 · 13 ══════════ -->
 <div id="page-kultur-13" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 13 历史记忆</span></div>
   <iframe src="你不知道的德国_13_历史记忆.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 14 ══════════ -->
 <div id="page-kultur-14" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 14 理财与储蓄</span></div>
   <iframe src="你不知道的德国_14_理财与储蓄.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 15 ══════════ -->
 <div id="page-kultur-15" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 15 宠物与动物</span></div>
   <iframe src="你不知道的德国_15_宠物与动物.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 16 ══════════ -->
 <div id="page-kultur-16" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 16 度假与休闲</span></div>
   <iframe src="你不知道的德国_16_度假与休闲.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 17 ══════════ -->
 <div id="page-kultur-17" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 17 高考后留学德国</span></div>
   <iframe src="你不知道的德国_17_高考后留学德国.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 独立栏目 ══════════ -->
 <div id="page-wissnicht" class="page" style="background:#0a1428;min-height:100vh;padding:0">
-  <iframe
-    src="你不知道的德国_17篇.html"
+  <iframe src="你不知道的德国_17篇.html"
     style="width:100%;height:calc(100vh - 52px);border:none;display:block"
     loading="lazy">
   </iframe>
