@@ -224,9 +224,15 @@
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
       background-clip:text;
       animation:shimmer 4s linear infinite;
-      margin-bottom:10px;
+      margin-bottom:14px;
       text-shadow:0 2px 20px rgba(0,0,0,.2);
     }
+    /* 德国国旗三色条 */
+    #page-index .hero-flag {display:flex;height:5px;border-radius:3px;overflow:hidden;width:64px;margin:0 auto 14px}
+    #page-index .hero-flag span {flex:1}
+    #page-index .hf-black {background:#000}
+    #page-index .hf-red {background:#d00}
+    #page-index .hf-gold {background:#fc0}
     #page-index .hero-sub {
       color:rgba(255,245,230,.85);font-size:.95rem;line-height:1.55;margin-bottom:16px;
     }
@@ -244,14 +250,15 @@
     }
     /* Stats bar — 统一信息栏 */
     #page-index .stats-bar {
-      max-width:640px;margin:0 auto;
+      max-width:640px;margin:0 auto;overflow:hidden;
       background:linear-gradient(135deg,rgba(255,220,130,.06),rgba(255,220,130,.03));
       border:1px solid rgba(246,211,101,.18);border-radius:12px;
       padding:14px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;
     }
     #page-index .stats-bar .st-line {
-      display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:6px 20px;
+      display:flex;align-items:center;justify-content:center;gap:6px 20px;
       color:rgba(255,245,230,.85);font-size:.82rem;letter-spacing:.02em;white-space:nowrap;
+      max-width:100%;overflow-x:auto;
     }
     #page-index .stats-bar .st-item {display:inline-flex;align-items:baseline;gap:5px}
     #page-index .stats-bar .st-num {
@@ -2186,7 +2193,7 @@
       #page-index .card p { font-size: .82rem; }
       /* 统计数据行 */
       #page-index .stats-bar { gap:6px; padding:12px 14px; }
-      #page-index .stats-bar .st-line { white-space:normal; font-size:.74rem; gap:2px 8px; text-align:center; line-height:1.6 }
+      #page-index .stats-bar .st-line { white-space:normal!important; font-size:.74rem; gap:2px 8px; text-align:center; line-height:1.6 }
       #page-index .stats-bar .st-num { font-size:.95rem; }
       #page-index .stats-bar .st-lbl { font-size:.68rem; }
       /* Hero 区域 */
@@ -2520,10 +2527,10 @@
       .info-section { padding: 14px 10px; border-radius: 12px; }
       .exam-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .exam-part { padding: 12px 8px; }
-      .stats-bar { gap:4px; padding:10px 10px; border-radius:10px; }
-      .stats-bar .st-line { white-space:normal; font-size:.7rem; gap:2px 6px; text-align:center; line-height:1.55 }
-      .stats-bar .st-num { font-size:.85rem; }
-      .stats-bar .st-lbl { font-size:.62rem; }
+      #page-index .stats-bar { gap:4px; padding:10px 10px; border-radius:10px; }
+      #page-index .stats-bar .st-line { white-space:normal!important; font-size:.7rem; gap:2px 6px; text-align:center; line-height:1.55 }
+      #page-index .stats-bar .st-num { font-size:.85rem; }
+      #page-index .stats-bar .st-lbl { font-size:.62rem; }
       header h1 { font-size: 1.2rem !important; }
       /* 关于本站 特小屏 */
       #page-index .about-wrap .about-hero { padding: 14px 10px 12px; }
@@ -4013,8 +4020,8 @@ document.addEventListener('keydown', function(e) {
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-eyebrow">🇩🇪 &nbsp;Goethe-Zertifikat · 2026</div>
   <h1>Leons Deutschzentrum</h1>
+  <div class="hero-flag"><span class="hf-black"></span><span class="hf-red"></span><span class="hf-gold"></span></div>
   <div class="stats-bar">
     <div class="st-line">Goethe-Zertifikat A1–B1 &nbsp;·&nbsp; 语法 &nbsp;·&nbsp; 听力 &nbsp;·&nbsp; 写作 &nbsp;·&nbsp; 综合练习 &nbsp;·&nbsp; 全交互评分</div>
     <div class="st-line">
