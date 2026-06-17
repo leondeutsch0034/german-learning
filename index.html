@@ -3609,6 +3609,18 @@ function createLoginPromptCard() {
 <script>
 // 15张卡片看作一个整体，沿大标题渐变色依次过渡：金→橘→粉→金
 	var MODULES = [
+	  // ── 发音先行：发音是语言学习的入口，零基础最先接触 ──
+	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitleDe:'Deutsche Aussprache', cardSubDe:'KI-Spracherkennung — Phonem-für-Phonem-Bewertung', cardTitle:'德语发音器', group:'pronunciation',
+	    hubStep:1, hubSkill:'Deutsch', hubSkillZh:'德语发音', hubAccent:'#f6d365', hubTip:'AI语音评分 · 音素级纠音 · A1-B1 分级文本',
+	    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
+	    tags:'AI语音 · 对比评分 · 精准纠音',
+	    c1:'#b8860b', c2:'#f6d365', locked:false },
+	  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitleDe:'Englische Aussprache', cardSubDe:'English phoneme-level scoring & feedback', cardTitle:'英语发音器', group:'pronunciation',
+	    hubStep:2, hubSkill:'English', hubSkillZh:'英语发音', hubAccent:'#60a5fa', hubTip:'English pronunciation · 音素级评分 · A1-B1 分级文本',
+	    desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
+	    tags:'AI语音 · 音素评分 · 英文练习',
+	    c1:'#1e40af', c2:'#60a5fa', locked:false },
+
 	  // ── 级别递进：A1 → A2 → B1（同组紧邻，首页各折叠为一张学习站卡片）──
 	  { id:'grammar', icon:'📖', navLabel:'A1 语法', cardTitleDe:'A1 Grammatik', cardSubDe:'Vollständige A1-Grammatik: 19 Themen mit Beispielen', cardTitle:'A1 语法', group:'a1',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法基础', hubAccent:'#f6d365', hubTip:'打地基：先把语法点过一遍',
@@ -3688,17 +3700,6 @@ function createLoginPromptCard() {
     tags:'泛读 · 18篇 · B1 · 多主题',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
 
-	  // ── 工具 ──
-	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitleDe:'Deutsche Aussprache', cardSubDe:'KI-Spracherkennung — Phonem-für-Phonem-Bewertung', cardTitle:'德语发音器', group:'pronunciation',
-	    hubStep:1, hubSkill:'Deutsch', hubSkillZh:'德语发音', hubAccent:'#f6d365', hubTip:'AI语音评分 · 音素级纠音 · A1-B1 分级文本',
-	    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
-	    tags:'AI语音 · 对比评分 · 精准纠音',
-	    c1:'#b8860b', c2:'#f6d365', locked:false },
-	  { id:'english-pronunciation', icon:'🗣️', navLabel:'英语发音器', cardTitleDe:'Englische Aussprache', cardSubDe:'English phoneme-level scoring & feedback', cardTitle:'英语发音器', group:'pronunciation',
-	    hubStep:2, hubSkill:'English', hubSkillZh:'英语发音', hubAccent:'#60a5fa', hubTip:'English pronunciation · 音素级评分 · A1-B1 分级文本',
-	    desc:'English pronunciation · 音素级评分 · A1-B1 分级文本',
-	    tags:'AI语音 · 音素评分 · 英文练习',
-	    c1:'#1e40af', c2:'#60a5fa', locked:false },
 
 	  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitleDe:'Klipp-Klapp', cardSubDe:'3D-Stadtführer, Klappbuch & Wegbeschreibung', cardTitle:'Klipp-Klapp',
 	    desc:'3D德国城市导航 · 翻翻书 · 互动问答指路',
@@ -3879,7 +3880,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','kultur-18':'你不知道的德国·18','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -43767,6 +43768,13 @@ function b1S12CheckB(){
       <div class="k-ep-sub">Studium in Deutschland</div>
       <div class="k-ep-desc">APS, Studienkolleg, TestDaF — 留学德国完整路径</div>
     </a>
+    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-18');return false">
+      <span class="k-ep-num">18</span>
+      <span class="k-ep-emoji">🤝</span>
+      <div class="k-ep-title">德国人的社交密码</div>
+      <div class="k-ep-sub">Ungeschriebene Sozialregeln</div>
+      <div class="k-ep-desc">Du/Sie, 直球沟通, 生日禁忌, 送礼清单 — 6个社交潜规则</div>
+    </a>
   </div>
 </div>
 
@@ -46724,6 +46732,11 @@ function b1S12CheckB(){
 <div id="page-kultur-17" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 17 高考后留学德国</span></div>
   <iframe src="你不知道的德国_17_高考后留学德国.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
+</div>
+
+<div id="page-kultur-18" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <div class="kultur-ep-bar"><a href="#" onclick="showPage('kultur');return false" class="kultur-ep-back">← 返回文化专栏</a><span>你不知道的德国 · 18 社交密码</span></div>
+  <iframe src="你不知道的德国_18_社交密码.html" style="width:100%;height:calc(100vh - 52px);border:none;display:block" loading="lazy"></iframe>
 </div>
 
 <!-- ══════════ 你不知道的德国 · 独立栏目 ══════════ -->
