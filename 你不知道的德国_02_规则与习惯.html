@@ -68,8 +68,7 @@
     background:linear-gradient(135deg,#1e3a5f 0%,#0f1e3a 40%,#1a3050 100%);
   }
   .story .story-img {
-    width:100%; height:100%; object-fit:cover; display:block;
-    position:relative; z-index:1;
+    position:absolute; inset:0; object-fit:cover; display:block; z-index:1;
   }
   .story .story-num {
     position:absolute; top:12px; left:12px;
@@ -87,6 +86,17 @@
     padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
     font-size:0.88rem; color:var(--gold-light);
   }
+  .story .german-block {
+    background:rgba(59,130,246,0.06); border-left:3px solid rgba(96,165,250,0.5);
+    padding:14px 18px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:rgba(191,219,254,0.9); line-height:1.85;
+  }
+  .story .german-block .de-label {
+    display:inline-block; font-size:0.7rem; font-weight:700;
+    color:#60a5fa; margin-bottom:8px; letter-spacing:0.04em;
+  }
+  .story .german-block p { margin-bottom:8px; color:rgba(191,219,254,0.85); }
+  .story .german-block strong { color:#93c5fd; }
 
   /* ── 词汇小课堂 ── */
   .wortschatz {
@@ -158,39 +168,36 @@
   .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
 
   @media (max-width:600px) {
-    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
     body { padding:0; }
 
     .topbar { padding:7px 14px; font-size:0.76rem; }
 
     .page { max-width:100%; padding:0; }
 
+    /* 封面保持全屏 */
     .cover {
-      margin:0; border-radius:0; height:100dvh;
+      margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh;
       min-height:100dvh; padding:50px 18px 32px;
-      scroll-snap-align:start; scroll-snap-stop:always;
     }
-    .cover-img { border-radius:0; }
+    .cover-img { border-radius:0 0 16px 16px; font-size:4rem !important; }
 
+    /* 故事卡片：连贯滚动，间距分开 */
     .story {
-      min-height:100dvh; margin:0; padding:50px 18px 24px;
-      display:flex; flex-direction:column; justify-content:center;
-      scroll-snap-align:start; scroll-snap-stop:always;
+      margin:0 12px 16px; padding:28px 16px 22px;
+      background:var(--card); border-radius:14px;
     }
     .story .story-img-wrap {
-      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+      aspect-ratio:16/9; margin-bottom:12px; border-radius:10px;
     }
-    .story h2 { font-size:1.2rem; text-align:center; }
+    .story h2 { font-size:1.15rem; }
     .story p { font-size:0.9rem; }
     .story .funfact { font-size:0.84rem; }
+    .story .german-block { font-size:0.84rem; }
 
-    /* 词汇课堂：内容多，允许内部滚动 */
+    /* 词汇课堂 */
     .wortschatz {
-      min-height:100dvh; margin:0; border-radius:0; border:none;
-      padding:50px 16px 32px;
-      display:flex; flex-direction:column; justify-content:flex-start;
-      scroll-snap-align:start; scroll-snap-stop:always;
-      overflow-y:auto;
+      margin:24px 12px; border-radius:14px;
+      padding:24px 16px;
     }
     .wortschatz h2 { font-size:1.15rem; text-align:center; }
     .wortschatz .ws-sub { font-size:0.8rem; margin-bottom:18px; }
@@ -201,20 +208,17 @@
     .wort-item .wi-say { font-size:0.82rem; padding:5px 10px; }
     .wort-item .wi-tone { font-size:0.78rem; }
 
+    /* 软广告 */
     .soft-cta {
-      min-height:100dvh; margin:0; border-radius:0;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      margin:24px 12px; border-radius:14px;
+      padding:28px 18px;
     }
 
+    /* Footer */
     .footer {
-      min-height:100dvh; display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
-      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      padding:28px 18px 40px;
     }
     .footer .links { flex-direction:column; align-items:center; }
-
-    .story.overflow { justify-content:flex-start; overflow-y:auto; }
   }
 </style>
 </head>
@@ -228,7 +232,7 @@
 
   <!-- ═══ 封面 ═══ -->
   <div class="cover">
-    <img class="cover-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80" alt="German window" loading="eager" onerror="this.style.opacity='0'">
+    <div class="cover-img" style="background:linear-gradient(160deg,#1e3a5f 0%,#0f1e3a 40%,#152840 100%);display:flex;align-items:center;justify-content:center;font-size:6rem">🪟</div>
     <div class="cover-overlay"></div>
     <div class="cover-text">
       <div class="series">你不知道的德国 · 02</div>
@@ -240,7 +244,7 @@
   <!-- ═══ 故事 1：德国窗户 ═══ -->
   <div class="story">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="German tilt-turn window" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#1a3a5c,#0f1e3a);display:flex;align-items:center;justify-content:center;font-size:4.5rem">🪟</div>
       <div class="story-num">01</div>
     </div>
     <h2>一扇窗，两种开法</h2>
@@ -250,12 +254,19 @@
     <div class="funfact">
       💡 德国租房合同里可能写明"租客有 Stoßlüften 义务"。如果因为长期不开窗导致墙体发霉，维修费由租客承担。德国人觉得全天开小缝=浪费暖气+不换气。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Als ich zum ersten Mal in Deutschland eine Wohnung mietete, stand ich fünf Minuten vor dem Fenster und probierte herum: Griff nach oben – das Fenster <strong>kippt oben einen Spalt (Kipp)</strong>. Griff zur Seite – das ganze Fenster öffnet sich <strong>nach innen (Dreh)</strong>.</p>
+      <p>Das ist das typisch deutsche <strong>Dreh-Kipp-Fenster</strong>, das in fast jedem deutschen Gebäude eingebaut ist. In den meisten Ländern der Welt verwendet man Schiebe- oder Ausstellfenster – nur der deutschsprachige Raum hat eine regelrechte Obsession für dieses Fenster.</p>
+      <p>Noch beeindruckender ist die deutsche Art zu lüften – das <strong>Stoßlüften</strong>: dreimal täglich das Fenster für 5–10 Minuten komplett öffnen, die Luft einmalig austauschen, dann wieder schließen. Kein ganztägiger Spalt – ein kompletter Luftaustausch.</p>
+      <p>💡 In deutschen Mietverträgen kann eine <strong>„Stoßlüften-Pflicht"</strong> stehen. Wer dauerhaft nicht lüftet und Schimmel verursacht, muss die Sanierung selbst bezahlen. Für Deutsche bedeutet Fenster auf Kipp = Energieverschwendung + keine richtige Lüftung.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 2：大学免费但难毕业 ═══ -->
   <div class="story">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&q=80" alt="German university" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#1a3050,#0d1f36);display:flex;align-items:center;justify-content:center;font-size:4.5rem">🎓</div>
       <div class="story-num">02</div>
     </div>
     <h2>大学免费，但别高兴太早</h2>
@@ -265,12 +276,19 @@
     <div class="funfact">
       💡 德国大学本科平均毕业时间是 8-10 个学期（4-5 年），不是规定的 6 个学期。延毕在德国太正常了，没人觉得你"掉队"。相反，按时毕业的人才会被问"你是不是没有生活"。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>„Deutsche Unis sind gebührenfrei" – dieser Satz hat unzählige chinesische Studierende angezogen. Tatsächlich erheben die allermeisten öffentlichen deutschen Hochschulen <strong>keine Studiengebühren</strong> (außer Baden-Württemberg). Pro Semester zahlt man nur ein bis zweihundert Euro Semesterbeitrag – inklusive landesweitem Nahverkehrsticket.</p>
+      <p>Aber „kostenlos" heißt nicht „einfach". Deutsche Unis funktionieren nach dem Prinzip <strong>„breiter Zugang, strenge Prüfungen"</strong>: Kein Betreuer, der hinter dir her ist, keine unbegrenzten Wiederholungsversuche – wer eine Prüfung dreimal nicht besteht, verliert <strong>deutschlandweit die Zulassung</strong> für diesen Studiengang.</p>
+      <p>Als Student in Deutschland stellst du deinen Stundenplan selbst zusammen, suchst dein Praktikum selbst, kümmerst dich um alle Verwaltungsangelegenheiten selbst. Es gibt keinen „Klassenlehrer", keiner informiert dich proaktiv über irgendetwas.</p>
+      <p>💡 Die durchschnittliche Studiendauer für einen Bachelor in Deutschland beträgt <strong>8–10 Semester (4–5 Jahre)</strong>, nicht die vorgesehenen 6. Überziehen ist völlig normal, niemand hält dich für einen „Versager". Im Gegenteil – wer in Regelstudienzeit abschließt, wird gefragt: <strong>„Hast du kein Leben?"</strong></p>
+    </div>
   </div>
 
   <!-- ═══ 故事 3：预约文化 ═══ -->
   <div class="story">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="Calendar and clock" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#1e2d4a,#101f36);display:flex;align-items:center;justify-content:center;font-size:4.5rem">📅</div>
       <div class="story-num">03</div>
     </div>
     <h2>没有 Termin，寸步难行</h2>
@@ -280,12 +298,19 @@
     <div class="funfact">
       💡 德国人手一本日历，不是手机日历，是纸质的。预约文化深到骨髓——德语句子"Ich habe einen Termin"（我有个预约）是外国人最早学会的救命句之一。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China gehst du zum Friseur und sagst kurz Bescheid. In Deutschland musst du <strong>eine Woche vorher einen Termin vereinbaren</strong>.</p>
+      <p>In China gehst du zur Behörde, ziehst eine Nummer und wartest. In Deutschland brauchst du bei der <strong>Ausländerbehörde</strong> vielleicht einen Termin mit <strong>drei Monaten Wartezeit</strong>. Du willst einfach so reingehen? Der Sicherheitsdienst sagt emotionslos: <strong>„Haben Sie einen Termin?"</strong></p>
+      <p>Arztbesuch, Friseur, Visum, Kontoeröffnung, sogar ein Besuch bei Freunden – Deutsche gehen standardmäßig davon aus, dass man für alles einen Termin braucht. Unangekündigt vorbeizukommen gilt in Deutschland als <strong>extrem unhöflich</strong>.</p>
+      <p>💡 Deutsche führen einen Kalender – und zwar oft einen <strong>aus Papier</strong>, nicht nur digital. Die Termin-Kultur sitzt so tief, dass der Satz <strong>„Ich habe einen Termin"</strong> einer der ersten deutschen Sätze ist, die Ausländer lernen – ein echter Lebensretter.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 4：准时不是提前 ═══ -->
   <div class="story">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80" alt="German train station clock" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#2a3550,#141f36);display:flex;align-items:center;justify-content:center;font-size:4.5rem">🚂</div>
       <div class="story-num">04</div>
     </div>
     <h2>德国火车，准时是意外</h2>
@@ -295,12 +320,19 @@
     <div class="funfact">
       💡 德语里有一个词叫"Pünktlichkeit"（准时），但还有一个词叫"DB-Verspätung"（德铁晚点）。德国人自嘲："德铁晚点不是 bug，是 feature。"
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>„Deutsche sind pünktlich" – dieses Klischee wird von der <strong>Deutschen Bahn</strong> gründlich demontiert.</p>
+      <p>2024 lag die Pünktlichkeitsquote der DB-Fernzüge bei <strong>nur 62 %</strong> – Schlusslicht in Europa. Eine halbe Stunde Verspätung ist Alltag, eine Stunde keine Seltenheit. Am absurdesten: Der Zug wird mitten auf der Strecke gestrichen, alle steigen aus und warten auf den nächsten.</p>
+      <p>Trotzdem halten Deutsche an <strong>persönlicher Pünktlichkeit</strong> fest. Wer mehr als fünf Minuten zu spät kommt, schickt eine Entschuldigungsnachricht. Wer im Seminar zu spät reinkommt, wird von allen angestarrt. Der Zahnarzt darf 15 Minuten zu spät sein – kommst du 15 Minuten zu spät, bist du deinen Termin womöglich los.</p>
+      <p>💡 Es gibt das Wort <strong>„Pünktlichkeit"</strong> – aber auch das Wort <strong>„DB-Verspätung"</strong>. Deutsche machen sich längst selbst darüber lustig: „DB-Verspätung ist kein Bug, sondern ein Feature."</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 5：家庭医生制度 ═══ -->
   <div class="story overflow">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Doctor's office" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#1a3a44,#0d1f2a);display:flex;align-items:center;justify-content:center;font-size:4.5rem">🩺</div>
       <div class="story-num">05</div>
     </div>
     <h2>看病不直接去医院</h2>
@@ -310,12 +342,19 @@
     <div class="funfact">
       💡 德国的医保（Krankenkasse）是强制性的，全民必须参保。公立保险按收入比例收费，一人参保全家受益。但看牙医时你会发现——补牙材料分三档，第三档要自费。"免费医疗"不等于"零自费"。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Wenn du in Deutschland krank wirst, ist dein erster Impuls vielleicht: „Ab ins Krankenhaus!" Aber Deutsche sagen dir: <strong>Geh zuerst zum Hausarzt.</strong></p>
+      <p>Das deutsche Gesundheitssystem funktioniert als gestaffeltes <strong>„Gatekeeper-System"</strong>: Du bist langfristig bei einem Hausarzt registriert. Bei jedem Problem gehst du zuerst zu ihm. Hält er einen Facharzt für nötig, stellt er dir eine <strong>Überweisung</strong> aus – erst damit darfst du zum Spezialisten. In der Notaufnahme prüft eine Pflegekraft, ob es wirklich ein Notfall ist – wenn nicht, sitzt du eventuell 4–6 Stunden und wirst vielleicht weggeschickt.</p>
+      <p>Einzige Ausnahme: In echten Notfällen wählst du die <strong>112</strong>, der Rettungswagen bringt dich ins nächste Krankenhaus. Aber mit einer Erkältung? Mach brav einen Termin beim Hausarzt.</p>
+      <p>💡 Die <strong>Krankenversicherung</strong> ist in Deutschland Pflicht für alle. Die gesetzliche Krankenkasse bemisst sich nach dem Einkommen – eine Person versichert, die ganze Familie ist mitversichert. Aber beim Zahnarzt: Füllungen gibt es in drei Kategorien, die dritte bezahlst du selbst. <strong>„Kostenlos" heißt nicht „null Eigenbeteiligung".</strong></p>
+    </div>
   </div>
 
   <!-- ═══ 故事 6：啤酒纯净法 ═══ -->
   <div class="story overflow">
     <div class="story-img-wrap">
-      <img class="story-img" src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80" alt="German beer" loading="lazy" onerror="this.style.opacity='0'">
+      <div class="story-img" style="background:linear-gradient(135deg,#3a2a10,#5c3a0a);display:flex;align-items:center;justify-content:center;font-size:4.5rem">🍺</div>
       <div class="story-num">06</div>
     </div>
     <h2>啤酒成分，法律说了算</h2>
@@ -324,6 +363,13 @@
     <p>在德国超市买啤酒，标签上会写"Gebraut nach dem deutschen Reinheitsgebot"（按德国纯净法酿造）。这不是广告词，而是法律声明。加了香精、糖浆的"精酿"在德国没有资格叫啤酒。</p>
     <div class="funfact">
       💡 德国有超过 1500 家啤酒厂、5000 多种啤酒品牌。每个小镇都有自己的啤酒厂。在德国，"本地啤酒"才是最好的——如果你在科隆点了杜塞尔多夫的 Altbier，或者在杜塞点了科隆的 Kölsch，可能会被服务员提醒"您点错了"。这不是玩笑，是城市荣誉。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Dass deutsches Bier so gut schmeckt, hat einen Grund: <strong>Das Gesetz schreibt vor, dass nur vier Zutaten hineindürfen.</strong></p>
+      <p>1516 erließ der bayerische Herzog das <strong>Reinheitsgebot</strong>: Bier darf nur aus Wasser, Gerste und Hopfen gebraut werden. Später kam die Hefe dazu – vier Zutaten. Es ist das <strong>älteste Lebensmittelgesetz der Welt</strong> und gilt – in novellierter Form – bis heute.</p>
+      <p>Im deutschen Supermarkt steht auf dem Bieretikett: <strong>„Gebraut nach dem deutschen Reinheitsgebot".</strong> Das ist kein Werbeslogan, sondern eine Rechtsaussage. „Craft-Bier" mit Aromazusätzen und Sirup darf sich in Deutschland nicht Bier nennen.</p>
+      <p>💡 Deutschland hat <strong>über 1.500 Brauereien</strong> und mehr als <strong>5.000 Biermarken</strong>. Jede Kleinstadt hat ihre eigene Brauerei. In Deutschland ist das lokale Bier das beste – bestellst du in Köln ein Düsseldorfer Altbier, kann dich der Kellner darauf hinweisen: <strong>„Sie haben falsch bestellt."</strong> Das ist kein Scherz, sondern Stadtstolz.</p>
     </div>
   </div>
 
@@ -410,7 +456,7 @@
     <h3>🇩🇪 想真正理解这些规则？</h3>
     <p>每个德国奇葩规则背后，都藏着一个德语词汇和文化逻辑。<br>比如 Stoßlüften、Termin、Reinheitsgebot——学会这些词，你就懂了德国人。</p>
     <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 开始学德语</a>
-    <span class="sub-link">leonsdeutschzentrum.com</span>
+    
   </div>
 
   <!-- ═══ Footer ═══ -->
@@ -422,7 +468,7 @@
       <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
       <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
     </div>
-    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+    <div class="copy">Leons Deutschzentrum</div>
   </div>
 
 </div>

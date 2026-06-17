@@ -89,6 +89,17 @@
     padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
     font-size:0.88rem; color:var(--gold-light);
   }
+  .story .german-block {
+    background:rgba(59,130,246,0.06); border-left:3px solid rgba(96,165,250,0.5);
+    padding:14px 18px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:rgba(191,219,254,0.9); line-height:1.85;
+  }
+  .story .german-block .de-label {
+    display:inline-block; font-size:0.7rem; font-weight:700;
+    color:#60a5fa; margin-bottom:8px; letter-spacing:0.04em;
+  }
+  .story .german-block p { margin-bottom:8px; color:rgba(191,219,254,0.85); }
+  .story .german-block strong { color:#93c5fd; }
 
   /* ── 软广告 ── */
   .soft-cta {
@@ -121,48 +132,44 @@
   .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
   .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
 
-  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  /* ══════ 手机竖屏 ══════ */
   @media (max-width:600px) {
-    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
     body { padding:0; }
 
     .topbar { padding:7px 14px; font-size:0.76rem; }
 
     .page { max-width:100%; padding:0; }
 
+    /* 封面保持全屏 */
     .cover {
-      margin:0; border-radius:0; height:100dvh;
+      margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh;
       min-height:100dvh; padding:50px 18px 32px;
-      scroll-snap-align:start; scroll-snap-stop:always;
     }
-    .cover-img { border-radius:0; }
+    .cover-img { border-radius:0 0 16px 16px; }
 
+    /* 故事卡片：连贯滚动，间距分开 */
     .story {
-      min-height:100dvh; margin:0; padding:50px 18px 24px;
-      display:flex; flex-direction:column; justify-content:center;
-      scroll-snap-align:start; scroll-snap-stop:always;
+      margin:0 12px 16px; padding:28px 16px 22px;
+      background:var(--card); border-radius:14px;
     }
     .story .story-img-wrap {
-      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+      aspect-ratio:16/9; margin-bottom:12px; border-radius:10px;
     }
-    .story h2 { font-size:1.2rem; text-align:center; }
+    .story h2 { font-size:1.15rem; }
     .story p { font-size:0.9rem; }
     .story .funfact { font-size:0.84rem; }
+    .story .german-block { font-size:0.84rem; }
 
     .soft-cta {
-      min-height:100dvh; margin:0; border-radius:0;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      margin:24px 12px; border-radius:14px;
+      padding:28px 18px;
     }
 
+    /* Footer */
     .footer {
-      min-height:100dvh; display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
-      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      padding:28px 18px 40px;
     }
     .footer .links { flex-direction:column; align-items:center; }
-
-    .story.overflow { justify-content:flex-start; overflow-y:auto; }
   }
 </style>
 </head>
@@ -198,6 +205,13 @@
     <div class="funfact">
       💡 德国人从不随手扔瓶子。不是因为环保意识（当然也有），而是因为每个瓶子都是钱。学生在派对结束后靠捡瓶子能凑出一顿饭钱。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Am ersten Tag in Deutschland ging ich in den Supermarkt, um Wasser zu kaufen. Auf dem Etikett stand <strong>0,19 €</strong>, aber an der Kasse waren es <strong>0,44 €</strong>.</p>
+      <p>Ich dachte, es sei ein Fehler. Die Kassiererin zeigte emotionslos auf eine Zeile auf dem Bon: <strong>Pfand 0,25 €</strong>.</p>
+      <p>Das Pfand für eine Wasserflasche ist <strong>teurer als das Wasser selbst</strong>. Später erfuhr ich, dass es in Deutschland auf fast alle Getränkeflaschen Pfand gibt – Mineralwasser, Bier, Cola, jede Flasche <strong>0,08–0,25 €</strong>.</p>
+      <p>💡 Deutsche werfen Flaschen nie einfach weg. Nicht nur wegen des Umweltbewusstseins (das auch), sondern weil <strong>jede Flasche Geld wert ist</strong>. Studenten sammeln nach Partys Flaschen und können sich davon eine Mahlzeit leisten.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 2：周日全城关门 ═══ -->
@@ -212,6 +226,13 @@
     <p>周六超市里人山人海、排队到门口的画面，每个留德华人都经历过——因为大家都赶在关门前囤货。</p>
     <div class="funfact">
       💡 周六下午 4 点后的德国超市，蔬菜区像被洗劫过一样。在德国生活，你很快就会学会"周五六囤货，周日不出门"。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>An meinem ersten Sonntag in Deutschland ging ich voller Zuversicht einkaufen. Ergebnis? Die Supermärkte waren <strong>geschlossen</strong>, die Einkaufszentren dunkel, die Straßen menschenleer – wie an einem Feiertag.</p>
+      <p>Die „Sonntagsruhe" ist in Deutschland <strong>gesetzlich vorgeschrieben</strong> – das entscheiden nicht die Geschäfte selbst. Nur Tankstellen, Bahnhöfe und wenige Bäckereien haben geöffnet.</p>
+      <p>Jeder, der in Deutschland lebt, kennt das Bild: Samstags sind die Supermärkte brechend voll, die Schlangen reichen bis zum Eingang – weil alle <strong>vor der Sonntagsschließung Vorräte kaufen</strong>.</p>
+      <p>💡 Nach 16 Uhr am Samstag sieht die Gemüseabteilung in deutschen Supermärkten aus wie <strong>geplündert</strong>. Wer in Deutschland lebt, lernt schnell: Freitag/Samstag Vorräte kaufen, Sonntag zu Hause bleiben.</p>
     </div>
   </div>
 
@@ -228,6 +249,13 @@
     <div class="funfact">
       💡 在德国租房广告上，"EBK"（Einbauküche，嵌入式厨房）是一个超级卖点。有 EBK 的房子比没有的贵不少，但抢的人也多得多。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China mietet man eine Wohnung, und die Küche ist komplett – Wasser, Strom, Gas, alles da. In Deutschland gehst du in eine Wohnung und findest an der Küchenstelle nur <strong>ein paar Wasserrohre und zwei Löcher in der Wand</strong>.</p>
+      <p>Keine Schränke. Kein Herd. Kein Kühlschrank. <strong>Gar nichts.</strong></p>
+      <p>Deutsche nehmen beim Umzug <strong>die ganze Küche mit</strong>. Als Mieter musst du entweder selbst eine einbauen oder hoffen, dass der Vormieter dir seine Küche verkauft.</p>
+      <p>💡 In deutschen Wohnungsanzeigen ist <strong>„EBK" (Einbauküche)</strong> ein riesiges Verkaufsargument. Wohnungen mit EBK sind deutlich teurer, aber auch viel begehrter.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 4：3000 种面包 ═══ -->
@@ -242,6 +270,13 @@
     <p>每个街角都有一家面包房，早上 6 点飘出来的麦香是德国最准时的闹钟。最魔幻的是——回国后再吃面包，觉得索然无味。</p>
     <div class="funfact">
       💡 德国面包师需要 3 年培训才能出师。一个 Brezel（碱水面包）看起来简单，从面团到成品要经过碱水浸泡、撒盐、烘烤精确控制。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Vor meiner Ankunft dachte ich: Brot ist doch einfach Brot. Nach meiner Ankunft: <strong>Ich lag falsch.</strong></p>
+      <p>Deutschland hat <strong>über 3.000 Brotsorten</strong> – Roggenbrot, Vollkornbrot, Laugenbrot, Kürbiskernbrot, Kartoffelbrot … Die deutsche Brotkultur wurde in die <strong>UNESCO-Liste des immateriellen Kulturerbes</strong> aufgenommen.</p>
+      <p>An jeder Straßenecke gibt es eine Bäckerei. Der Duft von frischem Brot um 6 Uhr morgens ist der <strong>zuverlässigste Wecker</strong> Deutschlands. Das Verrückteste: Nach der Rückkehr nach China schmeckt jedes Brot fade.</p>
+      <p>💡 Deutsche Bäcker brauchen <strong>3 Jahre Ausbildung</strong>. Eine einfache Brezel sieht simpel aus, aber vom Teig bis zum fertigen Produkt durchläuft sie <strong>Laugenbad, Salzen und präzises Backen</strong>.</p>
     </div>
   </div>
 
@@ -258,6 +293,13 @@
     <div class="funfact">
       💡 德国有"垃圾警察"——如果垃圾分类不对，整栋楼的垃圾桶可能被拒绝清运。邻居甚至会贴纸条提醒你分类错误（如果被发现了的话）。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China trennt man „recyclebar" und „nicht recyclebar". In Deutschland gibt es <strong>5 Tonnen</strong>:</p>
+      <p>🟡 Gelbe Tonne (Verpackungen) · 🟤 Braune Tonne (Bioabfall) · ⚫ Schwarze Tonne (Restmüll) · 🟢 Grüne Tonne (Papier) · ⚪ Glas nach Farben getrennt.</p>
+      <p>Als ich neu in Deutschland war, stand ich jedes Mal <strong>10 Sekunden vor den Mülltonnen</strong> und überlegte: Ist das Papier oder Verpackung? Muss der Joghurtbecher ausgespült werden?</p>
+      <p>💡 Deutschland hat eine Art <strong>„Müllpolizei"</strong> – wenn der Müll falsch getrennt ist, kann die Tonne des ganzen Hauses nicht geleert werden. Nachbarn hinterlassen sogar Zettel mit Hinweisen zur richtigen Trennung (wenn man erwischt wird).</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 6：裸体文化 ═══ -->
@@ -272,6 +314,12 @@
     <div class="funfact">
       💡 德国桑拿不是"能不能穿泳衣"的问题，而是穿了会被赶出去。混蒸、全裸、毛巾垫在身下是标准操作。第一次去的中国人通常要做很久心理建设。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Beim ersten Spaziergang durch den <strong>Englischen Garten in München</strong> kam ich an einer Wiese vorbei: Leute spielten Volleyball, sonnten sich, lasen Bücher. Alle. Völlig. Nackt.</p>
+      <p>Die deutsche <strong>„FKK" (Frei-Körper-Kultur)</strong> hat eine hundertjährige Geschichte. Es geht nicht um Erotik, sondern um eine <strong>Lebenseinstellung der Natürlichkeit</strong>. In Parks gibt es eigene FKK-Bereiche, und in der Sauna sind die Geschlechter gemischt – völlig nackt, das ist Pflicht.</p>
+      <p>💡 In der deutschen Sauna geht es nicht darum, ob man Badekleidung tragen darf, sondern: <strong>Wer sie trägt, wird rausgeschmissen.</strong> Gemischt, nackt, mit einem Handtuch untergelegt – das ist Standard. Chinesen brauchen beim ersten Besuch meist viel mentale Vorbereitung.</p>
+    </div>
   </div>
 
   <!-- ═══ 弱广告 ═══ -->
@@ -279,7 +327,7 @@
     <h3>🇩🇪 想真正看懂德国？</h3>
     <p>语言是文化的钥匙。每一个德国生活冷知识背后，都藏着一个德语单词。<br>比如 Pfand、Feierabend、Gemütlichkeit——翻译不出来，但懂德语你就懂了。</p>
     <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 开始学德语</a>
-    <span class="sub-link">leonsdeutschzentrum.com</span>
+    
   </div>
 
   <!-- ═══ Footer ═══ -->
@@ -291,7 +339,7 @@
       <a href="https://de.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎤 德语发音器</a>
       <a href="https://en.leonsdeutschzentrum.com/" target="_blank" rel="noopener">🗣️ 英语发音器</a>
     </div>
-    <div class="copy">&copy; 2026 Leon 德语学习中心 · leonsdeutschzentrum.com</div>
+    <div class="copy">Leons Deutschzentrum</div>
   </div>
 
 </div>

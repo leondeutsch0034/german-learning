@@ -88,6 +88,17 @@
     padding:10px 16px; border-radius:0 8px 8px 0; margin-top:12px;
     font-size:0.88rem; color:var(--gold-light);
   }
+  .story .german-block {
+    background:rgba(59,130,246,0.06); border-left:3px solid rgba(96,165,250,0.5);
+    padding:14px 18px; border-radius:0 8px 8px 0; margin-top:12px;
+    font-size:0.88rem; color:rgba(191,219,254,0.9); line-height:1.85;
+  }
+  .story .german-block .de-label {
+    display:inline-block; font-size:0.7rem; font-weight:700;
+    color:#60a5fa; margin-bottom:8px; letter-spacing:0.04em;
+  }
+  .story .german-block p { margin-bottom:8px; color:rgba(191,219,254,0.85); }
+  .story .german-block strong { color:#93c5fd; }
 
   /* ── 词汇小课堂 ── */
   .wortschatz {
@@ -159,59 +170,55 @@
   .footer .links a:hover { border-color:var(--gold); color:var(--gold); background:rgba(246,211,101,0.05); }
   .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
 
-  /* ══════ 手机竖屏：snap 截屏模式 ══════ */
+  /* ══════ 手机竖屏 ══════ */
   @media (max-width:600px) {
-    html { scroll-snap-type:y mandatory; scroll-behavior:smooth; }
     body { padding:0; }
 
     .topbar { padding:7px 14px; font-size:0.76rem; }
 
     .page { max-width:100%; padding:0; }
 
+    /* 封面保持全屏 */
     .cover {
-      margin:0; border-radius:0; height:100dvh;
+      margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh;
       min-height:100dvh; padding:50px 18px 32px;
-      scroll-snap-align:start; scroll-snap-stop:always;
     }
-    .cover-img { border-radius:0; font-size:4rem !important; }
+    .cover-img { border-radius:0 0 16px 16px; font-size:4rem !important; }
 
+    /* 故事卡片：连贯滚动，间距分开 */
     .story {
-      min-height:100dvh; margin:0; padding:50px 18px 24px;
-      display:flex; flex-direction:column; justify-content:center;
-      scroll-snap-align:start; scroll-snap-stop:always;
+      margin:0 12px 16px; padding:28px 16px 22px;
+      background:var(--card); border-radius:14px;
     }
     .story .story-img-wrap {
-      aspect-ratio:16/10; margin-bottom:14px; border-radius:10px;
+      aspect-ratio:16/9; margin-bottom:12px; border-radius:10px;
     }
-    .story .story-img { font-size:3rem !important; }
-    .story h2 { font-size:1.2rem; text-align:center; }
+    .story h2 { font-size:1.15rem; }
     .story p { font-size:0.9rem; }
     .story .funfact { font-size:0.84rem; }
+    .story .german-block { font-size:0.84rem; }
 
+    /* 词汇课堂 */
     .wortschatz {
-      min-height:100dvh; margin:0; border-radius:0;
-      display:flex; flex-direction:column; justify-content:center;
-      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      margin:24px 12px; border-radius:14px;
+      padding:24px 16px;
     }
     .wortschatz h2 { font-size:1.15rem; }
     .wort-item { padding:14px 16px; }
     .wort-item .wi-de { font-size:1rem; }
     .wort-item .wi-scene { font-size:0.84rem; }
 
+    /* 软广告 */
     .soft-cta {
-      min-height:100dvh; margin:0; border-radius:0;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      padding:50px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      margin:24px 12px; border-radius:14px;
+      padding:28px 18px;
     }
 
+    /* Footer */
     .footer {
-      min-height:100dvh; display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
-      padding:24px 18px; scroll-snap-align:start; scroll-snap-stop:always;
+      padding:28px 18px 40px;
     }
     .footer .links { flex-direction:column; align-items:center; }
-
-    .story.overflow { justify-content:flex-start; overflow-y:auto; }
   }
 </style>
 </head>
@@ -247,6 +254,13 @@
     <div class="funfact">
       💡 德国租房广告写"2-Zimmer, 65m², 650€ KM"——KM 就是 Kaltmiete。新手以为 650€ 全包，老手会直接追问："Nebenkosten 多少？Heizung 含不含？"
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China steht in der Wohnungsanzeige „Monatsmiete 3.000, inklusive Nebenkosten". In Deutschland siehst du die <strong>Kaltmiete</strong> – das ist nur die Miete für die Wohnung selbst, ohne Wasser, Strom, Heizung und Müllgebühren.</p>
+      <p>Mit den <strong>Nebenkosten</strong> dazu wird daraus die <strong>Warmmiete</strong> – die kann 30–50 % über der Kaltmiete liegen. Und nach der jährlichen Heizkostenabrechnung fordert der Vermieter womöglich eine Nachzahlung von mehreren hundert Euro.</p>
+      <p>Und: Strom ist weder in Kalt- noch in Warmmiete enthalten. Den Stromvertrag schließt du selbst mit einem Energieversorger ab. Eine 40-m²-Wohnung kommt leicht auf 40–60 € Stromkosten im Monat.</p>
+      <p>💡 In der Anzeige steht „2-Zimmer, 65 m², 650 € KM". KM = Kaltmiete. Neulinge denken: „650 €, alles drin." Erfahrene fragen sofort: <strong>„Wie hoch sind die Nebenkosten? Ist Heizung enthalten?"</strong></p>
+    </div>
   </div>
 
   <!-- ═══ 故事 2：现金为王 ═══ -->
@@ -261,6 +275,13 @@
     <p>刚来德国时必须养成一个习惯：出门前检查钱包里有没有现金。不是"够不够"——而是"有没有"。没带现金等于没带钱。</p>
     <div class="funfact">
       💡 德国民调显示，超过 60% 的德国人认为现金"不可或缺"。疫情期间很多小店终于装了刷卡机，结果疫情一过——又改回了"Nur Bares（仅限现金）"。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Wir schreiben das Jahr 2024. In Berlin zückst du deine Kreditkarte: <strong>„Tut mir leid, wir nehmen nur EC-Karte."</strong> Du zückst deine EC-Karte: <strong>„Tut mir leid, nur Bargeld."</strong></p>
+      <p>Die deutsche Liebe zum <strong>Bargeld</strong> ist weltbekannt. Viele Bäckereien, kleine Restaurants, Kneipen, sogar manche Arztpraxen – <strong>nur Bargeld</strong>. Fragst du nach dem Grund, kommt: <strong>„Datenschutz"</strong> und <strong>„War schon immer so"</strong>.</p>
+      <p>Als Neuling in Deutschland musst du dir eine Gewohnheit angewöhnen: Vor dem Verlassen des Hauses prüfen, ob du Bargeld dabei hast. Nicht „genug" – sondern <strong>„überhaupt"</strong>. Ohne Bargeld bist du in vielen Situationen zahlungsunfähig.</p>
+      <p>💡 Über 60 % der Deutschen halten Bargeld für <strong>„unverzichtbar"</strong>. Während der Pandemie haben viele kleine Läden endlich Kartenlesegeräte angeschafft – danach gingen sie wieder zurück zu <strong>„Nur Bares"</strong>.</p>
     </div>
   </div>
 
@@ -277,6 +298,13 @@
     <div class="funfact">
       💡 德国人搬家后第一件事不是整理行李，而是挨家挨户敲门自我介绍——顺便问清楚谁是"Ruhezeit 纠察队长"。每个居民楼至少有一个对分贝极度敏感的老爷爷/老太太。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China ist es völlig normal, spätabends zu duschen oder Wäsche zu waschen. In Deutschland gilt die <strong>Ruhezeit</strong>: 22:00 bis 6:00 Uhr sowie sonntags und an Feiertagen ganztägig.</p>
+      <p>In dieser Zeit sind sämtliche lärmverursachenden Tätigkeiten verboten: Bohren, Hämmern, Klavierspielen, Staubsaugen, Waschmaschine laufen lassen. Manche Mietverträge schreiben sogar vor: <strong>„Nächtliches Duschen nicht gestattet"</strong> – weil das Rauschen der Wasserrohre die Nachbarn stören könnte.</p>
+      <p>Klingt übertrieben? Die Hauswände in Deutschland sind oft schlecht gedämmt (viele Altbauten), und <strong>Nachbarn rufen tatsächlich die Polizei</strong>. Keine leere Drohung – das passiert wirklich.</p>
+      <p>💡 Nach einem Umzug in Deutschland ist das Erste nicht Koffer auspacken, sondern <strong>bei den Nachbarn klingeln und sich vorstellen</strong> – und nebenbei herausfinden, wer der „Ruhezeit-Wachhund" im Haus ist. In jedem Wohnhaus gibt es mindestens einen geräuschempfindlichen älteren Herrn oder eine ältere Dame.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 4：SCHUFA 信用评分 ═══ -->
@@ -291,6 +319,13 @@
     <p>最魔幻的是——很多刚来的外国人根本没有 SCHUFA 记录，没有记录=不可信，于是陷入"没有 SCHUFA 租不到房→没有住址不能注册→注册不了就没有 SCHUFA"的死循环。</p>
     <div class="funfact">
       💡 SCHUFA 的评分算法不公开，但已知会看你：是否有多个银行账户、是否频繁搬家、是否有逾期账单。德国人小心翼翼维护自己的 SCHUFA，就像中国人维护芝麻信用分——但 SCHUFA 一出问题，影响比芝麻信用严重得多。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China reichen für die Wohnungssuche Personalausweis und Arbeitsnachweis. In Deutschland verlangt der Vermieter deine <strong>SCHUFA-Auskunft</strong> (Bonitätsnachweis).</p>
+      <p>Die SCHUFA ist die größte Wirtschaftsauskunftei Deutschlands. Fast jeder Erwachsene hat einen SCHUFA-Score. Dieser Score entscheidet darüber, <strong>ob du eine Wohnung mieten, ein Konto eröffnen, einen Handyvertrag abschließen oder eine Ratenzahlung vereinbaren kannst</strong> – manche Arbeitgeber fragen sogar danach.</p>
+      <p>Das Absurdeste: Viele Neuankömmlinge haben keinerlei SCHUFA-Eintrag. Kein Eintrag = nicht vertrauenswürdig. So entsteht ein Teufelskreis: <strong>„Ohne SCHUFA keine Wohnung → ohne Adresse keine Anmeldung → ohne Anmeldung kein SCHUFA-Eintrag."</strong></p>
+      <p>💡 Der SCHUFA-Algorithmus ist nicht öffentlich. Bekannt ist: Er prüft, ob du mehrere Konten hast, oft umziehst oder Zahlungsrückstände hast. Deutsche hüten ihren SCHUFA-Score so sorgfältig wie Chinesen ihren Sesame-Credit-Score – aber ein SCHUFA-Problem hat <strong>weitaus schwerwiegendere Konsequenzen</strong>.</p>
     </div>
   </div>
 
@@ -307,6 +342,13 @@
     <div class="funfact">
       💡 德国的志愿者消防队（Freiwillige Feuerwehr）在中小城市是标配——不是职业消防员，而是加入协会的普通市民。火警一响，面包师、会计、老师放下手头的事就去救火。
     </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>Die meisten Freunde, die du in Deutschland findest, lernst du in einem <strong>Verein</strong> kennen. Deutschland hat über <strong>600.000 eingetragene Vereine</strong> – vom Fußballclub, Schützenverein und Chor über Kaninchenzucht-, Kakteenliebhaber- bis hin zum „Verein gegen Vereine".</p>
+      <p>Ein Verein ist keine lockere Hobbygruppe, sondern das <strong>Rückgrat der deutschen Gesellschaft</strong>. Jahresbeitrag zahlen, Vorstand wählen, Protokoll führen – alles streng nach Satzung. Das Wochenende vieler Deutscher spielt sich im Verein ab.</p>
+      <p>Willst du dich in Deutschland integrieren? Tritt einem lokalen Verein bei – wirksamer als zehn Dating-Apps. Feuerwehr, Rettungsdienst, Sportvereine – das meiste läuft über <strong>Ehrenamt</strong>.</p>
+      <p>💡 Die <strong>Freiwillige Feuerwehr</strong> ist in deutschen Klein- und Mittelstädten Standard – keine Berufsfeuerwehr, sondern ganz normale Bürger in einem Verein. Geht der Alarm los, lassen Bäcker, Buchhalter und Lehrer alles stehen und fahren zum Einsatz.</p>
+    </div>
   </div>
 
   <!-- ═══ 故事 6：搬家刷墙 + 交房 ═══ -->
@@ -321,6 +363,13 @@
     <p>更夸张的是，有些房东要求退租时墙壁必须<strong style="color:var(--gold);">"neutral gestrichen"（中性色）</strong>——也就是白色。你之前刷了淡黄色？刷回去。刷了浅灰色？刷回去。</p>
     <div class="funfact">
       💡 德国建材市场（如 Obi、Bauhaus）门口常年有专门租给搬家党的油漆工具。退租刷墙在德国是成年礼级别的体验——每个德国人都至少经历过一次"连夜刷墙赶交房"的绝望。
+    </div>
+    <div class="german-block">
+      <span class="de-label">🇩🇪 Auf Deutsch</span>
+      <p>In China gibst du bei Mietende den Schlüssel ab und gehst. In Deutschland musst du <strong>die gesamte Wohnung neu streichen</strong> – sonst siehst du deine Kaution nicht wieder.</p>
+      <p>Viele deutsche Mietverträge enthalten den Begriff <strong>„Schönheitsreparaturen"</strong>: Du als Mieter bist verpflichtet, in bestimmten Abständen zu streichen und Löcher zu spachteln. Drei Jahre gewohnt, die Wände sind etwas vergilbt? Streichen. Löcher für Bilder gebohrt? Vor dem Auszug zuspachteln, schleifen, streichen.</p>
+      <p>Noch krasser: Manche Vermieter verlangen bei Auszug <strong>„neutral gestrichene"</strong> Wände – sprich: weiß. Hattest du hellgelb gestrichen? Zurück zu weiß. Helles Grau? Zurück zu weiß.</p>
+      <p>💡 Vor deutschen Baumärkten (Obi, Bauhaus) stehen das ganze Jahr über Malerwerkzeuge zum Ausleihen bereit – für Umzügler. <strong>„Renovieren bei Auszug"</strong> ist in Deutschland ein Initiationsritus. Jeder Deutsche hat mindestens einmal in seinem Leben <strong>„die Nacht vor der Wohnungsübergabe durchgestrichen"</strong>.</p>
     </div>
   </div>
 
@@ -415,7 +464,7 @@
     <h3>🇩🇪 在德国生活，不会德语寸步难行</h3>
     <p>找房看合同、办 Anmeldung、跟邻居沟通 Ruhezeit、看医生预约——<br>所有这些场景，都需要德语。光靠英语，在德国活不下来。</p>
     <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 去 Leon 德语学习中心</a>
-    <span class="sub-link">leonsdeutschzentrum.com</span>
+    
   </div>
 
   <!-- ═══ Footer ═══ -->
