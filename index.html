@@ -1951,6 +1951,40 @@
       #page-a2hoeren li[style*="list-style:none"] { padding: .2rem 0 !important; }
     }
 
+    /* ── B1 听力 手机竖屏适配 ── */
+    @media(max-width:600px){
+      #page-b1hoeren { padding: 6px !important; }
+      #page-b1hoeren > div { max-width: 100% !important; }
+      #page-b1hoeren > div > div:first-child { padding: 20px 12px 14px !important; border-radius: 14px !important; margin-bottom: 16px !important; }
+      #page-b1hoeren > div > div:first-child h1 { font-size: 1.25rem !important; }
+      #page-b1hoeren > div > div:first-child p { font-size: .8rem !important; }
+      #page-b1hoeren .section { border-radius: 10px !important; margin-bottom: 1rem !important; }
+      #page-b1hoeren .section-body { padding: 10px 10px !important; }
+      #page-b1hoeren .section-header { font-size: .84rem !important; padding: .55rem .8rem !important; flex-wrap: wrap; gap: 4px; }
+      #page-b1hoeren .section-header span { font-size: .72rem !important; display: block; }
+      #page-b1hoeren .rule-box { padding: 8px 10px !important; font-size: .8rem !important; }
+      #page-b1hoeren .rule-box span { font-size: .76rem !important; }
+      #page-b1hoeren .fill-list { font-size: .84rem !important; line-height: 1.85 !important; padding: .6rem .5rem !important; }
+      #page-b1hoeren .fill-list li { display: flex; flex-wrap: wrap !important; align-items: center; gap: 2px 4px !important; padding: .4rem 0 !important; }
+      #page-b1hoeren .fill-list li strong { display: block; width: 100%; margin-bottom: 2px; }
+      #page-b1hoeren .fill-list input[type="text"] { font-size: .82rem !important; padding: 2px 5px !important; min-width: 0 !important; max-width: 130px !important; }
+      #page-b1hoeren .mcq-list { font-size: .82rem !important; padding-left: 0 !important; }
+      #page-b1hoeren .mcq-item p { font-size: .84rem !important; line-height: 1.5 !important; }
+      #page-b1hoeren .mcq-item .mcq-options { gap: 5px !important; flex-wrap: wrap !important; }
+      #page-b1hoeren .mcq-item .mcq-options label { font-size: .78rem !important; padding: .3rem .6rem !important; }
+      #page-b1hoeren .answer-box { padding: .6rem .7rem !important; font-size: .8rem !important; line-height: 1.65 !important; }
+      #page-b1hoeren audio { width: 100% !important; height: 32px !important; }
+      #page-b1hoeren #b1hoer-toc { border-radius: 10px !important; }
+      #page-b1hoeren #b1hoer-toc > div:first-child { padding: .6rem .9rem !important; font-size: .9rem !important; }
+      #page-b1hoeren #b1hoer-toc > div:last-child { padding: .6rem .7rem !important; }
+      #page-b1hoeren #b1hoer-toc ol { grid-template-columns: 1fr !important; gap: .4rem !important; }
+      #page-b1hoeren #b1hoer-toc li a { font-size: .8rem !important; padding: .4rem .6rem !important; }
+      #page-b1hoeren .btn { font-size: .8rem !important; padding: .45rem .8rem !important; margin-top: .5rem !important; margin-right: .3rem !important; }
+      #page-b1hoeren .exam-table { font-size: .78rem !important; }
+      #page-b1hoeren .exam-table th,
+      #page-b1hoeren .exam-table td { padding: 5px 7px !important; }
+    }
+
     /* --- Briefe page CSS --- */
     #page-schreiben .br-section {font-family:'Segoe UI',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);padding:20px}
     #page-schreiben .br-section * {color:#2d3748}
@@ -3638,13 +3672,18 @@ function createLoginPromptCard() {
 	    desc:'Grammatik aktiv A1-B1 互动练习 · 点击显隐答案 · 逐章对照',
 	    tags:'语法抄写 · 动词变位 · 冠词 · 介词 · 点击显答案',
 	    c1:'#6b21a8', c2:'#a78bfa', locked:false },
+	  { id:'b1hoeren', icon:'🎧', navLabel:'B1听力', cardTitleDe:'B1 Hörverstehen', cardSubDe:'Dialoge, Interviews & Radiobeiträge verstehen', cardTitle:'B1听力', group:'b1',
+	    hubStep:3, hubSkill:'Hören', hubSkillZh:'听力', hubAccent:'#60a5fa', hubTip:'磨耳朵：对话·采访·广播 — B1听力实战',
+	    desc:'B1进阶听力训练 · 对话·采访·广播 · 填空·选择·判断 · 内容陆续更新',
+	    tags:'B1听力 · 对话 · 采访 · 广播 · 综合理解',
+	    c1:'#2563eb', c2:'#60a5fa', locked:false },
 	  { id:'b1lesen', icon:'📰', navLabel:'B1阅读', cardTitleDe:'B1 Leseverstehen', cardSubDe:'Aktuelle Texte zu Gesellschaft & Kultur', cardTitle:'B1阅读', group:'b1',
-	    hubStep:3, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
+	    hubStep:4, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#0ea5e9', hubTip:'读时事：社会文化主题进阶阅读',
 	    desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
 	    tags:'B1阅读 · 进阶 · 主题阅读',
 	    c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
   { id:'b1-extensiv', icon:'📚', navLabel:'B1 大量阅读', cardTitleDe:'B1 Extensive Reading', cardSubDe:'18 Texte zu verschiedenen Themen', cardTitle:'B1 大量阅读', group:'b1',
-    hubStep:4, hubSkill:'Lesen', hubSkillZh:'大量阅读', hubAccent:'#0ea5e9', hubTip:'18 authentische Texte — quer durch alle B1-Themen',
+    hubStep:5, hubSkill:'Lesen', hubSkillZh:'大量阅读', hubAccent:'#0ea5e9', hubTip:'18 authentische Texte — quer durch alle B1-Themen',
     desc:'18篇B1拓展阅读 · 文化·社会·职场·环保·教育 — 多主题泛读',
     tags:'泛读 · 18篇 · B1 · 多主题',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
@@ -3673,7 +3712,7 @@ function createLoginPromptCard() {
 	    c1:'#a03030', c2:'#f5a0b0', locked:false },
 
 	  // ── 考试 ──
-	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitleDe:'Deutsch fürs Abitur (China)', cardSubDe:'Originale Abituraufgaben mit Lösungen', cardTitle:'高考德语', group:'b1', hubStep:5, hubSkill:'Prüfung', hubSkillZh:'高考德语', hubAccent:'#fbbf24', hubTip:'Originale Abituraufgaben: Gaokao Deutsch mit Lösungen',
+	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitleDe:'Deutsch fürs Abitur (China)', cardSubDe:'Originale Abituraufgaben mit Lösungen', cardTitle:'高考德语', group:'b1', hubStep:6, hubSkill:'Prüfung', hubSkillZh:'高考德语', hubAccent:'#fbbf24', hubTip:'Originale Abituraufgaben: Gaokao Deutsch mit Lösungen',
 	    desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
 	    tags:'高考真题 · 新高考卷 · 备考 · 2020',
 	    c1:'#b45309', c2:'#fbbf24', locked:false },
@@ -3707,8 +3746,8 @@ var HUBS = {
   a2: { id:'a2hub', icon:'🎓', navLabel:'A2 学习站', cardTitleDe:'A2 Lernstation', cardSubDe:'Grammatik · Grammatiktraining · Leseverstehen', cardTitle:'A2 学习站',
         desc:'语法 · 听力 · 阅读 · 写作 · 单元综合 — A2 全部内容集中入口，点进按需选择',
         tags:'歌德A2 · 五大板块 · 一站直达' },
-  b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Deutsche & englische Aussprache mit KI', cardTitle:'B1 学习站',
-        desc:'语法 · 语法抄写 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
+  b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Grammatik · Hören · Lesen — B1 Niveau', cardTitle:'B1 学习站',
+        desc:'语法 · 语法抄写 · 听力 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
   pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitleDe:'Aussprache-Training', cardTitle:'🎙️ 发音训练',
         desc:'德语发音器 + 英语发音器 — AI 语音识别 · 音素级评分 · 精准纠音',
@@ -3840,7 +3879,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
 };
 
 function openSearch() {
@@ -4224,13 +4263,13 @@ document.addEventListener('keydown', function(e) {
     <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B1</div>
     <h1>B1 学习站</h1>
-    <p class="a1hub-sub">语法 · 语法抄写 · 阅读 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
+    <p class="a1hub-sub">语法 · 语法抄写 · 听力 · 阅读 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
   </div>
 
   <div class="a1hub-path">
     <span class="a1hub-path-lbl">📈 建议学习路径</span>
     <div class="a1hub-path-flow">
-      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>📰 阅读</span>
+      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span>
     </div>
   </div>
 
@@ -4241,7 +4280,7 @@ document.addEventListener('keydown', function(e) {
 
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
-    Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 阅读
+    Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 听力 · 阅读
   </footer>
 
 </div>
@@ -18009,6 +18048,25 @@ function brToggleSample4() {
 #page-b1lesen #eg321-mcq-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen .score-badge{display:inline-block;background:#1a5a2a;color:#fff;border-radius:2rem;padding:.25rem .9rem;font-size:.85rem;font-weight:700}
 
+/* ═══ B1 听力 全局样式 ═══ */
+#page-b1hoeren .btn{display:inline-block;border:none;border-radius:22px;padding:10px 24px;font-size:.95rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:.8rem;margin-right:.4rem}
+#page-b1hoeren .btn-show{background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;border:none;padding:8px 18px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;margin:4px;transition:.2s}
+#page-b1hoeren .btn-show:hover{transform:scale(1.03)}
+#page-b1hoeren .btn-check{display:block;margin:16px auto 0;padding:10px 30px;background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;border:none;border-radius:25px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(37,99,235,.35);transition:transform .15s}
+#page-b1hoeren .btn-check:hover{transform:scale(1.04)}
+#page-b1hoeren .btn-reset{background:#64748b;color:#fff;border:none;padding:8px 18px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;margin:4px;transition:.2s}
+#page-b1hoeren .section-header{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#fde68a;padding:.85rem 1.3rem;border-radius:14px 14px 0 0;font-weight:700;font-size:1rem}
+#page-b1hoeren .section-body{padding:16px 20px}
+#page-b1hoeren .rule-box{background:rgba(30,58,95,.35);border:1px solid rgba(246,211,101,.12);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:.91rem;line-height:1.75;color:#e2e8f0}
+#page-b1hoeren .answer-box{display:none;background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.18);border-radius:10px;padding:14px 18px;margin-top:10px;font-size:.9rem;line-height:1.8;color:#e2e8f0}
+#page-b1hoeren .section{background:rgba(15,23,42,.5);border:1px solid rgba(246,211,101,.08);border-radius:14px;margin-bottom:20px;overflow:hidden}
+#page-b1hoeren .mcq-item{background:rgba(30,58,95,.2);border-radius:10px;padding:12px 16px;margin-bottom:8px}
+#page-b1hoeren .mcq-options{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+#page-b1hoeren .mcq-options label{cursor:pointer;padding:.35rem .75rem;border-radius:16px;font-size:.87rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#e2e8f0;transition:.2s}
+#page-b1hoeren .mcq-options label:hover{background:rgba(246,211,101,.1);border-color:rgba(246,211,101,.3)}
+#page-b1hoeren .mcq-options label.correct-ans{background:rgba(34,197,94,.2);border-color:#22c55e;color:#4ade80;font-weight:700}
+#page-b1hoeren .score-badge{display:inline-block;background:#1e3a5f;color:#fde68a;border-radius:2rem;padding:.35rem 1.2rem;font-size:.95rem;font-weight:700;border:1px solid rgba(246,211,101,.3)}
+
 /* ═══ Familie Born · 听写填空 Gap 样式 ═══ */
 .b1fb-gap{
   display:inline-block;
@@ -18792,6 +18850,49 @@ function brToggleSample4() {
 
 function a2ToggleAns(id) {
   document.getElementById(id).classList.toggle('show');
+}
+
+function b1ToggleAns(id) {
+  var el = document.getElementById(id);
+  if (el.style.display === 'block') { el.style.display = 'none'; }
+  else { el.style.display = 'block'; }
+}
+
+function b1HoerCheckAll() {
+  var total = 0, correct = 0;
+  // Check all mcq-list items in the B1 listening page
+  var items = document.querySelectorAll('#page-b1hoeren .mcq-item');
+  items.forEach(function(item) {
+    var ans = item.getAttribute('data-ans');
+    if (!ans) return;
+    var radios = item.querySelectorAll('input[type="radio"]');
+    radios.forEach(function(r) {
+      r.parentElement.classList.remove('correct-ans');
+      if (r.checked && r.value === ans) { correct++; }
+    });
+    // Highlight correct answer
+    radios.forEach(function(r) {
+      if (r.value === ans) { r.parentElement.classList.add('correct-ans'); }
+    });
+    total++;
+  });
+  var scoreEl = document.getElementById('b1hh-score');
+  if (scoreEl) {
+    scoreEl.innerHTML = '<span class="score-badge">' + correct + ' / ' + total + ' 正确</span>';
+  }
+}
+
+function b1HoerResetAll() {
+  var items = document.querySelectorAll('#page-b1hoeren .mcq-item');
+  items.forEach(function(item) {
+    var radios = item.querySelectorAll('input[type="radio"]');
+    radios.forEach(function(r) {
+      r.checked = false;
+      r.parentElement.classList.remove('correct-ans');
+    });
+  });
+  var scoreEl = document.getElementById('b1hh-score');
+  if (scoreEl) { scoreEl.innerHTML = ''; }
 }
 
 function a2CheckFill(listId) {
@@ -44117,7 +44218,13 @@ function b1S12CheckB(){
       <button class="se-ep" data-ep="4" onclick="showSerieEp(4)">第 4 集 · 药房取药</button>
       <button class="se-ep" data-ep="5" onclick="showSerieEp(5)">第 5 集 · 大学注册</button>
       <button class="se-ep" data-ep="6" onclick="showSerieEp(6)">第 6 集 · 超市购物</button>
-      <span class="se-ep soon">第 7 集（敬请期待）</span>
+      <button class="se-ep" data-ep="7" onclick="showSerieEp(7)">第 7 集 · 图书馆学习</button>
+      <button class="se-ep" data-ep="8" onclick="showSerieEp(8)">第 8 集 · WG 找房</button>
+      <button class="se-ep" data-ep="9" onclick="showSerieEp(9)">第 9 集 · 外管局延签</button>
+      <button class="se-ep" data-ep="10" onclick="showSerieEp(10)">第 10 集 · 学生打工</button>
+      <button class="se-ep" data-ep="11" onclick="showSerieEp(11)">第 11 集 · 德铁出行</button>
+      <button class="se-ep" data-ep="12" onclick="showSerieEp(12)">第 12 集 · 圣诞市场</button>
+      <span class="se-ep soon">第 13 集（敬请期待）</span>
     </div>
 
     <!-- ───── 第 1 集 ───── -->
@@ -45212,10 +45319,10 @@ function b1S12CheckB(){
       </div>
     </div>
 
-    <div class="se-next" onclick="showSerieEp(7)" style="cursor:pointer;opacity:.65" title="敬请期待">
-      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
-      <div class="se-next-title">第 7 集：林夏去图书馆学习</div>
-      <div class="se-next-desc">采购完毕、宿舍收拾妥当，林夏该开始学习了。她想去 <b>Bibliothek</b>（图书馆）找个安静的位置，却发现德国大学的图书馆和自习室规则跟国内完全不同……第 7 集正在制作中。</div>
+    <div class="se-next" onclick="showSerieEp(7)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 7 集：林夏去图书馆学习 →</div>
+      <div class="se-next-desc">采购完毕、宿舍收拾妥当，林夏该开始学习了。她想去 <b>Bibliothek</b>（图书馆）找个安静的位置，却发现德国大学的图书馆进门就要存包、阅读室里安静到不敢呼吸……<br><span style="color:#22d3ee;font-weight:700">点这里看第 7 集 →</span></div>
     </div>
     <!-- 水印 + 分享 -->
     <div class="se-watermark">
@@ -45223,8 +45330,1271 @@ function b1S12CheckB(){
     </div>
     </div><!-- /第6集 -->
 
+    <!-- ───── 第 7 集 ───── -->
+    <div class="se-episode" data-ep="7" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">来德国三周了，落户、银行、医保、注册全部搞定。冰箱也塞满了。今天终于可以开始正经学习——去大学图书馆。她听说德国图书馆和国内很不一样，但没想到进门第一关就卡住了。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      📚 开学第一周，林夏想找个安静的地方预习。宿舍太吵，咖啡馆太贵——去 <b>Bibliothek</b>！可她背着书包就往里走，却被一个自动闸机拦住了。原来要先存包。而且德国图书馆的安静程度让她连翻书都小心翼翼的……
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Am Eingang（在图书馆入口）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">图书管理员</div>
+          <div class="se-de"><b>Halt!</b> Sie können nicht mit dem <b>Rucksack</b> rein. Bitte <b>schließen</b> Sie ihn im <b>Schließfach</b> ein.</div>
+          <div class="se-zh">等一下！你不能背着书包进去。请存到储物柜里。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh! Das wusste ich nicht. Wo sind die Schließfächer?</div>
+          <div class="se-zh">啊！我不知道。储物柜在哪儿？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">图书管理员</div>
+          <div class="se-de">Im <b>Erdgeschoss</b>, links neben der Treppe. Sie brauchen eine <b>1-Euro-Münze</b>.</div>
+          <div class="se-zh">在一楼，楼梯左边。需要一枚 1 欧元硬币。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-de">Eine Münze? Ich habe nur <b>Scheine</b>…</div>
+          <div class="se-zh">硬币？我只有纸币……</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">图书管理员</div>
+          <div class="se-de">Kein Problem. Sie können am <b>Automaten</b> wechseln. Der Euro kommt <b>zurück</b>, wenn Sie das Fach wieder aufmachen.</div>
+          <div class="se-zh">没关系。可以在自动换币机上换。打开柜子时硬币会退回来。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-de">Ach so, gut. <b>Vielen Dank!</b></div>
+          <div class="se-zh">原来是这样。谢谢！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-intro" style="margin-top:18px">
+      🔇 存好包、刷了学生证，林夏走进二楼的 Lesesaal（阅览室）。推开门一瞬间——安静得像真空。所有人都在埋头看书，连打字的声音都显得格外刺耳。她悄悄找到一个 freier Platz（空位）。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Im Lesesaal（在阅览室——偶遇 Anna）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（小声）</div>
+          <div class="se-de">(flüstert) Lin Xia! <b>Zufall!</b> Lernst du auch hier?</div>
+          <div class="se-zh">（耳语）林夏！好巧！你也在这儿学习？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(flüstert) Anna! Ja, mein erster Tag in der <b>Bibliothek</b>. Aber es ist so <b>leise</b> hier…</div>
+          <div class="se-zh">（耳语）Anna！是我第一天来图书馆。这儿也太安静了……</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">(lacht leise) Klar! <b>Ruhe</b> ist das Wichtigste in deutschen Bibliotheken. Sprich nicht zu laut, sonst kommt eine <b>Ermahnung</b>.</div>
+          <div class="se-zh">（轻笑）当然！安静是德国图书馆最重要的事。别太大声，不然会被警告。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Wirklich? Wegen <b>Sprechen</b>?</div>
+          <div class="se-zh">真的吗？就因为说话？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Ja. Und <b>Essen</b> und <b>Trinken</b> sind auch <b>verboten</b>. Nur <b>Wasser</b> in einer durchsichtigen Flasche ist okay.</div>
+          <div class="se-zh">对。吃东西和喝饮料也不允许。只有透明瓶子装的水可以。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh… In China trinken wir oft <b>Tee</b> beim Lernen.</div>
+          <div class="se-zh">哇……在中国我们经常边喝茶边学习。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Hier leider nicht. Aber wenn du Bücher <b>ausleihen</b> willst, geh zum <b>Leihschalter</b>. Mit deinem <b>Studentenausweis</b> ist es <b>kostenlos</b>.</div>
+          <div class="se-zh">这儿不行。不过如果你想借书，去借书台。用你的学生证免费借。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Kostenlos? <b>Wie lange</b> darf ich die Bücher behalten?</div>
+          <div class="se-zh">免费？可以借多久？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Normalerweise <b>4 Wochen</b>. Du kannst <b>verlängern</b>, aber nur wenn niemand das Buch <b>vorgemerkt</b> hat. Sonst gibt es <b>Mahngebühren</b>.</div>
+          <div class="se-zh">一般是 4 周。可以续借，但只有在没人预约这本书的情况下才行。不然会有逾期罚款。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Alles klar!</b> Danke, Anna. Wo ist dein Platz? Vielleicht lernen wir <b>zusammen</b>?</div>
+          <div class="se-zh">明白了！谢谢 Anna。你坐哪儿？要不一起学？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Gerne! <b>Hinten rechts</b>, am Fenster. Da ist noch ein Platz <b>frei</b>. Komm mit!</div>
+          <div class="se-zh">好啊！右后方窗边，那儿还有个空位。跟我来！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Bibliothek</div><div class="w-zh">图书馆</div></div>
+      <div class="se-word"><div class="w-de">der Rucksack</div><div class="w-zh">背包</div></div>
+      <div class="se-word"><div class="w-de">das Schließfach</div><div class="w-zh">储物柜</div></div>
+      <div class="se-word"><div class="w-de">einschließen</div><div class="w-zh">锁好/存放（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">die Münze</div><div class="w-zh">硬币</div></div>
+      <div class="se-word"><div class="w-de">der Schein</div><div class="w-zh">纸币</div></div>
+      <div class="se-word"><div class="w-de">der Lesesaal</div><div class="w-zh">阅览室</div></div>
+      <div class="se-word"><div class="w-de">leise</div><div class="w-zh">安静的</div></div>
+      <div class="se-word"><div class="w-de">die Ruhe</div><div class="w-zh">安静/肃静</div></div>
+      <div class="se-word"><div class="w-de">die Ermahnung</div><div class="w-zh">警告（图书管理员给的）</div></div>
+      <div class="se-word"><div class="w-de">verboten</div><div class="w-zh">被禁止的</div></div>
+      <div class="se-word"><div class="w-de">ausleihen</div><div class="w-zh">借出（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">der Leihschalter</div><div class="w-zh">借书台</div></div>
+      <div class="se-word"><div class="w-de">die Leihfrist</div><div class="w-zh">借阅期限</div></div>
+      <div class="se-word"><div class="w-de">verlängern</div><div class="w-zh">续借/延长</div></div>
+      <div class="se-word"><div class="w-de">vormerken</div><div class="w-zh">预约（图书）</div></div>
+      <div class="se-word"><div class="w-de">die Mahngebühr</div><div class="w-zh">逾期罚款</div></div>
+      <div class="se-word"><div class="w-de">der Zufall</div><div class="w-zh">巧合/偶遇</div></div>
+      <div class="se-word"><div class="w-de">flüstern</div><div class="w-zh">耳语/小声说</div></div>
+      <div class="se-word"><div class="w-de">frei (Platz)</div><div class="w-zh">空的（位子）</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🔒</div>
+        <div class="se-trap-tx"><b>进图书馆必须存包。</b>德国大学图书馆入口有自动闸机，大包必须锁进 Schließfach。投 1 欧硬币（取回时退还），贵重物品随身带。这和国内直接背书包进完全不同。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🤫</div>
+        <div class="se-trap-tx"><b>绝对安静是铁律。</b>德国图书馆的 Lesesaal 里面连交谈都不允许——小声说话也可能被管理员警告（Ermahnung）。吃东西、喝饮料（水除外）一律禁止。手机必须调静音。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📅</div>
+        <div class="se-trap-tx"><b>超期罚款很贵。</b>借书逾期不还，Mahngebühr 会逐周累加。如果别人预约了你这本书，图书馆会发邮件催促——再不理就升级罚款甚至锁账号。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📖</div>
+        <div class="se-trap-tx"><b>Lehrbuchsammlung 是宝藏。</b>每所大学图书馆都有教科书专区（Lehrbuchsammlung），教授指定的教材在这里可以免费借，但通常借期短（2-4小时或过夜），因为所有学生都要用。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(8)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 8 集：林夏去找 WG 房子 →</div>
+      <div class="se-next-desc">图书馆可以天天泡，但住的地方马上到期了。林夏被告知临时宿舍只剩两周——她必须在慕尼黑这个全德租房最难的城市找到一间 WG。Anna 陪她去看房，结果发现一个房间有 50 个人在抢，还被问了一堆关于 Putzplan（值日表）和 Lieblingsmusik 的问题……<br><span style="color:#22d3ee;font-weight:700">点这里看第 8 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第7集 -->
+
+    <!-- ───── 第 8 集 ───── -->
+    <div class="se-episode" data-ep="8" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">临时的短租宿舍只剩两周了。图书馆可以天天泡，但住的地方不能没有。Anna 推荐了 WG-Gesucht，说这是德国大学生最常用的合租网站。但慕尼黑的房源比北京的还难抢——一个 WG 房间常有 50+ 人申请，看房过程叫 WG-Casting（合租面试），租客要推销自己。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🏠 在德国，尤其是在慕尼黑找房，是每个留学生逃不掉的噩梦。林夏打开 <b>WG-Gesucht</b>，满屏幕的缩写：2er WG, Kaltmiete, NK, KT, WB……还好 Anna 是本地人，帮忙翻译了一遍。今天，Anna 陪她去看第一个 WG，一套三个人合租的老公寓。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Die Begriffe（先搞懂术语——Anna 给林夏扫盲）</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Anna, was bedeutet <b>Kaltmiete</b> 380 € plus <b>Nebenkosten</b> 120 €?</div>
+          <div class="se-zh">Anna，冷租 380 欧加杂费 120 欧是什么意思？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Kaltmiete ist nur die <b>reine Miete</b> für das Zimmer. Nebenkosten sind <b>Heizung</b>, <b>Wasser</b>, <b>Müll</b>. Zusammen heißt das <b>Warmmiete</b> — 500 €.</div>
+          <div class="se-zh">冷租是纯房租。杂费包括暖气、水、垃圾费。加起来叫暖租——500 欧。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Und was ist <b>KT</b> und <b>Kaution</b>?</div>
+          <div class="se-zh">那 KT 和押金是什么？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">KT ist die Kaution — meistens <b>2 oder 3 Kaltmieten</b>. Also vielleicht 760–1140 €. Die bekommst du <b>zurück</b> beim Auszug, wenn alles okay ist.</div>
+          <div class="se-zh">KT 就是押金——通常是 2-3 个月冷租。大约 760-1140 欧。搬走时房子没问题会退给你。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">So viel Geld auf einmal?! Und was bedeutet <b>Zweck-WG</b> und <b>keine Zweck-WG</b>?</div>
+          <div class="se-zh">一次要给这么多？！那 Zweck-WG 和 keine Zweck-WG 又是什么意思？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Gute Frage! <b>Zweck-WG</b> heißt: jeder lebt für sich, wenig Kontakt. <b>Keine Zweck-WG</b> heißt: man kocht <b>zusammen</b>, redet viel, macht vielleicht <b>WG-Abende</b>. Die meisten Studenten suchen keine Zweck-WG — also musst du zeigen, dass du <b>nett</b> und <b>ungezwungen</b> bist.</div>
+          <div class="se-zh">好问题！Zweck-WG 就是各自生活，没什么交流。keine Zweck-WG 就是大家一起做饭、聊天、过 WG 之夜。大多数学生都不是找纯目的性合租——所以你得展示自己友善、好相处。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · WG-Casting（合租面试——来看房）</div>
+    <div class="se-intro" style="margin-bottom:16px">
+      🚪 林夏和 Anna 按了门铃。来开门的是一个男生和一个女生——这间 3er WG 的两个现室友：Felix 和 Lena。客厅桌上摆着茶和饼干——这就是传说中的 WG-Casting。
+    </div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix（室友）</div>
+          <div class="se-de">Hi! Du bist Lin Xia, oder? Ich bin Felix, das ist Lena. <b>Komm rein!</b> Möchtest du einen Tee?</div>
+          <div class="se-zh">嗨！你是林夏吧？我是 Felix，这是 Lena。进来吧！要茶吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Hallo! Ja, gerne. <b>Danke!</b> Das ist meine Freundin Anna.</div>
+          <div class="se-zh">你们好！好的，谢谢。这是我朋友 Anna。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">Hi! <b>Erzähl mal</b> — was machst du? Woher kommst du?</div>
+          <div class="se-zh">嗨！说说吧——你是做什么的？从哪儿来？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich <b>studiere</b> <b>Betriebswirtschaft</b> im Master an der LMU. Ich komme aus China. Ich bin seit drei Wochen in München.</div>
+          <div class="se-zh">我在 LMU 读企业经济学硕士，从中国来。到慕尼黑三周了。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix</div>
+          <div class="se-de">Cool! Und was machst du gern in der <b>Freizeit</b>?</div>
+          <div class="se-zh">酷！你业余时间喜欢干什么？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich <b>koche</b> gern — auch chinesische Gerichte. Und ich mag <b>Joggen</b> im <b>Englischen Garten</b>. Und <b>Filme</b> schauen.</div>
+          <div class="se-zh">我喜欢做饭——做中国菜。也喜欢在英国花园跑步。还有看电影。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">(lacht) Oh, chinesisches Essen — <b>das klingt super!</b> Wir haben einen <b>Putzplan</b>. Jeder putzt einmal die Woche das Bad oder die Küche. Ist das okay für dich?</div>
+          <div class="se-zh">（笑）哦，中餐听起来太棒了！我们有个值日表，每人每周轮流打扫浴室或厨房。你可以接受吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Klar, <b>kein Problem!</b> Putzplan ist gut — dann weiß jeder, was er <b>machen muss</b>.</div>
+          <div class="se-zh">当然，没问题！值日表挺好的——这样每个人都知道自己该干什么。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix</div>
+          <div class="se-de">Perfekt. Das Zimmer ist <b>16 m²</b>, <b>hell</b>, mit <b>Parkettboden</b>. Die Warmmiete beträgt 500 €. Wir zeigen dir den <b>Mietvertrag</b> — kannst du ihn <b>mitnehmen</b> und in Ruhe lesen.</div>
+          <div class="se-zh">太好了。房间 16 平米，明亮，木地板。暖租 500 欧。我们给你看合同——你可以带回去仔细看。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Das ist <b>total nett</b> von euch! Wann <b>entscheidet</b> ihr?</div>
+          <div class="se-zh">你们太好了！你们什么时候决定？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">Wir haben noch <b>zwei andere</b> Bewerber. Aber wir <b>melden uns</b> am Wochenende, okay?</div>
+          <div class="se-zh">还有两个其他人申请。我们周末联系你，好吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Okay! <b>Danke für die Einladung!</b> Egal wie es ausgeht — es war sehr nett.</div>
+          <div class="se-zh">好的！谢谢邀请！不管结果如何——和你们聊得很开心。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（出门后）</div>
+          <div class="se-de">Das hast du <b>super</b> gemacht! Sie mochten dich. <b>Daumen drücken!</b></div>
+          <div class="se-zh">你表现得超好！他们喜欢你的。祝好运！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die WG (=Wohngemeinschaft)</div><div class="w-zh">合租/合住</div></div>
+      <div class="se-word"><div class="w-de">der Mitbewohner / -in</div><div class="w-zh">室友</div></div>
+      <div class="se-word"><div class="w-de">die Kaltmiete</div><div class="w-zh">冷租（纯房租，不含杂费）</div></div>
+      <div class="se-word"><div class="w-de">die Warmmiete</div><div class="w-zh">暖租（冷租+杂费）</div></div>
+      <div class="se-word"><div class="w-de">die Nebenkosten (NK)</div><div class="w-zh">杂费（暖气/水/垃圾）</div></div>
+      <div class="se-word"><div class="w-de">die Kaution (KT)</div><div class="w-zh">押金（一般 2-3 个月冷租）</div></div>
+      <div class="se-word"><div class="w-de">die Besichtigung</div><div class="w-zh">看房</div></div>
+      <div class="se-word"><div class="w-de">der Mietvertrag</div><div class="w-zh">租房合同</div></div>
+      <div class="se-word"><div class="w-de">der Putzplan</div><div class="w-zh">值日/打扫表</div></div>
+      <div class="se-word"><div class="w-de">Zweck-WG</div><div class="w-zh">纯目的性合租（各自生活）</div></div>
+      <div class="se-word"><div class="w-de">keine Zweck-WG</div><div class="w-zh">非纯目的合租（有共同生活）</div></div>
+      <div class="se-word"><div class="w-de">der WG-Abend</div><div class="w-zh">合租之夜/室友聚会</div></div>
+      <div class="se-word"><div class="w-de">WG-Casting</div><div class="w-zh">合租面试（看房+面聊）</div></div>
+      <div class="se-word"><div class="w-de">der Bewerber / -in</div><div class="w-zh">申请人</div></div>
+      <div class="se-word"><div class="w-de">sich melden</div><div class="w-zh">联系/回复（反身动词）</div></div>
+      <div class="se-word"><div class="w-de">Daumen drücken!</div><div class="w-zh">祝好运！（德语常用）</div></div>
+      <div class="se-word"><div class="w-de">ungezwungen</div><div class="w-zh">不拘束的/随和的</div></div>
+      <div class="se-word"><div class="w-de">in Ruhe</div><div class="w-zh">从容地/慢慢地</div></div>
+      <div class="se-word"><div class="w-de">die Freizeit</div><div class="w-zh">业余时间/休闲</div></div>
+      <div class="se-word"><div class="w-de">hell</div><div class="w-zh">明亮的</div></div>
+      <div class="se-word"><div class="w-de">der Parkettboden</div><div class="w-zh">木地板</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🏠</div>
+        <div class="se-trap-tx"><b>WG-Casting 是面试，不是看房。</b>在德国找合租，现室友会邀请你聊天喝茶——这就是 WG-Casting。他们不只看你付不付得起房租，更看你这个人好不好相处。30 分钟的聊天决定你能不能住进来。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📊</div>
+        <div class="se-trap-tx"><b>慕尼黑找房是地狱难度。</b>一个 WG 房间平均有 50-100 人申请。留学生因为语言和收入证明的劣势更难。建议：多发申请、写一段真诚的个人介绍、看房时主动问关于 WG 生活的问题。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💰</div>
+        <div class="se-trap-tx"><b>Warmmiete 才是一切的真实价格。</b>看广告时别只看 Kaltmiete——把 Nebenkosten 加上才是你每月要付的钱。另外合同里还要确认：电费（Strom）和网费（Internet）是不是已经包含在 NK 里。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📋</div>
+        <div class="se-trap-tx"><b>签合同前注意 Wohnungsgeberbestätigung。</b>这是房东确认你在此居住的证明——办落户登记（Anmeldung）必须用它。签合同前问清楚：房东能不能给出这个证明？没有的话就办不了 Anmeldung。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(9)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 9 集：林夏去外管局延签 →</div>
+      <div class="se-next-desc">房子有着落了（Felix 和 Lena 选了她！），但更大的麻烦逼近——入境签证只剩不到一个月。在德国逾期滞留是严重违规。林夏凌晨 5 点起来在网上刷 Ausländerbehörde 的 Termin，终于抢到一个。今天她要去面对德国 bureaucratic 的真正考验……<br><span style="color:#22d3ee;font-weight:700">点这里看第 9 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第8集 -->
+
+    <!-- ───── 第 9 集 ───── -->
+    <div class="se-episode" data-ep="9" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">WG 房子搞定了（Felix 和 Lena 选了林夏！），但入境签证的 3 个月有效期眼看就要到期。在德国逾期滞留会留下不良记录，甚至影响以后入境申根区。凌晨 5 点，林夏设了三个闹钟起来刷 Ausländerbehörde 的预约——终于抢到一个。今天是去外管局的大日子。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🛂 德国外管局（<b>Ausländerbehörde</b>）在留学生圈子里有"恐怖屋"的别名。没有 Termin 根本进不去、材料少一张就白跑、排队按小时算、签证官（Sachbearbeiter）的决定可以直接影响你接下来几年的生活。林夏把所有材料核对三遍，文件夹里整整齐齐——今天决定她在德国的未来。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Am Empfang（在外管局入口处）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🛂</div>
+        <div class="se-bubble">
+          <div class="se-spk">安保人员</div>
+          <div class="se-de">Guten Morgen. Ihren <b>Termin</b>, bitte. Und Ihren <b>Pass</b>.</div>
+          <div class="se-zh">早上好。请出示预约确认和护照。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Guten Morgen. <b>Hier</b>, bitte. Mein Termin ist um <b>9:30 Uhr</b>.</div>
+          <div class="se-zh">早上好。给您。我预约的是 9:30。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🛂</div>
+        <div class="se-bubble">
+          <div class="se-spk">安保人员</div>
+          <div class="se-de">Okay. <b>Warten Sie</b> im <b>Wartebereich</b>. Ihre <b>Nummer</b> wird aufgerufen. Zimmer <b>204</b>.</div>
+          <div class="se-zh">好的。在等候区等。会叫号的。204 房间。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-de">Danke. Wie lange <b>dauert</b> es <b>ungefähr</b>?</div>
+          <div class="se-zh">谢谢。大概要等多久？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🛂</div>
+        <div class="se-bubble">
+          <div class="se-spk">安保人员</div>
+          <div class="se-de">Schwer zu sagen. Vielleicht <b>30 Minuten</b>, vielleicht <b>2 Stunden</b>. Kommt drauf an.</div>
+          <div class="se-zh">不好说。也许 30 分钟，也许 2 小时。看情况。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Beim Sachbearbeiter（和签证官面谈）</div>
+    <div class="se-intro" style="margin-bottom:16px">
+      ⏰ <b>1 小时 40 分钟后</b>，电子屏终于显示了林夏的号码。她深吸一口气，敲了 204 的门。
+    </div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">签证官（Herr Schuster）</div>
+          <div class="se-de">Guten Tag, Frau Lin. <b>Nehmen Sie Platz.</b> Sie möchten Ihre <b>Aufenthaltserlaubnis</b> <b>verlängern</b> — für Ihr Studium, richtig?</div>
+          <div class="se-zh">您好，林女士。请坐。您想延长居留许可——是为大学学习，对吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Genau. Ich studiere <b>Betriebswirtschaft</b> an der LMU. Mein Visum <b>läuft</b> nächsten Monat <b>ab</b>.</div>
+          <div class="se-zh">是的。我在 LMU 读企业经济学。我的签证下个月就到期了。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Schuster</div>
+          <div class="se-de">Gut. Ihre <b>Unterlagen</b>, bitte. <b>Immatrikulationsbescheinigung</b>, <b>Krankenversicherung</b>, <b>Finanzierungsnachweis</b>…</div>
+          <div class="se-zh">好的。请给我您的材料。注册证明、医保证明、资金证明……</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(递过文件夹) Ja, alles <b>dabei</b>. Hier ist auch mein <b>Sperrkonto</b>-Nachweis — <b>11.208 Euro</b> für ein Jahr.</div>
+          <div class="se-zh">（递过去）是的，都带了。这是我的冻结账户证明——一年 11,208 欧。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Schuster</div>
+          <div class="se-de">(翻看材料) Hmm… die <b>Immatrikulationsbescheinigung</b> ist vom <b>letzten</b> Semester. Haben Sie die <b>aktuelle</b> für dieses Semester?</div>
+          <div class="se-zh">嗯……注册证明是上个学期的。您有这学期的最新版本吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh… ich dachte, die ist noch <b>gültig</b>… Kann ich sie <b>nachreichen</b>?</div>
+          <div class="se-zh">啊……我以为那个还有效……我可以补交吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Schuster</div>
+          <div class="se-de">Ja, das können Sie. Aber ohne die aktuelle Bescheinigung kann ich heute nur eine <b>Fiktionsbescheinigung</b> ausstellen — eine <b>vorläufige</b> Bestätigung, dass Ihr Antrag <b>in Bearbeitung</b> ist.</div>
+          <div class="se-zh">可以补交。但没有最新注册证明，我今天只能给您开一张 Fiktionsbescheinigung——一份临时证明，确认您的申请正在处理中。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ist das <b>schlimm</b>? Kann ich damit <b>reisen</b>?</div>
+          <div class="se-zh">那严重吗？我还能用这个出行吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Schuster</div>
+          <div class="se-de"><b>Keine Sorge</b> — die Fiktionsbescheinigung <b>verlängert</b> Ihren aktuellen Aufenthaltstitel, bis der neue <b>fertig</b> ist. Reisen innerhalb des Schengen-Raums ist okay. Sobald Sie die neue Immatrikulation <b>einreichen</b>, bekommen Sie Ihren <b>Aufenthaltstitel</b> per Post.</div>
+          <div class="se-zh">别担心——Fiktionsbescheinigung 会延长您当前的居留权限，直到新卡办下来。申根区内的旅行可以。一旦您提交了新的注册证明，我们会把居留卡邮寄给您。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Puh</b>, okay. Das ist eine <b>Erleichterung</b>. Vielen Dank, Herr Schuster!</div>
+          <div class="se-zh">呼，好的。松了一大口气。非常感谢，Schuster 先生！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Schuster</div>
+          <div class="se-de">Gerne. <b>Denken Sie daran</b> — die neue Immatrikulationsbescheinigung <b>innerhalb von 2 Wochen</b> nachreichen. Dann bekommen Sie Ihren Aufenthaltstitel für <b>2 Jahre</b>. Viel Erfolg im Studium!</div>
+          <div class="se-zh">不客气。记住——两周内补交新的注册证明。然后您就能拿到两年的居留卡。祝学业顺利！</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🎉 林夏走出外管局大楼，慕尼黑的阳光正好。Fiktionsbescheinigung 在手心——虽然还不是正式居留卡，但足够让她合法留下来。她立刻给 Anna 发了条 WhatsApp："Geschafft!! 💪"
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Ausländerbehörde</div><div class="w-zh">外管局/外国人管理局</div></div>
+      <div class="se-word"><div class="w-de">der Aufenthaltstitel</div><div class="w-zh">居留卡/居留许可</div></div>
+      <div class="se-word"><div class="w-de">die Aufenthaltserlaubnis</div><div class="w-zh">居留许可</div></div>
+      <div class="se-word"><div class="w-de">das Visum</div><div class="w-zh">签证</div></div>
+      <div class="se-word"><div class="w-de">verlängern</div><div class="w-zh">延长/续期</div></div>
+      <div class="se-word"><div class="w-de">ablaufen</div><div class="w-zh">到期（可分动词·时间）</div></div>
+      <div class="se-word"><div class="w-de">der Termin</div><div class="w-zh">预约</div></div>
+      <div class="se-word"><div class="w-de">die Unterlagen</div><div class="w-zh">材料/文件（复数）</div></div>
+      <div class="se-word"><div class="w-de">der Finanzierungsnachweis</div><div class="w-zh">资金证明</div></div>
+      <div class="se-word"><div class="w-de">das Sperrkonto</div><div class="w-zh">冻结账户（留学生必办）</div></div>
+      <div class="se-word"><div class="w-de">die Fiktionsbescheinigung</div><div class="w-zh">临时居留证明/白条</div></div>
+      <div class="se-word"><div class="w-de">vorläufig</div><div class="w-zh">临时的/暂时的</div></div>
+      <div class="se-word"><div class="w-de">der Antrag</div><div class="w-zh">申请</div></div>
+      <div class="se-word"><div class="w-de">in Bearbeitung</div><div class="w-zh">处理中</div></div>
+      <div class="se-word"><div class="w-de">beantragen</div><div class="w-zh">申请（动词）</div></div>
+      <div class="se-word"><div class="w-de">genehmigen</div><div class="w-zh">批准</div></div>
+      <div class="se-word"><div class="w-de">nachreichen</div><div class="w-zh">补交/后补</div></div>
+      <div class="se-word"><div class="w-de">gültig</div><div class="w-zh">有效的</div></div>
+      <div class="se-word"><div class="w-de">die Erleichterung</div><div class="w-zh">松了一口气/解脱</div></div>
+      <div class="se-word"><div class="w-de">Geschafft!</div><div class="w-zh">搞定了！（口语）</div></div>
+      <div class="se-word"><div class="w-de">Denken Sie daran!</div><div class="w-zh">请记住！（常用提醒表达）</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">📅</div>
+        <div class="se-trap-tx"><b>外管局的 Termin 是"稀有资源"。</b>慕尼黑、柏林等大城市的外管局预约要提前数月刷。很多人凌晨在官网等刷新。没有预约就去现场排队几乎不可能被接见——安保会直接劝退你。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📋</div>
+        <div class="se-trap-tx"><b>少一张纸 = 白跑一趟。</b>德国外管局对材料极度严格。最常被拒的几样：未更新学期的 Immatrikulationsbescheinigung、过期护照照片、Sperrkonto 金额不足（2026 年标准为每年 11,208 欧）。建议出发前三遍核对清单。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📄</div>
+        <div class="se-trap-tx"><b>Fiktionsbescheinigung 就是"白条"。</b>当材料不全或审核时间过长时，外管局会给你一张临时证明（俗称白条）。它可以合法延长你当前的居留状态——但如果要出入境（尤其离开申根区），务必确认白条上写的条款。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💰</div>
+        <div class="se-trap-tx"><b>Sperrkonto 是留学生专有制度。</b>非欧盟学生必须证明自己每年有足够钱（2026 年标准 ~11,208 欧），把钱锁在 Sperrkonto 里，每月最多取 1/12。这是为了防止留学生没钱滞留。开户推荐 Expatrio、Fintiba 或 Deutsche Bank。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(10)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 10 集：林夏找学生工 →</div>
+      <div class="se-next-desc">延签搞定了，但 Sperrkonto 每月只能取 934 欧——慕尼黑的房租就去了一大半。林夏在 Mensa 的公告栏上看到一张招工广告：大学图书馆招 HiWi（学生助理）。Anna 帮她改好了简历，今天她去面试……<br><span style="color:#22d3ee;font-weight:700">点这里看第 10 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第9集 -->
+
+    <!-- ───── 第 10 集 ───── -->
+    <div class="se-episode" data-ep="10" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">延签终于搞定了（白条在手，居留卡在寄来的路上），但下一个现实问题来了：Sperrkonto 每月只能取 934 欧，慕尼黑的房租就去了一大半。Anna 说她自己在学校图书馆做 HiWi，建议林夏也试试——不仅能赚钱，还能练德语。今天，林夏拿着改好的简历去面试。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      💼 在德国留学，非欧盟学生每年可以合法打工 <b>120 个全天</b>（或 240 个半天）。很多学生做 <b>HiWi</b>（wissenschaftliche Hilfskraft，学生助理）或 <b>Minijob</b>（月收入不超过 538 欧的微薪工作）。Anna 帮林夏在简历里加上了她的中文母语优势——图书馆正好需要能整理中文文献的人。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Vor dem Vorstellungsgespräch（面试前——Anna 帮林夏准备）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Okay Lin Xia — <b>keine Nervosität!</b> Die Stelle ist an <b>deiner</b> Bibliothek. Du kennst die Leute schon.</div>
+          <div class="se-zh">好了林夏——别紧张！这个职位就在你常去的图书馆。你本来就认识那里的人。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Aber ich habe noch nie in Deutschland <b>gearbeitet</b>. Was ist, wenn ich die Fragen nicht <b>verstehe</b>?</div>
+          <div class="se-zh">但我从来没在德国工作过。万一听不懂问题怎么办？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Dann sagst du einfach: „<b>Könnten Sie das bitte wiederholen?</b>" Das ist völlig <b>normal</b>. Du bewirbst dich als HiWi, nicht als <b>Managerin</b>.</div>
+          <div class="se-zh">那你就说"能请您重复一遍吗？"这完全正常。你是申请学生助理，又不是申请经理。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Stimmt. Und was ist mit <b>Steuern</b>? Brauche ich eine <b>Steueridentifikationsnummer</b>?</div>
+          <div class="se-zh">也对。那税呢？我需要税号吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Ja! Die hast du nach der Anmeldung <b>automatisch</b> per Post bekommen. Ein Brief vom <b>Bundeszentralamt für Steuern</b>. Schau mal in deinen <b>Unterlagen</b> nach.</div>
+          <div class="se-zh">对！你落户后会自动寄到你家的。联邦税务总局的一封信。翻翻你的文件。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh, der Brief, den ich fast <b>weggeworfen</b> hätte! Gut, dass du <b>Bescheid weißt</b>.</div>
+          <div class="se-zh">哦——我差点扔掉的那封信！还好你知道这些。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Das Vorstellungsgespräch（面试——和图书馆主任）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Dr. Bergmann（图书馆主任）</div>
+          <div class="se-de">Frau Lin, <b>schön</b>, dass Sie da sind. Erzählen Sie doch mal — warum <b>interessieren</b> Sie sich für die Stelle?</div>
+          <div class="se-zh">林女士，很高兴您能来。说说看——您为什么对这个职位感兴趣？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ich <b>verbringe</b> sehr viel Zeit in der Bibliothek. Die <b>Arbeitsatmosphäre</b> hier gefällt mir sehr. Und ich kann <b>Chinesisch</b> — das könnte <b>nützlich</b> sein für chinesische Fachliteratur.</div>
+          <div class="se-zh">我很多时间都在图书馆度过。这里的工作氛围我很喜欢。而且我会中文——对中文专业文献可能会有用。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Dr. Bergmann</div>
+          <div class="se-de">(nickt) Ja, das ist ein <b>Pluspunkt</b>. Haben Sie schon <b>Erfahrung</b> mit <b>Datenbanken</b> oder Bibliothekssystemen?</div>
+          <div class="se-zh">（点头）是的，这是加分项。您有数据库或图书馆系统的经验吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Direkt nicht, aber ich <b>lerne schnell</b>. In China habe ich im Studium viel mit <b>Literaturrecherche</b> gearbeitet.</div>
+          <div class="se-zh">直接经验没有，但我学得很快。在中国读本科时经常做文献检索。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Dr. Bergmann</div>
+          <div class="se-de">Gut. Die Stelle ist ein <b>Minijob</b> — <b>8 Stunden</b> pro Woche, 14 Euro pro Stunde. Das sind etwa <b>448 Euro</b> im Monat, <b>steuerfrei</b>. Passt das für Sie?</div>
+          <div class="se-zh">好的。这是微薪工作——每周 8 小时，时薪 14 欧。每月大约 448 欧，免税。您接受吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, <b>perfekt!</b> Das reicht für meine <b>Lebenshaltungskosten</b>. Und ich darf als <b>Studentin</b> aus China arbeiten, oder?</div>
+          <div class="se-zh">完美！够我的生活费了。我作为中国留学生可以打工吧？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Dr. Bergmann</div>
+          <div class="se-de">(lächelt) Ja, mit Ihrer <b>Aufenthaltserlaubnis</b> dürfen Sie bis zu <b>120 Tage</b> im Jahr arbeiten. 8 Stunden pro Woche ist <b>weit darunter</b>. Sie brauchen nur Ihre <b>Steuer-ID</b> und die <b>Krankenversicherung</b>.</div>
+          <div class="se-zh">（微笑）可以，持您的居留许可每年可工作最多 120 天。每周 8 小时远低于这个上限。您只需要税号和医保就行。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de"><b>Wunderbar!</b> Vielen Dank! Wann <b>erfahre</b> ich, ob ich die Stelle <b>bekomme</b>?</div>
+          <div class="se-zh">太好了！非常感谢！我什么时候能知道结果？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Dr. Bergmann</div>
+          <div class="se-de">Ich <b>melde mich</b> nächste Woche. Aber ich sage mal so — Sie haben <b>gute Chancen</b>.</div>
+          <div class="se-zh">我下周联系您。不过这么说吧——您机会很大。</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🎉 四天后，林夏收到了 Zusage（录用通知）。她在德国有了第一份合法收入——虽然是 Minijob，但足够让她不再每个月为房租发愁。而且，用德语工作的每一天，都是免费的语言课。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">der Minijob</div><div class="w-zh">微薪工作（月≤538€）</div></div>
+      <div class="se-word"><div class="w-de">der HiWi (wissenschaftliche Hilfskraft)</div><div class="w-zh">学生助理</div></div>
+      <div class="se-word"><div class="w-de">die Stelle</div><div class="w-zh">职位</div></div>
+      <div class="se-word"><div class="w-de">sich bewerben (um)</div><div class="w-zh">申请（反身动词+介词）</div></div>
+      <div class="se-word"><div class="w-de">die Bewerbung</div><div class="w-zh">申请/求职信</div></div>
+      <div class="se-word"><div class="w-de">der Lebenslauf</div><div class="w-zh">简历</div></div>
+      <div class="se-word"><div class="w-de">das Vorstellungsgespräch</div><div class="w-zh">面试</div></div>
+      <div class="se-word"><div class="w-de">die Arbeitserlaubnis</div><div class="w-zh">工作许可</div></div>
+      <div class="se-word"><div class="w-de">die Steueridentifikationsnummer</div><div class="w-zh">税号（Steuer-ID）</div></div>
+      <div class="se-word"><div class="w-de">die Sozialversicherung</div><div class="w-zh">社会保险</div></div>
+      <div class="se-word"><div class="w-de">steuerfrei</div><div class="w-zh">免税的</div></div>
+      <div class="se-word"><div class="w-de">der Pluspunkt</div><div class="w-zh">加分项/优势</div></div>
+      <div class="se-word"><div class="w-de">die Erfahrung</div><div class="w-zh">经验</div></div>
+      <div class="se-word"><div class="w-de">die Datenbank</div><div class="w-zh">数据库</div></div>
+      <div class="se-word"><div class="w-de">die Literaturrecherche</div><div class="w-zh">文献检索</div></div>
+      <div class="se-word"><div class="w-de">die Lebenshaltungskosten</div><div class="w-zh">生活费（复数）</div></div>
+      <div class="se-word"><div class="w-de">die Zusage</div><div class="w-zh">录用通知/同意</div></div>
+      <div class="se-word"><div class="w-de">gute Chancen haben</div><div class="w-zh">机会很大</div></div>
+      <div class="se-word"><div class="w-de">Bescheid wissen</div><div class="w-zh">知情/了解情况</div></div>
+      <div class="se-word"><div class="w-de">wegwerfen</div><div class="w-zh">扔掉（可分动词）</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">⏱️</div>
+        <div class="se-trap-tx"><b>留学生打工有严格限制。</b>持学生签证的非欧盟学生每年最多工作 <b>120 个全天</b>（或 240 个半天）。Minijob（月收入 ≤538€）免税免社保，超过这个额度就要缴 Sozialversicherung。千万不要超时——外管局会查。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📧</div>
+        <div class="se-trap-tx"><b>Steuer-ID 落户后自动寄到。</b>在德国只要办完 Anmeldung，Bundeszentralamt für Steuern 会自动给你寄税号信。别当垃圾邮件扔了——没有税号就没法合法工作。丢了可以重新申请。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📝</div>
+        <div class="se-trap-tx"><b>HiWi 是留学生最理想的工作。</b>大学里的 HiWi 岗位（图书馆、实验室、教研室助理）比餐厅端盘子更值得争取：时薪高（13-15€）、练专业德语、工作内容可写进简历、而且工作时间灵活配合上课。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(11)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 11 集：林夏坐德铁去旅行 →</div>
+      <div class="se-next-desc">有了工资，林夏终于可以稍微松一口气。Anna 提议周末一起去新天鹅堡——坐火车去！林夏第一次用 DB Navigator 买票，却被 Sparpreis、Flexpreis、Zugbindung 搞得头晕。更没想到的是，德铁的 Verspätung（晚点）从不让人失望……<br><span style="color:#22d3ee;font-weight:700">点这里看第 11 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第10集 -->
+
+    <!-- ───── 第 11 集 ───── -->
+    <div class="se-episode" data-ep="11" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">图书馆的 HiWi 工作做了一个月，林夏的德语进步飞快——每天被逼着用德语接电话、帮人查书。这周末 Anna 说"我们出去透透气"——去新天鹅堡！林夏负责买火车票。打开 DB Navigator 的一瞬间，她发现德国铁路的买票逻辑和国内 12306 完全是两个世界。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🚄 德国铁路（<b>Deutsche Bahn / DB</b>）是留学生绕不开的体验。ICE（高铁）、RE（区域快车）、Sparpreis（特价票）、Flexpreis（全价票）、Zugbindung（车次绑定）……还有那传说中的 <b>Verspätung</b>（晚点）。林夏今天要买两张从慕尼黑到菲森（Füssen）的票——去新天鹅堡的必经之路。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Fahrkarten kaufen（买火车票——林夏 vs DB Navigator）</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Anna, warum gibt es so viele <b>Optionen</b>? ICE, RE, RB… Und was ist der <b>Unterschied</b> zwischen Sparpreis und Flexpreis?</div>
+          <div class="se-zh">Anna，为什么这么多选项？ICE、RE、RB……而且 Sparpreis 和 Flexpreis 有什么区别？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Okay, ganz einfach: <b>Sparpreis</b> ist billiger, aber du musst <b>genau diesen Zug</b> nehmen — das heißt <b>Zugbindung</b>. <b>Flexpreis</b> ist teurer, aber du kannst jeden Zug an diesem Tag nehmen.</div>
+          <div class="se-zh">很简单：Sparpreis 更便宜，但你必须坐那一班车——这叫车次绑定。Flexpreis 更贵，但当天所有车次都能坐。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Also wie ein <b>Flugticket</b>? Wenn ich den Zug <b>verpasse</b>, ist das Ticket <b>wertlos</b>?</div>
+          <div class="se-zh">所以像机票一样？如果我误了车，票就作废了？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Nicht ganz — wenn <b>die Bahn selbst</b> Verspätung hat und du deinen Anschluss <b>verpasst</b>, dann <b>entfällt</b> die Zugbindung <b>automatisch</b>. Aber wenn du einfach <b>verschläfst</b> — Pech gehabt.</div>
+          <div class="se-zh">也不完全是——如果是德铁自己晚点导致你没赶上换乘车，车次绑定自动取消。但如果你睡过头——就没戏了。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Okay, ich nehme den Sparpreis. <b>Hin- und Rückfahrt</b> zusammen kostet… 38,60 €! Das ist ja <b>günstig!</b></div>
+          <div class="se-zh">好，我买特价票。往返加起来是……38.60 欧！挺便宜的！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Super! <b>Denk dran</b> — wir müssen <b>umsteigen</b> in Buchloe. Nur <b>12 Minuten</b> Zeit. Wenn der erste Zug <b>Verspätung</b> hat, wird es <b>knapp</b>.</div>
+          <div class="se-zh">太好了！记住——我们要在 Buchloe 换乘。只有 12 分钟时间。如果第一班车晚点，就很赶了。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Am Bahnhof（在火车站——德铁从不让人"失望"）</div>
+    <div class="se-intro" style="margin-bottom:16px">
+      🕗 周六早上，慕尼黑 Hbf（主火车站）。林夏和 Anna 提前 15 分钟到了站台。但是……
+    </div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Anna, auf der <b>Anzeigetafel</b> steht: RE 57506 — <b>„ca. 25 Minuten später"</b>. Was bedeutet das?</div>
+          <div class="se-zh">Anna，显示屏上写着：RE 57506——"约晚 25 分钟"。这是什么意思？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（叹了口气）</div>
+          <div class="se-de"><b>Typisch DB.</b> Unser Zug hat <b>Verspätung</b>. 25 Minuten — das heißt, wir <b>verpassen</b> den Anschluss in Buchloe.</div>
+          <div class="se-zh">典型的德铁。我们的车晚点了。25 分钟——这意味着我们赶不上 Buchloe 的换乘了。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh nein! Was machen wir jetzt? Ist das Ticket <b>umsonst</b>?</div>
+          <div class="se-zh">完了！现在怎么办？票白买了吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">Keine Panik. Wegen der <b>Verspätung</b> ist die Zugbindung <b>aufgehoben</b>. Wir können jetzt <b>jeden</b> Zug Richtung Füssen nehmen. Komm, ich such uns eine <b>Alternative</b> in der App.</div>
+          <div class="se-zh">别慌。因为晚点，车次绑定已经取消了。现在我们可以坐任何去菲森方向的火车。来，我在 App 里找替代路线。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(看着 Anna 在手机上操作) In China sind Züge <b>pünktlich</b> — fast auf die <b>Minute</b>. Ist Verspätung hier wirklich so <b>normal</b>?</div>
+          <div class="se-zh">（看着 Anna 操作手机）在中国火车很准时——几乎分秒不差。这儿晚点真的这么正常吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（笑了）</div>
+          <div class="se-de">Willkommen in Deutschland! <b>Pünktlichkeit</b> ist ein <b>Klischee</b> — zumindest bei der Bahn. Aber schau: Gleis 9, in 15 Minuten fährt ein RE nach Kempten. Wir steigen in Buchloe um. Klappt <b>diesmal</b>!</div>
+          <div class="se-zh">欢迎来到德国！"准时"是个刻板印象——至少在铁路上是这样。不过你看：9 号站台，15 分钟后有去 Kempten 的 RE。我们在 Buchloe 换乘。这次应该行！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(lacht) Okay — <b>Abenteuer Bahnfahren!</b> Aber das Schloss wird es <b>wert</b> sein.</div>
+          <div class="se-zh">（笑）好吧——坐火车也是场冒险！不过城堡应该值得。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de"><b>Auf jeden Fall!</b> Und weißt du was? Nächstes Mal probieren wir das <b>49-Euro-Ticket</b>. Damit fährst du einen ganzen Monat lang — nur nicht mit dem ICE.</div>
+          <div class="se-zh">当然！而且你知道吗？下次我们试试 49 欧全德通票。整个月随便坐——就是不能坐 ICE。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Deutsche Bahn (DB)</div><div class="w-zh">德国铁路</div></div>
+      <div class="se-word"><div class="w-de">der Bahnhof / Hbf</div><div class="w-zh">火车站 / 主火车站</div></div>
+      <div class="se-word"><div class="w-de">das Gleis</div><div class="w-zh">站台/轨道</div></div>
+      <div class="se-word"><div class="w-de">der ICE</div><div class="w-zh">高铁（城际快车）</div></div>
+      <div class="se-word"><div class="w-de">der RE (Regionalexpress)</div><div class="w-zh">区域快车</div></div>
+      <div class="se-word"><div class="w-de">der Sparpreis</div><div class="w-zh">特价票</div></div>
+      <div class="se-word"><div class="w-de">der Flexpreis</div><div class="w-zh">全价弹性票</div></div>
+      <div class="se-word"><div class="w-de">die Zugbindung</div><div class="w-zh">车次绑定</div></div>
+      <div class="se-word"><div class="w-de">die Hin- und Rückfahrt</div><div class="w-zh">往返行程</div></div>
+      <div class="se-word"><div class="w-de">umsteigen</div><div class="w-zh">换乘（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">der Anschluss</div><div class="w-zh">接驳/换乘车次</div></div>
+      <div class="se-word"><div class="w-de">die Verspätung</div><div class="w-zh">晚点/延误</div></div>
+      <div class="se-word"><div class="w-de">pünktlich</div><div class="w-zh">准时的</div></div>
+      <div class="se-word"><div class="w-de">die Anzeigetafel</div><div class="w-zh">显示屏（火车站）</div></div>
+      <div class="se-word"><div class="w-de">aufgehoben</div><div class="w-zh">被取消的（限制）</div></div>
+      <div class="se-word"><div class="w-de">das 49-Euro-Ticket</div><div class="w-zh">49 欧全德月票</div></div>
+      <div class="se-word"><div class="w-de">knapp</div><div class="w-zh">紧张的/勉强够的</div></div>
+      <div class="se-word"><div class="w-de">Typisch!</div><div class="w-zh">典型！（常用吐槽）</div></div>
+      <div class="se-word"><div class="w-de">Abenteuer</div><div class="w-zh">冒险</div></div>
+      <div class="se-word"><div class="w-de">es wert sein</div><div class="w-zh">值得</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🎫</div>
+        <div class="se-trap-tx"><b>Sparpreis 便宜但有代价。</b>特价票比全价便宜很多，但必须坐那一班车（Zugbindung）。德铁自身晚点导致误车，Zugbindung 自动取消——但如果是你自己迟到，票就废了。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">⏰</div>
+        <div class="se-trap-tx"><b>德铁的"准时"是段子。</b>2024 年德铁准点率不到 65%。长途 ICE 晚点 30 分钟以上是常态。换乘时间留 15-20 分钟以上，别信 App 上 5 分钟的换乘——那是在赌命。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💶</div>
+        <div class="se-trap-tx"><b>49-Euro-Ticket（Deutschlandticket）是神器。</b>每月 49 欧（2026 年可能微涨），全德 RE/RB/S-Bahn/公交随便坐。不能坐 ICE/IC/EC，但对学生日常出行和周末短途游绰绰有余。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(12)" style="cursor:pointer">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 下集预告</div>
+      <div class="se-next-title">第 12 集：林夏逛圣诞市场 →</div>
+      <div class="se-next-desc">12 月了，慕尼黑全城飘着 Zimt（肉桂）和 Glühwein 的香气。Felix 和 Lena 约林夏和 Anna 一起去 Marienplatz 的圣诞市场。这是林夏第一次体验德式圣诞节——从手工艺品到热红酒，从圣诞金字塔到 Lebkuchen 姜饼……<br><span style="color:#22d3ee;font-weight:700">点这里看第 12 集 →</span></div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第11集 -->
+
+    <!-- ───── 第 12 集 ───── -->
+    <div class="se-episode" data-ep="12" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">到德国快三个月了，从初秋到深冬。慕尼黑下了第一场雪。Felix 在 WG 群里发了条消息："Freitag Abend, Weihnachtsmarkt am Marienplatz?" 林夏只在电影里见过德国的圣诞市场——亮着彩灯的小木屋、冒着热气的 Glühwein、空气里飘着肉桂和烤杏仁的味道。今晚她终于要亲眼见到了。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🎄 德国的 <b>Weihnachtsmarkt</b>（圣诞市场）从 11 月底一直开到平安夜。慕尼黑市中心的 Marienplatz 圣诞市场是德国最古老、最著名的之一。小木屋里卖手工艺品、圣诞装饰、热红酒、烤香肠、姜饼……对林夏来说，这不仅是一场集市，更是她融入德国生活的一个重要时刻——和 Anna、Felix、Lena 一起，像一个真正的慕尼黑人。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Am Glühweinstand（热红酒摊前——Felix 请大家喝）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix</div>
+          <div class="se-de">So, <b>erste Runde</b> geht auf mich! Wer möchte einen <b>Glühwein</b>? Lin Xia, hast du das schon mal <b>probiert</b>?</div>
+          <div class="se-zh">好了，第一轮我请！谁要热红酒？林夏，你喝过吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Noch nie! In China trinken wir <b>Tee</b> im Winter. Aber es riecht <b>unglaublich</b> gut hier!</div>
+          <div class="se-zh">从来没！在中国冬天我们喝茶。但这里的味道闻起来太好了！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">Nimm den <b>Klassiker</b> — Glühwein mit <b>Zimt</b> und <b>Nelken</b>. Und pass auf: Die <b>Tasse</b> kostet <b>Pfand</b>, 3 Euro. Wenn du sie <b>zurückgibst</b>, bekommst du das Geld wieder.</div>
+          <div class="se-zh">试试经典款——肉桂丁香热红酒。注意：杯子有 3 欧押金。退回去钱就还给你。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Schon wieder Pfand! Genau wie die <b>Flaschen</b> im Supermarkt. Deutschland liebt Pfand, oder?</div>
+          <div class="se-zh">又是押金！跟超市的瓶子一样。德国真爱押金是吧？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna（笑）</div>
+          <div class="se-de">(lacht) <b>Willkommen im Pfand-Land!</b> Aber die Tasse ist ein schönes <b>Souvenir</b> — jedes Jahr gibt es ein neues <b>Motiv</b>. Manche Leute <b>sammeln</b> sie.</div>
+          <div class="se-zh">（笑）欢迎来到押金之国！不过杯子是很好的纪念品——每年都有新图案。有些人还收集呢。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（抿了一口）</div>
+          <div class="se-de">Mmm… <b>warm</b> und <b>würzig</b>. Das schmeckt nach <b>Weihnachten!</b> Ich behalte die Tasse — als <b>Erinnerung</b> an meinen ersten deutschen Weihnachtsmarkt.</div>
+          <div class="se-zh">唔……暖和又带香料味。这就是圣诞的味道！我要留着这个杯子——纪念我第一次逛德国圣诞市场。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · An den Marktständen（逛小木屋摊位——Lena 带林夏看手工艺品）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">Schau mal, Lin Xia — das ist eine <b>Weihnachtspyramide</b>. Die <b>Flügel</b> oben <b>drehen sich</b>, wenn die Kerzen brennen. Typisch <b>erzgebirgisch</b>.</div>
+          <div class="se-zh">你看林夏——这是圣诞金字塔。蜡烛点燃后，顶上的叶片会转。这是厄尔士山脉地区的特色手工艺。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Wow — alles <b>handgemacht</b>? Die sind ja <b>wunderschön</b>. Wie viel kostet so eine?</div>
+          <div class="se-zh">哇——全是手工的？太美了。这样一个多少钱？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de">Die kleine hier kostet <b>45 Euro</b>. Nicht billig, aber echte <b>Handarbeit</b> aus dem Erzgebirge. Meine Oma hat eine, die ist <b>über 50 Jahre alt</b>.</div>
+          <div class="se-zh">这个小号的 45 欧。不便宜，但真的是厄尔士山手工做的。我奶奶有一个，超过 50 年了。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(拿起一块木雕小星星) Vielleicht kaufe ich eine <b>kleinere</b> Sache — dieses <b>Holzstern</b>-Ornament ist auch schön. Als <b>Geschenk</b> für meine Familie in China.</div>
+          <div class="se-zh">（拿起一个木雕星星）也许我买个小的——这个木星星挂饰也很美。当礼物送给中国的家人。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix（手里多了两个纸袋）</div>
+          <div class="se-de">Und <b>Lebkuchen</b> dürfen nicht fehlen! Hier — <b>klassische Nürnberger Elisenlebkuchen</b>. Probier mal, Lin Xia. Mit <b>Schokolade</b> oder <b>Zuckerguss</b>?</div>
+          <div class="se-zh">姜饼也不能少！来——经典纽伦堡 Elisen 姜饼。尝尝，林夏。要巧克力的还是糖霜的？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Mit Schokolade, bitte! (咬了一口) Oh — der ist ganz <b>weich</b> und <b>nussig</b>. Ganz anders als die <b>harten</b> Lebkuchen, die ich kenne!</div>
+          <div class="se-zh">巧克力的！（咬了一口）哦——好软，还有坚果味。跟我认识的硬姜饼完全不一样！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-intro" style="margin:18px 0">
+      🎠 四个人逛到了圣诞市场的旋转木马前。Felix 非要拉所有人上去坐一圈——"Das ist <b>Tradition!</b>" Anna 翻了个白眼但笑着上去了。林夏坐在木马上，看彩灯在雪花里旋转——她第一次觉得，慕尼黑不只是她留学的地方，而是她的 <b>Zuhause</b>。
+    </div>
+
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de">(从旋转木马下来) Weißt du was, Lin Xia? <b>Nächsten Samstag</b> backen Lena und ich <b>Plätzchen</b>. Hast du Lust <b>mitzumachen</b>?</div>
+          <div class="se-zh">（从木马下来）你知道吗林夏？下周六我和 Lena 烤圣诞饼干。你想一起吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Oh ja! <b>Unbedingt!</b> Ich kann <b>chinesische Mondkuchen</b> machen — als <b>Tausch</b>? Plätzchen gegen Mondkuchen!</div>
+          <div class="se-zh">要要要！我还可以做中式月饼——交换？饼干换月饼！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩</div>
+        <div class="se-bubble">
+          <div class="se-spk">Lena</div>
+          <div class="se-de"><b>Deal!</b> Das wird der <b>beste</b> Plätzchen-Nachmittag <b>aller Zeiten</b>.</div>
+          <div class="se-zh">成交！这将会是有史以来最棒的饼干下午。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(看着飘落的雪花，端着热红酒) Danke, dass ihr mich <b>mitgenommen</b> habt. Ich dachte, Weihnachten allein in Deutschland wäre <b>einsam</b>. Aber heute fühlt es sich an wie… <b>Familie</b>.</div>
+          <div class="se-zh">（看着雪花，端着热红酒）谢谢你们带我来。我以为一个人在德国过圣诞节会很孤独。但今天感觉像……家人一样。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🙋🏼‍♀️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Anna</div>
+          <div class="se-de"><b>Ach</b>, Lin Xia — du <b>gehörst</b> doch jetzt <b>dazu</b>. <b>Frohe Weihnachten!</b></div>
+          <div class="se-zh">哎呀林夏——你现在是我们中的一员了。圣诞快乐！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">der Weihnachtsmarkt</div><div class="w-zh">圣诞市场</div></div>
+      <div class="se-word"><div class="w-de">der Glühwein</div><div class="w-zh">热红酒</div></div>
+      <div class="se-word"><div class="w-de">der Zimt</div><div class="w-zh">肉桂</div></div>
+      <div class="se-word"><div class="w-de">die Nelke</div><div class="w-zh">丁香</div></div>
+      <div class="se-word"><div class="w-de">würzig</div><div class="w-zh">有香料味的</div></div>
+      <div class="se-word"><div class="w-de">der Lebkuchen</div><div class="w-zh">姜饼</div></div>
+      <div class="se-word"><div class="w-de">die Weihnachtspyramide</div><div class="w-zh">圣诞金字塔</div></div>
+      <div class="se-word"><div class="w-de">handgemacht</div><div class="w-zh">手工制作的</div></div>
+      <div class="se-word"><div class="w-de">die Handarbeit</div><div class="w-zh">手工艺品</div></div>
+      <div class="se-word"><div class="w-de">das Souvenir</div><div class="w-zh">纪念品</div></div>
+      <div class="se-word"><div class="w-de">das Motiv</div><div class="w-zh">图案/主题</div></div>
+      <div class="se-word"><div class="w-de">sammeln</div><div class="w-zh">收集</div></div>
+      <div class="se-word"><div class="w-de">Plätzchen (Pl.)</div><div class="w-zh">圣诞饼干</div></div>
+      <div class="se-word"><div class="w-de">backen</div><div class="w-zh">烘焙</div></div>
+      <div class="se-word"><div class="w-de">der Zuckerguss</div><div class="w-zh">糖霜</div></div>
+      <div class="se-word"><div class="w-de">die Erinnerung</div><div class="w-zh">回忆/纪念</div></div>
+      <div class="se-word"><div class="w-de">einsam</div><div class="w-zh">孤独的</div></div>
+      <div class="se-word"><div class="w-de">dazugehören</div><div class="w-zh">属于其中的一员（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">Frohe Weihnachten!</div><div class="w-zh">圣诞快乐！</div></div>
+      <div class="se-word"><div class="w-de">der Tausch / tauschen</div><div class="w-zh">交换</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🍷</div>
+        <div class="se-trap-tx"><b>Glühwein 杯有押金。</b>每个热红酒杯有 2.5–4 欧的 Pfand。退杯退钱，不退等于买了杯子。很多人故意不退还——每年图案不同，德国家庭厨房里常有历年圣诞杯的收藏。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🎁</div>
+        <div class="se-trap-tx"><b>圣诞市场 11 月底就开。</b>不是圣诞节那几天才有！大部分城市的圣诞市场从 11 月最后一个周开到 12 月 24 日中午。平安夜当天下午就全部收摊了——因为德国人平安夜是家庭时间。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🍪</div>
+        <div class="se-trap-tx"><b>圣诞饼干（Plätzchen）是自己烤的。</b>德国人 12 月会大量烘焙各种圣诞饼干——Vanillekipferl、Zimtsterne、Spitzbuben……每家都有秘方。如果被邀请一起烤，这是很高的社交认可。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🕯️</div>
+        <div class="se-trap-tx"><b>Adventszeit（降临节）是圣诞倒计时。</b>从 12 月 1 日到 24 日，德国人用 Adventskalender（降临节日历）每天开一个小窗取巧克力。11 月底四个周日分别点一支 Adventskranz（降临节花环）上的蜡烛。</div>
+      </div>
+    </div>
+
+    <div class="se-next" style="opacity:.65" title="敬请期待">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
+      <div class="se-next-title">第 13 集：敬请期待</div>
+      <div class="se-next-desc">林夏在德国的故事还在继续——Plätzchen backen（圣诞饼干）、Silvester（跨年）、Fasching（狂欢节）……更多德国留学生活场景正在路上。</div>
+    </div>
+    <!-- 水印 + 分享 -->
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第12集 -->
+
     <div class="se-back" style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
-      <a href="#" onclick="showPage('serie-share');return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
+      <a href="#" onclick="openSerieShare(window._currentSerieEp||1);return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
       <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
     </div>
   </div>
@@ -45243,6 +46613,14 @@ function b1S12CheckB(){
     }
     page.scrollIntoView({ block: 'start' });
     window.scrollTo(0, 0);
+    window._currentSerieEp = ep;
+  };
+
+  /* 打开当前集的分享页 */
+  window.openSerieShare = function(ep) {
+    var iframe = document.querySelector('#page-serie-share iframe');
+    if (iframe) iframe.src = '林夏在德国_引流.html?ep=' + (ep || 1);
+    showPage('serie-share');
   };
 
   /* 丁达尔光：生成漂浮浮尘 */
@@ -55166,6 +56544,356 @@ function toggleAns(btn) {
 #page-b1-extensiv .btn-show:hover{background:rgba(246,211,101,.22)}
 </style>
 
+</div>
+
+<!-- ════════════════ B1 听力页面 ════════════════ -->
+<div id="page-b1hoeren" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
+<div style="max-width:860px;margin:0 auto">
+  <div style="text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(44,95,138,.35)">
+    <h1 style="font-size:1.8rem;margin-bottom:6px">🎧 B1 听力练习</h1>
+    <p style="opacity:.85;font-size:.97rem">Hören · Goethe-Zertifikat B1 · Zertifikatstraining</p>
+  </div>
+
+  <!-- 📋 目录 -->
+  <div class="section" id="b1hoer-toc" style="background:linear-gradient(135deg,#1e3a5f,#2c5f8a);border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.25);margin-bottom:1.6rem;max-width:860px;margin-left:auto;margin-right:auto">
+    <div style="padding:.85rem 1.3rem;border-bottom:2px solid rgba(246,211,101,.3);color:#fde68a;font-weight:700;font-size:1rem;letter-spacing:.02em">📋 听力目录 · Inhaltsverzeichnis</div>
+    <div style="padding:1rem 1.3rem">
+      <ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem">
+        <li><a href="#b1hoer-sec-1" style="display:block;padding:.55rem .85rem;background:rgba(255,255,255,.08);border-left:3px solid #b8860b;border-radius:6px;color:#fde68a;text-decoration:none;font-size:.92rem;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">🎧 <strong>听力 1</strong> · Zertifikatstraining Hören Teil 1 <span style="opacity:.7;font-size:.8rem;display:block;margin-top:2px">5 段短文本 · 10 道题 · 歌德 B1 考试格式</span></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 听力说明 -->
+  <div class="section">
+    <div class="section-header">🎧 使用说明</div>
+    <div class="section-body">
+      <div class="rule-box">
+        <strong>B1 听力练习方法：</strong><br>
+        1. 先读题目，预判内容<br>
+        2. 播放音频（如有），完成练习<br>
+        3. 对照答案，分析错误<br>
+        4. 重听音频，注意关键词<br>
+        5. 阅读听力原文，积累词汇和表达
+      </div>
+      <div style="background:#fff8e1;border-left:4px solid #f57f17;border-radius:6px;padding:.7rem 1rem;font-size:.91rem;color:#4a3000">
+        ⚠️ 本栏目听力材料正在建设中，内容将陆续添加。目前提供听力文本练习，音频链接待补充。
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════ 听力 1 · Zertifikatstraining Hören Teil 1 ════════════════ -->
+  <div class="section" id="b1hoer-sec-1" style="scroll-margin-top:20px">
+    <div class="section-header">🎧 听力 1 · Zertifikatstraining Hören Teil 1 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">Goethe-Zertifikat B1 · Modellsatz</span></div>
+    <div class="section-body">
+
+      <!-- 考试说明 -->
+      <div class="rule-box">
+        <strong>Zertifikatstraining · Hören Teil 1</strong><br>
+        <span style="color:#94a3b8;font-size:.88rem">Sie hören fünf kurze Texte. Zu jedem Text lösen Sie zwei Aufgaben. Lesen Sie zuerst die Aufgaben. Hören Sie dann den Text. Entscheiden Sie bei Aufgabe 1: richtig oder falsch? Wählen Sie bei Aufgabe 2 die richtige Antwort (a, b oder c).</span>
+      </div>
+
+      <!-- 🎵 音频播放条 -->
+      <div style="background:linear-gradient(135deg,rgba(30,58,95,.5),rgba(44,95,138,.4));border:1px solid rgba(246,211,101,.2);border-radius:12px;padding:16px 20px;margin-top:14px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:1.3rem">🔊</span>
+          <span style="font-weight:700;color:#fde68a;font-size:.95rem">Hören Teil 1 — Track 1.15</span>
+          <span style="font-size:.78rem;color:rgba(255,245,230,.5)">5 Texte · jeder Text 2×</span>
+        </div>
+        <audio controls style="width:100%;height:38px" preload="metadata">
+          <source src="audio/b1-horen-teil1.mp3" type="audio/mpeg">
+          Ihr Browser unterstützt keine Audiowiedergabe.
+        </audio>
+        <div style="font-size:.76rem;color:rgba(255,245,230,.45);margin-top:6px">💡 Tipp: Vor dem Hören die Aufgaben lesen — so wisst ihr, worauf ihr achten müsst.</div>
+      </div>
+
+      <!-- ═══ Beispiel ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:16px">
+        <div style="font-weight:700;color:#fde68a;font-size:.92rem;margin-bottom:10px;border-bottom:1px dashed rgba(246,211,101,.2);padding-bottom:8px">📋 Beispiel — Bahnhofsdurchsage</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 8px">Sie sind am Bahnhof und hören folgende Durchsage.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>00.</strong> Der IC 2213 nach Bonn fährt von Gleis 4 ab.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-bsp-q1" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-bsp-q1" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p style="color:#e2e8f0"><strong>00.</strong> Der ICE nach Berlin hat...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-bsp-q2" value="A"> A) keine Verspätung.</label>
+              <label><input type="radio" name="b1hh-bsp-q2" value="B"> B) 10 Minuten Verspätung.</label>
+              <label><input type="radio" name="b1hh-bsp-q2" value="C"> C) etwa 20 Minuten Verspätung.</label>
+            </div>
+          </div>
+        </div>
+        <!-- 双模式原文 -->
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-bsp')" style="margin-top:10px">📄 显示/隐藏 听力原文 (Transkript)</button>
+        <div class="answer-box" id="b1hh-trans-bsp">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Sehr geehrte Reisende, bitte beachten Sie: Am Gleis 5 und 6 finden zurzeit Bauarbeiten statt, deshalb kommt es zu folgenden Gleisänderungen: IC 2213 nach Bonn, Abfahrt 11:27 Uhr, fährt heute von Gleis 4 ab. Abfahrt Regionalexpress 4385 11:40 Uhr nach Rostock heute von Gleis 2. Ich wiederhole: Gleisänderung: IC 2213 nach Bonn, Abfahrt 11:27 Uhr, fährt heute von Gleis 4 ab. Abfahrt Regionalexpress 4385 11:40 Uhr nach Rostock heute von Gleis 2. Und noch eine Information für Reisende nach Berlin: Der InterCityExpress 2355, geplante Abfahrt 11:32 Uhr von Gleis 4, hat etwa 20 Minuten Verspätung."</em></p>
+        </div>
+      </div>
+
+      <!-- ═══ Text 1 · Isabells Portemonnaie ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:14px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:10px">📞 Text 1 — Nachricht auf dem Anrufbeantworter</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 10px">Sie hören eine Nachricht auf dem Anrufbeantworter.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>1.</strong> Isabell hat ihr Portemonnaie vielleicht bei Toni vergessen.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q1" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-q1" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>2.</strong> Isabell möchte, dass Toni...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q2" value="A"> A) sie sofort zurückruft.</label>
+              <label><input type="radio" name="b1hh-q2" value="B"> B) für sie einkaufen geht.</label>
+              <label><input type="radio" name="b1hh-q2" value="C"> C) ihr das Geld zurückgibt.</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-t1')">📄 显示/隐藏 听力原文</button>
+        <div class="answer-box" id="b1hh-trans-t1">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Hallo Toni, hier ist Isabell. Sag mal, habe ich vielleicht mein Portemonnaie bei dir zu Hause vergessen? Ich wollte gerade einkaufen gehen, aber ich kann mein Portemonnaie nicht finden. Heute Morgen hatte ich es noch in meiner Handtasche. Als ich heute Nachmittag bei dir war, habe ich es aus meiner Tasche genommen und dir das Geld für die Kinokarten gegeben. Kannst du bitte mal schauen, ob du es findest? Danke und bis später. Ruf mich doch bitte sofort zurück."</em></p>
+        </div>
+      </div>
+
+      <!-- ═══ Text 2 · Open-Air-Konzert ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:10px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:10px">📻 Text 2 — Information im Radio</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 10px">Sie hören eine Information im Radio.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>3.</strong> Man soll mit dem Auto zum Stadion fahren.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q3" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-q3" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p style="color:#e2e8f0"><strong>4.</strong> Der Sprecher empfiehlt persönlich,...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q4" value="A"> A) mit dem Bus zu fahren.</label>
+              <label><input type="radio" name="b1hh-q4" value="B"> B) am Messegelände zu parken.</label>
+              <label><input type="radio" name="b1hh-q4" value="C"> C) mit dem Fahrrad zu fahren.</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-t2')">📄 显示/隐藏 听力原文</button>
+        <div class="answer-box" id="b1hh-trans-t2">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Liebe Hörerinnen und Hörer, hier noch eine Bitte der Polizei an alle Besucher des Open-Air-Konzerts heute Abend im Stadion. Bitte fahren Sie mit dem Bus oder der S-Bahn zum Stadion. Es gibt dort keine Parkmöglichkeiten, weil die Parkplätze am Stadion zurzeit gesperrt sind. Wer mit dem Auto anreist, sollte möglichst am Messegelände parken und dann zu Fuß zum Stadion laufen. Mein persönlicher Tipp: Fahren Sie mit dem Fahrrad — heute bleibt es auch in der Nacht wolkenlos und warm."</em></p>
+        </div>
+      </div>
+
+      <!-- 🎧 中段音频播放器 -->
+      <div style="background:rgba(30,58,95,.3);border-radius:10px;padding:10px 14px;margin:10px 0">
+        <span style="font-size:.78rem;color:#fde68a;font-weight:600">🎧 Track 1.15 · Hören Teil 1</span>
+        <audio controls preload="metadata" style="width:100%;outline:none;margin-top:4px">
+          <source src="audio/b1-horen-teil1.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- ═══ Text 3 · Fahrrad gestohlen ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:10px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:10px">🚲 Text 3 — Anruf vom Polizeirevier</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 10px">Sie hören eine Nachricht auf dem Anrufbeantworter.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>5.</strong> Frau Börner hat ihr Fahrrad als gestohlen gemeldet.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q5" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-q5" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>6.</strong> Frau Börner soll...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q6" value="A"> A) in ihrem Keller nachsehen.</label>
+              <label><input type="radio" name="b1hh-q6" value="B"> B) zur Polizei kommen und die Fahrräder ansehen.</label>
+              <label><input type="radio" name="b1hh-q6" value="C"> C) einen Mann festnehmen.</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-t3')">📄 显示/隐藏 听力原文</button>
+        <div class="answer-box" id="b1hh-trans-t3">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Guten Tag, Frau Börner. Hier ist Hübner vom Polizeirevier Mitte. Sie haben letzten Monat eine Anzeige gegen unbekannt erstattet, weil Ihr Fahrrad gestohlen wurde. Wir haben letzte Woche einen Mann festgenommen und in seinem Keller mehrere Fahrräder entdeckt, die ihm nicht gehören. Es kann sein, dass wir auch Ihr Fahrrad gefunden haben. Bitte kommen Sie doch mal bei uns in der Brunnenstraße 7 vorbei und schauen Sie sich die Räder an. Auf Wiederhören!"</em></p>
+        </div>
+      </div>
+
+      <!-- ═══ Text 4 · Bank-Hotline ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:10px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:10px">🏦 Text 4 — Automatische Telefonansage</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 10px">Sie hören eine automatische Telefonansage.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>7.</strong> Wenn man die Drei wählt, kann man Geld überweisen.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q7" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-q7" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>8.</strong> Die Fünf wählt man, um...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q8" value="A"> A) direkt mit einem Berater verbunden zu werden.</label>
+              <label><input type="radio" name="b1hh-q8" value="B"> B) einen Termin zu vereinbaren.</label>
+              <label><input type="radio" name="b1hh-q8" value="C"> C) Informationen zu Produkten zu bekommen.</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-t4')">📄 显示/隐藏 听力原文</button>
+        <div class="answer-box" id="b1hh-trans-t4">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Herzlich willkommen bei der Direktfinanz! Wir sind gleich für Sie da. Wählen Sie bitte aus folgenden Möglichkeiten aus: Möchten Sie Informationen zu unseren Produkten, dann wählen Sie die Eins. Wenn Sie Geld überweisen möchten, wählen Sie bitte die Zwei. Wenn Sie Ihre Kredit- oder EC-Karte sperren möchten, wählen Sie die Drei. Möchten Sie einen Termin mit einem Berater in Ihrer Stadt vereinbaren, wählen Sie bitte die Vier. Soll ich Sie direkt mit einem Berater verbinden, dann wählen Sie die Fünf."</em></p>
+        </div>
+      </div>
+
+      <!-- ═══ Text 5 · Zugverspätung ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:10px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:10px">🚆 Text 5 — Durchsage im Zug</div>
+        <p style="font-size:.84rem;color:#94a3b8;font-style:italic;margin:0 0 10px">Sie hören folgende Durchsage im Zug.</p>
+        <div class="mcq-list">
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>9.</strong> Der Zug hat 25 Minuten Verspätung.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q9" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh-q9" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>10.</strong> Reisende nach Stuttgart können...</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh-q10" value="A"> A) den IC 578 von Gleis 11 nehmen.</label>
+              <label><input type="radio" name="b1hh-q10" value="B"> B) um 19:35 Uhr mit dem IC 769 von Gleis 9 fahren.</label>
+              <label><input type="radio" name="b1hh-q10" value="C"> C) um 19:05 Uhr den Intercity von Gleis 8 nehmen.</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" onclick="b1ToggleAns('b1hh-trans-t5')">📄 显示/隐藏 听力原文</button>
+        <div class="answer-box" id="b1hh-trans-t5">
+          <p style="margin:0;font-size:.85rem;line-height:1.9;color:#e2e8f0"><em>„Sehr geehrte Fahrgäste. Wir haben zurzeit 25 Minuten Verspätung und werden Hannover Hauptbahnhof in etwa fünfzehn Minuten, also um 18:50 Uhr erreichen. Auf die Fahrgäste nach Hamburg wartet am Gleis 11 der Anschlusszug IC 578. Der InterCityExpress 3497 nach Stuttgart kann leider nicht auf uns warten. Reisende nach Kassel können um 19:05 Uhr den Intercity von Gleis 8 nehmen. Die nächste Reisemöglichkeit nach Stuttgart ist um 19:35 Uhr mit dem IC 769 von Gleis 9. Bitte achten Sie auch auf die Durchsagen am Bahnhof."</em></p>
+        </div>
+      </div>
+
+      <!-- ═══ 批改 + 解析 ═══ -->
+      <div style="text-align:center;margin:24px 0 12px">
+        <button class="btn btn-check" onclick="b1HoerCheckAll()">📝 批改全部答案</button>
+        <button class="btn btn-reset" onclick="b1HoerResetAll()">🔄 重置全部</button>
+      </div>
+      <div id="b1hh-score" style="text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px"></div>
+
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh-explain')">📖 显示/隐藏 全部解析</button>
+      <div class="answer-box" id="b1hh-explain">
+        <strong>📖 解析：</strong><br><br>
+        <strong>Text 1 · Isabells Portemonnaie</strong><br>
+        <strong>1. Isabell hat ihr Portemonnaie vielleicht bei Toni vergessen. → ✅ richtig</strong><br>
+        原文：<em>„habe ich vielleicht mein Portemonnaie bei dir zu Hause vergessen?"</em> — Isabell 直接问她是否把钱包忘在 Toni 家了。<br>
+        <strong>2. Isabell möchte, dass Toni sie sofort zurückruft. → ✅ A)</strong><br>
+        原文最后一句：<em>„Ruf mich doch bitte sofort zurück."</em> — 明确选 A。<br><br>
+        <strong>Text 2 · Open-Air-Konzert</strong><br>
+        <strong>3. Man soll mit dem Auto zum Stadion fahren. → ❌ falsch</strong><br>
+        原文：<em>„Bitte fahren Sie mit dem Bus oder der S-Bahn … Es gibt dort keine Parkmöglichkeiten"</em> — 恰好相反。<br>
+        <strong>4. Der Sprecher empfiehlt persönlich, mit dem Fahrrad zu fahren. → ✅ C)</strong><br>
+        原文：<em>„Mein persönlicher Tipp: Fahren Sie mit dem Fahrrad"</em> — 明确选 C。<br><br>
+        <strong>Text 3 · Fahrrad gestohlen</strong><br>
+        <strong>5. Frau Börner hat ihr Fahrrad als gestohlen gemeldet. → ✅ richtig</strong><br>
+        原文：<em>„Sie haben … eine Anzeige … erstattet, weil Ihr Fahrrad gestohlen wurde"</em> — 她报案了。<br>
+        <strong>6. Frau Börner soll zur Polizei kommen und die Fahrräder ansehen. → ✅ B)</strong><br>
+        原文：<em>„kommen Sie doch mal bei uns … vorbei und schauen Sie sich die Räder an"</em><br><br>
+        <strong>Text 4 · Bank-Hotline</strong><br>
+        <strong>7. Wenn man die Drei wählt, kann man Geld überweisen. → ❌ falsch</strong><br>
+        原文：Drei = <em>„Kredit- oder EC-Karte sperren"</em>，Zwei = <em>„Geld überweisen"</em> — 混淆了！<br>
+        <strong>8. Die Fünf wählt man, um direkt mit einem Berater verbunden zu werden. → ✅ A)</strong><br>
+        原文：<em>„Soll ich Sie direkt mit einem Berater verbinden, dann wählen Sie die Fünf"</em><br><br>
+        <strong>Text 5 · Zugverspätung</strong><br>
+        <strong>9. Der Zug hat 25 Minuten Verspätung. → ✅ richtig</strong><br>
+        原文第一句：<em>„Wir haben zurzeit 25 Minuten Verspätung"</em> — 直接确认。<br>
+        <strong>10. Reisende nach Stuttgart können um 19:35 Uhr mit IC 769 von Gleis 9 fahren. → ✅ B)</strong><br>
+        原文：<em>„Die nächste Reisemöglichkeit nach Stuttgart ist um 19:35 Uhr mit dem IC 769 von Gleis 9"</em><br>
+        A) IC 578 是去汉堡的，C) 19:05 的 IC 是去卡塞尔的。
+      </div>
+
+      <!-- 词汇表 -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh-vocab')" style="margin-top:20px">📚 显示/隐藏 词汇语法</button>
+      <div class="answer-box" id="b1hh-vocab">
+        • <strong>der Anrufbeantworter, -</strong> = 电话答录机 · <strong>das Portemonnaie, -s</strong> = 钱包<br>
+        • <strong>vergessen (vergisst, vergaß, hat vergessen)</strong> = 忘记 · <strong>die Handtasche, -n</strong> = 手提包<br>
+        • <strong>die Durchsage, -n</strong> = 广播通知 · <strong>die Gleisänderung, -en</strong> = 站台变更<br>
+        • <strong>die Bauarbeiten (Pl.)</strong> = 施工工程 · <strong>gesperrt</strong> = 封锁的/关闭的<br>
+        • <strong>die Parkmöglichkeit, -en</strong> = 停车可能性/车位 · <strong>wolkenlos</strong> = 无云的<br>
+        • <strong>die Anzeige, -n</strong> = 报案 · <strong>Anzeige erstatten</strong> = 报案（固定搭配）<br>
+        • <strong>festnehmen (nimmt fest, nahm fest, hat festgenommen)</strong> = 逮捕 · <strong>entdecken</strong> = 发现<br>
+        • <strong>überweisen (überweist, überwies, hat überwiesen)</strong> = 转账 · <strong>sperren</strong> = 封锁/冻结<br>
+        • <strong>vereinbaren</strong> = 约定/商定 · <strong>der Berater, -</strong> = 顾问/咨询师<br>
+        • <strong>der Anschlusszug, -¨e</strong> = 接驳列车 · <strong>die Reisemöglichkeit, -en</strong> = 出行选择<br>
+        • <strong>achten auf + A</strong> = 注意/留意 · <strong>die Verspätung, -en</strong> = 延误/晚点<br>
+        • <strong>der Fahrgast, -¨e</strong> = 乘客 · <strong>erreichen</strong> = 到达/达到
+      </div>
+
+      <!-- 语法解析 -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh-grammatik')">📖 显示/隐藏 语法解析</button>
+      <div class="answer-box" id="b1hh-grammatik">
+        <strong>📖 Grammatik im Hörtext</strong><br><br>
+        <strong>1. Indirekte Fragesätze mit „ob" (间接问句)</strong><br>
+        公式：<em>Hauptsatz + ob + Nebensatz (Verb am Ende)</em><br>
+        文中例句：<em>„Kannst du bitte mal schauen, <strong>ob</strong> du es <strong>findest</strong>?"</em> (Text 1)<br>
+        ⚠️ ob = 是否（不确定）；dass = 陈述事实（确定的）。<br><br>
+        <strong>2. Perfekt 时态（口语过去时）</strong><br>
+        公式：<em>haben/sein + Partizip II</em><br>
+        文中例句：<em>„Ich <strong>habe</strong> es aus meiner Tasche <strong>genommen</strong>"</em> (Text 1)<br>
+        <em>„Wir <strong>haben</strong> letzte Woche einen Mann <strong>festgenommen</strong>"</em> (Text 3)<br>
+        <em>„weil Ihr Fahrrad <strong>gestohlen wurde</strong>"</em> (Text 3) — 被动态 Perfekt: sein + PII + worden<br><br>
+        <strong>3. Modalverben: sollen / können / möchten</strong><br>
+        公式：<em>Modalverb + … + Infinitiv (am Ende)</em><br>
+        文中例句：<em>„Wer mit dem Auto anreist, <strong>sollte</strong> möglichst am Messegelände <strong>parken</strong>"</em> (Text 2) — sollte = Konjunktiv II，表建议<br>
+        <em>„<strong>Möchten</strong> Sie einen Termin <strong>vereinbaren</strong>?"</em> (Text 4)<br>
+        ⚠️ Konjunktiv II 常用来表达礼貌（sollten, könnten, möchten）。<br><br>
+        <strong>4. weil 引导的原因从句</strong><br>
+        公式：<em>Hauptsatz + weil + Nebensatz (Verb am Ende)</em><br>
+        文中例句：<em>„Es gibt dort keine Parkmöglichkeiten, <strong>weil</strong> die Parkplätze zurzeit <strong>gesperrt sind</strong>."</em> (Text 2)<br>
+        ⚠️ weil → 动词句末（从句语序）；denn → 动词第二（主句语序）。<br><br>
+        <strong>5. Temporale Präpositionen: in / um</strong><br>
+        公式：<em>in + Dativ (时间段) / um + Akkusativ (钟点)</em><br>
+        文中例句：<em>„<strong>in</strong> etwa fünfzehn Minuten"</em> (Text 5) — 大约15分钟后<br>
+        <em>„<strong>um</strong> 18:50 Uhr"</em> (Text 5) — 在18:50<br>
+        ⚠️ in + 时间段 = 在…之后（未来）；um = 在…点钟（精确时间点）。
+      </div>
+
+      <!-- 考试技巧 -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh-tipps')">💡 显示/隐藏 答题技巧</button>
+      <div class="answer-box" id="b1hh-tipps">
+        <strong>💡 B1 Hören Teil 1 答题技巧 / Prüfungstipps：</strong><br><br>
+        <div style="font-size:.88rem;line-height:1.85;color:#e2e8f0">
+          <strong>1. 提前读题 (Vor dem Hören)</strong><br>
+          • 利用 Beispiel 的时间快速浏览全部 5 段文本的关键词<br>
+          • 重点关注 <strong>wer, wo, was, warum</strong>（谁、在哪里、什么事、为什么）<br><br>
+          <strong>2. 第一遍听 (1. Durchgang)</strong><br>
+          • 先做 <strong>richtig/falsch</strong> 题（奇数题），判断整体内容是否与陈述一致<br>
+          • 注意听 <strong>否定词</strong>（nicht, kein, nie…）和 <strong>转折词</strong>（aber, sondern, allerdings…）<br><br>
+          <strong>3. 第二遍听 (2. Durchgang)</strong><br>
+          • 集中做 <strong>三选一</strong> 题（偶数题），仔细辨别细节差异<br>
+          • 干扰项常见套路：① 偷换主语 ② 时间/地点错位 ③ 部分正确但整体错误<br><br>
+          <strong>4. 关键信号词 (Signalwörter)</strong><br>
+          • 火车站场景：Gleis, Verspätung, Abfahrt, Anschluss, Durchsage<br>
+          • 电话录音：wählen, verbinden, zurückrufen, Nachricht, Anrufbeantworter<br>
+          • 寻物/失物：verlieren, gestohlen, Anzeige, gefunden, Polizeirevier
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="height:3rem"></div>
+
+  <footer style="text-align:center;color:rgba(255,245,230,.5);font-size:.82rem;padding:20px 0">
+    🎧 B1 听力练习 · Goethe-Zertifikat B1 · Zertifikatstraining<br>
+    Leons Deutschzentrum · 内容陆续更新
+  </footer>
+
+</div>
 </div>
 
 </body>
