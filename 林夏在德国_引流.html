@@ -12,155 +12,182 @@
   * { margin:0; padding:0; box-sizing:border-box; }
 
   :root {
-    --card:#0a2028; --gold:#f6d365; --gold-dim:#b8860b;
-    --gold-light:#fde68a; --text:#e2e8f0; --dim:#7e9aa6; --muted:#5b8a98;
-    --cyan:#22d3ee; --cyan-light:#a5f3fc;
+    --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b;
+    --gold-light:#fde68a; --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b;
   }
 
   body {
     font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
-    color:var(--text); line-height:1.8; overflow-x:hidden;
-    background:linear-gradient(180deg,#06141c,#0a2530,#0e3540);
+    background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); color:var(--text);
+    line-height:1.7; overflow-x:hidden; min-height:100vh;
   }
 
-  .topbar {
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(6,20,28,0.92); backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(34,211,238,0.12);
-    padding:10px 18px; display:flex; align-items:center; justify-content:space-between;
-    font-size:0.85rem;
-  }
-  .topbar .logo { color:var(--cyan); font-weight:700; text-decoration:none; }
-  .topbar .logo span { color:var(--dim); font-weight:400; }
+  /* 页面容器：手机截图友好宽度 */
+  .page { max-width:600px; margin:0 auto; padding:0 0 60px; }
 
-  .page { max-width:720px; margin:0 auto; padding:0 20px 48px; }
-
-  /* ── 封面 Hero ── */
+  /* 封面 Hero */
   .cover {
-    position:relative; margin:0 -20px 0; overflow:hidden;
-    height:clamp(360px,60vh,520px);
+    position:relative; overflow:hidden;
+    min-height:320px; max-height:420px;
     display:flex; flex-direction:column; justify-content:flex-end;
-    padding:40px 24px;
-    background:linear-gradient(160deg,#06141c 0%,#0a2530 30%,#0e3540 50%,#06141c 85%);
+    padding:40px 24px 32px;
+    background:linear-gradient(160deg,#0a1428 0%,#0f1e3a 40%,#1a2d4f 70%);
   }
   .cover-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .cover-overlay { position:absolute; inset:0; background:linear-gradient(transparent 30%,rgba(6,20,28,0.85) 70%,#06141c); }
+  .cover-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(transparent 25%,rgba(10,20,40,0.7) 55%,rgba(10,20,40,0.92) 85%,#0a1428 100%);
+  }
   .cover-text { position:relative; z-index:2; }
-  .cover .series { display:inline-block; background:var(--cyan); color:#06141c; padding:4px 14px; border-radius:12px; font-size:0.78rem; font-weight:800; letter-spacing:0.05em; margin-bottom:12px; }
-  .cover h1 { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; line-height:1.2; color:#fff; margin-bottom:8px; }
-  .cover .sub { font-size:0.95rem; color:rgba(255,255,255,0.7); }
-
-  /* ── 人物卡片 ── */
-  .cast-card { background:var(--card); border-radius:14px; padding:24px; display:flex; gap:16px; align-items:center; margin:36px 0; border:1px solid rgba(34,211,238,.13); }
-  .cast-card .cast-avatar { font-size:3rem; }
-  .cast-card .cast-name { font-size:1.15rem; font-weight:700; color:var(--cyan); }
-  .cast-card .cast-bio { font-size:0.9rem; color:var(--dim); margin-top:4px; }
-
-  /* ── 剧情简介 ── */
-  .intro-box { background:rgba(34,211,238,.05); border:1px solid rgba(34,211,238,.15); border-left:3px solid var(--cyan); border-radius:8px; padding:18px 22px; margin:24px 0; font-size:0.95rem; color:var(--cyan-light); line-height:1.8; }
-  .intro-box b { color:var(--cyan); }
-
-  /* ── 区块标题 ── */
-  .section-title { font-size:1rem; font-weight:700; color:var(--cyan-light); margin:32px 0 16px; padding-bottom:8px; border-bottom:1px solid rgba(34,211,238,.1); display:flex; align-items:center; gap:8px; }
-  .section-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(34,211,238,.4),transparent); }
-
-  /* ── 对话气泡 ── */
-  .dialog { display:flex; flex-direction:column; gap:14px; }
-  .line { display:flex; gap:12px; margin-bottom:0; align-items:flex-start; max-width:90%; }
-  .line.right { align-self:flex-end; flex-direction:row-reverse; }
-  .line .who { font-size:1.5rem; flex-shrink:0; width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgba(34,211,238,.1); border-radius:50%; }
-  .line .bubble { background:var(--card); border-radius:14px; padding:14px 18px; border:1px solid rgba(34,211,238,.18); }
-  .line.right .bubble { background:rgba(14,116,144,.18); border-color:rgba(34,211,238,.3); }
-  .bubble .spk { font-size:0.72rem; font-weight:700; color:var(--muted); margin-bottom:4px; }
-  .bubble .de { font-size:1rem; color:#ecfeff; font-weight:600; line-height:1.5; }
-  .bubble .de b { color:var(--cyan-light); }
-  .bubble .zh { font-size:0.85rem; color:var(--dim); margin-top:4px; }
-
-  /* ── 词汇标签 ── */
-  .vocab-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-  .vocab-tags .vt { display:inline-flex; align-items:center; gap:6px; background:rgba(34,211,238,.06); border:1px solid rgba(34,211,238,.16); padding:6px 14px; border-radius:20px; font-size:0.82rem; }
-  .vt .vt-de { color:var(--cyan-light); font-weight:700; }
-  .vt .vt-zh { color:var(--dim); }
-
-  /* ── 文化注释 ── */
-  .kultur-note { background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.22); border-radius:12px; padding:18px 22px; margin:24px 0; font-size:0.9rem; color:#d4c9b0; line-height:1.7; }
-  .kultur-note .kl { font-weight:700; color:#fbbf24; }
-  .kultur-note b { color:#fbbf24; }
-
-  /* ── 软广告 ── */
-  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05)); border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px; margin:40px 0; text-align:center; }
-  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
-  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
-  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold)); color:#06141c; font-weight:700; padding:10px 28px; border-radius:24px; text-decoration:none; font-size:0.92rem; transition:0.2s; }
-  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,0.3); }
-
-  .footer { text-align:center; padding:32px 0 48px; border-top:1px solid rgba(34,211,238,0.1); }
-  .footer h3 { font-size:1.1rem; color:var(--cyan); margin-bottom:6px; }
-  .footer p { color:var(--dim); font-size:0.85rem; margin-bottom:16px; }
-  .footer .links { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-  .footer .links a { color:var(--cyan); text-decoration:none; font-size:0.85rem; padding:8px 18px; border:1px solid rgba(34,211,238,0.18); border-radius:20px; transition:0.2s; }
-  .footer .links a:hover { border-color:var(--cyan); color:var(--cyan-light); background:rgba(34,211,238,0.05); }
-  .footer .copy { margin-top:20px; font-size:0.75rem; color:var(--muted); }
-
-  @media (max-width:600px) {
-    body { padding:0; }
-    .topbar { padding:7px 14px; font-size:0.76rem; }
-    .page { max-width:100%; padding:0; }
-    .cover { margin:0 0 28px; border-radius:0 0 16px 16px; height:100dvh; min-height:100dvh; padding:50px 18px 32px; }
-    .cover-img { border-radius:0 0 16px 16px; }
-    .cast-card { margin:0 12px 16px; flex-direction:column; text-align:center; }
-    .intro-box { margin:16px 12px; }
-    .section-title { margin:28px 12px 12px; }
-    .dialog { margin:0 12px; }
-    .line { max-width:100%; }
-    .bubble { max-width:85%; }
-    .vocab-tags { margin:12px; }
-    .kultur-note { margin:16px 12px; }
-    .soft-cta { margin:24px 12px; border-radius:14px; padding:28px 18px; }
-    .footer { padding:28px 18px 40px; }
-    .footer .links { flex-direction:column; align-items:center; }
+  .cover .series {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:#0a1428; padding:5px 16px; border-radius:14px; font-size:0.78rem;
+    font-weight:800; letter-spacing:0.06em; margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.3);
+  }
+  .cover h1 {
+    font-size:clamp(1.4rem,3.5vw,1.9rem); font-weight:900; line-height:1.25;
+    color:#fff; margin-bottom:8px; text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  .cover .sub {
+    font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.45;
   }
 
-  /* ── 丁达尔光束：左上角辐射 god rays（与站内同款） ── */
+  /* 内容区 */
+  .content { padding:0 18px; }
+
+  /* 人物卡 */
+  .cast-card {
+    background:var(--card); border-radius:16px; padding:20px;
+    display:flex; gap:14px; align-items:center; margin:20px 0;
+    border:1px solid rgba(246,211,101,.1);
+  }
+  .cast-card .cast-avatar { font-size:2.6rem; flex-shrink:0; width:52px; height:52px; display:flex; align-items:center; justify-content:center; background:rgba(246,211,101,.08); border-radius:50%; }
+  .cast-card .cast-name { font-size:1.05rem; font-weight:700; color:var(--gold); margin-bottom:3px; }
+  .cast-card .cast-bio { font-size:0.84rem; color:var(--dim); line-height:1.55; }
+
+  /* 剧情简介 */
+  .intro-box {
+    background:rgba(246,211,101,.04); border:1px solid rgba(246,211,101,.12);
+    border-left:3px solid var(--gold); border-radius:0 10px 10px 0;
+    padding:16px 20px; margin:20px 0; font-size:0.92rem; color:var(--gold-light);
+    line-height:1.75;
+  }
+  .intro-box b { color:var(--gold); }
+
+  /* 区块标题 */
+  .section-title {
+    font-size:1rem; font-weight:700; color:var(--gold-light); margin:28px 0 14px;
+    padding-bottom:8px; border-bottom:1px solid rgba(246,211,101,.08);
+    display:flex; align-items:center; gap:8px;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(246,211,101,.25),transparent); }
+
+  /* 对话气泡 */
+  .dialog { display:flex; flex-direction:column; gap:12px; margin-bottom:8px; }
+  .line { display:flex; gap:10px; align-items:flex-start; max-width:92%; }
+  .line.right { align-self:flex-end; flex-direction:row-reverse; }
+  .line .who { font-size:1.4rem; flex-shrink:0; width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:rgba(246,211,101,.08); border-radius:50%; }
+  .line .bubble { background:var(--card); border-radius:14px; padding:13px 16px; border:1px solid rgba(246,211,101,.1); }
+  .line.right .bubble { background:rgba(184,134,11,.1); border-color:rgba(246,211,101,.18); }
+  .bubble .spk { font-size:0.68rem; font-weight:700; color:var(--muted); margin-bottom:3px; letter-spacing:.03em; }
+  .bubble .de { font-size:0.98rem; color:#f1f5f9; font-weight:600; line-height:1.5; }
+  .bubble .de b { color:var(--gold-light); }
+  .bubble .zh { font-size:0.82rem; color:var(--dim); margin-top:5px; line-height:1.45; }
+
+  /* 词汇标签 */
+  .vocab-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-tags .vt {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(246,211,101,.04); border:1px solid rgba(246,211,101,.12);
+    padding:6px 14px; border-radius:20px; font-size:0.8rem;
+  }
+  .vt .vt-de { color:var(--gold-light); font-weight:700; }
+  .vt .vt-zh { color:var(--dim); }
+
+  /* 文化注释 */
+  .kultur-note {
+    background:rgba(245,158,11,.05); border:1px solid rgba(245,158,11,.18);
+    border-radius:12px; padding:18px 20px; margin:24px 0;
+    font-size:0.88rem; color:#d4c9b0; line-height:1.7;
+  }
+  .kultur-note .kl { font-weight:700; color:#fbbf24; margin-bottom:8px; font-size:0.9rem; }
+  .kultur-note b { color:#fbbf24; }
+
+  /* 软引流 CTA */
+  .soft-cta {
+    background:linear-gradient(135deg,rgba(246,211,101,.06),rgba(184,134,11,.04));
+    border:1px solid rgba(246,211,101,.14); border-radius:14px;
+    padding:24px 20px; margin:28px 0; text-align:center;
+  }
+  .soft-cta h3 { color:var(--gold); font-size:1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.84rem; margin-bottom:14px; line-height:1.55; }
+  .soft-cta a.cta-btn {
+    display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+    color:#0a1428; font-weight:700; padding:10px 26px; border-radius:22px;
+    text-decoration:none; font-size:0.9rem; transition:0.2s;
+  }
+  .soft-cta a.cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.25); }
+
+  /* 弱引流品牌尾 */
+  .brand-foot {
+    text-align:center; padding:24px 0 0; margin-top:20px;
+    border-top:1px solid rgba(246,211,101,.06);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+  }
+  .brand-foot .bf-name { font-size:0.72rem; color:rgba(246,211,101,.35); letter-spacing:.06em; font-weight:600; }
+  .brand-foot .bf-url { font-size:0.64rem; color:rgba(246,211,101,.18); letter-spacing:.04em; }
+  .brand-foot .bf-tag { font-size:0.62rem; color:rgba(148,163,184,.25); margin-top:2px; }
+
+  /* 丁达尔光束：暖金 god rays */
   .lb-beams { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
   .lb-haze { position:absolute; inset:0; pointer-events:none;
-    background:radial-gradient(75% 65% at 6% 3%, rgba(196,226,246,.22), rgba(130,180,216,.07) 42%, transparent 70%);
+    background:radial-gradient(75% 65% at 6% 3%, rgba(250,236,198,.18), rgba(200,170,100,.06) 42%, transparent 70%);
     mix-blend-mode:screen; }
   .lb-godray { position:absolute; top:0; left:0; width:175%; height:175%; pointer-events:none;
     mix-blend-mode:screen; transform-origin:0 0; filter:blur(2px);
     -webkit-mask-image:radial-gradient(120% 120% at 0% 0%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.35) 58%, transparent 80%);
             mask-image:radial-gradient(120% 120% at 0% 0%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.35) 58%, transparent 80%); }
-  .lb-godray.gr1 { opacity:.5;
+  .lb-godray.gr1 { opacity:.45;
     background:conic-gradient(from 78deg at 0% 0%,
-      transparent 0deg, rgba(214,236,250,.55) 6deg, transparent 12deg,
-      transparent 17deg, rgba(190,222,242,.40) 21deg, transparent 26deg,
-      transparent 33deg, rgba(220,238,250,.60) 38deg, transparent 44deg,
-      transparent 50deg, rgba(186,218,240,.38) 54deg, transparent 60deg,
-      transparent 66deg, rgba(210,232,248,.50) 70deg, transparent 76deg,
+      transparent 0deg, rgba(252,238,205,.44) 6deg, transparent 12deg,
+      transparent 17deg, rgba(248,226,182,.30) 21deg, transparent 26deg,
+      transparent 33deg, rgba(254,242,215,.48) 38deg, transparent 44deg,
+      transparent 50deg, rgba(246,220,176,.30) 54deg, transparent 60deg,
+      transparent 66deg, rgba(250,234,196,.38) 70deg, transparent 76deg,
       transparent 90deg);
     animation:lb-sway1 19s ease-in-out infinite; }
-  .lb-godray.gr2 { opacity:.38;
+  .lb-godray.gr2 { opacity:.32;
     background:conic-gradient(from 80deg at 0% 0%,
-      transparent 0deg, rgba(228,242,252,.45) 3deg, transparent 7deg,
-      transparent 13deg, rgba(200,228,246,.30) 16deg, transparent 20deg,
-      transparent 27deg, rgba(216,236,250,.42) 30deg, transparent 35deg,
-      transparent 41deg, rgba(196,224,244,.28) 45deg, transparent 49deg,
-      transparent 57deg, rgba(222,240,252,.40) 61deg, transparent 65deg,
-      transparent 72deg, rgba(204,230,248,.30) 76deg, transparent 80deg,
+      transparent 0deg, rgba(252,240,210,.35) 3deg, transparent 7deg,
+      transparent 13deg, rgba(248,226,180,.22) 16deg, transparent 20deg,
+      transparent 27deg, rgba(250,236,200,.32) 30deg, transparent 35deg,
+      transparent 41deg, rgba(246,222,176,.20) 45deg, transparent 49deg,
+      transparent 57deg, rgba(252,240,208,.30) 61deg, transparent 65deg,
+      transparent 72deg, rgba(248,228,182,.22) 76deg, transparent 80deg,
       transparent 90deg);
     animation:lb-sway2 26s ease-in-out infinite; }
   .lb-dust { position:absolute; inset:0; pointer-events:none; }
-  .lb-mote { position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,.85), rgba(200,225,245,.32) 50%, transparent 75%);
+  .lb-mote { position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,.8), rgba(248,230,188,.25) 50%, transparent 75%);
     opacity:0; animation:lb-float var(--md,11s) linear infinite var(--mt,0s); will-change:transform,opacity; }
-  .lb-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(150% 110% at 12% 1%, transparent 52%, rgba(3,12,20,.42) 100%); }
-  @keyframes lb-sway1 { 0%,100%{ transform:rotate(0deg); opacity:.4 } 50%{ transform:rotate(2.5deg); opacity:.6 } }
-  @keyframes lb-sway2 { 0%,100%{ transform:rotate(0deg); opacity:.3 } 50%{ transform:rotate(-3deg); opacity:.46 } }
-  @keyframes lb-float { 0%{opacity:0; transform:translate(0,0)} 14%{opacity:.8} 86%{opacity:.4} 100%{opacity:0; transform:translate(46px,-120px)} }
-  .page, .topbar { position:relative; }
-  .page { z-index:1; }
+  .lb-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(150% 110% at 12% 1%, transparent 52%, rgba(10,20,40,.4) 100%); }
+  @keyframes lb-sway1 { 0%,100%{ transform:rotate(0deg); opacity:.35 } 50%{ transform:rotate(2.5deg); opacity:.5 } }
+  @keyframes lb-sway2 { 0%,100%{ transform:rotate(0deg); opacity:.25 } 50%{ transform:rotate(-3deg); opacity:.38 } }
+  @keyframes lb-float { 0%{opacity:0; transform:translate(0,0)} 14%{opacity:.7} 86%{opacity:.35} 100%{opacity:0; transform:translate(46px,-120px)} }
+  .page { position:relative; z-index:1; }
   @media (prefers-reduced-motion: reduce){
     .lb-godray, .lb-mote { animation:none !important; }
-    .lb-mote{ opacity:.4; }
+    .lb-mote{ opacity:.35; }
+  }
+
+  @media (max-width:600px) {
+    .cover { min-height:280px; max-height:360px; padding:32px 18px 28px; }
+    .cover h1 { font-size:1.3rem; }
+    .content { padding:0 14px; }
+    .cast-card { padding:16px; flex-direction:column; text-align:center; }
+    .line { max-width:100%; }
+    .bubble { max-width:88%; }
+    .soft-cta { padding:20px 16px; }
   }
 </style>
 </head>
@@ -172,10 +199,6 @@
   <div class="lb-godray gr2"></div>
   <div class="lb-dust" id="lbDust"></div>
   <div class="lb-vignette"></div>
-</div>
-
-<div class="topbar">
-  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
 </div>
 
 <div class="page" id="pageContent"></div>
@@ -655,38 +678,40 @@ function render() {
   var ep = getEp();
   var d = EP[ep];
 
-  // 更新 title 和 meta
-  document.title = '林夏在德国 · 第' + ep + '集 | ' + d.title + ' · Leon 德语';
+  // update title + meta
+  document.title = '林夏在德国 - 第' + ep + '集 | ' + d.title + ' - Leon 德语';
   var desc = document.querySelector('meta[name="description"]');
   if (desc) desc.content = '第' + ep + '集：' + d.title + '。跟着23岁中国留学生林夏，走进真实的德国生活。A1-A2难度德语连续剧。';
   var ogt = document.querySelector('meta[property="og:title"]');
-  if (ogt) ogt.content = '林夏在德国 · 第' + ep + '集 | ' + d.title;
+  if (ogt) ogt.content = '林夏在德国 - 第' + ep + '集 | ' + d.title;
   var ogd = document.querySelector('meta[property="og:description"]');
   if (ogd) ogd.content = '第' + ep + '集：' + d.title + '。跟着林夏走进真实德国生活。';
 
   var html = '';
 
-  // ── 封面 ──
+  // cover
   html += '<div class="cover">';
   html += '<img class="cover-img" src="' + d.coverImg + '" alt="' + d.title + '" loading="eager" onerror="this.style.opacity=\'0\'">';
   html += '<div class="cover-overlay"></div>';
   html += '<div class="cover-text">';
-  html += '<div class="series">🎬 林夏在德国 · 第 ' + ep + ' 集</div>';
+  html += '<div class="series">🎬 第 ' + ep + ' 集 - ' + d.title + '</div>';
   html += '<h1>' + d.coverTitle + '</h1>';
   html += '<p class="sub">' + d.coverSub + '</p>';
   html += '</div></div>';
 
-  // ── 人物卡片 ──
+  html += '<div class="content">';
+
+  // cast card
   html += '<div class="cast-card">';
   html += '<div class="cast-avatar">👩🏻‍🎓</div>';
   html += '<div><div class="cast-name">林夏 / Lin Xia</div>';
   html += '<div class="cast-bio">' + d.castBio + '</div></div>';
   html += '</div>';
 
-  // ── 剧情简介 ──
+  // intro
   html += '<div class="intro-box">' + d.intro + '</div>';
 
-  // ── 对话 ──
+  // dialog
   html += '<div class="section-title">' + d.dialogTitle + '</div>';
   html += '<div class="dialog">';
   for (var i = 0; i < d.dialogs.length; i++) {
@@ -701,7 +726,7 @@ function render() {
   }
   html += '</div>';
 
-  // ── 词汇 ──
+  // vocab
   html += '<div class="section-title">📒 本集重点词汇</div>';
   html += '<div class="vocab-tags">';
   for (var j = 0; j < d.vocab.length; j++) {
@@ -709,32 +734,30 @@ function render() {
   }
   html += '</div>';
 
-  // ── 文化注释 ──
+  // kultur note
   html += '<div class="kultur-note">';
   html += '<div class="kl">' + d.kulturTitle + '</div>';
   html += d.kulturHtml;
   html += '</div>';
 
-  // ── 软广告 CTA ──
+  // soft CTA
   html += '<div class="soft-cta">';
   html += '<h3>🇩🇪 追更林夏的德国冒险</h3>';
   html += '<p>' + d.ctaPreview + '</p>';
-  html += '<a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎬 看全部剧集 →</a>';
+  html += '<a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">🎬 看全部 15 集 →</a>';
   html += '</div>';
 
-  // ── Footer ──
-  html += '<div class="footer">';
-  html += '<h3>Leons Deutschzentrum</h3>';
-  html += '<p>跟着林夏走进真实德国 · 每集一个场景 · A1–A2 难度</p>';
-  html += '<p style="margin-top:6px">🇩🇪 第 ' + ep + ' 集 · ' + d.title + ' · 共 6 集（持续更新中）</p>';
-  html += '<div class="links">';
-  html += '<a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">🏠 德语学习中心</a>';
-  html += '<a href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 更多德语资源</a>';
-  html += '</div>';
-  html += '<div class="copy">© Leons Deutschzentrum · 分享给学德语的朋友</div>';
+  // weak brand footer
+  html += '<div class="brand-foot">';
+  html += '<div class="bf-name">Leons Deutschzentrum</div>';
+  html += '<div class="bf-url">leonsdeutschzentrum.com</div>';
+  html += '<div class="bf-tag">分享给学德语的朋友 📤</div>';
   html += '</div>';
 
-  document.getElementById('pageContent').innerHTML = html;
+  html += '</div>'; // .content
+
+  document.getElementById("pageContent").innerHTML = html;
+}tById('pageContent').innerHTML = html;
 }
 
 // ═══════════════ 丁达尔光尘 ═══════════════
