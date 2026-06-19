@@ -14317,6 +14317,12 @@ function showPage(id) {
   if (id === 'echt' && window.renderEchtGrid) window.renderEchtGrid();
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
+  // 同步 URL hash，分享出去对方看到同一页
+  if (id !== 'index') {
+    history.replaceState(null, '', '#' + id);
+  } else {
+    history.replaceState(null, '', window.location.pathname);
+  }
 }
 
 // 知识图谱3D / 任意深链接：跳转到某个 section（自动定位它所在的 page，再平滑滚动过去）
@@ -14330,10 +14336,12 @@ window.gotoSection = function(secId) {
     var pageId = page.id.slice(5); // 去掉 'page-'
     showPage(pageId); // showPage 内含权限校验 + scrollTo(0,0)
   }
-  // showPage 会把页面顶到最上面，所以延迟一帧再滚到目标 section
+  // showPage 会把页面顶到最上面，延迟一帧再滚到目标 section
+  // 同时把 hash 更新为精确的 section ID，分享出去直达目标段落
   setTimeout(function() {
     var t = document.getElementById(secId);
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#' + secId);
   }, 120);
 };
 
@@ -14349,24 +14357,34 @@ window.addEventListener('message', function(ev) {
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
-  document.getElementById('page-index').style.display = 'block';
+  // Hash 路由：分享链接打开时自动跳转到对应页面
+  var hash = window.location.hash;
+  var hashId = hash ? hash.replace('#', '') : '';
+  if (hashId && document.getElementById('page-' + hashId)) {
+    showPage(hashId);
+  } else if (hashId && document.getElementById(hashId)) {
+    // 是某个 section ID，跳转到对应页面并滚动到该 section
+    gotoSection(hashId);
+  } else {
+    document.getElementById('page-index').style.display = 'block';
+  }
   // 动态更新模块计数：显示全部学习板块数
   var mc = document.getElementById('module-count');
   if (mc) mc.textContent = MODULES.length;
   // 如果已是游客模式，补充应用锁
   if (currentUser) applyGuestLocks();
-
-  // 深链接支持：URL hash 自动跳转到对应页面/section
-  var hash = window.location.hash;
-  if (hash) {
-    gotoSection(hash.slice(1));
-  }
 });
 
-// 运行中 hash 变化也跳转（3D 图旧兜底逻辑 / 浏览器前进后退都能用）
+// 运行中 hash 变化：优先页面 ID，其次 section ID，空 hash 回首页（浏览器前进后退都能用）
 window.addEventListener('hashchange', function() {
   var h = window.location.hash;
-  if (h) gotoSection(h.slice(1));
+  if (!h) { showPage('index'); return; }
+  var id = h.replace('#', '');
+  if (document.getElementById('page-' + id)) {
+    showPage(id);
+  } else {
+    gotoSection(id);
+  }
 });
 </script>
 
