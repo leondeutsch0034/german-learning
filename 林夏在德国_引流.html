@@ -135,9 +135,8 @@
     border-top:1px solid rgba(246,211,101,.06);
     display:flex; flex-direction:column; align-items:center; gap:6px;
   }
-  .brand-foot .bf-name { font-size:0.72rem; color:rgba(246,211,101,.35); letter-spacing:.06em; font-weight:600; }
-  .brand-foot .bf-url { font-size:0.64rem; color:rgba(246,211,101,.18); letter-spacing:.04em; }
-  .brand-foot .bf-tag { font-size:0.62rem; color:rgba(148,163,184,.25); margin-top:2px; }
+  .brand-foot .bf-name { font-size:0.9rem; color:rgba(246,211,101,.8); letter-spacing:.08em; font-weight:700; }
+  .brand-foot .bf-tag { font-size:0.64rem; color:rgba(148,163,184,.3); margin-top:4px; }
 
   /* 丁达尔光束：暖金 god rays */
   .lb-beams { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
@@ -750,14 +749,12 @@ function render() {
   // weak brand footer
   html += '<div class="brand-foot">';
   html += '<div class="bf-name">Leons Deutschzentrum</div>';
-  html += '<div class="bf-url">leonsdeutschzentrum.com</div>';
   html += '<div class="bf-tag">分享给学德语的朋友 📤</div>';
   html += '</div>';
 
   html += '</div>'; // .content
 
   document.getElementById("pageContent").innerHTML = html;
-}tById('pageContent').innerHTML = html;
 }
 
 // ═══════════════ 丁达尔光尘 ═══════════════
