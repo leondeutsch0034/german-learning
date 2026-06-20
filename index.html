@@ -3010,6 +3010,34 @@
     #page-serie .se-watermark .sw-brand { font-size:.72rem; color:rgba(246,211,101,.55); letter-spacing:.04em; font-weight:600; }
     #page-serie .se-watermark .sw-url { font-size:.66rem; color:rgba(246,211,101,.35); }
     @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
+
+    /* ═══════════════════════════════════════════
+       各板块返回目录浮动按钮（全局类+默认隐藏，JS控制显隐）
+       ═══════════════════════════════════════════ */
+    .g-backtotoc,.b1g-backtotoc,.hr-backtotoc,.ls-backtotoc,.sb-backtotoc,.mx-backtotoc,
+    .a2g-backtotoc,.a2h-backtotoc,.a2s-backtotoc,.a2u-backtotoc,.b1h-backtotoc,
+    .dat-backtotoc,.gk-backtotoc {
+      position:fixed;bottom:20px;left:16px;
+      background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#fde68a;
+      border:1px solid rgba(246,211,101,.5);border-radius:50%;
+      width:48px;height:48px;font-size:1.25rem;cursor:pointer;
+      box-shadow:0 4px 14px rgba(0,0,0,.35);z-index:9001;
+      display:none;align-items:center;justify-content:center;
+      text-decoration:none;transition:.2s;
+    }
+    .g-backtotoc:hover,.b1g-backtotoc:hover,.hr-backtotoc:hover,.ls-backtotoc:hover,
+    .sb-backtotoc:hover,.mx-backtotoc:hover,.a2g-backtotoc:hover,.a2h-backtotoc:hover,
+    .a2s-backtotoc:hover,.a2u-backtotoc:hover,.b1h-backtotoc:hover,
+    .dat-backtotoc:hover,.gk-backtotoc:hover {
+      transform:scale(1.08);box-shadow:0 6px 20px rgba(246,211,101,.45);
+    }
+    @media(max-width:600px){
+      .g-backtotoc,.b1g-backtotoc,.hr-backtotoc,.ls-backtotoc,.sb-backtotoc,.mx-backtotoc,
+      .a2g-backtotoc,.a2h-backtotoc,.a2s-backtotoc,.a2u-backtotoc,.b1h-backtotoc,
+      .dat-backtotoc,.gk-backtotoc {
+        bottom:14px;left:12px;width:44px;height:44px;font-size:1.15rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -6912,6 +6940,35 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
+<a href="#top" class="g-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-grammar');
+    var btoc=document.querySelector('.g-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._gWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._gWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 <!-- B1 Grammar page -->
@@ -6922,7 +6979,7 @@ document.addEventListener('keydown', function(e) {
 <p style="font-size:1.05rem;opacity:.88;margin-top:6px">20个核心语法点 · 含例句与中文解释 · B1进阶必备</p>
 </header>
 
-<div class="toc">
+<div class="toc" id="b1g-toc-top">
 <div style="font-weight:700;font-size:1.15rem;color:#2b6cb0;margin-bottom:14px">📑 目录 Inhaltsverzeichnis</div>
 <div class="toc-grid">
 <a href="#b1s1">1. 复合名词 Komposita</a>
@@ -8126,13 +8183,42 @@ document.addEventListener('keydown', function(e) {
 <a href="#" onclick="document.getElementById('page-b1grammar').scrollIntoView({behavior:'smooth'}); return false;" style="background:#1e3a5f;color:#fde68a;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;border:1px solid rgba(246,211,101,.3)">⬆ 回到顶部</a>
 </div>
 
+<a href="#b1g-toc-top" class="b1g-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-b1grammar');
+    var btoc=document.querySelector('.b1g-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._b1gWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._b1gWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('b1g-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 
 <!-- Hoeren page -->
 <div id="page-hoeren" class="page">
 
-<header>
+<header id="hr-toc-top">
   <h1>🎧 Deutsch A1 – Hören 听力练习</h1>
   <p>歌德学院 Goethe-Zertifikat A1 · 三部分 · 16题</p>
 </header>
@@ -8941,7 +9027,34 @@ document.addEventListener('keydown', function(e) {
   <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a">🏠 首页</a>
 </div>
 
+<a href="#hr-toc-top" class="hr-backtotoc" title="回到目录">📋</a>
 
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-hoeren');
+    var btoc=document.querySelector('.hr-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._hrWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._hrWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('hr-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
 
 </div>
 
@@ -8953,7 +9066,7 @@ document.addEventListener('keydown', function(e) {
   <p>渐进式5级写作任务 · 歌德学院A1考试难度</p>
 </header>
 <!-- Schreiben section TOC -->
-<div class="toc" id="schreib-top" style="background:linear-gradient(135deg,#1e3a5f,#2c5f8a);border-radius:14px;padding:20px 24px;margin-bottom:28px;box-shadow:0 4px 16px rgba(0,0,0,.25)">
+<div class="toc" id="sb-toc-top" style="background:linear-gradient(135deg,#1e3a5f,#2c5f8a);border-radius:14px;padding:20px 24px;margin-bottom:28px;box-shadow:0 4px 16px rgba(0,0,0,.25)">
   <h2 style="font-size:1.05rem;color:#fde68a;margin-bottom:14px">📋 快速导航 Schnellnavigation</h2>
   <div class="toc-grid" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:7px">
     <a class="toc-item" href="#schreib-lv1" style="background:transparent;color:#fde68a;border:1px solid rgba(246,211,101,.25)">⭐ L1 填写个人信息</a>
@@ -10955,6 +11068,36 @@ document.addEventListener('keydown', function(e) {
 </div><!-- end A2 br-card -->
 
 </div><!-- end br-section -->
+
+<a href="#sb-toc-top" class="sb-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-schreiben');
+    var btoc=document.querySelector('.sb-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._sbWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._sbWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('sb-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 <!-- Mix page -->
@@ -10962,7 +11105,7 @@ document.addEventListener('keydown', function(e) {
 
 
 <!-- ===== 页眉 ===== -->
-<header>
+<header id="mx-toc-top">
   <h1>📝 Deutsch A1 – Gemischte Übungen</h1>
   <p>歌德学院 Goethe-Zertifikat A1 · 综合练习 · 五大题型 · 共29分</p>
 </header>
@@ -12396,6 +12539,35 @@ document.addEventListener('keydown', function(e) {
 ═══════════════════════════════════════════ -->
 
 
+<a href="#mx-toc-top" class="mx-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-mix');
+    var btoc=document.querySelector('.mx-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._mxWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._mxWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('mx-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 
@@ -12405,7 +12577,7 @@ document.addEventListener('keydown', function(e) {
 ══════════════════════════════════════════════════ -->
 <div id="page-daten" class="page">
 
-<header>
+<header id="dat-toc-top">
   <h1>📊 Statistiken &amp; Diagramme 数据图表描述</h1>
   <p>从量词到图表分析 · 真实语料 · 设计为 A1 → A2 → B1 → C1 持续扩充</p>
 </header>
@@ -14350,6 +14522,35 @@ document.addEventListener('keydown', function(e) {
     <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;border:1px solid rgba(246,211,101,.3)">🏠 返回首页</a>
   </div>
 </div>
+
+<a href="#dat-toc-top" class="dat-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-daten');
+    var btoc=document.querySelector('.dat-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._datWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._datWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('dat-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
 
 </div><!-- /page-daten -->
 
@@ -16776,7 +16977,7 @@ function brToggleSample4() {
 </div>
 
 <!-- ══════════════════════ 目录 Inhaltsverzeichnis ══════════════════════ -->
-<div style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
+<div id="ls-toc-top" style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
   <div style="background:linear-gradient(90deg,#b45309,#d97706);color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis &nbsp;<span style="font-weight:400;opacity:.85;font-size:.85rem">· 共 31 篇</span></div>
   <div style="padding:1rem 1.2rem;display:grid;grid-template-columns:1fr;gap:.6rem">
 
@@ -17855,6 +18056,35 @@ function brToggleSample4() {
 </div>
 <!-- ===== /Krankenpfleger ===== -->
 
+<a href="#ls-toc-top" class="ls-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-lesen');
+    var btoc=document.querySelector('.ls-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._lsWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._lsWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('ls-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div><!-- end page-lesen -->
 <!-- 阅读朗读 JS -->
 <script>
@@ -18827,7 +19057,7 @@ function brToggleSample4() {
 </style>
 
 <div style="max-width:860px;margin:0 auto">
-  <div class="a2-header">
+  <div class="a2-header" id="a2u-toc-top">
     <h1>单元练习 &amp; 综合测试</h1>
     <p>第一单元 · 第二单元 · 第三单元 · 综合测试 · 《交际德语教程（第二版）A2》</p>
   </div>
@@ -19924,6 +20154,35 @@ document.addEventListener('click', function(e) {
 
 </div><!-- /a2-unit-3 -->
 </div>
+<a href="#a2u-toc-top" class="a2u-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2unit1');
+    var btoc=document.querySelector('.a2u-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2uWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2uWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('a2u-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div><!-- /page-a2unit1 -->
 
 <div id="page-a2grammar" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
@@ -22986,6 +23245,26 @@ document.addEventListener('click', function(e) {
 </div>
 
 <div id="page-a2lesen" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
+<style>
+/* ── 回到目录浮动按钮（仅 a2lesen 页；按钮被 JS 移到 body 下，故用全局选择器，默认隐藏）── */
+.a2l-backtotoc {
+  position: fixed; bottom: 20px; left: 16px;
+  background: linear-gradient(135deg, #1e3a5f, #2c5f8a);
+  color: #fde68a;
+  border: 1px solid rgba(246,211,101,.5);
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 1.25rem; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  z-index: 9001;
+  display: none; align-items: center; justify-content: center;
+  text-decoration: none; transition: .2s;
+}
+.a2l-backtotoc:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(246,211,101,.45); }
+@media (max-width: 600px) {
+  .a2l-backtotoc { bottom: 14px; left: 12px; width: 44px; height: 44px; font-size: 1.15rem; }
+}
+</style>
 <div style="max-width:860px;margin:0 auto">
   <div style="text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(44,95,138,.35)">
     <h1 style="font-size:1.8rem;margin-bottom:6px">A2 阅读</h1>
@@ -22993,7 +23272,7 @@ document.addEventListener('click', function(e) {
   </div>
 
 <!-- 目录 -->
-<div style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
+<div id="a2l-toc-top" style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
   <div style="background:#2c5f8a;color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis</div>
   <div style="padding:1rem 1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;font-size:.9rem">
     <a href="#a2l-s0" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">0 · Brücken in Europa</a>
@@ -27228,6 +27507,37 @@ document.addEventListener('click', function(e) {
   </div>
 
 </div>
+
+<a href="#a2l-toc-top" class="a2l-backtotoc" title="回到目录">📋</a>
+
+<script>
+/* a2lesen 页：把按钮移到 body 末尾（脱离 transform 祖先，fixed 相对视口），只在本页显示 */
+(function(){
+  function setup(){
+    var page = document.getElementById('page-a2lesen');
+    var btoc = document.querySelector('.a2l-backtotoc');
+    if(!page || !btoc) return;
+    if(btoc.parentNode !== document.body){ document.body.appendChild(btoc); }
+    function syncBtoc(){
+      btoc.style.display = (getComputedStyle(page).display !== 'none') ? 'flex' : 'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage === 'function' && !window.showPage._a2lWrapped){
+      var _orig = window.showPage;
+      window.showPage = function(){ var r = _orig.apply(this, arguments); syncBtoc(); return r; };
+      window.showPage._a2lWrapped = true;
+    }
+    btoc.addEventListener('click', function(e){
+      e.preventDefault();
+      var toc = document.getElementById('a2l-toc-top');
+      if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', setup); }
+  else { setup(); }
+})();
+</script>
+
 </div>
 
 <script>
@@ -38631,6 +38941,36 @@ function b1S12CheckB(){
 
 </div>
 <a href="#b1l-toc" class="b1l-backtotoc" title="回到目录">📋</a>
+
+<a href="#a2g-top" class="a2g-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2grammar');
+    var btoc=document.querySelector('.a2g-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2gWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2gWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('a2g-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 <div id="page-a2schreiben" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
@@ -38643,7 +38983,7 @@ function b1S12CheckB(){
   </div>
 
   <!-- ===== 目录 Section ===== -->
-  <div class="section" style="margin-bottom:28px">
+  <div class="section" id="a2s-toc-top" style="margin-bottom:28px">
     <div class="section-header" style="background:linear-gradient(135deg,#7c3aed,#a855f7) !important">📋 目录 Inhaltsverzeichnis · 点击跳转</div>
     <div class="section-body" style="padding:18px 22px">
 
@@ -42806,6 +43146,35 @@ function b1S12CheckB(){
 
   </div><!-- /section-body -->
 </div><!-- /section -->
+<a href="#a2s-toc-top" class="a2s-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2schreiben');
+    var btoc=document.querySelector('.a2s-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2sWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2sWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('a2s-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 </div>
 
@@ -49640,6 +50009,28 @@ function b1S12CheckB(){
     .gs-sec-title { font-size: .76rem !important; }
     .gs-ltab { font-size: .7rem !important; padding: 4px 10px !important; }
   }
+
+  /* ── 返回顶部目录浮动按钮（仅语法抄写页；按钮被 JS 移到 body 下，故用全局选择器） ── */
+  .gs-backtotoc {
+    position: fixed; bottom: 20px; left: 16px;
+    background: linear-gradient(135deg, #1e3a5f, #2c5f8a);
+    color: #fde68a;
+    border: 1px solid rgba(246,211,101,.5);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.25rem; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.35);
+    z-index: 9001;
+    display: none; align-items: center; justify-content: center;
+    text-decoration: none; transition: .2s;
+  }
+  .gs-backtotoc:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(246,211,101,.45);
+  }
+  @media (max-width: 600px) {
+    .gs-backtotoc { bottom: 14px; left: 12px; width: 44px; height: 44px; font-size: 1.15rem; }
+  }
 </style>
 
 <div class="gs-header">
@@ -49655,7 +50046,7 @@ function b1S12CheckB(){
   <button class="gs-ltab" data-level="b1" onclick="gsFilterLevel('b1')">🔴 B1 (21–61)</button>
 </div>
 
-<div class="gs-toc">
+<div class="gs-toc" id="gs-toc-top">
   <h2>📋 目录 Inhaltsverzeichnis</h2>
   <!-- 进度条融合到目录中 -->
   <div style="margin-bottom:14px">
@@ -57129,6 +57520,65 @@ function gsRevealAllChapter(chId) {
   </div>
 </div>
 
+<a href="#gs-toc-top" class="gs-backtotoc" title="回到目录">📋</a>
+
+<script>
+/* 语法抄写页：把"回到目录"按钮移到 body 末尾，确保 position:fixed 相对视口（脱离任何 transform 祖先），只在本页显示 */
+(function(){
+  function setup(){
+    var page = document.getElementById('page-grammatik-schreiben');
+    var btoc = document.querySelector('.gs-backtotoc');
+    if(!page || !btoc) return;
+    if(btoc.parentNode !== document.body){ document.body.appendChild(btoc); }
+    function syncBtoc(){
+      btoc.style.display = (getComputedStyle(page).display !== 'none') ? 'flex' : 'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage === 'function' && !window.showPage._gsWrapped){
+      var _orig = window.showPage;
+      window.showPage = function(){ var r = _orig.apply(this, arguments); syncBtoc(); return r; };
+      window.showPage._gsWrapped = true;
+    }
+    btoc.addEventListener('click', function(e){
+      e.preventDefault();
+      var toc = document.getElementById('gs-toc-top');
+      if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', setup); }
+  else { setup(); }
+})();
+</script>
+
+<a href="#hoer-toc" class="a2h-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2hoeren');
+    var btoc=document.querySelector('.a2h-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2hWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2hWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('hoer-toc');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 <!-- ══════════ Klipp-Klapp 城市导航 ══════════ -->
@@ -57212,7 +57662,7 @@ function gsRevealAllChapter(chId) {
 #page-gaokao table tbody tr:last-child td { border-bottom:none }
 </style>
 
-<div class="gk-hero">
+<div class="gk-hero" id="gk-toc-top">
   <h1>🎓 高考德语</h1>
   <div class="sub">全国新高考德语真题 · 备考资源 · 题型训练</div>
 </div>
@@ -60288,6 +60738,35 @@ function gsRevealAllChapter(chId) {
 })();
 </script>
 
+<a href="#gk-toc-top" class="gk-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-gaokao');
+    var btoc=document.querySelector('.gk-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._gkWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._gkWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('gk-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
 </div>
 
 <!-- ════════════════ B1 听力页面 ════════════════ -->
@@ -60636,6 +61115,35 @@ function gsRevealAllChapter(chId) {
     🎧 B1 听力练习 · Goethe-Zertifikat B1 · Zertifikatstraining<br>
     Leons Deutschzentrum · 内容陆续更新
   </footer>
+
+<a href="#b1hoer-toc" class="b1h-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-b1hoeren');
+    var btoc=document.querySelector('.b1h-backtotoc');
+    if(!page||!btoc)return;
+    if(btoc.parentNode!==document.body){document.body.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._b1hWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._b1hWrapped=true;
+    }
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('b1hoer-toc');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
 
 </div>
 </div>
