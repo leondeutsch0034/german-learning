@@ -2959,12 +2959,11 @@
     #page-serie .se-header .se-show { font-size:.72rem; color:#f6d365; letter-spacing:.18em; font-weight:700; margin-bottom:8px; }
     #page-serie .se-header h2 { color:#fde68a; font-size:1.7rem; margin-bottom:8px; }
     #page-serie .se-header .se-sub { color:#94a3b8; font-size:.88rem; }
-    /* 剧集进度条 */
-    #page-serie .se-eplist { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
-    #page-serie .se-ep { font-size:.74rem; padding:6px 13px; border-radius:20px; border:1px solid rgba(246,211,101,.25); color:#e2e8f0; background:rgba(246,211,101,.06); font-family:inherit; cursor:pointer; transition:.2s; }
-    #page-serie button.se-ep:hover { border-color:rgba(246,211,101,.6); color:#fde68a; }
-    #page-serie .se-ep.cur { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-weight:700; border-color:transparent; }
-    #page-serie .se-ep.soon { opacity:.5; font-style:italic; cursor:default; }
+    /* 剧集下拉选择器 */
+    #page-serie .se-eplist { display:flex; justify-content:center; margin-bottom:26px; }
+    #page-serie .se-ep-select { font-size:.82rem; padding:8px 36px 8px 16px; border-radius:24px; border:1px solid rgba(246,211,101,.35); color:#fde68a; background:linear-gradient(135deg,rgba(184,134,11,.15),rgba(246,211,101,.08)); font-family:inherit; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f6d365' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; transition:.2s; min-width:220px; text-align:center; }
+    #page-serie .se-ep-select:hover { border-color:rgba(246,211,101,.6); }
+    #page-serie .se-ep-select option { background:#0f1e3a; color:#e2e8f0; }
     /* 人物卡 */
     #page-serie .se-cast { display:flex; gap:14px; align-items:center; background:rgba(246,211,101,.07); border:1px solid rgba(246,211,101,.2); border-radius:16px; padding:16px 18px; margin-bottom:24px; }
     #page-serie .se-cast .se-avatar { font-size:2.6rem; flex-shrink:0; width:58px; height:58px; display:flex; align-items:center; justify-content:center; background:rgba(246,211,101,.12); border-radius:50%; }
@@ -44761,28 +44760,30 @@ function b1S12CheckB(){
     </div>
 
     <div class="se-eplist">
-      <button class="se-ep cur" data-ep="1" onclick="showSerieEp(1)">第 1 集 · 落地与登记</button>
-      <button class="se-ep" data-ep="2" onclick="showSerieEp(2)">第 2 集 · 开银行账户</button>
-      <button class="se-ep" data-ep="3" onclick="showSerieEp(3)">第 3 集 · 看医生</button>
-      <button class="se-ep" data-ep="4" onclick="showSerieEp(4)">第 4 集 · 药房取药</button>
-      <button class="se-ep" data-ep="5" onclick="showSerieEp(5)">第 5 集 · 大学注册</button>
-      <button class="se-ep" data-ep="6" onclick="showSerieEp(6)">第 6 集 · 超市购物</button>
-      <button class="se-ep" data-ep="7" onclick="showSerieEp(7)">第 7 集 · 图书馆学习</button>
-      <button class="se-ep" data-ep="8" onclick="showSerieEp(8)">第 8 集 · WG 找房</button>
-      <button class="se-ep" data-ep="9" onclick="showSerieEp(9)">第 9 集 · 外管局延签</button>
-      <button class="se-ep" data-ep="10" onclick="showSerieEp(10)">第 10 集 · 学生打工</button>
-      <button class="se-ep" data-ep="11" onclick="showSerieEp(11)">第 11 集 · 德铁出行</button>
-      <button class="se-ep" data-ep="12" onclick="showSerieEp(12)">第 12 集 · 圣诞市场</button>
-      <button class="se-ep" data-ep="13" onclick="showSerieEp(13)">第 13 集 · 圣诞饼干</button>
-      <button class="se-ep" data-ep="14" onclick="showSerieEp(14)">第 14 集 · 跨年之夜</button>
-      <button class="se-ep" data-ep="15" onclick="showSerieEp(15)">第 15 集 · 冬季打折</button>
-      <button class="se-ep" data-ep="16" onclick="showSerieEp(16)">第 16 集 · Fasching 狂欢</button>
-      <button class="se-ep" data-ep="17" onclick="showSerieEp(17)">第 17 集 · 学期假出行</button>
-      <button class="se-ep" data-ep="18" onclick="showSerieEp(18)">第 18 集 · GEZ 惊魂</button>
-      <button class="se-ep" data-ep="19" onclick="showSerieEp(19)">第 19 集 · 德国朋友圈</button>
-      <button class="se-ep" data-ep="20" onclick="showSerieEp(20)">第 20 集 · 考试季</button>
-      <button class="se-ep" data-ep="21" onclick="showSerieEp(21)">第 21 集 · Minijob 税卡</button>
-      <span class="se-ep soon">第 22 集（敬请期待）</span>
+      <select class="se-ep-select" onchange="showSerieEp(this.value)">
+        <option value="1">第 1 集 · 落地与登记</option>
+        <option value="2">第 2 集 · 开银行账户</option>
+        <option value="3">第 3 集 · 看医生</option>
+        <option value="4">第 4 集 · 药房取药</option>
+        <option value="5">第 5 集 · 大学注册</option>
+        <option value="6">第 6 集 · 超市购物</option>
+        <option value="7">第 7 集 · 图书馆学习</option>
+        <option value="8">第 8 集 · WG 找房</option>
+        <option value="9">第 9 集 · 外管局延签</option>
+        <option value="10">第 10 集 · 学生打工</option>
+        <option value="11">第 11 集 · 德铁出行</option>
+        <option value="12">第 12 集 · 圣诞市场</option>
+        <option value="13">第 13 集 · 圣诞饼干</option>
+        <option value="14">第 14 集 · 跨年之夜</option>
+        <option value="15">第 15 集 · 冬季打折</option>
+        <option value="16">第 16 集 · Fasching 狂欢</option>
+        <option value="17">第 17 集 · 学期假出行</option>
+        <option value="18">第 18 集 · GEZ 惊魂</option>
+        <option value="19">第 19 集 · 德国朋友圈</option>
+        <option value="20">第 20 集 · 考试季</option>
+        <option value="21">第 21 集 · Minijob 税卡</option>
+        <option disabled>———— 第 22 集（敬请期待）————</option>
+      </select>
     </div>
 
     <!-- ───── 第 1 集 ───── -->
@@ -48822,10 +48823,8 @@ function b1S12CheckB(){
     for (var i = 0; i < eps.length; i++) {
       eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? '' : 'none';
     }
-    var tabs = page.querySelectorAll('.se-eplist .se-ep[data-ep]');
-    for (var j = 0; j < tabs.length; j++) {
-      tabs[j].classList.toggle('cur', tabs[j].getAttribute('data-ep') == ep);
-    }
+    var sel = page.querySelector('.se-ep-select');
+    if (sel) sel.value = ep;
     page.scrollIntoView({ block: 'start' });
     window.scrollTo(0, 0);
     window._currentSerieEp = ep;
