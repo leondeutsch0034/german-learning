@@ -468,27 +468,6 @@
       .hub-page .a1hub-hero{padding-top:22px}
     }
 
-    /* Goethe info — 鎏金红过渡区 */
-    .info-section{
-      max-width:1100px;margin:0 auto 28px;
-      background:rgba(255,220,130,.1);
-      border:1px solid rgba(255,220,130,.35);
-      border-radius:14px;padding:20px 22px;
-      backdrop-filter:blur(16px);
-    }
-    .info-section h2{font-size:.95rem;font-weight:700;margin-bottom:14px;color:#ffe088;letter-spacing:.02em}
-    .exam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-    .exam-part{
-      background:rgba(255,220,130,.12);border:1px solid rgba(255,220,130,.3);
-      border-radius:12px;padding:14px 10px;text-align:center;transition:.2s;
-    }
-    .exam-part:hover{background:rgba(255,220,130,.22);border-color:rgba(255,220,130,.5)}
-    .exam-part .pts{font-size:1.6rem;line-height:1;margin-bottom:4px}
-    .exam-part .name{font-size:.82rem;font-weight:700;color:#fff8e8;margin-top:2px}
-    .exam-part .detail{font-size:.7rem;color:rgba(255,235,215,.7);margin-top:4px;line-height:1.5}
-    .exam-note{margin-top:12px;font-size:.78rem;color:rgba(255,235,215,.55);line-height:1.6;
-      padding:10px 14px;background:rgba(255,220,130,.08);border-radius:8px}
-
     /* Footer */
     #page-index footer {
       text-align:center;color:rgba(230,180,160,.25);font-size:.78rem;
@@ -2263,10 +2242,6 @@
       #page-index .hero { padding: 36px 10px 28px; }
       #page-index .hero h1 { font-size: clamp(1.5rem, 8vw, 2.2rem); }
       #page-index .hero-sub { font-size: .92rem; }
-      /* 考试网格 */
-      .exam-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-      /* 进度跟踪 */
-      .info-section { padding: 18px 14px; border-radius: 14px; }
       /* 页脚 */
       #page-index footer { padding: 16px 14px; font-size: .72rem; }
       /* 关于本站 */
@@ -2590,9 +2565,6 @@
       #page-index .hero h1 { font-size: clamp(1.2rem, 6vw, 1.6rem); }
       #page-index .card { padding: 16px 12px 14px; border-radius: 16px; }
       .grid { gap: 12px; }
-      .info-section { padding: 14px 10px; border-radius: 12px; }
-      .exam-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .exam-part { padding: 12px 8px; }
       #page-index .stats-bar { gap:8px; padding:10px 8px; border-radius:10px; }
       #page-index .stats-bar .st-tagline { font-size:.66rem; line-height:1.4 }
       #page-index .stats-bar .st-grid { gap:3px; }
@@ -2905,6 +2877,145 @@
       #page-echt .echt-note{font-size:.76rem}
       #page-echt .echt-scene{font-size:.7rem;padding:4px 11px}
     }
+    /* ── 德英混淆对照 DE-EN Confusion ── */
+    #page-de-en { background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; position:relative; overflow:hidden; }
+    /* 丁达尔光束（同 echt / serie 体系） */
+    #page-de-en .de-beams { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+    #page-de-en .de-haze { position:absolute; inset:0; pointer-events:none;
+      background:radial-gradient(75% 65% at 6% 3%, rgba(196,226,246,.18), rgba(130,180,216,.05) 42%, transparent 70%);
+      mix-blend-mode:screen; }
+    #page-de-en .de-godray { position:absolute; top:0; left:0; width:175%; height:175%; pointer-events:none;
+      mix-blend-mode:screen; transform-origin:0 0; filter:blur(2px);
+      -webkit-mask-image:radial-gradient(120% 120% at 0% 0%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.35) 58%, transparent 80%);
+              mask-image:radial-gradient(120% 120% at 0% 0%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.35) 58%, transparent 80%); }
+    #page-de-en .de-godray.gr1 { opacity:.42;
+      background:conic-gradient(from 78deg at 0% 0%,
+        transparent 0deg, rgba(214,236,250,.50) 6deg, transparent 12deg,
+        transparent 17deg, rgba(190,222,242,.38) 21deg, transparent 26deg,
+        transparent 33deg, rgba(220,238,250,.55) 38deg, transparent 44deg,
+        transparent 50deg, rgba(186,218,240,.35) 54deg, transparent 60deg,
+        transparent 66deg, rgba(210,232,248,.45) 70deg, transparent 76deg,
+        transparent 90deg);
+      animation:de-sway1 19s ease-in-out infinite; }
+    #page-de-en .de-godray.gr2 { opacity:.32;
+      background:conic-gradient(from 80deg at 0% 0%,
+        transparent 0deg, rgba(228,242,252,.40) 3deg, transparent 7deg,
+        transparent 13deg, rgba(200,228,246,.28) 16deg, transparent 20deg,
+        transparent 27deg, rgba(216,236,250,.38) 30deg, transparent 35deg,
+        transparent 41deg, rgba(196,224,244,.26) 45deg, transparent 49deg,
+        transparent 57deg, rgba(222,240,252,.36) 61deg, transparent 65deg,
+        transparent 72deg, rgba(204,230,248,.28) 76deg, transparent 80deg,
+        transparent 90deg);
+      animation:de-sway2 26s ease-in-out infinite; }
+    #page-de-en .de-dust { position:absolute; inset:0; pointer-events:none; }
+    #page-de-en .de-mote { position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,.85), rgba(200,225,245,.28) 50%, transparent 75%);
+      opacity:0; animation:de-float var(--md,11s) linear infinite var(--mt,0s); will-change:transform,opacity; }
+    #page-de-en .de-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(150% 110% at 12% 1%, transparent 52%, rgba(5,12,26,.4) 100%); }
+    @keyframes de-sway1 { 0%,100%{ transform:rotate(0deg); opacity:.34 } 50%{ transform:rotate(2.5deg); opacity:.50 } }
+    @keyframes de-sway2 { 0%,100%{ transform:rotate(0deg); opacity:.24 } 50%{ transform:rotate(-3deg); opacity:.38 } }
+    @keyframes de-float { 0%{opacity:0; transform:translate(0,0)} 14%{opacity:.7} 86%{opacity:.35} 100%{opacity:0; transform:translate(46px,-120px)} }
+    @media (prefers-reduced-motion: reduce){
+      #page-de-en .de-godray, #page-de-en .de-mote { animation:none !important; }
+      #page-de-en .de-mote{ opacity:.35; }
+    }
+    /* 内容浮在光束之上 */
+    #page-de-en .de-header, #page-de-en .de-tools,
+    #page-de-en .de-grid, #page-de-en .de-empty, #page-de-en .de-back { position:relative; z-index:1; }
+    #page-de-en .de-header { text-align:center; margin-bottom:26px; }
+    #page-de-en .de-header h2 { color:#f6d365; font-size:1.75rem; margin-bottom:8px; letter-spacing:-.01em; }
+    #page-de-en .de-header p { color:#94a3b8; font-size:.9rem; max-width:560px; margin:0 auto; line-height:1.5; }
+    #page-de-en .de-tools { max-width:1040px; margin:0 auto 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; }
+    #page-de-en .de-search-box { position:relative; flex:1; min-width:260px; max-width:480px; }
+    #page-de-en .de-search-box svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:17px; height:17px; fill:rgba(246,211,101,.45); pointer-events:none; }
+    #page-de-en #de-en-search { width:100%; box-sizing:border-box; background:rgba(246,211,101,.05); border:1.5px solid rgba(246,211,101,.18); color:#fde68a; border-radius:24px; padding:12px 42px 12px 40px; font-size:.92rem; outline:none; transition:.25s; }
+    #page-de-en #de-en-search::placeholder { color:rgba(148,163,184,.7); font-size:.85rem; }
+    #page-de-en #de-en-search:focus { border-color:rgba(246,211,101,.55); background:rgba(246,211,101,.08); box-shadow:0 0 0 4px rgba(246,211,101,.06); }
+    #page-de-en .de-search-clear { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer; padding:4px 9px; line-height:1; border-radius:50%; transition:.2s; display:none; }
+    #page-de-en .de-search-clear:hover { color:#fde68a; background:rgba(246,211,101,.12); }
+    #page-de-en .de-count { font-size:.8rem; color:#94a3b8; white-space:nowrap; }
+    #page-de-en .de-count b { color:#f6d365; font-weight:700; }
+    #page-de-en .de-empty { display:none; text-align:center; color:#94a3b8; font-size:.92rem; padding:60px 20px; }
+    /* 卡片网格 */
+    #page-de-en .de-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1040px; margin:0 auto; }
+    #page-de-en .de-card { background:linear-gradient(160deg,#0f1e3a,#132540); border:1px solid rgba(246,211,101,.1); border-radius:18px; padding:20px 20px 18px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+    #page-de-en .de-card:hover { border-color:rgba(246,211,101,.4); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-3px); }
+    /* 卡片左上角的类型标签 */
+    #page-de-en .de-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    #page-de-en .de-type { font-size:.74rem; color:#0a1428; padding:5px 14px; border-radius:20px; font-weight:700; letter-spacing:.02em; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+    #page-de-en .de-type.ff { background:linear-gradient(135deg,#ef4444,#f87171); }   /* 假朋友：红色 */
+    #page-de-en .de-type.gr { background:linear-gradient(135deg,#f59e0b,#fbbf24); }   /* 语法混淆：琥珀 */
+    #page-de-en .de-type.pn { background:linear-gradient(135deg,#8b5cf6,#a78bfa); }   /* 发音混淆：紫色 */
+    #page-de-en .de-type.fx { background:linear-gradient(135deg,#0ea5e9,#38bdf8); }   /* 混合易错：蓝色 */
+    #page-de-en .de-num { font-size:.66rem; font-weight:700; color:rgba(246,211,101,.35); letter-spacing:.06em; }
+    /* 双列对比：左德语右英语 */
+    #page-de-en .de-rows { display:flex; gap:12px; margin-bottom:14px; }
+    #page-de-en .de-col { flex:1; min-width:0; border-radius:14px; padding:14px 14px 15px; position:relative; }
+    #page-de-en .de-col.de { background:rgba(246,211,101,.06); border:1px solid rgba(246,211,101,.25); border-left:3px solid #f6d365; }
+    #page-de-en .de-col.en { background:rgba(59,130,246,.06); border:1px solid rgba(59,130,246,.25); border-left:3px solid #3b82f6; }
+    #page-de-en .de-col-label { font-size:.66rem; font-weight:700; letter-spacing:.05em; margin-bottom:8px; display:flex; align-items:center; gap:5px; }
+    #page-de-en .de-col.de .de-col-label { color:#f6d365; }
+    #page-de-en .de-col.en .de-col-label { color:#60a5fa; }
+    #page-de-en .de-word { font-size:.98rem; font-weight:600; line-height:1.4; letter-spacing:-.005em; }
+    #page-de-en .de-col.de .de-word { color:#fef3c7; }
+    #page-de-en .de-col.en .de-word { color:#bfdbfe; }
+    #page-de-en .de-meaning { font-size:.7rem; color:#94a3b8; margin-top:3px; font-style:italic; }
+    /* 常见错误提示行 */
+    #page-de-en .de-mistake-box { background:rgba(239,68,68,.06); border:1px solid rgba(239,68,68,.18); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+    #page-de-en .de-mistake-label { font-size:.66rem; font-weight:700; color:#f87171; letter-spacing:.05em; margin-bottom:4px; }
+    #page-de-en .de-mistake-text { font-size:.82rem; color:#fca5a5; line-height:1.45; }
+    #page-de-en .de-correct-box { background:rgba(34,197,94,.05); border:1px solid rgba(34,197,94,.15); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+    #page-de-en .de-correct-label { font-size:.66rem; font-weight:700; color:#4ade80; letter-spacing:.05em; margin-bottom:4px; }
+    #page-de-en .de-correct-text { font-size:.85rem; color:#bbf7d0; font-weight:600; line-height:1.45; }
+    /* 讲解注释 */
+    #page-de-en .de-note { font-size:.8rem; color:#a8b5c4; line-height:1.65; margin-top:4px; padding-top:12px; border-top:1px solid rgba(246,211,101,.12); }
+    #page-de-en .de-note b { color:#f6d365; font-weight:700; }
+    #page-de-en .de-watermark { margin-top:14px; padding-top:10px; border-top:1px solid rgba(246,211,101,.06); text-align:right; font-size:.6rem; color:rgba(246,211,101,.18); letter-spacing:.05em; }
+    #page-de-en .de-share-btn { display:inline-block; margin-top:10px; padding:7px 18px; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; border-radius:16px; font-size:.73rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
+    #page-de-en .de-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
+    #page-de-en .de-back { text-align:center; margin-top:40px; }
+    #page-de-en .de-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2a4a7a); color:#fde68a; padding:11px 30px; border-radius:22px; text-decoration:none; font-weight:600; font-size:.9rem; border:1px solid rgba(246,211,101,.22); transition:.25s; }
+    #page-de-en .de-back a:hover { border-color:rgba(246,211,101,.55); box-shadow:0 4px 18px rgba(246,211,101,.12); transform:translateY(-1px); }
+    /* 响应式 */
+    @media(max-width:860px){ #page-de-en .de-grid{grid-template-columns:1fr; max-width:600px} }
+    
+    /* ── 句子级病句卡片 ── */
+    #page-de-en .de-sec-title { position:relative; z-index:1; max-width:1040px; margin:36px auto 14px; display:flex; align-items:center; gap:10px; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(246,211,101,.45); }
+    #page-de-en .de-sec-title::after { content:'';flex:1;height:1px;background:rgba(246,211,101,.14); }
+    #page-de-en .de-sent-card { background:linear-gradient(160deg,#0f1e3a,#132540); border:1px solid rgba(239,68,68,.12); border-left:4px solid #ef4444; border-radius:18px; padding:20px 20px 18px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
+    #page-de-en .de-sent-card:hover { border-color:rgba(239,68,68,.35); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(239,68,68,.06); transform:translateY(-3px); }
+    #page-de-en .de-sent-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    #page-de-en .de-sent-type { font-size:.74rem; color:#0a1428; background:linear-gradient(135deg,#ef4444,#f87171); padding:5px 14px; border-radius:20px; font-weight:700; letter-spacing:.02em; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+    #page-de-en .de-sent-num { font-size:.66rem; font-weight:700; color:rgba(239,68,68,.35); letter-spacing:.06em; }
+    #page-de-en .de-sent-de { font-size:.76rem; color:#94a3b8; margin-bottom:12px; padding:8px 12px; background:rgba(246,211,101,.04); border-radius:8px; border:1px solid rgba(246,211,101,.08); font-style:italic; }
+    #page-de-en .de-sent-de b { color:#f6d365; font-weight:600; font-style:normal; }
+    #page-de-en .de-sent-mistake { background:rgba(239,68,68,.06); border:1px solid rgba(239,68,68,.18); border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+    #page-de-en .de-sent-mistake .lbl { font-size:.66rem; font-weight:700; color:#f87171; letter-spacing:.05em; margin-bottom:4px; }
+    #page-de-en .de-sent-mistake .txt { font-size:.88rem; color:#fca5a5; font-weight:600; line-height:1.5; }
+    #page-de-en .de-sent-correct { background:rgba(34,197,94,.05); border:1px solid rgba(34,197,94,.15); border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+    #page-de-en .de-sent-correct .lbl { font-size:.66rem; font-weight:700; color:#4ade80; letter-spacing:.05em; margin-bottom:4px; }
+    #page-de-en .de-sent-correct .txt { font-size:.88rem; color:#bbf7d0; font-weight:600; line-height:1.5; }
+    #page-de-en .de-sent-note { font-size:.8rem; color:#a8b5c4; line-height:1.65; margin-top:4px; padding-top:12px; border-top:1px solid rgba(246,211,101,.12); }
+    #page-de-en .de-sent-note b { color:#f6d365; font-weight:700; }
+    @media(max-width:600px){
+      #page-de-en .de-sent-card{padding:16px 14px 14px}
+      #page-de-en .de-sent-mistake .txt{font-size:.82rem}
+      #page-de-en .de-sent-correct .txt{font-size:.82rem}
+      #page-de-en .de-sent-de{font-size:.72rem}
+    }
+    @media(max-width:600px){
+      #page-de-en{padding:18px 10px 36px}
+      #page-de-en .de-header h2{font-size:1.35rem}
+      #page-de-en .de-header p{font-size:.82rem}
+      #page-de-en .de-rows{flex-direction:column;gap:10px}
+      #page-de-en .de-word{font-size:.9rem}
+      #page-de-en .de-card{padding:16px 14px 14px}
+      #page-de-en .de-col{padding:12px 12px 13px}
+      #page-de-en .de-note{font-size:.76rem}
+      #page-de-en .de-type{font-size:.7rem;padding:4px 11px}
+      #page-de-en .de-mistake-text{font-size:.78rem}
+      #page-de-en .de-correct-text{font-size:.8rem}
+    }
+
     /* ── 德语连续剧「林夏在德国」 ── */
     #page-serie { background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; position:relative; overflow:hidden; }
     /* ── 丁达尔光束：左上角辐射 god rays（锥形渐变） ── */
@@ -3822,12 +3933,6 @@ function createLoginPromptCard() {
 	    tags:'句型 · 马拉松 · 网购 · 旅游统计',
 	    c1:'#a03030', c2:'#f5a0b0', locked:false },
 
-	  // ── 考试 ──
-	  { id:'gaokao', icon:'🎓', navLabel:'高考德语', cardTitleDe:'Deutsch fürs Abitur (China)', cardSubDe:'Originale Abituraufgaben mit Lösungen', cardTitle:'高考德语', group:'b1', hubStep:6, hubSkill:'Prüfung', hubSkillZh:'高考德语', hubAccent:'#fbbf24', hubTip:'Originale Abituraufgaben: Gaokao Deutsch mit Lösungen',
-	    desc:'全国新高考德语真题 · 试卷 · 解析 · 备考资料 · 题型训练',
-	    tags:'高考真题 · 新高考卷 · 备考 · 2020',
-	    c1:'#b45309', c2:'#fbbf24', locked:false },
-
 	  // ── 文化 · 自媒体 · 追更 ──
 	  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitleDe:'Deutsche Kultur', cardSubDe:'Landeskunde: Städte, Bräuche & Lesetexte', cardTitle:'德国文化',
 	    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
@@ -3841,6 +3946,11 @@ function createLoginPromptCard() {
 	    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
 	    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
 	    c1:'#7c3aed', c2:'#c4b5fd', locked:false },
+	  { id:'de-en', icon:'🔄', navLabel:'德英混淆', cardTitleDe:'Deutsch vs. Englisch', cardSubDe:'False Friends · Verwechslung · typische Fehler', cardTitle:'德英混淆对照', group:'pronunciation',
+	    hubStep:3, hubSkill:'Kontrast', hubSkillZh:'德英对比', hubAccent:'#ef4444', hubTip:'分清假朋友：德语英语不再搞混',
+	    desc:'德语英语容易搞混的词和表达 · 假朋友对照 · 常见错误纠正 · 双语老师视角帮你分清',
+	    tags:'假朋友 · 德英对比 · 纠错 · 双语',
+	    c1:'#dc2626', c2:'#3b82f6', locked:false },
 
 	  // ── 定制（锁定） ──
 	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitleDe:'LXQ Individual', cardSubDe:'Personalisierte Lerninhalte & Lernpfad', cardTitle:'LXQ定制', group:'a1', hubStep:6, hubSkill:'Premium', hubSkillZh:'专属定制', hubAccent:'#f9d880', hubTip:'VIP专属：个性化定制学习路径',
@@ -3861,8 +3971,8 @@ var HUBS = {
         desc:'语法 · 语法抄写 · 听力 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
   pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitleDe:'Aussprache-Training', cardTitle:'🎙️ 发音训练',
-        desc:'德语发音器 + 英语发音器 — AI 语音识别 · 音素级评分 · 精准纠音',
-        tags:'AI语音 · 音素评分 · 德英双语' }
+        desc:'德语发音器 + 英语发音器 + 德英混淆对照 — AI 语音识别 · 音素级评分 · 精准纠音',
+        tags:'AI语音 · 音素评分 · 德英双语 · 假朋友' }
 };
 // hubId('a1hub') → 'a1'，找出某学习站对应的分组 key
 function hubGroupOf(hubId) {
@@ -3905,6 +4015,7 @@ function renderCards() {
     if (id === 'kultur') return '#f59e0b';
     if (id === 'echt') return '#22d3ee';
     if (id === 'serie') return '#a78bfa';
+    if (id === 'de-en') return '#ef4444';
     return '#f6d365'; // 默认金
   }
   for (var i = 0; i < MODULES.length; i++) {
@@ -4278,45 +4389,6 @@ document.addEventListener('keydown', function(e) {
   <script>renderCards();</script>
 </div>
 
-
-<!-- 考试说明标题 -->
-<div class="sec-title">🎯 考试结构</div>
-
-<!-- 歌德A1考试说明 -->
-<div class="info-section">
-  <h2>🎯 Goethe-Zertifikat A1 考试说明</h2>
-  <div class="exam-grid">
-    <div class="exam-part">
-      <div class="pts">🎧</div>
-      <div class="name">Hören 听力</div>
-      <div class="detail">3部分 · 约20分钟<br>16道题 · 20分</div>
-    </div>
-    <div class="exam-part">
-      <div class="pts">📖</div>
-      <div class="name">Lesen 阅读</div>
-      <div class="detail">3部分 · 约25分钟<br>15道题 · 20分</div>
-    </div>
-    <div class="exam-part">
-      <div class="pts">✍️</div>
-      <div class="name">Schreiben 写作</div>
-      <div class="detail">1个任务 · 约15分钟<br>20–30词 · 20分</div>
-    </div>
-    <div class="exam-part">
-      <div class="pts">🗣️</div>
-      <div class="name">Sprechen 口语</div>
-      <div class="detail">3部分 · 约15分钟<br>3个任务 · 20分</div>
-    </div>
-    <div class="exam-part" style="background:rgba(220,100,60,.12);border-color:rgba(220,100,60,.28)">
-      <div class="pts" style="font-size:1.5rem;font-weight:800;color:#e0a080">60%</div>
-      <div class="name" style="color:#e0a080">通过分数线</div>
-      <div class="detail">总分80分<br>各项至少60%</div>
-    </div>
-  </div>
-  <div class="exam-note">
-    💡 A1考试不设独立语法考项，语法通过听、读、写综合考查。口语 Teil 1：自我介绍；Teil 2：提问与回答；Teil 3：提出请求。
-  </div>
-</div>
-
 <footer>
   🇩🇪 Viel Erfolg bei der Prüfung! &nbsp; 祝考试顺利！<br>
   Leons Deutschzentrum · Goethe-Zertifikat A1 / A2 / B1 备考 · 语法 · 听力 · 写作 · 发音 · 文化
@@ -4418,13 +4490,13 @@ document.addEventListener('keydown', function(e) {
     <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎙️ AI 发音训练</div>
     <h1>发音训练</h1>
-    <p class="a1hub-sub">德语发音器 + 英语发音器<br>AI 语音识别 · 音素级评分 · 精准纠音 · 实时反馈</p>
+    <p class="a1hub-sub">德语发音器 · 英语发音器 · 德英混淆对照<br>AI 语音识别 · 音素级评分 · 精准纠音 · 假朋友对比</p>
   </div>
 
   <div class="a1hub-path">
     <span class="a1hub-path-lbl">🎯 选择语种</span>
     <div class="a1hub-path-flow">
-      <span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span>
+      <span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span><i>·</i><span>🔄 德英混淆</span>
     </div>
   </div>
 
@@ -4434,8 +4506,8 @@ document.addEventListener('keydown', function(e) {
   </div>
 
   <footer>
-    🎙️ AI 语音识别 · 音素级评分 · 精准纠音<br>
-    Leons Deutschzentrum · 德语发音器 · 英语发音器
+    🎙️ AI 语音识别 · 音素级评分 · 精准纠音 · 德英混淆对照<br>
+    Leons Deutschzentrum · 德语发音器 · 英语发音器 · 假朋友对比
   </footer>
 
 </div>
@@ -14594,6 +14666,7 @@ function showPage(id) {
   if (id === 'wds' && window.renderWDSGrid) window.renderWDSGrid();
   // 地道德语页：渲染对照卡片
   if (id === 'echt' && window.renderEchtGrid) window.renderEchtGrid();
+	  if (id === 'de-en' && window.renderDEENGrid) { window.renderDEENGrid(); if(window.renderDEENSentences) window.renderDEENSentences(); }
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
   // 同步 URL hash，分享出去对方看到同一页
@@ -44742,6 +44815,333 @@ function b1S12CheckB(){
   })();
 })();
 </script>
+
+<!-- ══════════ 德英混淆对照 · DE-EN Confusion ══════════ -->
+<div id="page-de-en" class="page">
+  <div class="de-beams" aria-hidden="true">
+    <div class="de-haze"></div>
+    <div class="de-godray gr1"></div>
+    <div class="de-godray gr2"></div>
+    <div class="de-dust" id="deDust"></div>
+    <div class="de-vignette"></div>
+  </div>
+  <div class="de-header">
+    <h2>🔄 德语英语混淆对照</h2>
+    <p>假朋友 · 语法混淆 · 发音干扰 — 德语人学英语最容易踩的坑，双语老师帮你一条条分清楚</p>
+  </div>
+  <div class="de-tools">
+    <div class="de-search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="de-en-search" type="text" placeholder="搜索关键词（中德英文均可，如 bekommen、actual、礼物）" oninput="filterDEEN()">
+      <button class="de-search-clear" id="de-en-search-clear" onclick="clearDEENSearch()" title="清空">×</button>
+    </div>
+    <span class="de-count" id="de-en-count"></span>
+  </div>
+  <div class="de-grid" id="de-en-grid"></div>
+  <div class="de-empty" id="de-en-empty">🔍 词级对照中没有匹配的条目，换个关键词试试</div>
+  <!-- ═══ 句子级 · 德语思维病句 ═══ -->
+  <div class="de-sec-title">🗣️ 句子级 · 德语思维病句</div>
+  <div class="de-grid" id="de-en-sent-grid"></div>
+  <div class="de-empty" id="de-en-sent-empty">🔍 句子级中没有匹配的条目，换个关键词试试</div>
+  <div class="de-back">
+    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+  </div>
+</div>
+<script>
+(function(){
+  window.DEEN_FACTS = [
+    {cat:'假朋友', catCls:'ff', de:'bekommen', deMean:'得到，收到', en:'become', enMean:'变成，成为',
+      mistake:'I will <b>become</b> a gift from my friend.',
+      correct:'I will <b>get / receive</b> a gift from my friend.',
+      note:'这是德语学习者最经典的错误之一。<b>bekommen</b> 在德语里是"得到"，但英语 <b>become</b> 是"变成"。德语人说"I become a package"会被理解成"我变成了一个包裹"——对方会笑。正确英语是 <b>get</b> 或 <b>receive</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'aktuell', deMean:'当前的，现在的', en:'actual', enMean:'实际的，真实的',
+      mistake:'The <b>actual</b> news are very interesting.',
+      correct:'The <b>current</b> news is very interesting.',
+      note:'德语 <b>aktuell</b> 对应英语 <b>current</b>，不是 actual。英语 <b>actual</b> 意思是"真实的/实际的"。如果你说"actual news"，别人会理解为"真实的新闻（不是假新闻）"而非"当前新闻"。'},
+    {cat:'假朋友', catCls:'ff', de:'Gift', deMean:'毒药，毒物', en:'gift', enMean:'礼物，天赋',
+      mistake:'Thank you for the <b>Gift</b>!',
+      correct:'Thank you for the <b>gift / present</b>!',
+      note:'德语 <b>Gift</b>（首字母大写是名词）意思是"毒药"。如果你在英语里写"Gift"说礼物，英语母语者可能知道你是德语人，但看起来像拼错了。英语 <b>gift</b> 小写才是礼物。德语"礼物"是 <b>Geschenk</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'Chef', deMean:'老板，上司', en:'chef', enMean:'主厨',
+      mistake:'My <b>chef</b> gave me a raise.',
+      correct:'My <b>boss</b> gave me a raise.',
+      note:'德语 <b>Chef</b> 指"老板/上司"，但英语 <b>chef</b> 专指"主厨/厨师长"。说"My chef gave me a raise"会让英语人以为你在餐厅后厨工作。办公室老板是 <b>boss</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'Rat', deMean:'建议；议会', en:'rat', enMean:'老鼠',
+      mistake:'I need a good <b>rat</b> from you.',
+      correct:'I need some good <b>advice</b> from you.',
+      note:'德语 <b>Rat</b> 是"建议"，但英语 <b>rat</b> 是"老鼠"。说"I need a rat"会让对方以为你要一只老鼠。要建议用 <b>advice</b>。另外德语 der Rat 还可以指"议会"（如 Bundesrat）。'},
+    {cat:'假朋友', catCls:'ff', de:'Mist', deMean:'粪肥；<口语>该死/见鬼', en:'mist', enMean:'薄雾',
+      mistake:'There is <b>mist</b> on the field.',
+      correct:'There is <b>fog / haze / manure</b> on the field.',
+      note:'德语 <b>Mist</b> 原意是"粪肥"，口语中是"见鬼/该死"。如果你在德国听到有人喊"So ein Mist!"，他不是在说天气有雾，而是在说"真见鬼！"。英语 <b>mist</b> 是轻柔的雾气。'},
+    {cat:'假朋友', catCls:'ff', de:'fast', deMean:'几乎，差不多', en:'fast', enMean:'快速的',
+      mistake:'I am <b>fast</b> finished.',
+      correct:'I am <b>almost</b> finished.',
+      note:'德语 <b>fast</b> 是"几乎"，英语 <b>fast</b> 是"快"。德语人说英语时"I am fast finished"会被误解为"我很快地完成了"，但你想说的是"我差不多完成了"——英语是 <b>almost</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'Brief', deMean:'信件', en:'brief', enMean:'简短的',
+      mistake:'I wrote a long <b>brief</b> to my family.',
+      correct:'I wrote a long <b>letter</b> to my family.',
+      note:'德语 <b>Brief</b> 是"信件"，但英语 <b>brief</b> 是形容词"简短的"，不是名词。英语里说"a long brief"是矛盾的。信件是 <b>letter</b>。business brief 是"商业简报"。'},
+    {cat:'假朋友', catCls:'ff', de:'Rock', deMean:'裙子', en:'rock', enMean:'岩石；摇滚乐',
+      mistake:'She wore a beautiful <b>rock</b> today.',
+      correct:'She wore a beautiful <b>skirt</b> today.',
+      note:'德语 <b>Rock</b> 是"裙子"，英语 <b>rock</b> 是"石头/摇滚"。说"She wore a rock"会被理解成"她穿了一块石头"。裙子是 <b>skirt</b>。但英语 <b>rock music</b> 的 rock 和德语没关系。'},
+    {cat:'假朋友', catCls:'ff', de:'Art', deMean:'种类；方式', en:'art', enMean:'艺术',
+      mistake:'What <b>art</b> of music do you like?',
+      correct:'What <b>kind / type</b> of music do you like?',
+      note:'德语 <b>Art</b> 是"种类/方式"，但英语 <b>art</b> 是"艺术"。问"哪种音乐"应该说 <b>kind</b> 或 <b>type</b>，不是 art。德语 eine Art von... = 英语 a kind of...'},
+    {cat:'假朋友', catCls:'ff', de:'Bad', deMean:'浴室；洗澡', en:'bad', enMean:'坏的',
+      mistake:'The apartment has two <b>bad</b> rooms.',
+      correct:'The apartment has two <b>bathrooms</b>.',
+      note:'德语 <b>Bad</b> 是"浴室"，但英语 <b>bad</b> 是"坏的"。说"two bad rooms"像在说"两间很差劲的房间"而不是"两间浴室"。浴室英语是 <b>bathroom</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'Fabrik', deMean:'工厂', en:'fabric', enMean:'布料；织物',
+      mistake:'This <b>fabric</b> produces cars.',
+      correct:'This <b>factory</b> produces cars.',
+      note:'德语 <b>Fabrik</b> 是"工厂"，英语 <b>fabric</b> 是"布料"。两者长得几乎一样但意思完全不同。工厂英语是 <b>factory</b>（或 plant/mill）。'},
+    {cat:'假朋友', catCls:'ff', de:'sensibel', deMean:'敏感的，细腻的', en:'sensible', enMean:'明智的，理智的',
+      mistake:'She is a very <b>sensible</b> person — easily hurt.',
+      correct:'She is a very <b>sensitive</b> person — easily hurt.',
+      note:'德语 <b>sensibel</b> = 敏感的，英语 <b>sensible</b> = 明智的。这两个是跨越所有欧洲语言的高频假朋友。英语说"sensible person"是指这人做事理智靠谱，不是敏感。敏感的人是 <b>sensitive</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'eventuell', deMean:'也许，可能', en:'eventually', enMean:'最终，终于',
+      mistake:'I will <b>eventually</b> come to the party — depends on work.',
+      correct:'I will <b>maybe / perhaps</b> come to the party — depends on work.',
+      note:'德语 <b>eventuell</b> = 也许（表不确定性），英语 <b>eventually</b> = 最终（表时间上的终局）。这是致命混淆——你说"eventually come"英语人会理解为"我最终会来的（一定来）"，但你德语思维想说的是"我可能来（不一定）"。表达不确定性用 <b>maybe</b> 或 <b>perhaps</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'spenden', deMean:'捐赠，捐献', en:'spend', enMean:'花费（钱/时间）',
+      mistake:'I <b>spent</b> money to the charity.',
+      correct:'I <b>donated</b> money to the charity.',
+      note:'德语 <b>spenden</b> = 捐赠，英语 <b>spend</b> = 花钱/花时间（不是捐赠）。"I spent money to charity"听起来像"我把钱花在慈善机构（买了东西）"。捐赠用 <b>donate</b>。'},
+    {cat:'假朋友', catCls:'ff', de:'Kaution', deMean:'押金，保证金', en:'caution', enMean:'谨慎，小心',
+      mistake:'I paid a <b>caution</b> of 500 euros for the flat.',
+      correct:'I paid a <b>deposit</b> of 500 euros for the flat.',
+      note:'德语 <b>Kaution</b> = 押金（租房交的那笔钱），英语 <b>caution</b> = 谨慎。租房押金英语是 <b>deposit</b>（或 security deposit）。德国租房 Kaution 通常是三个月冷租，这个知识点在德国生活很重要。'},
+    {cat:'假朋友', catCls:'ff', de:'Not', deMean:'困境，紧急情况', en:'not', enMean:'不（否定词）',
+      mistake:'It is <b>not</b> to help him.',
+      correct:'It is <b>necessary / an emergency</b> to help him.',
+      note:'德语 <b>Not</b> 是名词"困境/紧急"，英语 <b>not</b> 是副词"不"。德语 der Notruf = 紧急电话（110/112），die Notaufnahme = 急诊室。完全不同的语法功能。'},
+    {cat:'假朋友', catCls:'ff', de:'Wand', deMean:'墙（室内）', en:'wand', enMean:'魔杖',
+      mistake:'Hang the picture on the <b>wand</b>.',
+      correct:'Hang the picture on the <b>wall</b>.',
+      note:'德语 <b>Wand</b> = 室内墙，英语 <b>wand</b> = 魔杖（哈利波特拿的那种）。说"hang it on the wand"会很滑稽。注意德语 Wand（墙）和 Mauer（外墙/柏林墙那种）有区别。'},
+    {cat:'语法混淆', catCls:'gr', de:'wer?', deMean:'谁（主格疑问词）', en:'who?', enMean:'谁',
+      mistake:'<b>Who</b> is the train station?',
+      correct:'<b>Where</b> is the train station?',
+      note:'德语 <b>wer</b> 长得像英语 where，但意思是 <b>who</b>。相反，德语 <b>wo</b>（哪里）才对应英语 <b>where</b>。这是初学者最容易搞混的一组疑问词——wer=who, wo=where，记住"德语 w 后面字母越少越基础"。'},
+    {cat:'语法混淆', catCls:'gr', de:'wo?', deMean:'哪里（疑问词）', en:'where?', enMean:'哪里',
+      mistake:'<b>Where</b> are you? I am Lin Xia.',
+      correct:'<b>Who</b> are you? I am Lin Xia.  /  <b>Where</b> are you? I am at home.',
+      note:'德语 <b>wo</b> 长得像英语 who，但意思是 <b>where</b>。德语人说英语常把 who 和 where 搞反：wer→who, wo→where。关联：wer↔who（都是 w 开头），wo↔where（都是 w 开头且描述位置）。'},
+    {cat:'语法混淆', catCls:'gr', de:'ich will', deMean:'我想要（意愿强烈）', en:'I want', enMean:'我想要',
+      mistake:'<b>I will</b> go to the cinema tomorrow.',
+      correct:'<b>I want to</b> go to the cinema tomorrow.',
+      note:'德语 <b>ich will</b> 表示"我想要"，但英语 <b>I will</b> 是将来时助动词（我将要）。这是致命语法混淆——你说"I will go"时英语人理解成"我会去的（将来发生）"，但你德语思维想说的是"我想去（表达意愿）"。正确表达意愿用 <b>I want to</b>。英语 will 对应德语 werde。'},
+    {cat:'语法混淆', catCls:'gr', de:'seit', deMean:'自从（时间）', en:'since', enMean:'自从；因为',
+      mistake:'I live here <b>since</b> three years.',
+      correct:'I <b>have lived</b> here <b>for</b> three years.',
+      note:'德语 <b>seit</b> + 时间用现在时（Ich wohne seit drei Jahren hier），但英语不能用 since + 时间段 + 一般现在时。英语必须用 <b>for</b> + 时间段（不是 since）+ 现在完成时。德语的 seit 思维迁移到英语就错了。'},
+    {cat:'发音混淆', catCls:'pn', de:'See (der)', deMean:'湖（阳）', en:'sea', enMean:'海',
+      mistake:'Lake Constance is a big <b>sea</b>.',
+      correct:'Lake Constance is a big <b>lake</b>.',
+      note:'德语 <b>der See</b> = 湖，<b>die See</b> = 海。但英语 <b>sea</b> 只对应海。德语人容易把 der See（湖）直接译成 sea——但其实湖用 <b>lake</b>。Bodensee 是 Lake Constance，不是 Sea Constance。'},
+    {cat:'发音混淆', catCls:'pn', de:'Handy', deMean:'手机', en:'handy', enMean:'方便的；手边的',
+      mistake:'I forgot my <b>handy</b> at home.',
+      correct:'I forgot my <b>mobile / cell phone</b> at home.',
+      note:'德语 <b>Handy</b> 是德国人自创的英语词——英语母语者根本不用 handy 指手机。说"I forgot my handy"会让人愣一下然后想歪。英语手机是 <b>mobile phone</b>（英）或 <b>cell phone</b>（美），口语直接说 <b>phone</b>。'},
+    {cat:'混合易错', catCls:'fx', de:'Stunde', deMean:'小时；课时', en:'hour', enMean:'小时',
+      mistake:'I will be there in one <b>hour</b>.'+"\n"+'(本句正确但经常与 Uhr 搞混)',
+      correct:'<b>注意区分：</b>Stunde = hour（小时/时长），Uhr = o\'clock / clock（钟点/钟表）',
+      note:'德语有 <b>Stunde</b>（小时，时长）和 <b>Uhr</b>（钟点，钟表），英语只有 <b>hour</b> 和 <b>o\'clock / clock</b>。德语人说英语时常把两者混成一个 hour——问时间 What hour is it? 错的，正确是 What time is it?。德语 Wie viel Uhr ist es? ≠ How many hours is it?'},
+    // ── 句子级 · 德语思维病句 ──
+    {cat:'句法病句', de:'Ich mache meine Hausaufgaben.', mistake:'I <b>make</b> my homework.', correct:'I <b>do</b> my homework.', note:'德语 <b>machen</b> 可以搭配任何事（machen = 做），但英语分得很细：做作业是 <b>do</b> homework，做饭是 <b>make</b> dinner。德语人最容易混淆 make/do。记住：do = 执行任务，make = 创造产出。'},
+    {cat:'句法病句', de:'Ich fahre mit dem Bus.', mistake:'I <b>drive</b> with the bus.', correct:'I <b>take</b> the bus.', note:'德语 <b>fahren</b> 泛指"乘坐交通工具"，但英语 <b>drive</b> 特指"亲自驾驶"。除非你是公交司机，否则说"I drive the bus"很怪。乘坐公共交通工具用 <b>take</b> 或 <b>go by</b>。'},
+    {cat:'句法病句', de:'Kann ich einen Kaffee bekommen?', mistake:'Can I <b>become</b> a coffee?', correct:'Can I <b>get</b> a coffee?', note:'最经典的 bekommen 病句的完整句子版。说"Can I become a coffee?"等于问"我能变成一杯咖啡吗？"——对方会爆笑。记住：bekommen = get/receive，永远不是 become。'},
+    {cat:'句法病句', de:'Es gibt heute Fisch.', mistake:'Today <b>it gives</b> fish.', correct:'<b>There is</b> fish today.', note:'德语 <b>es gibt</b>（有/存在）是高频句型，德语人说英语时习惯逐词翻译成"it gives"。但英语表示"有"用 <b>there is / there are</b>。es gibt ≠ it gives。'},
+    {cat:'句法病句', de:'Ich bin einverstanden.', mistake:'I <b>am agreed</b>.', correct:'<b>I agree</b>.', note:'德语 <b>einverstanden sein</b> 是"同意"，但英语 agree 是动词不是形容词。德语人说"I am agreed"听起来像"我被别人同意了"。正确：I agree / I don\'t agree。'},
+    {cat:'句法病句', de:'Das ist mir egal.', mistake:'That is <b>me equal</b>.', correct:'<b>I don\'t care</b> / It doesn\'t matter to me.', note:'德语 <b>Das ist mir egal</b>（我无所谓）逐词翻译成英语会很灾难：mir→me, egal→equal。英语人完全听不懂。地道表达是 I don\'t care / doesn\'t matter / I don\'t mind。'},
+    {cat:'句法病句', de:'Mir ist kalt.', mistake:'<b>I have cold</b>.', correct:'<b>I am cold</b>.', note:'德语用"某人第三格+ist"表达身体感受（Mir ist kalt = 我感到冷），英语用"主语+be+形容词"。德语人说"I have cold"像是在说"我拥有一场感冒"。I am cold / I feel cold 才对。'},
+    {cat:'句法病句', de:'Ich stehe um 7 Uhr auf.', mistake:'I <b>stand up</b> at 7 o\'clock.', correct:'I <b>get up</b> at 7 o\'clock.', note:'德语 <b>aufstehen</b> 是"起床"，英语 <b>stand up</b> 是"从坐/躺姿站起来"这个动作本身。说"I stand up at 7"语法没错，但英语人会觉得你在强调"从床上站了起来"这个画面。<b>get up</b> 才是日常"起床"。'},
+    {cat:'句法病句', de:'Wir treffen uns um 8.', mistake:'We <b>meet us</b> at 8.', correct:'<b>We\'re meeting</b> at 8.', note:'德语 <b>sich treffen</b> 是反身动词（wir treffen uns），但英语 meet 不需要反身代词。说"We meet us"会让英语人困惑——"我们跟谁见面？跟我们自己？"。英语直接 We\'re meeting / We\'ll meet。'},
+    {cat:'句法病句', de:'Ich lerne Deutsch seit 3 Jahren.', mistake:'I <b>learn</b> German <b>since</b> 3 years.', correct:'I\'<b>ve been learning</b> German <b>for</b> 3 years.', note:'双重错误：①德语 seit + 时间段用现在时，英语必须用完成时（have been learning）；②seit → for（时间段），不是 since（since 只能+时间点，如 since 2024）。德语思维迁移到英语的经典错误。'},
+    {cat:'句法病句', de:'Ich war gestern im Kino.', mistake:'<b>I was</b> yesterday in the cinema.', correct:'<b>I went</b> to the cinema yesterday.', note:'德语用 sein 构成过去（ich war = I was），英语描述"去了某地"用 go 的过去式 <b>went</b>。说"I was in the cinema"语法没错但强调"我人曾在电影院里"而非"我去看了电影"。另外英语语序：时间状语放句末更自然。'},
+    {cat:'句法病句', de:'Meiner Meinung nach ...', mistake:'<b>According to my opinion</b> ...', correct:'<b>In my opinion</b> ...', note:'德语 <b>meiner Meinung nach</b> 是个后置介词结构，德语人逐词翻译成 according to my opinion。但英语 according to 后面只能接"别人/来源"，不能接 my opinion。地道表达是 In my opinion / I think。'},
+    {cat:'句法病句', de:'Ich muss meine E-Mails checken.', mistake:'I <b>must</b> check my emails.', correct:'I <b>have to</b> check my emails.', note:'德语 <b>müssen</b> 对英语人来说有两种味道：must（说话人主观强制）和 have to（客观需要）。日常琐事（查邮件、买东西、做作业）英语用 <b>have to</b>，must 听起来太强烈——像在说不查邮件就会死。'},
+    {cat:'句法病句', de:'Ich freue mich auf das Wochenende.', mistake:'I\'m looking forward <b>on</b> the weekend.', correct:'I\'m looking forward <b>to</b> the weekend.', note:'德语 <b>sich freuen auf</b> 里的 auf 在德语人脑子里映射为 on，所以脱口而出 look forward on。但英语固定搭配是 <b>look forward to</b> + 名词/动名词。这是介词干扰的典型例子。'},
+    {cat:'句法病句', de:'Heute ist Sonne.', mistake:'Today <b>is sun</b>.', correct:'<b>It\'s sunny</b> today.', note:'德语说"今天是太阳"（Heute ist Sonne / Die Sonne scheint），英语不能说"today is sun"。英语描述天气必须用 <b>it</b> 作主语：It\'s sunny / The sun is shining。德语思维在天气表达上特别容易暴露。'},
+    {cat:'句法病句', de:'Ich habe einen Termin beim Arzt.', mistake:'I have <b>a date</b> at the doctor.', correct:'I have <b>an appointment</b> with the doctor.', note:'德语 <b>Termin</b> 是"预约"，英语 <b>date</b> 是"约会（浪漫的）"。说"I have a date at the doctor"听起来像是你跟医生在谈恋爱。<b>appointment</b> 才是中性预约。德国人用 Termin 的频率极高（ Arzttermin, Friseurtermin, Behördentermin），英语全部用 appointment。'},
+    {cat:'句法病句', de:'Diese Tasche gehört mir.', mistake:'This bag <b>belongs me</b>.', correct:'This bag <b>belongs to me</b>.', note:'德语 <b>gehören</b> + 第三格（mir）直接接宾语，但英语 <b>belong</b> 必须跟介词 <b>to</b> + 宾语。德语人说 belongs me 掉了 to，是受德语第三格不需要介词的影响。'},
+    {cat:'句法病句', de:'Ich interessiere mich für Sport.', mistake:'I <b>interest me for</b> sports.', correct:'I\'<b>m interested in</b> sports.', note:'德语 <b>sich interessieren für</b> 是反身动词结构，逐词翻译成英语变成 interest me for——完全不通。英语用被动式的形容词结构：<b>be interested in</b>。德语反身动词迁移到英语时几乎全部要改写。'},
+    {cat:'句法病句', de:'Ich habe heute frei.', mistake:'I <b>have free</b> today.', correct:'I\'<b>m off</b> today. / I have <b>the day off</b>.', note:'德语 <b>frei haben</b> 直译 have free 英语人听不懂。地道说法：I\'m off today / I have the day off / It\'s my day off。free 单独作形容词在英语里是"免费"或"自由"，不是"休假"。'},
+    {cat:'句法病句', de:'Das macht Spaß.', mistake:'That <b>makes fun</b>.', correct:'That\'<b>s fun</b>. / It\'s <b>a lot of fun</b>.', note:'德语 <b>Spaß machen</b>（有趣）直译成 make fun 在英语里是"取笑/嘲笑"的意思。说"That makes fun"对方会等你的宾语——makes fun of whom?（嘲笑谁？）。地道英语：That\'s fun / It\'s fun / It\'s a lot of fun。'},
+  ];
+
+
+  window.renderDEENGrid = function() {
+    var grid = document.getElementById('de-en-grid');
+    if (!grid || grid.children.length > 0) return;
+    var facts = window.DEEN_FACTS;
+    var html = '';
+    var n = 0;
+    for (var j = 0; j < facts.length; j++) {
+      var f = facts[j];
+      if (!f || !f.deMean) continue; // 跳过句子级条目或空槽
+      n++;
+      var plain = (f.cat + ' ' + f.de + ' ' + f.en + ' ' + f.deMean + ' ' + f.enMean + ' ' + f.note).replace(/<[^>]+>/g, '');
+      html += '<div class="de-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      html += '<div class="de-card-top"><span class="de-type ' + f.catCls + '">' + f.cat + '</span><span class="de-num">#' + (j + 1) + '</span></div>';
+      html += '<div class="de-rows">';
+      html += '<div class="de-col de"><div class="de-col-label">🇩🇪 德语</div><div class="de-word">' + f.de + '</div><div class="de-meaning">' + f.deMean + '</div></div>';
+      html += '<div class="de-col en"><div class="de-col-label">🇬🇧 英语（长得像）</div><div class="de-word">' + f.en + '</div><div class="de-meaning">' + f.enMean + '</div></div>';
+      html += '</div>';
+      html += '<div class="de-mistake-box"><div class="de-mistake-label">❌ 德语思维会这么说（错）</div><div class="de-mistake-text">' + f.mistake + '</div></div>';
+      html += '<div class="de-correct-box"><div class="de-correct-label">✅ 正确的英语</div><div class="de-correct-text">' + f.correct + '</div></div>';
+      html += '<div class="de-note">💡 ' + f.note + '</div>';
+      html += '<div class="de-watermark">Leons Deutschzentrum</div>';
+      html += '<button class="de-share-btn" onclick="event.stopPropagation();openDEENShare(' + j + ')">📸 分享</button>';
+      html += '</div>';
+    }
+    grid.innerHTML = html;
+    applyDEENFilter();
+  };
+
+  // ── 句子级渲染 ──
+  window.renderDEENSentences = function() {
+    var grid = document.getElementById('de-en-sent-grid');
+    if (!grid || grid.children.length > 0) return;
+    var facts = window.DEEN_FACTS;
+    var html = '';
+    var n = 0;
+    for (var j = 0; j < facts.length; j++) {
+      var f = facts[j];
+      if (!f || !f.de || f.deMean) continue; // 跳过词级条目或空槽
+      n++;
+      var plain = (f.cat + ' ' + f.de + ' ' + f.mistake + ' ' + f.correct + ' ' + f.note).replace(/<[^>]+>/g, '');
+      html += '<div class="de-sent-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      html += '<div class="de-sent-top"><span class="de-sent-type">' + f.cat + '</span><span class="de-sent-num">#' + n + '</span></div>';
+      html += '<div class="de-sent-de">📝 德语原文：<b>' + f.de + '</b></div>';
+      html += '<div class="de-sent-mistake"><div class="lbl">❌ 德语思维会这么说</div><div class="txt">' + f.mistake + '</div></div>';
+      html += '<div class="de-sent-correct"><div class="lbl">✅ 正确英语</div><div class="txt">' + f.correct + '</div></div>';
+      html += '<div class="de-sent-note">💡 ' + f.note + '</div>';
+      html += '<div class="de-watermark">Leons Deutschzentrum</div>';
+      html += '</div>';
+    }
+    grid.innerHTML = html;
+  };
+
+  window.filterDEEN = function() { applyDEENFilter(); };
+
+  function applyDEENFilter() {
+    var input = document.getElementById('de-en-search');
+    var q = input ? input.value.trim().toLowerCase() : '';
+    var clearBtn = document.getElementById('de-en-search-clear');
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+    // 搜索词级卡片
+    var grid1 = document.getElementById('de-en-grid');
+    var shown1 = 0, total1 = 0;
+    if (grid1) {
+      var cards1 = grid1.querySelectorAll('.de-card');
+      total1 = cards1.length;
+      for (var i = 0; i < cards1.length; i++) {
+        var txt = cards1[i].getAttribute('data-text') || '';
+        var match = !q || txt.indexOf(q) >= 0;
+        cards1[i].style.display = match ? '' : 'none';
+        if (match) shown1++;
+      }
+      var empty1 = document.getElementById('de-en-empty');
+      if (empty1) empty1.style.display = (shown1 === 0 && q) ? 'block' : 'none';
+    }
+    // 搜索句子级卡片
+    var grid2 = document.getElementById('de-en-sent-grid');
+    var shown2 = 0, total2 = 0;
+    if (grid2) {
+      var cards2 = grid2.querySelectorAll('.de-sent-card');
+      total2 = cards2.length;
+      for (var j = 0; j < cards2.length; j++) {
+        var txt2 = cards2[j].getAttribute('data-text') || '';
+        var match2 = !q || txt2.indexOf(q) >= 0;
+        cards2[j].style.display = match2 ? '' : 'none';
+        if (match2) shown2++;
+      }
+      var empty2 = document.getElementById('de-en-sent-empty');
+      if (empty2) empty2.style.display = (shown2 === 0 && q) ? 'block' : 'none';
+    }
+    var totalShown = shown1 + shown2, totalAll = total1 + total2;
+    var cnt = document.getElementById('de-en-count');
+    if (cnt) cnt.innerHTML = (totalShown === totalAll) ? '共 <b>' + totalAll + '</b> 组' : '找到 <b>' + totalShown + '</b> / ' + totalAll + ' 组';
+  }
+
+  /* 分享卡片弹窗 */
+  window.openDEENShare = function(index) {
+    var fact = window.DEEN_FACTS[index];
+    if (!fact) return;
+    document.getElementById('des-type').textContent = fact.cat;
+    document.getElementById('des-de').textContent = fact.de + '（' + fact.deMean + '）';
+    document.getElementById('des-en').textContent = fact.en + '（' + fact.enMean + '）';
+    document.getElementById('des-mistake').innerHTML = fact.mistake;
+    document.getElementById('des-correct').innerHTML = fact.correct;
+    document.getElementById('des-note').innerHTML = '💡 ' + fact.note;
+    document.getElementById('de-en-share-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeDEENShare = function() {
+    document.getElementById('de-en-share-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  };
+  window.clearDEENSearch = function() {
+    var input = document.getElementById('de-en-search');
+    if (input) { input.value = ''; input.focus(); }
+    applyDEENFilter();
+  };
+
+  /* 丁达尔光：漂浮浮尘 */
+  (function deDustInit(){
+    var box = document.getElementById('deDust');
+    if (!box || box.dataset.done) return;
+    box.dataset.done = '1';
+    var html = '';
+    for (var i = 0; i < 22; i++) {
+      var sz = (Math.random()*2.2 + 1).toFixed(1);
+      var left = (Math.random()*52 + 2).toFixed(1);
+      var top  = (Math.random()*70 + 12).toFixed(1);
+      var dur  = (Math.random()*9 + 7).toFixed(1);
+      var del  = (-Math.random()*16).toFixed(1);
+      html += '<span class="de-mote" style="width:'+sz+'px;height:'+sz+'px;left:'+left+'%;top:'+top+'%;'+
+              '--md:'+dur+'s;--mt:'+del+'s"></span>';
+    }
+    box.innerHTML = html;
+  })();
+})();
+</script>
+
+<!-- ══════════ 德英混淆对照分享弹窗 ══════════ -->
+<div id="de-en-share-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);justify-content:center;align-items:center" onclick="if(event.target===this)closeDEENShare()">
+  <div id="de-en-share-card" style="width:92%;max-width:420px;background:linear-gradient(160deg,#0f1e3a,#132540);border:1px solid rgba(246,211,101,.25);border-radius:20px;padding:22px 20px 18px;color:#e2e8f0;box-shadow:0 20px 50px rgba(0,0,0,.45);max-height:92vh;overflow-y:auto;position:relative">
+    <button onclick="closeDEENShare()" style="position:absolute;top:12px;right:14px;background:none;border:none;color:#94a3b8;font-size:1.3rem;cursor:pointer">✕</button>
+    <div style="font-size:.7rem;color:#f6d365;font-weight:700;letter-spacing:.08em;margin-bottom:6px">DEUTSCH vs. ENGLISH · 德英混淆对照</div>
+    <div style="margin-bottom:16px">
+      <span id="des-type" style="display:inline-block;font-size:.72rem;color:#0a1428;background:linear-gradient(135deg,#f6d365,#fde68a);padding:4px 13px;border-radius:16px;font-weight:700;margin-bottom:8px"></span>
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:14px">
+      <div style="flex:1;background:rgba(246,211,101,.06);border:1px solid rgba(246,211,101,.2);border-left:3px solid #f6d365;border-radius:12px;padding:12px">
+        <div style="font-size:.62rem;font-weight:700;color:#f6d365;margin-bottom:4px">🇩🇪 德语</div>
+        <div id="des-de" style="font-size:.92rem;font-weight:600;color:#fef3c7;line-height:1.4"></div>
+      </div>
+      <div style="flex:1;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-left:3px solid #3b82f6;border-radius:12px;padding:12px">
+        <div style="font-size:.62rem;font-weight:700;color:#60a5fa;margin-bottom:4px">🇬🇧 英语（假朋友）</div>
+        <div id="des-en" style="font-size:.92rem;font-weight:600;color:#bfdbfe;line-height:1.4"></div>
+      </div>
+    </div>
+    <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.16);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+      <div style="font-size:.62rem;font-weight:700;color:#f87171;margin-bottom:3px">❌ 德语思维错法</div>
+      <div id="des-mistake" style="font-size:.78rem;color:#fca5a5;line-height:1.45"></div>
+    </div>
+    <div style="background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.14);border-radius:10px;padding:10px 12px;margin-bottom:12px">
+      <div style="font-size:.62rem;font-weight:700;color:#4ade80;margin-bottom:3px">✅ 正确英语</div>
+      <div id="des-correct" style="font-size:.8rem;color:#bbf7d0;font-weight:600;line-height:1.45"></div>
+    </div>
+    <div style="font-size:.74rem;color:#a8b5c4;line-height:1.6;margin-bottom:14px;padding-top:10px;border-top:1px solid rgba(246,211,101,.1)" id="des-note"></div>
+    <div style="text-align:center;font-size:.56rem;color:rgba(246,211,101,.18);border-top:1px solid rgba(246,211,101,.06);padding-top:8px">Leons Deutschzentrum · leonsdeutschzentrum.com</div>
+  </div>
+</div>
+
 
 <!-- ══════════ 德语连续剧 · 林夏在德国 ══════════ -->
 <div id="page-serie" class="page">
