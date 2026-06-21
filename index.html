@@ -537,6 +537,20 @@
       #page-index .official-links .ol-logo { height:34px; }
     }
 
+/* 资源推荐卡片样式 */
+#page-resources .res-card {
+  display:block;padding:14px 16px;border-radius:12px;
+  background:rgba(15,30,58,.45);border:1px solid rgba(45,212,191,.1);
+  color:rgba(200,220,230,.6);font-size:.82rem;text-decoration:none;
+  transition:.3s;line-height:1.6;
+}
+#page-resources .res-card:hover {
+  background:rgba(45,212,191,.08);border-color:rgba(45,212,191,.28);
+  color:rgba(226,232,240,.9);
+}
+#page-resources .res-card small {
+  display:block;color:rgba(200,210,225,.3);font-size:.68rem;margin-top:3px;
+}
     .badge{display:inline-block;background:linear-gradient(90deg,#1e3a5f,#2e527c);color:#fde68a;padding:6px 16px;border-radius:20px;font-size:.9rem;font-weight:700;margin-top:10px;border:1px solid rgba(246,211,101,.25)}
     /* ── 关于本站 / About 区块 ── */
     #page-index .about-wrap{max-width:1100px;margin:0 auto 24px}
@@ -3983,6 +3997,20 @@ function createLoginPromptCard() {
     tags:'泛读 · 18篇 · B1 · 多主题',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
 
+	  // ── B2 中高级（筹备中）──
+	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — demnächst verfügbar', cardTitle:'B2语法', group:'b2',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'B2 语法内容筹备中',
+	    desc:'B2中高级语法 · 内容筹备中，敬请期待',
+	    tags:'B2 · 即将上线',
+	    c1:'#d97706', c2:'#f59e0b', locked:false },
+
+	  // ── C1 高级（筹备中）──
+	  { id:'c1grammar', icon:'📘', navLabel:'C1语法', cardTitleDe:'C1 Grammatik', cardSubDe:'Fortgeschritten — demnächst verfügbar', cardTitle:'C1语法', group:'c1',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'高级语法', hubAccent:'#ef4444', hubTip:'C1 语法内容筹备中',
+	    desc:'C1高级语法 · 内容筹备中，敬请期待',
+	    tags:'C1 · 即将上线',
+	    c1:'#dc2626', c2:'#ef4444', locked:false },
+
 
 	  { id:'klippklapp', icon:'🏙️', navLabel:'Klipp-Klapp', cardTitleDe:'Klipp-Klapp', cardSubDe:'3D-Stadtführer, Klappbuch & Wegbeschreibung', cardTitle:'Klipp-Klapp',
 	    desc:'3D德国城市导航 · 翻翻书 · 互动问答指路',
@@ -4018,7 +4046,13 @@ function createLoginPromptCard() {
 	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitleDe:'LXQ Individual', cardSubDe:'Personalisierte Lerninhalte & Lernpfad', cardTitle:'LXQ定制', group:'a1', hubStep:6, hubSkill:'Premium', hubSkillZh:'专属定制', hubAccent:'#f9d880', hubTip:'VIP专属：个性化定制学习路径',
 	    desc:'个性化定制练习内容 · 专属学习路径',
 	    tags:'定制内容 · 专属 · 进阶',
-	    c1:'#a87014', c2:'#f9d880', locked:true }
+	    c1:'#a87014', c2:'#f9d880', locked:true },
+
+	  // ── 资源推荐 ──
+	  { id:'resources', icon:'🌐', navLabel:'资源推荐', cardTitleDe:'Ressourcen', cardSubDe:'Externe Lernressourcen & Tools', cardTitle:'全网资源推荐',
+	    desc:'精选德语学习资源 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料 · 一站式汇总',
+	    tags:'资源汇总 · 词典 · 媒体 · 工具 · 社区',
+	    c1:'#0d9488', c2:'#2dd4bf', locked:false },
 	];
 // 学习站分组：把同一级别分散的栏目收纳进一张"总模块"卡片，点进去后再分流。
 // 新增级别只需在此登记，并给对应 MODULES 项加 group:'<key>' + hub* 字段，三处自动同步。
@@ -4032,6 +4066,12 @@ var HUBS = {
   b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Grammatik · Hören · Lesen — B1 Niveau', cardTitle:'B1 学习站',
         desc:'语法 · 语法抄写 · 听力 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
+  b2: { id:'b2hub', icon:'🎓', navLabel:'B2 学习站', cardTitleDe:'B2 Lernstation', cardSubDe:'Mittelstufe — demnächst verfügbar', cardTitle:'B2 学习站',
+        desc:'B2 中高级内容 · 语法深化 · 学术阅读 · 听力进阶 — 内容筹备中，敬请期待',
+        tags:'歌德B2 · 中高级 · 即将上线' },
+  c1: { id:'c1hub', icon:'🎓', navLabel:'C1 学习站', cardTitleDe:'C1 Lernstation', cardSubDe:'Fortgeschritten — demnächst verfügbar', cardTitle:'C1 学习站',
+        desc:'C1 高级内容 · 学术德语 · 专业写作 · 文化深读 — 内容筹备中，敬请期待',
+        tags:'歌德C1 · 高级 · 即将上线' },
   pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitleDe:'Aussprache-Training', cardTitle:'🎙️ 发音训练',
         desc:'德语发音器 + 英语发音器 + 德英混淆对照 — AI 语音识别 · 音素级评分 · 精准纠音',
         tags:'AI语音 · 音素评分 · 德英双语 · 假朋友' }
@@ -4070,6 +4110,8 @@ function renderCards() {
     if (groupKey === 'a1') return '#f6d365';
     if (groupKey === 'a2') return '#67e8f9';
     if (groupKey === 'b1') return '#93c5fd';
+    if (groupKey === 'b2') return '#f59e0b';
+    if (groupKey === 'c1') return '#ef4444';
     if (groupKey === 'pronunciation') return '#f6d365';
     // 独立卡片
     var id = card.id || '';
@@ -4178,7 +4220,9 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','kultur-18':'你不知道的德国·18','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航'
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-01':'你不知道的德国·01','kultur-02':'你不知道的德国·02','kultur-03':'你不知道的德国·03','kultur-04':'你不知道的德国·04','kultur-05':'你不知道的德国·05','kultur-06':'你不知道的德国·06','kultur-07':'你不知道的德国·07','kultur-08':'你不知道的德国·08','kultur-09':'你不知道的德国·09','kultur-10':'你不知道的德国·10','kultur-11':'你不知道的德国·11','kultur-12':'你不知道的德国·12','kultur-13':'你不知道的德国·13','kultur-14':'你不知道的德国·14','kultur-15':'你不知道的德国·15','kultur-16':'你不知道的德国·16','kultur-17':'你不知道的德国·17','kultur-18':'你不知道的德国·18','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航',
+  'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
+  'resources':'全网资源推荐'
 };
 
 function openSearch() {
@@ -4613,7 +4657,157 @@ document.addEventListener('keydown', function(e) {
 
 </div>
 
-<!-- 发音训练 — 二级聚合页：德语发音器 + 英语发音器 -->
+<!-- B2 学习站 -->
+<div id="page-b2hub" class="page hub-page" style="--hub:#f59e0b;--hub-soft:rgba(245,158,11,.13)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B2</div>
+    <h1>B2 学习站</h1>
+    <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 学术阅读 · 听力进阶 · 写作训练</p>
+  </div>
+
+  <div class="a1hub-sec">📚 B2 板块</div>
+  <div class="a1hub-grid" id="b2hub-grid">
+    <script>renderHubCards('b2');</script>
+  </div>
+
+  <footer>
+    🇩🇪 B2 — Die Mittelstufe! &nbsp; 中高级内容
+    <br>Leons Deutschzentrum · Goethe-Zertifikat B2
+  </footer>
+
+</div>
+
+<!-- C1 学习站 -->
+<div id="page-c1hub" class="page hub-page" style="--hub:#ef4444;--hub-soft:rgba(239,68,68,.13)">
+
+  <div class="a1hub-hero">
+    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
+    <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat C1</div>
+    <h1>C1 学习站</h1>
+    <p class="a1hub-sub">C1 高级内容 · 学术德语 · 专业写作 · 文化深读 · 母语级表达</p>
+  </div>
+
+  <div class="a1hub-sec">📚 C1 板块</div>
+  <div class="a1hub-grid" id="c1hub-grid">
+    <script>renderHubCards('c1');</script>
+  </div>
+
+  <footer>
+    🇩🇪 C1 — Fortgeschrittenes Deutsch! &nbsp; 高级内容
+    <br>Leons Deutschzentrum · Goethe-Zertifikat C1
+  </footer>
+
+</div>
+
+<!-- 全网资源推荐 -->
+
+<!-- 全网资源推荐 -->
+<div id="page-resources" class="page">
+  <div class="ib-beams" aria-hidden="true"><div class="ib-haze"></div><div class="ib-godray gr1"></div><div class="ib-godray gr2"></div><div class="ib-vignette"></div></div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:30px 20px 40px;color:#e2e8f0">
+
+    <div style="text-align:center;padding:28px 20px 20px;margin-bottom:28px;background:linear-gradient(180deg,rgba(45,212,191,.08),rgba(45,212,191,.02));border:1px solid rgba(45,212,191,.15);border-radius:14px">
+      <a href="#" onclick="showPage('index'); return false;" style="display:inline-block;color:rgba(45,212,191,.5);font-size:.78rem;margin-bottom:12px;text-decoration:none;transition:.2s" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='rgba(45,212,191,.5)'">← 返回首页</a>
+      <h1 style="font-size:1.6rem;color:#2dd4bf;margin-bottom:6px">🌐 全网资源推荐</h1>
+      <p style="color:rgba(200,210,225,.45);font-size:.82rem;line-height:1.7">精选德语学习资源一站式汇总 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料<br>持续更新，欢迎收藏</p>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">📖 词典与翻译工具</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.dwds.de/" target="_blank" rel="noopener" class="res-card">DWDS · 德语电子词典<small>柏林勃兰登堡科学院出品·含词源与用法</small></a>
+        <a href="https://www.duden.de/" target="_blank" rel="noopener" class="res-card">Duden · 杜登在线<small>德国最权威词典·语法与正字法查证</small></a>
+        <a href="https://dict.leo.org/" target="_blank" rel="noopener" class="res-card">LEO · 德英/德中词典<small>最受欢迎在线词典·含论坛讨论</small></a>
+        <a href="https://de.pons.com/" target="_blank" rel="noopener" class="res-card">PONS · 德汉词典<small>多语种词典·含例句与发音</small></a>
+        <a href="https://www.deepl.com/translator" target="_blank" rel="noopener" class="res-card">DeepL · AI翻译<small>目前最准确的德英/德中机器翻译</small></a>
+        <a href="https://www.linguee.com/" target="_blank" rel="noopener" class="res-card">Linguee · 双语例句<small>搜索真实双语文本对照</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">📰 德语新闻与阅读</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.nachrichtenleicht.de/" target="_blank" rel="noopener" class="res-card">Nachrichtenleicht · 简易新闻<small>简单德语时事·A2-B1友好</small></a>
+        <a href="https://www.dw.com/de/deutsch-lernen/nachrichten/s-8030" target="_blank" rel="noopener" class="res-card">DW 慢速新闻<small>德国之声慢速新闻·每日更新</small></a>
+        <a href="https://www.tagesschau.de/" target="_blank" rel="noopener" class="res-card">Tagesschau · 每日新闻<small>德国最权威电视新闻·100秒速览</small></a>
+        <a href="https://www.spiegel.de/" target="_blank" rel="noopener" class="res-card">Der Spiegel · 明镜周刊<small>德国最有影响力新闻周刊</small></a>
+        <a href="https://www.zeit.de/" target="_blank" rel="noopener" class="res-card">Die Zeit · 时代周报<small>深度报道与评论·语言精练</small></a>
+        <a href="https://www.deutsch-perfekt.com/" target="_blank" rel="noopener" class="res-card">Deutsch perfekt<small>专为德语学习者设计的月刊</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">🎙️ 播客与音频资源</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.dw.com/de/deutsch-lernen/das-sagt-man-so/s-32371" target="_blank" rel="noopener" class="res-card">DW Das sagt man so!<small>德国常用俗语与地道表达播客</small></a>
+        <a href="https://slowgerman.com/" target="_blank" rel="noopener" class="res-card">Slow German · 慢速德语<small>Annik Rubens慢速讲解德国文化</small></a>
+        <a href="https://www.easygerman.org/podcast" target="_blank" rel="noopener" class="res-card">Easy German Podcast<small>街头采访式德语·自然对话语速</small></a>
+        <a href="https://coffeebreaklanguages.com/german/" target="_blank" rel="noopener" class="res-card">Coffee Break German<small>15-20分钟一集·碎片时间友好</small></a>
+        <a href="https://www.ardaudiothek.de/" target="_blank" rel="noopener" class="res-card">ARD Audiothek<small>德国公共广播音频库·海量内容</small></a>
+        <a href="https://www.deutschlandfunk.de/" target="_blank" rel="noopener" class="res-card">Deutschlandfunk<small>高质量新闻与文化节目广播</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">▶️ YouTube 德语学习频道</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.youtube.com/@EasyGerman" target="_blank" rel="noopener" class="res-card">Easy German<small>街头采访·自然对话·双语字幕</small></a>
+        <a href="https://www.youtube.com/@DeutschmitMarija" target="_blank" rel="noopener" class="res-card">Deutsch mit Marija<small>考试备考·语法讲解·实用技巧</small></a>
+        <a href="https://www.youtube.com/@lingoniGERMAN" target="_blank" rel="noopener" class="res-card">lingoni GERMAN<small>A1-B2分级课程·系统教学</small></a>
+        <a href="https://www.youtube.com/@LearnGermanwithAnja" target="_blank" rel="noopener" class="res-card">Learn German with Anja<small>轻松幽默·零基础友好</small></a>
+        <a href="https://www.youtube.com/@DeutschLera" target="_blank" rel="noopener" class="res-card">Deutsch mit Rieke<small>B1-C1高级表达·地道用语</small></a>
+        <a href="https://www.youtube.com/@MrWissen2go" target="_blank" rel="noopener" class="res-card">MrWissen2go<small>时事政治科普·B2+听力材料</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">📱 学习 App</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.duolingo.com/" target="_blank" rel="noopener" class="res-card">Duolingo<small>游戏化入门·每日打卡·A1-A2</small></a>
+        <a href="https://www.busuu.com/" target="_blank" rel="noopener" class="res-card">Busuu<small>McGraw-Hill认证课程·社区互改</small></a>
+        <a href="https://www.memrise.com/" target="_blank" rel="noopener" class="res-card">Memrise<small>间隔重复记忆·真人视频·地道表达</small></a>
+        <a href="https://apps.ankiweb.net/" target="_blank" rel="noopener" class="res-card">Anki · 闪卡记忆<small>开源间隔重复·海量德语词库共享</small></a>
+        <a href="https://deutsch.info/" target="_blank" rel="noopener" class="res-card">deutsch.info<small>免费多语种德语课程 A1-B2</small></a>
+        <a href="https://www.clozemaster.com/" target="_blank" rel="noopener" class="res-card">Clozemaster<small>完形填空式词汇练习·海量句子</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">📝 考试备考资料</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.goethe.de/de/spr/kup/prf.html" target="_blank" rel="noopener" class="res-card">Goethe-Institut · 官方考试页<small>歌德各级别考试信息与样题</small></a>
+        <a href="https://www.telc.net/pruefungen/deutsch.html" target="_blank" rel="noopener" class="res-card">telc · 德语考试<small>telc Deutsch A1-C2 考试信息</small></a>
+        <a href="https://www.testdaf.de/" target="_blank" rel="noopener" class="res-card">TestDaF · 德福考试<small>大学入学语言测试官方页</small></a>
+        <a href="https://www.dw.com/de/deutsch-lernen/s-2055" target="_blank" rel="noopener" class="res-card">DW Deutsch lernen<small>德国之声免费德语课程 A1-C1</small></a>
+        <a href="https://www.schubert-verlag.de/aufgaben/" target="_blank" rel="noopener" class="res-card">Schubert · 在线练习<small>A1-C2分级语法与词汇练习</small></a>
+        <a href="https://www.deutschland.de/de/deutsch-lernen" target="_blank" rel="noopener" class="res-card">deutschland.de · 德语学习<small>德国官方门户学习资源汇总</small></a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:1.05rem;color:#f6d365;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(246,211,101,.1)">💬 社区与交流</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+        <a href="https://www.reddit.com/r/German/" target="_blank" rel="noopener" class="res-card">r/German · Reddit<small>最大的德语学习英文社区</small></a>
+        <a href="https://www.reddit.com/r/de/" target="_blank" rel="noopener" class="res-card">r/de · 德国版Reddit<small>德语母语者讨论区·真实语料</small></a>
+        <a href="https://german.stackexchange.com/" target="_blank" rel="noopener" class="res-card">German StackExchange<small>德语语言问答社区·质量极高</small></a>
+        <a href="https://www.italki.com/" target="_blank" rel="noopener" class="res-card">italki · 语言交换<small>找德语母语老师一对一练习</small></a>
+        <a href="https://www.tandem.net/" target="_blank" rel="noopener" class="res-card">Tandem · 语伴App<small>与德语母语者语言交换</small></a>
+        <a href="https://www.meetup.com/" target="_blank" rel="noopener" class="res-card">Meetup · 线下德语角<small>搜索本地德语学习/交流聚会</small></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center;color:rgba(255,245,230,.3);font-size:.72rem;padding:20px 0;border-top:1px solid rgba(45,212,191,.12);margin-top:10px">
+      🌐 只收录高质量免费/部分免费资源 · 持续更新 · 欢迎推荐补充<br>
+      Leons Deutschzentrum · 独立精选，非商业推广
+    </footer>
+
+  </div>
+</div>
+
+<!-- 发音训练 — 二级聚合页 -->
 <div id="page-prhub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
 
   <div class="a1hub-hero">
