@@ -19589,8 +19589,8 @@ function b1ToggleAns(id) {
 
 function b1HoerCheckAll() {
   var total = 0, correct = 0;
-  // Check all mcq-list items in the B1 listening page
-  var items = document.querySelectorAll('#page-b1hoeren .mcq-item');
+  // Check all mcq-list items in B1 listening section 1 only
+  var items = document.querySelectorAll('#b1hoer-sec-1 .mcq-item');
   items.forEach(function(item) {
     var ans = item.getAttribute('data-ans');
     if (!ans) return;
@@ -19612,7 +19612,7 @@ function b1HoerCheckAll() {
 }
 
 function b1HoerResetAll() {
-  var items = document.querySelectorAll('#page-b1hoeren .mcq-item');
+  var items = document.querySelectorAll('#b1hoer-sec-1 .mcq-item');
   items.forEach(function(item) {
     var radios = item.querySelectorAll('input[type="radio"]');
     radios.forEach(function(r) {
@@ -19622,6 +19622,67 @@ function b1HoerResetAll() {
   });
   var scoreEl = document.getElementById('b1hh-score');
   if (scoreEl) { scoreEl.innerHTML = ''; }
+}
+
+// ═══ 听力 2 · Hören Teil 3 · Steffen & Kathrin ═══
+function b1Hoer3CheckAll() {
+  var total = 0, correct = 0;
+  var items = document.querySelectorAll('#b1hh3-mcq .mcq-item');
+  items.forEach(function(item) {
+    var ans = item.getAttribute('data-ans');
+    if (!ans) return;
+    var radios = item.querySelectorAll('input[type="radio"]');
+    radios.forEach(function(r) {
+      r.parentElement.classList.remove('correct-ans');
+      if (r.checked && r.value === ans) { correct++; }
+    });
+    radios.forEach(function(r) {
+      if (r.value === ans) { r.parentElement.classList.add('correct-ans'); }
+    });
+    total++;
+  });
+  var scoreEl = document.getElementById('b1hh3-score');
+  if (scoreEl) {
+    scoreEl.innerHTML = '<span class="score-badge">' + correct + ' / ' + total + ' 正确</span>';
+  }
+}
+
+function b1Hoer3ResetAll() {
+  var items = document.querySelectorAll('#b1hh3-mcq .mcq-item');
+  items.forEach(function(item) {
+    var radios = item.querySelectorAll('input[type="radio"]');
+    radios.forEach(function(r) {
+      r.checked = false;
+      r.parentElement.classList.remove('correct-ans');
+    });
+  });
+  var scoreEl = document.getElementById('b1hh3-score');
+  if (scoreEl) { scoreEl.innerHTML = ''; }
+}
+
+function b1hh3TransMode(mode){
+  var full = document.getElementById('b1hh3-trans-full');
+  var blank = document.getElementById('b1hh3-trans-blank');
+  var btnFull = document.getElementById('b1hh3-mode-full');
+  var btnBlank = document.getElementById('b1hh3-mode-blank');
+  if(!full || !blank) return;
+  if(mode === 'blank'){
+    full.style.display = 'none';
+    blank.style.display = '';
+    if(btnFull){ btnFull.style.background='transparent'; btnFull.style.color='#fde68a'; }
+    if(btnBlank){ btnBlank.style.background='#f6d365'; btnBlank.style.color='#0a1428'; }
+  } else {
+    full.style.display = '';
+    blank.style.display = 'none';
+    if(btnFull){ btnFull.style.background='#f6d365'; btnFull.style.color='#0a1428'; }
+    if(btnBlank){ btnBlank.style.background='transparent'; btnBlank.style.color='#fde68a'; }
+  }
+}
+function b1hh3RevealAll(){
+  document.querySelectorAll('#b1hh3-trans-blank .b1fb-gap').forEach(function(g){g.classList.add('revealed');});
+}
+function b1hh3HideAll(){
+  document.querySelectorAll('#b1hh3-trans-blank .b1fb-gap').forEach(function(g){g.classList.remove('revealed');});
 }
 
 function a2CheckFill(listId) {
@@ -62644,6 +62705,7 @@ function gsRevealAllChapter(chId) {
     <div style="padding:1rem 1.3rem">
       <ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem">
         <li><a href="#b1hoer-sec-1" style="display:block;padding:.55rem .85rem;background:rgba(255,255,255,.08);border-left:3px solid #b8860b;border-radius:6px;color:#fde68a;text-decoration:none;font-size:.92rem;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">🎧 <strong>听力 1</strong> · Zertifikatstraining Hören Teil 1 <span style="opacity:.7;font-size:.8rem;display:block;margin-top:2px">5 段短文本 · 10 道题 · 歌德 B1 考试格式</span></a></li>
+        <li><a href="#b1hoer-sec-2" style="display:block;padding:.55rem .85rem;background:rgba(255,255,255,.08);border-left:3px solid #b8860b;border-radius:6px;color:#fde68a;text-decoration:none;font-size:.92rem;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">🎧 <strong>听力 2</strong> · Zertifikatstraining Hören Teil 3 <span style="opacity:.7;font-size:.8rem;display:block;margin-top:2px">Steffen &amp; Kathrin 街头偶遇 · 7 道判断题 · richtig/falsch</span></a></li>
       </ol>
     </div>
   </div>
@@ -62964,6 +63026,243 @@ function gsRevealAllChapter(chId) {
           • 火车站场景：Gleis, Verspätung, Abfahrt, Anschluss, Durchsage<br>
           • 电话录音：wählen, verbinden, zurückrufen, Nachricht, Anrufbeantworter<br>
           • 寻物/失物：verlieren, gestohlen, Anzeige, gefunden, Polizeirevier
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════ 听力 2 · Zertifikatstraining Hören Teil 3 ════════════════ -->
+  <div class="section" id="b1hoer-sec-2" style="scroll-margin-top:20px">
+    <div class="section-header">🎧 听力 2 · Zertifikatstraining Hören Teil 3 &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">Goethe-Zertifikat B1 · Steffen &amp; Kathrin</span></div>
+    <div class="section-body">
+
+      <!-- 考试说明 -->
+      <div class="rule-box">
+        <strong>Zertifikatstraining · Hören Teil 3</strong><br>
+        <span style="color:#94a3b8;font-size:.88rem">Sie hören ein Gespräch. Sie hören das Gespräch <strong>einmal</strong>. Dazu lösen Sie sieben Aufgaben. Wählen Sie: Sind die Aussagen <strong>richtig</strong> oder <strong>falsch</strong>? Lesen Sie jetzt die Aufgaben 1 bis 7. Dazu haben Sie 60 Sekunden Zeit.</span><br><br>
+        <span style="color:#fde68a;font-size:.88rem;font-style:italic">📍 Situation: Sie sitzen in einem Straßencafé und hören, wie sich ein Mann und eine Frau, die sich auf der Straße treffen, unterhalten.</span>
+      </div>
+
+      <!-- 🎵 音频播放条 -->
+      <div style="background:linear-gradient(135deg,rgba(30,58,95,.5),rgba(44,95,138,.4));border:1px solid rgba(246,211,101,.2);border-radius:12px;padding:16px 20px;margin-top:14px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:1.3rem">🔊</span>
+          <span style="font-weight:700;color:#fde68a;font-size:.95rem">Hören Teil 3 — Track 1.28</span>
+          <span style="font-size:.78rem;color:rgba(255,245,230,.5)">Gespräch · 1×</span>
+        </div>
+        <audio controls style="width:100%;height:38px" preload="metadata">
+          <source src="audio/b1-ue4-horen-teil3.mp3" type="audio/mpeg">
+          Ihr Browser unterstützt keine Audiowiedergabe.
+        </audio>
+        <div style="font-size:.76rem;color:rgba(255,245,230,.45);margin-top:6px">💡 Tipp: Im echten Test hört ihr dieses Gespräch nur EINMAL — übt also auch so. Erst alle 7 Aussagen lesen, dann hören.</div>
+      </div>
+
+      <!-- ═══ 7 Aufgaben · richtig / falsch ═══ -->
+      <div style="background:rgba(30,58,95,.25);border:1px solid rgba(246,211,101,.1);border-radius:12px;padding:18px 22px;margin-top:16px">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.12);padding-bottom:8px;margin-bottom:12px">📝 Aufgaben 1–7 — Sind die Aussagen richtig oder falsch?</div>
+        <div class="mcq-list" id="b1hh3-mcq">
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>1.</strong> Steffen arbeitet nicht mehr als Krankenpfleger, weil die Arbeitszeiten nicht so familienfreundlich waren.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q1" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q1" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>2.</strong> Steffen studiert jetzt in Fulda.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q2" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q2" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>3.</strong> Steffens Frau verdient leider nur wenig.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q3" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q3" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>4.</strong> Steffen muss noch drei Jahre studieren.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q4" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q4" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p style="color:#e2e8f0"><strong>5.</strong> Kathrin war früher bei den Kolleginnen und den Patienten sehr beliebt.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q5" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q5" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>6.</strong> Sie hat sich den Rücken verletzt, als sie einem Patienten ins Bett geholfen hat.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q6" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q6" value="B"> B) falsch</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p style="color:#e2e8f0"><strong>7.</strong> Kathrin ist noch immer unglücklich, weil sie den Beruf wechseln musste.</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1hh3-q7" value="A"> A) richtig</label>
+              <label><input type="radio" name="b1hh3-q7" value="B"> B) falsch</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 批改 -->
+        <div style="text-align:center;margin:18px 0 6px">
+          <button class="btn btn-check" onclick="b1Hoer3CheckAll()">📝 批改本题</button>
+          <button class="btn btn-reset" onclick="b1Hoer3ResetAll()">🔄 重置</button>
+        </div>
+        <div id="b1hh3-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:28px"></div>
+      </div>
+
+      <!-- ═══ 听力原文 Transkript（双模式）═══ -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh3-trans')" style="margin-top:18px">📄 显示/隐藏 听力原文 (Transkript)</button>
+      <div class="answer-box" id="b1hh3-trans">
+        <div style="font-weight:700;color:#fde68a;font-size:.95rem;margin-bottom:.8rem;text-align:center;padding-bottom:.5rem;border-bottom:1px dashed rgba(246,211,101,.25)">🎧 Transkript · Hören Teil 3 — Steffen &amp; Kathrin</div>
+
+        <!-- 模式切换 -->
+        <div style="display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap;justify-content:center">
+          <button onclick="b1hh3TransMode('full')" id="b1hh3-mode-full" style="padding:.4rem .9rem;border:2px solid #f6d365;background:#f6d365;color:#0a1428;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">📖 完整原文</button>
+          <button onclick="b1hh3TransMode('blank')" id="b1hh3-mode-blank" style="padding:.4rem .9rem;border:2px solid #f6d365;background:transparent;color:#fde68a;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">✏️ 听写练习</button>
+          <button onclick="b1hh3RevealAll()" style="padding:.4rem .9rem;border:2px solid #4ade80;background:transparent;color:#4ade80;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">👁️ 全部显示答案</button>
+          <button onclick="b1hh3HideAll()" style="padding:.4rem .9rem;border:2px solid #f87171;background:transparent;color:#f87171;border-radius:20px;cursor:pointer;font-weight:700;font-size:.82rem">🙈 全部隐藏</button>
+        </div>
+
+        <div style="background:rgba(246,211,101,.08);border-radius:6px;padding:.5rem .8rem;margin-bottom:.9rem;font-size:.78rem;color:#fde68a;line-height:1.6;text-align:center">
+          💡 切换到「✏️ 听写练习」模式 → 边听音频边在脑中补全词 → <strong>双击空格</strong>显示答案
+        </div>
+
+        <!-- ═══════════ 模式 1 · 完整原文 ═══════════ -->
+        <div id="b1hh3-trans-full">
+          <div style="background:rgba(30,58,95,.4);border:1px solid rgba(246,211,101,.18);border-radius:8px;padding:8px 12px;margin-bottom:10px">
+            <span style="font-size:.76rem;color:#fde68a;font-weight:600">🎧 Track 1.28 · Hören Teil 3</span>
+            <audio controls preload="none" style="width:100%;height:34px;margin-top:4px">
+              <source src="audio/b1-ue4-horen-teil3.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <p style="margin:0;font-size:.86rem;line-height:1.95;color:#e2e8f0">
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Hallo, Kathrin!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach, Steffen! Schön dich zu sehen! Wie geht's?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Super, danke, und dir?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Gut. Sag mal, was machst du denn jetzt? Wir haben uns ja schon Jahre nicht mehr gesehen!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ich studiere Pflegemanagement.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach was. Das ist ja toll! Aber du warst doch Krankenpfleger, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das war ich. Weißt du, ich habe gerne als Krankenpfleger gearbeitet. Aber meine Frau arbeitet Vollzeit und da ist es mit zwei kleinen Kindern wirklich schwierig, wenn man so oft nachts und am Wochenende arbeiten muss. Jetzt habe ich zwar auch viel zu tun, aber nach dem Studium kann ich mir dann eine Arbeit ohne Schichtdienst suchen.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, das ist wahr! Und wo wohnst du jetzt? Pflegemanagement kann man hier doch nicht studieren, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Nein, das nicht, aber wir mussten zum Glück trotzdem nicht umziehen. Ich fahre drei Tage die Woche mit dem Zug nach Fulda an die Fachhochschule.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und das klappt gut?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das klappt eigentlich sehr gut. Ja, das passt.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und wie lange dauert das Studium?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Drei Jahre, zwei habe ich schon hinter mir. In zehn Monaten habe ich Abschlussprüfung.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und wie ist das mit dem Geld? Ich meine, mit Familie und dann studieren? Das ist ja nicht einfach, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das funktioniert auch nur, weil meine Frau einen sehr guten Job bei einer Bank hat und ich freitags immer acht Stunden in einer Arztpraxis arbeite. Ich verdiene also auch ein bisschen dazu.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ah, okay. Das hört sich aber auch ein bisschen stressig an.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ach nein, ich bin sehr zufrieden. Und du? Arbeitest du noch im Krankenhaus?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Nein, ich arbeite auch nicht mehr in der Klinik.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Und was machst du jetzt?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ich habe eine Umschulung gemacht. Ich arbeite jetzt in einer Apotheke.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ach, warum das denn? Du warst doch die beste Krankenschwester in der ganzen Klinik!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach du!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Stimmt doch! Du warst super nett zu den Patienten und total zuverlässig. Das fand nicht nur ich, das hat auch die Chefin immer gesagt: „Auf die Kathrin Huber kann man sich verlassen! Die ist eine Top-Mitarbeiterin!"<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, ja. Das war auch eine schöne Zeit!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Also, nun erzähl schon. Warum hast du jetzt eine andere Arbeit?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, das ist so eine Geschichte. Ich bin vor vier Jahren beim Fensterputzen von der Leiter gestürzt und habe mir den Rücken verletzt. Erst dachte ich, dass es nicht so schlimm ist. Nach drei Monaten in der Rehaklinik habe ich wieder angefangen zu arbeiten. Aber das ging nicht gut, weil mir nach kurzer Zeit immer der Rücken weh tat. Manche Dinge, wie zum Beispiel Patienten ins Bett heben, konnte ich gar nicht mehr machen.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Oh Mist! Das tut mir leid!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach naja, am Anfang, als mein Arzt mir sagte, dass ich lieber umschulen sollte, war ich ziemlich traurig. Ich habe meine Arbeit ja wirklich gerne gemacht. Aber jetzt ist alles gut. Die Arbeit in der Apotheke macht auch viel Spaß, die Kolleginnen sind super und weißt du was, ich treffe bei der Arbeit ganz viele Patienten, die ich von früher aus dem Krankenhaus kenne.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Das kann ich mir vorstellen! Die freuen sich dann sicher, dich zu sehen.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, und ich mich auch.
+          </p>
+        </div>
+
+        <!-- ═══════════ 模式 2 · 听写练习（双击空格显示答案）═══════════ -->
+        <div id="b1hh3-trans-blank" style="display:none">
+          <div style="background:rgba(30,58,95,.4);border:1px solid rgba(246,211,101,.18);border-radius:8px;padding:8px 12px;margin-bottom:10px">
+            <span style="font-size:.76rem;color:#fde68a;font-weight:600">🎧 Track 1.28 · 边听边填 · 双击空格看答案</span>
+            <audio controls preload="none" style="width:100%;height:34px;margin-top:4px">
+              <source src="audio/b1-ue4-horen-teil3.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <p style="margin:0;font-size:.86rem;line-height:2.1;color:#e2e8f0">
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Hallo, Kathrin!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach, Steffen! <span class="b1fb-gap" data-ans="Schön dich zu sehen">____</span>! Wie <span class="b1fb-gap" data-ans="geht's">____</span>?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Super, danke, und dir?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Gut. <span class="b1fb-gap" data-ans="Sag mal">____</span>, was machst du denn jetzt? Wir haben uns ja schon <span class="b1fb-gap" data-ans="Jahre">____</span> nicht mehr gesehen!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ich <span class="b1fb-gap" data-ans="studiere">____</span> Pflegemanagement.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach was. Das ist ja toll! Aber du warst doch <span class="b1fb-gap" data-ans="Krankenpfleger">____</span>, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das war ich. Weißt du, ich habe <span class="b1fb-gap" data-ans="gerne">____</span> als Krankenpfleger <span class="b1fb-gap" data-ans="gearbeitet">____</span>. Aber meine Frau arbeitet <span class="b1fb-gap" data-ans="Vollzeit">____</span> und da ist es mit zwei kleinen Kindern wirklich <span class="b1fb-gap" data-ans="schwierig">____</span>, wenn man so oft <span class="b1fb-gap" data-ans="nachts">____</span> und am <span class="b1fb-gap" data-ans="Wochenende">____</span> arbeiten muss. Jetzt habe ich <span class="b1fb-gap" data-ans="zwar">____</span> auch viel zu tun, aber nach dem Studium kann ich mir dann eine Arbeit ohne <span class="b1fb-gap" data-ans="Schichtdienst">____</span> suchen.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, das ist wahr! Und wo wohnst du jetzt? Pflegemanagement kann man <span class="b1fb-gap" data-ans="hier doch nicht">____</span> studieren, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Nein, das nicht, aber wir mussten zum Glück <span class="b1fb-gap" data-ans="trotzdem">____</span> nicht <span class="b1fb-gap" data-ans="umziehen">____</span>. Ich fahre drei Tage die Woche mit dem <span class="b1fb-gap" data-ans="Zug">____</span> nach Fulda an die <span class="b1fb-gap" data-ans="Fachhochschule">____</span>.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und das <span class="b1fb-gap" data-ans="klappt">____</span> gut?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das klappt <span class="b1fb-gap" data-ans="eigentlich">____</span> sehr gut. Ja, das <span class="b1fb-gap" data-ans="passt">____</span>.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und wie lange <span class="b1fb-gap" data-ans="dauert">____</span> das Studium?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Drei Jahre, zwei habe ich schon <span class="b1fb-gap" data-ans="hinter mir">____</span>. In zehn Monaten habe ich <span class="b1fb-gap" data-ans="Abschlussprüfung">____</span>.<br>
+            <!-- B1HH3_BLANK_CHUNK2 -->
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Und wie ist das mit dem <span class="b1fb-gap" data-ans="Geld">____</span>? Ich meine, mit Familie und dann studieren? Das ist ja nicht <span class="b1fb-gap" data-ans="einfach">____</span>, oder?<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ja, das <span class="b1fb-gap" data-ans="funktioniert">____</span> auch nur, weil meine Frau einen sehr <span class="b1fb-gap" data-ans="guten Job">____</span> bei einer Bank hat und ich <span class="b1fb-gap" data-ans="freitags">____</span> immer acht Stunden in einer <span class="b1fb-gap" data-ans="Arztpraxis">____</span> arbeite. Ich <span class="b1fb-gap" data-ans="verdiene">____</span> also auch ein <span class="b1fb-gap" data-ans="bisschen">____</span> dazu.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ah, okay. Das hört sich aber auch ein bisschen <span class="b1fb-gap" data-ans="stressig">____</span> an.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ach nein, ich bin sehr <span class="b1fb-gap" data-ans="zufrieden">____</span>. Und du? Arbeitest du noch im <span class="b1fb-gap" data-ans="Krankenhaus">____</span>?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Nein, ich arbeite auch nicht mehr in der <span class="b1fb-gap" data-ans="Klinik">____</span>.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Und was machst du jetzt?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ich habe eine <span class="b1fb-gap" data-ans="Umschulung">____</span> gemacht. Ich arbeite jetzt in einer <span class="b1fb-gap" data-ans="Apotheke">____</span>.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Ach, <span class="b1fb-gap" data-ans="warum">____</span> das denn? Du warst doch die beste <span class="b1fb-gap" data-ans="Krankenschwester">____</span> in der ganzen Klinik!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach du!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> <span class="b1fb-gap" data-ans="Stimmt doch">____</span>! Du warst super <span class="b1fb-gap" data-ans="nett">____</span> zu den Patienten und total <span class="b1fb-gap" data-ans="zuverlässig">____</span>. Das fand nicht nur ich, das hat auch die <span class="b1fb-gap" data-ans="Chefin">____</span> immer gesagt: „Auf die Kathrin Huber <span class="b1fb-gap" data-ans="kann man sich verlassen">____</span>! Die ist eine <span class="b1fb-gap" data-ans="Top-Mitarbeiterin">____</span>!"<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, ja. Das war auch eine <span class="b1fb-gap" data-ans="schöne Zeit">____</span>!<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Also, nun <span class="b1fb-gap" data-ans="erzähl schon">____</span>. Warum hast du jetzt eine andere Arbeit?<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, das ist so eine Geschichte. Ich bin vor vier Jahren beim <span class="b1fb-gap" data-ans="Fensterputzen">____</span> von der <span class="b1fb-gap" data-ans="Leiter">____</span> gestürzt und habe mir den <span class="b1fb-gap" data-ans="Rücken">____</span> verletzt. Erst <span class="b1fb-gap" data-ans="dachte ich">____</span>, dass es nicht so <span class="b1fb-gap" data-ans="schlimm">____</span> ist. Nach drei Monaten in der <span class="b1fb-gap" data-ans="Rehaklinik">____</span> habe ich wieder <span class="b1fb-gap" data-ans="angefangen">____</span> zu arbeiten. Aber das ging nicht gut, weil mir nach kurzer Zeit immer der Rücken <span class="b1fb-gap" data-ans="weh tat">____</span>. Manche Dinge, wie zum Beispiel <span class="b1fb-gap" data-ans="Patienten ins Bett heben">____</span>, konnte ich gar nicht mehr machen.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Oh Mist! Das <span class="b1fb-gap" data-ans="tut mir leid">____</span>!<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ach naja, am Anfang, als mein Arzt mir sagte, dass ich lieber <span class="b1fb-gap" data-ans="umschulen">____</span> sollte, war ich ziemlich <span class="b1fb-gap" data-ans="traurig">____</span>. Ich habe meine Arbeit ja wirklich <span class="b1fb-gap" data-ans="gerne gemacht">____</span>. Aber jetzt ist alles gut. Die Arbeit in der Apotheke macht auch viel <span class="b1fb-gap" data-ans="Spaß">____</span>, die <span class="b1fb-gap" data-ans="Kolleginnen">____</span> sind super und weißt du was, ich treffe bei der Arbeit ganz viele Patienten, die ich von <span class="b1fb-gap" data-ans="früher">____</span> aus dem Krankenhaus <span class="b1fb-gap" data-ans="kenne">____</span>.<br>
+            <strong style="color:#93c5fd">👨 Steffen:</strong> Das kann ich mir <span class="b1fb-gap" data-ans="vorstellen">____</span>! Die <span class="b1fb-gap" data-ans="freuen sich">____</span> dann sicher, dich zu sehen.<br>
+            <strong style="color:#fbcfe8">👩 Kathrin:</strong> Ja, und ich mich auch.
+          </p>
+        </div>
+        <!-- B1HH3_BLANK_PLACEHOLDER -->
+      </div>
+
+      <!-- ═══ 答案解析 ═══ -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh3-explain')" style="margin-top:14px">📖 显示/隐藏 答案解析 (Lösungen)</button>
+      <div class="answer-box" id="b1hh3-explain">
+        <strong style="color:#fde68a">📖 Lösungen &amp; Begründung</strong><br>
+        <span style="color:#4ade80;font-weight:700">答案：1 richtig · 2 richtig · 3 falsch · 4 falsch · 5 richtig · 6 falsch · 7 falsch</span><br><br>
+        <strong>1. richtig</strong> — <em>„da ist es mit zwei kleinen Kindern wirklich schwierig, wenn man so oft nachts und am Wochenende arbeiten muss"</em> — 倒班时间对家庭不友好，所以他不再做护士。<br><br>
+        <strong>2. richtig</strong> — <em>„Ich fahre drei Tage die Woche mit dem Zug nach Fulda an die Fachhochschule."</em> — 他现在在 Fulda 读书。<br><br>
+        <strong>3. falsch</strong> — <em>„weil meine Frau einen sehr guten Job bei einer Bank hat"</em> — 妻子收入很好，不是"挣得少"。<br><br>
+        <strong>4. falsch</strong> — <em>„Drei Jahre, zwei habe ich schon hinter mir. In zehn Monaten habe ich Abschlussprüfung."</em> — 总共三年，已读两年，只剩约 10 个月，不是"还要三年"。<br><br>
+        <strong>5. richtig</strong> — <em>„Du warst super nett zu den Patienten … Auf die Kathrin Huber kann man sich verlassen! Die ist eine Top-Mitarbeiterin!"</em> — 她当年很受同事和病人欢迎。<br><br>
+        <strong>6. falsch</strong> — <em>„Ich bin … beim Fensterputzen von der Leiter gestürzt und habe mir den Rücken verletzt."</em> — 她是<strong>擦窗时从梯子上摔下</strong>伤了背，不是抬病人上床时受的伤。<span style="color:#fbbf24">（陷阱题：原文确有"Patienten ins Bett heben"，但那是受伤后做不了的事，不是受伤原因。）</span><br><br>
+        <strong>7. falsch</strong> — <em>„Aber jetzt ist alles gut. Die Arbeit in der Apotheke macht auch viel Spaß"</em> — 她现在很满意，并非"仍然不开心"。
+      </div>
+
+      <!-- 词汇表 -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh3-vocab')">📚 显示/隐藏 词汇语法</button>
+      <div class="answer-box" id="b1hh3-vocab">
+        • <strong>der Krankenpfleger, -</strong> = 男护士 · <strong>die Krankenschwester, -n</strong> = 女护士<br>
+        • <strong>das Pflegemanagement</strong> = 护理管理（专业）· <strong>die Fachhochschule, -n</strong> = 应用技术大学<br>
+        • <strong>der Schichtdienst</strong> = 倒班/轮班工作 · <strong>familienfreundlich</strong> = 对家庭友好的<br>
+        • <strong>die Vollzeit</strong> = 全职 · <strong>umziehen (zog um, ist umgezogen)</strong> = 搬家<br>
+        • <strong>die Abschlussprüfung, -en</strong> = 毕业考试 · <strong>verdienen</strong> = 挣（钱）<br>
+        • <strong>die Umschulung, -en</strong> = 转岗培训/再培训 · <strong>die Apotheke, -n</strong> = 药房<br>
+        • <strong>zuverlässig</strong> = 可靠的 · <strong>sich verlassen auf + A</strong> = 信赖/依靠<br>
+        • <strong>stürzen (ist gestürzt)</strong> = 摔倒 · <strong>die Leiter, -n</strong> = 梯子 · <strong>das Fensterputzen</strong> = 擦窗<br>
+        • <strong>sich (D) den Rücken verletzen</strong> = 伤了背 · <strong>die Rehaklinik, -en</strong> = 康复诊所<br>
+        • <strong>heben (hob, hat gehoben)</strong> = 抬起 · <strong>weh tun</strong> = 疼痛
+      </div>
+
+      <!-- 考试技巧 -->
+      <button class="btn btn-show" onclick="b1ToggleAns('b1hh3-tipps')">💡 显示/隐藏 答题技巧</button>
+      <div class="answer-box" id="b1hh3-tipps">
+        <strong style="color:#fde68a">💡 B1 Hören Teil 3 答题技巧：</strong><br><br>
+        <div style="font-size:.88rem;line-height:1.85;color:#e2e8f0">
+          <strong>1. 录音只放一遍</strong> — Teil 3 是<strong>长对话、只听一次</strong>。务必用好开头的 60 秒预读全部 7 句陈述，划出关键词。<br><br>
+          <strong>2. 陈述顺序＝对话顺序</strong> — 7 道题基本按对话推进的顺序出现，听到一题答一题，别回头纠结。<br><br>
+          <strong>3. 警惕"原词陷阱"</strong> — 干扰项常把原文出现过的词重新组合（如第 6 题的 <em>„Patienten ins Bett heben"</em> 确实出现，但不是受伤原因）。判断要看<strong>整句逻辑</strong>，不是单个词是否出现。<br><br>
+          <strong>4. 抓转折与否定</strong> — <em>aber, trotzdem, nicht mehr, leider, zum Glück</em> 往往是判断 richtig/falsch 的关键。
         </div>
       </div>
 
