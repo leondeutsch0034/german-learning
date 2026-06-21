@@ -18753,8 +18753,16 @@ function brToggleSample4() {
 #page-b1lesen .btn-reset:hover{background:#475569;transform:translateY(-1px)}
 #page-b1lesen .btn-check{display:block;margin:16px auto 0;padding:10px 30px;background:linear-gradient(90deg,#1e3a5f,#2c5f8a);color:#fde68a;border:1px solid rgba(246,211,101,.3);border-radius:25px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(30,58,95,.35);transition:transform .15s}
 #page-b1lesen .btn-check:hover{transform:scale(1.04);box-shadow:0 6px 18px rgba(246,211,101,.25)}
+/* ── 学习模块按钮 按类型分色 ── */
+#page-b1lesen .btn-vocab{background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important}
+#page-b1lesen .btn-grammatik{background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important}
+#page-b1lesen .btn-hintergrund{background:linear-gradient(135deg,#e65100,#ff9800)!important;color:#fff!important}
+#page-b1lesen .btn-kollokation{background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important}
+#page-b1lesen .btn-redemittel{background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important}
+#page-b1lesen .btn-beispiele{background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important}
 #page-b1lesen #b1x-read5-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s7-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+#page-b1lesen #b1tex7-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s8-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 #page-b1lesen #b1s6-hl-score{text-align:center;margin-top:10px;font-size:1rem;font-weight:700;min-height:24px}
 #page-b1lesen #b1s9-order-score{text-align:center;margin-top:8px;font-size:1rem;font-weight:700;min-height:24px}
@@ -60854,11 +60862,8 @@ function gsRevealAllChapter(chId) {
       4. Welche Freizeitaktivitäten hat Alexa mit ihrer Gruppe unternommen?<br>
       5. Welcher der drei Aktivurlaube würde dir am besten gefallen? Warum?
     </div>
-  </div>
-</div>
-
 <!-- ═══ 📚 词汇语法 · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-vocab')">📚 显示/隐藏 词汇语法</button>
+<button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s16-aktiv-vocab')">📚 显示/隐藏 词汇语法</button>
 <div class="answer-box" id="b1s16-aktiv-vocab" style="font-size:.87rem;line-height:2;color:#2d3748;padding-bottom:4px">
   • <strong>verzichten auf + Akkusativ</strong> = 放弃 | <em>etwas bewusst nicht tun (verzichtete, hat verzichtet)</em><br>
   • <strong>umweltfreundlich</strong> = 环保的 | <em>die Umwelt schonend</em><br>
@@ -60883,7 +60888,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 📖 语法解析 · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-grammatik')">📖 显示/隐藏 语法解析</button>
+<button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s16-aktiv-grammatik')">📖 显示/隐藏 语法解析</button>
 <div class="answer-box" id="b1s16-aktiv-grammatik" style="font-size:.87rem;line-height:1.95;color:#2d3748;padding-bottom:6px">
 
   <strong>1. obwohl-Nebensatz</strong> 让步从句 | <em>Konzessivsatz</em><br>
@@ -60919,7 +60924,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🏭 背景知识 · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-hintergrund')">🏭 显示/隐藏 背景知识</button>
+<button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s16-aktiv-hintergrund')">🏭 显示/隐藏 背景知识</button>
 <div class="answer-box" id="b1s16-aktiv-hintergrund">
 <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -60957,10 +60962,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🔗 词汇搭配 · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-kollokation')">🔗 显示/隐藏 词汇搭配</button>
+<button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s16-aktiv-kollokation')">🔗 显示/隐藏 词汇搭配</button>
 <div class="answer-box" id="b1s16-aktiv-kollokation">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#1a5a2a;color:#fff">
+  <tr style="background:#2e7d32;color:#fff">
     <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
     <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
     <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
@@ -61029,10 +61034,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 💬 Redemittel · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-redemittel')">💬 显示/隐藏 常用表达</button>
+<button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s16-aktiv-redemittel')">💬 显示/隐藏 常用表达</button>
 <div class="answer-box" id="b1s16-aktiv-redemittel">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#1a5a2a;color:#fff">
+  <tr style="background:#c62828;color:#fff">
     <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
     <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
     <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
@@ -61081,7 +61086,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ ✍️ 仿写例句 · Aktivurlaub ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-aktiv-beispiele')">✍️ 显示/隐藏 仿写例句</button>
+<button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s16-aktiv-beispiele')">✍️ 显示/隐藏 仿写例句</button>
 <div class="answer-box" id="b1s16-aktiv-beispiele">
 <div style="font-size:.87rem;line-height:2;color:#2d3748">
 
@@ -61112,6 +61117,9 @@ function gsRevealAllChapter(chId) {
 
 </div>
 </div>
+  </div>
+</div>
+
 
 <div class="b1ex-separator"></div>
 
@@ -61228,10 +61236,8 @@ function gsRevealAllChapter(chId) {
       • <strong>das kontinentale Frühstück</strong> 欧陆式早餐 | <em>Brötchen, Butter, Marmelade, Kaffee (kein warmes Essen)</em>
     </div>
   </div>
-</div>
-
 <!-- ═══ 📚 词汇语法 · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-vocab')">📚 显示/隐藏 词汇语法</button>
+<button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s16-wien-vocab')">📚 显示/隐藏 词汇语法</button>
 <div class="answer-box" id="b1s16-wien-vocab" style="font-size:.87rem;line-height:2;color:#2d3748;padding-bottom:4px">
   • <strong>die Anzeige, -n</strong> = 广告/启事 | <em>kurzer Text mit Informationen (in Zeitung/Internet)</em><br>
   • <strong>zuordnen</strong> = 配对/归类 | <em>zwei Dinge nach einer Regel verbinden (ordnete zu, hat zugeordnet)</em><br>
@@ -61254,7 +61260,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 📖 语法解析 · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-grammatik')">📖 显示/隐藏 语法解析</button>
+<button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s16-wien-grammatik')">📖 显示/隐藏 语法解析</button>
 <div class="answer-box" id="b1s16-wien-grammatik" style="font-size:.87rem;line-height:1.95;color:#2d3748;padding-bottom:6px">
 
   <strong>1. Relativsatz mit Nominativ und Akkusativ</strong> 关系从句 | <em>Relativsatz</em><br>
@@ -61293,7 +61299,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🏭 背景知识 · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-hintergrund')">🏭 显示/隐藏 背景知识</button>
+<button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s16-wien-hintergrund')">🏭 显示/隐藏 背景知识</button>
 <div class="answer-box" id="b1s16-wien-hintergrund">
 <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -61331,10 +61337,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🔗 词汇搭配 · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-kollokation')">🔗 显示/隐藏 词汇搭配</button>
+<button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s16-wien-kollokation')">🔗 显示/隐藏 词汇搭配</button>
 <div class="answer-box" id="b1s16-wien-kollokation">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#00695c;color:#fff">
+  <tr style="background:#2e7d32;color:#fff">
     <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
     <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
     <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
@@ -61403,10 +61409,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 💬 Redemittel · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-redemittel')">💬 显示/隐藏 常用表达</button>
+<button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s16-wien-redemittel')">💬 显示/隐藏 常用表达</button>
 <div class="answer-box" id="b1s16-wien-redemittel">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#00695c;color:#fff">
+  <tr style="background:#c62828;color:#fff">
     <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
     <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
     <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
@@ -61455,7 +61461,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ ✍️ 仿写例句 · Wienerwald ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-wien-beispiele')">✍️ 显示/隐藏 仿写例句</button>
+<button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s16-wien-beispiele')">✍️ 显示/隐藏 仿写例句</button>
 <div class="answer-box" id="b1s16-wien-beispiele">
 <div style="font-size:.87rem;line-height:2;color:#2d3748">
 
@@ -61486,6 +61492,8 @@ function gsRevealAllChapter(chId) {
 
 </div>
 </div>
+</div>
+
 
 <div class="b1ex-separator"></div>
 
@@ -61619,11 +61627,8 @@ function gsRevealAllChapter(chId) {
       • <strong>die Pflege</strong> 护理 | <em>Betreuung von kranken oder alten Menschen (Krankenpflege, Altenpflege)</em><br>
       • <strong>neben der Arbeit</strong> 工作之余 | <em>zusätzlich zur Berufstätigkeit (neben = parallel zu)</em>
     </div>
-  </div>
-</div>
-
 <!-- ═══ 📚 词汇语法 · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-vocab')">📚 显示/隐藏 词汇语法</button>
+<button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s16-zt-vocab')">📚 显示/隐藏 词汇语法</button>
 <div class="answer-box" id="b1s16-zt-vocab" style="font-size:.87rem;line-height:2;color:#2d3748;padding-bottom:4px">
   • <strong>die Weiterbildung, -en</strong> = 继续教育/进修 | <em>Lernen nach der ersten Ausbildung (sich weiterbilden → Weiterbildung)</em><br>
   • <strong>die Nachhilfe</strong> = 课外辅导 | <em>zusätzlicher Unterricht (Nachhilfe geben, Nachhilfe brauchen)</em><br>
@@ -61646,7 +61651,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 📖 语法解析 · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-grammatik')">📖 显示/隐藏 语法解析</button>
+<button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s16-zt-grammatik')">📖 显示/隐藏 语法解析</button>
 <div class="answer-box" id="b1s16-zt-grammatik" style="font-size:.87rem;line-height:1.95;color:#2d3748;padding-bottom:6px">
 
   <strong>1. Relativsatz mit Präposition</strong> 带介词的关系从句 | <em>Relativsatz mit Präposition</em><br>
@@ -61681,7 +61686,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🏭 背景知识 · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-hintergrund')">🏭 显示/隐藏 背景知识</button>
+<button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s16-zt-hintergrund')">🏭 显示/隐藏 背景知识</button>
 <div class="answer-box" id="b1s16-zt-hintergrund">
 <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -61719,10 +61724,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 🔗 词汇搭配 · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-kollokation')">🔗 显示/隐藏 词汇搭配</button>
+<button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s16-zt-kollokation')">🔗 显示/隐藏 词汇搭配</button>
 <div class="answer-box" id="b1s16-zt-kollokation">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#0d47a1;color:#fff">
+  <tr style="background:#2e7d32;color:#fff">
     <th style="padding:8px 12px;text-align:left">搭配 / Kollokation</th>
     <th style="padding:8px 12px;text-align:left">释义 / Bedeutung</th>
     <th style="padding:8px 12px;text-align:left">例句 / Beispiel</th>
@@ -61791,10 +61796,10 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ 💬 Redemittel · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-redemittel')">💬 显示/隐藏 常用表达</button>
+<button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s16-zt-redemittel')">💬 显示/隐藏 常用表达</button>
 <div class="answer-box" id="b1s16-zt-redemittel">
 <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
-  <tr style="background:#0d47a1;color:#fff">
+  <tr style="background:#c62828;color:#fff">
     <th style="padding:8px 12px;text-align:left">功能 / Funktion</th>
     <th style="padding:8px 12px;text-align:left">🇩🇪 Redemittel</th>
     <th style="padding:8px 12px;text-align:left">🇨🇳 中文翻译</th>
@@ -61843,7 +61848,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <!-- ═══ ✍️ 仿写例句 · Zertifikatstraining ═══ -->
-<button class="btn btn-show" onclick="a2ToggleAns('b1s16-zt-beispiele')">✍️ 显示/隐藏 仿写例句</button>
+<button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s16-zt-beispiele')">✍️ 显示/隐藏 仿写例句</button>
 <div class="answer-box" id="b1s16-zt-beispiele">
 <div style="font-size:.87rem;line-height:2;color:#2d3748">
 
@@ -61874,6 +61879,9 @@ function gsRevealAllChapter(chId) {
 
 </div>
 </div>
+  </div>
+</div>
+
 
 <div class="b1ex-separator"></div>
 
@@ -61909,6 +61917,58 @@ function gsRevealAllChapter(chId) {
       </table>
     </div>
 
+    <!-- ═══ Interaktive Übung: Multiple Choice ═══ -->
+    <div style="background:#ede7f6;border-left:4px solid #7b1fa2;border-radius:0 8px 8px 0;padding:14px 18px;margin-top:16px;font-size:.87rem;line-height:1.9">
+      <strong>📝 c) Wählen Sie die richtige Antwort.</strong> Kreuzen Sie an.<br><br>
+      <div class="mcq-list" id="b1tex7-mcq">
+        <div class="mcq-item" data-ans="B">
+          <p style="color:#2d3748"><strong>1.</strong> In Ellenbogen-Ländern beträgt der Abstand zum Gesprächspartner...</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1tex7-q1" value="A"> A) eine Armlänge.</label>
+            <label><input type="radio" name="b1s7-q1" value="B"> B) Oberarmlänge.</label>
+            <label><input type="radio" name="b1s7-q1" value="C"> C) eine Handbreit.</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="A">
+          <p style="color:#2d3748"><strong>2.</strong> In Handgelenk-Kulturen ist es besser,...</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s7-q2" value="A"> A) über einen Prominenten zu sprechen als nach der Familie zu fragen.</label>
+            <label><input type="radio" name="b1s7-q2" value="B"> B) direkte Komplimente über das Aussehen zu machen.</label>
+            <label><input type="radio" name="b1s7-q2" value="C"> C) nur über das Wetter zu sprechen.</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="C">
+          <p style="color:#2d3748"><strong>3.</strong> In Deutschland (Fingerspitzen-Staat) sind Gespräche über das Privatleben...</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s7-q3" value="A"> A) immer willkommen.</label>
+            <label><input type="radio" name="b1s7-q3" value="B"> B) nur am Wochenende erlaubt.</label>
+            <label><input type="radio" name="b1s7-q3" value="C"> C) teilweise tabu.</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="A">
+          <p style="color:#2d3748"><strong>4.</strong> Was wird weltweit als passender Gesprächsanfang akzeptiert?</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s7-q4" value="A"> A) Fragen nach regionalen Speisen und Lob für die Küche.</label>
+            <label><input type="radio" name="b1s7-q4" value="B"> B) Fragen nach dem Gehalt des Gesprächspartners.</label>
+            <label><input type="radio" name="b1s7-q4" value="C"> C) Kritik am Wetter des Gastlandes.</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-ans="B">
+          <p style="color:#2d3748"><strong>5.</strong> Über das Wetter zu sprechen ist nur dann ein überzeugendes Thema,...</p>
+          <div class="mcq-options">
+            <label><input type="radio" name="b1s7-q5" value="A"> A) wenn es regnet.</label>
+            <label><input type="radio" name="b1s7-q5" value="B"> B) wenn man es loben kann.</label>
+            <label><input type="radio" name="b1s7-q5" value="C"> C) wenn der Gesprächspartner Deutscher ist.</label>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:12px">
+        <button class="btn btn-check" onclick="a2CheckMCQ('b1tex7-mcq')" style="font-size:.82rem;padding:6px 18px">✅ 批改</button>
+        <button class="btn btn-reset" onclick="a2ResetMCQ('b1tex7-mcq')" style="font-size:.82rem;padding:6px 18px">🔄 重置</button>
+      </div>
+      <div id="b1tex7-mcq-score" style="text-align:center;margin-top:8px;font-weight:700;font-size:.95rem"></div>
+    </div>
+
     <!-- Lernwortschatz -->
     <div style="background:rgba(30,58,95,.08);border-left:4px solid rgba(246,211,101,.5);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:16px;font-size:.84rem;line-height:1.75;color:#5d4037">
       <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
@@ -61928,6 +61988,259 @@ function gsRevealAllChapter(chId) {
       • <strong>der Gesprächsanfang, -¨e</strong> 谈话开头 | <em>Beginn eines Gesprächs (Smalltalk-Eröffnung)</em><br>
       • <strong>überzeugend</strong> 有说服力的 | <em>so gut, dass man zustimmen muss</em>
     </div>
+
+    <!-- ═══════════ 📚 词汇语法 (erweitert) ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-vocab')" style="margin-top:14px;background:linear-gradient(135deg,#00897b,#4db6ac);color:#fff">📚 显示/隐藏 词汇语法</button>
+    <div class="answer-box" id="b1tex7-vocab">
+      • <strong>der Ellenbogen, -</strong> = 胳膊肘 | <em>Gelenk zwischen Ober- und Unterarm</em><br>
+      • <strong>das Handgelenk, -e</strong> = 手腕 | <em>Gelenk zwischen Hand und Unterarm</em><br>
+      • <strong>die Fingerspitze, -n</strong> = 指尖 | <em>oberstes Ende des Fingers</em><br>
+      • <strong>der Abstand, -¨e</strong> = 距离 | <em>Distanz zwischen zwei Personen oder Dingen</em><br>
+      • <strong>ein/teilen in + A</strong> = 把…划分为 | <em>etw. in Kategorien ordnen</em><br>
+      • <strong>betragen (beträgt, betrug, hat betragen)</strong> = 为/总计 | <em>eine bestimmte Größe haben (der Abstand beträgt...)</em><br>
+      • <strong>gerade mal</strong> = 仅仅/才 | <em>nur (verstärkend: gerade mal Oberarmlänge)</em><br>
+      • <strong>die Oberarmlänge, -n</strong> = 上臂长度 | <em>Länge vom Ellenbogen bis zur Schulter</em><br>
+      • <strong>die Voraussetzung, -en</strong> = 前提 | <em>Bedingung, die zuerst erfüllt sein muss (Voraussetzung für + A)</em><br>
+      • <strong>die Geschäftsverhandlung, -en</strong> = 商务谈判 | <em>formelles Gespräch über geschäftliche Dinge</em><br>
+      • <strong>das Kompliment, -e</strong> = 赞美 | <em>lobende Äußerung (jdm. ein Kompliment machen)</em><br>
+      • <strong>oberflächlich</strong> = 表面的/肤浅的 | <em>nicht tiefgehend (Gegenteil: tiefgründig)</em><br>
+      • <strong>der Prominente, -n</strong> = 名人 | <em>bekannte Person (dekliniert wie Adjektiv)</em><br>
+      • <strong>empfinden (empfindet, empfand, hat empfunden)</strong> = 感觉/认为 | <em>fühlen, etw. als angenehm empfinden</em><br>
+      • <strong>die Leistung, -en</strong> = 成绩/成就 | <em>Ergebnis von Arbeit oder Anstrengung</em><br>
+      • <strong>tabu</strong> = 禁忌的 | <em>gesellschaftlich nicht erlaubt (teilweise tabu)</em><br>
+      • <strong>die Sehenswürdigkeit, -en</strong> = 景点 | <em>interessanter Ort für Touristen</em><br>
+      • <strong>der Gesprächsanfang, -¨e</strong> = 谈话开头 | <em>Beginn eines Gesprächs (Smalltalk-Eröffnung)</em><br>
+      • <strong>überzeugend</strong> = 有说服力的 | <em>so gut, dass man zustimmen muss</em><br>
+      • <strong>das Plaudern</strong> = 闲聊 | <em>lockeres, ungezwungenes Sprechen (Smalltalk)</em>
+    </div>
+
+    <!-- ═══════════ 📖 语法解析 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-grammatik')" style="margin-top:10px;background:linear-gradient(135deg,#283593,#5c6bc0);color:#fff">📖 显示/隐藏 语法解析</button>
+    <div class="answer-box" id="b1tex7-grammatik">
+      <strong>1. Relativsatz (关系从句)</strong><br>
+      🇩🇪 Formel: <em>Bezugswort + Relativpronomen (der/die/das) + ... + Verb (am Ende)</em><br>
+      🇨🇳 规则：关系代词性数格随先行词，动词置句末。<br>
+      📖 文中例句:<br>
+      <em>„beträgt der Abstand, <strong>den</strong> Gesprächspartner als angenehm <strong>empfinden</strong>"</em> — 谈话对象觉得舒服的那个距离<br>
+      ⚠️ 考点：den = Akkusativ Maskulinum（Bezugswort: der Abstand），不是 Nominativ。<br><br>
+
+      <strong>2. Komparation: Positiv — Komparativ — Superlativ (比较级与最高级)</strong><br>
+      🇩🇪 Formel: <em>Komparativ + als (不同) / so + Positiv + wie (相同)</em><br>
+      🇨🇳 规则：比较级用 als 连接不同项，用 so...wie 连接相同项。修饰比较级用 viel（得多）或 gerade mal（才/仅）。<br>
+      📖 文中例句:<br>
+      <em>„<strong>besser als</strong> ein oberflächlich wirkendes Lob"</em> — 比表面赞美更好<br>
+      <em>„<strong>passender als</strong> die Frage nach der Familie"</em> — 比问家庭情况更合适<br>
+      ⚠️ 考点：als 用于不同等级比较（Komparativ），wie 用于相同等级（Positiv）。混淆是 B1 高频错误。<br><br>
+
+      <strong>3. Passiv mit werden (过程被动态)</strong><br>
+      🇩🇪 Formel: <em>werden + Partizip II (Vorgangspassiv)</em><br>
+      🇨🇳 规则：描述动作过程而非状态。werden 随主语变位，PII 句末。<br>
+      📖 文中例句:<br>
+      <em>„Fragen nach regionalen Speisen ... <strong>werden</strong> weltweit als passender Gesprächsanfang <strong>akzeptiert</strong>."</em> — 关于地方美食的问题被全世界接受为合适的谈话开头<br>
+      ⚠️ 考点：Vorgangspassiv (werden+PII) ≠ Zustandspassiv (sein+PII)。本文还有 „sind teilweise tabu" — 这是 sein+Adjektiv（状态），不是被动态。<br><br>
+
+      <strong>4. Präpositionen mit Kasus (介词支配格)</strong><br>
+      🇩🇪 Formel: <em>für + Akkusativ / in + Dativ (Ort) / nach + Dativ / von + Dativ</em><br>
+      🇨🇳 规则：介词决定其后名词的格。<br>
+      📖 文中例句:<br>
+      <em>„<strong>in</strong> Ellenbogen-Ländern"</em> (in + Dativ Plural = 在…国家里)<br>
+      <em>„Voraussetzung <strong>für</strong> spätere Geschäftsverhandlungen"</em> (für + Akkusativ = 对于…)<br>
+      <em>„Fragen <strong>nach</strong> regionalen Speisen"</em> (nach + Dativ = 询问关于…)<br>
+      ⚠️ 考点：in 支配 Dativ（静三动四原则 — 这里是在某国境内，静态→Dativ）。nach 表"询问"时固定 + Dativ。
+    </div>
+
+    <!-- ═══════════ 🏭 背景知识 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-hintergrund')" style="margin-top:10px;background:linear-gradient(135deg,#e65100,#ff9800);color:#fff">🏭 显示/隐藏 背景知识</button>
+    <div class="answer-box" id="b1tex7-hintergrund">
+      <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#1a5a2a;font-size:.95rem">👨‍🔬 Desmond Morris — 从动物行为到人类观察</strong><br>
+        🇩🇪 Desmond Morris (*1928) ist ein britischer Zoologe, Verhaltensforscher und Autor. Bekannt wurde er 1967 mit dem Bestseller <em>„Der nackte Affe" (The Naked Ape)</em>, in dem er menschliches Verhalten aus der Perspektive eines Zoologen analysierte. In seinen späteren Büchern wie <em>„Peoplewatching"</em> und <em>„Bodytalk"</em> untersuchte er Körpersprache und nonverbale Kommunikation im Alltag. Seine Einteilung der Nationen nach „Arm-Zonen" stammt aus dieser Forschung.<br>
+        🇨🇳 Desmond Morris（1928年生）是英国动物学家、行为研究者和作家，1967年以畅销书《裸猿》成名，从动物学视角分析人类行为。后期著作《人类观察》和《身体语言》研究日常生活中的肢体语言和非语言沟通。他的"臂距区"国家分类就来自这项研究。
+      </div>
+      <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#e65100;font-size:.95rem">📏 Proxemik — 人际空间距离学</strong><br>
+        🇩🇪 Die Proxemik wurde in den 1960er Jahren vom amerikanischen Anthropologen Edward T. Hall begründet. Sie untersucht, wie Menschen den Raum um sich herum nutzen und welche Distanz sie in verschiedenen sozialen Situationen als angenehm empfinden. Hall unterschied vier Distanzzonen: die intime Zone (0–50 cm), die persönliche Zone (50 cm–1,2 m), die soziale Zone (1,2–3,6 m) und die öffentliche Zone (ab 3,6 m). Morris' Arm-Zonen-Theorie baut auf dieser Forschung auf, vereinfacht sie aber für den interkulturellen Vergleich.<br>
+        🇨🇳 空间关系学由美国人类学家 Edward T. Hall 在 1960 年代创立，研究人如何利用周围空间以及在不同社交情境中感到舒适的间距。Hall 划分了四种距离区：亲密区（0–50cm）、个人区（50cm–1.2m）、社交区（1.2–3.6m）和公共区（3.6m 以上）。Morris 的臂距区理论在此基础上发展，但简化为跨文化比较的三种类型。
+      </div>
+      <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#1565c0;font-size:.95rem">🇩🇪 德国的"指尖国家"文化</strong><br>
+        🇩🇪 Deutschland gilt als typischer „Fingerspitzen-Staat": Körperlicher Abstand ist wichtig, man gibt sich zur Begrüßung die Hand (mit einer Armlänge Abstand) und vermeidet im Gespräch zu nah an den Gesprächspartner heranzutreten. Privatleben und Beruf sind streng getrennt — Smalltalk über Familie oder Einkommen ist oft unerwünscht. Dagegen sind Gespräche über Beruf, Ausbildung und fachliche Kompetenz gern gesehen. Direktheit gilt in Deutschland nicht als unhöflich, sondern als Zeichen von Ehrlichkeit und Respekt. Diese kulturellen Normen zu kennen, hilft Missverständnisse im Berufsalltag zu vermeiden.<br>
+        🇨🇳 德国是典型的"指尖国家"：身体距离很重要，见面握手保持约一臂距离，交谈时避免贴得太近。私生活与工作严格分开——聊家庭或收入常不受欢迎。相反，谈职业、教育和专业能力很受欢迎。在德国，直接不绕弯子不被视为不礼貌，反而是诚实和尊重的表现。了解这些文化规范有助于避免职场误解。
+      </div>
+    </div>
+
+    <!-- ═══════════ 🔗 词汇搭配 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-kollokation')" style="margin-top:10px;background:linear-gradient(135deg,#2e7d32,#66bb6a);color:#fff">🔗 显示/隐藏 词汇搭配</button>
+    <div class="answer-box" id="b1tex7-kollokation">
+      <table style="width:100%;border-collapse:collapse;font-size:.84rem;line-height:1.6">
+        <tr style="background:#2e7d32;color:#fff">
+          <th style="padding:7px 10px;text-align:left">搭配 / Kollokation</th>
+          <th style="padding:7px 10px;text-align:left">释义 / Bedeutung</th>
+          <th style="padding:7px 10px;text-align:left">例句 / Beispiel</th>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">in ... ein/teilen</td>
+          <td style="padding:7px 10px">把…划分为 | <em>in Kategorien ordnen</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Morris <strong>teilt</strong> die Nationen <strong>in</strong> Arm-Zonen <strong>ein</strong>.</em><br><span style="color:#666">Morris 把国家按臂距区分类。</span></td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">der Abstand beträgt ...</td>
+          <td style="padding:7px 10px">距离为… | <em>die Distanz misst</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Der Abstand <strong>beträgt</strong> gerade mal Oberarmlänge.</em><br><span style="color:#666">距离仅为上臂长度。</span></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">Voraussetzung für + A sein</td>
+          <td style="padding:7px 10px">是…的前提 | <em>Bedingung für etw. sein</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Persönliche Beziehungen sind <strong>Voraussetzung für</strong> Geschäftsverhandlungen.</em><br><span style="color:#666">私人关系是商务谈判的前提。</span></td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">als angenehm empfinden</td>
+          <td style="padding:7px 10px">感觉舒适 | <em>etw. angenehm finden</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Den Abstand <strong>empfinden</strong> Gesprächspartner <strong>als angenehm</strong>.</em><br><span style="color:#666">谈话对象觉得这个距离舒适。</span></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">(jdm.) ein Kompliment machen</td>
+          <td style="padding:7px 10px">（向某人）表达赞美 | <em>jdn. loben</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>In Ellenbogen-Ländern darf man <strong>direkte Komplimente machen</strong>.</em><br><span style="color:#666">在肘部国家可以直接赞美。</span></td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">als ... akzeptiert werden</td>
+          <td style="padding:7px 10px">被接受为… | <em>als etw. anerkannt werden</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Fragen nach regionalen Speisen <strong>werden</strong> weltweit <strong>als</strong> passend <strong>akzeptiert</strong>.</em><br><span style="color:#666">关于地方美食的问题被全球接受。</span></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">ein Lob für + A</td>
+          <td style="padding:7px 10px">对…的赞美 | <em>Kompliment für etw.</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Am besten mit <strong>einem Lob für</strong> die Küche verbinden.</em><br><span style="color:#666">最好结合对当地美食的赞美。</span></td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">unabhängig von + D</td>
+          <td style="padding:7px 10px">不论/独立于 | <em>ohne Rücksicht auf</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em><strong>Unabhängig von</strong> der Theorie gelten diese Regeln.</em><br><span style="color:#666">不论这个理论如何，这些规则都适用。</span></td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">für ... gelten</td>
+          <td style="padding:7px 10px">适用于 | <em>gültig sein für</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em><strong>Für</strong> das professionelle Plaudern <strong>gelten</strong> folgende Regeln.</em><br><span style="color:#666">以下规则适用于职场闲聊。</span></td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">ein überzeugendes Thema</td>
+          <td style="padding:7px 10px">有说服力的话题 | <em>ein gutes Argument</em></td>
+          <td style="padding:7px 10px;font-size:.81rem"><em>Das Wetter ist <strong>ein überzeugendes Thema</strong>, aber nur wenn man es loben kann.</em><br><span style="color:#666">天气是有说服力的话题，但只有在能赞美它的时候。</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ═══════════ 💬 常用表达 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-redemittel')" style="margin-top:10px;background:linear-gradient(135deg,#c62828,#ef5350);color:#fff">💬 显示/隐藏 常用表达</button>
+    <div class="answer-box" id="b1tex7-redemittel">
+      <table style="width:100%;border-collapse:collapse;font-size:.84rem;line-height:1.6">
+        <tr style="background:#c62828;color:#fff">
+          <th style="padding:7px 10px;text-align:left">功能 / Funktion</th>
+          <th style="padding:7px 10px;text-align:left">🇩🇪 Redemittel</th>
+          <th style="padding:7px 10px;text-align:left">🇨🇳 中文翻译</th>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">跨文化差异描述</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>In ... ist der Abstand zum Gesprächspartner geringer als in ...</em></td>
+          <td style="padding:7px 10px">在…，与谈话对象的距离比在…更近。</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">比较两种文化</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>Während man in ... oft über Privates spricht, ist das in ... eher tabu.</em></td>
+          <td style="padding:7px 10px">在…人们常聊私事，而在…这几乎是禁忌。</td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">给出行为建议</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>Wenn Sie in ... sind, sollten Sie unbedingt ... / lieber nicht ...</em></td>
+          <td style="padding:7px 10px">如果您在…，您一定要… / 最好不要…</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">说明一般规则</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>Es gilt die Regel: ... / Als Faustregel kann man sagen: ...</em></td>
+          <td style="padding:7px 10px">规则是：… / 作为经验法则可以说：…</td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">表达某事物被接受</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>... wird / werden als ... akzeptiert / angesehen.</em></td>
+          <td style="padding:7px 10px">…被接受/被视为…</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">推荐合适话题</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>Ein passendes Smalltalk-Thema wäre zum Beispiel ... / Am besten sprechen Sie über ...</em></td>
+          <td style="padding:7px 10px">一个合适的闲聊话题例如… / 您最好聊…</td>
+        </tr>
+        <tr style="background:#f9fbe7">
+          <td style="font-weight:700;padding:7px 10px">指出文化禁忌</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>... ist / sind in ... teilweise tabu. / ... gilt / gelten als unhöflich.</em></td>
+          <td style="padding:7px 10px">…在…有时是禁忌。/ …被视为不礼貌。</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="font-weight:700;padding:7px 10px">表达因果关系</td>
+          <td style="padding:7px 10px;font-size:.82rem"><em>Deshalb / Aus diesem Grund ist es besser, wenn Sie ...</em></td>
+          <td style="padding:7px 10px">因此/出于这个原因，您最好…</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ═══════════ ✍️ 仿写例句 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-beispiele')" style="margin-top:10px;background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff">✍️ 显示/隐藏 仿写例句</button>
+    <div class="answer-box" id="b1tex7-beispiele">
+      <div style="font-size:.86rem;line-height:1.9;color:#2d3748">
+        <strong>🔹 Muster 1: 描述分类（ein/teilen in + A）</strong><br>
+        🇩🇪 <em>Der Autor <strong>teilt</strong> die Länder <strong>in</strong> drei Kategorien <strong>ein</strong>: Ellenbogen-Länder, Handgelenk-Kulturen und Fingerspitzen-Staaten.</em><br>
+        🇨🇳 作者把国家分为三类：肘部国家、腕部文化和指尖国家。<br>
+        👉 <em>Nachbau: ___ (主语) teilt ___ (Akkusativ) in ___ (Kategorien) ein.</em><br><br>
+
+        <strong>🔹 Muster 2: 用 während 对比两种文化</strong><br>
+        🇩🇪 <em><strong>Während</strong> in Spanien persönliche Komplimente erwünscht <strong>sind</strong>, <strong>gelten</strong> sie in Deutschland oft als unpassend.</em><br>
+        🇨🇳 在西班牙个人赞美受欢迎，而在德国常被视为不合适。<br>
+        👉 <em>Nachbau: Während in ___ (Land 1) ___ (Verb), ___ (Verb) in ___ (Land 2) ___.</em><br><br>
+
+        <strong>🔹 Muster 3: 给出文化建议（sollte）</strong><br>
+        🇩🇪 <em>In Deutschland <strong>sollte</strong> man lieber <strong>über</strong> den Beruf <strong>sprechen</strong> als über private Themen.</em><br>
+        🇨🇳 在德国最好谈职业而非私事。<br>
+        👉 <em>Nachbau: In ___ (Land) sollte man ___ (Infinitiv), aber nicht ___ (Infinitiv).</em><br><br>
+
+        <strong>🔹 Muster 4: 表达某物被全球接受（Passiv）</strong><br>
+        🇩🇪 <em>Fragen nach dem Essen <strong>werden</strong> überall auf der Welt als positives Thema <strong>gesehen</strong>.</em><br>
+        🇨🇳 关于食物的问题在世界各地都被视为积极的话题。<br>
+        👉 <em>Nachbau: ___ (Subjekt) wird/werden als ___ (Prädikativ) + Partizip II.</em><br><br>
+
+        <strong>🔹 Muster 5: 用 unabhängig von + D 表达"无论"</strong><br>
+        🇩🇪 <em><strong>Unabhängig von</strong> der Kultur gibt es universelle Smalltalk-Regeln.</em><br>
+        🇨🇳 不论文化如何，都存在普适的闲聊规则。<br>
+        👉 <em>Nachbau: Unabhängig von ___ (Dativ) gilt/gelten: ___ (Regel).</em>
+      </div>
+    </div>
+
+    <!-- ═══════════ 📝 答案解析 ═══════════ -->
+    <button class="btn btn-show" onclick="a2ToggleAns('b1tex7-explain')" style="margin-top:10px;background:linear-gradient(135deg,#6a1b9a,#ab47bc);color:#fff">📖 显示/隐藏 全部解析</button>
+    <div class="answer-box" id="b1tex7-explain">
+      <strong>📖 解析 / Erläuterung：</strong><br><br>
+      <strong>a) Was bedeuten die Begriffe?</strong><br>
+      • <strong>Ellenbogen-Länder:</strong> Kulturen, in denen der Gesprächsabstand nur Oberarmlänge beträgt. Persönliche Beziehungen sind sehr wichtig. (Spanien, Italien, Türkei, Indien, Südamerika)<br>
+      • <strong>Handgelenk-Kulturen:</strong> Kulturen mit mittlerem Abstand (Fast-Armlänge). Man ist indirekter, lobt Leistungen statt Aussehen. (Frankreich, USA, China, Australien)<br>
+      • <strong>Fingerspitzen-Staaten:</strong> Kulturen mit großem körperlichem Abstand. Privatleben ist tabu, Beruf und Firma loben ist passend. (Deutschland, England, Skandinavien, Japan)<br><br>
+
+      <strong>📝 c) MCQ 答案解析：</strong><br><br>
+      <strong>1. → B) Oberarmlänge.</strong><br>
+      🇩🇪 原文：<em>„In Ellenbogen-Ländern ... beträgt der Abstand zum Gesprächspartner gerade mal <strong>Oberarmlänge</strong>."</em><br>
+      🇨🇳 A) Armlänge 是全臂长（Handgelenk-Kulturen 的距离），C) Handbreit 未出现。<br><br>
+      <strong>2. → A) über einen Prominenten zu sprechen als nach der Familie zu fragen.</strong><br>
+      🇩🇪 原文：<em>„Ein Gespräch über einen <strong>Prominenten</strong> ist deshalb <strong>passender als</strong> die Frage nach der Familie."</em><br>
+      🇨🇳 B) 直接赞美外貌是 Ellenbogen-Länder 的做法，C) 文中只说天气"可以"作为话题，没说"只"聊天气。<br><br>
+      <strong>3. → C) teilweise tabu.</strong><br>
+      🇩🇪 原文：<em>„Gespräche über das <strong>Privatleben</strong> sind <strong>teilweise tabu</strong>."</em><br>
+      🇨🇳 A) "immer willkommen" 相反；B) "nur am Wochenende erlaubt" 完全未提及。<br><br>
+      <strong>4. → A) Fragen nach regionalen Speisen und Lob für die Küche.</strong><br>
+      🇩🇪 原文：<em>„Fragen nach <strong>regionalen Speisen</strong>, am besten mit einem <strong>Lob für die Küche</strong> verbunden, ... werden weltweit als passender Gesprächsanfang <strong>akzeptiert</strong>."</em><br>
+      🇨🇳 B) 问薪水是禁忌，C) 批评天气是反着说。<br><br>
+      <strong>5. → B) wenn man es loben kann.</strong><br>
+      🇩🇪 原文：<em>„Auch das Wetter ist ein überzeugendes Thema, aber nur, <strong>wenn man es loben kann</strong>."</em><br>
+      🇨🇳 A) 下雨时批评天气 ≠ 赞美，C) 与国籍无关。
+    </div>
+
   </div>
 </div>
 
