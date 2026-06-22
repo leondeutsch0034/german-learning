@@ -2940,6 +2940,47 @@
     #page-echt .echt-back { text-align:center; margin-top:40px; }
     #page-echt .echt-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2a4a7a); color:#fde68a; padding:11px 30px; border-radius:22px; text-decoration:none; font-weight:600; font-size:.9rem; border:1px solid rgba(246,211,101,.22); transition:.25s; }
     #page-echt .echt-back a:hover { border-color:rgba(246,211,101,.55); box-shadow:0 4px 18px rgba(246,211,101,.12); transform:translateY(-1px); }
+    /* ── Tab 切换（地道德语 / 德国谚语）── */
+    #page-echt .echt-tabs { max-width:1040px; margin:0 auto 20px; display:flex; gap:0; justify-content:center; position:relative; z-index:1; }
+    #page-echt .echt-tab { flex:0 1 auto; padding:10px 28px; font-size:.84rem; font-weight:700; cursor:pointer; border:1.5px solid rgba(246,211,101,.15); background:rgba(246,211,101,.03); color:#94a3b8; transition:.25s; letter-spacing:.02em; }
+    #page-echt .echt-tab:first-child { border-radius:22px 0 0 22px; border-right:none; }
+    #page-echt .echt-tab:last-child { border-radius:0 22px 22px 0; }
+    #page-echt .echt-tab.active { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border-color:transparent; box-shadow:0 2px 12px rgba(246,211,101,.25); }
+    #page-echt .echt-tab .tb-count { font-size:.7rem; opacity:.7; margin-left:4px; }
+    /* ── 谚语卡片（proverb card）── */
+    #page-echt .prov-card { background:linear-gradient(160deg,#0f1e3a,#132540); border:1px solid rgba(246,211,101,.1); border-radius:18px; padding:24px 22px 20px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
+    #page-echt .prov-card:hover { border-color:rgba(246,211,101,.4); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-3px); }
+    #page-echt .prov-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+    #page-echt .prov-scene { font-size:.74rem; color:#0a1428; background:linear-gradient(135deg,#f6d365,#fde68a); padding:5px 14px; border-radius:20px; font-weight:700; letter-spacing:.02em; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+    #page-echt .prov-num { font-size:.66rem; font-weight:700; color:rgba(246,211,101,.35); letter-spacing:.06em; }
+    #page-echt .prov-de { font-size:1.25rem; font-weight:700; color:#fef3c7; line-height:1.5; margin-bottom:8px; letter-spacing:-.005em; font-style:italic; }
+    #page-echt .prov-zh { font-size:1rem; font-weight:600; color:#f6d365; margin-bottom:10px; line-height:1.4; }
+    #page-echt .prov-literal { font-size:.78rem; color:#7e8b9e; line-height:1.5; margin-bottom:12px; padding:8px 12px; background:rgba(148,163,184,.05); border-radius:8px; border-left:3px solid rgba(148,163,184,.25); }
+    #page-echt .prov-literal b { color:#bcc5d0; font-weight:600; }
+    #page-echt .prov-note { font-size:.8rem; color:#a8b5c4; line-height:1.65; padding-top:12px; border-top:1px solid rgba(246,211,101,.12); }
+    #page-echt .prov-note b { color:#f6d365; font-weight:700; }
+    #page-echt .prov-watermark { margin-top:18px; padding-top:10px; border-top:1px solid rgba(246,211,101,.06); text-align:right; font-size:.6rem; color:rgba(246,211,101,.18); letter-spacing:.05em; }
+    #page-echt .prov-share-btn { display:inline-block; margin-top:12px; padding:7px 18px; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; border-radius:16px; font-size:.73rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
+    #page-echt .prov-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
+    /* ── 谚语分享卡片 ── */
+    #prov-share-card { max-width:460px; width:100%; padding:0; background:linear-gradient(160deg,#0f1e3a 0%,#162d4a 40%,#1a3050 100%); border:1px solid rgba(246,211,101,.28); border-radius:22px; box-shadow:0 8px 48px rgba(0,0,0,.55); overflow:hidden; display:none; }
+    #prov-share-card::before { content:''; display:block; height:3px; background:linear-gradient(90deg,transparent,#f6d365 20%,#fde68a 50%,#f6d365 80%,transparent); }
+    #prov-share-card .ps-inner { padding:34px 30px 30px; }
+    #prov-share-card .ps-badge { display:table; margin:0 auto 22px; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.75rem; font-weight:700; padding:5px 20px; border-radius:20px; letter-spacing:.04em; box-shadow:0 2px 10px rgba(246,211,101,.18); }
+    #prov-share-card .ps-de { font-size:1.35rem; font-weight:700; color:#fef3c7; line-height:1.5; text-align:center; margin-bottom:10px; font-style:italic; letter-spacing:-.005em; }
+    #prov-share-card .ps-zh { font-size:1.05rem; font-weight:600; color:#f6d365; text-align:center; margin-bottom:18px; line-height:1.4; }
+    #prov-share-card .ps-literal { font-size:.82rem; color:#7e8b9e; text-align:center; margin-bottom:14px; padding:10px 14px; background:rgba(148,163,184,.05); border-radius:10px; }
+    #prov-share-card .ps-note { font-size:.84rem; color:#a8b5c4; line-height:1.7; margin:0 0 24px; padding:14px 16px; background:rgba(246,211,101,.03); border-left:3px solid rgba(246,211,101,.25); border-radius:6px; }
+    #prov-share-card .ps-note b { color:#f6d365; font-weight:700; }
+    #prov-share-card .ps-brand { font-size:.76rem; color:#64748b; border-top:1px solid rgba(246,211,101,.10); padding-top:16px; text-align:center; letter-spacing:.03em; }
+    #prov-share-card .ps-brand span { color:#f6d365; font-weight:700; }
+    @media(max-width:600px){
+      #prov-share-card{max-width:92vw}
+      #prov-share-card .ps-inner{padding:26px 18px 24px}
+      #prov-share-card .ps-badge{font-size:.7rem;margin-bottom:18px}
+      #prov-share-card .ps-de{font-size:1.15rem}
+      #prov-share-card .ps-note{font-size:.8rem}
+    }
     /* ── 响应式 ── */
     @media(max-width:860px){ #page-echt .echt-grid{grid-template-columns:1fr; max-width:600px} }
     @media(max-width:600px){
@@ -2952,6 +2993,12 @@
       #page-echt .echt-col{padding:12px 12px 13px}
       #page-echt .echt-note{font-size:.76rem}
       #page-echt .echt-scene{font-size:.7rem;padding:4px 11px}
+      #page-echt .echt-tab{padding:8px 18px;font-size:.78rem}
+      #page-echt .prov-card{padding:18px 14px 16px}
+      #page-echt .prov-de{font-size:1.1rem}
+      #page-echt .prov-zh{font-size:.9rem}
+      #page-echt .prov-literal{font-size:.74rem}
+      #page-echt .prov-note{font-size:.76rem}
     }
     /* ── 德英混淆对照 DE-EN Confusion ── */
     #page-de-en { background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; color:#e2e8f0; position:relative; overflow:hidden; }
@@ -44969,6 +45016,17 @@ function b1S12CheckB(){
     <div class="es-brand"><span>Leons Deutschzentrum</span> · 地道德语对照卡</div>
   </div>
   </div>
+  <!-- 谚语分享卡片 -->
+  <div id="prov-share-card">
+    <div class="ps-inner">
+    <span class="ps-badge" id="ps-badge"></span>
+    <div class="ps-de" id="ps-de"></div>
+    <div class="ps-zh" id="ps-zh"></div>
+    <div class="ps-literal" id="ps-literal"></div>
+    <div class="ps-note" id="ps-note"></div>
+    <div class="ps-brand"><span>Leons Deutschzentrum</span> · 德国谚语卡片</div>
+  </div>
+  </div>
 </div>
 
 <!-- ══════════ Wusstest du schon? 全部冷知识展示 ══════════ -->
@@ -45004,6 +45062,10 @@ function b1S12CheckB(){
   <div class="echt-header">
     <h2>💬 德国人才不这么说</h2>
     <p>课本教的 vs 德国人日常真正说的 — 左右对照，告别哑巴德语</p>
+  </div>
+  <div class="echt-tabs">
+    <button class="echt-tab active" data-tab="echt" onclick="switchEchtTab('echt')">🗣️ 地道德语<span class="tb-count" id="tb-echt-cnt"></span></button>
+    <button class="echt-tab" data-tab="proverb" onclick="switchEchtTab('proverb')">🦉 德国谚语<span class="tb-count" id="tb-prov-cnt"></span></button>
   </div>
   <div class="echt-tools">
     <div class="echt-search-box">
@@ -45121,27 +45183,136 @@ function b1S12CheckB(){
     {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）基本全国；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'}
   ];
 
+  window.PROVERB_FACTS = [
+    {cat:'耐心', de:'Gut Ding will Weile haben.', zh:'好事多磨。', literal:'字面：好东西需要时间。', note:'安慰别人别着急、做事要有耐心时用。类似中文"慢工出细活"。德国的 <b>Handwerk</b>（手工艺）文化里这句话特别常见——师傅对学徒的口头禅。相当于"Rome wasn\'t built in a day"。'},
+    {cat:'开始', de:'Aller Anfang ist schwer.', zh:'万事开头难。', literal:'字面：所有的开始都是困难的。', note:'鼓励刚开始学德语/新工作/新环境的人。德国人自己也常说——刚到德国第一周的外国学生最需要这句话。同义句：<b>Es wird leichter.</b>（会变容易的。）'},
+    {cat:'练习', de:'Übung macht den Meister.', zh:'熟能生巧。', literal:'字面：练习造就大师。', note:'学任何技能时用。德国 <b>Meister</b>（大师/师傅）是有法律地位的职业资格——不是随便叫的。这句话反映了德国人对"练习→精进"的严肃信仰。'},
+    {cat:'准时', de:'Pünktlichkeit ist die Höflichkeit der Könige.', zh:'守时是王者之礼。', literal:'字面：准时是国王的礼貌。', note:'解释德国人对准时的执念——不是强迫症，是尊重。迟到 5 分钟以上要提前发消息道歉。这句话源自法国国王路易十八，但德国人把它活成了民族性格。'},
+    {cat:'秩序', de:'Ordnung ist das halbe Leben.', zh:'秩序是人生的一半。', literal:'字面：秩序是半个人生。', note:'德国 Ordnung（秩序）不是刻板，是一种效率哲学。东西归位、流程清晰、约定明确——另一半当然是 <b>Spaß haben</b>（享乐）。这句话既有自嘲也有骄傲。'},
+    {cat:'钱', de:'Wer den Pfennig nicht ehrt, ist des Talers nicht wert.', zh:'不珍惜小钱的人，不配拥有大钱。', literal:'字面：不尊重芬尼（分币）的人，不值得塔勒（大银币）。', note:'德国理财观的经典表达。Pfennig 是马克时代的分币，Taler 是历史上的大银币。对应中文"不积跬步无以至千里"。德国人真的会在超市比价、收集 Pfand 退瓶。'},
+    {cat:'工作', de:'Erst die Arbeit, dann das Vergnügen.', zh:'先工作，后娱乐。', literal:'字面：先劳动，然后是快乐。', note:'德国人的时间观：工作时间和休息时间有明确界限。下班后不处理工作邮件（<b>Feierabend</b> 文化）。这句话是德式 Work-Life-Balance 的底层逻辑——不是不玩，是先干完再玩。'},
+    {cat:'互助', de:'Eine Hand wäscht die andere.', zh:'互相帮助，互利互惠。', literal:'字面：一只手洗另一只手。', note:'表达"你帮我我帮你"。不带贬义——德国人觉得互助是社会运行的润滑剂。搭便车（Mitfahrgelegenheit）、借工具、帮邻居收快递都是这句话的日常体现。'},
+    {cat:'诚实', de:'Ehrlich währt am längsten.', zh:'诚实最长久。', literal:'字面：诚实持续得最长。', note:'德国社会对诚实的高度重视。撒谎短期可能过关，但长期必被识破（尤其在德国官僚体系里——信息全联网）。在商业、学术、签证问题上说真话是最省事的策略。'},
+    {cat:'知足', de:'Lieber den Spatz in der Hand als die Taube auf dem Dach.', zh:'宁要手里的麻雀，不要屋顶的鸽子。', literal:'字面：宁可手中有麻雀，不要屋顶上的鸽子。', note:'对应"一鸟在手胜过双鸟在林"。德国人务实精神的浓缩——选稳妥的而不是遥不可及的。投资理财、选工作、择学校时都会引用这句。'},
+    {cat:'健康', de:'Die beste Medizin ist die Vorbeugung.', zh:'最好的药是预防。', literal:'字面：最好的药是预防。', note:'德国医疗体系里预防医学（<b>Vorsorge</b>）极受重视——年度体检、牙科检查、疫苗。这句话是 Hausarzt（家庭医生）文化的基础。比生病了再治省钱省时间。'},
+    {cat:'饮食', de:'Der Appetit kommt beim Essen.', zh:'胃口是吃出来的。', literal:'字面：食欲在吃的时候才来。', note:'劝人试试再说——很多事情开始前觉得没意思/不想做，一旦开始就会发现乐趣。也用在吃饭时劝人多尝一口。德国 Buffet（自助）文化最爱引用的谚语。'},
+    {cat:'命运', de:'Der Mensch denkt, Gott lenkt.', zh:'谋事在人，成事在天。', literal:'字面：人想，神导。', note:'和中文高度对应。德国人用这句表达对命运的接受——不是消极躺平，是"尽力之后接受结果"。常用于考试后、求职后、等签证时的自我安慰。'},
+    {cat:'沉默', de:'Reden ist Silber, Schweigen ist Gold.', zh:'说话是银，沉默是金。', literal:'字面：说话是银，沉默是金。', note:'和中文谚语几乎完全一致。用在劝人别多嘴、别在没把握时乱说的场景。德国人开会/社交中认为"不知道的事就说不知道"比"胡编"更受尊重。'},
+    {cat:'团结', de:'Gemeinsam sind wir stark.', zh:'团结就是力量。', literal:'字面：一起我们是强大的。', note:'德国工会（<b>Gewerkschaft</b>）、社团（<b>Verein</b>）文化的基础信念。一个人解决不了的事——找 Verein（德国有 60 多万个注册协会）。罢工、邻里互助、合租 WG 都强调"gemeinsam"。'},
+    {cat:'坚持', de:'Steter Tropfen höhlt den Stein.', zh:'滴水穿石。', literal:'字面：持续的水滴凿穿石头。', note:'完美对应"水滴石穿"。德国人学中文时听到这句都惊呆了——完全一样。强调持续的小努力胜过一阵猛冲。学德语每天 20 分钟比考前通宵有效十倍。'},
+    {cat:'时间', de:'Kommt Zeit, kommt Rat.', zh:'船到桥头自然直。', literal:'字面：时间到来，办法到来。', note:'安慰焦虑的人——现在想不通的事，时间会带来答案。德国人面对 Bürokratie（官僚程序）的无能为力感时的经典自我安慰。等签证、等批文、等审批——"Kommt Zeit, kommt Rat."'},
+    {cat:'知识', de:'Was Hänschen nicht lernt, lernt Hans nimmermehr.', zh:'少壮不努力，老大徒伤悲。', literal:'字面：汉斯小时候不学的东西，汉斯长大后也学不会了。', note:'Hans/Hänschen 是德国经典人名（相当于"小明"）。鼓励趁年轻多学——不是说你老了学不会，是说年轻时学习效率高、负担少。德国人用这句劝大学生少逃课。'},
+    {cat:'合适', de:'Alles zu seiner Zeit.', zh:'万事皆有时。', literal:'字面：一切都在它该在的时间。', note:'表达"不是不报时候未到"或"急不得"的生活哲学。取自《圣经·传道书》。德国人拒绝内卷时的金句——不是不去争取，是不在错误的时间强求。春种秋收，冬天就休息。'},
+    {cat:'态度', de:'Wie man in den Wald hineinruft, so schallt es heraus.', zh:'你怎样对世界，世界就怎样对你。', literal:'字面：你怎么朝着森林喊，回声就怎么传回来。', note:'类似"种瓜得瓜种豆得豆"或"你笑世界就对你笑"。德国父母教孩子的第一课——对别人友好是给自己的未来存钱。Entschuldigung 和 Danke 这种"小词"就是往森林里喊好话。'},
+    {cat:'幸福', de:'Glück ist das Einzige, das sich verdoppelt, wenn man es teilt.', zh:'幸福是唯一分享了就会翻倍的东西。', literal:'字面：幸福是唯一在分享时翻倍的东西。', note:'德式分享哲学——快乐说出来变双倍，悲伤说出来减一半。德国人过生日自己带蛋糕去公司请大家吃就是这个逻辑。源自 Albert Schweitzer。'},
+    {cat:'真诚', de:'Man muss die Feste feiern, wie sie fallen.', zh:'该庆祝的时候就庆祝，别错过。', literal:'字面：人们应该庆祝掉下来的节日——掉下来就接着。', note:'别老说"等下次"——人生没有那么多下次。德国人说这句话时通常是在说服朋友别省钱、别加班、一起去。也用来劝人抓住当下的快乐。'},
+    {cat:'友谊', de:'Freunde sind wie Sterne — du kannst sie nicht immer sehen, aber sie sind immer da.', zh:'朋友像星星——你不总能看到，但他们一直在。', literal:'字面：朋友像星星——你不能总是看到它们，但它们总在那里。', note:'安慰很久没联系的朋友——距离和时间不会磨掉真友谊。德国人的朋友观比中国人更讲究"空间感"，但这句话表达的是坚守。'},
+    {cat:'勇气', de:'Wer wagt, gewinnt.', zh:'敢尝试的人才能赢。', literal:'字面：谁敢于冒险，谁就赢得。', note:'鼓励人迈出舒适区。和英文"Who dares wins"（SAS 座右铭）同源。德国人申请新工作、搬到新城市、追喜欢的人时都会听到这句话。别等到一切准备完美——先跳。'},
+    {cat:'嫉妒', de:'Neid ist die aufrichtigste Form der Anerkennung.', zh:'嫉妒是最真诚的认可。', literal:'字面：嫉妒是认可的最真诚形式。', note:'别人嫉妒你说明你做对了。这当然是个半开玩笑的说法——德国人也懂酸葡萄心理。遇到 Neid 别生气，把它理解成隐形赞美。但别自己对别人用——那就成了 der Neidhammer。'},
+    {cat:'梦想', de:'Träume nicht dein Leben, lebe deinen Traum.', zh:'不要梦你的人生，去活出你的梦。', literal:'字面：不要梦见你的人生，活出你的梦。', note:'德国年轻人 Gap Year / 转专业 / 创业时的金句。比"Just do it"多了一层德语哲学——梦境和现实之间的桥梁是你自己的手。'},
+    {cat:'行动', de:'Wer rastet, der rostet.', zh:'不动就会生锈。', literal:'字面：谁休息，谁就生锈。', note:'德国老年人最爱说的一句——退休后也坚持运动、旅行、学新东西。不是反对休息（Feierabend 是神圣的），是反对"彻底不动"。身体和脑子都要保持活动。'},
+    {cat:'成长', de:'Aus Fehlern wird man klug.', zh:'从错误中变聪明。', literal:'字面：从错误中人变聪明。', note:'犯错不是世界末日——是学费。德语里 Fehler（错误）和 Erfahrung（经验）的关系像一对表兄弟。老师/老板说这句话是在安慰你"没事，学到了。"'},
+    {cat:'倾听', de:'Wer nicht hören will, muss fühlen.', zh:'不听劝的人会吃苦头。', literal:'字面：不愿听的人，就得去感受。', note:'德国妈妈的经典警告——你不听我的，那就等着撞南墙。hör 是"听"，fühl 是"感受/体会"，直译的暴力美学：不听话就用身体去学。'},
+    {cat:'思考', de:'Erst denken, dann handeln.', zh:'先想，再做。', literal:'字面：先思考，再行动。', note:'德国工程文化（Ingenieurkultur）的灵魂。不是让人犹豫不决，是让人动手前先过脑子。冲动购物、乱签合同、没看清楚就点同意——这些都是反面教材。'},
+    {cat:'给予', de:'Geben ist seliger denn Nehmen.', zh:'施比受更有福。', literal:'字面：给予比拿取更使人有福。', note:'源自《圣经·使徒行传》20:35。德国慈善文化（Spendenkultur）的核心——捐赠和志愿服务有深厚的宗教+社会传统。圣诞节前给 Tafel（食物银行）捐食物是很多家庭的固定动作。'},
+    {cat:'比较', de:'Das Gras ist immer grüner auf der anderen Seite.', zh:'那边的草总是更绿。', literal:'字面：另一边的草总是更绿。', note:'人类通病——看别人家的生活总觉得更好。德国人也刷 Instagram 羡慕别人的生活。这句话是提醒自己：你看到的是别人刻意展示的，真实的草长啥样你不知道。'},
+    {cat:'满足', de:'Wer immer nur das will, was er nicht hat, wird nie glücklich.', zh:'总是想要自己没有的东西的人，永远不会幸福。', literal:'字面：谁总是只想要他没有的，永远不会幸福。', note:'德国式知足教育。不是因为不追求更好——是在追求的同时也珍惜已有的。Dankbarkeit（感恩）在德国是像肌肉一样需要锻炼的能力。'},
+    {cat:'简单', de:'In der Kürze liegt die Würze.', zh:'简洁即精华。', literal:'字面：简短中藏着味道（Würze 是香料/风味）。', note:'德式写作和演讲的黄金法则——少即是多。德国教授改论文最爱批"Zu lang, zu kompliziert!"。也用在劝人别啰嗦直接说重点时。和中文"言简意赅"一模一样。'},
+    {cat:'信任', de:'Vertrauen ist gut, Kontrolle ist besser.', zh:'信任是好的，检查更好。', literal:'字面：信任是好的，控制更好。', note:'德国实用主义的经典悖论——我信任你，但我还是要验证一下。不是不信任，是"双重保险"。俄罗斯人说这是列宁说的，德国人坚持这是德国俗语。适合合同、合作、考试自查。'},
+    {cat:'未来', de:'Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben.', zh:'未来属于那些相信自己梦想之美的人。', literal:'字面：未来属于那些相信他们梦想之美的人。', note:'源自 Eleanor Roosevelt，德国人非常喜欢引用。尤其是毕业生和创业者。强调的不是"做梦"，是"相信自己梦想的价值"——这是行动力的来源。'},
+    {cat:'错误', de:'Irren ist menschlich.', zh:'犯错是人之常情。', literal:'字面：犯错是人类的事。', note:'原谅别人、原谅自己时用。完整版是"Irren ist menschlich, Vergeben göttlich"（犯错是人，宽恕是神）。德国人不会期待你完美——但期待你知错能改。'},
+    {cat:'公平', de:'Was du nicht willst, das man dir tu, das füg auch keinem anderen zu.', zh:'己所不欲，勿施于人。', literal:'字面：你不想要的别人对你做的事，也别对别人做。', note:'德国的"黄金法则"——和孔子的"己所不欲勿施于人"完美对应。德国家庭教育的基础——从幼儿园起就教这个。处理室友矛盾、职场冲突的第一原则。'},
+    {cat:'家', de:'Zuhause ist, wo dein Herz ist.', zh:'心之所在即为家。', literal:'字面：家是心所在的地方。', note:'对留学生和异乡人最有温度的一句。Zuhause ≠ Haus——Haus 是房子，Zuhause 是归属感。林夏刚到慕尼黑时住在 12 平米的 WG 房间里，但 Felix 和 Marta 的友谊让那里成了 Zuhause。'},
+    {cat:'选择', de:'Lieber ein Ende mit Schrecken als ein Schrecken ohne Ende.', zh:'长痛不如短痛。', literal:'字面：宁要一个恐怖后结束，不要没有尽头的恐怖。', note:'德国人的决断力——拖下去更痛苦，不如痛快一刀。用于劝人分手、辞职、换专业、放弃不合适的项目。出口成章且自带黑色幽默。'},
+    {cat:'感恩', de:'Dankbarkeit ist das Gedächtnis des Herzens.', zh:'感恩是心的记忆。', literal:'字面：感恩是心脏的记忆。', note:'别人帮了你要记住。不是让你去还，是让你心里记着这份好——然后你也去帮下一个人。德国人圣诞节前写给老师的感谢卡就是这句话的践行。'},
+    {cat:'休息', de:'Man muss auch mal die Seele baumeln lassen.', zh:'有时候也得让灵魂放空一下。', literal:'字面：人也得偶尔让灵魂晃一晃。', note:'德式放松的艺术——Baumeln 是"悬吊着晃荡"（像树枝上的果实）。Feierabend 不是偷懒，是心理健康维护。加班狂被同事用这句话拉出办公室是德国职场日常。'},
+    {cat:'运气', de:'Glück muss man haben.', zh:'运气也得有才行。', literal:'字面：运气你也得有。', note:'德国人面对"你准备得很好但运气太差"时的安慰——努力到位了，剩下的事不怪你。常用于考试差一题没过、等了半天公交车刚好开走。耸肩说出这句就是接受了。'},
+    {cat:'独立', de:'Hilf dir selbst, dann hilft dir Gott.', zh:'自助者天助。', literal:'字面：先帮你自己，上帝就会帮你。', note:'德国人的独立精神——别等着别人救你，先动起来。外来移民、找工作的毕业生、遇到麻烦的学生——都会被先问"你到现在做了什么努力？"这句话就是德式答案。'},
+    {cat:'责任', de:'Jeder ist seines Glückes Schmied.', zh:'人人都是自己幸福的铁匠。', literal:'字面：每个人都是自己幸福的铁匠。', note:'德国版的"命运在自己手中"。Schmied（铁匠）是一个职业——锻造需要时间、汗水和技能。不是说你得一个人扛所有事——是说你的选择、努力和态度决定了你的人生。'},
+    {cat:'经验', de:'Erfahrung ist der beste Lehrer.', zh:'经验是最好的老师。', literal:'字面：经验是最好的老师。', note:'有些事教不会，得自己经历。Fahrrad fahren（骑自行车）是最经典的例子——别人怎么教你平衡都没用，你得自己摔两跤。也劝人别怕试错——每摔一跤都是学费。'},
+    {cat:'希望', de:'Hoffnung ist der Anker des Lebens.', zh:'希望是人生的锚。', literal:'字面：希望是生活的锚。', note:'在难熬的时期——等签证、生病、考试失利——这句话是德国人的精神支撑。Anker（锚）是一个很德国的意象：不是让你飘走，是让你在风暴中稳住。'},
+    {cat:'爱情', de:'Alte Liebe rostet nicht.', zh:'旧爱不生锈。', literal:'字面：旧爱不生锈。', note:'真正的感情经得起时间。不是鼓吹和前任复合——是说真正深厚的感情（亲情、多年的友谊、老夫妻）不会因为时间而褪色。重逢时那种"一切都没变"的感觉就叫这个。'},
+    {cat:'判断', de:'Der Schein kann trügen.', zh:'外表可能有欺骗性。', literal:'字面：外表/假象可以欺骗。', note:'别以貌取人。德国人在社交中不轻易 judge——第一印象可能有偏差。也用在买二手车、看租房照片时提醒自己。Appearances can be deceiving 的德语版。'},
+    {cat:'自然', de:'Die Natur ist die beste Apotheke.', zh:'大自然是最好的药房。', literal:'字面：大自然是最好药房。', note:'德国人对自然疗法的信仰——感冒了喝 Kräutertee（草药茶）、用 Inhalation（蒸汽吸入），不急着吃药。森林浴（Waldbaden）也是源自德语区。这句话是 Sebastian Kneipp 水疗文化的延伸。'},
+    {cat:'尊重', de:'Achtung ist die Seele des Zusammenlebens.', zh:'尊重是共同生活的灵魂。', literal:'字面：尊重是共处的灵魂。', note:'德国多元文化社会（Multikulti）的共识——不同宗教、种族、性别、取向的人能和平共处，靠的不是爱，是尊重。Achtung 在德国有法律的重量——基本法第一条就是 Menschenwürde（人的尊严）。'},
+    {cat:'自信', de:'Wer an sich glaubt, kann Berge versetzen.', zh:'相信自己的人能移山。', literal:'字面：谁相信他自己，就能搬动山。', note:'源自《圣经》马太福音 17:20（"你们的信心若能像一粒芥菜种……你们就没有不能做的事了"）。但德国版更强调 Selbstvertrauen（自信）——不是盲目的自大，是知道自己的能力边界并有勇气去推它。'},
+    {cat:'旅行', de:'Reisen bildet.', zh:'旅行使人长见识。', literal:'字面：旅行教育人。', note:'德国人用两个词就讲完了。Reisen（旅行）bildet（使……受教育/培养）。德国是全世界人均出国旅游最多的国家之一——他们相信亲眼看过世界的人，世界观才完整。'},
+    {cat:'改变', de:'Wer sein Leben ändern will, muss bei sich selbst anfangen.', zh:'想改变人生，得从自己开始。', literal:'字面：谁想改变他的人生，必须从自己开始。', note:'德国人很少抱怨环境不好——他们觉得你能控制的只有你自己。换工作、搬城市、改变习惯——第一刀都切在自己身上。听起来不浪漫，但这是德式赋权：不靠别人，靠自己。'},
+    {cat:'计划', de:'Wer plant, hat mehr vom Zufall.', zh:'有计划的人能从偶然中得到更多。', literal:'字面：谁做计划，谁就从业余中得到更多。', note:'看似矛盾实则深刻——计划和偶然不是对立的。你计划得越清楚，越能识别和抓住偶然冒出来的好机会。德国人说这句话时不是在劝你死板——是在劝你"做有准备的头脑"。'},
+    {cat:'目标', de:'Ohne Ziel ist auch der schnellste Pfeil nur ein Stock.', zh:'没有目标，最快的箭也只是一根棍子。', literal:'字面：没有目标，最快的箭也只是一根木棍。', note:'方向比速度重要。德式目标管理（Zielsetzung）文化——学期初的 Lernziel、年初的 Jahresvorsatz（新年决心）、甚至健身房都有 Zielvereinbarung（目标约定）。这根棍子没有方向飞得再快也白搭。'},
+    {cat:'学习', de:'Man lernt nie aus.', zh:'学无止境。', literal:'字面：人永远学不完。', note:'德国人终身学习（lebenslanges Lernen）信仰的表达。80 岁的 Oma 去上 Volkshochschule（社区大学）的电脑课——"Man lernt nie aus!" 边说边笑。不是内卷的压力，是觉得学习本身就是一种活着的状态。'},
+    {cat:'责任2', de:'Tue deine Pflicht, solange du kannst.', zh:'尽全力履行你的职责。', literal:'字面：只要你能，履行你的职责。', note:'Pflicht（责任/义务）在德语里不是负担——是尊严的来源。认真做一件事，不是因为有人盯着，是你对自己有要求。德国工匠精神（Handwerkskunst）的核心信念——我把这个做好，因为"我做得到"。'},
+    {cat:'自由', de:'Freiheit ist immer die Freiheit des Andersdenkenden.', zh:'自由永远是异见者的自由。', literal:'字面：自由总是那些想法不同的人的自由。', note:'Rosa Luxemburg 的名言，被刻进德国的民主基因。真正的自由不是你赞同的人能说话——是你讨厌的观点也能公开表达。德国大学里这句话是所有政治讨论课的必读句子。'},
+    {cat:'梦想2', de:'Wer kämpft, kann verlieren. Wer nicht kämpft, hat schon verloren.', zh:'去争取可能输——不争取已经输了。', literal:'字面：战斗的人可能输，不战斗的人已经输了。', note:'德国人鼓励你迈出第一步——申请梦想学校、向喜欢的人表白、去面试那家"可能够不着"的公司。最坏的结果是被拒绝——那不试的结果是什么？和 Bertolt Brecht 的戏剧精神一脉相承。'},
+    {cat:'决断', de:'Besser ein schreckliches Ende als ein endloser Schrecken.', zh:'长痛不如短痛（另一个版本）。', literal:'字面：宁可一个可怕结束，也不要无休止的可怕。', note:'前面"选择"那张卡的同源变体——但这一版更口语。分手、辞职、放弃一个耗了三年但毫无进展的项目——德国人在这些时刻会用这句话给自己打气。三秒的勇气。'},
+    {cat:'平衡', de:'Alles in Maßen, nichts in Massen.', zh:'凡事有度，不要过量。', literal:'字面：一切在适度中，不在大量中。', note:'德式中庸——Mäß（适度）是个重要的德语词。不是不让你享受生活，是"别过度"。吃一块蛋糕可以，吃五块会后悔；喝一杯啤酒可以，喝五杯明天请假。身心健康的第一指标就是看你有没有 Maß。'},
+    {cat:'幽默', de:'Humor ist, wenn man trotzdem lacht.', zh:'幽默是——尽管如此你还是笑了。', literal:'字面：幽默是尽管如此仍然在笑。', note:'德国人对幽默的定义——不是讲笑话，是在倒霉的时候还能笑出来。错过了火车、钱包忘在 ICE 上、被外管局退了材料——"trotzdem lachen" 是德国人在这个秩序国度里最叛逆也最健康的生存技能。'},
+    {cat:'智慧', de:'Das Leben ist kein Ponyhof.', zh:'生活不是小马场。', literal:'字面：生活不是一个 pony 农场。', note:'德国人拒绝玻璃心——生活不甜，没什么好奇怪的。理想被现实打脸、工作不如想象中美好、德国冬天又冷又暗——Joa, das Leben ist halt kein Ponyhof. 残酷但诚实的德式清醒剂。'},
+  ];
+
+  var _echtCurrentTab = 'echt';
+
   window.renderEchtGrid = function() {
     var grid = document.getElementById('echt-grid');
-    if (!grid || grid.children.length > 0) return;
-    var facts = window.ECHT_FACTS;
+    if (!grid) return;
+    var tab = _echtCurrentTab || 'echt';
+    var facts = tab === 'proverb' ? window.PROVERB_FACTS : window.ECHT_FACTS;
     var html = '';
     for (var j = 0; j < facts.length; j++) {
       var f = facts[j];
-      var plain = (f.cat + ' ' + f.book + ' ' + f.real + ' ' + f.note).replace(/<[^>]+>/g, '');
-      html += '<div class="echt-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
-      html += '<div class="echt-card-top"><span class="echt-scene">' + f.cat + '</span><span class="echt-num">#' + (j + 1) + '</span></div>';
-      html += '<div class="echt-rows">';
-      html += '<div class="echt-col book"><div class="echt-col-label">📖 课本这么教</div><div class="echt-de">' + f.book + '</div></div>';
-      html += '<div class="echt-col real"><div class="echt-col-label">🇩🇪 德国人这么说</div><div class="echt-de">' + f.real + '</div></div>';
-      html += '</div>';
-      html += '<div class="echt-note">💡 ' + f.note + '</div>';
-      html += '<div class="echt-watermark">Leons Deutschzentrum</div>';
-      html += '<button class="echt-share-btn" onclick="event.stopPropagation();openEchtShare(' + j + ')">📸 分享</button>';
-      html += '</div>';
+      if (tab === 'proverb') {
+        var p_plain = (f.cat + ' ' + f.de + ' ' + f.zh + ' ' + (f.literal||'') + ' ' + f.note).replace(/<[^>]+>/g, '');
+        html += '<div class="prov-card" data-text="' + p_plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+        html += '<div class="prov-card-top"><span class="prov-scene">🦉 ' + f.cat + '</span><span class="prov-num">#' + (j + 1) + '</span></div>';
+        html += '<div class="prov-de">"' + f.de + '"</div>';
+        html += '<div class="prov-zh">' + f.zh + '</div>';
+        if (f.literal) html += '<div class="prov-literal">📝 ' + f.literal + '</div>';
+        html += '<div class="prov-note">💡 ' + f.note + '</div>';
+        html += '<div class="prov-watermark">Leons Deutschzentrum</div>';
+        html += '<button class="prov-share-btn" onclick="event.stopPropagation();openEchtShare(' + j + ')">📸 分享</button>';
+        html += '</div>';
+      } else {
+        var plain = (f.cat + ' ' + f.book + ' ' + f.real + ' ' + f.note).replace(/<[^>]+>/g, '');
+        html += '<div class="echt-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+        html += '<div class="echt-card-top"><span class="echt-scene">' + f.cat + '</span><span class="echt-num">#' + (j + 1) + '</span></div>';
+        html += '<div class="echt-rows">';
+        html += '<div class="echt-col book"><div class="echt-col-label">📖 课本这么教</div><div class="echt-de">' + f.book + '</div></div>';
+        html += '<div class="echt-col real"><div class="echt-col-label">🇩🇪 德国人这么说</div><div class="echt-de">' + f.real + '</div></div>';
+        html += '</div>';
+        html += '<div class="echt-note">💡 ' + f.note + '</div>';
+        html += '<div class="echt-watermark">Leons Deutschzentrum</div>';
+        html += '<button class="echt-share-btn" onclick="event.stopPropagation();openEchtShare(' + j + ')">📸 分享</button>';
+        html += '</div>';
+      }
     }
     grid.innerHTML = html;
+    updateEchtTabCounts();
     applyEchtFilter();
+  };
+
+  window.switchEchtTab = function(tab) {
+    _echtCurrentTab = tab;
+    var tabs = document.querySelectorAll('#page-echt .echt-tab');
+    for (var i = 0; i < tabs.length; i++) {
+      var t = tabs[i].getAttribute('data-tab');
+      if (t === tab) tabs[i].classList.add('active');
+      else tabs[i].classList.remove('active');
+    }
+    var header = document.querySelector('#page-echt .echt-header h2');
+    var sub = document.querySelector('#page-echt .echt-header p');
+    if (tab === 'proverb') {
+      if (header) header.textContent = '🦉 德国谚语 · Sprichwörter';
+      if (sub) sub.textContent = '餐馆老板端来的心灵鸡汤、老祖母挂在嘴边的智慧 — 每句都是德国人的生活哲学';
+    } else {
+      if (header) header.textContent = '💬 德国人才不这么说';
+      if (sub) sub.textContent = '课本教的 vs 德国人日常真正说的 — 左右对照，告别哑巴德语';
+    }
+    var input = document.getElementById('echt-search');
+    if (input) {
+      input.value = '';
+      input.placeholder = tab === 'proverb' ? '搜索谚语（中德文均可，如 耐心、Geduld、Wald）' : '搜索关键词（中德文均可，如 谢谢、Tschüss、点餐）';
+    }
+    window.renderEchtGrid();
   };
 
   window.filterEcht = function() { applyEchtFilter(); };
@@ -45153,13 +45324,12 @@ function b1S12CheckB(){
     var q = input ? input.value.trim().toLowerCase() : '';
     var clearBtn = document.getElementById('echt-search-clear');
     if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
-    var cards = grid.querySelectorAll('.echt-card');
+    var cards = grid.querySelectorAll('.echt-card,.prov-card');
     var shown = 0;
     for (var i = 0; i < cards.length; i++) {
       var okText = !q || cards[i].getAttribute('data-text').indexOf(q) !== -1;
-      var match = okText;
-      cards[i].style.display = match ? '' : 'none';
-      if (match) shown++;
+      cards[i].style.display = okText ? '' : 'none';
+      if (okText) shown++;
     }
     var empty = document.getElementById('echt-empty');
     if (empty) empty.style.display = (shown === 0) ? 'block' : 'none';
@@ -45167,20 +45337,43 @@ function b1S12CheckB(){
     if (cnt) cnt.innerHTML = (shown === cards.length) ? '共 <b>' + cards.length + '</b> 组' : '找到 <b>' + shown + '</b> / ' + cards.length + ' 组';
   }
 
+  function updateEchtTabCounts() {
+    var ec = document.getElementById('tb-echt-cnt');
+    var pc = document.getElementById('tb-prov-cnt');
+    if (ec) ec.textContent = '(' + (window.ECHT_FACTS ? window.ECHT_FACTS.length : 0) + ')';
+    if (pc) pc.textContent = '(' + (window.PROVERB_FACTS ? window.PROVERB_FACTS.length : 0) + ')';
+  }
+
 
   /* 分享卡片弹窗 */
   window.openEchtShare = function(index) {
-    var fact = window.ECHT_FACTS[index];
-    document.getElementById('es-badge').textContent = fact.cat;
-    document.getElementById('es-book').textContent = fact.book;
-    document.getElementById('es-real').textContent = fact.real;
-    document.getElementById('es-note').innerHTML = '💡 ' + fact.note;
+    var tab = _echtCurrentTab || 'echt';
+    if (tab === 'proverb') {
+      var fact = window.PROVERB_FACTS[index];
+      document.getElementById('ps-badge').textContent = '🦉 ' + (fact.cat || '德国谚语');
+      document.getElementById('ps-de').textContent = '"' + fact.de + '"';
+      document.getElementById('ps-zh').textContent = fact.zh;
+      document.getElementById('ps-literal').innerHTML = '📝 ' + (fact.literal || '');
+      document.getElementById('ps-note').innerHTML = '💡 ' + fact.note;
+      document.getElementById('echt-share-card').style.display = 'none';
+      document.getElementById('prov-share-card').style.display = '';
+    } else {
+      var fact2 = window.ECHT_FACTS[index];
+      document.getElementById('es-badge').textContent = fact2.cat;
+      document.getElementById('es-book').textContent = fact2.book;
+      document.getElementById('es-real').textContent = fact2.real;
+      document.getElementById('es-note').innerHTML = '💡 ' + fact2.note;
+      document.getElementById('echt-share-card').style.display = '';
+      document.getElementById('prov-share-card').style.display = 'none';
+    }
     document.getElementById('echt-share-overlay').classList.add('show');
     document.body.style.overflow = 'hidden';
   };
   window.closeEchtShare = function() {
     document.getElementById('echt-share-overlay').classList.remove('show');
     document.body.style.overflow = '';
+    document.getElementById('echt-share-card').style.display = '';
+    document.getElementById('prov-share-card').style.display = 'none';
   };
   window.clearEchtSearch = function() {
     var input = document.getElementById('echt-search');
@@ -45574,7 +45767,12 @@ function b1S12CheckB(){
         <option value="19">第 19 集 · 德国朋友圈</option>
         <option value="20">第 20 集 · 考试季</option>
         <option value="21">第 21 集 · Minijob 税卡</option>
-        <option disabled>———— 第 22 集（敬请期待）————</option>
+        <option value="22">第 22 集 · Biergarten 夏天</option>
+        <option value="23">第 23 集 · 柏林之旅</option>
+        <option value="24">第 24 集 · 父母来德</option>
+        <option value="25">第 25 集 · 押金纠纷</option>
+        <option value="26">第 26 集 · 德国驾考</option>
+        <option disabled>———— 第 27 集（敬请期待）————</option>
       </select>
     </div>
 
@@ -49565,16 +49763,762 @@ function b1S12CheckB(){
       </div>
     </div>
 
-    <div class="se-next" style="opacity:.65" title="敬请期待">
-      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
-      <div class="se-next-title">第 22 集：敬请期待</div>
-      <div class="se-next-desc">林夏在德国的故事还在继续——Biergarten 夏天、柏林之旅、父母来德探亲……更多真实留学生活场景正在路上。</div>
+    <div class="se-next" onclick="showSerieEp(22)" style="cursor:pointer" title="点击看下一集">
+      <div class="se-next-tag">NÄCHSTE FOLGE</div>
+      <div class="se-next-title">第 22 集：Biergarten 夏天</div>
+      <div class="se-next-desc">慕尼黑七月，英国花园里的栗子树下来了第一阵穿堂风。Marta 邀请林夏去体验真正的 Biergarten——不是游客去的那种，是本地人自带食物、坐一下午的那种。Brotzeit、Maß、Schweinshaxe……林夏的第一堂 Biergarten 词汇课正式开始。</div>
     </div>
     <!-- 水印 + 分享 -->
     <div class="se-watermark">
       <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
     </div>
     </div><!-- /第21集 -->
+
+    <!-- ───── 第 22 集 · Biergarten 夏天 ───── -->
+    <div class="se-episode" data-ep="22" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">七月的慕尼黑，气温 32°C。林夏刚结束大学图书馆的 HiWi 班，收到 Marta 的 WhatsApp："Heute Abend Biergarten — ich hol dich um 6 ab. Bring nur Hunger mit!" 她换上短裤和凉鞋，背了个帆布袋就出门了——完全不知道今晚她会学到比一学期课本还多的德语。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🍻 <b>Biergarten</b>（啤酒花园）是巴伐利亚夏天的灵魂。慕尼黑有超过 180 个 Biergarten，最大的（Hirschgarten）可坐 8000 人。核心规矩：<b>Brotzeitrecht</b>——你可以自带食物，只要买酒就能坐下。本地人带折叠桌布、Obatzda（奶酪酱）、Brezn（扭结面包）和一家人，一坐就是一下午。游客去 Hofbräuhaus 拍照，慕尼黑人去 Chinesischer Turm（中国塔）的 Biergarten 度过整个夏天。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Brotzeit bestellen（点餐——中国塔 Biergarten）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">Marta（拉林夏走向自助柜台）</div>
+          <div class="se-de">So — erstmal was zu <b>trinken</b>. Was magst du? <b>Helles</b>, <b>Radler</b>, oder <b>Apfelschorle</b>?</div>
+          <div class="se-zh">好——先来点喝的。你想喝什么？拉格、柠檬啤酒还是苹果气泡水？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ähm… ein Helles? Aber was ist <b>Radler</b>?</div>
+          <div class="se-zh">嗯……一杯拉格？但 Radler 是什么？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">Marta（笑）</div>
+          <div class="se-de">Bier mit <b>Limonade</b> — halb und halb. Perfekt, wenn du morgen noch was <b>schaffen</b> musst. Ich nehm auch eins.</div>
+          <div class="se-zh">啤酒加柠檬汽水——一半一半。如果你明天还想做事的话，这个最合适。我也来一杯。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">Marta</div>
+          <div class="se-de">Und zum Essen — hast du <b>Appetit</b> auf <b>Obatzda</b>? Das ist eine bayerische <b>Käsespezialität</b>. Mit <b>Brezn</b> und <b>Rettich</b>.</div>
+          <div class="se-zh">吃的呢——你想尝尝 Obatzda 吗？是巴伐利亚特色奶酪酱。配扭结面包和白萝卜。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（盯着菜单）</div>
+          <div class="se-de">Klingt gut! Und was ist <b>Schweinshaxe</b>? Das Wort hab ich noch nie gehört.</div>
+          <div class="se-zh">听着不错！那 Schweinshaxe 是什么？这个词我从来没听过。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">Marta</div>
+          <div class="se-de"><b>Schweinshaxe</b> — gegrillte <b>Schweinshaxe</b> mit <b>Kruste</b>. Bayerischer <b>Klassiker</b>. Aber Vorsicht: Die <b>Portion</b> ist riesig. Teilen wir uns eine?</div>
+          <div class="se-zh">猪肘子——烤猪肘带脆皮。巴伐利亚经典菜。但注意：一份巨大。我们分一个？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Gute Idee! <b>Ich lad dich ein</b> — als Dank für die ganzen Tipps.</div>
+          <div class="se-zh">好主意！我请你——感谢你这阵子的各种指点。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Biergarten-Gespräche（隔壁长桌来了一个德国大叔）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🧔</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Gruber（坐对面的慕尼黑大叔，举杯）</div>
+          <div class="se-de"><b>Prost!</b> Seid ihr <b>Studentinnen</b>? Aus China?</div>
+          <div class="se-zh">干杯！你们是大学生吗？从中国来的？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（碰杯，努力看着对方眼睛）</div>
+          <div class="se-de"><b>Prost!</b> Genau, ich studiere in München. Und Sie?</div>
+          <div class="se-zh">干杯！是的，我在慕尼黑读书。您呢？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧔</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Gruber</div>
+          <div class="se-de">Ich? <b>Münchner, geboren und aufgewachsen.</b> Arbeite bei BMW. Und sag <b>du</b> zu mir — im Biergarten sind alle <b>per du</b>.</div>
+          <div class="se-zh">我？慕尼黑出生和长大。在宝马工作。对我说 du 就行——在 Biergarten 大家都互称 du。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧔</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Gruber（指着桌上的 Brezn）</div>
+          <div class="se-de"><b>Wisst ihr, wie man eine gute Brezn erkennt?</b> Sie muss <b>außen knusprig</b> und <b>innen weich</b> sein. Und der <b>Salz</b> — nicht zu wenig, nicht zu viel. Wie das Leben.</div>
+          <div class="se-zh">你们知道怎么辨别好的扭结面包吗？外面要脆，里面要软。盐——不能太少，不能太多。就像人生。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（笑出声）</div>
+          <div class="se-de">Das ist ja <b>fast Philosophie</b>! Aber die Brezn hier ist wirklich <b>super lecker</b>.</div>
+          <div class="se-zh">这快成哲学了！不过这儿的扭结面包确实超好吃。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧔</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Gruber（眨眼）</div>
+          <div class="se-de"><b>Biergarten IST Philosophie.</b> Nach der dritten Maß wird jeder zum <b>Dichter</b>. Prost, Mädels — und viel Erfolg beim Studium!</div>
+          <div class="se-zh">Biergarten 就是哲学。第三杯啤酒下肚，人人都变诗人。干杯，姑娘们——学业顺利！</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🌅 太阳从栗子树的缝隙里沉下去，空气里有烤猪肘和青草的味道。林夏掰了一块 Brezn，沾了一口 Obatzda——这个咸咸的、带点啤酒味的软奶酪让她皱了一下眉头，然后笑了。她想告诉 Marta："这是我吃过最好吃的东西"——但话到嘴边变成了德语的 "<b>Das schmeckt so gut!</b>" Marta 竖起大拇指。Herr Gruber 已经端起第四杯 Maß，正在跟隔壁桌争论 FC Bayern 新教练到底行不行。林夏掏出手机，拍了张照片发给妈妈——但没发那条她以前每次都会加的"我好想家"。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">der Biergarten, ¨-</div><div class="w-zh">啤酒花园</div></div>
+      <div class="se-word"><div class="w-de">das Helle</div><div class="w-zh">拉格啤酒（巴伐利亚用语）</div></div>
+      <div class="se-word"><div class="w-de">das Radler</div><div class="w-zh">柠檬啤酒（啤酒+柠檬汽水）</div></div>
+      <div class="se-word"><div class="w-de">die Maß</div><div class="w-zh">一升装啤酒杯</div></div>
+      <div class="se-word"><div class="w-de">die Brotzeit</div><div class="w-zh">简餐（面包+冷盘）</div></div>
+      <div class="se-word"><div class="w-de">die Brezn</div><div class="w-zh">扭结面包（Brezel 巴伐利亚叫法）</div></div>
+      <div class="se-word"><div class="w-de">der Obatzda</div><div class="w-zh">巴伐利亚奶酪酱</div></div>
+      <div class="se-word"><div class="w-de">die Schweinshaxe</div><div class="w-zh">烤猪肘</div></div>
+      <div class="se-word"><div class="w-de">der Rettich</div><div class="w-zh">白萝卜</div></div>
+      <div class="se-word"><div class="w-de">die Apfelschorle</div><div class="w-zh">苹果气泡水</div></div>
+      <div class="se-word"><div class="w-de">knusprig</div><div class="w-zh">酥脆的</div></div>
+      <div class="se-word"><div class="w-de">Prost!</div><div class="w-zh">干杯！</div></div>
+      <div class="se-word"><div class="w-de">per du sein</div><div class="w-zh">互称"你"（不称"您"）</div></div>
+      <div class="se-word"><div class="w-de">riesig</div><div class="w-zh">巨大的</div></div>
+      <div class="se-word"><div class="w-de">jdn. einladen</div><div class="w-zh">请客</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🍻</div>
+        <div class="se-trap-tx"><b>Biergarten 自带食物是法律保护的古老权利。</b>Brotzeitrecht（简餐权）源于 19 世纪——当时啤酒厂在树下建地窖储存啤酒，又在地上种栗子树遮阴，市民可以买酒、自带食物坐下。这是巴伐利亚 Biergartenverordnung（啤酒花园条例）第 2 条确认的传统。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">👀</div>
+        <div class="se-trap-tx"><b>碰杯时必须看对方眼睛。</b>德国人的迷信：不看着对方眼睛碰杯会招来七年厄运。这规矩在 Biergarten 也一样——即使和陌生人碰杯，也要看着对方眼睛，说一声 Prost。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🗣️</div>
+        <div class="se-trap-tx"><b>Biergarten 里自动"per du"。</b>不管年龄或社会地位，Biergarten 长桌上大家默认用 du（你）而非 Sie（您）。这是一种非正式的"Biergarten 平等"——出了 Biergarten 再切回 Sie 很正常。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📏</div>
+        <div class="se-trap-tx"><b>Maß 是计量单位，不是"大杯"。</b>1 Maß = 1 升，在巴伐利亚这是法定啤酒杯容量（有 Eichstrich 刻度）。Radler 和 Helles 的区别：Radler 约 2.5% 酒精度，Helles 约 4.5-5%。德国人工作午餐喝 Radler（"骑自行车也能回家"），晚上喝 Helles。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(23)" style="cursor:pointer" title="点击看下一集">
+      <div class="se-next-tag">NÄCHSTE FOLGE</div>
+      <div class="se-next-title">第 23 集：柏林之旅</div>
+      <div class="se-next-desc">学期假终于到了——林夏买了张 29 欧的 ICE 特价票去柏林。Brandenburger Tor、East Side Gallery、Currywurst……但最大发现是：柏林和慕尼黑完全是两个德国。</div>
+    </div>
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第22集 -->
+
+    <!-- ───── 第 23 集 · 柏林之旅 ───── -->
+    <div class="se-episode" data-ep="23" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">学期假第一周，林夏买了一张 DB 特价票——慕尼黑到柏林 ICE，4 小时，29 欧。她订了一间 Kreuzberg 区的青旅床位，背包里只装了换洗衣服和一本《孤独星球柏林》。她听说过很多关于柏林的传说——但亲眼见到这个城市的第一眼，她还是被震住了。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🏙️ 柏林不是德国——这是柏林人自己爱说的话。和慕尼黑的巴伐利亚传统、教堂钟声、皮裤不同，柏林是 <b>arm aber sexy</b>（穷但性感）的代名词。城市面积为慕尼黑的两倍，但人口密度更低；地铁 U-Bahn 线比慕尼黑更乱但也更自由。柏林墙倒塌（1989 年 11 月 9 日）过去了三十多年，东西柏林的微妙差异依然存在——从红绿灯小人（Ampelmännchen）到电车轨道都能看出来。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Am Brandenburger Tor（勃兰登堡门前）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Jonas（柏林工大学生，林夏在 Couchsurfing 上约的本地导游）</div>
+          <div class="se-de">So, das ist also <b>das Brandenburger Tor</b>. Wir Berliner finden es <b>ganz okay</b>. Aber wir stehen nicht jeden Tag davor und <b>weinen vor Stolz</b>.</div>
+          <div class="se-zh">喏，勃兰登堡门。我们柏林人觉得它还行——但不会每天站在它前面感动得流泪。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（仰头看 Quadriga 雕像）</div>
+          <div class="se-de">Es ist <b>größer</b>, als ich <b>vorgestellt</b> habe. Und diese <b>Quadriga</b> oben — die hat Napoleon mal nach Paris <b>geklaut</b>, oder?</div>
+          <div class="se-zh">比我想象的大。顶上那个四马战车——拿破仑曾经把它偷到巴黎去了，对吧？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Jonas（扬眉）</div>
+          <div class="se-de"><b>Respekt!</b> Du weißt ja mehr über Berlin als die Hälfte meiner Kommilitonen. Komm, ich zeig dir die <b>East Side Gallery</b>.</div>
+          <div class="se-zh">厉害！你对柏林的了解比我一半同学都多。来，我带你去看东边画廊。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Currywurst & Berliner Schnauze（街边咖喱香肠摊）</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（盯着菜单）</div>
+          <div class="se-de">Eine <b>Currywurst</b> mit <b>Pommes</b>, bitte. Und noch 'ne <b>Fanta</b>.</div>
+          <div class="se-zh">一份咖喱香肠配薯条，请。再来一瓶芬达。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧔‍♂️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Imbissmann（香肠摊大叔，柏林口音）</div>
+          <div class="se-de"><b>Mit Darm oder ohne?</b> Und willste <b>scharf</b> oder <b>mild</b>?</div>
+          <div class="se-zh">带肠衣还是不带？要辣酱还是甜酱？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（愣住）</div>
+          <div class="se-de">Äh… mit Darm? <b>Was ist der Unterschied?</b></div>
+          <div class="se-zh">呃……带肠衣？有什么区别？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Jonas（插话）</div>
+          <div class="se-de">Nimm <b>ohne Darm</b> — die ist <b>knackiger</b>. Und <b>scharf</b>, das ist hier <b>Pflicht</b>.</div>
+          <div class="se-zh">拿不带肠衣的——更脆。而且要辣酱，这是必修课。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧔‍♂️</div>
+        <div class="se-bubble">
+          <div class="se-spk">Imbissmann（递过盘子）</div>
+          <div class="se-de">So, <b>bitte schön</b>. 4,20 Euro. Und sag mal — wo kommst'n du her? Dein Deutsch ist <b>gar nicht schlecht</b>!</div>
+          <div class="se-zh">来，慢用。4 块 2。哎你哪儿来的？德语挺不赖啊！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（笑开花）</div>
+          <div class="se-de">Danke! Aus China. Ich lern seit einem Jahr. <b>Berliner sind ja echt direkt!</b></div>
+          <div class="se-zh">谢谢！从中国来的。我学了一年了。柏林人说话真直爽！</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🚶 黄昏时分，Jonas 带林夏走到 Warschauer Straße 附近的一座桥上。Spree 河的水面映着远处电视塔的灯光。"Das ist mein Berlin," Jonas 说，"nicht der Reichstag, nicht die Mauerreste. Der Geruch von Currywurst und U-Bahn, um drei Uhr morgens irgendwo in Friedrichshain." 林夏拍了一段视频：Spree 河上的落日、桥下划过的 Kayak、远处叮叮当当的有轨电车。她第一次觉得——自己不是来德国"读书"的，自己是在这里"生活"的。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">das Brandenburger Tor</div><div class="w-zh">勃兰登堡门</div></div>
+      <div class="se-word"><div class="w-de">die East Side Gallery</div><div class="w-zh">东边画廊（柏林墙遗址）</div></div>
+      <div class="se-word"><div class="w-de">die Currywurst</div><div class="w-zh">咖喱香肠</div></div>
+      <div class="se-word"><div class="w-de">der Imbiss</div><div class="w-zh">小吃摊/快餐</div></div>
+      <div class="se-word"><div class="w-de">die Berliner Schnauze</div><div class="w-zh">柏林式嘴皮子（直爽幽默）</div></div>
+      <div class="se-word"><div class="w-de">das Ampelmännchen</div><div class="w-zh">红绿灯小人（东德标志）</div></div>
+      <div class="se-word"><div class="w-de">die Spree</div><div class="w-zh">施普雷河（柏林主河）</div></div>
+      <div class="se-word"><div class="w-de">klauen</div><div class="w-zh">偷（口语）</div></div>
+      <div class="se-word"><div class="w-de">knackig</div><div class="w-zh">脆的</div></div>
+      <div class="se-word"><div class="w-de">vorstellen</div><div class="w-zh">想象</div></div>
+      <div class="se-word"><div class="w-de">Respekt!</div><div class="w-zh">佩服！/厉害！</div></div>
+      <div class="se-word"><div class="w-de">die Mauerreste</div><div class="w-zh">柏林墙残骸</div></div>
+      <div class="se-word"><div class="w-de">der Reichstag</div><div class="w-zh">国会大厦</div></div>
+      <div class="se-word"><div class="w-de">scharf / mild</div><div class="w-zh">辣 / 不辣</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">🗣️</div>
+        <div class="se-trap-tx"><b>Berliner Schnauze（柏林嘴皮子）是柏林人的语言名片。</b>直接、幽默、语速快、爱用反讽。问"Mit Darm oder ohne?"（带不带肠衣）是买 Currywurst 的灵魂问题——带肠衣的传统款更有嚼劲，不带肠衣的"Knacker"更脆。柏林人点单不会等你慢慢犹豫，三秒没答复就替你做主。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🏛️</div>
+        <div class="se-trap-tx"><b>柏林 ≠ 德国。</b>柏林有自己的节奏和历史质感。和慕尼黑的"秩序、传统、皮裤"画风完全不同，柏林更粗粝、更多元、更便宜。每月 500-700 欧能在柏林 Kreuzberg 合租一间房（慕尼黑同价只能住外围）。另外柏林的 Döner 是全德公认最好的——因为土耳其移民人口最多。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🚦</div>
+        <div class="se-trap-tx"><b>红绿灯小人是柏林城市记忆的符号。</b>Ampelmännchen（红绿灯小人）原是东德的交通灯符号。两德统一后一度被换掉，柏林人抗议后得以保留——现在变成了城市纪念品（T恤、冰箱贴、钥匙扣）。东柏林还有"骑行人"红绿灯（Fahrrad-Ampelmännchen），西柏林没有。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🍺</div>
+        <div class="se-trap-tx"><b>柏林和慕尼黑的啤酒文化差很大。</b>慕尼黑喝 Helles（拉格），柏林喝 Berliner Pilsner（比尔森）。慕尼黑 Biergarten 配 Brezn，柏林 Späti（Spätkauf，深夜小卖部）配 Sterni（Sternburg Export，柏林平民啤酒，50 分一瓶）。在柏林拿着啤酒走在街上完全合法——这叫"Wegbier"（路上啤酒）。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(24)" style="cursor:pointer" title="点击看下一集">
+      <div class="se-next-tag">NÄCHSTE FOLGE</div>
+      <div class="se-next-title">第 24 集：父母来德</div>
+      <div class="se-next-desc">林夏的爸妈终于拿到探亲签证，第一次来德国。在慕尼黑机场接机、点猪肘子被问"带皮不带皮"、爸妈用翻译 App 跟 Felix 聊天——中德文化在机场和餐桌之间来回碰撞。</div>
+    </div>
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第23集 -->
+
+    <!-- ───── 第 24 集 · 父母来德 ───── -->
+    <div class="se-episode" data-ep="24" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">八月末，林夏站在慕尼黑机场 T2 到达口，手里举着一张写着"林建国 / 陈秀芳"的 A4 纸——上次她这样举牌子是接 Marta 的猫。今天接的是爸妈。这是他们第一次出国，办探亲签证的材料比她当初办留学还厚。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      👨‍👩‍👧 德国探亲签证（<b>Schengen-Visum für Familienbesuch</b>）需要：邀请函（<b>Einladung</b>，外管局盖章）、经济担保（<b>Verpflichtungserklärung</b>，自保或邀请人担保）、旅行保险、住宿证明、退休证/工资单。办理周期 2-8 周，每次最长停留 90 天。林夏花了整整一周准备材料——但最难的其实不是表格，是帮两个一辈子没坐过国际航班的父母在法兰克福转机。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Am Flughafen（机场接机——爸妈推着行李车出来）</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👨🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">爸爸（林建国，看着慕尼黑机场天花板）</div>
+          <div class="se-de">哇，这机场怎么这么安静？跟咱们那儿的火车站都不像。</div>
+          <div class="se-zh">哇，这机场怎么这么安静？跟咱们那儿的火车站都不像。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（跑过去拥抱）</div>
+          <div class="se-de">爸！妈！<b>Willkommen in Deutschland!</b> Der Flug war okay?</div>
+          <div class="se-zh">爸！妈！欢迎来到德国！飞行还好吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🦰</div>
+        <div class="se-bubble">
+          <div class="se-spk">妈妈（陈秀芳，揉着腰）</div>
+          <div class="se-de">坐了十二个小时，腿都肿了。哎，那个德国空姐说的我听不懂——她问我什么"喝不喝"？</div>
+          <div class="se-zh">坐了十二个小时，腿都肿了。哎，那个德国空姐说的我听不懂——她问我什么"喝不喝"？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">(lacht) "<b>Möchten Sie etwas trinken?</b>" — das heißt "你想喝点什么？" Kommt, ich zeig euch die <b>S-Bahn</b>.</div>
+          <div class="se-zh">（笑）"Möchten Sie etwas trinken?" 意思是"你想喝点什么？" 走，我带你们去看城铁。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Im Restaurant（去德国餐馆——爸爸大战 Schweinshaxe）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（对服务员）</div>
+          <div class="se-de">Also — zweimal <b>Schweinshaxe</b>, und für meine Mutter die <b>Gemüsesuppe</b>. <b>Und Leitungswasser, bitte.</b></div>
+          <div class="se-zh">嗯——两份猪肘，给我妈一份蔬菜汤。再要自来水，谢谢。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👨🏻</div>
+        <div class="se-bubble">
+          <div class="se-spk">爸爸（看着比脸还大的猪肘端上来）</div>
+          <div class="se-de">……这一份咱俩分都够吧？德国人天天就吃这个？</div>
+          <div class="se-zh">……这一份咱俩分都够吧？德国人天天就吃这个？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Nein, das ist nur <b>besonderes Essen</b>. Normalerweise essen sie <b>Brot</b> — Abendbrot heißt das. Aber für euch habe ich was <b>Typisches</b> bestellt.</div>
+          <div class="se-zh">不是，这只是特色菜。平时德国人吃面包——叫 Abendbrot。但给你们我点了特色的。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🦰</div>
+        <div class="se-bubble">
+          <div class="se-spk">妈妈（尝了一口汤，突然抬头）</div>
+          <div class="se-de">夏夏，你德语现在说得这么好？刚才你和服务员说的那些，我一句没听懂。</div>
+          <div class="se-zh">夏夏，你德语现在说得这么好？刚才你和服务员说的那些，我一句没听懂。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（有点不好意思）</div>
+          <div class="se-de">Ach was. Ich mach noch viele <b>Fehler</b>. Aber der Kellner war <b>nett</b> — er hat <b>langsam</b> gesprochen.</div>
+          <div class="se-zh">哪有。我还出好多错呢。但那个服务员人好——他说得慢。</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      📸 在慕尼黑的一周里，林夏的爸爸用手机拍了几百张照片——但不是在景点（他说"德国也就是房子矮了点"），是在超市里拍货架。"你看这个奶酪，一百多种！""这个酸奶怎么是咸的？"最后一天在 Marienplatz，妈妈突然说："夏夏，我看你在这儿过得挺好的。都能自己一个人在国外生活了，我们放心了。"林夏的眼泪差点掉下来——她等这句话等了一年。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Einladung</div><div class="w-zh">邀请函</div></div>
+      <div class="se-word"><div class="w-de">die Verpflichtungserklärung</div><div class="w-zh">经济担保书</div></div>
+      <div class="se-word"><div class="w-de">das Schengen-Visum</div><div class="w-zh">申根签证</div></div>
+      <div class="se-word"><div class="w-de">der Familienbesuch</div><div class="w-zh">探亲</div></div>
+      <div class="se-word"><div class="w-de">Willkommen!</div><div class="w-zh">欢迎！</div></div>
+      <div class="se-word"><div class="w-de">die S-Bahn</div><div class="w-zh">城铁</div></div>
+      <div class="se-word"><div class="w-de">das Leitungswasser</div><div class="w-zh">自来水</div></div>
+      <div class="se-word"><div class="w-de">die Gemüsesuppe</div><div class="w-zh">蔬菜汤</div></div>
+      <div class="se-word"><div class="w-de">typisch</div><div class="w-zh">典型的</div></div>
+      <div class="se-word"><div class="w-de">Abendbrot</div><div class="w-zh">晚餐（面包冷餐）</div></div>
+      <div class="se-word"><div class="w-de">der Fehler</div><div class="w-zh">错误</div></div>
+      <div class="se-word"><div class="w-de">langsam</div><div class="w-zh">慢</div></div>
+      <div class="se-word"><div class="w-de">der Kellner</div><div class="w-zh">服务员（男）</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">📋</div>
+        <div class="se-trap-tx"><b>探亲签证不光是填表的事。</b>邀请人需要在德国外管局开具 Verpflichtungserklärung（VE，经济担保书）——证明你有能力承担被邀请人的全部费用。学生需要提供 Sperrkonto 余额或打工收入，部分外管局还要求邀请人亲自到场签名。无 VE 的话，被邀请人自己证明经济能力也可以——但通过率较低。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">💧</div>
+        <div class="se-trap-tx"><b>在德国餐厅点 Leitungswasser 要谨慎。</b>自助餐厅/休闲馆一般来说可以点自来水（免费的），但传统德式餐馆可能会拒绝——"我们不提供自来水，因为我们也卖瓶装水"。更稳妥的点法是点一瓶 Stilles Wasser（无气泡矿泉水）或 Sprudel（气泡水）。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🏥</div>
+        <div class="se-trap-tx"><b>探亲旅行保险是刚需。</b>申根签证强制要求旅行医疗保险（保额 ≥ 30,000 欧）。德国急诊一次几百欧起步，住院更贵——没保险的话账单能在信箱里堆成小山。推荐 ADAC、HanseMerkur、Allianz 的探亲险，约 1-3 欧/天。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(25)" style="cursor:pointer" title="点击看下一集">
+      <div class="se-next-tag">NÄCHSTE FOLGE</div>
+      <div class="se-next-title">第 25 集：押金纠纷</div>
+      <div class="se-next-desc">爸妈走后，林夏收到房东的 Nebenkostenabrechnung——要补交 380 欧。但合同写了暖租全包。Felix 说这是德国租房的经典剧本：先开会沟通，不行就上 Mieterverein。</div>
+    </div>
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第24集 -->
+
+    <!-- ───── 第 25 集 · 押金纠纷 ───── -->
+    <div class="se-episode" data-ep="25" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">九月，爸妈回国了。信箱里躺着一封厚信——房东 Herr Schuster 寄来的 Nebenkostenabrechnung 2025。冷冰冰的数字：Nebenkosten-Nachzahlung 380,43 €。暖气费比去年高了一大截，但林夏记得清清楚楚：她的合同是 Warmmiete（暖租全包）。她拿着信敲了 Felix 的房门。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🏠 德国租房世界里，<b>Nebenkostenabrechnung</b>（附加费结算）是每年一次的固定节目——通常在次年的某个时间寄到。冷租（<b>Kaltmiete</b>）是纯房费，暖租（<b>Warmmiete</b>）包含了预估的暖气、水、垃圾、公共区域清洁等费用。但注意：<b>即使是暖租合同，年底也可能有 Nachzahlung（补交）或 Rückerstattung（退款）</b>——因为暖租中的附加费是按上一年预估的，实际消耗多退少补。德国租客保护组织 <b>Mieterverein</b>（年费约 80 欧）是处理这类纠纷的最佳武器。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Die böse Überraschung（林夏敲 Felix 的门）</div>
+    <div class="se-dialog">
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（手里挥舞着信）</div>
+          <div class="se-de">Felix! <b>Guck mal!</b> Herr Schuster will 380 Euro von mir! <b>Nachzahlung!</b> Aber ich hab doch <b>Warmmiete</b> — das ist <b>alles inklusive</b>, oder nicht?</div>
+          <div class="se-zh">Felix！你看！Schuster 先生要我补 380 欧！附加费补交！但我是暖租合同——应该全包不是吗？</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix（放下手里的书，接过信扫了一遍）</div>
+          <div class="se-de">Hm. Also <b>Warmmiete</b> heißt nicht, dass du <b>unendlich heizen</b> kannst. Aber 380 Euro — das ist wirklich viel. <b>Zeig mal den Mietvertrag.</b></div>
+          <div class="se-zh">唔。暖租不代表你可以无限开暖气。但 380 欧——确实很多。给我看看租房合同。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（翻出合同）</div>
+          <div class="se-de">Hier, Paragraph 3: "<b>Die Miete beträgt 550 Euro warm</b>". Da steht nichts von <b>Nachzahlung</b>!</div>
+          <div class="se-zh">这儿，第 3 条："租金为 550 欧暖租"。没说有补交啊！</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">🧑</div>
+        <div class="se-bubble">
+          <div class="se-spk">Felix（翻到附加条款页）</div>
+          <div class="se-de"><b>Moment mal</b> — guck hier, die <b>Klein gedruckte</b>: "<b>Die Nebenkosten sind als monatliche Vorauszahlung zu verstehen. Die endgültige Abrechnung erfolgt jährlich.</b>" Das ist Standard in jedem deutschen Mietvertrag.</div>
+          <div class="se-zh">等一下——看这儿，小字："附加费为月度预付款。最终结算按年执行。"这是每份德国租房合同里的标配条款。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（坐到沙发上，声音沉下去）</div>
+          <div class="se-de"><b>Super.</b> Also hab ich das ganze Jahr <b>zu viel geheizt</b> und jetzt darf ich <b>zahlen</b>. Und das fand ich nicht <b>fair</b> — ich hab doch nur <b>normal geheizt</b>.</div>
+          <div class="se-zh">太好了。所以我一年暖气开多了，现在得交钱。这不公平——我只是正常开暖气而已。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Beim Mieterverein（林夏去了租客保护协会）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Hoffmann（Mieterverein 顾问，戴着老花镜看合同和账单）</div>
+          <div class="se-de">Frau Lin, ich hab mir die <b>Abrechnung</b> genau <b>angeschaut</b>. <b>Erstens:</b> Ihr Vermieter hat die <b>Heizkosten</b> nach <b>Wohnfläche</b> verteilt, nicht nach <b>Verbrauch</b>. Das ist seit 2022 nur noch in <b>Ausnahmefällen</b> erlaubt.</div>
+          <div class="se-zh">林女士，我仔细看了这份结算单。第一：您的房东是按住房面积分摊的暖气费，不是按实际消耗。从 2022 年起这只有在例外情况才合法。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Hoffmann</div>
+          <div class="se-de"><b>Zweitens:</b> Hier steht <b>Hausmeisterkosten</b> von 120 Euro — die gehören in die <b>Instandhaltung</b>, nicht in die <b>Nebenkosten</b>. Und <b>drittens:</b> Sie haben das Recht, die <b>Originalbelege</b> zu sehen. Wollen Sie, dass ich dem Vermieter <b>widerspreche</b>?</div>
+          <div class="se-zh">第二：这里有 120 欧的物业管理费——这属于维修费，不应该计入附加费。第三：您有权看原始发票。您要我帮您向房东提出异议吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">Ja, <b>unbedingt!</b> Aber… wird das den Vermieter nicht <b>ärgern</b>? Ich will keinen <b>Streit</b>.</div>
+          <div class="se-zh">要，一定要！但……这不会激怒房东吗？我不想闹矛盾。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👩‍💼</div>
+        <div class="se-bubble">
+          <div class="se-spk">Frau Hoffmann（笑）</div>
+          <div class="se-de">(lächelt) Frau Lin — in Deutschland ist das kein <b>Streit</b>, das ist <b>Recht</b>. Sie zahlen dafür. Und ein seriöser Vermieter <b>weiß</b> das. Wir schreiben einen <b>formalen Widerspruch</b> — <b>höflich, aber klar</b>.</div>
+          <div class="se-zh">（微笑）林女士——在德国这不是闹矛盾，这是权利。您付了协会会费就是为了这个。一个正经房东懂的。我们写一份正式的异议信——有礼有节，但立场明确。</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      ✉️ 两周后，Herr Schuster 回复了——他接受 Mieterverein 的意见，把 Nachzahlung 从 380 欧降到 95 欧（只算了实际用掉的暖气和水，去掉了不合理的 Hausmeisterkosten 和面积分摊费）。他在信末加了一句："Beim nächsten Mal können Sie mich auch direkt ansprechen — ich beiße nicht."（下次您可以直接找我——我又不咬人。）林夏把信贴在冰箱上，Felix 路过时瞟了一眼，说："Na bitte — geht doch." 林夏笑了。她才发现：在德国，学会维护自己的权利，和学会说德语一样重要。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">die Nebenkostenabrechnung</div><div class="w-zh">附加费结算单</div></div>
+      <div class="se-word"><div class="w-de">die Nachzahlung</div><div class="w-zh">补交款</div></div>
+      <div class="se-word"><div class="w-de">die Rückerstattung</div><div class="w-zh">退款</div></div>
+      <div class="se-word"><div class="w-de">die Warmmiete / Kaltmiete</div><div class="w-zh">暖租 / 冷租</div></div>
+      <div class="se-word"><div class="w-de">der Mietvertrag</div><div class="w-zh">租房合同</div></div>
+      <div class="se-word"><div class="w-de">die Vorauszahlung</div><div class="w-zh">预付款</div></div>
+      <div class="se-word"><div class="w-de">der Mieterverein</div><div class="w-zh">租客保护协会</div></div>
+      <div class="se-word"><div class="w-de">der Widerspruch</div><div class="w-zh">异议</div></div>
+      <div class="se-word"><div class="w-de">die Heizkosten</div><div class="w-zh">暖气费</div></div>
+      <div class="se-word"><div class="w-de">der Verbrauch</div><div class="w-zh">消耗量</div></div>
+      <div class="se-word"><div class="w-de">die Instandhaltung</div><div class="w-zh">维护/修缮</div></div>
+      <div class="se-word"><div class="w-de">der Originalbeleg</div><div class="w-zh">原始凭证</div></div>
+      <div class="se-word"><div class="w-de">widersprechen</div><div class="w-zh">反对/异议</div></div>
+      <div class="se-word"><div class="w-de">ärgern</div><div class="w-zh">激怒</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">📄</div>
+        <div class="se-trap-tx"><b>暖租 ≠ 随便用。</b>Warmmiete 中的附加费是预估的（Vorauszahlung），年底多退少补。暖气消耗大、油价涨、邻居搬走后空房暖气费被分摊到其他人头上——都可能让你补交。但房东必须在 Abrechnungszeitraum 结束后的 12 个月内给你结算单——超时则无权追讨。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🛡️</div>
+        <div class="se-trap-tx"><b>Mieterverein 是德国租客的护身符。</b>年费约 60-100 欧，提供租房合同审查、Nebenkosten 审核、法律咨询和代理出庭。德国租客保护法（Mietrecht）非常强大——房东不能随便涨租（有 Kappungsgrenze 封顶线，3 年最多涨 15-20%）、不能无故解约（Eigenbedarf 自住需求须合理证明）。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🔍</div>
+        <div class="se-trap-tx"><b>你有权看原始发票。</b>如果房东拒绝出示 Belege（原始凭证），你有权拒绝支付有争议的那部分费用。这在 BGB §259 有明文规定——"Rechnungslegungspflicht des Vermieters"（房东的报账义务）。收到 Nebenkostenabrechnung 后你有 12 个月的时间提出异议。</div>
+      </div>
+    </div>
+
+    <div class="se-next" onclick="showSerieEp(26)" style="cursor:pointer" title="点击看下一集">
+      <div class="se-next-tag">NÄCHSTE FOLGE</div>
+      <div class="se-next-title">第 26 集：德国驾考</div>
+      <div class="se-next-desc">林夏决定考德国驾照——不是因为要开车，是因为中国驾照公证翻译只能用 6 个月。她走进 Fahrschule，看到报价单：2500-3500 欧。这可能是她来德国后最大的一笔投资。</div>
+    </div>
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第25集 -->
+
+    <!-- ───── 第 26 集 · 德国驾考 ───── -->
+    <div class="se-episode" data-ep="26" style="display:none">
+    <div class="se-cast">
+      <div class="se-avatar">👩🏻‍🎓</div>
+      <div>
+        <div class="se-name">林夏 / Lin Xia</div>
+        <div class="se-bio">十月初，Marta 发来一张截图——她和 Jonas 租了辆车去国王湖，问林夏要不要一起。"Ich hab keinen Führerschein," 林夏回。"Noch nicht," Marta 回了一个眨眼 emoji。林夏查了一下：中国驾照公证翻译后在德国只能用 6 个月——之后必须考德国驾照。她点开 Fahrschule Müller 的网站，看到报价后深吸了一口气。</div>
+      </div>
+    </div>
+
+    <div class="se-intro">
+      🚗 德国驾照（<b>Führerschein Klasse B</b>）被公认为全世界最难考的驾照之一。费用 2500-3500 欧，包含：驾校报名费（Grundgebühr，约 200-400 欧）、理论课（Theoriestunden，14 节必修）、驾驶课（Fahrstunden，约 60-80 欧/45 分钟，通常需要 20-30 节）、理论考试（Theorieprüfung，约 25 欧）、路考（Praktische Prüfung，约 150 欧）。路考通过率约 67%（2024 年全德统计）——三分之一的考生第一次挂掉。持中国驾照者不能直接换德国驾照，必须完整考一遍（<b>Umschreibung</b> 免理论课和 Sonderfahrten 的前提是有特定国家驾照，中国的免不了）。
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话一 · Bei der Fahrschule（驾校报名——林夏推门进去）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👨‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Müller（驾校教练，五十多岁，啤酒肚，戴 Bayern 棒球帽）</div>
+          <div class="se-de"><b>Grüß Gott!</b> Sie wollen den <b>Führerschein</b> machen? Klasse B? Haben Sie schon <b>Vorkenntnisse</b>?</div>
+          <div class="se-zh">你好！你要考驾照？B 类？有基础吗？</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏</div>
+          <div class="se-de">In China hab ich den Führerschein <b>gemacht</b> — aber der gilt hier nur <b>sechs Monate</b>. Ich muss also <b>alles neu machen</b>.</div>
+          <div class="se-zh">在中国我有驾照——但这边只能用六个月。所以我得全部重考。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Müller</div>
+          <div class="se-de">Alles klar. Dann fangen wir mit der <b>Theorie</b> an — 14 <b>Pflichtstunden</b>, plus <b>App-Lernen</b>. Dann die <b>Fahrstunden</b>. Ich sag's gleich: <b>Rechnen Sie mit 2.500 bis 3.000 Euro.</b></div>
+          <div class="se-zh">明白了。那我们从理论开始——14 节必修课，再加 App 自学。然后是驾驶课。我直说：预算准备 2500 到 3000 欧。</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（咽了口口水——这是她一个半月的工资）</div>
+          <div class="se-de"><b>Dreitausend Euro?!</b> Das ist ja… <b>eine Menge Geld.</b> Aber okay — <b>ich mach's trotzdem.</b></div>
+          <div class="se-zh">三千欧？！这……是一大笔钱啊。但行——我还是考。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-sec-title">🗣️ 对话二 · Die erste Fahrstunde（第一堂驾驶课——在慕尼黑城区）</div>
+    <div class="se-dialog">
+      <div class="se-line right">
+        <div class="se-who">👨‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Müller</div>
+          <div class="se-de">So, Frau Lin. <b>Spiegel einstellen, Gurte anlegen, Motor starten.</b> Und jetzt: <b>Schulterblick!</b> — Nein, <b>richtiger Schulterblick!</b> Sie müssen den Kopf <b>wirklich</b> drehen, nicht nur die Augen!</div>
+          <div class="se-zh">好了林女士。调镜子、系安全带、点火。现在：看盲区！——不，真正的回头看！你得真的转头，不能只转眼珠！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（手忙脚乱）</div>
+          <div class="se-de">Ja, ich mach das! Aber in China haben wir andere <b>Regeln</b> — da schaut man mehr auf den <b>Spiegel</b>.</div>
+          <div class="se-zh">是，我在做！但在中国我们有不同的规矩——多看后视镜就行。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Müller</div>
+          <div class="se-de">In Deutschland schauen wir <b>dreimal</b>: Spiegel, Schulterblick, nochmal Spiegel. Das ist so. <b>Ohne Schulterblick → durchgefallen.</b> Verstanden? So, jetzt <b>rechts abbiegen</b> — und <b>Vorfahrt</b> beachten!</div>
+          <div class="se-zh">在德国我们看三次：后视镜，回头，再看后视镜。就是这样。没回头看→直接挂。明白？好，现在右转——注意路权！</div>
+        </div>
+      </div>
+      <div class="se-line">
+        <div class="se-who">👩🏻‍🎓</div>
+        <div class="se-bubble">
+          <div class="se-spk">林夏（右转时差点在 Radweg 上卡住一辆自行车）</div>
+          <div class="se-de"><b>Ups!</b> Der Radfahrer — ich hab ihn <b>übersehen</b>. <b>Das war knapp.</b></div>
+          <div class="se-zh">啊！那个骑自行车的——我没看到他。好险。</div>
+        </div>
+      </div>
+      <div class="se-line right">
+        <div class="se-who">👨‍🏫</div>
+        <div class="se-bubble">
+          <div class="se-spk">Herr Müller（踩下副刹车，叹气）</div>
+          <div class="se-de"><b>Puh.</b> Wissen Sie was — das war ein <b>Lehr-Moment</b>. In Deutschland gilt: <b>Radfahrer sind heilig.</b> Die haben oft <b>Vorfahrt</b>. Beim Abbiegen immer <b>zweimal gucken</b>. Aber sonst — für die erste Stunde war das <b>gar nicht so schlecht</b>.</div>
+          <div class="se-zh">呼。知道吗——这是个教学时刻。在德国：骑自行车的是神圣的。他们常常有路权。转弯时一定看两次。但其他方面——第一节课能这样算不错了。</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:#9d8cc4;text-align:center;margin:18px 0 8px">
+      🚦 十月底，林夏的理论考试过了——只错了一道题（Vorfahrt 的优先顺序题）。但路考还要排三周。她每天在驾校 App 上刷模拟题，连做梦都在做 Schulterblick。Felix 在厨房给她画了张慕尼黑最坑的十字路口图："Hier, der Scheidplatz — da scheitern viele." 林夏在心里把那个路口的每一个 Vorfahrtsschild（先行权标志）都记住了。她决定：3000 欧可以不买包，但必须换来一张粉红色的卡片——Deutscher Führerschein。
+    </div>
+
+    <div class="se-sec-title">📒 本集词汇</div>
+    <div class="se-vocab">
+      <div class="se-word"><div class="w-de">der Führerschein</div><div class="w-zh">驾照</div></div>
+      <div class="se-word"><div class="w-de">die Fahrschule</div><div class="w-zh">驾校</div></div>
+      <div class="se-word"><div class="w-de">die Fahrstunde</div><div class="w-zh">驾驶课</div></div>
+      <div class="se-word"><div class="w-de">der Schulterblick</div><div class="w-zh">回头看盲区</div></div>
+      <div class="se-word"><div class="w-de">die Vorfahrt</div><div class="w-zh">先行权/路权</div></div>
+      <div class="se-word"><div class="w-de">die Vorfahrtsschild</div><div class="w-zh">先行权标志</div></div>
+      <div class="se-word"><div class="w-de">der Radfahrer</div><div class="w-zh">骑自行车的人</div></div>
+      <div class="se-word"><div class="w-de">der Radweg</div><div class="w-zh">自行车道</div></div>
+      <div class="se-word"><div class="w-de">abbiegen</div><div class="w-zh">转弯（可分动词）</div></div>
+      <div class="se-word"><div class="w-de">die Theorieprüfung</div><div class="w-zh">理论考试</div></div>
+      <div class="se-word"><div class="w-de">die Praktische Prüfung</div><div class="w-zh">路考</div></div>
+      <div class="se-word"><div class="w-de">übersehen</div><div class="w-zh">看漏/忽略</div></div>
+      <div class="se-word"><div class="w-de">durchfallen</div><div class="w-zh">挂科/不及格</div></div>
+      <div class="se-word"><div class="w-de">knapp</div><div class="w-zh">勉强/险些</div></div>
+      <div class="se-word"><div class="w-de">Grüß Gott!</div><div class="w-zh">你好！（南德/奥地利）</div></div>
+    </div>
+
+    <div class="se-sec-title">⚠️ 本集文化坑点</div>
+    <div class="se-traps">
+      <div class="se-trap">
+        <div class="se-trap-ic">💶</div>
+        <div class="se-trap-tx"><b>德国驾照是真正的投资品。</b>2500-3500 欧（约 2-2.8 万人民币）是正常范围，慕尼黑等大城市更贵。如果路考挂了一次（durchgefallen），再加 2-4 节练习课（à 60-80 欧）+ 重考费（150 欧）。另外驾照终身有效、全球广泛认可，所以德国人也不觉得贵——"Einmal zahlen, ein Leben lang fahren."</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">🚴</div>
+        <div class="se-trap-tx"><b>德国路考的核心难点：Schulterblick + Vorfahrt + 自行车。</b>Schulterblick（回头看盲区）必须夸张——头要明显转过去，不能只动眼睛。Vorfahrt（先行权）的规则像法律合同："rechts vor links"（右先于左，无标志路口）、"Vorfahrtsstraße"（先行权道路，菱形黄白标志）、"abgesenkter Bordstein"（降路缘石 = 没有先行权）。自行车道（Radweg）常在右转时造成事故——必须确认没有直行的自行车。</div>
+      </div>
+      <div class="se-trap">
+        <div class="se-trap-ic">📱</div>
+        <div class="se-trap-tx"><b>理论考试有 1100+ 道题。</b>全德统一的电脑考试题库（TÜV/DEKRA），30 道题（基础 20 + 附加 10），最多扣 10 分（每道题 2-5 分不等，Vorfahrt 和 Verkehrszeichen 题分值最高）。考前用 App（如 Führerschein Pro、ADAC Führerschein）刷题库是标准操作。</div>
+      </div>
+    </div>
+
+    <div class="se-next" style="opacity:.65" title="敬请期待">
+      <div class="se-next-tag">NÄCHSTE FOLGE · 敬请期待</div>
+      <div class="se-next-title">第 27 集：敬请期待</div>
+      <div class="se-next-desc">林夏在德国的故事还在继续——路考当天、圣诞节在德国朋友家、申请实习、找正式工作……每个留德华都会经历的时刻，每一集都是一堂 A1-A2 德语课。</div>
+    </div>
+    <div class="se-watermark">
+      <span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span>
+    </div>
+    </div><!-- /第26集 -->
 
     <div class="se-back" style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
       <a href="#" onclick="openSerieShare(window._currentSerieEp||1);return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
@@ -49603,7 +50547,12 @@ function b1S12CheckB(){
       <a href="serie/18-GEZ-惊魂.html" style="color:inherit">GEZ惊魂</a> ·
       <a href="serie/19-德国朋友圈.html" style="color:inherit">德国朋友圈</a> ·
       <a href="serie/20-考试季.html" style="color:inherit">考试季</a> ·
-      <a href="serie/21-Minijob-税卡.html" style="color:inherit">Minijob税卡</a>
+      <a href="serie/21-Minijob-税卡.html" style="color:inherit">Minijob税卡</a> ·
+      <a href="serie/22-Biergarten-夏天.html" style="color:inherit">Biergarten夏天</a> ·
+      <a href="serie/23-柏林之旅.html" style="color:inherit">柏林之旅</a> ·
+      <a href="serie/24-父母来德.html" style="color:inherit">父母来德</a> ·
+      <a href="serie/25-押金纠纷.html" style="color:inherit">押金纠纷</a> ·
+      <a href="serie/26-德国驾考.html" style="color:inherit">德国驾考</a>
     </div>
   </div>
 </div>
