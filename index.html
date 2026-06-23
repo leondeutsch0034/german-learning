@@ -28256,24 +28256,47 @@ function lxqResetMCQ(id) {
     </p>
   </div>
 
-  <!-- 目录 -->
-  <div class="b1l-toc" id="b1l-toc">
-    <div class="b1l-toc-title">📋 目录 Inhaltsverzeichnis</div>
-    <div class="b1l-toc-grid">
-      <a href="#b1l-s1">1 · 🏛️ Brandenburger Tor — Zeitgeschichte</a>
-      <a href="#b1l-s2">2 · ⏰ Wo bleibt die Zeit? — Zeitverwendung</a>
-      <a href="#b1l-s3">3 · 🎓 Erasmus+ Programm — EU-Bildungsprogramm</a>
-      <a href="#b1l-s4">4 · 🕰️ Alltag &amp; 🆘 Alltagsprobleme</a>
-      <a href="#b1l-s6">5 · 👫 Typisch Mann?! Typisch Frau?!</a>
-      <a href="#b1l-s7">6 · 📝🎧 Zertifikatstraining — Lesen Teil 1 + Hören Teil 1</a>
-      <a href="#b1l-s9">7 · 🏭 Arbeit im Wandel — Das Ruhrgebiet</a>
-      <a href="#b1l-s10">8 · 🎓 Schule und Berufe — Das deutsche Schulsystem</a>
-      <a href="#b1l-s11">9 · 📋 Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</a>
-      <a href="#b1l-s12">10 · 🎤 Präsentation — vorbereiten &amp; durchführen + Eisbrecher &amp; Workshop</a>
-      <a href="#b1l-s14">11 · 🤝 Das Ehrenamt lebt! — Engagement &amp; Ehrenamt</a>
-      <a href="#b1l-s15">12 · 📝 Goethe B1 Lesen Plateau 4 — Modelltest</a>
-    </div>
+  <!-- 目录 / Artikel wählen -->
+  <div class="b1l-select-wrap" id="b1l-toc">
+    <label class="b1l-select-label" for="b1l-article-select">📋 选择文章 · Artikel wählen：</label>
+    <select id="b1l-article-select" class="b1l-article-select" onchange="showB1LesenArticle(this.value)">
+      <option value="">— 请选择一篇文章 —</option>
+      <optgroup label="📖 B1 阅读文章 (12)">
+        <option value="1">① Brandenburger Tor — Zeitgeschichte</option>
+        <option value="2">② Wo bleibt die Zeit? — Zeitverwendung</option>
+        <option value="3">③ Erasmus+ Programm — EU-Bildungsprogramm</option>
+        <option value="4">④ Alltag &amp; Alltagsprobleme</option>
+        <option value="6">⑤ Typisch Mann?! Typisch Frau?!</option>
+        <option value="7">⑥ Zertifikatstraining — Lesen Teil 1 + Hören Teil 1</option>
+        <option value="9">⑦ Arbeit im Wandel — Das Ruhrgebiet</option>
+        <option value="10">⑧ Schule und Berufe — Das deutsche Schulsystem</option>
+        <option value="11">⑨ Zertifikatstraining — Hören Teil 3 + Sprechen Teil 1</option>
+        <option value="12">⑩ Präsentation — vorbereiten &amp; durchführen</option>
+        <option value="14">⑪ Das Ehrenamt lebt! — Engagement &amp; Ehrenamt</option>
+        <option value="15">⑫ Goethe B1 Lesen Plateau 4 — Modelltest</option>
+      </optgroup>
+    </select>
   </div>
+  <script>
+  window.showB1LesenArticle=function(n){
+    // 隐藏全部 12 篇
+    var ids=['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s9','b1l-s10','b1l-s11','b1l-s12','b1l-s14','b1l-s15'];
+    for(var i=0;i<ids.length;i++){
+      var el=document.getElementById(ids[i]);
+      if(el) el.style.display='none';
+    }
+    if(!n||n==='') return;
+    var sec=document.getElementById('b1l-s'+n);
+    if(!sec) return;
+    sec.style.display='';
+    var sel=document.getElementById('b1l-article-select');
+    if(sel) sel.value=n;
+    try{ document.getElementById('b1l-toc').scrollIntoView({block:'start'}); }catch(e){}
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    showB1LesenArticle('1');
+  });
+  </script>
 
   <!-- ════════════════════════════════════════════════════════════════ -->
   <!-- B1 阅读 1 · Brandenburger Tor — Zeitgeschichte                   -->
@@ -29937,6 +29960,7 @@ function lxqResetMCQ(id) {
       📺 Quelle: Easy German (YouTube) · Folge 61 · <em>25 Years Ago the Berlin Wall Fell</em> (2014) · <a href="https://www.easygerman.org/" target="_blank" rel="noopener" style="color:#1e3a5f">easygerman.org</a>
     </div>
   </div>
+</div>
 
 
 
@@ -39393,69 +39417,61 @@ function b1S12CheckB(){
   if(scoreEl) scoreEl.innerHTML = correct + '/' + total + ' richtig';
 }
 
-// ═══ B1阅读：挂载 section ═══
+// ═══ B1阅读：挂载 section（wrapper 提取 + 返回目录按钮） ═══
 (function(){
   var page = document.getElementById('page-b1lesen');
   if(!page) return;
 
   function setup(){
-    var inner = page.querySelector(':scope > div');
+    var inner = page.querySelector('div');
     if(!inner) return;
+    /* 从隐藏 wrapper 中提取 section */
     [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15']].forEach(function(pair){
       var wrapper = document.getElementById(pair[0]);
       var existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
       var section = existing;
       if(wrapper){ section = wrapper.querySelector('#' + pair[1]) || existing; }
-      if(section){ section.style.display = ''; inner.appendChild(section); }
+      if(section){ section.style.display = 'none'; inner.appendChild(section); }
       if(wrapper && wrapper.parentNode){ wrapper.remove(); }
     });
 
-    // 在每两篇文章 section 之间插入金色分隔线（照搬 B1精读样式）
-    var sections = inner.querySelectorAll(':scope > .section');
-    for(var i = 0; i < sections.length - 1; i++){
-      var next = sections[i].nextElementSibling;
-      if(next && next.classList.contains('b1l-separator')) continue; // 避免重复插入
-      var sep = document.createElement('div');
-      sep.className = 'b1l-separator';
-      sections[i].parentNode.insertBefore(sep, sections[i].nextSibling);
-    }
-
-    // 分隔线点击回到目录
-    inner.addEventListener('click', function(e){
-      if(e.target.classList.contains('b1l-separator')){
-        var toc = document.getElementById('b1l-toc');
-        if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    });
-
-    // 把"回到目录"按钮移到 body 末尾，确保 position:fixed 相对视口（脱离任何 transform 祖先）
+    /* 返回目录按钮移到 body */
     var btoc = document.querySelector('.b1l-backtotoc');
     if(btoc && btoc.parentNode !== document.body){
       document.body.appendChild(btoc);
     }
-    // 仅在 B1阅读页显示该按钮（用计算样式判断，避免初始内联 display 为空时误显示）
     function syncBtoc(){
       if(!btoc) return;
-      var visible = getComputedStyle(page).display !== 'none';
-      btoc.style.display = visible ? 'flex' : 'none';
+      btoc.style.display = (getComputedStyle(page).display !== 'none') ? 'flex' : 'none';
     }
     syncBtoc();
-    // 切页后同步显隐：包裹全局 showPage
+
+    /* 包装 showPage：切回 B1 阅读时重置为第 1 篇 + 同步按钮 */
     if(typeof window.showPage === 'function' && !window.showPage._b1lWrapped){
-      var _origShowPage = window.showPage;
+      var _orig = window.showPage;
       window.showPage = function(){
-        var r = _origShowPage.apply(this, arguments);
+        var r = _orig.apply(this, arguments);
+        try{
+          if(getComputedStyle(page).display !== 'none' && window.showB1LesenArticle){
+            window.showB1LesenArticle('1');
+          }
+        }catch(e){}
         syncBtoc();
         return r;
       };
       window.showPage._b1lWrapped = true;
     }
+
+    /* 回到目录按钮点击 */
     if(btoc) btoc.addEventListener('click', function(e){
       e.preventDefault();
       var toc = document.getElementById('b1l-toc');
       if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
     });
+
+    /* wrapper 提取后 section 的 display 被清为'' → 重新只显第 1 篇 */
+    try{ if(window.showB1LesenArticle) window.showB1LesenArticle('1'); }catch(e){}
   }
 
   if(document.readyState === 'loading'){
@@ -65368,6 +65384,20 @@ function gsRevealAllChapter(chId) {
 #page-b1lesen .b1l-separator{height:2px;margin:3rem 0;background:linear-gradient(90deg,transparent,rgba(246,211,101,.35),rgba(246,211,101,.12),transparent);border:none;position:relative;cursor:pointer}
 #page-b1lesen .b1l-separator::after{content:'\25C6  \25C6  \25C6';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f1e3a;padding:0 16px;color:rgba(246,211,101,.5);font-size:.55rem;letter-spacing:6px;white-space:nowrap}
 #page-b1lesen .b1l-separator::before{content:'\2191 \56DE\5230\76EE\5F55  Back to TOC';display:block;text-align:right;font-size:.78rem;color:rgba(246,211,101,.6);margin-bottom:8px}
+
+/* ── 目录下拉选择器 ── */
+#page-b1lesen .b1l-select-wrap{max-width:860px;margin:0 auto 20px;padding:14px 18px;background:linear-gradient(150deg,#13243f,#0f1c33);border:1px solid rgba(246,211,101,.18);border-radius:14px;scroll-margin-top:20px}
+#page-b1lesen .b1l-select-label{display:block;font-size:.85rem;color:#f6d365;font-weight:600;margin-bottom:.5rem}
+#page-b1lesen .b1l-article-select{width:100%;padding:.7rem .9rem;padding-right:36px;border:2px solid rgba(246,211,101,.35);border-radius:10px;background:linear-gradient(135deg,rgba(184,134,11,.15),rgba(246,211,101,.08));color:#fde68a;font-size:.98rem;font-weight:600;cursor:pointer;outline:none;font-family:inherit;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f6d365' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:.2s}
+#page-b1lesen .b1l-article-select:hover{border-color:rgba(246,211,101,.6)}
+#page-b1lesen .b1l-article-select option{background:#0f1e3a;color:#e2e8f0}
+/* 旧分隔线不再需要（单篇显示模式下没有"之间"的概念） */
+#page-b1lesen .b1l-separator{display:none}
+@media(max-width:600px){
+  #page-b1lesen .b1l-select-wrap{padding:10px 12px;border-radius:12px}
+  #page-b1lesen .b1l-article-select{font-size:.88rem;padding:.55rem .7rem;padding-right:30px}
+  #page-b1lesen .b1l-select-label{font-size:.78rem}
+}
 
 /* ── 左下角圆形回到目录按钮（与 B1精读 b1ex-backtotoc 统一；按钮被 JS 移到 body 下，故用全局选择器） ── */
 .b1l-backtotoc{position:fixed;bottom:20px;left:16px;background:linear-gradient(135deg,#1e3a5f,#2c5f8a);color:#fde68a;border:1px solid rgba(246,211,101,.5);border-radius:50%;width:48px;height:48px;font-size:1.25rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);z-index:9001;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.2s}
