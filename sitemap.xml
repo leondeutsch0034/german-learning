@@ -2,20 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://leonsdeutschzentrum.com/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://leonsdeutschzentrum.com/preise.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://leonsdeutschzentrum.com/about.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/Klipp-Klapp-Sammlung.html</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/1-落地与登记.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/2-开银行账户.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/3-看医生.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/4-药房取药.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/5-大学注册.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/6-超市购物.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/7-图书馆学习.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/8-WG-找房.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/9-外管局延签.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/10-学生打工.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/11-德铁出行.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/12-圣诞市场.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/13-圣诞饼干.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/14-跨年之夜.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/15-冬季打折.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/16-Fasching-狂欢.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/17-学期假出行.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/18-GEZ-惊魂.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/19-德国朋友圈.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/20-考试季.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/21-Minijob-税卡.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/22-Biergarten-夏天.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/23-柏林之旅.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/24-父母来德.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/25-押金纠纷.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/26-德国驾考.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/27-路考当天.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/28-德国人家过圣诞.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/29-申请实习.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/30-实习第一天.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/31-报税.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/32-看牙医.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/33-搬家退租.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/34-期末论文.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/35-暑期欧铁游.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://leonsdeutschzentrum.com/serie/36-来德两周年.html</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
