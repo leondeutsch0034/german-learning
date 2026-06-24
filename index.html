@@ -62313,26 +62313,35 @@ function gsRevealAllChapter(chId) {
   <p>Extensive Reading · 18 Texte — quer durch alle B1-Themen</p>
 </div>
 <div class="b1ex-toc" id="b1ex-toc-top">
-  <div class="b1ex-toc-title">📋 目录 Inhaltsverzeichnis</div>
-  <div class="b1ex-toc-grid">
-    <a href="#b1ex-t1" class="b1ex-toc-item">1. Deutsche Esskultur</a>
-    <a href="#b1ex-t2" class="b1ex-toc-item">2. Digitalisierung in Deutschland</a>
-    <a href="#b1ex-t3" class="b1ex-toc-item">3. Wohnen in Deutschland</a>
-    <a href="#b1ex-t4" class="b1ex-toc-item">4. Aktivurlaub liegt im Trend</a>
-    <a href="#b1ex-t5" class="b1ex-toc-item">5. Nach Wien und in den Wienerwald</a>
-    <a href="#b1ex-t6" class="b1ex-toc-item">6. Zertifikatstraining Lesen Teil 3</a>
-    <a href="#b1ex-t7" class="b1ex-toc-item">7. Andere Länder, andere Sitten</a>
-    <a href="#b1ex-t8" class="b1ex-toc-item">8. Satzstruktur: obwohl</a>
-    <a href="#b1ex-t9" class="b1ex-toc-item">9. Der neue große Knigge</a>
-    <a href="#b1ex-t10" class="b1ex-toc-item">10. Traumberuf Lehrer!?</a>
-    <a href="#b1ex-t11" class="b1ex-toc-item">11. Berufstätigkeit von Frauen</a>
-    <a href="#b1ex-t12" class="b1ex-toc-item">12. Ich hatte wirklich großes Glück</a>
-    <a href="#b1ex-t13" class="b1ex-toc-item">13. Klischees</a>
-    <a href="#b1ex-t14" class="b1ex-toc-item">14. Partnerschaften heute</a>
-    <a href="#b1ex-t15" class="b1ex-toc-item">15. ROTE NASEN Clowns</a>
-    <a href="#b1ex-t16" class="b1ex-toc-item">16. Das sagt man (nicht)!</a>
-    <a href="#b1ex-t17" class="b1ex-toc-item">17. Stressreport Deutschland</a>
-    <a href="#b1ex-t18" class="b1ex-toc-item">18. Frisst Ihr Job Sie auf?</a>
+  <div class="b1ex-toc-title">📋 选择文章 · Artikel wählen</div>
+  <div style="padding:.8rem 1.2rem">
+    <select id="b1ex-article-select" onchange="showB1ExArticle(this.value)" style="width:100%;padding:.65rem .8rem;border:2px solid #2c5f8a;border-radius:10px;background:#fff;color:#1a1a1a;font-size:.95rem;font-weight:600;cursor:pointer;outline:none;-webkit-appearance:menulist">
+      <option value="">— 请选择文章 · Bitte wählen —</option>
+      <optgroup label="Thema 1–6">
+        <option value="1">1. Deutsche Esskultur</option>
+        <option value="2">2. Digitalisierung in Deutschland</option>
+        <option value="3">3. Wohnen in Deutschland</option>
+        <option value="4">4. Aktivurlaub liegt im Trend</option>
+        <option value="5">5. Nach Wien und in den Wienerwald</option>
+        <option value="6">6. Zertifikatstraining Lesen Teil 3</option>
+      </optgroup>
+      <optgroup label="Thema 7–12">
+        <option value="7">7. Andere Länder, andere Sitten</option>
+        <option value="8">8. Satzstruktur: obwohl</option>
+        <option value="9">9. Der neue große Knigge</option>
+        <option value="10">10. Traumberuf Lehrer!?</option>
+        <option value="11">11. Berufstätigkeit von Frauen</option>
+        <option value="12">12. Ich hatte wirklich großes Glück</option>
+      </optgroup>
+      <optgroup label="Thema 13–18">
+        <option value="13">13. Klischees</option>
+        <option value="14">14. Partnerschaften heute</option>
+        <option value="15">15. ROTE NASEN Clowns</option>
+        <option value="16">16. Das sagt man (nicht)!</option>
+        <option value="17">17. Stressreport Deutschland</option>
+        <option value="18">18. Frisst Ihr Job Sie auf?</option>
+      </optgroup>
+    </select>
   </div>
 </div>
 <div style="max-width:860px;margin:0 auto">
@@ -65465,7 +65474,7 @@ function gsRevealAllChapter(chId) {
 @media(max-width:560px){#page-b1-extensiv div[style*="padding:22px 28px 26px"]{padding:22px 18px 26px!important}}
 
 /* ── Section Separators ── */
-#page-b1-extensiv .b1ex-separator{height:2px;margin:3rem 0;background:linear-gradient(90deg,transparent,rgba(246,211,101,.35),rgba(246,211,101,.12),transparent);border:none;position:relative}
+#page-b1-extensiv .b1ex-separator{display:none}
 #page-b1-extensiv .b1ex-separator::after{content:'\25C6  \25C6  \25C6';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#152744;padding:0 16px;color:rgba(246,211,101,.5);font-size:.55rem;letter-spacing:6px;white-space:nowrap}
 #page-b1-extensiv .b1ex-separator::before{content:'\2191 \56DE\5230\76EE\5F55  Back to TOC';display:block;text-align:right;font-size:.78rem;color:rgba(246,211,101,.6);margin-bottom:8px;cursor:pointer}
 
@@ -65500,9 +65509,9 @@ function gsRevealAllChapter(chId) {
 /* ── 目录下拉选择器 ── */
 #page-b1lesen .b1l-select-wrap{max-width:860px;margin:0 auto 20px;padding:14px 18px;background:linear-gradient(150deg,#13243f,#0f1c33);border:1px solid rgba(246,211,101,.18);border-radius:14px;scroll-margin-top:20px}
 #page-b1lesen .b1l-select-label{display:block;font-size:.85rem;color:#f6d365;font-weight:600;margin-bottom:.5rem}
-#page-b1lesen .b1l-article-select{width:100%;padding:.7rem .9rem;padding-right:36px;border:2px solid rgba(246,211,101,.35);border-radius:10px;background:linear-gradient(135deg,rgba(184,134,11,.15),rgba(246,211,101,.08));color:#fde68a;font-size:.98rem;font-weight:600;cursor:pointer;outline:none;font-family:inherit;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f6d365' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:.2s}
-#page-b1lesen .b1l-article-select:hover{border-color:rgba(246,211,101,.6)}
-#page-b1lesen .b1l-article-select option{background:#0f1e3a;color:#e2e8f0}
+#page-b1lesen .b1l-article-select{width:100%;padding:.7rem .9rem;padding-right:36px;border:2px solid #2c5f8a;border-radius:10px;background:#fff;color:#1a1a1a;font-size:.98rem;font-weight:600;cursor:pointer;outline:none;font-family:inherit;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232c5f8a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:.2s}
+#page-b1lesen .b1l-article-select:hover{border-color:#1e3a5f}
+#page-b1lesen .b1l-article-select option{background:#fff;color:#1a1a1a}
 /* 旧分隔线不再需要（单篇显示模式下没有"之间"的概念） */
 
 /* ── 上一篇 / 下一篇 快捷切换 ── */
@@ -65596,32 +65605,143 @@ function gsRevealAllChapter(chId) {
 #page-b1-extensiv .mcq-list{margin-top:6px}
 #page-b1-extensiv .mcq-item{margin-bottom:10px;padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.04)}
 #page-b1-extensiv .mcq-item:last-child{border-bottom:none}
+/* ── 上一篇/下一篇导航 ── */
+#page-b1-extensiv .b1ex-nav{display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding:16px 0 4px;border-top:1px solid rgba(30,58,95,.12)}
+#page-b1-extensiv .b1ex-nav-btn{display:inline-flex;align-items:center;gap:5px;padding:.55rem 1.1rem;border:2px solid #2c5f8a;border-radius:24px;background:#fff;color:#2c5f8a;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
+#page-b1-extensiv .b1ex-nav-btn:hover{background:#ebf4ff;border-color:#1e3a5f;color:#1e3a5f;box-shadow:0 2px 10px rgba(30,58,95,.12)}
+#page-b1-extensiv .b1ex-nav-btn:active{transform:scale(.97)}
+#page-b1-extensiv .b1ex-nav-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+#page-b1-extensiv .b1ex-nav-info{font-size:.82rem;color:#94a3b8;font-weight:500;white-space:nowrap;min-width:3.5rem;text-align:center}
+@media (max-width:600px){
+  #page-b1-extensiv .b1ex-nav{gap:6px}
+  #page-b1-extensiv .b1ex-nav-btn{padding:.45rem .85rem;font-size:.8rem}
+}
 </style>
 <script>
+/* B1大量阅读 — 目录条切换（单篇显示，仿林夏在德国）+ 进度条 + 回到目录 */
 (function(){
-  var page=document.getElementById("page-b1-extensiv");
-  var bar=document.getElementById("b1ex-progress-fill");
-  if(!page||!bar)return;
-  var anchors=page.querySelectorAll("[id^=b1ex-t]");
-  function update(){
-    var ph=page.offsetHeight-window.innerHeight;
-    if(ph<=0)return;
-    var st=page.getBoundingClientRect().top;
-    var progress=Math.min(100,Math.max(0,(-st/ph)*100));
-    bar.style.width=progress+"%";
-    var current=1;
-    anchors.forEach(function(a,i){if(a.getBoundingClientRect().top<window.innerHeight*0.5)current=i+1;});
-    bar.title="Text "+current+" / "+anchors.length;
+  var TOTAL = 18;
+  window.B1EX_SEQ = [];
+  for(var i=1; i<=TOTAL; i++) window.B1EX_SEQ.push(String(i));
+
+  function getCard(n){
+    var anchor = document.getElementById('b1ex-t'+n);
+    if(!anchor) return null;
+    return anchor.nextElementSibling;
   }
-  window.addEventListener("scroll",update,{passive:true});
-  update();
-  /* Separator click scrolls to TOC */
-  page.addEventListener("click",function(e){
-    if(e.target.classList.contains("b1ex-separator")){
-      var toc=page.querySelector(".b1ex-toc");
-      if(toc)toc.scrollIntoView({behavior:"smooth",block:"start"});
+
+  function hideAll(){
+    for(var i=1; i<=TOTAL; i++){
+      var card = getCard(i);
+      if(card) card.style.display = 'none';
     }
-  });
+  }
+
+  /* 注入上一篇/下一篇导航到每篇文章卡片底部 */
+  function injectNav(){
+    window.B1EX_SEQ.forEach(function(n, idx){
+      var card = getCard(n);
+      if(!card) return;
+      if(card.querySelector('.b1ex-nav')) return;
+      var divs = card.querySelectorAll(':scope > div');
+      var body = divs[divs.length-1];
+      if(!body) return;
+      var prevN = idx > 0 ? window.B1EX_SEQ[idx-1] : '';
+      var nextN = idx < window.B1EX_SEQ.length-1 ? window.B1EX_SEQ[idx+1] : '';
+      var nav = document.createElement('div');
+      nav.className = 'b1ex-nav';
+      nav.innerHTML = '<button class="b1ex-nav-btn b1ex-nav-prev" onclick="showB1ExArticle(\''+prevN+'\')" '+(idx===0?'disabled':'')+'>← 上一篇</button>'+
+        '<span class="b1ex-nav-info">'+(idx+1)+' / '+TOTAL+'</span>'+
+        '<button class="b1ex-nav-btn b1ex-nav-next" onclick="showB1ExArticle(\''+nextN+'\')" '+(idx===TOTAL-1?'disabled':'')+'>下一篇 →</button>';
+      body.appendChild(nav);
+    });
+  }
+
+  window.showB1ExArticle = function(n){
+    var sel = document.getElementById('b1ex-article-select');
+    if(!n || n===''){ hideAll(); if(sel) sel.value=''; return; }
+    hideAll();
+    var card = getCard(n);
+    if(!card) return;
+    card.style.display = '';
+    if(sel && String(sel.value)!==String(n)) sel.value = String(n);
+    /* 更新导航按钮状态 */
+    var idx = window.B1EX_SEQ.indexOf(String(n));
+    document.querySelectorAll('#page-b1-extensiv .b1ex-nav').forEach(function(nav){
+      var prevBtn = nav.querySelector('.b1ex-nav-prev');
+      var nextBtn = nav.querySelector('.b1ex-nav-next');
+      if(prevBtn) prevBtn.disabled = (idx <= 0);
+      if(nextBtn) nextBtn.disabled = (idx >= TOTAL-1);
+      var info = nav.querySelector('.b1ex-nav-info');
+      if(info) info.textContent = (idx+1)+' / '+TOTAL;
+    });
+    /* 更新进度条 */
+    var bar = document.getElementById('b1ex-progress-fill');
+    if(bar){ bar.style.width = ((idx+1)/TOTAL*100)+'%'; bar.title = 'Text '+(idx+1)+' / '+TOTAL; }
+    try { var toc=document.getElementById('b1ex-toc-top'); if(toc) toc.scrollIntoView({block:'start'}); } catch(e){}
+  };
+
+  function initB1Ex(){
+    hideAll();
+    var first = getCard('1');
+    if(first) first.style.display = '';
+    var sel = document.getElementById('b1ex-article-select');
+    if(sel) sel.value = '1';
+    injectNav();
+    var bar = document.getElementById('b1ex-progress-fill');
+    if(bar){ bar.style.width = '5.6%'; bar.title = 'Text 1 / 18'; }
+  }
+
+  /* 回到目录浮动按钮：移到 body + 同步显隐 + 点击 */
+  function setupBtoc(){
+    var page = document.getElementById('page-b1-extensiv');
+    var btoc = document.querySelector('.b1ex-backtotoc');
+    if(!page || !btoc) return;
+    if(btoc.parentNode !== document.body){ document.body.appendChild(btoc); }
+    function syncBtoc(){
+      btoc.style.display = (getComputedStyle(page).display !== 'none') ? 'flex' : 'none';
+    }
+    syncBtoc();
+    btoc.addEventListener('click', function(e){
+      e.preventDefault();
+      var toc = document.getElementById('b1ex-toc-top');
+      if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    return syncBtoc;
+  }
+  var _syncBtoc = null;
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ _syncBtoc = setupBtoc(); initB1Ex(); });
+  } else {
+    _syncBtoc = setupBtoc();
+    initB1Ex();
+  }
+
+  /* 包装 showPage */
+  if(typeof window.showPage==='function' && !window.showPage._b1exWrapped){
+    var _orig = window.showPage;
+    window.showPage = function(p){
+      var r = _orig.apply(this, arguments);
+      try {
+        var page = document.getElementById('page-b1-extensiv');
+        if(page && getComputedStyle(page).display!=='none'){ initB1Ex(); }
+      } catch(e){}
+      if(_syncBtoc) _syncBtoc();
+      return r;
+    };
+    window.showPage._b1exWrapped = true;
+  }
+
+  /* Separator 点击回到目录 */
+  var _page = document.getElementById('page-b1-extensiv');
+  if(_page){
+    _page.addEventListener('click', function(e){
+      if(e.target.classList.contains('b1ex-separator')){
+        var toc = document.getElementById('b1ex-toc-top');
+        if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  }
 })();
 </script>
 
