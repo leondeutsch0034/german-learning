@@ -2361,7 +2361,7 @@
       /* 目录 — 单列 */
       #page-b1lesen div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:.3rem .5rem!important}
       /* section 通用 */
-      #page-b1lesen .section{margin-bottom:32px!important;border-radius:12px!important}
+      #page-b1lesen .section{max-width:100%!important;margin-left:0!important;margin-right:0!important;margin-bottom:32px!important;border-radius:12px!important}
       #page-b1lesen .section-header{font-size:.88rem!important;padding:.6rem 1rem!important;flex-wrap:wrap!important;gap:6px!important}
       #page-b1lesen .section-body{padding:.9rem 1rem!important}
       /* 正文容器 padding 压缩 */
@@ -23792,6 +23792,17 @@ document.addEventListener('click', function(e) {
 @media (max-width: 600px) {
   .a2l-backtotoc { bottom: 14px; left: 12px; width: 44px; height: 44px; font-size: 1.15rem; }
 }
+/* ── 上一篇/下一篇导航 ── */
+#page-a2lesen .a2l-nav{display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding:16px 0 4px;border-top:1px solid rgba(30,58,95,.12)}
+#page-a2lesen .a2l-nav-btn{display:inline-flex;align-items:center;gap:5px;padding:.55rem 1.1rem;border:2px solid #2c5f8a;border-radius:24px;background:#fff;color:#2c5f8a;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
+#page-a2lesen .a2l-nav-btn:hover{background:#ebf4ff;border-color:#1e3a5f;color:#1e3a5f;box-shadow:0 2px 10px rgba(30,58,95,.12)}
+#page-a2lesen .a2l-nav-btn:active{transform:scale(.97)}
+#page-a2lesen .a2l-nav-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+#page-a2lesen .a2l-nav-info{font-size:.82rem;color:#78909c;font-weight:500;white-space:nowrap;min-width:3.5rem;text-align:center}
+@media (max-width:600px){
+  #page-a2lesen .a2l-nav{gap:6px}
+  #page-a2lesen .a2l-nav-btn{padding:.45rem .85rem;font-size:.8rem}
+}
 </style>
 <div style="max-width:860px;margin:0 auto">
   <div style="text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(44,95,138,.35)">
@@ -23799,81 +23810,60 @@ document.addEventListener('click', function(e) {
     <p style="opacity:.85;font-size:.97rem">Lesen · 《交际德语教程（第二版）A2》</p>
   </div>
 
-<!-- 目录 -->
 <div id="a2l-toc-top" style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
-  <div style="background:#2c5f8a;color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis</div>
-  <div style="padding:1rem 1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;font-size:.9rem">
-    <a href="#a2l-s0" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">0 · Brücken in Europa</a>
-    <a href="#a2l-s0b" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">0b · Wohnen in Deutschland</a>
-    <a href="#a2l-s1" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">1 · Das deutsche Schulsystem</a>
-    <a href="#a2l-s2" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">2 · Erasmus+ Programm</a>
-    <a href="#a2l-s3" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">3 · Die neuen Gastarbeiter</a>
-    <a href="#a2l-s4" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">2 · Ankommen in Deutschland — Die ersten Gastarbeiter</a>
-    <a href="#a2l-s5" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">3 · Als Au-pair arbeiten</a>
-    <a href="#a2l-s6" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">4 · Au-pair in Freiburg</a>
-    <a href="#a2l-s7" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">5 · Au-pair vermisst!</a>
-    <a href="#a2l-s8" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">5 · Menschen ohne Arbeit</a>
-    <a href="#a2l-s9" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">6 · Eine Oma für Paul</a>
-    <a href="#a2l-s10" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">7 · Mit dem Hundeschlitten</a>
-    <a href="#a2l-s11" style="color:#2c5f8a;text-decoration:none;padding:.3rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">8 · Mit dem Fahrrad</a>
-    <!-- 第12项:城市与文化合并组 -->
-    <div style="grid-column:1/-1">
-      <div onclick="var sub=this.nextElementSibling;var open=sub.style.display!=='grid';sub.style.display=open?'grid':'none';this.querySelector('.toc-arrow').textContent=open?'▼':'▶';"
-           style="cursor:pointer;background:#dbeafe;border-radius:8px;padding:.35rem .7rem;font-weight:700;color:#1e40af;font-size:.9rem;display:flex;align-items:center;gap:.5rem;user-select:none">
-        <span class="toc-arrow">▶</span> 12 · 🏙️ Städte &amp; Kultur — 城市与文化专题
-      </div>
-      <div style="display:none;grid-template-columns:1fr 1fr 1fr;gap:.3rem .6rem;padding:.5rem .5rem .3rem;font-size:.88rem">
-        <a href="#a2l-smuenster" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🚲 Münster</a>
-        <a href="#a2l-sumzug" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🏠 Umzug + Stadtleben</a>
-        <a href="#a2lesen-weimar" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🎭 Weimar &amp; Goethe</a>
-        <a href="#a2lesen-berlin" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🏛️ Berlin</a>
-        <a href="#a2lesen-hamburg" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">⚓ Hamburg</a>
-        <a href="#a2lesen-frankfurt" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🏦 Frankfurt</a>
-        <a href="#a2lesen-leipzig" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🎵 Leipzig</a>
-        <a href="#a2lesen-duesseldorf" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🎨 Düsseldorf</a>
-        <a href="#a2lesen-stuttgart" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">🚗 Stuttgart</a>
-      </div>
-    </div>
-    <!-- 第13项:歌德与歌德文学 -->
-    <a href="#a2lesen-goethe-werke" style="grid-column:1/-1;background:#fff8e1;color:#8a5500;text-decoration:none;padding:.4rem .7rem;border-radius:8px;font-weight:700;font-size:.92rem;border:1px solid #f0c878">📚 13 · Goethe &amp; seine Werke — 歌德与歌德文学</a>
-    <!-- 第14项：Passiv + damit 阅读 -->
-    <div style="grid-column:1/-1">
-      <div onclick="var sub=this.nextElementSibling;var open=sub.style.display!=='grid';sub.style.display=open?'grid':'none';this.querySelector('.toc-arrow').textContent=open?'▼':'▶';"
-           style="cursor:pointer;background:#fce4ec;border-radius:8px;padding:.35rem .7rem;font-weight:700;color:#c62828;font-size:.9rem;display:flex;align-items:center;gap:.5rem;user-select:none">
-        <span class="toc-arrow">▶</span> 14 · 📖 Passiv &amp; damit — 被动态与目的从句阅读
-      </div>
-      <div style="display:none;grid-template-columns:1fr 1fr;gap:.3rem .6rem;padding:.5rem .5rem .3rem;font-size:.88rem">
-        <a href="#a2lesen-passiv" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">14a · Passiv im Alltag 日常被动态</a>
-        <a href="#a2lesen-damit" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">14b · Umwelt &amp; damit/um…zu 环境与目的从句</a>
-      </div>
-    </div>
-    <!-- 第15项：Mit allen Sinnen 感官与人物特写 -->
-    <div style="grid-column:1/-1">
-      <div onclick="var sub=this.nextElementSibling;var open=sub.style.display!=='grid';sub.style.display=open?'grid':'none';this.querySelector('.toc-arrow').textContent=open?'▼':'▶';"
-           style="cursor:pointer;background:#e0f2f1;border-radius:8px;padding:.35rem .7rem;font-weight:700;color:#00695c;font-size:.9rem;display:flex;align-items:center;gap:.5rem;user-select:none">
-        <span class="toc-arrow">▶</span> 15 · 🎬 Mit allen Sinnen — 感官与人物特写
-      </div>
-      <div style="display:none;grid-template-columns:1fr 1fr 1fr;gap:.3rem .6rem;padding:.5rem .5rem .3rem;font-size:.88rem">
-        <a href="#a2lesen-erbsen" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">15a · 🎥 Erbsen auf halb 6</a>
-        <a href="#a2lesen-schauspieler" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">15b · 🎭 Vor der Kamera</a>
-        <a href="#a2lesen-zweifrauen" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">15c · 👩‍🦯 Zwei starke Frauen</a>
-        <a href="#a2lesen-review15" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s;font-weight:700;background:#fff8e1" onmouseover="this.style.background='#ffe0b2'" onmouseout="this.style.background='#fff8e1'">15d · 📝 语法表达复习</a>
-      </div>
-    </div>
-    <!-- 第16项：Erfindungen, Schokolade, Patente, Haribo -->
-    <div style="grid-column:1/-1">
-      <div onclick="var sub=this.nextElementSibling;var open=sub.style.display!=='grid';sub.style.display=open?'grid':'none';this.querySelector('.toc-arrow').textContent=open?'▼':'▶';"
-           style="cursor:pointer;background:#efebe9;border-radius:8px;padding:.35rem .7rem;font-weight:700;color:#6d4c41;font-size:.9rem;display:flex;align-items:center;gap:.5rem;user-select:none">
-        <span class="toc-arrow">▶</span> 16 · 🔬 Erfindungen &amp; Produkte — 发明、巧克力、专利与 Haribo
-      </div>
-      <div style="display:none;grid-template-columns:1fr 1fr 1fr;gap:.3rem .6rem;padding:.5rem .5rem .3rem;font-size:.88rem">
-        <a href="#a2lesen-erfindungen" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">16a · 🔬 Erfindungen aus DACH</a>
-        <a href="#a2lesen-schokolade" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">16b · 🍫 Geschichte der Schokolade</a>
-        <a href="#a2lesen-patente" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">16c · 🏛️ Patente 2013 — Statistik</a>
-        <a href="#a2lesen-haribo" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s" onmouseover="this.style.background='#e8f0f8'" onmouseout="this.style.background=''">16d · 🐻 Haribo — um die Welt</a>
-        <a href="#a2lesen-review16" style="color:#2c5f8a;text-decoration:none;padding:.25rem .5rem;border-radius:6px;transition:background .15s;font-weight:700;background:#fff8e1" onmouseover="this.style.background='#ffe0b2'" onmouseout="this.style.background='#fff8e1'">16e · 📝 语法表达复习</a>
-      </div>
-    </div>
+  <div style="background:#2c5f8a;color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 选择文章 · Artikel wählen</div>
+  <div style="padding:.8rem 1.2rem">
+    <select id="a2l-article-select" onchange="showA2LesenArticle(this.value)" style="width:100%;padding:.65rem .8rem;border:2px solid #2c5f8a;border-radius:10px;background:#fff;color:#1a3a5c;font-size:.95rem;font-weight:600;cursor:pointer;outline:none;-webkit-appearance:menulist">
+      <option value="">— 请选择文章 · Bitte wählen —</option>
+      <optgroup label="Lektion 0–2">
+        <option value="s0">0 · Brücken in Europa</option>
+        <option value="s0b">0b · Wohnen in Deutschland</option>
+        <option value="s1">1 · Das deutsche Schulsystem</option>
+        <option value="s2">2 · Erasmus+ Programm</option>
+        <option value="s3">3 · Die neuen Gastarbeiter</option>
+        <option value="s4">2 · Ankommen in Deutschland — Die ersten Gastarbeiter</option>
+        <option value="s5">3 · Als Au-pair arbeiten</option>
+      </optgroup>
+      <optgroup label="Lektion 4–8">
+        <option value="s6">4 · Au-pair in Freiburg</option>
+        <option value="s7">5 · Au-pair vermisst!</option>
+        <option value="s8">5 · Menschen ohne Arbeit</option>
+        <option value="s9">6 · Eine Oma für Paul</option>
+        <option value="s10">7 · Mit dem Hundeschlitten</option>
+        <option value="s11">8 · Mit dem Fahrrad</option>
+      </optgroup>
+      <optgroup label="12 · 🏙️ Städte &amp; Kultur — 城市与文化专题">
+        <option value="smuenster">🚲 Münster</option>
+        <option value="sumzug">🏠 Umzug + Stadtleben</option>
+        <option value="weimar">🎭 Weimar &amp; Goethe</option>
+        <option value="berlin">🏛️ Berlin</option>
+        <option value="hamburg">⚓ Hamburg</option>
+        <option value="frankfurt">🏦 Frankfurt</option>
+        <option value="leipzig">🎵 Leipzig</option>
+        <option value="duesseldorf">🎨 Düsseldorf</option>
+        <option value="stuttgart">🚗 Stuttgart</option>
+      </optgroup>
+      <optgroup label="13 · 📚 Goethe &amp; seine Werke">
+        <option value="goethe-werke">📚 Goethe &amp; seine Werke — 歌德与歌德文学</option>
+      </optgroup>
+      <optgroup label="14 · 📖 Passiv &amp; damit — 被动态与目的从句">
+        <option value="passiv">14a · Passiv im Alltag 日常被动态</option>
+        <option value="damit">14b · Umwelt &amp; damit/um…zu 环境与目的从句</option>
+      </optgroup>
+      <optgroup label="15 · 🎬 Mit allen Sinnen — 感官与人物特写">
+        <option value="erbsen">15a · 🎥 Erbsen auf halb 6</option>
+        <option value="schauspieler">15b · 🎭 Vor der Kamera</option>
+        <option value="zweifrauen">15c · 👩‍🦯 Zwei starke Frauen</option>
+        <option value="review15">15d · 📝 语法表达复习</option>
+      </optgroup>
+      <optgroup label="16 · 🔬 Erfindungen &amp; Produkte — 发明、巧克力、专利与 Haribo">
+        <option value="erfindungen">16a · 🔬 Erfindungen aus DACH</option>
+        <option value="schokolade">16b · 🍫 Geschichte der Schokolade</option>
+        <option value="patente">16c · 🏛️ Patente 2013 — Statistik</option>
+        <option value="haribo">16d · 🐻 Haribo — um die Welt</option>
+        <option value="review16">16e · 📝 语法表达复习</option>
+      </optgroup>
+    </select>
   </div>
 </div>
 
@@ -28039,9 +28029,83 @@ document.addEventListener('click', function(e) {
 <a href="#a2l-toc-top" class="a2l-backtotoc" title="回到目录">📋</a>
 
 <script>
-/* a2lesen 页：把按钮移到 body 末尾（脱离 transform 祖先，fixed 相对视口），只在本页显示 */
+/* a2lesen 目录条切换（单篇显示，仿林夏在德国）+ 回到目录浮动按钮 */
 (function(){
-  function setup(){
+  // 短 key → 完整 section id 映射
+  var IDMAP = {
+    's0':'a2l-s0','s0b':'a2l-s0b','s1':'a2l-s1','s2':'a2l-s2','s3':'a2l-s3',
+    's4':'a2l-s4','s5':'a2l-s5','s6':'a2l-s6','s7':'a2l-s7','s8':'a2l-s8',
+    's9':'a2l-s9','s10':'a2l-s10','s11':'a2l-s11',
+    'smuenster':'a2l-smuenster','sumzug':'a2l-sumzug',
+    'weimar':'a2lesen-weimar','berlin':'a2lesen-berlin','hamburg':'a2lesen-hamburg',
+    'frankfurt':'a2lesen-frankfurt','leipzig':'a2lesen-leipzig',
+    'duesseldorf':'a2lesen-duesseldorf','stuttgart':'a2lesen-stuttgart',
+    'goethe-werke':'a2lesen-goethe-werke',
+    'passiv':'a2lesen-passiv','damit':'a2lesen-damit',
+    'erbsen':'a2lesen-erbsen','schauspieler':'a2lesen-schauspieler',
+    'zweifrauen':'a2lesen-zweifrauen','review15':'a2lesen-review15',
+    'erfindungen':'a2lesen-erfindungen','schokolade':'a2lesen-schokolade',
+    'patente':'a2lesen-patente','haribo':'a2lesen-haribo','review16':'a2lesen-review16'
+  };
+  window.A2L_SEQ = Object.keys(IDMAP);
+
+  function getEl(key){ return document.getElementById(IDMAP[key]); }
+
+  function hideAll(){
+    Object.keys(IDMAP).forEach(function(k){ var el=getEl(k); if(el) el.style.display='none'; });
+  }
+
+  window.showA2LesenArticle = function(n){
+    var sel = document.getElementById('a2l-article-select');
+    if(!n || n===''){ hideAll(); if(sel) sel.value=''; return; }
+    hideAll();
+    var sec = getEl(n);
+    if(!sec) return;
+    sec.style.display = '';
+    if(sel && String(sel.value)!==String(n)) sel.value = String(n);
+    /* 更新所有导航按钮状态 */
+    var idx = window.A2L_SEQ.indexOf(String(n));
+    document.querySelectorAll('#page-a2lesen .a2l-nav').forEach(function(nav){
+      var prevBtn = nav.querySelector('.a2l-nav-prev');
+      var nextBtn = nav.querySelector('.a2l-nav-next');
+      if(prevBtn) prevBtn.disabled = (idx <= 0);
+      if(nextBtn) nextBtn.disabled = (idx >= window.A2L_SEQ.length-1);
+      var info = nav.querySelector('.a2l-nav-info');
+      if(info) info.textContent = (idx+1)+' / '+window.A2L_SEQ.length;
+    });
+    try { var toc=document.getElementById('a2l-toc-top'); if(toc) toc.scrollIntoView({block:'start'}); } catch(e){}
+  };
+
+  /* 默认显示第一篇 + 注入上一篇/下一篇导航 */
+  function initA2Lesen(){
+    hideAll();
+    var first = getEl('s0');
+    if(first) first.style.display = '';
+    var sel = document.getElementById('a2l-article-select');
+    if(sel) sel.value = 's0';
+    /* 给每个 section 尾部注入导航按钮 */
+    window.A2L_SEQ.forEach(function(key, idx){
+      var sec = getEl(key);
+      if(!sec) return;
+      if(sec.querySelector('.a2l-nav')) return;
+      var body = sec.querySelector(':scope > .section-body');
+      if(!body) return;
+      var prevKey = idx > 0 ? window.A2L_SEQ[idx-1] : '';
+      var nextKey = idx < window.A2L_SEQ.length-1 ? window.A2L_SEQ[idx+1] : '';
+      var nav = document.createElement('div');
+      nav.className = 'a2l-nav';
+      nav.innerHTML = '<button class="a2l-nav-btn a2l-nav-prev" onclick="showA2LesenArticle(\''+prevKey+'\')" '+(idx===0?'disabled':'')+'>← 上一篇</button>'+
+        '<span class="a2l-nav-info">'+(idx+1)+' / '+window.A2L_SEQ.length+'</span>'+
+        '<button class="a2l-nav-btn a2l-nav-next" onclick="showA2LesenArticle(\''+nextKey+'\')" '+(idx===window.A2L_SEQ.length-1?'disabled':'')+'>下一篇 →</button>';
+      body.appendChild(nav);
+    });
+  }
+
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',initA2Lesen); }
+  else { initA2Lesen(); }
+
+  /* 回到目录浮动按钮 */
+  function setupBtoc(){
     var page = document.getElementById('page-a2lesen');
     var btoc = document.querySelector('.a2l-backtotoc');
     if(!page || !btoc) return;
@@ -28050,19 +28114,34 @@ document.addEventListener('click', function(e) {
       btoc.style.display = (getComputedStyle(page).display !== 'none') ? 'flex' : 'none';
     }
     syncBtoc();
-    if(typeof window.showPage === 'function' && !window.showPage._a2lWrapped){
-      var _orig = window.showPage;
-      window.showPage = function(){ var r = _orig.apply(this, arguments); syncBtoc(); return r; };
-      window.showPage._a2lWrapped = true;
-    }
     btoc.addEventListener('click', function(e){
       e.preventDefault();
       var toc = document.getElementById('a2l-toc-top');
       if(toc) toc.scrollIntoView({behavior:'smooth', block:'start'});
     });
+    return syncBtoc;
   }
-  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', setup); }
-  else { setup(); }
+  var syncBtocFn = null;
+  function setupBtocDeferred(){
+    if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',function(){ syncBtocFn = setupBtoc(); }); }
+    else { syncBtocFn = setupBtoc(); }
+  }
+  setupBtocDeferred();
+
+  /* 包装 showPage：切回 A2 阅读时重置为第一篇 + 同步浮动按钮 */
+  if(typeof window.showPage==='function' && !window.showPage._a2lAllWrapped){
+    var _orig = window.showPage;
+    window.showPage = function(p){
+      var r = _orig.apply(this, arguments);
+      try {
+        var page = document.getElementById('page-a2lesen');
+        if(page && getComputedStyle(page).display!=='none'){ initA2Lesen(); }
+      } catch(e){}
+      if(syncBtocFn) syncBtocFn();
+      return r;
+    };
+    window.showPage._a2lAllWrapped = true;
+  }
 })();
 </script>
 
@@ -28278,9 +28357,10 @@ function lxqResetMCQ(id) {
     </select>
   </div>
   <script>
+  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','14','15'];
   window.showB1LesenArticle=function(n){
-    // 隐藏全部 12 篇
-    var ids=['b1l-s1','b1l-s2','b1l-s3','b1l-s4','b1l-s6','b1l-s7','b1l-s9','b1l-s10','b1l-s11','b1l-s12','b1l-s14','b1l-s15'];
+    var ids=[];
+    for(var i=0;i<window.B1L_SEQ.length;i++){ ids.push('b1l-s'+window.B1L_SEQ[i]); }
     for(var i=0;i<ids.length;i++){
       var el=document.getElementById(ids[i]);
       if(el) el.style.display='none';
@@ -28291,6 +28371,17 @@ function lxqResetMCQ(id) {
     sec.style.display='';
     var sel=document.getElementById('b1l-article-select');
     if(sel) sel.value=n;
+    // 更新所有导航按钮的 disabled 状态
+    var idx=window.B1L_SEQ.indexOf(String(n));
+    document.querySelectorAll('#page-b1lesen .b1l-nav').forEach(function(nav){
+      var prevBtn=nav.querySelector('.b1l-nav-prev');
+      var nextBtn=nav.querySelector('.b1l-nav-next');
+      if(prevBtn) prevBtn.disabled=(idx<=0);
+      if(nextBtn) nextBtn.disabled=(idx>=window.B1L_SEQ.length-1);
+      // 更新页码
+      var info=nav.querySelector('.b1l-nav-info');
+      if(info) info.textContent=(idx+1)+' / '+window.B1L_SEQ.length;
+    });
     try{ document.getElementById('b1l-toc').scrollIntoView({block:'start'}); }catch(e){}
   };
   document.addEventListener('DOMContentLoaded',function(){
@@ -28818,7 +28909,6 @@ function lxqResetMCQ(id) {
           </div>
         </div>
         </div>
-      </div>
 
       <!-- ═══ Erlebnisbericht: Heike Demming — voller Text ═══ -->
       <div style="background:#fff;border:2px solid #1a3a5c;border-radius:12px;padding:0;margin-bottom:1.2rem;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.1)">
@@ -29960,6 +30050,8 @@ function lxqResetMCQ(id) {
       📺 Quelle: Easy German (YouTube) · Folge 61 · <em>25 Years Ago the Berlin Wall Fell</em> (2014) · <a href="https://www.easygerman.org/" target="_blank" rel="noopener" style="color:#1e3a5f">easygerman.org</a>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 
@@ -39434,6 +39526,26 @@ function b1S12CheckB(){
       if(wrapper){ section = wrapper.querySelector('#' + pair[1]) || existing; }
       if(section){ section.style.display = 'none'; inner.appendChild(section); }
       if(wrapper && wrapper.parentNode){ wrapper.remove(); }
+    });
+
+    /* 注入上一篇/下一篇快捷切换按钮 */
+    var seq = window.B1L_SEQ || ['1','2','3','4','6','7','9','10','11','12','14','15'];
+    seq.forEach(function(v, idx){
+      var sec = document.getElementById('b1l-s'+v);
+      if(!sec) return;
+      // 避免重复注入
+      if(sec.querySelector('.b1l-nav')) return;
+      // 只取 .section 的直接子元素 .section-body，避免嵌套命中
+      var body = sec.querySelector(':scope > .section-body');
+      if(!body) return;
+      var prevV = idx > 0 ? seq[idx-1] : '';
+      var nextV = idx < seq.length-1 ? seq[idx+1] : '';
+      var nav = document.createElement('div');
+      nav.className = 'b1l-nav';
+      nav.innerHTML = '<button class="b1l-nav-btn b1l-nav-prev" onclick="showB1LesenArticle(\''+prevV+'\')" '+(idx===0?'disabled':'')+'>← 上一篇</button>'+
+        '<span class="b1l-nav-info">'+(idx+1)+' / '+seq.length+'</span>'+
+        '<button class="b1l-nav-btn b1l-nav-next" onclick="showB1LesenArticle(\''+nextV+'\')" '+(idx===seq.length-1?'disabled':'')+'>下一篇 →</button>';
+      body.appendChild(nav);
     });
 
     /* 返回目录按钮移到 body */
@@ -65373,7 +65485,7 @@ function gsRevealAllChapter(chId) {
 
 /* ── B1阅读 Section Cards（Easy German 61 范式：白卡+深蓝标题栏）── */
 #page-b1lesen{color:#263238!important}
-#page-b1lesen .section{background:#f4f6fa;border-radius:16px;box-shadow:0 3px 16px rgba(0,0,0,.08);margin-bottom:0;border:1px solid rgba(0,0,0,.04);padding:0;position:relative}
+#page-b1lesen .section{max-width:860px;margin-left:auto;margin-right:auto;width:100%;box-sizing:border-box;background:#f4f6fa;border-radius:16px;box-shadow:0 3px 16px rgba(0,0,0,.08);margin-bottom:0;border:1px solid rgba(0,0,0,.04);padding:0;position:relative}
 #page-b1lesen .section:last-of-type{margin-bottom:5rem}
 #page-b1lesen .section-header{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1a3a5c,#255d8c);color:#fde68a;padding:.85rem 1.3rem;border-radius:16px 16px 0 0;font-weight:700;font-size:.95rem;border-bottom:1px solid rgba(246,211,101,.2);overflow:hidden}
 #page-b1lesen .section-body{background:#fff;padding:20px 24px 30px;border-radius:0 0 16px 16px}
@@ -65392,6 +65504,18 @@ function gsRevealAllChapter(chId) {
 #page-b1lesen .b1l-article-select:hover{border-color:rgba(246,211,101,.6)}
 #page-b1lesen .b1l-article-select option{background:#0f1e3a;color:#e2e8f0}
 /* 旧分隔线不再需要（单篇显示模式下没有"之间"的概念） */
+
+/* ── 上一篇 / 下一篇 快捷切换 ── */
+#page-b1lesen .b1l-nav{display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding:16px 0 4px;border-top:1px solid rgba(30,58,95,.12)}
+#page-b1lesen .b1l-nav-btn{display:inline-flex;align-items:center;gap:5px;padding:.55rem 1.1rem;border:2px solid #2c5f8a;border-radius:24px;background:#fff;color:#2c5f8a;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
+#page-b1lesen .b1l-nav-btn:hover{background:#ebf4ff;border-color:#1e3a5f;color:#1e3a5f;box-shadow:0 2px 10px rgba(30,58,95,.12)}
+#page-b1lesen .b1l-nav-btn:active{transform:scale(.97)}
+#page-b1lesen .b1l-nav-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+#page-b1lesen .b1l-nav-info{font-size:.82rem;color:#78909c;font-weight:500;white-space:nowrap;min-width:3.5rem;text-align:center}
+@media(max-width:480px){
+  #page-b1lesen .b1l-nav{gap:6px}
+  #page-b1lesen .b1l-nav-btn{padding:.45rem .85rem;font-size:.8rem}
+}
 #page-b1lesen .b1l-separator{display:none}
 @media(max-width:600px){
   #page-b1lesen .b1l-select-wrap{padding:10px 12px;border-radius:12px}
