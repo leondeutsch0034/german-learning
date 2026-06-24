@@ -45326,6 +45326,91 @@ function b1S12CheckB(){
   #page-kultur-reader .kd-episode .footer .links { flex-direction: column; align-items: center; }
 }
 
+
+/* ── 分享本期 ── */
+#page-kultur-reader .kd-episode .kd-share-ep {
+  margin: 40px 0 0; padding: 32px 28px 28px;
+  background: linear-gradient(160deg,rgba(246,211,101,.06),rgba(184,134,11,.03));
+  border: 1px solid rgba(246,211,101,.18); border-radius: 18px;
+  text-align: center;
+}
+#page-kultur-reader .kd-episode .kd-share-ep-tag {
+  font-size: .66rem; color: rgba(246,211,101,.5); letter-spacing: .16em; font-weight: 700; margin-bottom: 6px;
+  text-transform: uppercase;
+}
+#page-kultur-reader .kd-episode .kd-share-ep-title {
+  font-size: 1.15rem; color: #fde68a; font-weight: 800; margin-bottom: 20px;
+}
+/* ── 分享预览卡片 ── */
+#page-kultur-reader .kd-episode .kd-share-preview {
+  margin: 0 auto 22px; max-width: 420px;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-label {
+  font-size: .7rem; color: rgba(148,163,184,.4); margin-bottom: 8px;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-card {
+  background: #fff; border-radius: 8px; padding: 16px 18px 14px;
+  text-align: left; box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  position: relative;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-card::before {
+  content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 8px solid transparent; border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-title {
+  font-size: .82rem; font-weight: 700; color: #1a1a2e; line-height: 1.5; margin-bottom: 4px;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-desc {
+  font-size: .76rem; color: #666; line-height: 1.5; margin-bottom: 6px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+#page-kultur-reader .kd-episode .kd-share-preview-url {
+  font-size: .7rem; color: #999; border-top: 1px solid #eee; padding-top: 6px;
+}
+/* ── 双按钮 ── */
+#page-kultur-reader .kd-episode .kd-share-btns {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+#page-kultur-reader .kd-episode .kd-share-btn-wechat {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  background: linear-gradient(135deg,#07c160,#06ad56); color: #fff;
+  font-weight: 700; padding: 12px 28px; border-radius: 14px;
+  border: none; cursor: pointer; font-size: .92rem; transition: .2s;
+  font-family: inherit; min-width: 200px;
+}
+#page-kultur-reader .kd-episode .kd-share-btn-wechat span {
+  font-size: .68rem; font-weight: 400; opacity: .85;
+}
+#page-kultur-reader .kd-episode .kd-share-btn-wechat:hover {
+  opacity: .9; transform: translateY(-2px); box-shadow: 0 4px 18px rgba(7,193,96,.35);
+}
+#page-kultur-reader .kd-episode .kd-share-btn-link {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  background: transparent; color: rgba(246,211,101,.7);
+  font-weight: 600; padding: 12px 24px; border-radius: 14px;
+  border: 1px solid rgba(246,211,101,.25); cursor: pointer; font-size: .85rem;
+  transition: .2s; font-family: inherit; min-width: 140px;
+}
+#page-kultur-reader .kd-episode .kd-share-btn-link:hover {
+  background: rgba(246,211,101,.08); border-color: #f6d365; color: #f6d365;
+}
+
+@media (max-width:600px) {
+  #page-kultur-reader .kd-episode .kd-share-ep {
+    margin: 28px 12px 0; padding: 24px 16px 22px;
+  }
+  #page-kultur-reader .kd-episode .kd-share-ep-title { font-size: 1.02rem; }
+  #page-kultur-reader .kd-episode .kd-share-preview { max-width: 100%; }
+  #page-kultur-reader .kd-episode .kd-share-preview-card { padding: 14px 14px 12px; }
+  #page-kultur-reader .kd-episode .kd-share-preview-title { font-size: .78rem; }
+  #page-kultur-reader .kd-episode .kd-share-preview-desc { font-size: .72rem; }
+  #page-kultur-reader .kd-episode .kd-share-btns { flex-direction: column; align-items: stretch; }
+  #page-kultur-reader .kd-episode .kd-share-btn-wechat { min-width: auto; padding: 12px 20px; font-size: .88rem; }
+  #page-kultur-reader .kd-episode .kd-share-btn-link { justify-content: center; min-width: auto; }
+}
+
 /* ── Share Toast Animation ── */
 @keyframes ktFadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 </style>
@@ -45530,6 +45615,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">Leons Deutschzentrum</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第1集】超市与生活</div>
+                    <div class="kd-share-preview-desc">一个矿泉水瓶多收25欧分？周日全城关门？6个德国超市真相</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 2 集 · 规则与习惯 ══ -->
           <div class="kd-episode" data-ep="2" style="display:none">
@@ -45773,6 +45877,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">Leons Deutschzentrum</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第2集】规则与习惯</div>
+                    <div class="kd-share-preview-desc">Kippfenster、Termin文化、DB晚点——6个德国人习以为常的规则</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 3 集 · 住与行 ══ -->
           <div class="kd-episode" data-ep="3" style="display:none">
@@ -46022,6 +46145,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutschlernzentrum · 德语学习，不止于课本</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第3集】住与行</div>
+                    <div class="kd-share-preview-desc">Kaltmiete冷租、Bargeld现金、Ruhezeit安静时间——6个德国住行真相</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 4 集 · 工作与职场 ══ -->
           <div class="kd-episode" data-ep="4" style="display:none">
@@ -52643,6 +52785,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 04</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第4集】工作与职场</div>
+                    <div class="kd-share-preview-desc">Tarifvertrag、30天Urlaub、Feierabend——德国职场6个秘密</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 5 集 · 交通与出行 ══ -->
           <div class="kd-episode" data-ep="5" style="display:none">
@@ -59744,6 +59905,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 05</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第5集】交通与出行</div>
+                    <div class="kd-share-preview-desc">Führerschein驾照、Umweltzone环保区、Blitzer测速——德国交通6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 6 集 · 落地德国 ══ -->
           <div class="kd-episode" data-ep="6" style="display:none">
@@ -64884,6 +65064,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 06</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第6集】落地德国</div>
+                    <div class="kd-share-preview-desc">Anmeldung落户、银行开户、医保——初到德国必办的6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 7 集 · 饮食与社交 ══ -->
           <div class="kd-episode" data-ep="7" style="display:none">
@@ -71368,6 +71567,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 07</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第7集】饮食与社交</div>
+                    <div class="kd-share-preview-desc">Abendbrot冷晚餐、Kaffeetafel咖啡会、Verein协会——德国饮食社交6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 8 集 · 节日与庆祝 ══ -->
           <div class="kd-episode" data-ep="8" style="display:none">
@@ -79169,6 +79387,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 08</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第8集】节日与庆祝</div>
+                    <div class="kd-share-preview-desc">Weihnachtsmarkt圣诞市场、Karneval狂欢节、Oktoberfest——6大德国节日</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 9 集 · 育儿与教育 ══ -->
           <div class="kd-episode" data-ep="9" style="display:none">
@@ -83029,6 +83266,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">&copy; 2026 Leon Deutsch · 你不知道的德国系列 · 09</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第9集】育儿与教育</div>
+                    <div class="kd-share-preview-desc">Elternzeit育儿假、Kindergarten幼儿园、Schultüte入学筒——德国育儿6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 10 集 · 环保与能源 ══ -->
           <div class="kd-episode" data-ep="10" style="display:none">
@@ -83261,6 +83517,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第10集】环保与能源</div>
+                    <div class="kd-share-preview-desc">Energiewende能源转型、Balkonkraftwerk阳台电站、Bio-Tonne——德国环保6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 11 集 · 医疗与健康 ══ -->
           <div class="kd-episode" data-ep="11" style="display:none">
@@ -83448,6 +83723,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第11集】医疗与健康</div>
+                    <div class="kd-share-preview-desc">Krankenkasse医保、Hausarzt家庭医生、Kur疗养——德国医疗6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 12 集 · 数字生活 ══ -->
           <div class="kd-episode" data-ep="12" style="display:none">
@@ -83629,6 +83923,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第12集】数字生活</div>
+                    <div class="kd-share-preview-desc">Fax传真机、Bargeld现金、Datenschutz数据保护——德国数字化6个真相</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 13 集 · 历史记忆 ══ -->
           <div class="kd-episode" data-ep="13" style="display:none">
@@ -83810,6 +84123,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第13集】历史记忆</div>
+                    <div class="kd-share-preview-desc">Mauerfall柏林墙、Stolpersteine绊脚石、Ost/West东西差异——6个德国历史记忆</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 14 集 · 理财与储蓄 ══ -->
           <div class="kd-episode" data-ep="14" style="display:none">
@@ -83991,6 +84323,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第14集】理财与储蓄</div>
+                    <div class="kd-share-preview-desc">Sparbuch存折、Bausparvertrag建房储蓄、Riester养老金——德国理财6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 15 集 · 宠物与动物 ══ -->
           <div class="kd-episode" data-ep="15" style="display:none">
@@ -84172,6 +84523,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第15集】宠物与动物</div>
+                    <div class="kd-share-preview-desc">Hundesteuer狗税、Wolf野狼回归、Tierheim动物收容所——德国宠物6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 16 集 · 度假与休闲 ══ -->
           <div class="kd-episode" data-ep="16" style="display:none">
@@ -84353,6 +84723,25 @@ function b1S12CheckB(){
                 </div>
                 <p class="copy">&copy; 2026 Leon Deutschzentrum · 所有图片来自 Pexels 免费素材库 · 内容原创，转载请联系</p>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第16集】度假与休闲</div>
+                    <div class="kd-share-preview-desc">30天Urlaub、Camping露营、Schrebergarten小花园——德国度假6件事</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 17 集 · 高考后留学德国 ══ -->
           <div class="kd-episode" data-ep="17" style="display:none">
@@ -84544,6 +84933,25 @@ function b1S12CheckB(){
               </div>
               <p class="copyright">© 2026 Leon 德语学习中心 · 「你不知道的德国」系列第 17 期 · 图片来自 Pexels (免费授权)</p>
             </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第17集】高考后留学德国</div>
+                    <div class="kd-share-preview-desc">APS审核、Studienkolleg预科、TestDaF——高考后留学德国全攻略</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
           <!-- ══ 第 18 集 · 社交密码 ══ -->
           <div class="kd-episode" data-ep="18" style="display:none">
@@ -84709,6 +85117,25 @@ function b1S12CheckB(){
                 </div>
                 <div class="copy">Leons Deutschzentrum</div>
               </div>
+
+              <!-- ═══ 分享本期 ═══ -->
+              <div class="kd-share-ep">
+                <div class="kd-share-ep-tag">📤 TEILEN · 分享</div>
+                <div class="kd-share-ep-title">觉得有用？分享给学德语的朋友</div>
+                <div class="kd-share-preview">
+                  <div class="kd-share-preview-label">▼ 微信/朋友圈预览效果 ▼</div>
+                  <div class="kd-share-preview-card">
+                    <div class="kd-share-preview-title">【你不知道的德国 · 第18集】社交密码</div>
+                    <div class="kd-share-preview-desc">Du vs Sie、直球沟通、生日禁忌、送礼清单——6个德国社交潜规则</div>
+                    <div class="kd-share-preview-url">🔗 leonsdeutschzentrum.com</div>
+                  </div>
+                </div>
+                <div class="kd-share-btns">
+                  <button class="kd-share-btn-wechat" onclick="event.stopPropagation();shareKulturEp()">💬 复制文案+链接<span>发微信/朋友圈最佳</span></button>
+                  <button class="kd-share-btn-link" onclick="event.stopPropagation();shareKulturLink()">📋 只复制链接</button>
+                </div>
+              </div>
+
           </div>
 
     <!-- Watermark -->
@@ -84739,18 +85166,48 @@ window.showKulturEp = function(ep) {
   window.scrollTo(0, 0);
   window._currentKulturEp = ep;
   try { history.replaceState(null, '', '#kultur-reader&ep=' + ep); } catch(e) {}
+  /* 动态更新 OG 标签（部分平台的爬虫会读取） */
+  try {
+    var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'18期第一视角德国真相'};
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    var newTitle = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
+    var newDesc = info.desc + ' —— 来自Leon德语学习中心「你不知道的德国」专栏';
+    if (ogTitle) ogTitle.setAttribute('content', newTitle);
+    if (ogDesc) ogDesc.setAttribute('content', newDesc);
+    if (twTitle) twTitle.setAttribute('content', newTitle);
+    if (twDesc) twDesc.setAttribute('content', newDesc);
+    document.title = newTitle;
+  } catch(e) {}
 };
 
 /* 分享按钮 */
-window.shareKulturEpV2 = function() {
+window._kdEpData = {1:{title:"超市与生活",desc:"一个矿泉水瓶多收25欧分？周日全城关门？6个德国超市真相"},2:{title:"规则与习惯",desc:"Kippfenster、Termin文化、DB晚点——6个德国人习以为常的规则"},3:{title:"住与行",desc:"Kaltmiete冷租、Bargeld现金、Ruhezeit安静时间——6个德国住行真相"},4:{title:"工作与职场",desc:"Tarifvertrag、30天Urlaub、Feierabend——德国职场6个秘密"},5:{title:"交通与出行",desc:"Führerschein驾照、Umweltzone环保区、Blitzer测速——德国交通6件事"},6:{title:"落地德国",desc:"Anmeldung落户、银行开户、医保——初到德国必办的6件事"},7:{title:"饮食与社交",desc:"Abendbrot冷晚餐、Kaffeetafel咖啡会、Verein协会——德国饮食社交6件事"},8:{title:"节日与庆祝",desc:"Weihnachtsmarkt圣诞市场、Karneval狂欢节、Oktoberfest——6大德国节日"},9:{title:"育儿与教育",desc:"Elternzeit育儿假、Kindergarten幼儿园、Schultüte入学筒——德国育儿6件事"},10:{title:"环保与能源",desc:"Energiewende能源转型、Balkonkraftwerk阳台电站、Bio-Tonne——德国环保6件事"},11:{title:"医疗与健康",desc:"Krankenkasse医保、Hausarzt家庭医生、Kur疗养——德国医疗6件事"},12:{title:"数字生活",desc:"Fax传真机、Bargeld现金、Datenschutz数据保护——德国数字化6个真相"},13:{title:"历史记忆",desc:"Mauerfall柏林墙、Stolpersteine绊脚石、Ost/West东西差异——6个德国历史记忆"},14:{title:"理财与储蓄",desc:"Sparbuch存折、Bausparvertrag建房储蓄、Riester养老金——德国理财6件事"},15:{title:"宠物与动物",desc:"Hundesteuer狗税、Wolf野狼回归、Tierheim动物收容所——德国宠物6件事"},16:{title:"度假与休闲",desc:"30天Urlaub、Camping露营、Schrebergarten小花园——德国度假6件事"},17:{title:"高考后留学德国",desc:"APS审核、Studienkolleg预科、TestDaF——高考后留学德国全攻略"},18:{title:"社交密码",desc:"Du vs Sie、直球沟通、生日禁忌、送礼清单——6个德国社交潜规则"}};
+window.shareKulturLink = function() {
   var ep = window._currentKulturEp || '1';
   var url = 'https://leonsdeutschzentrum.com/#kultur-reader&ep=' + ep;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function() {
       var toast = document.createElement('div');
-      var sel = document.getElementById('kdEpSelect');
-      var title = sel ? sel.options[sel.selectedIndex].textContent : '你不知道的德国';
-      toast.textContent = '✅ 链接已复制！\n' + title + '\n可直接粘贴到微信分享';
+      toast.textContent = '✅ 链接已复制！\n粘贴到微信/浏览器即可打开';
+      toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:14px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;animation:ktFadeIn .3s ease;text-align:center;white-space:pre-line';
+      document.body.appendChild(toast);
+      setTimeout(function(){ toast.style.opacity='0'; toast.style.transition='opacity .4s'; }, 2000);
+      setTimeout(function(){ if(toast.parentNode) toast.parentNode.removeChild(toast); }, 2500);
+    }).catch(function() { prompt('复制此链接分享：', url); });
+  } else { prompt('复制此链接分享：', url); }
+};
+window.shareKulturEpV2 = function() {
+  var ep = window._currentKulturEp || '1';
+  var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'18期第一视角德国真相'};
+  var url = 'https://leonsdeutschzentrum.com/#kultur-reader&ep=' + ep;
+  var shareText = '【你不知道的德国 · 第' + ep + '集】' + info.title + '\n' + info.desc + '\n\n' + url;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(shareText).then(function() {
+      var toast = document.createElement('div');
+      toast.textContent = '✅ 文案+链接已复制！\n直接粘贴到微信/朋友圈即可';
       toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:14px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;animation:ktFadeIn .3s ease;text-align:center;white-space:pre-line';
       document.body.appendChild(toast);
       setTimeout(function(){ toast.style.opacity='0'; toast.style.transition='opacity .4s'; }, 2000);
@@ -84773,6 +85230,13 @@ window.initKulturReader = function() {
     if (ep) { showKulturEp(ep); return; }
   }
   showKulturEp(1);
+  /* 恢复默认 OG 标签 */
+  try {
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogTitle) ogTitle.setAttribute('content', '你不知道的德国 · 18期德国真相 | Leon 德语学习中心');
+    if (ogDesc) ogDesc.setAttribute('content', '从超市、租房到高考留学——18期第一视角德国生活真相。Leon德语学习中心出品。');
+  } catch(e) {}
 };
 
 /* 包装 showPage */
