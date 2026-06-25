@@ -84564,19 +84564,36 @@ window.shareKulturEpV2 = function() {
   var ep = window._currentKulturEp || '1';
   var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'18期第一视角德国真相'};
   var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
-  var text = '【你不知道的德国 · 第' + ep + '集】' + info.title + '\n' + info.desc + '\n\n' + url;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(function() {
-      var t = document.createElement('div');
-      t.textContent = '✅ 文案+链接已复制\n直接粘贴到微信即可';
-      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:12px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;animation:ktFadeIn .3s ease;text-align:center;white-space:pre-line';
-      document.body.appendChild(t);
-      setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 1800);
-      setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 2300);
-    }).catch(function() { prompt('复制此链接分享：', text); });
-  } else { prompt('复制此链接分享：', text); }
-};
-window.shareKulturEp = window.shareKulturEpV2;
+  var title = '你不知道的德国 · 第' + ep + '集 ' + info.title;
+  var shareText = info.desc + ' —— Leon德语学习中心';
+  
+  function copyFallback() {
+    var copyText = "【" + title + "】
+" + shareText + "
+
+" + url;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(copyText).then(function() {
+        var t = document.createElement('div');
+        t.textContent = '✅ 文案+链接已复制
+直接粘贴到微信即可';
+        t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:12px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;animation:ktFadeIn .3s ease;text-align:center;white-space:pre-line';
+        document.body.appendChild(t);
+        setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 1800);
+        setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 2300);
+      }).catch(function() { prompt('复制此链接分享：', copyText); });
+    } else { prompt('复制此链接分享：', copyText); }
+  }
+  
+  // 手机端优先调用原生分享面板（弹出微信/朋友圈等，预览卡显示集数简介）
+  if (navigator.share) {
+    navigator.share({ title: title, text: shareText, url: url }).catch(function(err) {
+      if (err.name !== 'AbortError') copyFallback();
+    });
+  } else {
+    copyFallback();
+  }
+};window.shareKulturEp = window.shareKulturEpV2;
 window.initKulturReader = function() {
   var hash = window.location.hash.replace('#', '');
   if (hash.indexOf('kultur-reader&ep=') === 0) {
