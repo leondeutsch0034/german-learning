@@ -84548,7 +84548,7 @@ window.showKulturEp = function(ep) {
 };
 window.shareKulturLink = function() {
   var ep = window._currentKulturEp || '1';
-  var url = 'https://leonsdeutschzentrum.com/#kultur-reader&ep=' + ep;
+  var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function() {
       var t = document.createElement('div');
@@ -84563,7 +84563,7 @@ window.shareKulturLink = function() {
 window.shareKulturEpV2 = function() {
   var ep = window._currentKulturEp || '1';
   var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'18期第一视角德国真相'};
-  var url = 'https://leonsdeutschzentrum.com/#kultur-reader&ep=' + ep;
+  var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
   var text = '【你不知道的德国 · 第' + ep + '集】' + info.title + '\n' + info.desc + '\n\n' + url;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(function() {
