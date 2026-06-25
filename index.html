@@ -86972,6 +86972,193 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   </iframe>
 </div>
 
+<!-- ══════════ 德英混淆对照 ══════════ -->
+<div id="page-de-en" class="page">
+  <div class="de-beams" aria-hidden="true">
+    <div class="de-haze"></div>
+    <div class="de-godray gr1"></div>
+    <div class="de-godray gr2"></div>
+    <div class="de-dust" id="deDust"></div>
+    <div class="de-vignette"></div>
+  </div>
+  <div class="de-header">
+    <h2>🔄 德英混淆对照</h2>
+    <p>False Friends · 语法混淆 · 发音混淆 · 常见错误 — 德语英语双语对照，从此不再搞混</p>
+  </div>
+  <div class="de-tools">
+    <div class="de-search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="de-en-search" type="text" placeholder="搜索关键词（中德英文均可，如 Gift、bekommen、发音）" oninput="filterDEEN()">
+      <button class="de-search-clear" id="de-en-search-clear" onclick="clearDEENSearch()" title="清空">×</button>
+    </div>
+    <span class="de-count" id="de-en-count"></span>
+  </div>
+  <div class="de-grid" id="de-en-grid"></div>
+  <div class="de-sec-title">📝 句子级常见错误</div>
+  <div class="de-grid" id="de-en-sent-grid"></div>
+  <div class="de-empty" id="de-en-empty">🔍 没有找到匹配的条目，换个关键词试试</div>
+  <div class="de-back">
+    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+  </div>
+</div>
+<script>
+(function(){
+  /* ── 词级混淆对照数据 ── */
+  window.DEEN_FACTS = [
+    /* ── 假朋友 False Friends ── */
+    {type:'ff', deW:'das Gift', enW:'gift', deMean:'毒药、毒素', enMean:'礼物', mistake:'看到 Gift 以为是"礼物"→ 其实是"毒药"', correct:'英语 gift（礼物）→ 德语 das Geschenk；德语 das Gift（毒药）→ 英语 poison', note:'最经典的德英假朋友！德语 <b>das Gift</b> 是毒药，<b>giftig</b> = 有毒的。送礼物要说 <b>das Geschenk</b>。'},
+    {type:'ff', deW:'der Rat', enW:'rat', deMean:'建议、劝告；议会', enMean:'老鼠', mistake:'把 Rat 当成"老鼠"→ 其实是"建议"', correct:'英语 rat（老鼠）→ 德语 die Ratte；德语 der Rat（建议）→ 英语 advice/council', note:'<b>der Rat</b> 是建议（动词 raten），也是"委员会"（Betriebsrat = 工会）。老鼠是 <b>die Ratte</b>，多了一个 te。'},
+    {type:'ff', deW:'der Rock', enW:'rock', deMean:'裙子', enMean:'岩石；摇滚', mistake:'看到 Rock 以为是"石头"→ 其实德语意思是"裙子"', correct:'英语 rock（石头/摇滚）→ 德语 der Fels/die Rockmusik；德语 der Rock → 英语 skirt', note:'<b>der Rock</b> 专指裙子。摇滚乐德语也说 <b>Rockmusik</b>（借自英语），但裙子永远是 Rock。'},
+    {type:'ff', deW:'der Brief', enW:'brief', deMean:'信件、信函', enMean:'简短的；摘要', mistake:'看到 Brief 以为是"简短的"→ 其实是"信件"', correct:'英语 brief（简短）→ 德语 kurz/knapp；德语 der Brief → 英语 letter', note:'<b>der Brief</b> 就是信。Briefmarke 是邮票，Briefkasten 是信箱。英语 brief 对应德语 <b>kurz</b>。'},
+    {type:'ff', deW:'der Chef', enW:'chef', deMean:'老板、上司、主管', enMean:'主厨、厨师长', mistake:'说英语的 Chef 是"厨师长"→ 德语 Chef 是"老板"', correct:'英语 chef（主厨）→ 德语 der Koch/der Küchenchef；德语 der Chef → 英语 boss/manager', note:'德语 <b>der Chef</b> 是老板/上司，任何行业都行。厨师长德语说 <b>der Koch</b> 或 <b>der Küchenchef</b>（加了 Küchen-）。'},
+    {type:'ff', deW:'fast', enW:'fast', deMean:'几乎、差不多', enMean:'快速的', mistake:'把 fast 当"快"→ 德语里是"几乎"', correct:'英语 fast（快）→ 德语 schnell；德语 fast → 英语 almost/nearly', note:'<b>fast</b> 在德语里是副词"几乎"：<b>fast fertig</b> = 差不多好了。<b>schnell</b> 才是"快"。'},
+    {type:'ff', deW:'hell', enW:'hell', deMean:'明亮的、光线充足的', enMean:'地狱', mistake:'看到 hell 以为是"地狱"→ 德语意思是"明亮"', correct:'英语 hell（地狱）→ 德语 die Hölle；德语 hell → 英语 bright/light', note:'<b>hell</b> 是明亮：<b>das Zimmer ist hell</b> = 房间采光好。地狱是 <b>die Hölle</b>，元音变成 ö。'},
+    {type:'ff', deW:'das Kind', enW:'kind', deMean:'小孩、孩子', enMean:'善良的、种类', mistake:'把 Kind 当成"种类"→ 德语是"小孩"', correct:'英语 kind（善良/种类）→ 德语 nett/die Art；德语 das Kind → 英语 child', note:'<b>das Kind</b>（孩子）是德语最基础的词之一，Kindergarten（幼儿园）就是"孩子+花园"。英语 kind 对应 <b>nett</b> 或 <b>die Art</b>。'},
+    {type:'ff', deW:'das Bad', enW:'bad', deMean:'浴室、洗澡', enMean:'坏的、糟糕的', mistake:'看到 Bad 以为是"坏的"→ 德语意思是"浴室/洗澡"', correct:'英语 bad（坏）→ 德语 schlecht；德语 das Bad → 英语 bath/bathroom', note:'<b>das Bad</b> 是浴室：<b>Ich gehe ins Bad</b> = 我去洗澡/上厕所。<b>schlecht</b> 才是"坏"。'},
+    {type:'ff', deW:'der Brand', enW:'brand', deMean:'火灾、大火', enMean:'品牌、商标', mistake:'看到 Brand 以为是"品牌"→ 德语里是"火灾"', correct:'英语 brand（品牌）→ 德语 die Marke；德语 der Brand → 英语 fire', note:'<b>der Brand</b> 是火灾：<b>Feuerwehr!</b>（着火了叫消防！）。品牌德语说 <b>die Marke</b>。'},
+    {type:'ff', deW:'der See', enW:'see', deMean:'湖、湖泊', enMean:'看见、看到', mistake:'把 See 当成"看见"→ 德语 der See 是"湖"', correct:'英语 see（看见）→ 德语 sehen；德语 der See → 英语 lake', note:'<b>der See</b> 是湖（阳性），<b>die See</b> 是海（阴性）——德语里"湖"和"海"只差一个冠词。<b>sehen</b> 才是"看见"。'},
+    {type:'ff', deW:'die Wand', enW:'wand', deMean:'墙壁、墙', enMean:'魔杖；漫步', mistake:'把 Wand 当成"魔杖"→ 德语是"墙"', correct:'英语 wand（魔杖）→ 德语 der Zauberstab；德语 die Wand → 英语 wall', note:'<b>die Wand</b> 是墙壁。哈利波特的魔杖德语说 <b>der Zauberstab</b>（魔法棒），跟 Wand 没关系。'},
+
+    /* ── 语法混淆 Grammar ── */
+    {type:'gr', deW:'weil + 动词在末尾', enW:'because + 正常语序', deMean:'weil 引导的从句动词放最后', enMean:'because 后语序不变', mistake:'用 weil 时把动词放第二位→ 错误！', correct:'Weil ich heute müde bin.（动词 bin 在句末）≠ Because I am tired today.', note:'德语所有从句（weil, dass, wenn...）动词必须放句末：<b>weil ich müde bin</b>，不是 weil ich bin müde。这是英语母语者最常犯的语法错误！'},
+    {type:'gr', deW:'所有名词首字母大写', enW:'只有专有名词大写', deMean:'Hund, Tisch, Liebe — 所有名词都大写', enMean:'只有 Germany, Monday 等专有名词大写', mistake:'用英语习惯只大写专有名词→ 德语考试扣分', correct:'德语: Der Hund ist braun.（Hund 必须大写）≠ 英语: The dog is brown.', note:'德语所有名词都要大写！<b>der Tisch</b>（桌子）、<b>die Freiheit</b>（自由）、<b>das Essen</b>（食物）——记住这个规则，A1 考试少扣冤枉分。'},
+    {type:'gr', deW:'schon ≠ schön', enW:'（英语没有这个区别）', deMean:'schon = 已经；schön = 漂亮', enMean:'already vs beautiful', mistake:'没加两点（Umlaut）→ 意思完全不同', correct:'schon（已经）= already；schön（漂亮）= beautiful。Das ist schon schön! = 这已经很漂亮了！', note:'Umlaut（ä ö ü）不是装饰！<b>schon</b>（已经）和 <b>schön</b>（漂亮）意思完全不一样。德语键盘找不到时可用 ae oe ue 代替：schön = schoen。'},
+    {type:'gr', deW:'der / die / das', enW:'the', deMean:'阳性/阴性/中性 三种冠词', enMean:'只有一种定冠词 the', mistake:'随便用一个 der→ 冠词错了整句味道不对', correct:'der Tisch（阳）、die Lampe（阴）、das Buch（中）——每个名词都要记住冠词', note:'德语每个名词都有性别！<b>der</b>（阳）、<b>die</b>（阴）、<b>das</b>（中）。记单词时顺便记冠词：<b>Tisch 是 der</b>，不是背 Tisch 就完了。'},
+    {type:'gr', deW:'Sie（您）≠ sie（她/他们）', enW:'you（敬称）vs she/they', deMean:'大写 Sie = 您（敬称）；小写 sie = 她/他们', enMean:'英语没有敬称大写区分', mistake:'小写 sie 但想说"您"→ 不礼貌或歧义', correct:'Können Sie mir helfen?（您能帮我吗？）vs Kann sie mir helfen?（她能帮我吗？）', note:'<b>Sie</b>（大写）= 您/您们，德语敬称必须大写。<b>sie</b>（小写）= 她/他们，看动词变位区分：sie ist（她是）vs sie sind（他们是）。'},
+    {type:'gr', deW:'完成时助动词 haben/sein', enW:'have + 过去分词', deMean:'大部分用 haben，移动/状态变化用 sein', enMean:'一律用 have + past participle', mistake:'英语一律 have done → 德语有些用 sein 而非 haben', correct:'Ich habe gegessen（我吃了）但 Ich bin gegangen（我走了）≠ I have gone', note:'德语完成时大部分用 <b>haben</b>，但表示位置移动/状态变化的动词用 <b>sein</b>：<b>Ich bin gefahren</b>（我乘车去了）、<b>Er ist aufgewacht</b>（他醒了）。'},
+
+    /* ── 发音混淆 Pronunciation ── */
+    {type:'pn', deW:'W = [v] 音', enW:'W = [w] 音', deMean:'德语 W 发英语 V 的音：Wasser → "Vah-ser"', enMean:'英语 W 双唇圆撮：water → "Waw-ter"', mistake:'用英语 W 的读法读德语 W→ 发音很怪', correct:'德语 Wasser 读 "Vah-ser"（上牙咬下唇，像英语 V）；英语 water 嘴唇圆形', note:'德语 <b>W → [v]</b>：Wein 读"Vine"、Winter 读"Vin-ter"。这是德语发音最容易纠正的口型错误：上牙咬下唇，声带振动！'},
+    {type:'pn', deW:'V = [f] 音', enW:'V = [v] 音', deMean:'德语 V 发 F 的清音：Vater → "Fah-ter"', enMean:'英语 V 上齿咬下唇浊音：very → "Ver-y"', mistake:'把德语 V 读成英语 V → 母语者听着别扭', correct:'德语 Vogel 读 "Foh-gel"（像英语 F）；英语 very 上齿咬下唇声带振动', note:'德语 <b>V → [f]</b>：Vater 读"Fah-ter"、viel 读"feel"。外来词例外（Vase 读"Vah-ze"）。'},
+    {type:'pn', deW:'Z = [ts] 音', enW:'Z = [z] 音', deMean:'德语 Z 发 TS：Zug → "Tsoog"', enMean:'英语 Z 发浊 z：zoo → "zoo"', mistake:'把 Zug 读成"Zug"（英语 z 音）→ 完全错误', correct:'德语 zehn 读"tsehn"（像 cats 里的 ts），不是英语 zoo 的 z', note:'德语 <b>Z → [ts]</b> 永远如此：<b>Zug</b>（火车）读"Tsoog"、<b>Zeit</b>（时间）读"Tsite"。英语里 ts 只出现在 cats 这种复数词尾，德语 Z 却放在词首！'},
+    {type:'pn', deW:'EI = [ai] / IE = [i:]', enW:'EI 和 IE 读音不规则', deMean:'ei 发"爱"：mein → "mine"；ie 发"衣"长音：sie → "zee"', enMean:'英语 ei 和 ie 读音多变：eight vs receive vs pie', mistake:'ei 和 ie 搞反→ mein 读成"mean"、sie 读成"sigh"', correct:'mein（我的）读"mine"；nie（从不）读"knee"——方法：读第二个字母的英语字母音', note:'记住口诀：<b>读第二个字母</b>！ei → 读 i 的英语字母音"ai"；ie → 读 e 的英语字母音"ee"。mein = mine，sie = zee。'},
+    {type:'pn', deW:'CH 两种发音', enW:'（英语无对应音）', deMean:'ich-Laut [ç]（舌面抬向硬腭）和 ach-Laut [x]（喉咙摩擦）', enMean:'英语 ch 发 [tʃ]：church', mistake:'用英语 ch 的"吃"音读德语 ich→ 太硬了', correct:'ich = "依希"（轻、前）；ach = "啊赫"（喉咙摩擦）；都不是英语 church 的 ch', note:'德语 CH 有软硬两种：<b>ich, mich, nicht</b> 是软音 [ç]（舌面靠近硬腭，像发 y 的气声）；<b>ach, Buch, Nacht</b> 是硬音 [x]（喉咙里像清嗓子）。关键看前面元音：前元音(ä e i ö ü)用软，后元音(a o u)用硬。'},
+
+    /* ── 混合易错 Mixed ── */
+    {type:'fx', deW:'bekommen', enW:'to become', deMean:'得到、收到、获得', enMean:'变成、成为', mistake:'想说"I get a coffee"→ 说成 I become a coffee 的意思', correct:'德语 bekommen = 得到；英语 become = 变成 → 德语"变成"是 werden', note:'这是最经典的错误！<b>bekommen</b> 是"得到/收到"：<b>Ich bekomme einen Kaffee</b> = 我拿到一杯咖啡。如果说 <b>Ich werde ein Kaffee</b> = 我变成一杯咖啡！'},
+    {type:'fx', deW:'wollen ≠ werden', enW:'will ≠ will', deMean:'wollen = 想要（意愿）；werden = 将/变成（将来）', enMean:'will = 将来时；也表示意愿', mistake:'"I will go" 翻译成 Ich will gehen（我想去）≠ 我将会去', correct:'Ich will gehen = I want to go；Ich werde gehen = I will go。德语将来时用 werden！', note:'英语 will 有双重身份（将来+意愿），德语分得很清：<b>wollen</b> = 想要/打算（意愿），<b>werden</b> = 将/变得（将来时助动词）。<b>Ich werde Deutsch lernen</b> = 我将学德语，不是"我想学"。'},
+    {type:'fx', deW:'wo ≠ who', enW:'where ≠ who', deMean:'wo = 哪里（where）', enMean:'where = 哪里；who = 谁', mistake:'把 wo 当成 who→ 问路时问成"谁在火车站"', correct:'Wo ist der Bahnhof? = Where is the train station?；Wer bist du? = Who are you?', note:'<b>wo = where</b>（哪里），<b>wer = who</b>（谁）。都是 W 开头但意思不同：wo 后面常跟 ist/sind，wer 后面常跟 bist/sind。'},
+  ];
+
+  /* ── 句子级常见错误 ── */
+  window.DEEN_SENTENCES = [
+    {deSent:'Ich <b>bekomme</b> ein Steak.', enMistake:'I become a steak.（我变成一块牛排）', enCorrect:'I\'ll have a steak. / I\'m getting a steak.', note:'<b>bekommen</b> 是"得到"，不是"变成"！这句话正确意思是"我点/要一份牛排"。在餐厅点菜说 Ich bekomme 完全OK，但如果直译成英语就闹笑话了。"变成牛排"德语是 <b>Ich werde zum Steak</b>。'},
+    {deSent:'Ich <b>will</b> nach Hause gehen.', enMistake:'I will go home.（我将会回家）', enCorrect:'I want to go home.（我想回家）', note:'<b>wollen</b> 表示意愿（想要），不表将来！如果说将来"我将会回家"，德语是 <b>Ich werde nach Hause gehen</b>。一句话总结：will = wollen（要），will go = werde gehen（将去）。'},
+    {deSent:'<b>Wo</b> bist du?', enMistake:'Who are you?（你是谁？）', enCorrect:'Where are you?（你在哪里？）', note:'<b>wo = where</b>（哪里），<b>wer = who</b>（谁）。Wo bist du? 是在问你在哪，不是你是谁。"你是谁"德语是 <b>Wer bist du?</b>'},
+    {deSent:'Diese Information ist <b>aktuell</b>.', enMistake:'This information is actual.（这信息是真的/是实际的）', enCorrect:'This information is current/up-to-date.（这信息是最新的）', note:'<b>aktuell</b> = current/up-to-date（最新的），不是 actual（实际的）。"实际的/事实上的"德语是 <b>tatsächlich</b>。例如：aktuelle Nachrichten = 最新消息，不是"实际消息"。'},
+    {deSent:'Das Zimmer ist sehr <b>hell</b>.', enMistake:'The room is very hell.（这房间是地狱）', enCorrect:'The room is very bright.（房间很明亮）', note:'<b>hell</b> = bright（明亮），不是 hell（地狱）。德国人说 ein helles Zimmer 是夸采光好的意思。"地狱"德语是 <b>die Hölle</b>，比如 Es ist die Hölle! = 真是地狱般的体验！'},
+    {deSent:'Er ist mein <b>Chef</b>.', enMistake:'He is my chef.（他是我的厨师）', enCorrect:'He is my boss.（他是我老板）', note:'<b>der Chef</b> = boss（老板），不是 chef（厨师）。德语"厨师"是 <b>der Koch</b>（男）/<b>die Köchin</b>（女）。如果想说"他是厨师长"，德语是 <b>Er ist Küchenchef</b>。'},
+    {deSent:'Das ist ein <b>Roman</b>.', enMistake:'That is a Roman.（那是个罗马人）', enCorrect:'That is a novel.（那是本小说）', note:'<b>der Roman</b> = novel（长篇小说），不是 Roman（罗马人）。"罗马人"德语是 <b>der Römer</b>。你可能还想知道：短篇小说德语是 <b>die Kurzgeschichte</b>。'},
+    {deSent:'Es gab einen <b>Brand</b> im Haus.', enMistake:'There was a brand in the house.（房子里有个品牌）', enCorrect:'There was a fire in the house.（房子着火了）', note:'<b>der Brand</b> = fire（火灾），不是 brand（品牌）。"品牌"德语是 <b>die Marke</b>。着火报警说 <b>Es brennt!</b>（着火了！），名词是 der Brand。'},
+  ];
+
+  /* ── 类型标签映射 ── */
+  var TYPE_MAP = {ff:{cls:'ff',label:'假朋友'}, gr:{cls:'gr',label:'语法混淆'}, pn:{cls:'pn',label:'发音混淆'}, fx:{cls:'fx',label:'混合易错'}};
+
+  /* ── 渲染词级卡片 ── */
+  window.renderDEENGrid = function() {
+    var grid = document.getElementById('de-en-grid');
+    if (!grid) return;
+    var facts = window.DEEN_FACTS || [];
+    var h = '';
+    for (var i = 0; i < facts.length; i++) {
+      var f = facts[i];
+      var tm = TYPE_MAP[f.type] || {cls:'fx',label:'易错'};
+      var plain = (f.deW + ' ' + f.enW + ' ' + f.deMean + ' ' + f.enMean + ' ' + f.mistake + ' ' + f.correct + ' ' + f.note + ' ' + tm.label).replace(/<[^>]+>/g, '');
+      h += '<div class="de-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      h += '<div class="de-card-top"><span class="de-type ' + tm.cls + '">' + tm.label + '</span><span class="de-num">#' + (i + 1) + '</span></div>';
+      h += '<div class="de-rows">';
+      h += '<div class="de-col de"><div class="de-col-label">🇩🇪 德语</div><div class="de-word">' + f.deW + '</div><div class="de-meaning">' + f.deMean + '</div></div>';
+      h += '<div class="de-col en"><div class="de-col-label">🇬🇧 英语</div><div class="de-word">' + f.enW + '</div><div class="de-meaning">' + f.enMean + '</div></div>';
+      h += '</div>';
+      h += '<div class="de-mistake-box"><div class="de-mistake-label">❌ 常见错误</div><div class="de-mistake-text">' + f.mistake + '</div></div>';
+      h += '<div class="de-correct-box"><div class="de-correct-label">✅ 正确对照</div><div class="de-correct-text">' + f.correct + '</div></div>';
+      h += '<div class="de-note">💡 ' + f.note + '</div>';
+      h += '<div class="de-watermark">Leons Deutschzentrum</div>';
+      h += '</div>';
+    }
+    grid.innerHTML = h;
+    updateDEENCount();
+  };
+
+  /* ── 渲染句子级卡片 ── */
+  window.renderDEENSentences = function() {
+    var grid = document.getElementById('de-en-sent-grid');
+    if (!grid) return;
+    var sents = window.DEEN_SENTENCES || [];
+    var h = '';
+    for (var i = 0; i < sents.length; i++) {
+      var s = sents[i];
+      var plain = (s.deSent + ' ' + s.enMistake + ' ' + s.enCorrect + ' ' + s.note).replace(/<[^>]+>/g, '');
+      h += '<div class="de-sent-card" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
+      h += '<div class="de-sent-top"><span class="de-sent-type">📝 病句 #' + (i + 1) + '</span></div>';
+      h += '<div class="de-sent-de">🇩🇪 ' + s.deSent + '</div>';
+      h += '<div class="de-sent-mistake"><div class="lbl">❌ 英语母语者常误以为</div><div class="txt">' + s.enMistake + '</div></div>';
+      h += '<div class="de-sent-correct"><div class="lbl">✅ 正确英语意思</div><div class="txt">' + s.enCorrect + '</div></div>';
+      h += '<div class="de-sent-note">💡 ' + s.note + '</div>';
+      h += '<div class="de-watermark">Leons Deutschzentrum</div>';
+      h += '</div>';
+    }
+    grid.innerHTML = h;
+    updateDEENCount();
+  };
+
+  /* ── 计数更新 ── */
+  function updateDEENCount() {
+    var wordCards = document.querySelectorAll('#page-de-en .de-card');
+    var sentCards = document.querySelectorAll('#page-de-en .de-sent-card');
+    var total = wordCards.length + sentCards.length;
+    var cnt = document.getElementById('de-en-count');
+    if (cnt) cnt.innerHTML = '共 <b>' + total + '</b> 条（词级 ' + wordCards.length + ' + 句子 ' + sentCards.length + '）';
+  }
+
+  /* ── 搜索过滤 ── */
+  window.filterDEEN = function() {
+    var input = document.getElementById('de-en-search');
+    var q = input ? input.value.trim().toLowerCase() : '';
+    var clearBtn = document.getElementById('de-en-search-clear');
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+    var cards = document.querySelectorAll('#page-de-en .de-card, #page-de-en .de-sent-card');
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var ok = !q || cards[i].getAttribute('data-text').indexOf(q) !== -1;
+      cards[i].style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    }
+    var emptyEl = document.getElementById('de-en-empty');
+    var secTitle = document.querySelector('#page-de-en .de-sec-title');
+    if (emptyEl) emptyEl.style.display = (shown === 0) ? 'block' : 'none';
+    if (secTitle) secTitle.style.display = q ? 'none' : '';
+    var cnt = document.getElementById('de-en-count');
+    if (cnt) cnt.innerHTML = (shown === cards.length) ? '共 <b>' + cards.length + '</b> 条' : '找到 <b>' + shown + '</b> / ' + cards.length + ' 条';
+  };
+
+  window.clearDEENSearch = function() {
+    var input = document.getElementById('de-en-search');
+    if (input) { input.value = ''; input.focus(); }
+    window.filterDEEN();
+  };
+
+  /* ── 丁达尔浮尘 ── */
+  (function deDustInit(){
+    var box = document.getElementById('deDust');
+    if (!box || box.dataset.done) return;
+    box.dataset.done = '1';
+    var html = '';
+    for (var i = 0; i < 26; i++) {
+      var sz = (Math.random()*2.4 + 1).toFixed(1);
+      var left = (Math.random()*52 + 2).toFixed(1);
+      var top  = (Math.random()*70 + 12).toFixed(1);
+      var dur  = (Math.random()*10 + 8).toFixed(1);
+      var del  = (-Math.random()*18).toFixed(1);
+      html += '<span class="de-mote" style="width:'+sz+'px;height:'+sz+'px;left:'+left+'%;top:'+top+'%;'+
+              '--md:'+dur+'s;--mt:'+del+'s"></span>';
+    }
+    box.innerHTML = html;
+  })();
+})();
+</script>
+
 <!-- ══════════ 林夏在德国 ══════════ -->
 <div id="page-serie" class="page">
   <div class="se-beams" aria-hidden="true">
