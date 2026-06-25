@@ -84583,7 +84583,7 @@ window.shareKulturEpV2 = function() {
   
   // 手机端优先调用原生分享面板（弹出微信/朋友圈等，预览卡显示集数简介）
   if (navigator.share) {
-    navigator.share({ title: title, text: shareText, url: url }).catch(function(err) {
+    navigator.share({ title: title, url: url }).catch(function(err) {
       if (err.name !== 'AbortError') copyFallback();
     });
   } else {
