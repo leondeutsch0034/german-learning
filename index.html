@@ -86485,6 +86485,38 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
 </div>
 
+<div id="echt-share-overlay">
+  <button class="share-close" onclick="closeEchtShare()">✕</button>
+  <div id="echt-share-card">
+    <div class="es-inner">
+    <span class="es-badge" id="es-badge"></span>
+    <div class="es-rows">
+      <div class="es-col book">
+        <div class="es-col-label">📖 课本这么教</div>
+        <div class="es-de" id="es-book"></div>
+      </div>
+      <span class="es-vs">→</span>
+      <div class="es-col real">
+        <div class="es-col-label">🇩🇪 德国人这么说</div>
+        <div class="es-de" id="es-real"></div>
+      </div>
+    </div>
+    <div class="es-note" id="es-note"></div>
+    <div class="es-brand"><span>Leons Deutschzentrum</span> · 地道德语对照卡</div>
+  </div>
+  </div>
+  <!-- 谚语分享卡片 -->
+  <div id="prov-share-card">
+    <div class="ps-inner">
+    <span class="ps-badge" id="ps-badge"></span>
+    <div class="ps-de" id="ps-de"></div>
+    <div class="ps-zh" id="ps-zh"></div>
+    <div class="ps-literal" id="ps-literal"></div>
+    <div class="ps-note" id="ps-note"></div>
+    <div class="ps-brand"><span>Leons Deutschzentrum</span> · 德国谚语卡片</div>
+  </div>
+  </div>
+</div>
 <!-- ══════════ 地道德语 ══════════ -->
 <div id="page-echt" class="page">
   <div class="eb-beams" aria-hidden="true">
