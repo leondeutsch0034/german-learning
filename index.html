@@ -15056,8 +15056,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hash 路由：分享链接打开时自动跳转到对应页面
   var hash = window.location.hash;
   var hashId = hash ? hash.replace('#', '') : '';
-  // 你不知道的德国 深链接: #kultur-reader&ep=X → 一键直达指定期数
-  if (hashId.indexOf('kultur-reader&ep=') === 0) {
+  // 你不知道的德国 深链接: 路径 /kd/X.html 或 hash #kultur-reader&ep=X
+  var kdMatch = window.location.pathname.match(/\/kd\/(\d+)\.html/);
+  if (kdMatch) {
+    window._kdDeepLinked = true;
+    showPage('kultur-reader');
+    // initKulturReader 会通过路径检测读到正确期数
+  } else if (hashId.indexOf('kultur-reader&ep=') === 0) {
     window._kdDeepLinked = true; // 阻止 IIFE 重复触发
     var ep = hashId.split('ep=')[1];
     if (ep) {
@@ -15096,6 +15101,15 @@ window.addEventListener('hashchange', function() {
     showPage(id);
   } else {
     gotoSection(id);
+  }
+});
+
+// 路径格式 /kd/X.html 的前进/后退（浏览器自带分享用）
+window.addEventListener('popstate', function() {
+  var m = window.location.pathname.match(/\/kd\/(\d+)\.html/);
+  if (m) {
+    showPage('kultur-reader');
+    // initKulturReader 会通过路径检测读到正确期数
   }
 });
 </script>
@@ -84536,7 +84550,7 @@ window.showKulturEp = function(ep) {
   page.scrollIntoView({ block: 'start' });
   window.scrollTo(0, 0);
   window._currentKulturEp = ep;
-  try { history.replaceState(null, '', '#kultur-reader&ep=' + ep); } catch(e) {}
+  try { history.replaceState(null, '', '/kd/' + ep + '.html'); } catch(e) {}
   try {
     var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'18期第一视角德国真相'};
     var ogT = document.querySelector('meta[property="og:title"]');
@@ -84596,6 +84610,9 @@ window.initKulturReader = function() {
     var ep = hash.split('ep=')[1];
     if (ep) { showKulturEp(ep); return; }
   }
+  // 路径格式 /kd/5.html（浏览器自带分享用）
+  var m = window.location.pathname.match(/\/kd\/(\d+)\.html/);
+  if (m) { showKulturEp(m[1]); return; }
   showKulturEp(1);
 };
 if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
