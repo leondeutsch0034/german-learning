@@ -3924,9 +3924,10 @@ function createLoginPromptCard() {
   document.addEventListener('click', function(e) {
     if (e.target === document.getElementById('wds-share-overlay')) closeWDSShare();
   });
-  // ESC 关闭
+  // ESC 关闭 WDS
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeWDSShare();
+  });
   // Echt Deutsch 分享：点击遮罩关闭
   document.addEventListener('click', function(e) {
     if (e.target === document.getElementById('echt-share-overlay')) closeEchtShare();
@@ -3934,7 +3935,6 @@ function createLoginPromptCard() {
   // Echt Deutsch 分享：ESC 关闭
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeEchtShare();
-  });
   });
 
   window.dismissWDS = function() {
@@ -86689,7 +86689,8 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'送修电子', book:'Mein Laptop funktioniert nicht.', real:'Mein Laptop spinnt. / Der Bildschirm bleibt schwarz. / Kannst du mal draufgucken?', note:'电子产品坏了别用 funktioniert nicht。<b>Mein Laptop spinnt</b>（我的笔记本发神经了）超日常。<b>Kannst du mal draufgucken?</b>（你能帮我看一眼吗？）是找朋友帮忙的万能起手式。<b>Garantie</b>（保修）还在不？<b>Hast du noch Garantie drauf?</b> 是第一反应。'},
     {cat:'加油站', book:'Wo ist die nächste Tankstelle?', real:'Ich muss tanken. / Super E10 oder Diesel? / Was kostet der Sprit gerade?', note:'德国油价波动频繁——<b>Spritpreise</b> 一天涨跌好几次，App 比价是驾驶者的日常。加油枪自己拿，加完去小店报油枪号 <b>Nummer 3, bitte</b> 付款。<b>Super E10</b>（95号含10%乙醇）、<b>Super E5</b>（95号标准）、<b>Diesel</b>（柴油）三大类，别加错了。'},
     {cat:'室友会议', book:'Wir müssen über die Hausarbeit sprechen.', real:'Lass uns \'n WG-Plenum machen. / Wer hat den Müll noch nicht runtergebracht? / Schreib dich in die Putzliste ein!', note:'德国 WG（合租，<b>Wohngemeinschaft</b>）文化发达。<b>Putzplan</b>（值日表）是和平共处的基本法——<b>Ich mach\' diese Woche das Bad</b>（我这周打扫浴室）。<b>WG-Plenum</b>（室友大会）定期讨论采购、值日、访客规则。<b>Putzkasten</b>（清洁用品柜）和 <b>Mülltrennung</b>（垃圾分类）是争吵最多的话题。'},
-    {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）基本全国；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'}
+    {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）基本全国；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'},
+    {cat:'走大运', book:'Das ist ein großer Glücksfall.', real:'Das ist \'n Sechser im Lotto! / Einfach ein Sechser im Lotto! / So ein Glück muss man erst mal haben!', note:'德国人表达"走大运/撞大运"的经典说法——<b>ein Sechser im Lotto</b>（字面：六合彩中六个号=中头奖），用来形容运气爆棚。<b>So ein Glück muss man erst mal haben!</b>（这种运气得先有才行！）也表示难以置信的好运。反着说也可以：<b>Das ist aber auch kein Sechser im Lotto</b>——这事不是什么中彩票（没那么难/没那么稀奇）。'},
   ];
 
   window.PROVERB_FACTS = [
