@@ -4515,18 +4515,6 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
-<!-- ══════════ WDS 分享弹窗 ══════════ -->
-<div id="wds-share-overlay">
-  <button class="share-close" onclick="closeWDSShare()">✕</button>
-  <div id="wds-share-card">
-    <span class="share-emoji" id="share-emoji"></span>
-    <div class="share-de" id="share-de"></div>
-    <div class="share-zh" id="share-zh"></div>
-    <div class="share-brand"><span>Leons Deutschzentrum</span> · Wusstest du schon?</div>
-    <div class="share-url">leonsdeutschzentrum.com</div>
-  </div>
-</div>
-
 <!-- 模块标题 -->
 <div class="sec-title">📚 学习模块</div>
 
@@ -4608,6 +4596,18 @@ document.addEventListener('keydown', function(e) {
   Leons Deutschzentrum · Goethe-Zertifikat A1 / A2 / B1 备考 · 语法 · 听力 · 写作 · 发音 · 文化
 </footer>
 
+</div>
+
+<!-- ══════════ WDS 分享弹窗 ══════════ -->
+<div id="wds-share-overlay">
+  <button class="share-close" onclick="closeWDSShare()">✕</button>
+  <div id="wds-share-card">
+    <span class="share-emoji" id="share-emoji"></span>
+    <div class="share-de" id="share-de"></div>
+    <div class="share-zh" id="share-zh"></div>
+    <div class="share-brand"><span>Leons Deutschzentrum</span> · Wusstest du schon?</div>
+    <div class="share-url">leonsdeutschzentrum.com</div>
+  </div>
 </div>
 
 <!-- ══════════ Wusstest du schon? 全部冷知识 ══════════ -->
@@ -45436,6 +45436,7 @@ function b1S12CheckB(){
               <option value="16">第 16 集 · 度假与休闲</option>
               <option value="17">第 17 集 · 高考后留学德国</option>
               <option value="18">第 18 集 · 社交密码</option>
+              <option value="19">第 19 集 · 德国空调为什么这么少？</option>
       </select>
     </div>
           <!-- ══ 第 1 集 · 超市与生活 ══ -->
@@ -84567,10 +84568,10 @@ function b1S12CheckB(){
           <!-- ═══ Episode 19 · 德国空调为什么这么少 ═══ -->
           <div class="kd-episode" data-ep="19" style="display:none">
             <!-- 封面 -->
-            <div class="cover" style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:24px;background:linear-gradient(150deg,#1a0a0a,#4a1a0a,#1a1a2e);min-height:240px;display:flex;align-items:flex-end">
-              <div class="cover-img" style="position:absolute;inset:0;opacity:.35;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%231a0a0a%22 width=%22400%22 height=%22300%22/><circle cx=%22230%22 cy=%2250%22 r=%2280%22 fill=%22%23ff6600%22 opacity=%220.15%22/><rect x=%2230%22 y=%22180%22 width=%22340%22 height=%22120%22 rx=%228%22 fill=%22%23444%22 opacity=%220.3%22/><rect x=%2260%22 y=%22160%22 width=%2280%22 height=%2240%22 rx=%224%22 fill=%22%23555%22 opacity=%220.4%22/><text x=%22200%22 y=%22140%22 fill=%22%23ff9944%22 font-size=%2236%22 text-anchor=%22middle%22>🥵</text></svg>') center/cover no-repeat"></div>
-              <div class="cover-overlay" style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,20,40,.95) 0%,rgba(10,20,40,.4) 60%,rgba(10,20,40,.2) 100%)"></div>
-              <div class="cover-text" style="position:relative;z-index:2;padding:32px 28px 28px;width:100%">
+              <div class="cover">
+                <img class="cover-img" src="https://images.pexels.com/photos/33615152/pexels-photo-33615152.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Heiße Sommerstadtstraße" loading="eager" onerror="this.style.opacity='0'">
+                <div class="cover-overlay"></div>
+                <div class="cover-text">
                 <div class="series" style="font-size:.68rem;letter-spacing:.15em;color:rgba(246,211,101,.7);margin-bottom:8px;text-transform:uppercase">你不知道的德国 · 第 19 集</div>
                 <h1 style="font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;color:#fde68a;line-height:1.3;margin:0">🥵 德国空调为什么这么少？</h1>
                 <div class="sub" style="font-size:.85rem;color:rgba(255,245,230,.6);margin-top:6px">3%安装率 · 厚墙被动降温 · Denkmalschutz · 电费贵 —— 德国人不装空调的6个真相</div>
@@ -84579,7 +84580,10 @@ function b1S12CheckB(){
 
             <!-- Story 1 -->
             <div class="story">
-              <div class="story-num">01</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/32900502/pexels-photo-32900502.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Historisches Backsteingebäude in Leer" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">01</div>
+              </div>
               <h2>📊 3%——一个令人震惊的数字</h2>
               <p>欧洲热浪年年刷新纪录，但在德国，只有大约<strong>3%的家庭安装了空调</strong>。作为对比：美国超过90%、日本超过91%、中国城市家庭空调普及率更接近100%。在欧盟内部，德国也远低于意大利（约40%）、西班牙（约35%）和法国（约20%）。</p>
               <p>你可能会问：德国人不怕热吗？答案是——他们当然怕。2022年夏天，德国多地体感温度超过40°C，超市里的<strong>电风扇（Ventilator）被抢购一空</strong>，游泳池连排队都进不去。但装空调这件事，在德国远不是"想装就装"那么简单。</p>
@@ -84596,7 +84600,10 @@ function b1S12CheckB(){
 
             <!-- Story 2 -->
             <div class="story">
-              <div class="story-num">02</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/37257761/pexels-photo-37257761.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Europäisches Gebäude mit Fensterläden" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">02</div>
+              </div>
               <h2>🧱 房子本身就会"呼吸"——德国的被动降温哲学</h2>
               <p>德国传统建筑的设计理念里，<strong>本来就内置了"防暑系统"</strong>。与中国南方常见的薄墙+大窗户建筑不同，德国老房子（Altbau）和现代节能房（Energieeffizienzhaus）都有以下"被动降温"特征：</p>
               <p><strong>• 厚实的墙体（dicke Wände）</strong>——德国住宅墙体厚度通常在30-50厘米，热容量大，白天吸热、晚上释放，室内温度自然比室外低5-8°C。</p>
@@ -84615,7 +84622,10 @@ function b1S12CheckB(){
 
             <!-- Story 3 -->
             <div class="story">
-              <div class="story-num">03</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/210679/pexels-photo-210679.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Euro-Banknoten und Münzen" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">03</div>
+              </div>
               <h2>💰 电费贵到肉疼——开空调是一种奢侈</h2>
               <p>德国居民用电价格常年位居<strong>全球前三</strong>，2024年平均每度电约<strong>0.40欧元（约3.2元人民币）</strong>，是中国的约6倍、美国的约3倍。一台典型分体空调（2.5kW制冷量）连续运行8小时，电费约为8-10欧元——一个月就是240-300欧元。</p>
               <p>德国电价高企的原因包括：<strong>能源转型附加费（EEG-Umlage）、碳排放税（CO₂-Steuer）、电网费（Netzentgelte）</strong>以及各种税费——加起来占电价的50%以上。即便政府取消了EEG附加费并降低了电力税，价格仍然让普通家庭望而却步。</p>
@@ -84633,7 +84643,10 @@ function b1S12CheckB(){
 
             <!-- Story 4 -->
             <div class="story">
-              <div class="story-num">04</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/30883939/pexels-photo-30883939.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Historische Fachwerkhäuser in Deutschland" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">04</div>
+              </div>
               <h2>🏛️ Denkmalschutz——历史保护 vs 空调外机</h2>
               <p>德国有超过<strong>100万栋建筑</strong>受历史保护（Denkmalschutz）。在这些建筑的外墙上，<strong>任何改变外观的改动——包括挂一个空调外机——都需要特别审批</strong>。审批流程往往长达数月，且大概率被拒。</p>
               <p>即使不在历史保护建筑里，德国超过50%的人口是租户（Mieter）。在租来的公寓里安装分体空调需要房东同意，而房东通常没有动力为租客投资几千欧元装空调——况且装了还会增加维护成本和能耗评级压力。</p>
@@ -84651,7 +84664,10 @@ function b1S12CheckB(){
 
             <!-- Story 5 -->
             <div class="story">
-              <div class="story-num">05</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/16220988/pexels-photo-16220988.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Windkraftanlagen in deutscher Landschaft" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">05</div>
+              </div>
               <h2>🌿 环保意识——空调是"气候罪人"</h2>
               <p>德国是欧洲环保运动的发源地之一，<strong>绿党（Die Grünen）</strong>在政坛影响力巨大。在公共话语中，空调常被与<strong>"能源浪费""热岛效应""制冷剂破坏臭氧层"</strong>等负面标签挂钩。</p>
               <p>传统空调使用含氟制冷剂（如R-410A），其全球变暖潜能值（GWP）是CO₂的2000倍以上。虽然欧盟已逐步淘汰最有害的制冷剂（F-Gas-Verordnung），但环保组织仍认为空调不是一个可持续的制冷方案。</p>
@@ -84669,7 +84685,10 @@ function b1S12CheckB(){
 
             <!-- Story 6 -->
             <div class="story">
-              <div class="story-num">06</div>
+              <div class="story-img-wrap">
+                <img class="story-img" src="https://images.pexels.com/photos/33615152/pexels-photo-33615152.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sommerliche Stadtstraße mit Hitze" loading="lazy" onerror="this.style.opacity='0'">
+                <div class="story-num">06</div>
+              </div>
               <h2>📈 未来：变化正在发生</h2>
               <p>尽管100个理由不装空调，但一个不可忽视的事实是：<strong>德国越来越热了</strong>。德国气象局（DWD）数据显示，过去50年德国年平均气温上升了约<strong>1.6°C</strong>，夏季高温天数（>30°C）从每年约5天增加到约15天。</p>
               <p>2022年7月，汉堡市气温达到<strong>40.1°C</strong>，刷新北德历史记录。同月，德国全境有超过<strong>4500人因高温死亡</strong>（Robert Koch-Institut 数据）。这个数字是全年交通事故死亡人数的近两倍。</p>
@@ -84729,7 +84748,7 @@ window._kdEpData = {1:{title:"超市与生活",desc:"一个矿泉水瓶多收25�
 window.navKulturEp = function(dir) {
   var ep = parseInt(window._currentKulturEp || '1');
   var next = ep + dir;
-  if (next >= 1 && next <= 18) { showKulturEp(next); }
+  if (next >= 1 && next <= 19) { showKulturEp(next); }
 };
 window.showKulturEp = function(ep) {
   var page = document.getElementById('page-kultur-reader');
