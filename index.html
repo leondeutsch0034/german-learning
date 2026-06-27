@@ -2747,27 +2747,31 @@
       /* 歌曲简介框压缩 */
       #page-b1lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
-    /* ── Wusstest du schon? 每日冷知识卡片 ── */
-    #wds-card-wrap { margin:0 auto 18px; max-width:800px; padding:0 20px; }
-    #wds-card { background:linear-gradient(135deg,#0f1e3a 0%,#162d4a 50%,#1a3050 100%); border:1px solid rgba(246,211,101,.25); border-radius:14px; padding:14px 20px; position:relative; transition:all .3s ease; cursor:default; display:flex; align-items:center; gap:18px; }
-    #wds-card:hover { border-color:rgba(246,211,101,.5); box-shadow:0 4px 24px rgba(246,211,101,.1); }
-    #wds-card .wds-left { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:6px; }
-    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; font-size:.66rem; font-weight:700; padding:2px 10px; border-radius:8px; letter-spacing:.03em; white-space:nowrap; }
-    #wds-card .wds-emoji { font-size:2rem; }
+    /* ── Wusstest du schon? 每日冷知识卡片（Echt Deutsch 同款范式）── */
+    #wds-card-wrap { margin:0 auto 22px; max-width:800px; padding:0 20px; }
+    #wds-card { background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:20px 22px; position:relative; transition:all .3s ease; cursor:default; display:flex; align-items:center; gap:20px; }
+    #wds-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
+    #wds-card .wds-left { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:8px; }
+    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#d4a030,#f6d365); color:#0a1428; font-size:.72rem; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:.03em; white-space:nowrap; box-shadow:0 2px 8px rgba(246,211,101,.18); }
+    #wds-card .wds-emoji { font-size:2.2rem; line-height:1; }
     #wds-card .wds-body { flex:1; min-width:0; }
-    #wds-card .wds-de { font-size:.92rem; color:#fde68a; font-weight:600; line-height:1.5; margin-bottom:2px; }
-    #wds-card .wds-zh { font-size:.8rem; color:#94a3b8; line-height:1.5; }
-    #wds-card .wds-close { position:absolute; top:10px; right:14px; background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:2px 6px; border-radius:50%; transition:all .2s; line-height:1; }
+    #wds-card .wds-de { font-size:1rem; color:#fef3c7; font-weight:600; line-height:1.55; margin-bottom:4px; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:-.005em; }
+    #wds-card .wds-zh { font-size:.82rem; color:#94a3b8; line-height:1.55; }
+    #wds-card .wds-close { position:absolute; top:12px; right:16px; background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:3px 7px; border-radius:50%; transition:all .2s; line-height:1; }
     #wds-card .wds-close:hover { color:#fde68a; background:rgba(246,211,101,.1); }
-    #wds-card .wds-footer { margin-top:6px; display:flex; align-items:center; justify-content:space-between; font-size:.68rem; color:#64748b; }
-    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.72rem; transition:.2s; }
+    #wds-card .wds-footer { margin-top:10px; padding-top:10px; border-top:1px solid rgba(246,211,101,.1); display:flex; align-items:center; justify-content:space-between; font-size:.68rem; color:#64748b; }
+    #wds-card .wds-num { color:#64748b; font-size:.7rem; }
+    #wds-card .wds-num b { color:#f6d365; font-weight:700; }
+    #wds-card .wds-share-btn { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; padding:5px 14px; border-radius:16px; font-size:.7rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
+    #wds-card .wds-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
+    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.73rem; transition:.2s; margin-left:2px; }
     #wds-card .wds-more:hover { color:#fde68a; text-decoration:underline; }
-    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{flex-direction:column;padding:14px 16px;border-radius:12px;gap:10px;align-items:flex-start} #wds-card .wds-left{flex-direction:row;gap:8px} #wds-card .wds-emoji{font-size:1.6rem} #wds-card .wds-de{font-size:.84rem} #wds-card .wds-zh{font-size:.76rem} }
-    /* ── WDS 全部冷知识展示页 ── */
-    #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#162d4a); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
-    #page-wds .wds-page-header { text-align:center; margin-bottom:24px; }
-    #page-wds .wds-page-header h2 { color:#f6d365; font-size:1.6rem; margin-bottom:6px; }
-    #page-wds .wds-page-header p { color:#64748b; font-size:.88rem; }
+    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{flex-direction:column;padding:16px 16px;border-radius:14px;gap:12px;align-items:flex-start} #wds-card .wds-left{flex-direction:row;gap:8px} #wds-card .wds-emoji{font-size:1.8rem} #wds-card .wds-de{font-size:.9rem} #wds-card .wds-zh{font-size:.78rem} }
+    /* ── WDS 全部冷知识展示页（Echt Deutsch 同款范式）── */
+    #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+    #page-wds .wds-page-header { text-align:center; margin-bottom:26px; }
+    #page-wds .wds-page-header h2 { color:#f6d365; font-size:1.75rem; margin-bottom:8px; letter-spacing:-.01em; }
+    #page-wds .wds-page-header p { color:#94a3b8; font-size:.9rem; max-width:520px; margin:0 auto; line-height:1.5; }
     /* 搜索 + 统计条 */
     #page-wds .wds-tools { max-width:1040px; margin:0 auto 26px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; }
     #page-wds .wds-search-box { position:relative; flex:1; min-width:240px; max-width:440px; }
@@ -2780,25 +2784,27 @@
     #page-wds .wds-count { font-size:.78rem; color:#64748b; white-space:nowrap; }
     #page-wds .wds-count b { color:#f6d365; font-weight:700; }
     #page-wds .wds-empty { display:none; text-align:center; color:#64748b; font-size:.9rem; padding:50px 20px; }
-    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-rows:1fr; gap:16px; max-width:1040px; margin:0 auto; }
-    #page-wds .wds-grid-card { background:#0f1e3a; border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 18px 16px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
-    #page-wds .wds-grid-card:hover { border-color:rgba(246,211,101,.35); box-shadow:0 4px 20px rgba(246,211,101,.08); transform:translateY(-2px); }
-    #page-wds .wds-grid-card.today { border-color:rgba(246,211,101,.5); box-shadow:0 0 0 2px rgba(246,211,101,.15),0 4px 20px rgba(246,211,101,.12); background:#162d4a; }
-    #page-wds .wds-grid-card .wgc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    /* ── 全部冷知识网格卡片（Echt Deutsch 同款范式）── */
+    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1040px; margin:0 auto; }
+    #page-wds .wds-grid-card { background:linear-gradient(160deg,#0f1e3a,#132540); border:1px solid rgba(246,211,101,.1); border-radius:18px; padding:20px 20px 18px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
+    #page-wds .wds-grid-card:hover { border-color:rgba(246,211,101,.4); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-3px); }
+    #page-wds .wds-grid-card.today { border-color:rgba(246,211,101,.5); box-shadow:0 0 0 2px rgba(246,211,101,.15),0 6px 28px rgba(0,0,0,.35); background:linear-gradient(160deg,#132540,#182d50); }
+    #page-wds .wds-grid-card .wgc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
     #page-wds .wds-grid-card .wgc-emoji { font-size:2rem; line-height:1; }
-    #page-wds .wds-grid-card .wgc-num { font-size:.62rem; font-weight:700; color:#94a3b8; background:rgba(148,163,184,.1); border:1px solid rgba(148,163,184,.18); padding:3px 9px; border-radius:20px; letter-spacing:.03em; }
-    #page-wds .wds-grid-card.today .wgc-num { color:#0a1428; background:linear-gradient(135deg,#b8860b,#f6d365); border-color:transparent; }
+    #page-wds .wds-grid-card .wgc-num { font-size:.66rem; font-weight:700; color:rgba(246,211,101,.35); letter-spacing:.06em; }
+    #page-wds .wds-grid-card.today .wgc-num { color:#0a1428; background:linear-gradient(135deg,#d4a030,#f6d365); padding:4px 12px; border-radius:20px; letter-spacing:.03em; }
     #page-wds .wds-grid-card .wgc-today-tag { font-size:.6rem; font-weight:700; color:#0a1428; background:linear-gradient(135deg,#f6d365,#fde68a); padding:3px 8px; border-radius:20px; margin-right:6px; }
-    #page-wds .wds-grid-card .wgc-de { font-size:.88rem; color:#fde68a; font-weight:600; line-height:1.55; margin-bottom:8px; overflow-wrap:break-word; word-break:break-word; }
-    #page-wds .wds-grid-card .wgc-zh { font-size:.78rem; color:#94a3b8; line-height:1.5; }
-    #page-wds .wds-grid-card .wgc-share { align-self:flex-end; margin-top:auto; padding-top:12px; background:none; border:none; color:#f6d365; font-size:.72rem; cursor:pointer; opacity:.65; transition:.2s; }
-    #page-wds .wds-grid-card .wgc-share:hover { opacity:1; }
+    #page-wds .wds-grid-card .wgc-de { font-size:1rem; color:#fef3c7; font-weight:600; line-height:1.55; margin-bottom:8px; overflow-wrap:break-word; word-break:break-word; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:-.005em; }
+    #page-wds .wds-grid-card .wgc-zh { font-size:.82rem; color:#94a3b8; line-height:1.55; }
+    #page-wds .wds-grid-card .wgc-footer { margin-top:auto; padding-top:14px; border-top:1px solid rgba(246,211,101,.08); display:flex; justify-content:flex-end; }
+    #page-wds .wds-grid-card .wgc-share-btn { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; padding:5px 14px; border-radius:16px; font-size:.7rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
+    #page-wds .wds-grid-card .wgc-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
+    #page-wds .wds-grid-card .wgc-watermark { padding-top:8px; text-align:right; font-size:.58rem; color:rgba(246,211,101,.14); letter-spacing:.05em; }
     #page-wds .wds-grid-card mark { background:rgba(246,211,101,.28); color:#fff; border-radius:3px; padding:0 1px; }
-    #page-wds .wds-page-back { text-align:center; margin-top:36px; }
-    #page-wds .wds-page-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2e527c); color:#fde68a; padding:10px 28px; border-radius:20px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(246,211,101,.25); transition:.2s; }
-    #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.6); box-shadow:0 4px 16px rgba(246,211,101,.15); }
-    @media(max-width:900px){ #page-wds .wds-grid{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:15px 15px 13px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.82rem} #page-wds .wds-grid-card .wgc-zh{font-size:.74rem} #page-wds .wds-tools{margin-bottom:20px} }
+    #page-wds .wds-page-back { text-align:center; margin-top:40px; }
+    #page-wds .wds-page-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2a4a7a); color:#fde68a; padding:11px 30px; border-radius:22px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(246,211,101,.22); transition:.25s; }
+    #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.55); box-shadow:0 4px 18px rgba(246,211,101,.12); transform:translateY(-1px); }
+    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:16px 16px 14px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.88rem} #page-wds .wds-grid-card .wgc-zh{font-size:.76rem} #page-wds .wds-tools{margin-bottom:20px} }
     /* ── 分享卡片全屏弹窗 ── */
     #wds-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
     #wds-share-overlay.show { display:flex; }
@@ -3868,7 +3874,8 @@ function createLoginPromptCard() {
       html += '</div>';
       html += '<div class="wgc-de">' + f.de + '</div>';
       html += '<div class="wgc-zh">' + f.zh + '</div>';
-      html += '<button class="wgc-share" onclick="event.stopPropagation();openWDSShare(' + i + ')">📸 分享</button>';
+      html += '<div class="wgc-footer"><button class="wgc-share-btn" onclick="event.stopPropagation();openWDSShare(' + i + ')">📸 分享</button></div>';
+      html += '<div class="wgc-watermark">Leons Deutschzentrum</div>';
       html += '</div>';
     }
     grid.innerHTML = html;
@@ -4498,9 +4505,9 @@ document.addEventListener('keydown', function(e) {
       <div class="wds-de" id="wds-de"></div>
       <div class="wds-zh" id="wds-zh"></div>
       <div class="wds-footer">
-        <span id="wds-num"></span>
+        <span class="wds-num" id="wds-num"></span>
         <span>
-          <button onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())" style="background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);color:#f6d365;padding:4px 12px;border-radius:12px;font-size:.68rem;cursor:pointer;margin-right:8px;transition:.2s" onmouseover="this.style.background='rgba(246,211,101,.25)'" onmouseout="this.style.background='rgba(246,211,101,.12)'">📸 分享</button>
+          <button class="wds-share-btn" onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())">📸 分享</button>
           <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 91 条 →</a>
         </span>
       </div>
@@ -4519,38 +4526,6 @@ document.addEventListener('keydown', function(e) {
     <div class="share-url">leonsdeutschzentrum.com</div>
   </div>
 </div>
-
-<!-- ══════════ Wusstest du schon? 全部冷知识 ══════════ -->
-<div id="page-wds" class="page">
-  <div class="wds-page-header">
-    <h2>🇩🇪 Wusstest du schon?</h2>
-    <p>91 条德国冷知识 — 每日一条，德语阅读 + 文化科普</p>
-  </div>
-  <div class="wds-tools" style="max-width:1040px;margin:0 auto 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;padding:0 20px">
-    <div style="position:relative;flex:1;min-width:260px;max-width:480px">
-      <svg viewBox="0 0 24 24" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:rgba(246,211,101,.45);pointer-events:none"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
-      <input id="wds-search" type="text" placeholder="搜索关键词（中德文均可）" oninput="filterWDS(this.value)" style="width:100%;box-sizing:border-box;background:rgba(246,211,101,.05);border:1.5px solid rgba(246,211,101,.18);color:#fde68a;border-radius:24px;padding:12px 42px 12px 40px;font-size:.92rem;outline:none">
-      <button id="wds-search-clear" onclick="document.getElementById('wds-search').value='';filterWDS('');this.style.display='none'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;border-radius:50%;display:none">×</button>
-    </div>
-    <span class="wds-count" id="wds-page-count" style="font-size:.78rem;color:#64748b;white-space:nowrap"></span>
-  </div>
-  <div class="wds-grid" id="wds-grid" style="max-width:1040px;margin:0 auto;padding:0 20px"></div>
-  <div class="wds-empty" id="wds-empty" style="text-align:center;color:#64748b;font-size:.9rem;padding:50px 20px">🔍 没有找到匹配的冷知识，换个关键词试试</div>
-  <div class="wds-page-back" style="text-align:center;margin-top:36px">
-    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
-  </div>
-</div>
-<script>
-(function(){
-  var origRender = window.renderWDSGrid;
-  window.renderWDSGrid = function(){
-    origRender();
-    var total = window.WDS_FACTS ? window.WDS_FACTS.length : 0;
-    var cnt = document.getElementById('wds-page-count');
-    if (cnt) cnt.innerHTML = '共 <b>' + total + '</b> 条';
-  };
-})();
-</script>
 
 <!-- 模块标题 -->
 <div class="sec-title">📚 学习模块</div>
@@ -4634,6 +4609,38 @@ document.addEventListener('keydown', function(e) {
 </footer>
 
 </div>
+
+<!-- ══════════ Wusstest du schon? 全部冷知识 ══════════ -->
+<div id="page-wds" class="page">
+  <div class="wds-page-header">
+    <h2>🇩🇪 Wusstest du schon?</h2>
+    <p>91 条德国冷知识 — 每日一条，德语阅读 + 文化科普</p>
+  </div>
+  <div class="wds-tools" style="max-width:1040px;margin:0 auto 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;padding:0 20px">
+    <div style="position:relative;flex:1;min-width:260px;max-width:480px">
+      <svg viewBox="0 0 24 24" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:rgba(246,211,101,.45);pointer-events:none"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="wds-search" type="text" placeholder="搜索关键词（中德文均可）" oninput="filterWDS(this.value)" style="width:100%;box-sizing:border-box;background:rgba(246,211,101,.05);border:1.5px solid rgba(246,211,101,.18);color:#fde68a;border-radius:24px;padding:12px 42px 12px 40px;font-size:.92rem;outline:none">
+      <button id="wds-search-clear" onclick="document.getElementById('wds-search').value='';filterWDS('');this.style.display='none'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;border-radius:50%;display:none">×</button>
+    </div>
+    <span class="wds-count" id="wds-page-count" style="font-size:.78rem;color:#64748b;white-space:nowrap"></span>
+  </div>
+  <div class="wds-grid" id="wds-grid" style="max-width:1040px;margin:0 auto;padding:0 20px"></div>
+  <div class="wds-empty" id="wds-empty" style="text-align:center;color:#64748b;font-size:.9rem;padding:50px 20px">🔍 没有找到匹配的冷知识，换个关键词试试</div>
+  <div class="wds-page-back" style="text-align:center;margin-top:36px">
+    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
+  </div>
+</div>
+<script>
+(function(){
+  var origRender = window.renderWDSGrid;
+  window.renderWDSGrid = function(){
+    origRender();
+    var total = window.WDS_FACTS ? window.WDS_FACTS.length : 0;
+    var cnt = document.getElementById('wds-page-count');
+    if (cnt) cnt.innerHTML = '共 <b>' + total + '</b> 条';
+  };
+})();
+</script>
 
 <!-- A1 学习站 — 二级聚合页：把分散的 A1 栏目集中在这里再分流 -->
 <div id="page-a1hub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
@@ -84596,6 +84603,14 @@ function b1S12CheckB(){
               <p><strong>• 卷帘窗（Rollläden）</strong>——德国几乎家家户户装有金属或塑料卷帘窗。夏天白天完全拉下，阻隔阳光直射；晚上打开通风。这是比空调更古老、更普及的降温手段。</p>
               <p><strong>• 三层玻璃窗（Dreifachverglasung）</strong>——德国新建住宅标配三层隔热玻璃，冬天保暖、夏天隔热，搭配卷帘窗效果加倍。</p>
               <div class="funfact">🏗️ 德国有一整套建筑节能法规（Gebäudeenergiegesetz, GEG），规定新建筑必须满足严格的夏季隔热标准（sommerlicher Wärmeschutz）。早在设计阶段，建筑师就要计算窗户面积比、遮阳系数、通风路径——这比装一台空调复杂得多，但也从根本上减少了空调需求。</div>
+
+              <!-- 德语原文块 -->
+              <div class="german-block">
+                <div class="de-label">🇩🇪 Deutsche Originalfassung / 德语原文</div>
+                <p>Deutsche Häuser sind von Natur aus <strong>besser gegen Hitze geschützt</strong> als Gebäude in vielen anderen Ländern. Die Bauweise spielt dabei die entscheidende Rolle — sie macht aktive Kühlung in den meisten Fällen schlicht überflüssig.</p>
+                <p><strong>Dicke Wände</strong> von 30 bis 50 Zentimetern speichern tagsüber Wärme und geben sie nachts langsam wieder ab — die Innentemperatur bleibt so 5 bis 8 Grad unter der Außentemperatur. <strong>Rollläden</strong> aus Metall oder Kunststoff gehören zur deutschen Standardausstattung: Tagsüber werden sie komplett heruntergelassen, um direkte Sonneneinstrahlung zu blockieren. <strong>Dreifachverglasung</strong> ist bei Neubauten Pflicht — sie isoliert im Winter gegen Kälte und im Sommer gegen Hitze.</p>
+                <p>Hinzu kommt das <strong>Gebäudeenergiegesetz (GEG)</strong>, das für Neubauten strenge Anforderungen an den <strong>sommerlichen Wärmeschutz</strong> vorschreibt. Architekten müssen bereits in der Planungsphase Fensterflächenanteil, Sonnenschutz und Lüftungswege berechnen — ein ausgeklügeltes System, das den Bedarf an Klimaanlagen von vornherein minimiert.</p>
+              </div>
             </div>
 
             <!-- Story 3 -->
@@ -84606,6 +84621,14 @@ function b1S12CheckB(){
               <p>德国电价高企的原因包括：<strong>能源转型附加费（EEG-Umlage）、碳排放税（CO₂-Steuer）、电网费（Netzentgelte）</strong>以及各种税费——加起来占电价的50%以上。即便政府取消了EEG附加费并降低了电力税，价格仍然让普通家庭望而却步。</p>
               <p>更重要的是，德国人有一个根深蒂固的观念：<strong>用电降温 = 浪费能源 = 不环保</strong>。与其开空调，不如开窗通风（Stoßlüften）、拉下卷帘、喝杯冷饮——这是刻在德国人骨子里的节能本能。</p>
               <div class="funfact">💡 德国人发明了一个专用动词：<b>stoßlüften</b>——每天多次把窗户完全打开5分钟，让室内外空气彻底交换。他们认为这比空调更健康、更节能。这个词在英语里没有对应翻译，常被列为"最德国"的词之一。</div>
+
+              <!-- 德语原文块 -->
+              <div class="german-block">
+                <div class="de-label">🇩🇪 Deutsche Originalfassung / 德语原文</div>
+                <p>Deutschland hat <strong>einen der höchsten Strompreise weltweit</strong>. 2024 kostete eine Kilowattstunde durchschnittlich rund <strong>0,40 Euro</strong> — etwa das Sechsfache des chinesischen und das Dreifache des amerikanischen Strompreises. Eine typische Split-Klimaanlage mit 2,5 kW Kühlleistung verbraucht bei acht Stunden Betrieb etwa 8 bis 10 Euro Strom — das macht <strong>240 bis 300 Euro im Monat</strong>.</p>
+                <p>Die hohen Kosten setzen sich aus <strong>EEG-Umlage, CO₂-Steuer, Netzentgelten</strong> und weiteren Abgaben zusammen, die zusammen über 50 Prozent des Strompreises ausmachen. Selbst nach Abschaffung der EEG-Umlage und Senkung der Stromsteuer bleibt der Preis für viele Haushalte abschreckend hoch.</p>
+                <p>Tief in der deutschen Mentalität verankert ist zudem der Gedanke: <strong>Mit Strom zu kühlen gilt als Energieverschwendung</strong>. Statt die Klimaanlage einzuschalten, wird <strong>stoßgelüftet</strong>, der Rollladen heruntergelassen und ein kaltes Getränk genossen — das ist kein Verzicht, sondern gelebte Energiesparkultur.</p>
+              </div>
             </div>
 
             <!-- Story 4 -->
@@ -84616,6 +84639,14 @@ function b1S12CheckB(){
               <p>即使不在历史保护建筑里，德国超过50%的人口是租户（Mieter）。在租来的公寓里安装分体空调需要房东同意，而房东通常没有动力为租客投资几千欧元装空调——况且装了还会增加维护成本和能耗评级压力。</p>
               <p>所以德国市场上最常见的"空调"其实是<strong>移动式冷气机（mobiles Klimagerät）</strong>——一个有轮子、带排热管、放在室内的单机设备。不需要外墙钻孔，搬家可以带走。缺点是效率低、噪音大（50-60分贝）、排热管要从窗户伸出去——窗户关不严，热空气又漏进来了。</p>
               <div class="funfact">🏰 柏林的 Museumsinsel（博物馆岛）是联合国世界文化遗产。岛上的博物馆绝大多数没有空调——不是没钱，而是不能在历史建筑上钻洞装外机。夏天闭馆时间提前，冬天恒温恒湿靠的是厚石墙和地下通风系统——19世纪的工艺至今有效。</div>
+
+              <!-- 德语原文块 -->
+              <div class="german-block">
+                <div class="de-label">🇩🇪 Deutsche Originalfassung / 德语原文</div>
+                <p>In Deutschland stehen über <strong>eine Million Gebäude unter Denkmalschutz</strong>. Jede Veränderung der Fassade — auch das Anbringen eines Klimaanlagen-Außengeräts — benötigt eine <strong>denkmalschutzrechtliche Genehmigung</strong>. Diese Verfahren dauern oft Monate und enden häufig mit einer Ablehnung.</p>
+                <p>Hinzu kommt: <strong>Über 50 Prozent der Deutschen leben zur Miete</strong>. In einer Mietwohnung ist der Einbau einer Split-Klimaanlage ohne Zustimmung des Vermieters nicht erlaubt — und Vermieter haben selten Interesse, mehrere tausend Euro für eine Anlage zu investieren, die ihnen Wartungsaufwand und eine schlechtere Energiebilanz beschert.</p>
+                <p>Der Kompromiss ist das <strong>mobile Klimagerät</strong>: ein Gerät auf Rollen mit Abluftschlauch, der durch ein gekipptes Fenster nach draußen führt. Kein Wanddurchbruch nötig, beim Umzug mitnehmbar — aber ineffizient, laut (50–60 Dezibel) und mit dem entscheidenden Nachteil, dass das Fenster nie richtig schließt und warme Luft wieder hereinströmt.</p>
+              </div>
             </div>
 
             <!-- Story 5 -->
@@ -84626,6 +84657,14 @@ function b1S12CheckB(){
               <p>传统空调使用含氟制冷剂（如R-410A），其全球变暖潜能值（GWP）是CO₂的2000倍以上。虽然欧盟已逐步淘汰最有害的制冷剂（F-Gas-Verordnung），但环保组织仍认为空调不是一个可持续的制冷方案。</p>
               <p>德国政府（尤其是绿党执政时期）更倾向推广<strong>"被动式制冷"和区域供冷（Fernkälte）</strong>——即在城市地下铺设冷水管网，统一为大型建筑供冷。慕尼黑、维也纳、柏林已有试点项目。此外，<strong>热泵（Wärmepumpe）</strong>作为"冬天取暖+夏天制冷"的双向设备，被视为更环保的未来方向。</p>
               <div class="funfact">🌡️ 2023年起，德国新安装的燃油和燃气供暖系统被逐步禁止，热泵成为默认替代方案。热泵在夏天可以"反着转"——把室内的热量抽到地下或室外，从而实现制冷。政府补贴覆盖热泵安装费用的30-70%，但补贴目前主要针对取暖功能，制冷仍被视为"附加福利"。</div>
+
+              <!-- 德语原文块 -->
+              <div class="german-block">
+                <div class="de-label">🇩🇪 Deutsche Originalfassung / 德语原文</div>
+                <p>Deutschland ist eine der Wiegen der europäischen Umweltbewegung. <strong>Die Grünen</strong> haben erheblichen politischen Einfluss, und in der öffentlichen Debatte gelten Klimaanlagen als <strong>Energieverschwendung, Mitverursacher von Hitzeinseln und Klimakiller durch Kältemittel</strong>.</p>
+                <p>Herkömmliche Klimaanlagen verwenden fluorierte Kältemittel wie R-410A, deren <strong>Treibhauspotenzial (GWP) mehr als das 2000-fache von CO₂</strong> beträgt. Die EU hat die schädlichsten Kältemittel durch die <strong>F-Gas-Verordnung</strong> zwar schrittweise verboten, doch Umweltverbände sehen in Klimaanlagen grundsätzlich keine nachhaltige Lösung.</p>
+                <p>Die deutsche Klimapolitik setzt stattdessen auf <strong>passive Kühlung und Fernkälte</strong> — Kaltwassernetze unter der Stadt, die große Gebäude zentral versorgen. Pilotprojekte gibt es in München, Wien und Berlin. Auch die <strong>Wärmepumpe</strong> gilt als zukunftsfähige Alternative: Sie heizt im Winter und kühlt im Sommer, indem sie den Prozess einfach umkehrt. Die staatliche Förderung deckt 30 bis 70 Prozent der Installationskosten.</p>
+              </div>
             </div>
 
             <!-- Story 6 -->
@@ -84637,6 +84676,15 @@ function b1S12CheckB(){
               <p>变化已经到来：<strong>建材超市的空调节销售额年年攀升；新建办公楼和高档公寓开始标配制冷系统；热泵安装量在2023年突破35万台；一些城市（如法兰克福、科隆）开始制定"城市降温规划"（Hitzeaktionsplan），包括增加公共喷泉、绿化屋顶、设立免费空调避暑点。</strong></p>
               <p>如果说德国人对空调的态度从"没必要"变成了"也许需要"，那么下一个十年可能会变成"必须装"。只是——电费怎么办、老建筑怎么装、环保怎么平衡——这些问题暂时还没有完美的答案。</p>
               <div class="funfact">🌳 维也纳（奥地利，但也属德语区）已连续多年被评为"全球最宜居城市"，其秘诀之一就是<b>森林覆盖率近50%、多瑙河贯穿全城、公共喷泉超过900座</b>。德国城市也在学习这种"蓝绿基础设施"（blau-grüne Infrastruktur）思路——不是加装更多空调，而是让城市本身凉下来。</div>
+
+              <!-- 德语原文块 -->
+              <div class="german-block">
+                <div class="de-label">🇩🇪 Deutsche Originalfassung / 德语原文</div>
+                <p>Trotz aller Widerstände: <strong>Deutschland wird wärmer</strong>. Laut Deutschem Wetterdienst (DWD) ist die Jahresdurchschnittstemperatur in den letzten 50 Jahren um etwa <strong>1,6 Grad</strong> gestiegen. Die Zahl der Hitzetage über 30 Grad hat sich von jährlich fünf auf etwa fünfzehn verdreifacht.</p>
+                <p>Im Juli 2022 erreichte Hamburg <strong>40,1 Grad</strong> — ein neuer Rekord für Norddeutschland. Im selben Sommer starben in Deutschland laut Robert Koch-Institut über <strong>4500 Menschen</strong> an den Folgen der Hitze — fast doppelt so viele wie durch Verkehrsunfälle im gesamten Jahr.</p>
+                <p>Der Wandel ist spürbar: <strong>Die Verkaufszahlen von Klimageräten in Baumärkten steigen Jahr für Jahr. Neubauten von Bürokomplexen und gehobenen Wohnanlagen werden standardmäßig mit Kühlsystemen ausgestattet. 2023 wurden über 350.000 Wärmepumpen installiert. Städte wie Frankfurt und Köln entwickeln Hitzeaktionspläne</strong> mit öffentlichen Trinkbrunnen, Dachbegrünung und kostenlosen klimatisierten Räumen an Hitzetagen.</p>
+                <p>Die deutsche Einstellung zur Klimaanlage hat sich von „nicht nötig" zu „vielleicht doch" gewandelt — im nächsten Jahrzehnt könnte daraus ein „unbedingt" werden. Wie das mit den hohen Strompreisen, dem Denkmalschutz und den Klimazielen zusammenpasst, darauf hat allerdings noch niemand eine perfekte Antwort.</p>
+              </div>
             </div>
 
             <!-- 词汇表 -->
