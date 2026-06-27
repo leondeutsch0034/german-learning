@@ -4048,8 +4048,8 @@ function createLoginPromptCard() {
 	    desc:'B1进阶阅读材料 · 时事社会 · 文化主题 · 内容陆续更新',
 	    tags:'B1阅读 · 进阶 · 主题阅读',
 	    c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
-  { id:'b1-extensiv', icon:'📚', navLabel:'B1 Extensives Lesen', cardTitleDe:'B1 Extensives Lesen', cardSubDe:'18 Texte zu verschiedenen Themen', cardTitle:'B1 Extensives Lesen', group:'b1',
-    hubStep:5, hubSkill:'Lesen', hubSkillZh:'Extensives Lesen', hubAccent:'#0ea5e9', hubTip:'18 authentische Texte — quer durch alle B1-Themen',
+  { id:'b1-extensiv', icon:'📚', navLabel:'B1 Textwelten', cardTitleDe:'B1 Textwelten', cardSubDe:'18 Texte zu verschiedenen Themen', cardTitle:'B1 Textwelten', group:'b1',
+    hubStep:5, hubSkill:'Texte', hubSkillZh:'Textwelten', hubAccent:'#0ea5e9', hubTip:'18 authentische Texte — quer durch alle B1-Themen',
     desc:'18篇B1拓展阅读 · 文化·社会·职场·环保·教育 — 多主题泛读',
     tags:'泛读 · 18篇 · B1 · 多主题',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
@@ -28408,7 +28408,7 @@ function lxqResetMCQ(id) {
   <div class="b1l-hero">
     <div class="b1l-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
     <h1>📖 B1 阅读专栏</h1>
-    <p>Lesen · 12 Artikel — von Zeitgeschichte bis Modelltest</p>
+    <p>Lesen · 13 Artikel — von Zeitgeschichte bis Modelltest</p>
   </div>
 
   <div style="max-width:860px;margin:0 auto 20px;padding:0 4px">
@@ -28422,7 +28422,7 @@ function lxqResetMCQ(id) {
     <label class="b1l-select-label" for="b1l-article-select">📋 选择文章 · Artikel wählen：</label>
     <select id="b1l-article-select" class="b1l-article-select" onchange="showB1LesenArticle(this.value)">
       <option value="">— 请选择一篇文章 —</option>
-      <optgroup label="📖 B1 阅读文章 (12)">
+      <optgroup label="📖 B1 阅读文章 (13)">
         <option value="1">① Brandenburger Tor — Zeitgeschichte</option>
         <option value="2">② Wo bleibt die Zeit? — Zeitverwendung</option>
         <option value="3">③ Erasmus+ Programm — EU-Bildungsprogramm</option>
@@ -28435,11 +28435,12 @@ function lxqResetMCQ(id) {
         <option value="12">⑩ Präsentation — vorbereiten &amp; durchführen</option>
         <option value="14">⑪ Das Ehrenamt lebt! — Engagement &amp; Ehrenamt</option>
         <option value="15">⑫ Goethe B1 Lesen Plateau 4 — Modelltest</option>
+        <option value="13">⑬ 🌦️ Deutsche Wetterrekorde &amp; Orkan „Kyrill"</option>
       </optgroup>
     </select>
   </div>
   <script>
-  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','14','15'];
+  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','13','14','15'];
   window.showB1LesenArticle=function(n){
     var ids=[];
     for(var i=0;i<window.B1L_SEQ.length;i++){ ids.push('b1l-s'+window.B1L_SEQ[i]); }
@@ -28540,6 +28541,103 @@ function lxqResetMCQ(id) {
         • <strong>der Kalte Krieg</strong> 冷战 | <em>politische Konfrontation zwischen USA und UdSSR ohne direkten Krieg (1947–1991)</em><br>
         • <strong>die Großmacht, -¨e</strong> 大国 | <em>Staat mit viel politischer und militärischer Macht (z.B. USA, UdSSR)</em><br>
         • <strong>die Auseinandersetzung, -en</strong> 对抗 | <em>heftiger Konflikt oder Streit über längere Zeit</em>
+      </div>
+
+      <!-- 📚 词汇表 -->
+      <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s1-vocab')">📚 显示/隐藏 词汇语法 (20 词条 · 历史/政治/建筑)</button>
+      <div class="answer-box" id="b1s1-vocab" style="font-size:.87rem;line-height:2">
+        <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin-bottom:12px"><strong style="color:#00695c">📋 Nomen · 名词 (11)</strong></div>
+        • <strong>das Wahrzeichen, -</strong> = 地标 | <em>bekanntes Bauwerk, das für eine Stadt oder Region steht</em><br>
+        &nbsp;&nbsp;📌 <em>„Das Brandenburger Tor ist das wichtigste Wahrzeichen Berlins."</em><br>
+        • <strong>der König, -e</strong> = 国王 | <em>Monarch, Herrscher eines Königreichs</em><br>
+        &nbsp;&nbsp;📌 <em>„König Friedrich Wilhelm II. regierte Preußen."</em><br>
+        • <strong>der Reichskanzler, -</strong> = 帝国总理 | <em>Regierungschef im Deutschen Reich (bis 1945); 注意: Kanzler=总理, Reich=帝国</em><br>
+        &nbsp;&nbsp;📌 <em>„Hitler wurde 1933 zum Reichskanzler ernannt."</em><br>
+        • <strong>die Machtübernahme, -n</strong> = 夺权 | <em>gewaltsame/organisierte Übernahme der politischen Kontrolle; Macht+Übernahme</em><br>
+        &nbsp;&nbsp;📌 <em>„Die Nationalsozialisten feierten ihre Machtübernahme mit einem Fackelzug."</em><br>
+        • <strong>der Überfall, -¨e</strong> = 入侵 | <em>plötzlicher militärischer Angriff ohne Kriegserklärung; überfallen=突然袭击</em><br>
+        &nbsp;&nbsp;📌 <em>„Der Zweite Weltkrieg begann mit dem deutschen Überfall auf Polen."</em><br>
+        • <strong>die Teilung, -en</strong> = 分裂 | <em>aus einem Ganzen zwei oder mehr Teile machen; teilen (V.)→Teilung (N.)</em><br>
+        &nbsp;&nbsp;📌 <em>„Die Teilung Deutschlands dauerte von 1949 bis 1990."</em><br>
+        • <strong>die Mauer, -n</strong> = 围墙 | <em>hohe Wand aus Stein/Beton; Berliner Mauer 1961–1989</em><br>
+        &nbsp;&nbsp;📌 <em>„Die Mauer trennte Ost- von West-Berlin."</em><br>
+        • <strong>die Wiedervereinigung</strong> = 统一 (nur Sg.) | <em>Zusammenführung getrennter Teile; wieder+ Verein+igung</em><br>
+        &nbsp;&nbsp;📌 <em>„Die deutsche Wiedervereinigung fand am 3. Oktober 1990 statt."</em><br>
+        • <strong>die Großmacht, -¨e</strong> = 大国 | <em>Staat mit viel politischer und militärischer Macht (z.B. USA, UdSSR)</em><br>
+        &nbsp;&nbsp;📌 <em>„USA und UdSSR waren die beiden Großmächte im Kalten Krieg."</em><br>
+        • <strong>die Auseinandersetzung, -en</strong> = 对抗/争端 | <em>heftiger Konflikt oder Streit über längere Zeit</em><br>
+        &nbsp;&nbsp;📌 <em>„Der Kalte Krieg war eine politische Auseinandersetzung zwischen Ost und West."</em><br>
+        • <strong>der Fackelzug, -¨e</strong> = 火炬游行 | <em>organisierter Marsch mit brennenden Fackeln als Machtdemonstration</em><br>
+        &nbsp;&nbsp;📌 <em>„Die Nationalsozialisten organisierten einen Fackelzug durch das Brandenburger Tor."</em>
+
+        <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px"><strong style="color:#00695c">🔧 Verben · 动词 (7)</strong></div>
+        • <strong>regieren</strong> = 统治 | <em>ein Land politisch führen (regierte, hat regiert); Nomen: die Regierung</em><br>
+        &nbsp;&nbsp;📌 <em>„Friedrich Wilhelm II. regierte Preußen von 1786 bis 1797."</em><br>
+        • <strong>errichten</strong> = 建造 | <em>ein Gebäude bauen/aufstellen (errichtete, hat errichtet); 搭配: etw. errichten lassen = 下令建造</em><br>
+        &nbsp;&nbsp;📌 <em>„Der König ließ das Tor zwischen 1788 und 1791 errichten."</em><br>
+        • <strong>ernennen zu + D (ernannte, hat ernannt)</strong> = 任命为 | <em>jmd. offiziell eine wichtige Position geben; 常以Passiv出现</em><br>
+        &nbsp;&nbsp;📌 <em>„Hitler wurde am 30. Januar 1933 zum Reichskanzler ernannt."</em><br>
+        • <strong>besiegen</strong> = 击败 | <em>einen Krieg gewinnen, den Gegner schlagen (besiegte, hat besiegt)</em><br>
+        &nbsp;&nbsp;📌 <em>„Deutschland wurde 1945 von den Alliierten besiegt."</em><br>
+        • <strong>teilen / sich teilen</strong> = 分割/分裂 | <em>aus einem Ganzen Teile machen; 1949 teilte sich Deutschland in BRD und DDR</em><br>
+        &nbsp;&nbsp;📌 <em>„Nach dem Krieg wurde Deutschland in vier Besatzungszonen geteilt."</em><br>
+        • <strong>trennen</strong> = 分隔/分离 | <em>zwei Dinge/Personen voneinander entfernen; eine Grenze ziehen</em><br>
+        &nbsp;&nbsp;📌 <em>„Die Mauer trennte Familien und Freunde über 28 Jahre lang."</em><br>
+        • <strong>jubeln</strong> = 欢呼 | <em>laut und freudig feiern (jubelte, hat gejubelt); Nomen: der Jubel</em><br>
+        &nbsp;&nbsp;📌 <em>„Hunderttausende jubelten 2006 am Brandenburger Tor während der Fußball-WM."</em>
+
+        <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px"><strong style="color:#00695c">🎨 Adjektive & Wendungen (2)</strong></div>
+        • <strong>geteilt</strong> = 被分裂的 | <em>Partizip II von teilen; ein geteiltes Land = 分裂的国家</em><br>
+        &nbsp;&nbsp;📌 <em>„Berlin war fast 30 Jahre lang eine geteilte Stadt."</em><br>
+        • <strong>wiedervereinigt</strong> = 重新统一的 | <em>Partizip II von wiedervereinigen; nur für DE-Kontext gebräuchlich</em><br>
+        &nbsp;&nbsp;📌 <em>„Das wiedervereinigte Deutschland feierte 1990 das erste gesamtdeutsche Silvester."</em>
+      </div>
+
+      <!-- 📖 语法解析 -->
+      <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s1-grammatik')">📖 显示/隐藏 语法解析 (5 项 · Präteritum + Passiv + Präpositionen)</button>
+      <div class="answer-box" id="b1s1-grammatik" style="font-size:.87rem;line-height:2">
+
+        <strong>1. Präteritum — 历史叙述的过去时</strong> | <em>Vergangenheit in der Schriftsprache</em><br>
+        🇩🇪 Formel: <em>regelmäßig: Stamm+-te / unregelmäßig: Stammvokalwechsel</em><br>
+        🇨🇳 规则：历史文本中Präteritum是默认时态，口语中北部用Präteritum说sein/haben，南部用Perfekt<br>
+        <strong>📊 文中动词 Präteritum 速查：</strong>
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+          <tr style="background:#283593;color:#fff"><th style="padding:5px 10px">Infinitiv</th><th style="padding:5px 10px">Präteritum</th><th style="padding:5px 10px">Perfekt</th><th style="padding:5px 10px">Typ</th></tr>
+          <tr style="background:#e8eaf6"><td>regieren</td><td>regierte</td><td>hat regiert</td><td>regelmäßig</td></tr>
+          <tr style="background:#fff"><td>errichten</td><td>errichtete</td><td>hat errichtet</td><td>regelmäßig</td></tr>
+          <tr style="background:#e8eaf6"><td>ernennen</td><td>ernannte</td><td>hat ernannt</td><td>unregelmäßig (e→a)</td></tr>
+          <tr style="background:#fff"><td>beginnen</td><td>begann</td><td>hat begonnen</td><td>unregelmäßig (i→a→o)</td></tr>
+          <tr style="background:#e8eaf6"><td>entstehen</td><td>entstand</td><td>ist entstanden</td><td>unregelmäßig (e→a→a)</td></tr>
+          <tr style="background:#fff"><td>fallen</td><td>fiel</td><td>ist gefallen</td><td>unregelmäßig (a→ie→a)</td></tr>
+        </table>
+        📖 Textbelege: <em>① „Der König <strong>regierte</strong> Preußen." ② „Der Krieg <strong>begann</strong> am 1. September 1939." ③ „1949 <strong>entstanden</strong> zwei deutsche Staaten."</em><br>
+        ⚠️ 考点：B1 阅读理解常出现Präteritum，需熟悉常用不规则动词过去式。口语中用Perfekt复述: „Der König hat Preußen regiert."<br>
+        ⚠️ 易错：beginnen→begann (不是beginnte!)，gehen→ging，stehen→stand<br><br>
+
+        <strong>2. Vorgangspassiv — 过程被动式</strong> | <em>werden + Partizip II</em><br>
+        🇩🇪 Formel: <em>Präsens: wird/werden + PII / Präteritum: wurde/wurden + PII</em><br>
+        🇨🇳 规则：描述被动动作过程。新闻和历史文本中极常见（"被建造""被任命""被分裂"）<br>
+        📖 Textbelege: <em>① „Hitler <strong>wurde</strong> zum Reichskanzler <strong>ernannt</strong>." ② „Das Tor <strong>wurde</strong> 1945 schwer <strong>beschädigt</strong>." ③ „Deutschland <strong>wurde</strong> von den Alliierten <strong>besiegt</strong>." ④ „Die beiden Staaten <strong>wurden</strong> 1990 <strong>wiedervereinigt</strong>."</em><br>
+        ⚠️ 考点：B1 常考 werden-Passiv vs. sein-Passiv: „Die Mauer wurde gebaut."(过程) vs. „Die Mauer war gebaut."(状态)<br>
+        ⚠️ 易错：werden 的三态 — wird(Präsens)/wurde(Präteritum)/ist geworden(Perfekt) vs. ist...worden(Perfekt Passiv，无ge-!)<br><br>
+
+        <strong>3. Temporale Präpositionen — 时间介词</strong> | <em>zwischen, am, im, nach, seit</em><br>
+        🇩🇪 Formel: <em>zwischen+Dativ(时间范围) / am+Dativ(日期) / im+Dativ(月份/年份) / nach+Dativ(之后) / seit+Dativ(至今)</em><br>
+        🇨🇳 规则：历史文本中时间介词是定位事件的关键标记<br>
+        📖 Textbelege: <em>① „<strong>Zwischen</strong> 1788 und 1791 ließ der König das Tor errichten." ② „<strong>Am</strong> 30. Januar 1933 wurde Hitler ernannt." ③ „<strong>Nach</strong> dem Krieg wurde Deutschland geteilt." ④ „<strong>Seit</strong> 1990 ist der 3. Oktober Feiertag."</em><br>
+        ⚠️ 考点：am=an dem, im=in dem, vom=von dem。am Montag, im Januar, nach dem Krieg (Dativ!)<br><br>
+
+        <strong>4. Relativsätze — 关系从句</strong> | <em>der/die/das 引导的定语从句</em><br>
+        🇩🇪 Formel: <em>Bezugswort + Relativpronomen (der/die/das) + ... + Verb am Ende</em><br>
+        🇨🇳 规则：关系代词性数格与先行词一致，动词→从句末<br>
+        📖 Textbelege: <em>① „der Zweite Weltkrieg, <strong>der</strong> am 1. September 1939 begann..." ② „eine Mauer, <strong>die</strong> den Osten vom Westen trennte" ③ „der Kalte Krieg, <strong>der</strong> fast ein halbes Jahrhundert dauerte"</em><br>
+        ⚠️ 考点：B1 必考！Relativpronomen = 定冠词（除Dativ Pl.=denen, Genitiv=dessen/deren）<br><br>
+
+        <strong>5. Modalverben im Präteritum — 情态动词过去式</strong> | <em>durften, konnten, mussten</em><br>
+        🇩🇪 Formel: <em>dürfen→durfte, können→konnte, müssen→musste + Infinitiv</em><br>
+        🇨🇳 规则：情态动词过去式在历史文本中描述过去的可能性/允许/必须<br>
+        📖 Textbelege: <em>① „Ost-Berliner <strong>durften</strong> nicht mehr nach West-Berlin reisen." (过去的禁止) ② „Man <strong>konnte</strong> das Tor nicht mehr passieren." (过去的不可行)</em><br>
+        ⚠️ 考点：dürfen(允许)→durfte / können(能够)→konnte / müssen(必须)→musste。注意Modalverb+Infinitiv结构中Verb位置！
       </div>
 
       <!-- a) 标题配对练习 -->
@@ -28795,7 +28893,7 @@ function lxqResetMCQ(id) {
     
 
       <!-- ═══ 背景知识 / Hintergrundwissen ═══ -->
-      <button class="btn btn-show" onclick="a2ToggleAns('b1s1-hintergrund')" style="margin-top:14px">🏭 显示/隐藏背景知识</button>
+      <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s1-hintergrund')" style="margin-top:14px">🏭 显示/隐藏 背景知识 (4 主题)</button>
       <div class="answer-box" id="b1s1-hintergrund">
       <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -28827,7 +28925,7 @@ function lxqResetMCQ(id) {
       </div>
 
       <!-- ═══ 词汇搭配表 ═══ -->
-      <button class="btn btn-show" onclick="a2ToggleAns('b1s1-kollokation')">🔗 显示/隐藏词汇搭配</button>
+      <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s1-kollokation')">🔗 显示/隐藏 词汇搭配 (12 条)</button>
       <div class="answer-box" id="b1s1-kollokation">
       <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
         <tr style="background:#1a3a5c;color:#fff">
@@ -28889,7 +28987,7 @@ function lxqResetMCQ(id) {
       </div>
 
       <!-- ═══ Redemittel 常用表达 ═══ -->
-      <button class="btn btn-show" onclick="a2ToggleAns('b1s1-redemittel')">💬 显示/隐藏常用表达</button>
+      <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s1-redemittel')">💬 显示/隐藏 常用表达 (8 条)</button>
       <div class="answer-box" id="b1s1-redemittel">
       <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
         <tr style="background:#1a3a5c;color:#fff">
@@ -28941,7 +29039,7 @@ function lxqResetMCQ(id) {
       </div>
 
       <!-- ═══ 仿写例句 ═══ -->
-      <button class="btn btn-show" onclick="a2ToggleAns('b1s1-beispiele')">✍️ 显示/隐藏仿写例句</button>
+      <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s1-beispiele')">✍️ 显示/隐藏 仿写例句 (5 Muster)</button>
       <div class="answer-box" id="b1s1-beispiele">
       <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
         <strong>🔹 Muster 1: 历史被动描述（Passiv Präteritum）</strong><br>
@@ -29118,7 +29216,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- 📚 词汇表 -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-vocab')" style="margin-bottom:.5rem">📚 显示/隐藏词汇语法</button>
+          <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s1-erlebnis-vocab')" style="margin-bottom:.5rem">📚 显示/隐藏 词汇语法</button>
           <div class="answer-box" id="b1s1-erlebnis-vocab" style="margin-bottom:.8rem">
             <strong>📚 词汇表 / Wortschatz：</strong><br><br>
             • <strong>der Herbst, -e</strong> = 秋天 · <strong>spannend</strong> = 激动人心的<br>
@@ -29138,7 +29236,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- 📖 语法解析 -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-grammatik')" style="margin-bottom:.5rem">📖 显示/隐藏语法解析</button>
+          <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s1-erlebnis-grammatik')" style="margin-bottom:.5rem">📖 显示/隐藏 语法解析</button>
           <div class="answer-box" id="b1s1-erlebnis-grammatik" style="margin-bottom:.8rem">
             <strong>📖 语法解析 / Grammatik：</strong><br><br>
 
@@ -29180,7 +29278,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- 🏭 背景知识 -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-hintergrund')" style="margin-bottom:.5rem">🏭 显示/隐藏背景知识</button>
+          <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s1-erlebnis-hintergrund')" style="margin-bottom:.5rem">🏭 显示/隐藏 背景知识</button>
           <div class="answer-box" id="b1s1-erlebnis-hintergrund" style="margin-bottom:.8rem">
           <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -29224,7 +29322,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- 🔗 词汇搭配 -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-kollokation')" style="margin-bottom:.5rem">🔗 显示/隐藏词汇搭配</button>
+          <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s1-erlebnis-kollokation')" style="margin-bottom:.5rem">🔗 显示/隐藏 词汇搭配</button>
           <div class="answer-box" id="b1s1-erlebnis-kollokation" style="margin-bottom:.8rem">
           <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
             <tr style="background:#1e3a5f;color:#fff">
@@ -29296,7 +29394,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- 💬 Redemittel -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-redemittel')" style="margin-bottom:.5rem">💬 显示/隐藏常用表达</button>
+          <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s1-erlebnis-redemittel')" style="margin-bottom:.5rem">💬 显示/隐藏 常用表达</button>
           <div class="answer-box" id="b1s1-erlebnis-redemittel" style="margin-bottom:.8rem">
           <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
             <tr style="background:#1e3a5f;color:#fff">
@@ -29348,7 +29446,7 @@ function lxqResetMCQ(id) {
           </div>
 
           <!-- ✍️ 仿写例句 -->
-          <button class="btn btn-show" onclick="a2ToggleAns('b1s1-erlebnis-beispiele')" style="margin-bottom:.5rem">✍️ 显示/隐藏仿写例句</button>
+          <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s1-erlebnis-beispiele')" style="margin-bottom:.5rem">✍️ 显示/隐藏 仿写例句</button>
           <div class="answer-box" id="b1s1-erlebnis-beispiele">
           <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
             <strong>🔹 Muster 1: 描述历史背景 / Historischen Kontext beschreiben</strong><br>
@@ -29509,7 +29607,7 @@ function lxqResetMCQ(id) {
   </div><!-- /Easy German 321 主卡片 -->
 
   <!-- ═══ Easy German 321 · 词汇表 ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-vocab')" style="margin-top:10px">📚 显示/隐藏词汇表 — Easy German 321</button>
+  <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('eg321-vocab')" style="margin-top:10px">📚 显示/隐藏 词汇表 — Easy German 321</button>
   <div class="answer-box" id="eg321-vocab" style="font-size:.86rem;line-height:2;color:#2d3748">
     • <strong>der Mauerfall</strong> = 柏林墙倒塌 · <strong>die Mauer, -n</strong> = 墙（特指柏林墙）<br>
     • <strong>die Wende, -n</strong> = 转折、两德统一 · <strong>die Wiedervereinigung</strong> = 两德统一<br>
@@ -29528,7 +29626,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 321 · 语法解析 ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-grammatik')">📖 显示/隐藏语法解析 — Easy German 321</button>
+  <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('eg321-grammatik')">📖 显示/隐藏 语法解析 — Easy German 321</button>
   <div class="answer-box" id="eg321-grammatik" style="font-size:.86rem;line-height:1.85;color:#2d3748">
 
     <strong>1. Präteritum</strong> 书面过去时 | <em>schriftliche Vergangenheit</em><br>
@@ -29570,7 +29668,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 321 · 背景知识 ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-hintergrund')">🏭 显示/隐藏背景知识 — Easy German 321</button>
+  <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('eg321-hintergrund')">🏭 显示/隐藏 背景知识 — Easy German 321</button>
   <div class="answer-box" id="eg321-hintergrund" style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
     <div style="background:rgba(30,58,95,.06);border-radius:10px;padding:14px 18px;margin-bottom:14px">
@@ -29600,7 +29698,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 321 · 词汇搭配 ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-kollokation')">🔗 显示/隐藏词汇搭配 — Easy German 321</button>
+  <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('eg321-kollokation')">🔗 显示/隐藏 词汇搭配 — Easy German 321</button>
   <div class="answer-box" id="eg321-kollokation">
   <table style="width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6">
     <tr style="background:#1b5e20;color:#fff">
@@ -29662,7 +29760,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 321 · Redemittel ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-redemittel')">💬 显示/隐藏常用表达 — Easy German 321</button>
+  <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('eg321-redemittel')">💬 显示/隐藏 常用表达 — Easy German 321</button>
   <div class="answer-box" id="eg321-redemittel">
   <table style="width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6">
     <tr style="background:#1b5e20;color:#fff">
@@ -29714,7 +29812,7 @@ function lxqResetMCQ(id) {
   </div>
 
   <!-- ═══ Easy German 321 · 仿写例句 ═══ -->
-  <button class="btn btn-show" onclick="a2ToggleAns('eg321-beispiele')">✍️ 显示/隐藏仿写例句 — Easy German 321</button>
+  <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('eg321-beispiele')">✍️ 显示/隐藏 仿写例句 — Easy German 321</button>
   <div class="answer-box" id="eg321-beispiele" style="font-size:.86rem;line-height:1.9;color:#2d3748">
 
     <strong>🔹 Muster 1: 描述城市变化（Komparativ + werden）</strong><br>
@@ -29976,6 +30074,28 @@ function lxqResetMCQ(id) {
           🇨🇳 Cari来到保存至今的原柏林墙遗址（纪念地）。"光之边界"行动——由白色气球组成的"墙"在城内矗立三天纪念分裂历史，现在由气球监护人逐一放飞，象征边界的消解。
         </div>
       </div>
+    </div>
+
+    <!-- 📖 语法解析 — Easy German 61 -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('eg61-grammatik')" style="margin-bottom:.5rem">📖 显示/隐藏 语法解析 — Easy German 61 (3 项)</button>
+    <div class="answer-box" id="eg61-grammatik" style="font-size:.87rem;line-height:2;margin-bottom:.8rem">
+      <strong>1. Perfekt mit Ersatzinfinitiv</strong> | <em>haben + Infinitiv + Modalverb-Infinitiv</em><br>
+      🇩🇪 Formel: <em>haben + ... + Infinitiv + Modalverb („Ich habe lernen müssen" nicht „gemusst")</em><br>
+      🇨🇳 规则：Modalverb完成时中，Modalverb本身用Infinitiv替代Partizip II（Ersatzinfinitiv）。sein用于移动/状态变化<br>
+      📖 Textbelege: <em>① „Ich <strong>habe</strong> das Laufen neu <strong>lernen müssen</strong>." ② „Coco <strong>ist</strong> extra nach Berlin <strong>gekommen</strong>."</em><br>
+      ⚠️ 考点：haben+Infinitiv+Infinitiv(Modalverb) vs. sein+Partizip II。„Ich habe gehen müssen"(✅)→„Ich bin gehen gemusst"(❌)<br><br>
+
+      <strong>2. Als vs. Wenn</strong> | <em>temporale Nebensätze — "当…时"</em><br>
+      🇩🇪 Formel: <em>als+einmalige Vergangenheit / wenn+wiederholt/Gegenwart/Zukunft</em><br>
+      🇨🇳 规则：als=过去一次性事件；wenn=重复/现在/将来。„Als der Krieg endete"(一次)→„Wenn ich nach Berlin fahre"(重复/将来)<br>
+      📖 Textbelege: <em>① „<strong>Als</strong> ich nach meinem Unfall aufwachte, konnte ich nicht laufen." ② „<strong>Wenn</strong> ich heute zurückdenke, bin ich dankbar."</em><br>
+      ⚠️ 考点：B1必考混淆！„Als ich Kind war"(✅)→„Wenn ich Kind war"(❌)。重复的过去才用wenn=immer wenn<br><br>
+
+      <strong>3. Modalpartikeln im gesprochenen Deutsch</strong> | <em>ja, doch, mal, denn, einfach</em><br>
+      🇩🇪 Formel: <em>小品词插入句中，无实际词义但改变语气(Tonfall)</em><br>
+      🇨🇳 规则：ja=众所周知；doch=反驳/提醒；mal=随意；denn=好奇；einfach=就是/简直(强调不可解释性)<br>
+      📖 Textbelege: <em>① „Das war <strong>ja</strong> so die Hauptanlaufstelle." ② „Das kann man <strong>einfach</strong> nicht erklären." ③ „Was haben Sie <strong>denn</strong> da gemacht?"</em><br>
+      ⚠️ 考点：小品词无直接中文翻译但改变语气。口语理解关键——„Was machst du?"(中性)→„Was machst du denn?"(友好好奇)
     </div>
 
     <!-- 📖 预习笔记 / Lernwortschatz -->
@@ -30396,7 +30516,7 @@ function lxqResetMCQ(id) {
       <div style="margin-bottom:1rem">
 
         <!-- 📖 词汇解析 -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-wortschatz')">📖 歌词词汇解析 / Wortschatz</button>
+        <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1-deutschland-wortschatz')">📚 歌词词汇解析 / Wortschatz</button>
         <div class="answer-box" id="b1-deutschland-wortschatz" style="background:#fff;border:2px solid #1565c0;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
 
           <div style="font-weight:700;color:#0d47a1;margin-bottom:.6rem;font-size:.92rem">🔤 Strophe 1 · Nationalstolz（讽刺语气）</div>
@@ -30467,7 +30587,7 @@ function lxqResetMCQ(id) {
         </div>
 
         <!-- 🎭 文化梗解析 -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-kultur')" style="margin-top:.5rem">🎭 文化梗解析 / Kulturelle Referenzen</button>
+        <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1-deutschland-kultur')" style="margin-top:.5rem">🏭 文化梗解析 / Kulturelle Referenzen</button>
         <div class="answer-box" id="b1-deutschland-kultur" style="background:#fff;border:2px solid #e6a817;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
 
           <div style="background:#fff8e1;border-radius:10px;padding:14px 18px;margin-bottom:14px">
@@ -30502,7 +30622,7 @@ function lxqResetMCQ(id) {
         </div>
 
         <!-- 📝 语法点睛 -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1-deutschland-grammatik')" style="margin-top:.5rem">📝 语法点睛 / Grammatik im Lied</button>
+        <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1-deutschland-grammatik')" style="margin-top:.5rem">📖 语法点睛 / Grammatik im Lied</button>
         <div class="answer-box" id="b1-deutschland-grammatik" style="background:#fff;border:2px solid #2e7d32;padding:1rem 1.2rem;font-size:.87rem;line-height:1.85;color:#263238">
 
           <strong>1. Superlativ</strong> 最高级 | <em>am ……-sten / die ……-sten</em><br>
@@ -31271,7 +31391,42 @@ function lxqResetMCQ(id) {
         想参加的人必须在大学学习。大学必须参与Erasmus+项目。可以去所有欧盟国家，也可以去挪威、冰岛或土耳其。许多大学生说："Erasmus是我人生中最美好的时光！"
       </div>
 
-      <button class="btn btn-show" onclick="a2ToggleAns('b1x-read5-vocab')">显示/隐藏词汇语法解释</button>
+      <!-- 📖 语法解析 -->
+      <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s3-grammatik')">📖 显示/隐藏 语法解析 (5 项 · Konjunktiv II + Nebensätze)</button>
+      <div class="answer-box" id="b1s3-grammatik" style="font-size:.87rem;line-height:2">
+
+        <strong>1. Konjunktiv II — 虚拟式</strong> | <em>würde + Infinitiv / könnte / müsste</em><br>
+        🇩🇪 Formel: <em>würde/würden + Infinitiv (würde-Form) / könnte/könnten + Infinitiv (Modalverben)</em><br>
+        🇨🇳 规则：B1水平用würde+Infinitiv表达假设/愿望/礼貌请求，比纯Konjunktiv II形式(ginge/käme)更常用<br>
+        📖 Textbelege: <em>① „Wohin <strong>würden</strong> Sie durch Zeit und Raum reisen?" ② „Wir <strong>könnten</strong> also einen Ort immer wieder besuchen."</em><br>
+        ⚠️ 考点：würde+Infinitiv是目前最常用的虚拟式形式。但haben/sein/Modalverben通常不用würde：„Ich hätte gern..."(不是„Ich würde gern haben")<br><br>
+
+        <strong>2. Temporale Nebensätze — 时间从句</strong> | <em>während, wenn, als</em><br>
+        🇩🇪 Formel: <em>während(同时进行) + Subjekt...+Verb am Ende / wenn(重复/现在未来) / als(一次性的过去)</em><br>
+        🇨🇳 规则：während=在…期间(两个动作同时)；wenn=每当/如果；als=当…时(过去一次性事件)<br>
+        📖 Textbelege: <em>① „<strong>Während</strong> wir uns im Raum bewegen können, können wir in der Zeit nur in Gedanken gehen." ② „<strong>Je nachdem</strong>, wo wir uns befinden, ist er mal weit entfernt."</em><br>
+        ⚠️ 考点：während从句动词→句末！„Während ich arbeite, höre ich Musik." B1常与als混淆：als用于过去一次性的"当…时"<br><br>
+
+        <strong>3. Konzessivsätze — 让步从句</strong> | <em>obwohl (尽管…但是)</em><br>
+        🇩🇪 Formel: <em>obwohl + Subjekt + ... + Verb am Ende, Hauptsatz</em><br>
+        🇨🇳 规则：obwohl引导的让步从句表示与主句相反的矛盾情况。与trotzdem(副词)不同：obwohl=从句连词，trotzdem=主句副词<br>
+        📖 Textbelege: <em>„<strong>Obwohl</strong> ein Ort sich mit der Zeit sehr verändern kann, bleibt seine Position immer gleich."</em><br>
+        ⚠️ 考点：obwohl从句动词→句末！不可写成„Obwohl ein Ort kann sich verändern"(错❌)→正确:„Obwohl ein Ort sich verändern kann"<br><br>
+
+        <strong>4. Relativsätze mit Präpositionen</strong> | <em>an dem, in der, mit denen</em><br>
+        🇩🇪 Formel: <em>Präposition + Relativpronomen (der/die/das → dem/der/dem) + ... + Verb am Ende</em><br>
+        🇨🇳 规则：介词+关系代词时，关系代词格随介词走(不是随先行词)<br>
+        📖 Textbelege: <em>① „ein konkreter Ort, <strong>an dem</strong> etwas Wichtiges geschehen ist" ② „die Zeitmaschine, <strong>mit der</strong> die Helden reisen"</em><br>
+        ⚠️ 考点：an+dem→am不适用于关系从句！必须用„an dem"(不能缩写)。in der/dem可缩写也可不缩写<br><br>
+
+        <strong>5. je nachdem / je...desto — 取决于/越…越…</strong> | <em>Korrelationen mit je</em><br>
+        🇩🇪 Formel: <em>je nachdem, ob/wie/was... / je + Komparativ, desto/umso + Komparativ</em><br>
+        🇨🇳 规则：je nachdem=视…而定；je…desto=越…越…(前后都是比较级，动词位置需注意)<br>
+        📖 Textbelege: <em>① „<strong>Je nachdem</strong>, wo wir uns befinden, ist er mal weit entfernt." ② „<strong>Je</strong> weiter man in die Vergangenheit reist, <strong>desto</strong> spannender wird es."</em><br>
+        ⚠️ 考点：je...desto结构中，je从句动词→句末，desto主句动词在第二位(紧接desto+比较级后)
+      </div>
+
+      <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1x-read5-vocab')">📚 显示/隐藏 词汇语法解释</button>
       <div class="answer-box" id="b1x-read5-vocab">
         <strong>重点词汇：</strong><br>
         • <strong>die Europäische Union</strong> = 欧盟（EU）<br>
@@ -31484,7 +31639,7 @@ function lxqResetMCQ(id) {
         </div>
 
         <!-- 词汇语法 -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1x-read5-ext-vocab')">显示/隐藏词汇语法</button>
+        <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1x-read5-ext-vocab')">📚 显示/隐藏 词汇语法</button>
         <div class="answer-box" id="b1x-read5-ext-vocab">
           <strong>📚 B1 重点词汇：</strong><br>
           • <strong>sich bewegen</strong> = 移动，运动<br>
@@ -31617,7 +31772,7 @@ function lxqResetMCQ(id) {
 
         <!-- ═══ Erasmus+ 综合资源：背景知识 / 词汇搭配 / 常用表达 / 仿写例句 ═══ -->
 
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s3-hintergrund')" style="margin-top:14px">🏭 显示/隐藏背景知识</button>
+        <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s3-hintergrund')" style="margin-top:14px">🏭 显示/隐藏 背景知识</button>
         <div class="answer-box" id="b1s3-hintergrund">
         <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -31642,7 +31797,7 @@ function lxqResetMCQ(id) {
         </div>
         </div>
 
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s3-kollokation')">🔗 显示/隐藏词汇搭配</button>
+        <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s3-kollokation')">🔗 显示/隐藏 词汇搭配</button>
         <div class="answer-box" id="b1s3-kollokation">
         <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
           <tr style="background:#2e7d32;color:#fff">
@@ -31703,7 +31858,7 @@ function lxqResetMCQ(id) {
         </table>
         </div>
 
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s3-redemittel')">💬 显示/隐藏常用表达</button>
+        <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s3-redemittel')">💬 显示/隐藏 常用表达</button>
         <div class="answer-box" id="b1s3-redemittel">
         <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
           <tr style="background:#2e7d32;color:#fff">
@@ -31754,7 +31909,7 @@ function lxqResetMCQ(id) {
         </table>
         </div>
 
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s3-beispiele')">✍️ 显示/隐藏仿写例句</button>
+        <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s3-beispiele')">✍️ 显示/隐藏 仿写例句</button>
         <div class="answer-box" id="b1s3-beispiele">
         <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
           <strong>🔹 Muster 1: 表达愿望与计划（möchte gern / würde gern）</strong><br>
@@ -32479,7 +32634,51 @@ function B1S3EmmaHideAll(){
         </div>
 
         <!-- 词汇 -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s4-leser-vocab')">显示/隐藏词汇</button>
+      <!-- 📖 语法解析 -->
+      <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s4-grammatik')">📖 显示/隐藏 语法解析 (5 项 · Modalverben + Indirekte Rede + weil/da)</button>
+      <div class="answer-box" id="b1s4-grammatik" style="font-size:.87rem;line-height:2">
+
+        <strong>1. Modalverben im Präsens & Präteritum</strong> | <em>müssen, können, dürfen, sollen, wollen, mögen</em><br>
+        🇩🇪 Formel: <em>Präsens: ich muss/kann/darf... + Infinitiv (句末) / Präteritum: ich musste/konnte/durfte...</em><br>
+        🇨🇳 规则：情态动词表达必要性/可能性/允许/意愿。Präsens第三人称不加词尾(er muss, nicht er musst)<br>
+        <strong>📊 变位表：</strong>
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+          <tr style="background:#283593;color:#fff"><th style="padding:5px 10px">Infinitiv</th><th style="padding:5px 10px">Präsens (er)</th><th style="padding:5px 10px">Präteritum</th><th style="padding:5px 10px">Bedeutung</th></tr>
+          <tr style="background:#e8eaf6"><td>müssen</td><td>muss</td><td>musste</td><td>必须(客观需要)</td></tr>
+          <tr style="background:#fff"><td>können</td><td>kann</td><td>konnte</td><td>能够/可以</td></tr>
+          <tr style="background:#e8eaf6"><td>dürfen</td><td>darf</td><td>durfte</td><td>允许(被允许)</td></tr>
+          <tr style="background:#fff"><td>sollen</td><td>soll</td><td>sollte</td><td>应该(他人要求)</td></tr>
+          <tr style="background:#e8eaf6"><td>wollen</td><td>will</td><td>wollte</td><td>想要(强烈意愿)</td></tr>
+          <tr style="background:#fff"><td>möchten*</td><td>möchte</td><td>wollte</td><td>想要(礼貌/愿望)</td></tr>
+        </table>
+        ⚠️ 考点：müssen(客观必须) vs. sollen(他人要求)；können(能力) vs. dürfen(允许)。möchten是mögen的Konjunktiv II, Präteritum用wollte替代<br><br>
+
+        <strong>2. Konjunktiv II — 礼貌表达与愿望</strong> | <em>würde, hätte, wäre, könnte, möchte</em><br>
+        🇩🇪 Formel: <em>würde + Infinitiv / hätte(haben) / wäre(sein) / könnte(können) / möchte(mögen)</em><br>
+        🇨🇳 规则：B1最常用的虚拟式形式。würde+Infinitiv用于大部分动词；haben→hätte, sein→wäre必须直接变位<br>
+        📖 Textbelege: <em>① „Ich <strong>hätte</strong> gern mehr Zeit für meine Familie." ② „Man <strong>sollte</strong> mehr auf die Work-Life-Balance achten." ③ „Es <strong>wäre</strong> schön, weniger Stress zu haben."</em><br>
+        ⚠️ 考点：sollte(Konjunktiv II von sollen)=建议"应该"，比muss语气柔和。ich möchte=我想要(礼貌)，ich will=我要(直接)<br><br>
+
+        <strong>3. Kausalsätze — 原因从句</strong> | <em>weil, da, denn</em><br>
+        🇩🇪 Formel: <em>weil/da + Subjekt + ... + Verb am Ende / denn + Hauptsatz (Verb Position 2)</em><br>
+        🇨🇳 规则：weil=口语常用(动词→末位)；da=书面/已知原因(动词→末位)；denn=并列连词(动词→第二位，不变位)<br>
+        📖 Textbelege: <em>① „Ich habe wenig Zeit, <strong>weil</strong> ich viel arbeiten <strong>muss</strong>." ② „<strong>Da</strong> beide Eltern berufstätig <strong>sind</strong>, teilen sie sich die Hausarbeit."</em><br>
+        ⚠️ 考点：weil从句动词→句末，denn主句动词→第二位。常见错误：„weil ich muss arbeiten"(❌)→„weil ich arbeiten muss"(✅)<br><br>
+
+        <strong>4. Reflexive Verben — 反身动词</strong> | <em>sich kümmern um, sich interessieren für, sich freuen auf/über</em><br>
+        🇩🇪 Formel: <em>ich kümmere mich / du kümmerst dich / er kümmert sich + um + Akk</em><br>
+        🇨🇳 规则：反身代词与主语一致(ich→mich/mir, du→dich/dir, er→sich)；固定搭配介词必须死记<br>
+        📖 Textbelege: <em>① „Man <strong>kümmert sich</strong> um die Kinder." ② „Er <strong>interessiert sich</strong> für Sport." ③ „Wir <strong>freuen uns auf</strong> den Urlaub."</em><br>
+        ⚠️ 考点：sich freuen auf+Akk(期待将来) vs. sich freuen über+Akk(为已发生的事高兴)。sich kümmern um=照顾/处理<br><br>
+
+        <strong>5. Temporale Präpositionen mit Dativ</strong> | <em>seit, vor, nach, in, an, um</em><br>
+        🇩🇪 Formel: <em>seit+Dativ(至今持续) / vor+Dativ(…之前) / nach+Dativ(…之后) / in+Dativ(在…之内/之后)</em><br>
+        🇨🇳 规则：时间介词跟Dativ。seit强调"从过去到现在还在继续"；vor表示"在…时间以前"<br>
+        📖 Textbelege: <em>① „<strong>Seit</strong> einem Jahr arbeite ich Teilzeit." ② „<strong>Vor</strong> drei Monaten habe ich den Job gewechselt." ③ „<strong>Nach</strong> der Arbeit gehe ich zum Sport."</em><br>
+        ⚠️ 考点：seit+Dativ→现在时(仍持续) vs. vor+Dativ→现在完成时(已结束)。seit einem Jahr(✅)→seit ein Jahr(❌ 缺Dativ词尾!)
+      </div>
+
+        <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s4-leser-vocab')">📚 显示/隐藏词汇</button>
         <div class="answer-box" id="b1s4-leser-vocab">
           <strong>📚 重点词汇：</strong><br>
           • <strong>der Alltag</strong> = 日常 · <strong>der graue Alltag</strong> = 灰暗的日常<br>
@@ -32776,6 +32975,34 @@ function B1S3EmmaHideAll(){
             <label style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:.5rem .7rem;cursor:pointer;font-size:.86rem;line-height:1.5"><input type="checkbox" data-ans="1" style="margin-right:.5rem"> 8. Lenas kleiner Bruder Lukas geht noch nicht in die Schule, weil er erst vier Jahre alt ist.</label>
             <label style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:.5rem .7rem;cursor:pointer;font-size:.86rem;line-height:1.5"><input type="checkbox" data-ans="0" style="margin-right:.5rem"> 9. Weil Lukas auch schon Hobbys hat, ist Anke oft den ganzen Nachmittag mit ihm unterwegs.</label>
           </div>
+
+      <!-- 📖 语法解析 — Familie Born + Alltag -->
+      <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s4-fb-grammatik')" style="margin-bottom:.5rem">📖 显示/隐藏 语法解析 — Familie Born (4 项)</button>
+      <div class="answer-box" id="b1s4-fb-grammatik" style="font-size:.87rem;line-height:2;margin-bottom:.8rem">
+        <strong>1. Possessivartikel im Dativ</strong> | <em>meinem, deinem, seinem, unserem...</em><br>
+        🇩🇪 Formel: <em>in + Dativ: in meinem Alltag / mit + Dativ: mit meiner Kollegin / von + Dativ: von meinem Beruf</em><br>
+        🇨🇳 规则：物主冠词在Dativ中，der/das名词→-em(meinem)，die名词→-er(meiner)，复数→-en(meinen)+名词加-n<br>
+        📖 Textbelege: <em>① „In <strong>meinem</strong> Arbeitsalltag gibt es viele Gefahren." ② „Mit <strong>meiner</strong> Kollegin beobachte ich den Verkehr." ③ „In <strong>unserer</strong> Kantine essen wir."</em><br>
+        ⚠️ 考点：B1 Dativ必考！mein→meinem(der/das)/meiner(die)。常用介词：in/im, mit, von, zu, bei, nach + Dativ<br><br>
+
+        <strong>2. Weil-Sätze im Alltag</strong> | <em>Kausalsätze mit Verb am Ende</em><br>
+        🇩🇪 Formel: <em>weil + Subjekt + ... + Verb am Ende</em><br>
+        🇨🇳 规则：weil从句动词→末位。这是B1听力口语最高频的结构之一<br>
+        📖 Textbelege: <em>① „Das ist praktisch, <strong>weil</strong> ich mich so um die Kinder kümmern <strong>kann</strong>." ② „Ich bin nie allein, <strong>weil</strong> es viele Gefahren <strong>gibt</strong>."</em><br>
+        ⚠️ 考点：weil从句≠主句词序！„weil ich kann kümmern"(❌)→„weil ich kümmern kann"(✅)<br><br>
+
+        <strong>3. Sich kümmern um + Akk</strong> | <em>照顾/负责 → Reflexiv + Präposition</em><br>
+        🇩🇪 Formel: <em>sich kümmern um + Akkusativ (ich kümmere mich um..., er kümmert sich um...)</em><br>
+        🇨🇳 规则：反身动词sich kümmern固定搭配介词um。类似：sich interessieren für, sich freuen auf/über<br>
+        📖 Textbelege: <em>① „Ich <strong>kümmere mich</strong> um die Kinder." ② „Familienpflegerinnen <strong>kümmern sich um</strong> die Familie."</em><br>
+        ⚠️ 考点：kümmern+sich+um三个词缺一不可！sich sorgen um(担心)≠sich kümmern um(实际照顾)<br><br>
+
+        <strong>4. Schichtdienst — trennbare Verben im Berufskontext</strong> | <em>sich vorstellen, ausbrechen, teilnehmen</em><br>
+        🇩🇪 Formel: <em>Präfix+Verb: ich stelle mir vor / ich breche aus / ich nehme teil</em><br>
+        🇨🇳 规则：职业/日常话题中高频可分动词。前缀分离到句末，宾语夹中间<br>
+        📖 Textbelege: <em>① „Dann <strong>stelle</strong> ich mir <strong>vor</strong>, was meine Kollegen machen." ② „Man kann aus dem Alltag <strong>ausbrechen</strong>." (Infinitiv mit zu)</em><br>
+        ⚠️ 考点：sich(Dativ) vorstellen=想象 vs. sich(Akk) vorstellen=自我介绍。两者反身代词格不同！
+      </div>
 
           <button class="btn btn-check" onclick="b1FbCheck('b1s4-fb-4a-checks','b1s4-fb-4a-score')">批改答案</button>
           <button class="btn btn-show" onclick="a2ToggleAns('b1s4-fb-4a-explain')">显示/隐藏解析</button>
@@ -33418,7 +33645,7 @@ function B1S3EmmaHideAll(){
         </div>
 
         <!-- Wortschatz -->
-        <button class="btn btn-show" onclick="a2ToggleAns('b1s5-leser-vocab')" style="margin-top:1rem">显示/隐藏词汇</button>
+        <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s5-leser-vocab')" style="margin-top:1rem">📚 显示/隐藏 词汇</button>
         <div class="answer-box" id="b1s5-leser-vocab">
           <strong>📚 重点词汇：</strong><br>
           • <strong>der Ärger</strong> = 烦恼 · <strong>so ein Ärger!</strong> = 真烦！<br>
@@ -39600,7 +39827,7 @@ function b1S12CheckB(){
     var inner = page.querySelector('div');
     if(!inner) return;
     /* 从隐藏 wrapper 中提取 section */
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15']].forEach(function(pair){
       var wrapper = document.getElementById(pair[0]);
       var existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
@@ -39611,7 +39838,7 @@ function b1S12CheckB(){
     });
 
     /* 注入上一篇/下一篇快捷切换按钮 */
-    var seq = window.B1L_SEQ || ['1','2','3','4','6','7','9','10','11','12','14','15'];
+    var seq = window.B1L_SEQ || ['1','2','3','4','6','7','9','10','11','12','13','14','15'];
     seq.forEach(function(v, idx){
       var sec = document.getElementById('b1l-s'+v);
       if(!sec) return;
@@ -44098,9 +44325,684 @@ function b1S12CheckB(){
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- B1 阅读 13 · Extensives Lesen                                              -->
+<!-- B1 阅读 13 · Deutsche Wetterrekorde & Orkan Kyrill                       -->
 <!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s13-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s13">
+  <div class="section-header">阅读 13 · 🌦️ Deutsche Wetterrekorde &amp; Orkan „Kyrill" &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Sachtext · Wetter &amp; Klima</span></div>
+  <div class="section-body">
 
+    <!-- ═══ 文章 1：Deutsche Wetterrekorde ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">🌡️ Deutsche Wetterrekorde</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">B1 · Sachtext · Wetter</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Temperatur, Sonnenschein, Schnee und Niederschlag — Deutschlands Wetter-Extreme</div>
+      </div>
+      <div style="padding:22px 28px 26px;font-size:.9rem;line-height:2;color:#2d3748">
+
+        <p style="margin:0 0 1rem">Immer wieder kommen Nachfragen von unseren Leserinnen und Lesern zu <strong>deutschen Wetterrekorden</strong>. Deshalb hat Amelie Riemer für Sie eine kleine Rekordliste zusammengestellt.</p>
+
+        <p style="margin:0 0 .6rem"><strong>🌡️ Temperatur:</strong> Die höchste in Deutschland gemessene Temperatur betrug <strong>40,3 °C</strong> und wurde am <strong>5. Juli 2015 in Kitzingen</strong> (Bayern) gemessen. Weltweit gesehen ist das allerdings eher harmlos — in manchen Ländern werden über 50 °C erreicht. Die <strong>niedrigste Temperatur</strong> lag bei <strong>−37,8 °C</strong> im Februar 1929 in Wolnzach (Bayern). Den Temperaturrekord hält also zweimal der Freistaat Bayern — sowohl nach oben als auch nach unten!</p>
+
+        <p style="margin:0 0 .6rem"><strong>☀️ Sonnenschein:</strong> Mit der <strong>längsten Sonnenscheindauer</strong> kann die <strong>Zugspitze</strong> aufwarten: Im Jahre 1959 hält ein Ort auf Deutschlands höchstem Berg den Rekord mit <strong>2.329 Sonnenstunden</strong> innerhalb eines Jahres. Gibt es auch einen Monat ganz ohne Sonnenschein? Ja, der Negativ-Rekord liegt bei <strong>nur 2,0 Stunden</strong> im Dezember 1965 — das ist fast völlige Dunkelheit. Den wärmsten Winter gab es 2020 mit durchschnittlich <strong>4,2 °C</strong>.</p>
+
+        <p style="margin:0 0 .6rem"><strong>❄️ Schneedecke:</strong> Den Schneerekord hält die <strong>Schwäbische Alb</strong>: Dort wurde eine <strong>Schneedecke von bis zu 150 cm</strong> an einem Tag gemessen. Der meiste Schnee innerhalb von 24 Stunden fiel mit <strong>80 cm Neuschnee</strong> im Dezember 1970 — eine echte Ausnahmesituation, die zu chaotischen Zuständen führte.</p>
+
+        <p style="margin:0 0 1rem"><strong>🌧️ Niederschlag:</strong> Den <strong>Jahresgesamtniederschlag</strong>-Rekord hält eine bayerische Gemeinde mit über <strong>2.400 mm</strong> — das ist mehr als das Doppelte des deutschen Durchschnitts von etwa 800 mm pro Jahr. Im Juli 1902 wurden dort innerhalb eines Monats unglaubliche <strong>440 mm Niederschlag</strong> gemessen. Zum Vergleich: In manchen Regionen Deutschlands regnet es im ganzen Jahr weniger als 500 mm.</p>
+
+        <div style="background:#e3f2fd;border-left:4px solid #1565c0;border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-size:.87rem;line-height:1.9">
+          <strong>📝 a) Zahlen und Fakten — Verbinden Sie die Rekorde.</strong><br>
+          1. Höchste Temperatur &nbsp; ◇ &nbsp; 150 cm Schneedecke<br>
+          2. Niedrigste Temperatur &nbsp; ◇ &nbsp; 2.329 Sonnenstunden<br>
+          3. Längste Sonnenscheindauer &nbsp; ◇ &nbsp; 40,3 °C (Kitzingen, 5.7.2015)<br>
+          4. Höchste Schneedecke &nbsp; ◇ &nbsp; −37,8 °C (Wolnzach, Februar 1929)<br>
+          5. Höchster Jahresniederschlag &nbsp; ◇ &nbsp; über 2.400 mm (Bayern)<br>
+          <strong>Lösung:</strong> 1→40,3°C · 2→−37,8°C · 3→2.329 Std. · 4→150 cm · 5→2.400 mm
+        </div>
+
+        <!-- 预习笔记 - 文章1 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>der Wetterrekord, -e</strong> 天气纪录 | <em>höchster/niedrigster gemessener Wert beim Wetter</em><br>
+          • <strong>messen (misst, maß, hat gemessen)</strong> 测量 | <em>einen Wert mit einem Gerät feststellen</em><br>
+          • <strong>betragen (beträgt, betrug, hat betragen)</strong> 总计为 | <em>einen bestimmten Wert haben</em><br>
+          • <strong>der Niederschlag, -¨e</strong> 降水量 | <em>Regen, Schnee, Hagel — Wasser vom Himmel</em><br>
+          • <strong>die Schneedecke, -n</strong> 积雪层 | <em>Schneeschicht auf dem Boden</em><br>
+          • <strong>die Sonnenscheindauer</strong> 日照时长 | <em>Zahl der Stunden mit Sonnenschein pro Tag/Jahr</em><br>
+          • <strong>der Durchschnitt, -e</strong> 平均值 | <em>mittlerer Wert aus mehreren Zahlen</em><br>
+          • <strong>harmlos</strong> 无害的/不严重的 | <em>nicht gefährlich, ohne schlimme Folgen</em><br>
+          • <strong>aufwarten mit + D</strong> 可以拿出/拥有 | <em>etwas Besonderes bieten können (wartete auf, hat aufgeworfen)</em><br>
+          • <strong>der Freistaat, -en</strong> 自由州 | <em>offizielle Bezeichnung für Bayern, Sachsen und Thüringen</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 文章 2：Orkan Kyrill ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#bf360c,#e65100);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">🌪️ Orkan „Kyrill" legt Rhein-Main-Gebiet lahm</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">B1 · Zeitungsartikel · 18.01.2007</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">185 km/h Windgeschwindigkeit · 180 gestrichene Flüge · Deutsche Bahn stellt Verkehr ein</div>
+      </div>
+      <div style="padding:22px 28px 26px;font-size:.9rem;line-height:2;color:#2d3748">
+
+        <p style="margin:0 0 .6rem">Am <strong>18. Januar 2007</strong> fegte der Orkan „Kyrill" über Deutschland hinweg. Besonders schwer traf es das <strong>Rhein-Main-Gebiet</strong>. Mit Windgeschwindigkeiten von bis zu <strong>185 km/h</strong> war Kyrill einer der schwersten Stürme der deutschen Geschichte.</p>
+
+        <p style="margin:0 0 .6rem">Die Folgen waren dramatisch: <strong>Entwurzelte Bäume</strong> und <strong>abgedeckte Dächer</strong> legten den gesamten Nah- und Fernverkehr in der Region lahm. Auch Flugreisende mussten mit <strong>langen Wartezeiten</strong> leben, denn am Frankfurter Flughafen wurden <strong>knapp 180 Flüge gestrichen</strong>. Umgestürzte Lastwagen blockierten Autobahnen, und auf den Schienenwegen stellte die <strong>Deutsche Bahn gegen 19 Uhr</strong> den gesamten Zugverkehr ein — zum ersten Mal in ihrer Geschichte.</p>
+
+        <p style="margin:0 0 .6rem">Im Rhein-Main-Gebiet kam es zu <strong>zahlreichen Schäden und Behinderungen</strong>. Viele Schulen blieben geschlossen, auch andere öffentliche Gebäude wurden früher geschlossen. Bäume stürzten auf Oberleitungen und beschädigten die Stromversorgung. Zahlreiche Veranstaltungen wurden abgesagt.</p>
+
+        <p style="margin:0">Bis zum späten Abend wurden aber nur einige <strong>Leichtverletzte</strong> gemeldet — trotz der enormen Sachschäden. Insgesamt verursachte Kyrill in Deutschland einen Schaden von etwa <strong>2,3 Milliarden Euro</strong> und forderte <strong>13 Menschenleben</strong>. Der Sturm zeigte, wie verletzlich selbst eine hoch entwickelte Infrastruktur gegenüber extremen Wetterereignissen ist.</p>
+
+        <div style="background:#fff3e0;border-left:4px solid #e65100;border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-size:.87rem;line-height:1.9">
+          <strong>📝 b) Richtig oder falsch? Kreuzen Sie an.</strong><br>
+          1. Orkan Kyrill fand im Januar 2007 statt. <strong>(✓)</strong><br>
+          2. Die höchste Windgeschwindigkeit betrug 150 km/h. <strong>(✗ — 185 km/h)</strong><br>
+          3. Am Frankfurter Flughafen wurden über 200 Flüge gestrichen. <strong>(✗ — knapp 180)</strong><br>
+          4. Die Deutsche Bahn stellte den Zugverkehr am Nachmittag ein. <strong>(✗ — gegen 19 Uhr, am Abend)</strong><br>
+          5. Es gab viele Todesopfer durch den Sturm. <strong>(✗ — 13 Todesopfer insgesamt)</strong><br>
+          6. Der Gesamtschaden betrug etwa 2,3 Milliarden Euro. <strong>(✓)</strong>
+        </div>
+
+        <div style="background:#e8eaf6;border-left:4px solid #3949ab;border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-size:.87rem;line-height:1.9">
+          <strong>📝 c) Und bei Ihnen? Recherchieren Sie Wetterrekorde aus Ihrem Land.</strong><br>
+          Welche Wetterphänomene gibt es bei Ihnen (nicht)? Berichten Sie.<br><br>
+          <strong>Über (Wetter-)Rekorde sprechen / Redemittel:</strong><br>
+          • Der (Negativ-)Rekord liegt (genau) bei / beträgt (exakt / circa / in etwa) …<br>
+          • Der höchste / niedrigste Wert liegt bei / findet sich in …<br>
+          • Am häufigsten / wenigsten gibt es …<br>
+          • … stellt / hält den Rekord mit … Grad Celsius / Metern / Litern pro Quadratmeter.
+        </div>
+
+        <!-- 预习笔记 - 文章2 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>der Orkan, -e</strong> 飓风级风暴 | <em>sehr starker Sturm (Windstärke 12, über 117 km/h)</em><br>
+          • <strong>fegen über + A</strong> 席卷 | <em>schnell und mit Kraft über etw. hinweggehen</em><br>
+          • <strong>lahm|legen</strong> 使瘫痪/使停摆 | <em>den Verkehr / Betrieb komplett stoppen</em><br>
+          • <strong>entwurzeln</strong> 连根拔起 | <em>einen Baum mit den Wurzeln aus der Erde reißen</em><br>
+          • <strong>um|stürzen</strong> 翻倒/倒塌 | <em>umfallen, auf die Seite kippen (stürzte um, ist umgestürzt)</em><br>
+          • <strong>streichen (strich, hat gestrichen)</strong> 取消 | <em>einen Flug / eine Veranstaltung absagen</em><br>
+          • <strong>der Sachschaden, -¨</strong> 财产损失 | <em>Schaden an Gebäuden, Autos, Infrastruktur</em><br>
+          • <strong>das Menschenleben, -</strong> 人命 | <em>ein menschliches Leben (fordern: Todesopfer verursachen)</em><br>
+          • <strong>die Oberleitung, -en</strong> 架空电线 | <em>Stromkabel über Bahngleisen</em><br>
+          • <strong>verletzlich</strong> 脆弱的/易受伤的 | <em>leicht zu beschädigen oder zu verletzen</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ 教学模块 ═══════════════ -->
+
+    <!-- 📚 词汇表（含用法提示 + 例句） -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-vocab')">📚 显示/隐藏 词汇语法 (22 词条 · 名词/动词/形容词分类)</button>
+    <div class="answer-box" id="b1s13-vocab" style="font-size:.87rem;line-height:2">
+      <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin-bottom:12px">
+        <strong style="color:#00695c">📋 Nomen · 名词 (12)</strong>
+      </div>
+      • <strong>der Wetterrekord, -e</strong> = 天气纪录 | <em>höchster/niedrigster gemessener Wert beim Wetter</em><br>
+      &nbsp;&nbsp;📌 <em>„Den Temperaturrekord hält Bayern."</em> — 巴伐利亚保持着温度纪录<br>
+      • <strong>der Orkan, -e</strong> = 飓风级风暴 | <em>Sturm ab Windstärke 12 (&gt;117 km/h)</em><br>
+      &nbsp;&nbsp;📌 <em>„Kyrill war einer der schwersten Orkane in Europa."</em> — Kyrill是欧洲最强飓风之一<br>
+      • <strong>der Niederschlag, -¨e</strong> = 降水量 | <em>Regen, Schnee, Hagel — alles Wasser vom Himmel; auch Plural: Niederschläge</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Jahresniederschlag beträgt in Deutschland etwa 800 mm."</em> — 德国年降水量约800毫米<br>
+      • <strong>die Schneedecke, -n</strong> = 积雪层 | <em>geschlossene Schneeschicht am Boden (Decke = 被子/覆盖层)</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Schneedecke war stellenweise 150 cm dick."</em> — 积雪层局部厚达150厘米<br>
+      • <strong>die Sonnenscheindauer</strong> = 日照时长 (nur Sg.) | <em>Zahl der Stunden mit direktem Sonnenlicht; Messgröße der Meteorologie</em><br>
+      &nbsp;&nbsp;📌 <em>„1959 wurden 2.329 Sonnenstunden auf der Zugspitze gemessen."</em><br>
+      • <strong>der Durchschnitt, -e</strong> = 平均值 | <em>mittlerer Wert; 搭配: im Durchschnitt (平均), über/unter dem Durchschnitt (高于/低于平均)</em><br>
+      &nbsp;&nbsp;📌 <em>„Im Durchschnitt regnet es 800 mm pro Jahr."</em> — 平均每年降雨800毫米<br>
+      • <strong>der Freistaat, -en</strong> = 自由州 | <em>historische Bezeichnung für Bayern, Sachsen, Thüringen (vor 1918: ohne Monarchen)</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Freistaat Bayern hält gleich zwei Temperaturrekorde."</em><br>
+      • <strong>der Sachschaden, -¨</strong> = 财产损失 | <em>Schaden an Gegenständen/Gebäuden (≠ Personenschaden 人身伤害)</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Sachschaden betrug 2,3 Milliarden Euro."</em><br>
+      • <strong>das Menschenleben, -</strong> = 人命 | <em>ein menschliches Leben; 搭配: Menschenleben fordern = 造成人员死亡</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Sturm forderte 13 Menschenleben."</em> — 风暴夺走13条人命<br>
+      • <strong>die Oberleitung, -en</strong> = 架空电线 | <em>Stromkabel über Bahngleisen; bei Sturm besonders gefährdet</em><br>
+      &nbsp;&nbsp;📌 <em>„Bäume stürzten auf die Oberleitung und beschädigten sie."</em><br>
+      • <strong>die Windgeschwindigkeit, -en</strong> = 风速 | <em>Tempo des Windes in km/h oder m/s; 搭配: eine Geschwindigkeit von ... erreichen</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Orkan erreichte Windgeschwindigkeiten von bis zu 185 km/h."</em><br>
+      • <strong>die Infrastruktur, -en</strong> = 基础设施 | <em>Straßen, Schienen, Stromnetz — alles, was ein Land am Laufen hält</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Infrastruktur war nach dem Sturm stark beschädigt."</em>
+
+      <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px">
+        <strong style="color:#00695c">🔧 Verben · 动词 (8)</strong>
+      </div>
+      • <strong>messen (misst, maß, hat gemessen)</strong> = 测量 | <em>mit einem Instrument einen Wert bestimmen; Nomen: die Messung</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Temperatur wurde mit einem Thermometer gemessen."</em><br>
+      • <strong>betragen (beträgt, betrug, hat betragen)</strong> = 总计为/达 | <em>einen bestimmten Zahlenwert haben; 常用于数据报告</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Schaden beträgt 2,3 Milliarden Euro."</em> — 损失达23亿欧元<br>
+      • <strong>fegen über + A (fegte, ist gefegt)</strong> = 席卷 | <em>mit großer Kraft und Geschwindigkeit über etw. hinwegziehen; Bild: wie ein Besen (der Feger)</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Orkan fegte über das Rhein-Main-Gebiet hinweg."</em><br>
+      • <strong>lahm|legen (trennbar, legte lahm, hat lahmgelegt)</strong> = 使瘫痪/停摆 | <em>den Betrieb von etw. komplett stoppen; sehr häufiges Wort in Katastrophenberichten</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Sturm legte den gesamten Bahnverkehr lahm."</em><br>
+      • <strong>entwurzeln (entwurzelte, hat entwurzelt)</strong> = 连根拔起 | <em>einen Baum mit den Wurzeln aus der Erde reißen; Wurzel = 根</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Sturm entwurzelte hunderte Bäume."</em><br>
+      • <strong>um|stürzen (trennbar, stürzte um, ist umgestürzt)</strong> = 翻倒/倒塌 | <em>aus der senkrechten in die waagerechte Position fallen; oft bei Bäumen, Masten, Lastwagen</em><br>
+      &nbsp;&nbsp;📌 <em>„Lastwagen stürzten auf der Autobahn um."</em><br>
+      • <strong>streichen (strich, hat gestrichen)</strong> = 取消/删除 | <em>etwas Geplantes absagen; aus einer Liste entfernen (durchstreichen = 划掉)</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Fluggesellschaft strich alle Flüge nach Frankfurt."</em><br>
+      • <strong>ein|stellen (trennbar, stellte ein, hat eingestellt)</strong> = 停止/中止 | <em>hier: den Betrieb beenden; auch: jmd. anstellen (雇用)</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Bahn stellte den Zugverkehr komplett ein."</em>
+
+      <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px">
+        <strong style="color:#00695c">🎨 Adjektive &amp; Wendungen (2)</strong>
+      </div>
+      • <strong>harmlos</strong> = 无害的/不严重的 | <em>keine Gefahr darstellend; Harm = 伤害 + los = 无; 反义词: gefährlich</em><br>
+      &nbsp;&nbsp;📌 <em>„40 °C sind weltweit gesehen eher harmlos."</em><br>
+      • <strong>verletzlich</strong> = 脆弱的/易受伤的 | <em>leicht zu beschädigen oder zu verletzen; verletzen = 使受伤 + -lich = 可…的</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Sturm zeigte, wie verletzlich unsere Infrastruktur ist."</em>
+    </div>
+
+    <!-- 📖 语法解析（5项，每项含多个Textbelege + 对比表 + 常见错误） -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s13-grammatik')">📖 显示/隐藏 语法解析 (5 项 · 含变位表 + 易错对比)</button>
+    <div class="answer-box" id="b1s13-grammatik" style="font-size:.87rem;line-height:2">
+
+      <strong>1. Präteritum — 书面过去时</strong> | <em>schriftliche Vergangenheit / narratives Präteritum</em><br>
+      🇩🇪 Formel: <em>regelmäßig: Stamm + -te (fegen→fegte) / unregelmäßig: Stammvokalwechsel (messen→maß, betragen→betrug)</em><br>
+      🇨🇳 规则：Präteritum 是德语书面语（新闻报道、Sachtext、文学叙述）的默认过去时。口语中北部德国人用 Präteritum 说 sein/haben/werden，南部几乎全用 Perfekt。<br><br>
+
+      <strong>📊 文中动词 Präteritum 变位速查：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">Infinitiv</th><th style="padding:5px 10px">Präteritum (3. Pers)</th><th style="padding:5px 10px">Perfekt</th><th style="padding:5px 10px">Typ</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>messen</td><td>maß</td><td>hat gemessen</td><td>unregelmäßig (e→a)</td></tr>
+        <tr style="background:#fff"><td>betragen</td><td>betrug</td><td>hat betragen</td><td>unregelmäßig (a→u)</td></tr>
+        <tr style="background:#e8eaf6"><td>fegen</td><td>fegte</td><td>ist gefegt</td><td>regelmäßig</td></tr>
+        <tr style="background:#fff"><td>lahmlegen</td><td>legte ... lahm</td><td>hat lahmgelegt</td><td>trennbar + regelmäßig</td></tr>
+        <tr style="background:#e8eaf6"><td>ein|stellen</td><td>stellte ... ein</td><td>hat eingestellt</td><td>trennbar + regelmäßig</td></tr>
+        <tr style="background:#fff"><td>streichen</td><td>strich</td><td>hat gestrichen</td><td>unregelmäßig (ei→i)</td></tr>
+        <tr style="background:#e8eaf6"><td>um|stürzen</td><td>stürzte ... um</td><td>ist umgestürzt</td><td>trennbar + regelmäßig</td></tr>
+        <tr style="background:#fff"><td>entwurzeln</td><td>entwurzelte</td><td>hat entwurzelt</td><td>regelmäßig</td></tr>
+        <tr style="background:#e8eaf6"><td>fordern</td><td>forderte</td><td>hat gefordert</td><td>regelmäßig</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „Die Temperatur <strong>betrug</strong> 40,3 °C und <strong>wurde</strong> am 5. Juli 2015 <strong>gemessen</strong>."</em> — 温度为40.3°C，于2015年7月5日测得<br>
+      <em>② „Im Jahre 1959 <strong>hält</strong> ein Ort auf der Zugspitze den Rekord."</em> — 注意：这里用 Präsens（historisches Präsens），使历史纪录更生动！<br>
+      <em>③ „Entwurzelte Bäume <strong>legten</strong> den Verkehr <strong>lahm</strong>."</em> — 被连根拔起的树木使交通瘫痪<br>
+      <em>④ „Der Sturm <strong>verursachte</strong> einen Schaden von 2,3 Milliarden Euro."</em> — 风暴造成了23亿欧元损失<br>
+      ⚠️ 考点：B1 考试中，阅读理解常出现 Präteritum。口语作答时需转换为 Perfekt（„Die Temperatur hat 40,3 °C betragen"），但写作文可用 Präteritum。<br>
+      ⚠️ 易错：unregelmäßige Verben 的 Präteritum 必须死记（共约170个常用），不能按规则推导。<br><br>
+
+      <strong>2. Vorgangspassiv Präteritum — 过程被动式过去时</strong> | <em>werden-Passiv in der Vergangenheit</em><br>
+      🇩🇪 Formel: <em>wurde/wurden + Partizip II</em><br>
+      🇨🇳 规则：Vorgangspassiv（过程被动）描述一个被动动作的发生过程。Präteritum 形式用于书面报道过去发生的事件。<br><br>
+
+      <strong>📊 Passiv 三种时态对比表：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">时态</th><th style="padding:5px 10px">Vorgangspassiv（过程被动）</th><th style="padding:5px 10px">Zustandspassiv（状态被动）</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>Präsens</td><td>Der Flug <strong>wird</strong> gestrichen.</td><td>Der Flug <strong>ist</strong> gestrichen.</td></tr>
+        <tr style="background:#fff"><td>Präteritum</td><td>Der Flug <strong>wurde</strong> gestrichen.</td><td>Der Flug <strong>war</strong> gestrichen.</td></tr>
+        <tr style="background:#e8eaf6"><td>Perfekt</td><td>Der Flug <strong>ist</strong> gestrichen <strong>worden</strong>.</td><td>Der Flug <strong>ist</strong> gestrichen <strong>gewesen</strong>.</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „Knapp 180 Flüge <strong>wurden gestrichen</strong>."</em> — 近180个航班被取消（Vorgangspassiv Präteritum）<br>
+      <em>② „Zahlreiche Veranstaltungen <strong>wurden abgesagt</strong>."</em> — 许多活动被取消<br>
+      <em>③ „Nur einige Leichtverletzte <strong>wurden gemeldet</strong>."</em> — 仅有几名轻伤被报告<br>
+      <em>④ „Auch andere öffentliche Gebäude <strong>wurden</strong> früher <strong>geschlossen</strong>."</em> — 其他公共建筑也被提前关闭<br>
+      ⚠️ 考点：B1 常考 Präteritum Passiv（wurde + PII）和 Perfekt Passiv（ist ... worden）的区分。新闻报纸用前者，口语叙述过去用后者。<br>
+      ⚠️ 易错：werden 的三态 — wird (Präsens) / wurde (Präteritum) / ist geworden (Perfekt Aktiv) vs. ist ... worden (Perfekt Passiv, 注意没有 ge-!)<br><br>
+
+      <strong>3. Superlativ — 形容词最高级</strong> | <em>höchste, niedrigste, längste, schwerste</em><br>
+      🇩🇪 Formel: <em>定语: der/die/das + Adjektiv + -(e)ste + 词尾 / 副词: am + Adjektiv + -(e)sten</em><br>
+      🇨🇳 规则：形容词最高级作定语时必须加定冠词和形容词词尾；作副词时用 am ...sten 结构（不变格）。<br><br>
+
+      <strong>📊 文中最高级一览：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">原级 (Positiv)</th><th style="padding:5px 10px">比较级 (Komparativ)</th><th style="padding:5px 10px">最高级 (Superlativ)</th><th style="padding:5px 10px">Umlaut?</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>hoch</td><td>höher</td><td>am höchsten / der/die/das höchste</td><td>✓ (o→ö)</td></tr>
+        <tr style="background:#fff"><td>niedrig</td><td>niedriger</td><td>am niedrigsten / der/die/das niedrigste</td><td>✗ (无 a/o/u)</td></tr>
+        <tr style="background:#e8eaf6"><td>lang</td><td>länger</td><td>am längsten / der/die/das längste</td><td>✓ (a→ä)</td></tr>
+        <tr style="background:#fff"><td>schwer</td><td>schwerer</td><td>am schwersten / der/die/das schwerste</td><td>✗ (注意: schwer 不加 Umlaut!)</td></tr>
+        <tr style="background:#e8eaf6"><td>warm</td><td>wärmer</td><td>am wärmsten / der/die/das wärmste</td><td>✓ (a→ä)</td></tr>
+        <tr style="background:#fff"><td>viel</td><td>mehr</td><td>am meisten / die meisten</td><td>不规则!</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „Die <strong>höchste</strong> in Deutschland gemessene Temperatur betrug 40,3 °C."</em><br>
+      <em>② „Die <strong>längste</strong> Sonnenscheindauer... der <strong>schwerste</strong> Sturm der deutschen Geschichte"</em><br>
+      <em>③ „Die <strong>niedrigste</strong> Temperatur lag bei −37,8 °C."</em><br>
+      <em>④ „Der <strong>wärmste</strong> Winter war 2020 mit durchschnittlich 4,2 °C."</em><br>
+      ⚠️ 考点：einsilbige Adjektive mit a/o/u → 通常加 Umlaut（groß→größte, kurz→kürzeste），但有些例外（flach→flachste, schlank→schlankste）。<br>
+      ⚠️ 易错：hoch→höher→am höchsten（c 在变级时消失！）；viel→mehr→am meisten（完全不规则，必须死记）。<br><br>
+
+      <strong>4. Temporale Präpositionen — 时间介词</strong> | <em>am, im, bis zum, seit, innerhalb</em><br>
+      🇩🇪 Formel: <em>am + Tag/Datum (an dem) / im + Monat/Jahr/Jahreszeit (in dem) / bis zum + Zeitpunkt / seit + Zeitpunkt (至今仍持续) / innerhalb + Genitiv (在…之内)</em><br>
+      🇨🇳 规则：德语时间介词后面跟 Dativ（an dem→am, in dem→im, zu dem→zum），每个介词对应不同的时间单位。<br><br>
+
+      <strong>📊 时间介词速查表：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">介词</th><th style="padding:5px 10px">时间单位</th><th style="padding:5px 10px">文中例句</th><th style="padding:5px 10px">格</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>am</td><td>日期/星期/一天中的时段</td><td><em>Am 18. Januar 2007</em></td><td>an + Dativ</td></tr>
+        <tr style="background:#fff"><td>im</td><td>月份/年份/季节</td><td><em>Im Februar 1929; Im Juli 1902</em></td><td>in + Dativ</td></tr>
+        <tr style="background:#e8eaf6"><td>bis zum</td><td>结束时间点</td><td><em>Bis zum späten Abend</em></td><td>zu + Dativ</td></tr>
+        <tr style="background:#fff"><td>gegen</td><td>大约时间 (±30min)</td><td><em>Gegen 19 Uhr</em></td><td>Akkusativ</td></tr>
+        <tr style="background:#e8eaf6"><td>innerhalb</td><td>在一段时间之内</td><td><em>Innerhalb eines Jahres</em></td><td>Genitiv</td></tr>
+        <tr style="background:#fff"><td>seit</td><td>从…至今 (持续)</td><td><em>Seit 1900 kontinuierlich</em></td><td>Dativ</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „<strong>Am</strong> 18. Januar 2007 fegte der Orkan über Deutschland hinweg."</em><br>
+      <em>② „<strong>Im</strong> Februar 1929... <strong>Im</strong> Juli 1902... <strong>Im</strong> Jahre 1959..."</em><br>
+      <em>③ „<strong>Bis zum</strong> späten Abend wurden nur einige Leichtverletzte gemeldet."</em><br>
+      <em>④ „<strong>Innerhalb</strong> eines Jahres... <strong>innerhalb</strong> von 24 Stunden..."</em><br>
+      ⚠️ 考点：am=an dem（Dativ），am Montag, am Wochenende。但 Nacht 用 in der Nacht！<br>
+      ⚠️ 易错：im vs. am — Monat→im (im Januar)，Datum→am (am 5. Januar)；bis zum 后面名词大写（名词化：das Späte→bis zum Späten）。<br><br>
+
+      <strong>5. Trennbare Verben — 可分动词</strong> | <em>lahmlegen, einstellen, absagen, umstürzen, hinwegfegen</em><br>
+      🇩🇪 Formel: <em>主句现在时/过去时: Präfix 分离→句末 / 从句: Präfix+Verb 不分离→从句末 / Perfekt: -ge- 插入 Präfix 和 Stamm 之间</em><br>
+      🇨🇳 规则：可分动词的前缀（an, ab, ein, um, los, fest, lahm...）在主句中分离并置于句末；在从句（dass/weil/wenn...）中不分离，与动词一起位于句末；完成时中 -ge- 插入在前缀和词干之间。<br><br>
+
+      <strong>📊 文中可分动词对比：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">Infinitiv</th><th style="padding:5px 10px">Hauptsatz (Präteritum)</th><th style="padding:5px 10px">Nebensatz (dass...)</th><th style="padding:5px 10px">Partizip II</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>lahm|legen</td><td>legte ... lahm</td><td>dass ... lahmlegte</td><td>lahm<strong>ge</strong>legt</td></tr>
+        <tr style="background:#fff"><td>ein|stellen</td><td>stellte ... ein</td><td>dass ... einstellte</td><td>ein<strong>ge</strong>stellt</td></tr>
+        <tr style="background:#e8eaf6"><td>ab|sagen</td><td>sagte ... ab</td><td>dass ... absagte</td><td>ab<strong>ge</strong>sagt</td></tr>
+        <tr style="background:#fff"><td>um|stürzen</td><td>stürzte ... um</td><td>dass ... umstürzte</td><td>um<strong>ge</strong>stürzt</td></tr>
+        <tr style="background:#e8eaf6"><td>hinweg|fegen</td><td>fegte ... hinweg</td><td>dass ... hinwegfegte</td><td>hinweg<strong>ge</strong>fegt</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „Entwurzelte Bäume <strong>legten</strong> den gesamten Nah- und Fernverkehr <strong>lahm</strong>."</em> — 注意：宾语夹在中间！<br>
+      <em>② „Die Deutsche Bahn <strong>stellte</strong> den Zugverkehr <strong>ein</strong>."</em><br>
+      <em>③ „Zahlreiche Veranstaltungen <strong>wurden abgesagt</strong>."</em> — Passiv: Partizip II 不分离<br>
+      <em>④ „Der Orkan <strong>fegte</strong> über Deutschland <strong>hinweg</strong>."</em> — hinweg 是复合前缀<br>
+      ⚠️ 考点：可分动词的 Partizip II — ge 永远夹在前缀和词干之间（ein+ge+stellt, ab+ge+sagt），不能写成 geeinstellt 或 einstellt！<br>
+      ⚠️ 易错：有些前缀有时可分有时不可分（übersetzen 翻译↔übersetzen 摆渡; umfahren 撞倒↔umfahren 绕行），需要逐个查词典确认。
+    </div>
+
+    <!-- 🏭 背景知识（5个主题，每个德语段落大幅扩写 + 中文对译） -->
+    <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s13-hintergrund')">🏭 显示/隐藏 背景知识 (5 个主题 · 德国气象+灾害管理体系)</button>
+    <div class="answer-box" id="b1s13-hintergrund">
+    <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+
+      <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#1a5a2a;font-size:.95rem">🏔️ Die Zugspitze — Deutschlands höchster Berg und Wetterstation</strong><br>
+        🇩🇪 Die Zugspitze ist mit <strong>2.962 Metern</strong> der höchste Berg Deutschlands und liegt an der Grenze zwischen Bayern und Österreich (genauer: im Wettersteingebirge). Seit dem Jahr <strong>1900</strong> befindet sich auf dem Gipfel eine <strong>Wetterstation des Deutschen Wetterdienstes (DWD)</strong>, die heute vollautomatisch arbeitet — in den ersten Jahrzehnten lebten die Meteorologen allerdings noch das ganze Jahr über auf dem Berg! Die Station misst kontinuierlich Temperatur, Luftdruck, Windgeschwindigkeit, Sonnenscheindauer und Niederschlag. Weil die Zugspitze so hoch liegt, ragt sie im Winter oft <strong>über die Wolkendecke hinaus</strong> — während es im Tal neblig und trüb ist, scheint auf dem Gipfel die Sonne. Deshalb hält sie den Rekord für die meisten Sonnenstunden. Für Touristen ist die Zugspitze heute ein beliebtes Ausflugsziel: Eine Seilbahn und eine Zahnradbahn bringen jährlich über 500.000 Besucher auf den Gipfel. Das <strong>Zugspitzplatt</strong>, ein Gletscher unterhalb des Gipfels, ist Deutschlands höchstes Skigebiet — allerdings schmilzt der Gletscher aufgrund des Klimawandels rapide.<br>
+        🇨🇳 楚格峰是德国最高峰（2962米），位于巴伐利亚与奥地利交界的 Wetterstein 山脉。1900年起山顶设有德国气象局（DWD）的气象站，如今全自动运行——但最初几十年里，气象学家们是全年生活在山上的！气象站持续测量温度、气压、风速、日照时长和降水量。由于海拔极高，楚格峰冬天经常突出于云层之上——山下阴雾弥漫时，山顶却阳光灿烂，因此保持着德国日照时长纪录。如今楚格峰是热门旅游目的地：缆车和齿轨铁路每年运送超50万游客登顶。峰下的 Zugspitzplatt 冰川是德国最高滑雪场——但由于气候变化，冰川正在迅速消融。
+      </div>
+
+      <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#e65100;font-size:.95rem">🌪️ Orkan „Kyrill" — Der Jahrhundertsturm und seine Lehren</strong><br>
+        🇩🇪 Orkan Kyrill (international: „Kyrill") war ein <strong>extremer Winterorkan</strong>, der am 18. und 19. Januar 2007 von Irland kommend über Großbritannien, die Niederlande und Deutschland bis nach Polen und Tschechien zog. In Deutschland erreichte er auf dem Brocken (Harz) Windgeschwindigkeiten von <strong>185 km/h</strong>, im Flachland immerhin noch 120–140 km/h. Es war das <strong>erste Mal in der Geschichte der Deutschen Bahn</strong>, dass der gesamte Zugverkehr — Fern-, Regional- und Güterverkehr — komplett eingestellt wurde. Diese Entscheidung wurde später als richtig bewertet, denn auf mehreren Strecken stürzten Bäume auf die Gleise. Insgesamt starben in Europa <strong>47 Menschen</strong> (13 in Deutschland), der Sachschaden belief sich allein in Deutschland auf <strong>2,3 Milliarden Euro</strong>. Der Name „Kyrill" stammt vom griechischen Κύριλλος (Kyrillos) und bedeutet „der Herrliche" oder „der dem Herrn Gehörende" — eine tragische Ironie angesichts der Zerstörung. Nach Kyrill führte die Deutsche Bahn ein <strong>vegetationsfreies Profil</strong> entlang der Gleise ein (Bäume müssen weiter entfernt stehen), und der Deutsche Wetterdienst verbesserte sein Unwetterwarnsystem. Der Sturm gilt heute als <strong>Wendepunkt im deutschen Katastrophenschutz</strong>.<br>
+        🇨🇳 飓风 Kyrill 是2007年1月18-19日从爱尔兰横跨英国、荷兰、德国直到波兰和捷克的极端冬季风暴。在德国 Brocken 山测得185km/h风速，平原地区也达120-140km/h。这是德国铁路历史上首次全线停运——包括长途、区域和货运。事后证明该决定正确，因为多条线路上的树木倾倒到了铁轨上。全欧洲47人死亡（德国13人），德国境内财产损失达23亿欧元。名字"Kyrill"来自希腊语意为"属主的人"——与毁灭性破坏形成悲怆反差。Kyrill 之后，德铁沿铁轨建立了"无植被安全区"，德国气象局改进了灾害预警系统。这场风暴被视为德国灾害防护的转折点。
+      </div>
+
+      <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#0d47a1;font-size:.95rem">📊 Der Deutsche Wetterdienst (DWD) — Deutschlands Klima-Archiv</strong><br>
+        🇩🇪 Der <strong>Deutsche Wetterdienst (DWD)</strong> mit Sitz in Offenbach am Main ist eine <strong>teilrechtsfähige Anstalt des öffentlichen Rechts</strong> im Geschäftsbereich des Bundesministeriums für Digitales und Verkehr. Er beschäftigt rund <strong>2.300 Mitarbeiter</strong> und betreibt etwa <strong>180 hauptamtliche Wetterstationen</strong> sowie rund 1.800 nebenamtliche Messstationen (oft von Freiwilligen betreut). Der DWD unterhält das <strong>größte Klimaarchiv Deutschlands</strong> — einige Messreihen reichen über 140 Jahre zurück (z.B. Berlin-Dahlem seit 1876). Täglich produziert der DWD Wettervorhersagen für die breite Öffentlichkeit, aber auch Spezialprodukte für die Landwirtschaft, die Luftfahrt, die Schifffahrt und den Katastrophensutz. Bei extremen Wetterereignissen gibt der DWD <strong>amtliche Unwetterwarnungen</strong> heraus, die von den Medien und Warn-Apps wie NINA oder KATWARN direkt an die Bevölkerung weitergegeben werden. Die Wetterrekorde in unserem Artikel stammen aus dem DWD-Archiv — sie sind das Ergebnis von über einem Jahrhundert systematischer, wissenschaftlicher Wetterbeobachtung in Deutschland.<br>
+        🇨🇳 德国气象局（DWD）总部位于美因河畔奥芬巴赫，是联邦数字与交通部下属的公法机构，约2300名员工，运营约180个专业气象站和约1800个兼职测站（常由志愿者维护）。DWD 维护着德国最大的气候档案馆——部分数据序列超过140年（如柏林-Dahlem 自1876年起）。DWD 每日为公众发布天气预报，同时为农业、航空、航海和灾害防护提供专业产品。极端天气时，DWD发布官方灾害预警，通过媒体和 NINA/KATWARN 等预警 App 直接推送至民众。本文中的天气纪录即来自 DWD 档案馆——它们是德国超过一个世纪系统化、科学化天气观测的结晶。
+      </div>
+
+      <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#c62828;font-size:.95rem">🌡️ Hitzerekorde in Deutschland — Klimawandel in Zahlen</strong><br>
+        🇩🇪 Die Klimakrise zeigt sich in Deutschland besonders deutlich an den Temperaturdaten: Die <strong>zehn wärmsten Jahre seit Beginn der Wetteraufzeichnungen 1881</strong> lagen alle im 21. Jahrhundert. Der bisherige Hitzerekord von 40,3 °C in Kitzingen (2015) wurde nur ein Jahr zuvor fast erreicht: 2014 wurden in Bad Dürkheim 40,2 °C gemessen. Besonders alarmierend ist die <strong>Zunahme der Hitzetage</strong> (Tage mit über 30 °C): Von durchschnittlich 3 Tagen pro Jahr in den 1950er-Jahren auf heute über 15 Tage. Gleichzeitig steigt die Zahl der <strong>Tropennächte</strong> (Nächte, in denen die Temperatur nicht unter 20 °C fällt), was für ältere und kranke Menschen besonders gefährlich ist. Das Robert Koch-Institut schätzt, dass allein im Hitzesommer 2022 über <strong>4.500 Menschen</strong> in Deutschland an den Folgen der Hitze starben. Viele deutsche Städte entwickeln daher <strong>Hitzeaktionspläne</strong> mit Maßnahmen wie kostenlosen Trinkwasserstellen, kühlen Räumen („Hitzeschutzräume") und mehr Stadtgrün. Der Hitzerekord von Kitzingen ist also nicht nur eine interessante Zahl — er ist ein Warnsignal.<br>
+        🇨🇳 气候危机在德国温度数据中尤为明显：自1881年有气象记录以来，最热的10个年份全部在21世纪。2015年Kitzingen的40.3°C纪录仅在此前一年被险些追平——2014年Bad Dürkheim 测得了40.2°C。尤其令人警惕的是高温天数激增：从1950年代年均3天到如今超15天。同时"热带夜"（夜间温度不低于20°C）数量也在增加，对老人和病患特别危险。Robert Koch 研究所估计，仅2022年热浪夏季德国就有超4500人死于高温。许多德国城市因此制定"高温行动计划"，包括免费饮水点、凉爽庇护空间和增加城市绿化。Kitzingen的高温纪录不仅是数字——更是警示信号。
+      </div>
+
+      <div style="background:#e8eaf6;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#283593;font-size:.95rem">🚆 Die Deutsche Bahn bei Unwetter — Warum Züge bei Sturm stillstehen</strong><br>
+        🇩🇪 Dass die Deutsche Bahn bei Kyrill 2007 den gesamten Verkehr einstellte, war eine <strong>historische Premiere</strong> — und seitdem mehrfach wiederholt, zuletzt bei Orkan „Sabine" 2020 und „Zeynep" 2022. Aber warum ist das nötig? Anders als Autos können Züge Hindernissen auf den Gleisen <strong>nicht ausweichen</strong>. Ein umgestürzter Baum auf der Oberleitung kann einen Stromausfall auf der gesamten Strecke verursachen. Die Bahn hat entlang der 33.000 km Gleisnetz <strong>Vegetationsmanager</strong> im Einsatz, die regelmäßig kontrollieren, ob Bäume zu nah an den Gleisen stehen — nach Kyrill wurden die Sicherheitsabstände verdoppelt. Trotzdem bleibt das Risiko: Bei Windstärke 10 (89–102 km/h) werden erste Strecken gesperrt, ab Windstärke 12 (&gt;117 km/h) droht flächendeckende Einstellung. Für Reisende bedeutet das: Bei Unwetterwarnung <strong>vor der Fahrt die DB-App prüfen</strong>, ob der Zug überhaupt fährt. Bei Zugausfall wegen Extremwetter hat man Anspruch auf <strong>Fahrpreiserstattung</strong> — auch bei höherer Gewalt, anders als bei Flugausfällen.<br>
+        🇨🇳 德铁在2007年 Kyrill 飓风期间全线停运是历史首次——此后在2020年 Sabine 和 2022年 Zeynep 飓风中多次重演。为什么必须停运？火车不同于汽车，无法避让铁轨上的障碍物。一棵倒在架空电线上的树可能导致整条线路断电。德铁在3.3万公里铁路网沿线设有"植被管理员"，定期检查树木是否离铁轨过近——Kyrill 之后安全距离翻倍。但风险依然存在：风力10级（89-102km/h）时首批路段关闭，12级以上（>117km/h）可能全面停运。对乘客意味着：暴风预警时出发前务必查看 DB App 确认列车是否运行。因极端天气导致列车取消，乘客有权获得全额退款——即使属于不可抗力，与航班取消不同。
+      </div>
+
+    </div>
+    </div>
+
+    <!-- 🔗 词汇搭配（16条，三列扩展：搭配+深度释义+双语句例+用法提示） -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s13-kollokation')">🔗 显示/隐藏 词汇搭配 (16 条 · 含用法分类)</button>
+    <div class="answer-box" id="b1s13-kollokation">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#2e7d32;color:#fff">
+        <th style="padding:8px 10px;text-align:left">搭配 / Kollokation</th>
+        <th style="padding:8px 10px;text-align:left">释义 + 用法提示 / Bedeutung &amp; Tipps</th>
+        <th style="padding:8px 10px;text-align:left">例句 / Beispiel (🇩🇪 + 🇨🇳)</th>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">einen Rekord <strong>halten</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">保持纪录 | <em>die beste/niedrigste Marke besitzen</em><br>⚠️ halten + Akk. (hält, hielt, hat gehalten)</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Bayern <strong>hält den Temperaturrekord</strong> — sowohl den höchsten als auch den niedrigsten.</em><br>🇨🇳 巴伐利亚保持着温度纪录——包括最高温和最低温。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">einen Rekord <strong>aufstellen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">创下纪录 | <em>einen neuen Rekord erreichen</em><br>⚠️ trennbar: stellt auf, stellte auf, hat aufgestellt</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>2015 <strong>stellte</strong> Kitzingen einen neuen Hitzerekord <strong>auf</strong>.</em><br>🇨🇳 2015年Kitzingen创下了新的高温纪录。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">Rekord- (als Präfix)</td>
+        <td style="padding:8px 10px;font-size:.82rem">创纪录的（前缀） | <em>bildet Komposita mit Rekordbedeutung</em><br>⚠️ Rekordtemperatur, Rekordniederschlag, Rekordjahr</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Die <strong>Rekordtemperatur</strong> von 40,3 °C wurde 2015 gemessen.</em><br>🇨🇳 40.3°C的创纪录温度于2015年测得。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">eine Temperatur <strong>messen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">测量温度 | <em>mit Thermometer die Gradzahl feststellen</em><br>⚠️ 常以 Passiv 出现: wird/wurde gemessen</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>40,3 °C <strong>wurden</strong> am 5. Juli 2015 in Kitzingen <strong>gemessen</strong>.</em><br>🇨🇳 2015年7月5日在Kitzingen测得了40.3°C。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">den Verkehr <strong>lahmlegen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">使交通瘫痪 | <em>den Verkehr komplett stoppen</em><br>⚠️ 可搭配: den Bahnverkehr, den Flugverkehr, die Produktion</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Entwurzelte Bäume <strong>legten</strong> den gesamten Nah- und Fernverkehr <strong>lahm</strong>.</em><br>🇨🇳 连根拔起的树木使整个短途和长途交通瘫痪。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">einen Flug / Zug <strong>streichen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">取消航班/列车 | <em>etwas Geplantes absagen</em><br>⚠️ strich, hat gestrichen; 原义"划掉"(从列表中删除)</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Knapp 180 <strong>Flüge wurden gestrichen</strong>, weil der Sturm zu gefährlich war.</em><br>🇨🇳 近180架航班被取消，因为风暴太危险。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">Schäden <strong>verursachen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">造成损失 | <em>der Grund für etw. Negatives sein</em><br>⚠️ 主语是原因(Sturm/Unwetter)，宾语是后果(Schaden)</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Der Orkan <strong>verursachte</strong> Schäden von 2,3 Milliarden Euro.</em><br>🇨🇳 飓风造成了23亿欧元的损失。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px"><strong>Menschenleben fordern</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">造成人员死亡 | <em>Todesopfer verursachen</em><br>⚠️ 正式/新闻用语; fordern 在此不是"要求"，而是"夺走"</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Der Jahrhundertsturm <strong>forderte</strong> insgesamt 13 <strong>Menschenleben</strong>.</em><br>🇨🇳 这场世纪风暴共夺走了13条人命。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">über + A <strong>hinwegfegen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">席卷而过 | <em>mit großer Kraft über ein Gebiet ziehen</em><br>⚠️ hinweg = 复合前缀(prefix+adverb); fegen = 扫/吹</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Der Orkan <strong>fegte</strong> mit 185 km/h über Deutschland <strong>hinweg</strong>.</em><br>🇨🇳 飓风以185km/h的速度席卷了德国。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">eine Veranstaltung <strong>absagen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">取消活动 | <em>ein Event nicht stattfinden lassen</em><br>⚠️ trennbar: sagt ab, sagte ab, hat abgesagt</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Wegen des Orkans <strong>wurden</strong> zahlreiche Veranstaltungen <strong>abgesagt</strong>.</em><br>🇨🇳 由于飓风，许多活动被取消。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px"><strong>zu</strong> Schäden <strong>kommen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">发生损失 | <em>Schäden entstehen / passieren</em><br>⚠️ 正式被动替代说法; 无人称: es kommt zu + Dativ</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Im Rhein-Main-Gebiet <strong>kam es zu</strong> zahlreichen Schäden und Behinderungen.</em><br>🇨🇳 在莱茵-美因地区发生了大量损失和障碍。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">den Zugverkehr <strong>einstellen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">停止列车运行 | <em>den Betrieb beenden / stoppen</em><br>⚠️ trennbar: stellt ein, stellte ein, hat eingestellt</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Die Deutsche Bahn <strong>stellte</strong> gegen 19 Uhr den gesamten Zugverkehr <strong>ein</strong>.</em><br>🇨🇳 德国铁路约19点停止了全部列车运行。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px"><strong>im Durchschnitt</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">平均 | <em>durchschnittlich, als Mittelwert</em><br>⚠️ 固定短语; 也可说 im Schnitt (口语)</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em><strong>Im Durchschnitt</strong> fallen in Deutschland etwa 800 mm Niederschlag pro Jahr.</em><br>🇨🇳 德国平均每年降水量约为800毫米。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px"><strong>im Vergleich zu</strong> + D</td>
+        <td style="padding:8px 10px;font-size:.82rem">与…相比 | <em>verglichen mit; im Kontrast zu</em><br>⚠️ zu 后面跟 Dativ: im Vergleich zum Durchschnitt</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>2.400 mm sind mehr als das Doppelte <strong>im Vergleich zum</strong> Durchschnitt.</em><br>🇨🇳 2400毫米与平均值相比超过了两倍。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px"><strong>unter</strong> + D <strong>leiden</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">遭受…之苦 | <em>negative Folgen von etw. erfahren</em><br>⚠️ litt, hat gelitten; 也可: leiden an + D (慢性病)</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Die Region <strong>litt</strong> noch wochenlang <strong>unter</strong> den Folgen des Sturms.</em><br>🇨🇳 该地区在风暴后数周仍遭受着后果之苦。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px">die Folgen <strong>spüren</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">感受到后果 | <em>die Auswirkungen am eigenen Leib erfahren</em><br>⚠️ spüren = (身体/情感上)感受到</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Noch Jahre später <strong>spürte</strong> man die <strong>Folgen</strong> des Jahrhundertsturms.</em><br>🇨🇳 多年后人们仍能感受到这场世纪风暴的后果。</td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- 💬 Redemittel（12条，分6类功能，每类2条变体 + 使用场景提示） -->
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s13-redemittel')">💬 显示/隐藏 常用表达 (12 条 · 6 类功能 × 2 变体)</button>
+    <div class="answer-box" id="b1s13-redemittel">
+    <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
+      <tr style="background:#c62828;color:#fff">
+        <th style="padding:8px 10px;text-align:left">功能 / Funktion</th>
+        <th style="padding:8px 10px;text-align:left">🇩🇪 Redemittel</th>
+        <th style="padding:8px 10px;text-align:left">🇨🇳 中文翻译 + 使用提示</th>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">📊 描述数据<br><em>Statistik beschreiben</em></td>
+        <td style="padding:8px 10px"><em>Die höchste jemals gemessene Temperatur <strong>betrug</strong> 40,3 °C.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">有史以来测得的最高温度为40.3°C。<br>💡 <em>jemals</em> 强调"有史以来"，betragen+数字是学术标准表达。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="padding:8px 10px"><em>Der Wert <strong>liegt bei</strong> rund / etwa / circa / über / knapp ___ .</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">该数值约为/超过/不到___。<br>💡 liegen bei + Dativ 比 betragen 更口语化；knapp=不到(接近但未达)。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">🔄 对比差异<br><em>Vergleichen</em></td>
+        <td style="padding:8px 10px"><em><strong>Im Vergleich zum</strong> Durchschnitt ist das <strong>mehr als das Doppelte</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">与平均值相比，这超过了两倍。<br>💡 倍数表达: das Doppelte(两倍), das Dreifache(三倍), die Hälfte(一半)。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="padding:8px 10px"><em><strong>Während</strong> in manchen Ländern über 50 °C erreicht werden, <strong>sind</strong> 40 °C in Deutschland schon ein Rekord.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">有些国家超过50°C，而在德国40°C已经是纪录了。<br>💡 während 引导对比从句(不是时间!)，前后用相同时态。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">📈 描述变化<br><em>Veränderung beschreiben</em></td>
+        <td style="padding:8px 10px"><em>Die Temperaturen <strong>sind</strong> in den letzten 50 Jahren <strong>um</strong> 1,6 °C <strong>gestiegen</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">过去50年里气温上升了1.6°C。<br>💡 steigen um + 差值(上升了多少)；steigen auf + 新值(上升到多少)。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="padding:8px 10px"><em>Die Zahl der Hitzetage <strong>hat sich</strong> von 3 auf 15 <strong>verdoppelt</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">高温天数从3天增加到15天（翻了五倍）。<br>💡 sich verdoppeln=翻倍; sich verdreifachen=翻三倍; zunehmen=增加。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">⚡ 表达影响<br><em>Auswirkung zeigen</em></td>
+        <td style="padding:8px 10px"><em>Der Sturm <strong>hatte dramatische Folgen für</strong> den Verkehr.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">风暴对交通造成了严重影响。<br>💡 Folgen für + Akk. haben 是最地道的"对…造成后果"表达。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="padding:8px 10px"><em>Der Orkan <strong>führte zu</strong> erheblichen Behinderungen im ganzen Land.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">飓风导致全国范围内的严重障碍。<br>💡 führen zu + Dativ = 导致(中性/正式)，适合书面报告。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">🔍 表达原因<br><em>Grund ausdrücken</em></td>
+        <td style="padding:8px 10px"><em><strong>Wegen</strong> des Orkans <strong>wurden</strong> zahlreiche Flüge <strong>gestrichen</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">由于飓风，许多航班被取消。<br>💡 wegen + Genitiv(正式)/Dativ(口语); 常与 Passiv 连用。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="padding:8px 10px"><em><strong>Da</strong> der Sturm so gefährlich war, <strong>stellte</strong> die Bahn den Verkehr <strong>ein</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">由于风暴太危险，铁路停止了运行。<br>💡 da 引导原因从句(比 weil 更书面)，动词→从句末。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">📰 引述来源<br><em>Quelle angeben</em></td>
+        <td style="padding:8px 10px"><em>Die Daten <strong>stammen aus</strong> dem Archiv des Deutschen Wetterdienstes.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">数据来源于德国气象局的档案馆。<br>💡 stammen aus + Dativ = 源自/出自(常用来引述出处)。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="padding:8px 10px"><em><strong>Laut</strong> Deutschem Wetterdienst <strong>war</strong> Kyrill einer der schwersten Stürme.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">据德国气象局称，Kyrill是最严重的风暴之一。<br>💡 laut + Dativ(据…说) = 引述权威来源的最简洁方式。</td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- ✍️ 仿写例句（7个Muster，每个含完整示范+填空骨架+参考答案+进阶变体） -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s13-beispiele')">✍️ 显示/隐藏 仿写例句 (7 个 Muster · 含完整答案)</button>
+    <div class="answer-box" id="b1s13-beispiele">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+
+      <strong>🔹 Muster 1: 描述数据纪录 <em>(Rekorde beschreiben · Präteritum + Passiv)</em></strong><br>
+      🇩🇪 <em>Die höchste in ___ gemessene Temperatur <strong>betrug</strong> ___ °C und <strong>wurde</strong> am ___ in ___ <strong>gemessen</strong>.</em><br>
+      🇨🇳 在___测得的最高温度为___°C，于___在___测得。<br>
+      👉 <em>Nachbau: Die niedrigste in ___ (Land) gemessene Temperatur ___ (betragen, Präteritum) ___ °C und ___ (werden, Präteritum) am ___ in ___ (Ort) ___ (messen, Partizip II).</em><br>
+      ✅ <em>Musterlösung: Die niedrigste in Deutschland gemessene Temperatur <strong>betrug</strong> −37,8 °C und <strong>wurde</strong> im Februar 1929 in Wolnzach <strong>gemessen</strong>.</em><br>
+      🔄 <em>Variante (Perfekt): Die niedrigste Temperatur <strong>hat</strong> −37,8 °C <strong>betragen</strong> und <strong>ist</strong> 1929 in Wolnzach <strong>gemessen worden</strong>.</em><br><br>
+
+      <strong>🔹 Muster 2: 描述影响 <em>(Auswirkungen beschreiben · trembare Verben)</em></strong><br>
+      🇩🇪 <em>Die ___ <strong>legten</strong> den ___ in der Region <strong>lahm</strong>.</em><br>
+      🇨🇳 ___使该地区的___瘫痪。<br>
+      👉 <em>Nachbau: Die Überschwemmung ___ (lahmlegen, Präteritum) den ___ (Verkehr / die Stromversorgung / den öffentlichen Nahverkehr).</em><br>
+      ✅ <em>Musterlösung: Die Überschwemmung <strong>legte</strong> den Verkehr <strong>lahm</strong>.</em><br>
+      🔄 <em>Variante (Passiv): Der Verkehr <strong>wurde</strong> durch die Überschwemmung <strong>lahmgelegt</strong>.</em><br><br>
+
+      <strong>🔹 Muster 3: 被动式新闻报道 <em>(Passiv im Präteritum · Nachrichtenstil)</em></strong><br>
+      🇩🇪 <em>Wegen des ___ <strong>wurden</strong> alle ___ <strong>gestrichen / abgesagt / geschlossen / eingestellt</strong>.</em><br>
+      🇨🇳 由于___，所有___被取消/关闭/停止。<br>
+      👉 <em>Nachbau: Wegen des ___ (Unwetter / Schneesturms / der Hitzewelle) ___ (werden, Präteritum) alle ___ (Schulen / Züge / Veranstaltungen) ___ (schließen / absagen / einstellen, Partizip II).</em><br>
+      ✅ <em>Musterlösung: Wegen des Schneesturms <strong>wurden</strong> alle Schulen <strong>geschlossen</strong>.</em><br>
+      🔄 <em>Variante (Aktiv): Der Schneesturm <strong>schloss</strong> alle Schulen. → 不自然！德语新闻偏爱 Passiv。</em><br><br>
+
+      <strong>🔹 Muster 4: 数据对比 <em>(Vergleich mit Durchschnitt · Superlativ + 倍数)</em></strong><br>
+      🇩🇪 <em>Mit ___ mm ist das <strong>mehr als das Doppelte</strong> des deutschen <strong>Durchschnitts</strong> von etwa ___ mm.</em><br>
+      🇨🇳 ___毫米是德国约___毫米平均值<strong>的两倍以上</strong>。<br>
+      👉 <em>Nachbau: Mit ___ (Zahl + Einheit) ist das ___ (mehr/weniger) als ___ (die Hälfte / das Doppelte / das Dreifache) des ___ (Land / Region) Durchschnitts von ___ (Zahl).</em><br>
+      ✅ <em>Musterlösung: Mit 2.400 mm ist das <strong>mehr als das Dreifache</strong> des deutschen Durchschnitts von etwa 800 mm.</em><br>
+      🔄 <em>Variante (Komparativ): Im Vergleich zum deutschen Durchschnitt <strong>ist</strong> der Niederschlag <strong>dreimal so hoch</strong>.</em><br><br>
+
+      <strong>🔹 Muster 5: 时间定位 <em>(Zeitliche Einordnung · temporale Präpositionen)</em></strong><br>
+      🇩🇪 <em><strong>Am</strong> ___ <strong>fegte</strong> der Orkan über ___ <strong>hinweg</strong>. <strong>Bis zum</strong> ___ <strong>wurden</strong> nur einige Leichtverletzte <strong>gemeldet</strong>.</em><br>
+      🇨🇳 ___日飓风席卷了___。直到___仅有几名轻伤报告。<br>
+      👉 <em>Nachbau: Am ___ (Datum) ___ (fegen, Präteritum) das Unwetter über ___ (Region) hinweg. Bis zum ___ (Zeitpunkt) ___ (werden, Präteritum) keine größeren Schäden ___ (melden, Partizip II).</em><br>
+      ✅ <em>Musterlösung: Am 3. Mai <strong>fegte</strong> das Unwetter über Norddeutschland hinweg. Bis zum Abend <strong>wurden</strong> keine größeren Schäden <strong>gemeldet</strong>.</em><br>
+      🔄 <em>Variante (seit): <strong>Seit</strong> dem Sturm <strong>sind</strong> viele Straßen <strong>gesperrt</strong>. (Zustandspassiv!)</em><br><br>
+
+      <strong>🔹 Muster 6: 引述专家/数据来源 <em>(Quellenangabe · laut / stammen aus / zufolge)</em></strong><br>
+      🇩🇪 <em><strong>Laut</strong> ___ <strong>handelt</strong> es sich bei ___ um ___ .</em><br>
+      🇨🇳 据___称，___属于___。<br>
+      👉 <em>Nachbau: Laut ___ (Quelle: DWD / Robert Koch-Institut / Zeitungsbericht) handelt es sich bei ___ (Phänomen) um ___ (Kategorie / Beschreibung).</em><br>
+      ✅ <em>Musterlösung: <strong>Laut</strong> Deutschem Wetterdienst <strong>handelt</strong> es sich bei Kyrill um einen der schwersten Orkane seit Beginn der Wetteraufzeichnungen.</em><br>
+      🔄 <em>Variante (stammen aus): Die Daten <strong>stammen aus</strong> dem Klimaarchiv des DWD.</em><br><br>
+
+      <strong>🔹 Muster 7: 表达后果与警示 <em>(Konsequenzen & Warnungen · führte zu + Dativ)</em></strong><br>
+      🇩🇪 <em>Der Sturm <strong>führte zu</strong> ___ und <strong>machte deutlich</strong>, wie ___ .</em><br>
+      🇨🇳 风暴导致了___，并清楚地表明___有多___。<br>
+      👉 <em>Nachbau: Das Unwetter ___ (führen zu, Präteritum) ___ (Folge) und machte deutlich, wie ___ (Adjektiv) ___ (Subjekt) ist.</em><br>
+      ✅ <em>Musterlösung: Das Unwetter <strong>führte zu</strong> einem Umdenken im Katastrophenschutz und <strong>machte deutlich</strong>, wie <strong>verletzlich</strong> die Infrastruktur ist.</em><br>
+      🔄 <em>Variante (Passiv): Durch den Sturm <strong>wurde deutlich</strong>, dass bessere Schutzmaßnahmen nötig sind.</em>
+    </div>
+    </div>
+
+    <!-- 📝 互动练习（8题，深化解析 + 每道题的知识拓展） -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-mcq')">📝 显示/隐藏 互动练习 (8 题 · 含语法判断题)</button>
+    <div class="answer-box" id="b1s13-mcq">
+    <div class="mcq-list">
+      <div class="mcq-item" data-ans="B">
+        <p><strong>1. Wo wurde die höchste Temperatur in Deutschland gemessen?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q1" value="A"> A) Wolnzach (Bayern)</label>
+          <label><input type="radio" name="b1s13-q1" value="B"> B) Kitzingen (Bayern)</label>
+          <label><input type="radio" name="b1s13-q1" value="C"> C) auf der Zugspitze</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>2. Wie viele Sonnenstunden hatte die Zugspitze im Rekordjahr 1959?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q2" value="A"> A) 2,0 Stunden</label>
+          <label><input type="radio" name="b1s13-q2" value="B"> B) 2.329 Stunden</label>
+          <label><input type="radio" name="b1s13-q2" value="C"> C) 1.959 Stunden</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>3. Was bedeutet „lahmlegen"?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q3" value="A"> A) den Betrieb komplett stoppen</label>
+          <label><input type="radio" name="b1s13-q3" value="B"> B) langsam gehen (hinken)</label>
+          <label><input type="radio" name="b1s13-q3" value="C"> C) eine Wunde heilen</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="C">
+        <p><strong>4. Wann stellte die Deutsche Bahn bei Kyrill den Zugverkehr ein?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q4" value="A"> A) Am frühen Nachmittag</label>
+          <label><input type="radio" name="b1s13-q4" value="B"> B) Am Morgen</label>
+          <label><input type="radio" name="b1s13-q4" value="C"> C) Gegen 19 Uhr am Abend</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>5. Wie hoch war der Gesamtschaden durch Kyrill in Deutschland?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q5" value="A"> A) Etwa 2,3 Milliarden Euro</label>
+          <label><input type="radio" name="b1s13-q5" value="B"> B) Etwa 180 Millionen Euro</label>
+          <label><input type="radio" name="b1s13-q5" value="C"> C) Etwa 13 Milliarden Euro</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="C">
+        <p><strong>6. Welcher Satz steht im Vorgangspassiv Präteritum?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q6" value="A"> A) Der Sturm hat den Verkehr lahmgelegt.</label>
+          <label><input type="radio" name="b1s13-q6" value="B"> B) Die Bäume sind entwurzelt.</label>
+          <label><input type="radio" name="b1s13-q6" value="C"> C) Knapp 180 Flüge wurden gestrichen.</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>7. Welche Präposition ist korrekt? „Die Temperatur wurde ___ 5. Juli 2015 gemessen."</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q7" value="A"> A) im</label>
+          <label><input type="radio" name="b1s13-q7" value="B"> B) am</label>
+          <label><input type="radio" name="b1s13-q7" value="C"> C) beim</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>8. Welches Verb passt? „Der Orkan ___ über Deutschland hinweg."</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q8" value="A"> A) fegte</label>
+          <label><input type="radio" name="b1s13-q8" value="B"> B) lief</label>
+          <label><input type="radio" name="b1s13-q8" value="C"> C) flog</label>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-check" onclick="a2CheckMCQ('b1s13-mcq')" style="margin-top:8px">批改答案</button>
+    <button class="btn btn-reset" onclick="a2ResetMCQ('b1s13-mcq')">重置</button>
+    <div id="b1s13-mcq-score" style="text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px"></div>
+    <div class="answer-box" id="b1s13-explain" style="margin-top:8px">
+      <strong>📖 解析 / Erläuterung：</strong><br><br>
+
+      <strong>1. → B) Kitzingen (Bayern)</strong><br>
+      🇩🇪 原文依据：<em>„Die höchste in Deutschland gemessene Temperatur betrug 40,3 °C und wurde am 5. Juli 2015 in Kitzingen (Bayern) gemessen."</em><br>
+      🇨🇳 解析：文章第一段第2句明确指出。Wolnzach是最低温纪录地（混淆项A），Zugspitze是日照纪录地（混淆项C）。记忆技巧：Kitzingen→Kitz→像 Kitz(el) 热得发痒。<br><br>
+
+      <strong>2. → B) 2.329 Stunden</strong><br>
+      🇩🇪 原文依据：<em>„Im Jahre 1959 hält ein Ort auf der Zugspitze den Rekord mit 2.329 Sonnenstunden innerhalb eines Jahres."</em><br>
+      🇨🇳 解析：2.329小时是楚格峰年日照纪录。2,0小时是1965年12月的月日照纪录（混淆项A），1959是年份不是日照时数（混淆项C）。注意区分"Jahresrekord"和"Monatsrekord"！<br><br>
+
+      <strong>3. → A) den Betrieb komplett stoppen</strong><br>
+      🇩🇪 原文依据：<em>„Entwurzelte Bäume und abgedeckte Dächer legten den gesamten Nah- und Fernverkehr lahm."</em><br>
+      🇨🇳 解析：lahmlegen 由 lahm（瘸的/瘫痪的）+ legen（放置）构成，合起来=使瘫痪。选项B"lahm gehen / hinken"是不带 legen 的用法（真正瘸了），选项C与词义完全无关。可通过画面记忆：风暴把交通"放倒"了。<br><br>
+
+      <strong>4. → C) Gegen 19 Uhr am Abend</strong><br>
+      🇩🇪 原文依据：<em>„Die Deutsche Bahn stellte gegen 19 Uhr den gesamten Zugverkehr ein — zum ersten Mal in ihrer Geschichte."</em><br>
+      🇨🇳 解析：文章 Orkan-Kyrill 部分第2段末尾。关键词"gegen 19 Uhr"=大约晚上7点。注意：这是德铁历史上首次全线停运——文章特意强调了"zum ersten Mal in ihrer Geschichte"。<br><br>
+
+      <strong>5. → A) Etwa 2,3 Milliarden Euro</strong><br>
+      🇩🇪 原文依据：<em>„Insgesamt verursachte Kyrill in Deutschland einen Schaden von etwa 2,3 Milliarden Euro und forderte 13 Menschenleben."</em><br>
+      🇨🇳 解析：数字题——180是取消航班数（混淆项B），13是死亡人数（混淆项C），2,3 Milliarden 才是经济损失。ein paar hundert Millionen（约1.8亿）和13 Milliarden 都不对。考点：Milliarde=十亿，不是百万！<br><br>
+
+      <strong>6. → C) Knapp 180 Flüge wurden gestrichen.</strong><br>
+      🇩🇪 语法依据：<em>Vorgangspassiv Präteritum = wurden + Partizip II</em><br>
+      🇨🇳 解析：A=Perfekt Aktiv（hat...lahmgelegt），B=Zustandspassiv（sein+Partizip II，表示"处于被拔起的状态"），C=Vorgangspassiv Präteritum（wurden+PII，表示"被取消"这一被动过程）。区分口诀：wurde+PII=新闻被动 / ist+PII=状态被动 / hat+PII=主动完成。<br><br>
+
+      <strong>7. → B) am</strong><br>
+      🇩🇪 语法依据：<em>am = an + dem (Dativ)，用于具体日期</em><br>
+      🇨🇳 解析：具体日期用 am（am 5. Juli），月份用 im（im Juli），beim=bei+dem 用于活动/事件（beim Essen）。课文原文："am 5. Juli 2015"。这是 B1 考试高频考点。<br><br>
+
+      <strong>8. → A) fegte</strong><br>
+      🇩🇪 原文依据：<em>„Am 18. Januar 2007 fegte der Orkan über Deutschland hinweg."</em><br>
+      🇨🇳 解析：固定搭配：über + Akk. hinwegfegen = 席卷而过。fegen 原义"扫地"，此处比喻风暴像扫地一样扫过大地。laufen=跑/走（不搭配 Orkan），fliegen=飞（鸟类/飞机，不搭配风暴）。注意：fegen 在此用 Präteritum（fegte），因为这是新闻报道的过去事件。
+    </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<style>
+#page-b1lesen .btn-vocab{background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important}
+#page-b1lesen .btn-grammatik{background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important}
+#page-b1lesen .btn-hintergrund{background:linear-gradient(135deg,#e65100,#ff9800)!important;color:#fff!important}
+#page-b1lesen .btn-kollokation{background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important}
+#page-b1lesen .btn-redemittel{background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important}
+#page-b1lesen .btn-beispiele{background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important}
+#page-b1lesen #b1s13-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+</style>
 
 <div id="page-a2hoeren" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
 <div style="max-width:860px;margin:0 auto">
@@ -102121,8 +103023,8 @@ function gsRevealAllChapter(chId) {
 
 <div class="b1ex-hero">
   <div class="b1ex-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
-  <h1>📚 B1 Extensives Lesen</h1>
-  <p>Extensives Lesen · 18 Texte — quer durch alle B1-Themen</p>
+  <h1>📚 B1 Textwelten</h1>
+  <p>18 Texte — quer durch alle B1-Themen</p>
 </div>
 <div class="b1ex-toc" id="b1ex-toc-top">
   <div class="b1ex-toc-title">📋 选择文章 · Artikel wählen</div>
@@ -105270,7 +106172,7 @@ function gsRevealAllChapter(chId) {
 </div>
 
 	<style>
-/* ═══════════════ B1 Extensives Lesen Styles ═══════════════ */
+/* ═══════════════ B1 Textwelten Styles ═══════════════ */
 /* ── Hero & Flag ── */
 #page-b1-extensiv .b1ex-hero{text-align:center;padding:44px 20px 30px;max-width:860px;margin:0 auto}
 #page-b1-extensiv .b1ex-flag{display:flex;height:5px;border-radius:3px;overflow:hidden;width:64px;margin:0 auto 18px}
@@ -105434,7 +106336,7 @@ function gsRevealAllChapter(chId) {
 }
 </style>
 <script>
-/* B1 Extensives Lesen — 目录条切换（单篇显示，仿林夏在德国）+ 进度条 + 回到目录 */
+/* B1 Textwelten — 目录条切换（单篇显示，仿林夏在德国）+ 进度条 + 回到目录 */
 (function(){
   var TOTAL = 18;
   window.B1EX_SEQ = [];
