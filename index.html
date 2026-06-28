@@ -28422,7 +28422,7 @@ function lxqResetMCQ(id) {
     <label class="b1l-select-label" for="b1l-article-select">📋 选择文章 · Artikel wählen：</label>
     <select id="b1l-article-select" class="b1l-article-select" onchange="showB1LesenArticle(this.value)">
       <option value="">— 请选择一篇文章 —</option>
-      <optgroup label="📖 B1 阅读文章 (13)">
+      <optgroup label="📖 B1 阅读文章 (14)">
         <option value="1">① Brandenburger Tor — Zeitgeschichte</option>
         <option value="2">② Wo bleibt die Zeit? — Zeitverwendung</option>
         <option value="3">③ Erasmus+ Programm — EU-Bildungsprogramm</option>
@@ -28435,12 +28435,13 @@ function lxqResetMCQ(id) {
         <option value="12">⑩ Präsentation — vorbereiten &amp; durchführen</option>
         <option value="14">⑪ Das Ehrenamt lebt! — Engagement &amp; Ehrenamt</option>
         <option value="15">⑫ Goethe B1 Lesen Plateau 4 — Modelltest</option>
-        <option value="13">⑬ 🌦️ Deutsche Wetterrekorde &amp; Orkan „Kyrill"</option>
+        <option value="13">⑬ 🌦️ Wetter, Wetter, Wetter! · Wetterrekorde &amp; Orkan „Kyrill"</option>
+        <option value="16">⑭ 📝 Gründe nennen &amp; Wetter-Erfahrungen</option>
       </optgroup>
     </select>
   </div>
   <script>
-  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','13','14','15'];
+  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','13','14','15','16'];
   window.showB1LesenArticle=function(n){
     var ids=[];
     for(var i=0;i<window.B1L_SEQ.length;i++){ ids.push('b1l-s'+window.B1L_SEQ[i]); }
@@ -39827,7 +39828,7 @@ function b1S12CheckB(){
     var inner = page.querySelector('div');
     if(!inner) return;
     /* 从隐藏 wrapper 中提取 section */
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15'], ['b1l-s16-wrapper','b1l-s16']].forEach(function(pair){
       var wrapper = document.getElementById(pair[0]);
       var existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
@@ -44325,13 +44326,78 @@ function b1S12CheckB(){
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- B1 阅读 13 · Deutsche Wetterrekorde & Orkan Kyrill                       -->
+<!-- B1 阅读 13 · Wetter, Wetter, Wetter! · Wetterrekorde & Orkan Kyrill        -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="b1l-s13-wrapper" style="display:none">
 <div style="max-width:860px;margin:0 auto">
 <div class="section" id="b1l-s13">
-  <div class="section-header">阅读 13 · 🌦️ Deutsche Wetterrekorde &amp; Orkan „Kyrill" &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Sachtext · Wetter &amp; Klima</span></div>
+  <div class="section-header">阅读 13 · 🌦️ Wetter, Wetter, Wetter! &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Sachtexte · Hochwasser · Hitze · Sturm · Klima</span></div>
   <div class="section-body">
+
+    <!-- ═══ 学习目标横条 ═══ -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem">
+      <span style="background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600">🗣️ über Wetter und Klima sprechen</span>
+      <span style="background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600">🌍 Umwelt und Umweltprobleme beschreiben</span>
+      <span style="background:linear-gradient(135deg,#e65100,#f57c00);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600">⚠️ Meteorologen warnen</span>
+      <span style="background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600">📖 lange Texte verstehen</span>
+      <span style="background:linear-gradient(135deg,#c62828,#e53935);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600">📊 Aussagen und Prognosen machen</span>
+    </div>
+
+    <!-- ═══ 短文集群：Wetter, Wetter, Wetter! ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.3rem;font-weight:700">🌪️ Wetter, Wetter, Wetter!</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">B1 · Magazin · 5 Kurztexte</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Hochwasser · Gewitter · Hitze · Hagel — das Wetter spielt verrückt. Meteo-online erklärt das Wetterchaos.</div>
+      </div>
+      <div style="padding:22px 28px 26px;font-size:.9rem;line-height:2;color:#2d3748">
+
+        <!-- 短文 1：Hochwasser -->
+        <div style="border-left:4px solid #1565c0;padding-left:16px;margin-bottom:1.4rem">
+          <div style="font-weight:700;color:#0d47a1;margin-bottom:4px">📰 Hochwasser in Deutschland und Österreich</div>
+          <p style="margin:0 0 .4rem">Wegen des starken Regens treten vor allem in Deutschland und Österreich viele Flüsse über die Ufer. Zehntausende Helfer sind im Einsatz und auch Politiker zeigen sich gern mit Schaufeln und Gummistiefeln, um ihren Wahlkampf zu unterstützen.</p>
+        </div>
+
+        <!-- 短文 2：Das Wetter spielt verrückt! -->
+        <div style="background:#fff3e0;border-left:4px solid #e65100;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:1.4rem">
+          <div style="font-weight:700;color:#bf360c;margin-bottom:4px;font-size:1.05rem">🌡️ Das Wetter spielt verrückt!</div>
+          <p style="margin:0">Überall Chaos: Hochwasser, schwere Gewitter und Stürme, dann Hitze und jetzt Hagel — <strong>was ist nur mit dem Wetter los?</strong></p>
+        </div>
+
+        <!-- 短文 3：Meteo-online erklärt das Wetterchaos -->
+        <div style="border-left:4px solid #2e7d32;padding-left:16px;margin-bottom:1.4rem">
+          <div style="font-weight:700;color:#1b5e20;margin-bottom:4px">🔬 Meteo-online erklärt das Wetterchaos</div>
+          <p style="margin:0 0 .4rem">Nach dem Jahrhunderthochwasser im Süden Deutschlands ist jetzt die Hitzewelle mit <strong>38 °C</strong> angekommen. Sie bringt Deutschland tropische Nächte, Cocktails und jede Menge Spaß, aber auch viele Probleme, so z.B. <strong>beschädigte Autobahnen</strong>. Wegen der Hitze brechen Betonplatten und stehen mehrere Zentimeter hoch. Deshalb kam es bereits in den letzten Tagen zu <strong>kilometerlangen Verkehrsstaus</strong>.</p>
+          <p style="margin:0 0 .6rem">Sind diese extremen Wetterbedingungen Folge des Klimawandels? <strong>„Wohl kaum"</strong>, sagt Dr. Eva Niewald, Meteorologin am Max-Planck-Institut für Meteorologie in Hamburg. „Dieser Wechsel von <strong>heißen und nasskalten Perioden</strong> ist für Mitteleuropa völlig normal."</p>
+          <span style="font-size:.78rem;color:#78909c">🏷️ die Hitzewelle, -n  热浪 · beschädigen  损坏 · die Betonplatte, -n  混凝土板 · der Verkehrsstau, -s  交通堵塞 · der Klimawandel  气候变化 · der Wechsel, -  交替</span>
+        </div>
+
+        <!-- 🔤 洪水救援共享词汇（短文1 + 短文4）-->
+        <div style="background:#e3f2fd;border-radius:8px;padding:10px 16px;margin-bottom:1.2rem;font-size:.8rem;color:#37474f;line-height:1.8">
+          <strong>🏷️ 洪水 &amp; 救援 Wortschatz：</strong>
+          <strong>der Einsatz, -¨e</strong> =  Einsatz/救援行动 &nbsp;|&nbsp;
+          <strong>die Schaufel, -n</strong> = 铲子 &nbsp;|&nbsp;
+          <strong>der Gummistiefel, -</strong> = 橡胶靴 &nbsp;|&nbsp;
+          <strong>der Wahlkampf, -¨e</strong> = 竞选
+        </div>
+
+        <!-- 短文 4：Grimma — Historisches Stadtzentrum überflutet -->
+        <div style="border-left:4px solid #e65100;padding-left:16px;margin-bottom:1.4rem">
+          <div style="font-weight:700;color:#bf360c;margin-bottom:4px">🚤 Grimma — Historisches Stadtzentrum überflutet</div>
+          <p style="margin:0 0 .4rem">Die <strong>Mulde</strong> hat heute das historische Stadtzentrum überflutet. Deshalb müssen alle <strong>Anwohner ihre Häuser verlassen</strong>. Soldaten der Bundeswehr fahren in der Nacht mit Booten durch die Altstadt, weil zurzeit nicht sicher ist, dass auch wirklich alle Bewohner aus der Gefahrenzone gerettet wurden.</p>
+          <span style="font-size:.78rem;color:#78909c">🏷️ überfluten  淹没 · der/die Anwohner, -  居民 · die Bundeswehr  联邦国防军 · die Gefahrenzone, -n  危险区域 · retten  救援</span>
+        </div>
+
+        <!-- 短文 5：Meteorologen warnen -->
+        <div style="background:#ffebee;border-left:4px solid #c62828;border-radius:0 8px 8px 0;padding:14px 18px">
+          <div style="font-weight:700;color:#c62828;margin-bottom:4px">⚠️ Meteorologen warnen vor neuen Regenfällen im Osten</div>
+          <p style="margin:0;font-size:.85rem;color:#5d4037">Die Wetterdienste raten zu besonderer Vorsicht in den kommenden Tagen. Weitere Überflutungen sind nicht ausgeschlossen.</p>
+        </div>
+
+      </div>
+    </div>
 
     <!-- ═══ 文章 1：Deutsche Wetterrekorde ═══ -->
     <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -44440,11 +44506,29 @@ function b1S12CheckB(){
     <!-- ═══════════════ 教学模块 ═══════════════ -->
 
     <!-- 📚 词汇表（含用法提示 + 例句） -->
-    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-vocab')">📚 显示/隐藏 词汇语法 (22 词条 · 名词/动词/形容词分类)</button>
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-vocab')">📚 显示/隐藏 词汇语法 (30 词条 · 名词/动词/形容词分类)</button>
     <div class="answer-box" id="b1s13-vocab" style="font-size:.87rem;line-height:2">
       <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin-bottom:12px">
-        <strong style="color:#00695c">📋 Nomen · 名词 (12)</strong>
+        <strong style="color:#00695c">📋 Nomen · 名词 (20)</strong>
       </div>
+      <!-- 🆕 短文集群 Wetter, Wetter, Wetter! 生词 -->
+      • <strong>die Hitzewelle, -n</strong> = 热浪 | <em>Periode mit extrem hohen Temperaturen</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Hitzewelle mit 38 °C ist angekommen."</em> — 38°C的热浪来了<br>
+      • <strong>der Klimawandel</strong> = 气候变化 (nur Sg.) | <em>langfristige Veränderung des Klimas; 搭配: Folge des Klimawandels</em><br>
+      &nbsp;&nbsp;📌 <em>„Sind diese extremen Wetterbedingungen Folge des Klimawandels?"</em><br>
+      • <strong>der Verkehrsstau, -s</strong> = 交通堵塞 | <em>lange Autoschlange wegen Stau; Stau = 拥堵</em><br>
+      &nbsp;&nbsp;📌 <em>„Es kam zu kilometerlangen Verkehrsstaus."</em> — 出现了数公里长的交通堵塞<br>
+      • <strong>das Jahrhunderthochwasser, -</strong> = 世纪洪水 | <em>extremes Hochwasser, wie es nur alle 100 Jahre vorkommt</em><br>
+      &nbsp;&nbsp;📌 <em>„Nach dem Jahrhunderthochwasser im Süden kam die Hitzewelle."</em><br>
+      • <strong>der Einsatz, -¨e</strong> =  Einsatz/救援行动 | <em>organisierte Aktion von Helfern; 搭配: im Einsatz sein (在执行任务中)</em><br>
+      &nbsp;&nbsp;📌 <em>„Zehntausende Helfer sind im Einsatz."</em> — 数万名救援人员在执行任务<br>
+      • <strong>der/die Anwohner, -</strong> = 居民 | <em>Person, die in der Nähe von etw. wohnt (an + wohnen + -er)</em><br>
+      &nbsp;&nbsp;📌 <em>„Alle Anwohner müssen ihre Häuser verlassen."</em> — 所有居民必须离开住所<br>
+      • <strong>die Gefahrenzone, -n</strong> = 危险区域 | <em>Bereich, in dem Gefahr besteht; Gefahr = 危险 + Zone</em><br>
+      &nbsp;&nbsp;📌 <em>„Nicht alle Bewohner wurden aus der Gefahrenzone gerettet."</em><br>
+      • <strong>der Wahlkampf, -¨e</strong> = 竞选(活动) | <em>Politiker werben vor der Wahl um Stimmen; Wahl + Kampf</em><br>
+      &nbsp;&nbsp;📌 <em>„Politiker zeigen sich gern mit Schaufeln, um ihren Wahlkampf zu unterstützen."</em><br>
+      <!-- 原有 Wetterrekorde + Orkan Kyrill 生词 -->
       • <strong>der Wetterrekord, -e</strong> = 天气纪录 | <em>höchster/niedrigster gemessener Wert beim Wetter</em><br>
       &nbsp;&nbsp;📌 <em>„Den Temperaturrekord hält Bayern."</em> — 巴伐利亚保持着温度纪录<br>
       • <strong>der Orkan, -e</strong> = 飓风级风暴 | <em>Sturm ab Windstärke 12 (&gt;117 km/h)</em><br>
@@ -44471,8 +44555,16 @@ function b1S12CheckB(){
       &nbsp;&nbsp;📌 <em>„Die Infrastruktur war nach dem Sturm stark beschädigt."</em>
 
       <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px">
-        <strong style="color:#00695c">🔧 Verben · 动词 (8)</strong>
+        <strong style="color:#00695c">🔧 Verben · 动词 (11)</strong>
       </div>
+      <!-- 🆕 短文集群生词 -->
+      • <strong>überfluten (überflutete, hat überflutet)</strong> = 淹没 | <em>Wasser bedeckt ein Gebiet vollständig; die Flut = 洪水</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Mulde hat das historische Stadtzentrum überflutet."</em> — Mulde河淹没了历史城区<br>
+      • <strong>brechen (bricht, brach, hat gebrochen)</strong> = 断裂/破裂 | <em>etwas Festes zerbricht; hier: Betonplatten brechen durch Hitze</em><br>
+      &nbsp;&nbsp;📌 <em>„Wegen der Hitze brechen Betonplatten."</em> — 由于高温，混凝土板断裂<br>
+      • <strong>retten (rettete, hat gerettet)</strong> = 救援/拯救 | <em>jmd. aus einer Gefahr holen; Nomen: die Rettung</em><br>
+      &nbsp;&nbsp;📌 <em>„Soldaten fahren mit Booten, um Bewohner zu retten."</em><br>
+      <!-- 原有生词 -->
       • <strong>messen (misst, maß, hat gemessen)</strong> = 测量 | <em>mit einem Instrument einen Wert bestimmen; Nomen: die Messung</em><br>
       &nbsp;&nbsp;📌 <em>„Die Temperatur wurde mit einem Thermometer gemessen."</em><br>
       • <strong>betragen (beträgt, betrug, hat betragen)</strong> = 总计为/达 | <em>einen bestimmten Zahlenwert haben; 常用于数据报告</em><br>
@@ -44491,8 +44583,14 @@ function b1S12CheckB(){
       &nbsp;&nbsp;📌 <em>„Die Bahn stellte den Zugverkehr komplett ein."</em>
 
       <div style="background:#e0f2f1;border-radius:8px;padding:10px 14px;margin:14px 0 12px">
-        <strong style="color:#00695c">🎨 Adjektive &amp; Wendungen (2)</strong>
+        <strong style="color:#00695c">🎨 Adjektive &amp; Wendungen (4)</strong>
       </div>
+      <!-- 🆕 短文集群生词 -->
+      • <strong>nasskalt</strong> = 湿冷的 | <em>Kombination aus Nässe (Regen) und Kälte; typisch für mitteleuropäisches Wetter</em><br>
+      &nbsp;&nbsp;📌 <em>„Der Wechsel von heißen und nasskalten Perioden ist völlig normal."</em><br>
+      • <strong>völlig</strong> = 完全地 | <em>komplett, total (Adverb); verstärkt Adjektive: völlig normal / völlig unmöglich</em><br>
+      &nbsp;&nbsp;📌 <em>„...ist für Mitteleuropa völlig normal."</em> — 对中欧来说完全正常<br>
+      <!-- 原有生词 -->
       • <strong>harmlos</strong> = 无害的/不严重的 | <em>keine Gefahr darstellend; Harm = 伤害 + los = 无; 反义词: gefährlich</em><br>
       &nbsp;&nbsp;📌 <em>„40 °C sind weltweit gesehen eher harmlos."</em><br>
       • <strong>verletzlich</strong> = 脆弱的/易受伤的 | <em>leicht zu beschädigen oder zu verletzen; verletzen = 使受伤 + -lich = 可…的</em><br>
@@ -44500,7 +44598,7 @@ function b1S12CheckB(){
     </div>
 
     <!-- 📖 语法解析（5项，每项含多个Textbelege + 对比表 + 常见错误） -->
-    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s13-grammatik')">📖 显示/隐藏 语法解析 (5 项 · 含变位表 + 易错对比)</button>
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s13-grammatik')">📖 显示/隐藏 语法解析 (7 项 · 含变位表 + 易错对比)</button>
     <div class="answer-box" id="b1s13-grammatik" style="font-size:.87rem;line-height:2">
 
       <strong>1. Präteritum — 书面过去时</strong> | <em>schriftliche Vergangenheit / narratives Präteritum</em><br>
@@ -44625,11 +44723,53 @@ function b1S12CheckB(){
       <em>③ „Zahlreiche Veranstaltungen <strong>wurden abgesagt</strong>."</em> — Passiv: Partizip II 不分离<br>
       <em>④ „Der Orkan <strong>fegte</strong> über Deutschland <strong>hinweg</strong>."</em> — hinweg 是复合前缀<br>
       ⚠️ 考点：可分动词的 Partizip II — ge 永远夹在前缀和词干之间（ein+ge+stellt, ab+ge+sagt），不能写成 geeinstellt 或 einstellt！<br>
-      ⚠️ 易错：有些前缀有时可分有时不可分（übersetzen 翻译↔übersetzen 摆渡; umfahren 撞倒↔umfahren 绕行），需要逐个查词典确认。
+      ⚠️ 易错：有些前缀有时可分有时不可分（übersetzen 翻译↔übersetzen 摆渡; umfahren 撞倒↔umfahren 绕行），需要逐个查词典确认。<br><br>
+
+      <strong>6. Kausalsätze mit „weil" — 原因从句</strong> | <em>weil + Nebensatz (Verb am Ende)</em><br>
+      🇩🇪 Formel: <em>Hauptsatz, weil + Subjekt + ... + Verb (am Ende).</em><br>
+      🇨🇳 规则：weil 引导的原因从句中，变位动词必须放在从句末尾。口语中常有 weil + Hauptsatz（动词第二位），但 B1 考试要求书面规范（动词末位）。<br><br>
+
+      <strong>📊 weil vs. da vs. denn 对比：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">连词</th><th style="padding:5px 10px">词序</th><th style="padding:5px 10px">语体</th><th style="padding:5px 10px">文中例句</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>weil</td><td>Verb→末位 (Nebensatz)</td><td>口语+书面均可</td><td><em>weil zurzeit nicht sicher <strong>ist</strong></em></td></tr>
+        <tr style="background:#fff"><td>da</td><td>Verb→末位 (Nebensatz)</td><td>偏书面/正式</td><td><em>Da der Sturm gefährlich war, ...</em></td></tr>
+        <tr style="background:#e8eaf6"><td>denn</td><td>Verb→第二位 (Hauptsatz)</td><td>口语</td><td><em>..., denn der Sturm war gefährlich.</em></td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „Soldaten fahren mit Booten durch die Altstadt, <strong>weil</strong> zurzeit nicht sicher <strong>ist</strong>, dass alle Bewohner gerettet wurden."</em> — 士兵开船穿过旧城，因为目前不确定是否所有居民都获救了<br>
+      <em>② „<strong>Wegen</strong> der Hitze brechen Betonplatten."</em> — wegen + Genitiv 是介词（非连词），后面跟名词而非从句<br>
+      ⚠️ 考点：weil 从句中如果还有 dass 从句（如例①），两个动词都放各自从句末位 — ist (weil从句) + wurden (dass从句)。<br>
+      ⚠️ 易错：口语常说 „weil der Sturm ist gefährlich"（动词第二位），书面考试扣分！正确：„weil der Sturm gefährlich ist"<br><br>
+
+      <strong>7. Direkte Rede im Nachrichtenstil — 新闻报道中的直接引用</strong> | <em>„Zitat", sagt/erklärt/berichtet + Name (+ Funktion)</em><br>
+      🇩🇪 Formel: <em>„Direkte Rede.", Verb + Subjekt, Apposition (Funktion/Institution).</em><br>
+      🇨🇳 规则：德语新闻中引用专家时，常用"引文在前 + 说话动词 + 人名 + 头衔同位语"结构。引文放在前面（不用冒号引导），说话动词放在引文后。<br><br>
+
+      <strong>📊 引述动词选择：</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin:6px 0 12px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:5px 10px">引述动词</th><th style="padding:5px 10px">语气色彩</th><th style="padding:5px 10px">常用场景</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td>sagen</td><td>中性（说）</td><td>最通用</td></tr>
+        <tr style="background:#fff"><td>erklären</td><td>解释性</td><td>专家解读</td></tr>
+        <tr style="background:#e8eaf6"><td>warnen vor + D</td><td>警告性</td><td>气象/灾害预警</td></tr>
+        <tr style="background:#fff"><td>berichten</td><td>报道性</td><td>记者叙述</td></tr>
+        <tr style="background:#e8eaf6"><td>betonen</td><td>强调性</td><td>强调观点</td></tr>
+      </table>
+
+      📖 文中例句 / Textbelege:<br>
+      <em>① „<strong>„Wohl kaum", sagt Dr. Eva Niewald, Meteorologin am Max-Planck-Institut für Meteorologie in Hamburg.</strong>"</em> — "几乎不可能"，汉堡马普气象研究所气象学家 Dr. Eva Niewald 说<br>
+      <em>② „<strong>Meteorologen warnen</strong> vor neuen Regenfällen im Osten."</em> — warnen vor + Dativ: 警告有…<br>
+      ⚠️ 考点：同位语（Apposition）不加冠词，直接跟在人名后：Name, + Beruf/Position + an/in + Institution<br>
+      ⚠️ 易错：中文习惯"某某说：'……'"，德语新闻语序相反——引文先出，说话人后置。
     </div>
 
     <!-- 🏭 背景知识（5个主题，每个德语段落大幅扩写 + 中文对译） -->
-    <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s13-hintergrund')">🏭 显示/隐藏 背景知识 (5 个主题 · 德国气象+灾害管理体系)</button>
+    <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s13-hintergrund')">🏭 显示/隐藏 背景知识 (7 个主题 · 德国气象+灾害管理体系)</button>
     <div class="answer-box" id="b1s13-hintergrund">
     <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
 
@@ -44663,11 +44803,23 @@ function b1S12CheckB(){
         🇨🇳 德铁在2007年 Kyrill 飓风期间全线停运是历史首次——此后在2020年 Sabine 和 2022年 Zeynep 飓风中多次重演。为什么必须停运？火车不同于汽车，无法避让铁轨上的障碍物。一棵倒在架空电线上的树可能导致整条线路断电。德铁在3.3万公里铁路网沿线设有"植被管理员"，定期检查树木是否离铁轨过近——Kyrill 之后安全距离翻倍。但风险依然存在：风力10级（89-102km/h）时首批路段关闭，12级以上（>117km/h）可能全面停运。对乘客意味着：暴风预警时出发前务必查看 DB App 确认列车是否运行。因极端天气导致列车取消，乘客有权获得全额退款——即使属于不可抗力，与航班取消不同。
       </div>
 
+      <div style="background:#e0f2f1;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#00695c;font-size:.95rem">🌊 Hochwasser in Deutschland — Naturkatastrophe mit System</strong><br>
+        🇩🇪 Deutschland erlebt immer wieder <strong>Jahrhunderthochwasser</strong> — etwa 2002 an der Elbe, 2013 an Donau und Elbe sowie 2021 an der Ahr. Dabei treten Flüsse über die Ufer und überschwemmen ganze Stadtteile. Bei großen Hochwassern sind oft <strong>Zehntausende Helfer</strong> im Einsatz: Feuerwehr, THW (Technisches Hilfswerk), Bundeswehr und freiwillige Helfer. Die <strong>Bundeswehr</strong> unterstützt mit schwerem Gerät, Booten und Sandsäcken — sie darf im Inland nur bei Naturkatastrophen und auf Anforderung der Länder eingesetzt werden. Typische Hochwassermaßnahmen sind: <strong>Sandsäcke füllen und stapeln</strong>, mobile Dämme errichten, Evakuierungen per Boot. Nach dem Hochwasser folgen Aufräumarbeiten, Schadensbilanz und der Ruf nach besserem Hochwasserschutz. Trotzdem bleibt jede Flut eine <strong>extreme Belastung</strong> für Anwohner — viele verlieren ihr Zuhause oder kämpfen monatelang mit den Folgen.<br>
+        🇨🇳 德国反复经历"世纪洪水"——例如2002年易北河洪水、2013年多瑙河和易北河洪水以及2021年阿尔河洪水。洪水漫过河岸，淹没整个城区。大规模洪水中往往有数万救援人员投入行动：消防队、THW（技术救援组织）、联邦国防军和志愿者。联邦国防军提供重型设备、船只和沙袋支援——在内陆，只有自然灾害时且联邦州请求后才能动用。典型防洪措施包括：填装和垒筑沙袋、搭建移动堤坝、用船疏散居民。洪水过后是清理工作、损失统计和对更好防洪保护的要求。尽管如此，每次洪水对居民都是极端负担——许多人失去家园或数月与后果斗争。
+      </div>
+
+      <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#e65100;font-size:.95rem">🏙️ Grimma und die Mulde — Eine Stadt kämpft gegen das Wasser</strong><br>
+        🇩🇪 Die Kleinstadt <strong>Grimma</strong> (ca. 28.000 Einwohner) in Sachsen liegt direkt an der <strong>Mulde</strong>, einem Nebenfluss der Elbe. Grimma hat eine <strong>historische Altstadt</strong> mit Renaissance-Bauten, die mehrfach von Hochwasser schwer getroffen wurde. Besonders das <strong>Jahrhunderthochwasser 2002</strong> richtete enorme Schäden an: Die Mulde stieg auf über <strong>9 Meter</strong> (normal: ca. 1,5 m), das Wasser stand in der Altstadt meterhoch. Häuser aus dem 16. Jahrhundert wurden beschädigt, die berühmte <strong>Pöppelmannbrücke</strong> (eine Steinbrücke von 1719) wurde zerstört — sie ist heute originalgetreu wieder aufgebaut. Auch 2013 wurde Grimma erneut überflutet. Inzwischen hat die Stadt ein <strong>modernes Hochwasserschutzsystem</strong> mit mobilen Wänden errichtet. Grimma gilt heute als <strong>Symbol der Widerstandsfähigkeit</strong> — eine Stadt, die trotz mehrerer Katastrophen immer wieder aufgebaut wurde.<br>
+        🇨🇳 小镇 Grimma（约2.8万居民）位于萨克森州，紧邻易北河支流 Mulde 河。Grimma 拥有文艺复兴风格的历史老城，多次遭受洪水重创。特别是2002年世纪洪水造成了巨大损失：Mulde 河水位涨至超9米（正常约1.5米），老城里的积水深达数米。16世纪的房屋被损毁，著名的 Pöppelmannbrücke（一座1719年的石桥）被毁——如今已原样重建。2013年 Grimma 再次被淹没。现在该市建立了带移动墙体的现代防洪系统。Grimma 如今被视为坚韧不拔的象征——一座历经多次灾难但一再重建的城市。
+      </div>
+
     </div>
     </div>
 
     <!-- 🔗 词汇搭配（16条，三列扩展：搭配+深度释义+双语句例+用法提示） -->
-    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s13-kollokation')">🔗 显示/隐藏 词汇搭配 (16 条 · 含用法分类)</button>
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s13-kollokation')">🔗 显示/隐藏 词汇搭配 (22 条 · 含用法分类)</button>
     <div class="answer-box" id="b1s13-kollokation">
     <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
       <tr style="background:#2e7d32;color:#fff">
@@ -44755,11 +44907,42 @@ function b1S12CheckB(){
         <td style="padding:8px 10px;font-size:.82rem">感受到后果 | <em>die Auswirkungen am eigenen Leib erfahren</em><br>⚠️ spüren = (身体/情感上)感受到</td>
         <td style="padding:8px 10px;font-size:.82rem"><em>Noch Jahre später <strong>spürte</strong> man die <strong>Folgen</strong> des Jahrhundertsturms.</em><br>🇨🇳 多年后人们仍能感受到这场世纪风暴的后果。</td>
       </tr>
+      <!-- 🆕 短文集群搭配（6条） -->
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px"><strong>über die Ufer treten</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">洪水漫过河岸 | <em>Flüsse steigen über das normale Niveau</em><br>⚠️ tritt, trat, ist getreten; 主语是 Flüsse</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Viele Flüsse <strong>treten über die Ufer</strong>.</em><br>🇨🇳 许多河流漫过河岸。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px"><strong>im Einsatz sein</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">在执行任务/救援中 | <em>aktiv arbeiten (bei Rettungsaktionen)</em><br>⚠️ der Einsatz =  Einsatz/行动; Helfer sind im Einsatz</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Zehntausende Helfer <strong>sind im Einsatz</strong>.</em><br>🇨🇳 数万名救援人员在执行任务。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">die Häuser <strong>verlassen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">离开住所（强制撤离） | <em>wegen Gefahr evakuieren</em><br>⚠️ verlässt, verließ, hat verlassen; 宾语是 Haus/Wohnung</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Alle Anwohner müssen <strong>ihre Häuser verlassen</strong>.</em><br>🇨🇳 所有居民必须离开住所。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px"><strong>Chaos herrscht</strong> in + D</td>
+        <td style="padding:8px 10px;font-size:.82rem">…处于混乱中 | <em>es gibt Chaos / Unordnung irgendwo</em><br>⚠️ herrscht, herrschte, hat geherrscht; 常与 Chaos/Ordnung/Stille 搭配</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>In den überfluteten Orten <strong>herrscht Chaos</strong>.</em><br>🇨🇳 在洪水淹没的地方一片混乱。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px">Vorteile <strong>und</strong> Probleme <strong>verursachen</strong></td>
+        <td style="padding:8px 10px;font-size:.82rem">带来好处和问题 | <em>positive und negative Folgen haben</em><br>⚠️ nicht nur..., sondern auch... 搭配强调两面性</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Die Hitzewelle hat <strong>nicht nur Vorteile, sondern verursacht auch</strong> viele Probleme.</em><br>🇨🇳 热浪不仅有好的一面，也造成了很多问题。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px"><strong>warnen vor</strong> + D</td>
+        <td style="padding:8px 10px;font-size:.82rem">警告有… | <em>vor einer Gefahr informieren</em><br>⚠️ warnen vor + Dativ; 搭配: Meteorologen warnen vor Regenfällen</td>
+        <td style="padding:8px 10px;font-size:.82rem"><em>Meteorologen <strong>warnen vor</strong> neuen Regenfällen im Osten.</em><br>🇨🇳 气象学家警告东部地区有新一轮降雨。</td>
+      </tr>
     </table>
     </div>
 
     <!-- 💬 Redemittel（12条，分6类功能，每类2条变体 + 使用场景提示） -->
-    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s13-redemittel')">💬 显示/隐藏 常用表达 (12 条 · 6 类功能 × 2 变体)</button>
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s13-redemittel')">💬 显示/隐藏 常用表达 (16 条 · 8 类功能 × 2 变体)</button>
     <div class="answer-box" id="b1s13-redemittel">
     <table style="width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6">
       <tr style="background:#c62828;color:#fff">
@@ -44821,11 +45004,30 @@ function b1S12CheckB(){
         <td style="padding:8px 10px"><em><strong>Laut</strong> Deutschem Wetterdienst <strong>war</strong> Kyrill einer der schwersten Stürme.</em></td>
         <td style="padding:8px 10px;font-size:.82rem">据德国气象局称，Kyrill是最严重的风暴之一。<br>💡 laut + Dativ(据…说) = 引述权威来源的最简洁方式。</td>
       </tr>
+      <!-- 🆕 短文集群 Redemittel（2类×2变体=4条） -->
+      <tr style="background:#f9fbe7">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">⚠️ 报道灾害<br><em>Katastrophen melden</em></td>
+        <td style="padding:8px 10px"><em><strong>... treten über die Ufer.</strong> Zehntausende Helfer sind im Einsatz.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">…漫过河岸。数万救援人员在行动。<br>💡 über die Ufer treten 是描述洪水的标准新闻用语。</td>
+      </tr>
+      <tr style="background:#f9fbe7">
+        <td style="padding:8px 10px"><em>In den überfluteten Orten <strong>herrscht Chaos</strong>. Anwohner müssen ihre Häuser <strong>verlassen</strong>.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">被淹地区一片混乱，居民必须撤离。<br>💡 herrscht + Nomen 描述状态（Chaos/Ordnung/Stille herrscht）。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="font-weight:700;padding:8px 10px" rowspan="2">🔬 专家引述<br><em>Experten zitieren</em></td>
+        <td style="padding:8px 10px"><em><strong>„...", sagt</strong> Dr. ___, Meteorologin am ___.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">"…"，某研究所气象学家某某说。<br>💡 引文先出 → 说话动词 → 人名 → 同位语头衔。</td>
+      </tr>
+      <tr style="background:#fff">
+        <td style="padding:8px 10px"><em>Meteorologen <strong>warnen vor</strong> neuen Regenfällen im Osten.</em></td>
+        <td style="padding:8px 10px;font-size:.82rem">气象学家警告东部有新一轮降雨。<br>💡 warnen vor + Dativ 是灾害报道高频用语。</td>
+      </tr>
     </table>
     </div>
 
     <!-- ✍️ 仿写例句（7个Muster，每个含完整示范+填空骨架+参考答案+进阶变体） -->
-    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s13-beispiele')">✍️ 显示/隐藏 仿写例句 (7 个 Muster · 含完整答案)</button>
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s13-beispiele')">✍️ 显示/隐藏 仿写例句 (9 个 Muster · 含完整答案)</button>
     <div class="answer-box" id="b1s13-beispiele">
     <div style="font-size:.87rem;line-height:2;color:#2d3748">
 
@@ -44876,12 +45078,26 @@ function b1S12CheckB(){
       🇨🇳 风暴导致了___，并清楚地表明___有多___。<br>
       👉 <em>Nachbau: Das Unwetter ___ (führen zu, Präteritum) ___ (Folge) und machte deutlich, wie ___ (Adjektiv) ___ (Subjekt) ist.</em><br>
       ✅ <em>Musterlösung: Das Unwetter <strong>führte zu</strong> einem Umdenken im Katastrophenschutz und <strong>machte deutlich</strong>, wie <strong>verletzlich</strong> die Infrastruktur ist.</em><br>
-      🔄 <em>Variante (Passiv): Durch den Sturm <strong>wurde deutlich</strong>, dass bessere Schutzmaßnahmen nötig sind.</em>
+      🔄 <em>Variante (Passiv): Durch den Sturm <strong>wurde deutlich</strong>, dass bessere Schutzmaßnahmen nötig sind.</em><br><br>
+
+      <strong>🔹 Muster 8: 报道洪水 <em>(Hochwasser beschreiben · über die Ufer treten)</em></strong><br>
+      🇩🇪 <em>Wegen des starken Regens <strong>treten</strong> in ___ viele Flüsse <strong>über die Ufer</strong>. ___ Helfer sind im <strong>Einsatz</strong>.</em><br>
+      🇨🇳 由于强降雨，___许多河流漫过河岸。___名救援人员在行动中。<br>
+      👉 <em>Nachbau: Wegen des ___ (starken Regens / Orkans / Dauerregens) treten in ___ (Region / Land) viele Flüsse über die Ufer. ___ (Zahl) Helfer sind im Einsatz, um ___ (Zweck: Menschen zu retten / Häuser zu sichern).</em><br>
+      ✅ <em>Musterlösung: Wegen des <strong>Dauerregens</strong> treten in <strong>Süddeutschland</strong> viele Flüsse über die Ufer. <strong>Tausende</strong> Helfer sind im Einsatz, um <strong>die Anwohner zu evakuieren</strong>.</em><br>
+      🔄 <em>Variante (Präteritum): Wegen des Dauerregens <strong>traten</strong> viele Flüsse über die Ufer.</em><br><br>
+
+      <strong>🔹 Muster 9: 两面性描述 <em>(Vor- und Nachteile · nicht nur ..., sondern auch ...)</em></strong><br>
+      🇩🇪 <em>Die ___ hat <strong>nicht nur</strong> Vorteile, <strong>sondern</strong> verursacht <strong>auch</strong> viele Probleme, so z.B. ___ .</em><br>
+      🇨🇳 ___不仅有好的一面，也造成了许多问题，比如___。<br>
+      👉 <em>Nachbau: Die ___ (Hitzewelle / der Starkregen / der Schneefall) hat nicht nur ___ (Vorteil: Spaß / schöne Landschaft / Wasserversorgung), sondern verursacht auch ___ (Problem: beschädigte Straßen / Verkehrschaos / Überschwemmungen).</em><br>
+      ✅ <em>Musterlösung: <strong>Die Hitzewelle</strong> hat nicht nur <strong>tropische Nächte und jede Menge Spaß</strong> gebracht, sondern verursacht auch <strong>beschädigte Autobahnen und Verkehrsstaus</strong>.</em><br>
+      🔄 <em>Variante (sondern auch + Verb): Die Hitzewelle bringt nicht nur Vorteile, sondern <strong>führt auch zu</strong> vielen Problemen.</em>
     </div>
     </div>
 
-    <!-- 📝 互动练习（8题，深化解析 + 每道题的知识拓展） -->
-    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-mcq')">📝 显示/隐藏 互动练习 (8 题 · 含语法判断题)</button>
+    <!-- 📝 互动练习（11题，深化解析 + 每道题的知识拓展） -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s13-mcq')">📝 显示/隐藏 互动练习 (11 题 · 含语法判断题)</button>
     <div class="answer-box" id="b1s13-mcq">
     <div class="mcq-list">
       <div class="mcq-item" data-ans="B">
@@ -44948,6 +45164,30 @@ function b1S12CheckB(){
           <label><input type="radio" name="b1s13-q8" value="C"> C) flog</label>
         </div>
       </div>
+      <div class="mcq-item" data-ans="A">
+        <p><strong>9. Wer ist Dr. Eva Niewald?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q9" value="A"> A) Meteorologin am Max-Planck-Institut in Hamburg</label>
+          <label><input type="radio" name="b1s13-q9" value="B"> B) Politikerin aus Bayern</label>
+          <label><input type="radio" name="b1s13-q9" value="C"> C) Leiterin der Bundeswehr</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="B">
+        <p><strong>10. Was ist laut Dr. Niewald für Mitteleuropa völlig normal?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q10" value="A"> A) 38 °C im Winter</label>
+          <label><input type="radio" name="b1s13-q10" value="B"> B) Der Wechsel von heißen und nasskalten Perioden</label>
+          <label><input type="radio" name="b1s13-q10" value="C"> C) Dass Betonplatten brechen</label>
+        </div>
+      </div>
+      <div class="mcq-item" data-ans="C">
+        <p><strong>11. Warum fahren Soldaten in Grimma mit Booten durch die Altstadt?</strong></p>
+        <div class="mcq-options">
+          <label><input type="radio" name="b1s13-q11" value="A"> A) Für eine Militärparade</label>
+          <label><input type="radio" name="b1s13-q11" value="B"> B) Um Politiker zu schützen</label>
+          <label><input type="radio" name="b1s13-q11" value="C"> C) Um Bewohner aus der Gefahrenzone zu retten</label>
+        </div>
+      </div>
     </div>
     <button class="btn btn-check" onclick="a2CheckMCQ('b1s13-mcq')" style="margin-top:8px">批改答案</button>
     <button class="btn btn-reset" onclick="a2ResetMCQ('b1s13-mcq')">重置</button>
@@ -44985,7 +45225,158 @@ function b1S12CheckB(){
 
       <strong>8. → A) fegte</strong><br>
       🇩🇪 原文依据：<em>„Am 18. Januar 2007 fegte der Orkan über Deutschland hinweg."</em><br>
-      🇨🇳 解析：固定搭配：über + Akk. hinwegfegen = 席卷而过。fegen 原义"扫地"，此处比喻风暴像扫地一样扫过大地。laufen=跑/走（不搭配 Orkan），fliegen=飞（鸟类/飞机，不搭配风暴）。注意：fegen 在此用 Präteritum（fegte），因为这是新闻报道的过去事件。
+      🇨🇳 解析：固定搭配：über + Akk. hinwegfegen = 席卷而过。fegen 原义"扫地"，此处比喻风暴像扫地一样扫过大地。laufen=跑/走（不搭配 Orkan），fliegen=飞（鸟类/飞机，不搭配风暴）。注意：fegen 在此用 Präteritum（fegte），因为这是新闻报道的过去事件。<br><br>
+
+      <strong>9. → A) Meteorologin am Max-Planck-Institut in Hamburg</strong><br>
+      🇩🇪 原文依据：<em>„...sagt Dr. Eva Niewald, Meteorologin am Max-Planck-Institut für Meteorologie in Hamburg."</em><br>
+      🇨🇳 解析：Dr. Eva Niewald 是短文3"Meteo-online erklärt das Wetterchaos"中引用的专家。她认为极端天气不等于气候变化的证据，中欧的冷热交替完全正常。<br><br>
+
+      <strong>10. → B) Der Wechsel von heißen und nasskalten Perioden</strong><br>
+      🇩🇪 原文依据：<em>„Dieser Wechsel von heißen und nasskalten Perioden ist für Mitteleuropa völlig normal."</em><br>
+      🇨🇳 解析：文章明确说冷热交替对中欧完全正常。选项A和C都是极端天气的具体现象（38°C热浪、混凝土板断裂），不是"正常"的事情。<br><br>
+
+      <strong>11. → C) Um Bewohner aus der Gefahrenzone zu retten</strong><br>
+      🇩🇪 原文依据：<em>„...weil zurzeit nicht sicher ist, dass auch wirklich alle Bewohner aus der Gefahrenzone gerettet wurden."</em><br>
+      🇨🇳 解析：Grimma被Mulde河淹没，联邦国防军夜间开船穿过旧城是为了确保所有居民都被救出危险区域。
+    </div>
+    </div>
+
+    <!-- ═══ Textaussagen zuordnen ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s13-textaussagen')">📰 显示/隐藏 Textaussagen (6 条 · 判断题 · zuordnen)</button>
+    <div class="answer-box" id="b1s13-textaussagen">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <div style="background:#e8eaf6;border-left:4px solid #3949ab;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+        <strong>📋 Textaussagen — Ordnen Sie die Aussagen den Beiträgen a–d auf Seite 112/113 zu.</strong><br>
+        Welche Aussage ist richtig (r), welche falsch (f)? Korrigieren Sie die falschen.
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;font-size:.85rem;line-height:1.7">
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>1.</strong> Wegen des Sturms gab es zahlreiche Sachschäden; Personen wurden nicht verletzt.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>2.</strong> Der Wechsel von regnerischen und sonnigen Perioden ist für Deutschland normal.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>3.</strong> Anwohner müssen ihre Häuser verlassen.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>4.</strong> Im Sommer gibt es keinen Schnee? Von wegen! In Bayern kommt das jedes Jahr vor.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>5.</strong> In den überfluteten Orten herrscht Chaos.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px">
+          <strong>6.</strong> Die Hitzewelle hat nicht nur Vorteile, sondern verursacht auch viele Probleme.<br>
+          <span style="color:#888;font-size:.8rem">Zuordnung: ___ &nbsp;|&nbsp; r / f: ___</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ═══ Wetterphänomene in Deutschland ═══ -->
+    <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s13-wetterphaen')">🌪️ 显示/隐藏 Wetterphänomene (4 项任务 · 配对 + 术语 + 思维导图 + 报告)</button>
+    <div class="answer-box" id="b1s13-wetterphaen">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+
+      <div style="background:#e3f2fd;border-left:4px solid #1565c0;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+        <strong>a) Überfliegen Sie die Texte und ordnen Sie je einen Ausdruck zu.</strong><br>
+        <span style="font-size:.82rem;color:#546e7a">浏览文章，将表达与对应主题匹配。</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin-bottom:16px">
+        <tr style="background:#1565c0;color:#fff">
+          <th style="padding:7px 10px;text-align:left">Ausdruck / 表达</th>
+          <th style="padding:7px 10px;text-align:left;width:50%">Zuordnung / 对应主题</th>
+        </tr>
+        <tr style="background:#f5f5f5"><td style="padding:7px 10px;font-weight:600">Sturm in Deutschland</td><td style="padding:7px 10px;color:#888">___________________________</td></tr>
+        <tr style="background:#fff"><td style="padding:7px 10px;font-weight:600">Hochwasser</td><td style="padding:7px 10px;color:#888">___________________________</td></tr>
+        <tr style="background:#f5f5f5"><td style="padding:7px 10px;font-weight:600">Rekordwetter</td><td style="padding:7px 10px;color:#888">___________________________</td></tr>
+        <tr style="background:#fff"><td style="padding:7px 10px;font-weight:600">Wetterchaos durch Klimawandel</td><td style="padding:7px 10px;color:#888">___________________________</td></tr>
+      </table>
+
+      <div style="background:#e8f5e9;border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+        <strong>b) Markieren Sie die Begriffe in den Texten und erklären Sie sie.</strong> Suchen Sie weitere Ausdrücke und Wörter, die Sie erklären können.<br>
+        <span style="font-size:.82rem;color:#546e7a">在文中标出以下术语并解释。寻找更多可以解释的词汇。</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:16px;font-size:.85rem">
+        <div>🔎 <strong>Grimma</strong> — ___________________________</div>
+        <div>🔎 <strong>Hochwasser</strong> — ___________________________</div>
+        <div>🔎 <strong>die Mulde</strong> — ___________________________</div>
+        <div>🔎 <strong>Kyrill</strong> — ___________________________</div>
+        <div>🔎 <strong>Wetterrekord</strong> — ___________________________</div>
+        <div>🔎 <strong>Jahresgesamtniederschlag</strong> — ________________</div>
+      </div>
+
+      <div style="background:#fff3e0;border-left:4px solid #e65100;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+        <strong>c) Ordnen Sie Wetterwörter und Ausdrücke aus den Texten in einer Mindmap.</strong><br>
+        <span style="font-size:.82rem;color:#546e7a">将文中的天气词汇和表达整理成思维导图。</span>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+          <span style="background:#e3f2fd;padding:5px 12px;border-radius:14px;font-size:.82rem">🌡️ Temperatur</span>
+          <span style="background:#ffebee;padding:5px 12px;border-radius:14px;font-size:.82rem">💥 Chaos</span>
+          <span style="background:#e8f5e9;padding:5px 12px;border-radius:14px;font-size:.82rem">🌦️ Wetter</span>
+          <span style="background:#fff3e0;padding:5px 12px;border-radius:14px;font-size:.82rem">🔥 Hitze</span>
+        </div>
+      </div>
+
+      <div style="background:#f3e5f5;border-left:4px solid #7b1fa2;border-radius:0 8px 8px 0;padding:14px 18px">
+        <strong>d) Wählen Sie einen Text aus. Machen Sie sich Notizen und präsentieren Sie ihn.</strong><br>
+        <span style="font-size:.82rem;color:#546e7a">选择一篇文章，做笔记并口头报告。</span>
+        <div style="margin-top:8px;font-size:.84rem;color:#4a148c">
+          📋 <strong>Mein Text:</strong> ___________________________<br>
+          📝 <strong>Notizen:</strong> _________________________________________________<br>
+          🎤 <strong>Präsentation vorbereiten:</strong> Wer? Wo? Wann? Was ist passiert? Warum?
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <!-- ═══ Redemittel: über Wetterrekorde sprechen ═══ -->
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s13-wetterreden')">🗣️ 显示/隐藏 Redemittel — über Wetterrekorde sprechen (8 条 · 数据描述句型)</button>
+    <div class="answer-box" id="b1s13-wetterreden">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+
+      <div style="background:#e8eaf6;border-left:4px solid #3949ab;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+        <strong>🗣️ Über (Wetter-)Rekorde sprechen / Redemittel</strong><br>
+        <span style="font-size:.82rem;color:#546e7a">谈论天气纪录的常用表达</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin-bottom:16px">
+        <tr style="background:#283593;color:#fff">
+          <th style="padding:7px 10px;text-align:left">Redemittel</th>
+          <th style="padding:7px 10px;text-align:left">中文 / 用法提示</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td style="padding:7px 10px"><em>Der (Negativ-)Rekord liegt (genau) bei ___ / beträgt (exakt / circa / in etwa) ___ .</em></td><td style="padding:7px 10px;font-size:.82rem">（最低）纪录（精确）为___。<br>💡 liegen bei + Dativ / betragen + Akk.</td></tr>
+        <tr style="background:#fff"><td style="padding:7px 10px"><em>Der höchste / niedrigste Wert liegt bei ___ / findet sich in ___ .</em></td><td style="padding:7px 10px;font-size:.82rem">最高/最低值在___。<br>💡 sich finden in + Dativ（正式/书面）</td></tr>
+        <tr style="background:#e8eaf6"><td style="padding:7px 10px"><em>Am häufigsten / wenigsten gibt es ___ .</em></td><td style="padding:7px 10px;font-size:.82rem">最常/最少有___。<br>💡 am + Superlativ + -sten</td></tr>
+        <tr style="background:#fff"><td style="padding:7px 10px"><em>___ stellt / hält den Rekord mit ___ Grad Celsius / Metern / Litern pro Quadratmeter.</em></td><td style="padding:7px 10px;font-size:.82rem">___以___°C/米/升每平方米创下/保持着纪录。<br>💡 stellen = 创下(首次) / halten = 保持(当前)</td></tr>
+        <tr style="background:#e8eaf6"><td style="padding:7px 10px"><em>___ hält den Monats- / Jahres- / Weltrekord mit einer Höhe / Temperatur von ___ .</em></td><td style="padding:7px 10px;font-size:.82rem">___保持着月/年/世界纪录，高度/温度为___。<br>💡 纪录类型 + mit + 数值 + von</td></tr>
+      </table>
+
+      <div style="background:#e8f5e9;border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:12px">
+        <strong>🌍 Und bei Ihnen? Recherchieren Sie Wetterrekorde aus Ihrem Land.</strong><br>
+        <span style="font-size:.82rem;color:#546e7a">研究一下你自己国家的天气纪录，并与德国对比。</span>
+      </div>
+      <div style="font-size:.84rem;line-height:1.8;margin-bottom:12px;color:#37474f">
+        • Welche Wetterphänomene gibt es bei Ihnen (nicht)? <em>你们国家有哪些（没有哪些）天气现象？</em><br>
+        • Vergleichen Sie mit Deutschland. <em>与德国进行对比。</em><br>
+        • <strong>Beispiele:</strong> „In Indonesien gibt es keinen Schnee. Aber wir haben den weltweiten Gewitter-Rekord!" &nbsp;|&nbsp; „In Polen haben wir im Winter immer Schnee."
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 18px;font-size:.84rem">
+        <strong>✏️ Ihr Land:</strong><br>
+        In ___________________________ gibt es ___________________________ .<br><br>
+        <strong>Ein Wetterrekord:</strong><br>
+        Der ___________________________ liegt bei ___________________________ .<br><br>
+        <strong>Vergleich mit Deutschland:</strong><br>
+        Im Vergleich zu Deutschland ________________________________________________ .
+      </div>
+
     </div>
     </div>
 
@@ -45003,6 +45394,181 @@ function b1S12CheckB(){
 #page-b1lesen .btn-beispiele{background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important}
 #page-b1lesen #b1s13-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
 </style>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- B1 阅读 14 · Gründe nennen & Wetter-Erfahrungen                     -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s16-wrapper" style="display:none">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s16">
+  <div class="section-header">阅读 14 · 📝 Gründe nennen &amp; Wetter-Erfahrungen &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Grammatik · wegen/weil/deshalb · Sprechen</span></div>
+  <div class="section-body">
+
+    <!-- ═══ Gründe nennen: wegen + Genitiv, weil, deshalb ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#4a148c,#7b1fa2);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">📝 Gründe nennen: wegen + Genitiv, weil, deshalb</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">B1 · Grammatik · Kausalsätze</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Grund und Folge ausdrücken — drei Wege im Deutschen</div>
+      </div>
+      <div style="padding:22px 28px 26px;font-size:.9rem;line-height:2;color:#2d3748">
+
+        <!-- 示例对比 -->
+        <div style="background:#e8eaf6;border-left:4px solid #3949ab;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🔍 Lesen Sie das Beispiel und vergleichen Sie die Sätze.</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">阅读示例并比较句子结构。</span>
+        </div>
+
+        <div style="background:#f5f5f5;border-radius:8px;padding:14px 18px;margin-bottom:16px">
+          <p style="margin:0 0 .4rem"><strong>🇩🇪 Beispiel:</strong></p>
+          <p style="margin:0 0 .8rem"><em>Wegen <strong style="color:#1565c0">umgestürzter Bäume und beschädigter Oberleitungen</strong> stellte die Deutsche Bahn gegen 19 Uhr <strong style="color:#e65100">den gesamten Nah- und Fernverkehr ein</strong> und tausende Reisende saßen fest.</em></p>
+          <p style="margin:0;font-size:.82rem;color:#546e7a">
+            🔵 <span style="color:#1565c0">blau = Grund (原因)</span> &nbsp;|&nbsp;
+            🟡 <span style="color:#e65100">gelb = Folge/n (结果)</span>
+          </p>
+        </div>
+
+        <!-- 三种因果表达对比 -->
+        <strong>📊 Drei Wege, Grund + Folge auszudrücken：</strong>
+        <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin:8px 0 16px">
+          <tr style="background:#4a148c;color:#fff">
+            <th style="padding:6px 10px">Struktur</th><th style="padding:6px 10px">Beispiel</th><th style="padding:6px 10px">Wortstellung</th>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="padding:6px 10px;font-weight:700">weil + Nebensatz</td>
+            <td style="padding:6px 10px"><em>Weil es viel regnete, gab es Hochwasser.</em></td>
+            <td style="padding:6px 10px;font-size:.8rem">Verb → Ende</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 10px;font-weight:700">deshalb / deswegen / darum</td>
+            <td style="padding:6px 10px"><em>Es regnete viel. <strong>Deshalb</strong> gab es Hochwasser.</em></td>
+            <td style="padding:6px 10px;font-size:.8rem">Verb → Position 2</td>
+          </tr>
+          <tr style="background:#f3e5f5">
+            <td style="padding:6px 10px;font-weight:700">wegen + Genitiv</td>
+            <td style="padding:6px 10px"><em><strong>Wegen des</strong> starken Regens gab es Hochwasser.</em></td>
+            <td style="padding:6px 10px;font-size:.8rem">Nomen danach!</td>
+          </tr>
+        </table>
+
+        <!-- 练习 a -->
+        <div style="background:#e3f2fd;border-left:4px solid #1565c0;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:12px">
+          <strong>a) Markieren Sie den Grund (blau) und die Folge/n (gelb).</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">标出原因（蓝色）和结果（黄色）。</span>
+        </div>
+        <div style="font-size:.85rem;line-height:1.9;margin-bottom:16px">
+          <p style="margin:0 0 .6rem">1. <em>Wegen der Hitzewelle gab es Straßenschäden auf deutschen Autobahnen.</em> &nbsp;|&nbsp; Grund: ___________ &nbsp; Folge: ___________</p>
+          <p style="margin:0">2. <em>Weil es viel regnete, gab es Hochwasser in Süd- und Ostdeutschland.</em> &nbsp;|&nbsp; Grund: ___________ &nbsp; Folge: ___________</p>
+        </div>
+
+        <!-- 练习 b -->
+        <div style="background:#e8f5e9;border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:12px">
+          <strong>b) Suchen Sie weitere Sätze in den Texten auf Seite 112/113, die Grund und Folge angeben.</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">在112/113页的文章中找出更多表达因果的句子。</span>
+        </div>
+        <div style="font-size:.85rem;line-height:1.9;margin-bottom:16px">
+          <p style="margin:0 0 .4rem">📋 <strong>Gefundene Sätze:</strong></p>
+          <p style="margin:0 0 .4rem">1. ___________________________________________________________</p>
+          <p style="margin:0">2. ___________________________________________________________</p>
+        </div>
+
+        <!-- 练习 c -->
+        <div style="background:#fff3e0;border-left:4px solid #e65100;border-radius:0 8px 8px 0;padding:14px 18px">
+          <strong>c) Notieren Sie: Was waren die Folgen des Sturms, der Hitzewelle und des Hochwassers? Berichten Sie.</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">风暴、热浪和洪水各造成了什么后果？请报告。</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin-top:8px">
+          <tr style="background:#e65100;color:#fff">
+            <th style="padding:6px 10px;text-align:left">Ereignis</th><th style="padding:6px 10px;text-align:left">Folgen (用 weil / deshalb / wegen)</th>
+          </tr>
+          <tr style="background:#fff3e0"><td style="padding:6px 10px;font-weight:700">🌪️ Sturm</td><td style="padding:6px 10px;color:#888">___________________________________________</td></tr>
+          <tr style="background:#fff"><td style="padding:6px 10px;font-weight:700">🔥 Hitzewelle</td><td style="padding:6px 10px;color:#888">___________________________________________</td></tr>
+          <tr style="background:#fff3e0"><td style="padding:6px 10px;font-weight:700">🌊 Hochwasser</td><td style="padding:6px 10px;color:#888">___________________________________________</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ═══ Wetter-Erfahrungen ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#00695c,#00897b);padding:16px 28px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">🗣️ Wetter-Erfahrungen</div>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:.2rem .7rem;border-radius:12px;font-size:.75rem">B1 · Sprechen · Perfekt</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Welche Erfahrungen haben Sie gemacht? Berichten Sie.</div>
+      </div>
+      <div style="padding:22px 28px 26px;font-size:.9rem;line-height:2;color:#2d3748">
+
+        <div style="background:#e0f2f1;border-left:4px solid #00695c;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🗣️ Über Wetter-Erfahrungen berichten / Redemittel</strong>
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin-bottom:16px">
+          <tr style="background:#00695c;color:#fff">
+            <th style="padding:6px 10px;text-align:left">Funktion</th><th style="padding:6px 10px;text-align:left">Redemittel</th><th style="padding:6px 10px;text-align:left">中文</th>
+          </tr>
+          <tr style="background:#e0f2f1">
+            <td style="padding:6px 10px;font-weight:700" rowspan="3">Erfahrung<br>经验</td>
+            <td style="padding:6px 10px"><em>Ich habe <strong>bereits / schon einmal</strong> einen Sturm / ein Erdbeben / Hochwasser <strong>erlebt</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我已经/曾经经历过风暴/地震/洪水。</td>
+          </tr>
+          <tr style="background:#e0f2f1">
+            <td style="padding:6px 10px"><em>Ich habe <strong>noch nie</strong> einen Schneesturm / ein Gewitter <strong>erlebt</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我从未经历过暴风雪/雷雨。</td>
+          </tr>
+          <tr style="background:#e0f2f1">
+            <td style="padding:6px 10px"><em><strong>Einmal / Einige Male / Schon oft</strong> bin ich in einen Hagelsturm / ein Gewitter <strong>gekommen</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">有一次/几次/经常遇到冰雹/雷雨。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 10px;font-weight:700" rowspan="2">Zeit<br>时间</td>
+            <td style="padding:6px 10px"><em>Das war <strong>im Jahr</strong> ___ / <strong>vor</strong> ___ Jahren.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">那是在___年/___年前。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 10px"><em>Das war <strong>im Frühjahr / Sommer / Herbst / Winter</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">那是在春天/夏天/秋天/冬天。</td>
+          </tr>
+          <tr style="background:#e0f2f1">
+            <td style="padding:6px 10px;font-weight:700" rowspan="2">Erinnerung<br>回忆</td>
+            <td style="padding:6px 10px"><em>Ich <strong>erinnere mich (noch) sehr / ziemlich genau</strong> an einen trockenen / nassen Sommer.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我（仍然）非常/相当清楚地记得一个干旱/多雨的夏天。</td>
+          </tr>
+          <tr style="background:#e0f2f1">
+            <td style="padding:6px 10px"><em>Ich <strong>erinnere mich nicht mehr</strong> an den Sturm.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我记不得那场风暴了。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 10px;font-weight:700" rowspan="2">Angst<br>恐惧</td>
+            <td style="padding:6px 10px"><em>Vor Gewitter / Regen / Schneelawinen habe ich <strong>große / ziemliche Angst</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我（非常/颇）害怕雷雨/下雨/雪崩。</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 10px"><em>Vor ___ habe ich <strong>keine Angst</strong>.</em></td>
+            <td style="padding:6px 10px;font-size:.78rem">我不怕___。</td>
+          </tr>
+        </table>
+
+        <!-- 写作练习 -->
+        <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 18px;font-size:.84rem;line-height:1.9">
+          <strong>✏️ Schreiben Sie über Ihre Wetter-Erfahrungen:</strong><br><br>
+          <em>Ich habe bereits / schon einmal / noch nie</em> ___________________________________<br>
+          <em>Das war im Jahr / vor</em> ___________________________________<br>
+          <em>im Frühjahr / Sommer / Herbst / Winter.</em><br>
+          <em>Ich erinnere mich (noch) sehr / ziemlich genau an</em> ___________________________________<br>
+          <em>Vor</em> ___________________________________ <em>habe ich (keine / ziemliche / große) Angst.</em>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
 
 <div id="page-a2hoeren" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
 <div style="max-width:860px;margin:0 auto">
