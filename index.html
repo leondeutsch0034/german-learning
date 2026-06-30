@@ -3280,9 +3280,135 @@
       }
     }
 
+
+    /* ══════ 首屏加载动画 ══════ */
+    #app-loading-screen {
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:#0a1428;z-index:1000000;
+      display:flex;align-items:center;justify-content:center;
+      flex-direction:column;
+      transition:opacity .5s ease,visibility .5s ease;
+    }
+    #app-loading-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    #app-loading-screen .ls-logo{
+      font-family:'Georgia','Kaiti SC',serif;
+      font-size:2.2rem;font-weight:700;
+      color:#f6d365;letter-spacing:.06em;
+      margin-bottom:20px;
+    }
+    #app-loading-screen .ls-flag{
+      display:flex;gap:0;border-radius:8px;overflow:hidden;
+      margin-bottom:28px;box-shadow:0 4px 24px rgba(246,211,101,.2);
+    }
+    #app-loading-screen .ls-flag span{display:block;width:40px;height:28px}
+    #app-loading-screen .ls-flag span:nth-child(1){background:#000}
+    #app-loading-screen .ls-flag span:nth-child(2){background:#d00}
+    #app-loading-screen .ls-flag span:nth-child(3){background:#fc0}
+    #app-loading-screen .ls-spinner{
+      width:40px;height:40px;
+      border:3px solid rgba(246,211,101,.15);
+      border-top-color:#f6d365;
+      border-radius:50%;
+      animation:lsSpin .8s linear infinite;
+    }
+    @keyframes lsSpin{to{transform:rotate(360deg)}}
+    #app-loading-screen .ls-sub{
+      color:rgba(226,232,240,.6);font-size:.82rem;
+      margin-top:16px;letter-spacing:.04em;
+    }
+
+    /* ══════ 📋 目录面板 ══════ */
+    #float-nav .float-btn.toc{background:linear-gradient(135deg,#4338ca,#6366f1);color:#fff;border-color:rgba(196,181,253,.55)}
+    #toc-overlay{display:none;position:fixed;inset:0;z-index:99996;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+    #toc-overlay .toc-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:520px;max-height:78vh;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;display:flex;flex-direction:column}
+    #toc-overlay .toc-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}
+    #toc-overlay .toc-hdr h3{font-size:1.05rem;color:#1a1a2e;margin:0}
+    #toc-overlay .toc-close{background:none;border:none;font-size:1.2rem;cursor:pointer;color:#64748b;padding:4px;line-height:1}
+    #toc-overlay .toc-body{overflow-y:auto;padding:12px 16px;flex:1}
+    #toc-overlay .toc-group{margin-bottom:14px}
+    #toc-overlay .toc-group-label{font-size:.7rem;font-weight:700;color:#6b21a8;text-transform:uppercase;letter-spacing:.06em;padding:4px 0 6px}
+    #toc-overlay .toc-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;cursor:pointer;font-size:.9rem;color:#2d3748;transition:background .15s;text-decoration:none}
+    #toc-overlay .toc-item:hover{background:#f3e8ff}
+    #toc-overlay .toc-item.current{background:#ede9fe;font-weight:700;color:#5b21b6}
+    #toc-overlay .toc-item .toc-icon{font-size:1.1rem;flex-shrink:0;width:24px;text-align:center}
+    @media(max-width:600px){
+      #toc-overlay .toc-card{top:40px;bottom:20px;left:50%;right:auto;transform:translateX(-50%);max-height:none;width:94%;border-radius:14px}
+    }
   </style>
 </head>
 <body>
+
+<!-- ══════ 首屏加载动画 ══════ -->
+<div id="app-loading-screen">
+  <div class="ls-logo">Leon Deutsch</div>
+  <div class="ls-flag"><span></span><span></span><span></span></div>
+  <div class="ls-spinner"></div>
+  <div class="ls-sub">Lade... 加载中...</div>
+</div>
+
+<!-- ══════ 懒加载框架 ══════
+  大页面内容包在 <template> 中，首次访问时才注入 DOM。
+  模板不增加解析时间——浏览器跳过 <template> 内容。
+-->
+<script>
+/* ══════ 懒加载框架 ══════ */
+window._lazyPages = {};
+window._lazyInstantiated = {};
+
+/* 注册懒加载页面 */
+window.registerLazyPage = function(pageId, tplId, onInit) {
+  window._lazyPages[pageId] = { tplId: tplId, onInit: onInit || null };
+};
+
+/* 实例化一个懒加载页面（幂等） */
+window.instantiateLazyPage = function(pageId) {
+  if (window._lazyInstantiated[pageId]) return;
+  var cfg = window._lazyPages[pageId];
+  if (!cfg) return;
+  var tpl = document.getElementById(cfg.tplId);
+  if (!tpl) return;
+  var page = document.getElementById('page-' + pageId);
+  if (!page) return;
+
+  // 克隆模板内容（内含的 <script> 是惰性的，不会执行）
+  var frag = tpl.content.cloneNode(true);
+
+  // 模板内的 <style> 移到 <head>
+  var styles = frag.querySelectorAll('style');
+  styles.forEach(function(s) {
+    var clone = s.cloneNode(true);
+    clone.setAttribute('data-lazy-style', pageId);
+    document.head.appendChild(clone);
+    s.remove();
+  });
+
+  // 激活模板内的 <script>：克隆的脚本是惰性的，需重建才能执行
+  var scripts = frag.querySelectorAll('script');
+  scripts.forEach(function(oldScript) {
+    var newScript = document.createElement('script');
+    // 复制属性
+    for (var i = 0; i < oldScript.attributes.length; i++) {
+      var attr = oldScript.attributes[i];
+      newScript.setAttribute(attr.name, attr.value);
+    }
+    newScript.textContent = oldScript.textContent;
+    oldScript.parentNode.replaceChild(newScript, oldScript);
+  });
+
+  page.appendChild(frag);
+  window._lazyInstantiated[pageId] = true;
+
+  // 执行注入后的初始化回调
+  if (cfg.onInit) {
+    try { cfg.onInit(page); } catch(e) { console.warn('lazy init error for', pageId, e); }
+  }
+
+  // 重新应用游客锁（新注入的 section 可能需要加锁）
+  if (typeof currentUser !== 'undefined' && currentUser === 'guest') {
+    try { applyGuestLocks(); } catch(e) {}
+  }
+};
+</script>
 
 <!-- ══════════════ 登录遮罩 ══════════════ -->
 <div id="login-overlay" style="
@@ -4245,8 +4371,9 @@ function renderA1HubCards() { renderHubCards('a1'); }
   <script>renderNav();</script>
 </nav>
 
-<!-- 右下角浮动按钮：返回首页 + 搜索（替代顶部栏目条） -->
+<!-- 右下角浮动按钮：目录 + 搜索 + 主题 + 首页 -->
 <div id="float-nav">
+  <button class="float-btn toc" onclick="openToc()" title="目录">📋</button>
   <button class="float-btn search" onclick="openSearch()" title="搜索">🔍</button>
   <button class="float-btn" onclick="showPage('index')" title="返回首页">🏠</button>
 </div>
@@ -4271,6 +4398,17 @@ function renderA1HubCards() { renderHubCards('a1'); }
   </div>
 </div>
 
+<!-- ══════════ 📋 目录面板 ══════════ -->
+<div id="toc-overlay" onclick="if(event.target===this)closeToc()">
+  <div class="toc-card">
+    <div class="toc-hdr">
+      <h3>📚 学习目录</h3>
+      <button class="toc-close" onclick="closeToc()">✕</button>
+    </div>
+    <div class="toc-body" id="toc-body"></div>
+  </div>
+</div>
+
 <script>
 // ══ 页面名称映射 ══
 var PAGE_NAMES = {
@@ -4292,10 +4430,96 @@ function closeSearch() {
   document.getElementById('search-results').innerHTML = '<div id="search-hint" style="text-align:center;color:#64748b;font-size:.88rem;padding:32px 0">输入关键词开始搜索</div>';
 }
 
+/* ══════ 📋 目录面板 ══════ */
+function openToc() {
+  var overlay = document.getElementById('toc-overlay');
+  var body = document.getElementById('toc-body');
+  if (!overlay || !body) return;
+  // 动态生成目录列表
+  var html = '';
+  var hubs = window.HUBS || {};
+  var modules = window.MODULES || [];
+  var currentHash = window.location.hash.replace('#','');
+  // 按 hub 分组
+  var hubOrder = ['pronunciation','a1','a2','b1','b2','c1'];
+  var ungrouped = [];
+  var hubGroups = {};
+  hubOrder.forEach(function(hk){ hubGroups[hk] = []; });
+  modules.forEach(function(m){
+    if (m.group && hubGroups[m.group]) {
+      hubGroups[m.group].push(m);
+    } else if (m.group) {
+      hubGroups[m.group] = [m];
+    } else {
+      ungrouped.push(m);
+    }
+  });
+  // 渲染各 hub 分组
+  hubOrder.forEach(function(hk){
+    var items = hubGroups[hk];
+    if (!items || !items.length) return;
+    var hub = hubs[hk] || {};
+    html += '<div class="toc-group">';
+    html += '<div class="toc-group-label">' + (hub.icon||'') + ' ' + (hub.navLabel||hk) + '</div>';
+    items.sort(function(a,b){ return (a.hubStep||0)-(b.hubStep||0); });
+    items.forEach(function(m){
+      var isCurrent = (currentHash === m.id);
+      html += '<div class="toc-item' + (isCurrent?' current':'') + '" onclick="showPage(\'' + m.id + '\');closeToc();">';
+      html += '<span class="toc-icon">' + (m.icon||'📄') + '</span>';
+      html += '<span>' + (m.cardTitle || m.navLabel || m.id) + '</span>';
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+  // 未分组模块
+  if (ungrouped.length) {
+    html += '<div class="toc-group">';
+    html += '<div class="toc-group-label">🏙️ 探索与拓展</div>';
+    ungrouped.forEach(function(m){
+      var isCurrent = (currentHash === m.id);
+      html += '<div class="toc-item' + (isCurrent?' current':'') + '" onclick="showPage(\'' + m.id + '\');closeToc();">';
+      html += '<span class="toc-icon">' + (m.icon||'📄') + '</span>';
+      html += '<span>' + (m.cardTitle || m.navLabel || m.id) + '</span>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+  body.innerHTML = html;
+  overlay.style.display = 'block';
+}
+function closeToc() {
+  document.getElementById('toc-overlay').style.display = 'none';
+}
+
 var searchTimer;
 function doSearch(q) {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(function(){ runSearch(q.trim()); }, 200);
+}
+
+/* 搜索辅助：在指定根节点内遍历文本节点 */
+function _searchWalk(root, results, lower, forcePid) {
+  var pid = forcePid || (root.id ? root.id.replace('page-','') : 'unknown');
+  var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(node) {
+      var p = node.parentNode;
+      var tag = p.tagName ? p.tagName.toUpperCase() : '';
+      if (['SCRIPT','STYLE','INPUT','BUTTON','TEMPLATE'].indexOf(tag) >= 0) return NodeFilter.FILTER_REJECT;
+      return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    }
+  }, false);
+  var node;
+  while ((node = walker.nextNode())) {
+    var txt = node.textContent;
+    var idx = txt.toLowerCase().indexOf(lower);
+    if (idx >= 0) {
+      var start = Math.max(0, idx - 30);
+      var end = Math.min(txt.length, idx + lower.length + 50);
+      var snippet = (start > 0 ? '…' : '') + txt.slice(start, end) + (end < txt.length ? '…' : '');
+      results.push({ pid: pid, snippet: snippet, idx: idx - start + (start > 0 ? 1 : 0), qlen: lower.length, el: node.parentNode, _fromTemplate: !!forcePid });
+      if (results.filter(function(r){ return r.pid===pid; }).length >= 5) break;
+    }
+  }
 }
 
 function runSearch(q) {
@@ -4306,30 +4530,21 @@ function runSearch(q) {
   }
   var lower = q.toLowerCase();
   var results = [];
+
+  // 1. 搜索所有已实例化的页面
   var pages = document.querySelectorAll('.page');
   pages.forEach(function(page) {
-    var pid = page.id.replace('page-','');
-    var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
-      acceptNode: function(node) {
-        var p = node.parentNode;
-        // 跳过脚本、样式、输入框
-        var tag = p.tagName ? p.tagName.toUpperCase() : '';
-        if (['SCRIPT','STYLE','INPUT','BUTTON'].indexOf(tag) >= 0) return NodeFilter.FILTER_REJECT;
-        return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-      }
-    }, false);
-    var node;
-    while ((node = walker.nextNode())) {
-      var txt = node.textContent;
-      var idx = txt.toLowerCase().indexOf(lower);
-      if (idx >= 0) {
-        var start = Math.max(0, idx - 30);
-        var end = Math.min(txt.length, idx + q.length + 50);
-        var snippet = (start > 0 ? '…' : '') + txt.slice(start, end) + (end < txt.length ? '…' : '');
-        results.push({ pid: pid, snippet: snippet, idx: idx - start + (start > 0 ? 1 : 0), qlen: q.length, el: node.parentNode });
-        if (results.filter(function(r){ return r.pid===pid; }).length >= 5) return; // 每页最多5条
-      }
-    }
+    _searchWalk(page, results, lower);
+  });
+
+  // 2. 搜索未实例化的懒加载模板
+  Object.keys(window._lazyPages || {}).forEach(function(pageId) {
+    if (window._lazyInstantiated[pageId]) return; // 已在上面搜过
+    var tpl = document.getElementById(window._lazyPages[pageId].tplId);
+    if (!tpl) return;
+    var wrapper = document.createElement('div');
+    wrapper.appendChild(tpl.content.cloneNode(true));
+    _searchWalk(wrapper, results, lower, pageId);
   });
 
   if (!results.length) {
@@ -4369,10 +4584,16 @@ function runSearch(q) {
 
 function goToResult(pid, idx) {
   closeSearch();
-  showPage(pid);
+  showPage(pid); // showPage 会自动触发懒实例化
   var results = (window._searchResults || []).filter(function(r){ return r.pid===pid; });
   var el = results[idx] && results[idx].el;
   if (el) {
+    // 如果元素来自模板临时 wrapper，实例化后重新查询
+    if (!document.contains(el)) {
+      var page = document.getElementById('page-' + pid);
+      if (page) { page.scrollIntoView({ behavior:'smooth', block:'start' }); }
+      return;
+    }
     setTimeout(function(){
       el.scrollIntoView({ behavior:'smooth', block:'center' });
       el.style.transition = 'background .3s';
@@ -15043,6 +15264,10 @@ function showPage(id) {
     }
     return;
   }
+  // 懒加载：首次访问时从模板注入内容
+  if (window._lazyPages && window._lazyPages[id] && !window._lazyInstantiated[id]) {
+    window.instantiateLazyPage(id);
+  }
   // 用户点击卡片进入栏目后，激活导航栏的滚动显示
   window._navActivated = true;
   // 手机端恢复导航栏显示（从 display:none 变为正常布局）
@@ -15078,6 +15303,19 @@ function showPage(id) {
 window.gotoSection = function(secId) {
   if (!secId) return;
   var target = document.getElementById(secId);
+  // 如果目标 section 不在 DOM 中，检查未实例化的懒加载模板
+  if (!target && window._lazyPages) {
+    Object.keys(window._lazyPages).forEach(function(pageId) {
+      if (target || window._lazyInstantiated[pageId]) return;
+      var tpl = document.getElementById(window._lazyPages[pageId].tplId);
+      if (!tpl) return;
+      var clone = tpl.content.cloneNode(true);
+      if (clone.querySelector('#' + secId)) {
+        window.instantiateLazyPage(pageId);
+        target = document.getElementById(secId);
+      }
+    });
+  }
   if (!target) return;
   var page = target.closest('.page');
   if (page && page.id && page.id.indexOf('page-') === 0) {
@@ -15104,6 +15342,9 @@ window.addEventListener('message', function(ev) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  // 隐藏加载屏
+  var ls = document.getElementById('app-loading-screen');
+  if (ls) { ls.classList.add('hidden'); setTimeout(function() { if (ls.parentNode) ls.remove(); }, 600); }
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
   // Hash 路由：分享链接打开时自动跳转到对应页面
   var hash = window.location.hash;
@@ -28403,7 +28644,7 @@ function lxqResetMCQ(id) {
 #page-lixiangqin .answer-box.show { display:block !important; }
 </style>
 
-<div id="page-b1lesen" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);color:#263238;line-height:1.7;padding:20px">
+<template id="tpl-page-b1lesen">
 <div style="max-width:860px;margin:0 auto">
   <div class="b1l-hero">
     <div class="b1l-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
@@ -39905,7 +40146,9 @@ function b1S12CheckB(){
 })();
 </script>
 
-</div>
+</template>
+<div id="page-b1lesen" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b1lesen', 'tpl-page-b1lesen');</script>
 <a href="#b1l-toc" class="b1l-backtotoc" title="回到目录">📋</a>
 
 <a href="#a2g-top" class="a2g-backtotoc" title="回到目录">📋</a>
@@ -39939,7 +40182,7 @@ function b1S12CheckB(){
 
 </div>
 
-<div id="page-a2schreiben" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
+<template id="tpl-page-a2schreiben">
 <div style="max-width:860px;margin:0 auto">
 
   <!-- ===== 页头 ===== -->
@@ -44326,7 +44569,9 @@ function b1S12CheckB(){
 </script>
 
 </div>
-</div>
+</template>
+<div id="page-a2schreiben" class="page" data-lazy="true"></div>
+<script>registerLazyPage('a2schreiben', 'tpl-page-a2schreiben');</script>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- B1 阅读 11 · Wetter, Wetter, Wetter! · Wetterrekorde & Orkan Kyrill        -->
@@ -49345,7 +49590,7 @@ function b1S12CheckB(){
 @keyframes ktFadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 </style>
 
-<div id="page-kultur-reader" class="page">
+<template id="tpl-page-kultur-reader">
   <div class="kd-wrap">
     <div class="kd-header">
       <div class="kd-show">DU WEISST ES NICHT</div>
@@ -88679,7 +88924,9 @@ function b1S12CheckB(){
       <span>Leons Deutschzentrum · 你不知道的德国</span>
     </div>
   </div>
-</div>
+</template>
+<div id="page-kultur-reader" class="page" data-lazy="true"></div>
+<script>registerLazyPage('kultur-reader', 'tpl-page-kultur-reader');</script>
 
 <script>
 window._kdEpData = {1:{title:"超市与生活",desc:"一个矿泉水瓶多收25欧分？周日全城关门？6个德国超市真相"},2:{title:"规则与习惯",desc:"Kippfenster、Termin文化、DB晚点——6个德国人习以为常的规则"},3:{title:"住与行",desc:"Kaltmiete冷租、Bargeld现金、Ruhezeit安静时间——6个德国住行真相"},4:{title:"工作与职场",desc:"Tarifvertrag、30天Urlaub、Feierabend——德国职场6个秘密"},5:{title:"交通与出行",desc:"Führerschein驾照、Umweltzone环保区、Blitzer测速——德国交通6件事"},6:{title:"落地德国",desc:"Anmeldung落户、银行开户、医保——初到德国必办的6件事"},7:{title:"饮食与社交",desc:"Abendbrot冷晚餐、Kaffeetafel咖啡会、Verein协会——德国饮食社交6件事"},8:{title:"节日与庆祝",desc:"Weihnachtsmarkt圣诞市场、Karneval狂欢节、Oktoberfest——6大德国节日"},9:{title:"育儿与教育",desc:"Elternzeit育儿假、Kindergarten幼儿园、Schultüte入学筒——德国育儿6件事"},10:{title:"环保与能源",desc:"Energiewende能源转型、Balkonkraftwerk阳台电站、Bio-Tonne——德国环保6件事"},11:{title:"医疗与健康",desc:"Krankenkasse医保、Hausarzt家庭医生、Kur疗养——德国医疗6件事"},12:{title:"数字生活",desc:"Fax传真机、Bargeld现金、Datenschutz数据保护——德国数字化6个真相"},13:{title:"历史记忆",desc:"Mauerfall柏林墙、Stolpersteine绊脚石、Ost/West东西差异——6个德国历史记忆"},14:{title:"理财与储蓄",desc:"Sparbuch存折、Bausparvertrag建房储蓄、Riester养老金——德国理财6件事"},15:{title:"宠物与动物",desc:"Hundesteuer狗税、Wolf野狼回归、Tierheim动物收容所——德国宠物6件事"},16:{title:"度假与休闲",desc:"30天Urlaub、Camping露营、Schrebergarten小花园——德国度假6件事"},17:{title:"高考后留学德国",desc:"APS审核、Studienkolleg预科、TestDaF——高考后留学德国全攻略"},18:{title:"社交密码",desc:"Du vs Sie、直球沟通、生日禁忌、送礼清单——6个德国社交潜规则"},19:{title:"德国空调为什么这么少？",desc:"3%安装率、厚墙被动降温、Denkmalschutz——德国人不装空调的6个真相"}};
@@ -91326,7 +91573,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </script>
 
 <!-- ══════════ 林夏在德国 ══════════ -->
-<div id="page-serie" class="page">
+<template id="tpl-page-serie">
   <div class="se-beams" aria-hidden="true">
     <div class="se-haze"></div>
     <div class="se-godray gr1"></div>
@@ -97740,7 +97987,9 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第37集 -->
 
   </div>
-</div>
+</template>
+<div id="page-serie" class="page" data-lazy="true"></div>
+<script>registerLazyPage('serie', 'tpl-page-serie');</script>
 <script>
   window.showSerieEp = function(ep) {
     var page = document.getElementById('page-serie');
@@ -97838,7 +98087,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   </iframe>
 </div>
 
-<div id="page-grammatik-schreiben" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#2d3748;line-height:1.65;padding:20px;font-size:14px">
+<template id="tpl-page-grammatik-schreiben">
 
 <style>
   /* ===== 语法抄写 - 对齐 A1 语法蓝色风格 ===== */
@@ -105642,6 +105891,9 @@ function gsRevealAllChapter(chId) {
     <button class="gs-btn" onclick="toggleAns(this)">显示答案</button>
   </div>
 </div>
+</template>
+<div id="page-grammatik-schreiben" class="page" data-lazy="true"></div>
+<script>registerLazyPage('grammatik-schreiben', 'tpl-page-grammatik-schreiben');</script>
 
 <a href="#gs-toc-top" class="gs-backtotoc" title="回到目录">📋</a>
 
