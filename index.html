@@ -79213,6 +79213,15 @@ window.showKulturEp = function(ep) {
     if (ogT) ogT.setAttribute('content', '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语');
     if (ogD) ogD.setAttribute('content', info.desc + ' —— Leon德语学习中心「你不知道的德国」专栏');
     document.title = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
+      /* 更新 og:image 为当期封面图（跳过 base64，社交爬虫无法识别） */
+      var epDiv = page.querySelector('.kd-episode[data-ep="' + ep + '"]');
+      if (epDiv) {
+        var coverImg = epDiv.querySelector('.cover-img');
+        if (coverImg && coverImg.src && coverImg.src.indexOf('data:') !== 0) {
+          var ogI = document.querySelector('meta[property="og:image"]');
+          if (ogI) ogI.setAttribute('content', coverImg.src);
+        }
+      }
   } catch(e) {}
 };
 window.shareKulturLink = function() {
@@ -79232,6 +79241,17 @@ window.shareKulturLink = function() {
 window.shareKulturEpV2 = function() {
   var ep = window._currentKulturEp || '1';
   var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'25期第一视角德国真相'};
+  /* 确保 og:image 已更新为当期封面 */
+  try {
+    var shareEpDiv = document.querySelector('.kd-episode[data-ep="' + ep + '"]');
+    if (shareEpDiv) {
+      var shareImg = shareEpDiv.querySelector('.cover-img');
+      if (shareImg && shareImg.src && shareImg.src.indexOf('data:') !== 0) {
+        var ogI2 = document.querySelector('meta[property="og:image"]');
+        if (ogI2) ogI2.setAttribute('content', shareImg.src);
+      }
+    }
+  } catch(e) {}
   var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
   var title = '你不知道的德国 · 第' + ep + '集 ' + info.title;
   var shareText = info.desc + ' —— Leon德语学习中心';
