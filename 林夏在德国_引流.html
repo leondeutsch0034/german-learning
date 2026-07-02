@@ -8,6 +8,7 @@
 <meta property="og:title" content="林夏在德国 · 德语连续剧">
 <meta property="og:description" content="跟着林夏走进真实德国生活。每集一个场景，边追剧边学德语。">
 <meta property="og:type" content="article">
+<meta property="og:image" content="https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?w=800&q=80">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -1699,6 +1700,8 @@ function render() {
   if (ogt) ogt.content = '林夏在德国 - 第' + ep + '集 | ' + d.title;
   var ogd = document.querySelector('meta[property="og:description"]');
   if (ogd) ogd.content = '第' + ep + '集：' + d.title + '。跟着林夏走进真实德国生活。';
+  var ogi = document.querySelector('meta[property="og:image"]');
+  if (ogi && d.coverImg) ogi.content = d.coverImg;
 
   var html = '';
 
