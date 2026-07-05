@@ -3677,8 +3677,8 @@ var PAGE_WHITELIST = {
   'lixiangqin': ['leon']
 };
 var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schreib-lv4', 'schreib-lv5', 'schreib-sim1', 'schreib-sim2', 'schreib-sim3', 'schreib-sim4', 'brief-format', 'brief-anrede', 'brief-umschlag', 'brief-beispiel', 'brief-uebung'];
-// A1 阅朗读：31 篇短文/对话，guest 看不到，A1+ 可见
-(function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
+// A1 阅朗读：全部文章所有人可见（含游客）—— 内容多来源于《交际德语教程》第二版/第三版
+// (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
 var LOCKED_SECTIONS_CUSTOM = ['b1s8','b1s9','b1l-s17','b1l-s18','b1l-s19','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61', 'gs-k62', 'gs-k63', 'gs-k64', 'gs-k65', 'gs-k66', 'gs-k67', 'gs-k68', 'gs-k69', 'gs-k70', 'gs-k71', 'gs-k72']
 // 合成全量列表（向后兼容）
@@ -3775,7 +3775,7 @@ function pagesNeedingLock() {
   return locked;
 }
 function applyGuestLocks() {
-  // 自动给 #page-lesen 的 31 个 ls-section 注入 id（ls-s1 ~ ls-s31），用于加锁与目录跳转
+  // 自动给 #page-lesen 的 32 个 ls-section 注入 id（ls-s1 ~ ls-s32），用于加锁与目录跳转
   document.querySelectorAll('#page-lesen .ls-section').forEach(function(s, i){
     if (!s.id) s.id = 'ls-s' + (i+1);
   });
@@ -15360,9 +15360,12 @@ function brToggleSample4() {
   <span>📌 <strong>考点：</strong>Goethe A1 阅读部分 Teil 1–3</span>
 </div>
 
+<div style="text-align:center;font-size:.82rem;color:#92400e;margin-bottom:1.2rem;padding:10px 18px;background:#fefce8;border:1px solid #fde68a;border-radius:10px;max-width:860px;margin-left:auto;margin-right:auto">
+  📚 <strong>内容来源：</strong>本栏目多数短文与对话选自《<strong>交际德语教程</strong>》（Studio [21]）第二版及第三版，由教师整理编排，仅供课堂教学使用。
+</div>
 <!-- ══════════════════════ 目录 Inhaltsverzeichnis ══════════════════════ -->
 <div id="ls-toc-top" style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
-  <div style="background:linear-gradient(90deg,#b45309,#d97706);color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis &nbsp;<span style="font-weight:400;opacity:.85;font-size:.85rem">· 共 31 篇</span></div>
+  <div style="background:linear-gradient(90deg,#b45309,#d97706);color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis &nbsp;<span style="font-weight:400;opacity:.85;font-size:.85rem">· 共 32 篇</span></div>
   <div style="padding:1rem 1.2rem">
     <label for="lesen-article-select" style="display:block;font-size:.85rem;color:#92400e;font-weight:600;margin-bottom:.5rem">选择文章 · Artikel wählen：</label>
     <select id="lesen-article-select" onchange="showLesenArticle(this.value)"
@@ -15397,13 +15400,14 @@ function brToggleSample4() {
         <option value="29">㉙ Jeans-Mode</option>
         <option value="31">㉛ Krankenpfleger</option>
       </optgroup>
-      <optgroup label="💬 对话朗读 (6)">
+      <optgroup label="💬 对话朗读 (7)">
         <option value="3">③ Gespräche im Café</option>
         <option value="8">⑧ Beim Arzt</option>
         <option value="20">⑳ Nach dem Weg fragen</option>
         <option value="27">㉗ Shoppen gehen</option>
         <option value="28">㉘ Anmeldung in der Arztpraxis</option>
         <option value="30">㉚ Im Sprechzimmer</option>
+        <option value="32">㉜ Beim türkischen Friseur</option>
       </optgroup>
     </select>
     <div style="font-size:.8rem;color:#a16207;margin-top:.6rem;line-height:1.5">💡 选择后只显示该篇，方便单独阅读或打印；想换文章再用上面的下拉框。</div>
@@ -16421,6 +16425,83 @@ function brToggleSample4() {
 </div>
 <!-- ===== /Krankenpfleger ===== -->
 
+<!-- ===== 对话朗读：Beim türkischen Friseur ===== -->
+<div class="ls-section">
+  <div class="ls-section-header">㉜ 对话朗读 · Beim türkischen Friseur &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">beim Barbier</span></div>
+  <div class="ls-section-body">
+
+    <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
+      💈 <strong>Thema:</strong> Beim Friseur — 在德国土耳其理发店 · 双方德语都不太好时怎么沟通
+    </div>
+
+    <div style="background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;font-size:.85rem;color:#92400e;margin-bottom:1rem;line-height:1.6">
+      💡 <strong>场景说明：</strong>在德国，土耳其移民经营的理发店（Barbershop）非常普遍，价格实惠（10–18 €），手艺好。老板的德语通常比较简单直接，你也可以用手势辅助。下面这段对话就是<b>两个非母语者用简单德语完成理发</b>的真实场景。
+    </div>
+
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
+      <p>🔵 <strong>Barbier:</strong> Hallo! Komm rein. Was möchtest du?</p>
+      <p>🟠 <strong>Kunde:</strong> Hallo. Ich möchte <strong>Haare schneiden</strong>, bitte.</p>
+      <p>🔵 Okay. Wie <strong>kurz</strong>?</p>
+      <p>🟠 Äh… nicht zu kurz. <strong>Ein bisschen</strong> kurz. <span style="color:#94a3b8;font-size:.82rem">（用手比划长度）</span></p>
+      <p>🔵 Ah, okay. Die <strong>Seiten</strong> kurz? Mit <strong>Maschine</strong>?</p>
+      <p>🟠 Ja, Seiten kurz. Maschine… <strong>Nummer 3</strong>? <span style="color:#94a3b8;font-size:.82rem">（不确定地说）</span></p>
+      <p>🔵 Nummer 3, okay. Und <strong>oben</strong>?</p>
+      <p>🟠 Oben… etwas <strong>länger</strong>, bitte. Nur ein bisschen schneiden. Mit <strong>Schere</strong>.</p>
+      <p>🔵 Verstehe. Seiten Maschine, oben Schere. Und <strong>vorne</strong>?</p>
+      <p>🟠 Vorne… auch ein bisschen <strong>kürzer</strong>, aber nicht zu viel.</p>
+      <p>🔵 Alles klar!</p>
+      <p style="color:#94a3b8;font-style:italic;margin:.4rem 0">（理发中… nach 15 Minuten）</p>
+      <p>🔵 So, <strong>fertig</strong>! <strong>Gefällt</strong> es dir?</p>
+      <p>🟠 Ja, <strong>super</strong>! Sehr gut. Danke!</p>
+      <p>🔵 Noch <strong>waschen</strong>?</p>
+      <p>🟠 Nein, danke. Nur schneiden. <strong>Was kostet</strong> das?</p>
+      <p>🔵 <strong>15 Euro</strong>.</p>
+      <p>🟠 Hier, 15 Euro. <strong>Stimmt so</strong>.</p>
+      <p>🔵 Danke! Tschüss, <strong>bis zum nächsten Mal</strong>!</p>
+      <p>🟠 Tschüss! Auf Wiedersehen!</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+
+      <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
+        <strong>📌 Schlüsselwörter 关键词：</strong><br>
+        · <strong>Haare schneiden</strong> — 剪头发<br>
+        · <strong>kurz / länger</strong> — 短 / 更长一点<br>
+        · <strong>die Seiten</strong> — 两侧<br>
+        · <strong>oben / vorne</strong> — 上面 / 前面<br>
+        · <strong>die Maschine</strong> — 推子（电推剪）<br>
+        · <strong>die Schere</strong> — 剪刀<br>
+        · <strong>die Nummer</strong> — 推子卡尺号数<br>
+        · <strong>fertig</strong> — 好了/完成了<br>
+        · <strong>waschen</strong> — 洗（头）<br>
+        · <strong>Was kostet das?</strong> — 多少钱？
+      </div>
+
+      <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
+        <strong>🗣️ Nützliche Sätze 救急句：</strong><br>
+        · <strong>Nicht zu kurz, bitte.</strong><br>
+          <span style="color:#64748b">别太短。</span><br>
+        · <strong>Seiten mit Maschine, Nummer 3.</strong><br>
+          <span style="color:#64748b">两侧推子3毫米。</span><br>
+        · <strong>Oben nur ein bisschen schneiden.</strong><br>
+          <span style="color:#64748b">上面只修一点点。</span><br>
+        · <strong>Nur schneiden, kein Waschen.</strong><br>
+          <span style="color:#64748b">只剪不洗。</span><br>
+        · <strong>Stimmt so.</strong><br>
+          <span style="color:#64748b">不用找了（给小费时）。</span>
+      </div>
+
+    </div>
+
+    <div style="background:#f5f0ff;border:1px solid #ddd6fe;border-radius:10px;padding:12px 16px;font-size:.85rem;line-height:1.7;margin-top:.5rem">
+      <strong>🇹🇷 Kultur-Tipp 文化冷知识：</strong><br>
+      在德国，<strong>土耳其理发店（türkischer Barbershop）</strong> 是很多男生的首选。和德国本土 Friseursalon（通常 25–40 €）相比，Barbershop 只要 <strong>10–18 €</strong>，而且不用预约（ohne Termin），直接走进去就行。土耳其师傅手法利落，很多还会用 <strong>🔥 火烧耳毛（Ohrenhaare abbrennen）</strong> 这种传统技艺——第一次看到别被吓到，这是正常的！付钱时如果满意可以给 <strong>1–2 € Trinkgeld（小费）</strong>，说一句 "Stimmt so" 就好。
+    </div>
+
+  </div>
+</div>
+<!-- ===== /Beim türkischen Friseur ===== -->
+
 <a href="#ls-toc-top" class="ls-backtotoc" title="回到目录">📋</a>
 
 <script>
@@ -16453,7 +16534,7 @@ function brToggleSample4() {
 <!-- 阅读朗读：目录条切换（单篇显示，便于阅读/打印） -->
 <script>
 (function(){
-  // 确保 31 篇 ls-section 都有 id（ls-s1..ls-s31）；与 applyGuestLocks 注入规则一致，兜底
+  // 确保 32 篇 ls-section 都有 id（ls-s1..ls-s32）；与 applyGuestLocks 注入规则一致，兜底
   function ensureIds(){
     document.querySelectorAll('#page-lesen .ls-section').forEach(function(s,i){
       if(!s.id) s.id='ls-s'+(i+1);
