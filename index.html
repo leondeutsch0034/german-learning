@@ -88606,7 +88606,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
       }
     } catch(e) {}
     var shareFile = (window._serieEpFiles && window._serieEpFiles[ep]) ? window._serieEpFiles[ep] : (ep + '.html');
-    var url = 'https://leonsdeutschzentrum.com/serie/' + shareFile;
+    var url = 'https://leonsdeutschzentrum.com/serie/' + shareFile + '?v=2';
     var copyText = '【林夏在德国】第' + ep + '集\n' + url;
     function copyFallback() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
