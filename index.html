@@ -13008,6 +13008,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var ls = document.getElementById('app-loading-screen');
   if (ls) { ls.classList.add('hidden'); setTimeout(function() { if (ls.parentNode) ls.remove(); }, 600); }
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
+  // 来自林夏在德国独立分享页跳转：携带目标集数
+  var serieDeepEp = sessionStorage.getItem('serieEp');
+  if (serieDeepEp) { sessionStorage.removeItem('serieEp'); window._currentSerieEp = parseInt(serieDeepEp) || 1; }
   // Hash 路由：分享链接打开时自动跳转到对应页面
   var hash = window.location.hash;
   var hashId = hash ? hash.replace('#', '') : '';
@@ -13017,6 +13020,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window._kdDeepLinked = true;
     showPage('kultur-reader');
     // initKulturReader 会通过路径检测读到正确期数
+  } else if (window.location.pathname.match(/\/serie\/(\d+)\.html/)) {
+    // 林夏在德国 深链接: 路径 /serie/X.html
+    var serieEp = parseInt(RegExp.$1);
+    window._currentSerieEp = serieEp;
+    showPage('serie');
   } else if (hashId.indexOf('kultur-reader&ep=') === 0) {
     window._kdDeepLinked = true; // 阻止 IIFE 重复触发
     var ep = hashId.split('ep=')[1];
@@ -13059,12 +13067,17 @@ window.addEventListener('hashchange', function() {
   }
 });
 
-// 路径格式 /kd/X.html 的前进/后退（浏览器自带分享用）
+// 路径格式 /kd/X.html /serie/X.html 的前进/后退（浏览器自带分享用）
 window.addEventListener('popstate', function() {
   var m = window.location.pathname.match(/\/kd\/(\d+)\.html/);
   if (m) {
     showPage('kultur-reader');
     // initKulturReader 会通过路径检测读到正确期数
+  }
+  var sm = window.location.pathname.match(/\/serie\/(\d+)\.html/);
+  if (sm) {
+    window._currentSerieEp = parseInt(sm[1]);
+    showPage('serie');
   }
 });
 </script>
@@ -82110,7 +82123,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="1" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/1-落地与登记.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 1 集《落地与登记》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 1 集《落地与登记》</a>
     </div>
     </div><!-- /第1集 -->
 
@@ -82219,7 +82232,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="2" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/2-开银行账户.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 2 集《开银行账户》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 2 集《开银行账户》</a>
     </div>
     </div><!-- /第2集 -->
 
@@ -82512,7 +82525,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="3" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/3-看医生.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 3 集《看医生》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 3 集《看医生》</a>
     </div>
     </div><!-- /第3集 -->
 
@@ -82693,7 +82706,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="4" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/4-药房取药.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 4 集《药房取药》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 4 集《药房取药》</a>
     </div>
     </div><!-- /第4集 -->
 
@@ -82918,7 +82931,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="5" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/5-大学注册.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 5 集《大学注册》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 5 集《大学注册》</a>
     </div>
     </div><!-- /第5集 -->
 
@@ -83134,7 +83147,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="6" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/6-超市购物.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 6 集《超市购物》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 6 集《超市购物》</a>
     </div>
     </div><!-- /第6集 -->
 
@@ -83353,7 +83366,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="7" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/7-图书馆学习.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 7 集《图书馆学习》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 7 集《图书馆学习》</a>
     </div>
     </div><!-- /第7集 -->
 
@@ -83590,7 +83603,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="8" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/8-WG-找房.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 8 集《WG找房》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 8 集《WG找房》</a>
     </div>
     </div><!-- /第8集 -->
 
@@ -83805,7 +83818,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="9" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/9-外管局延签.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 9 集《外管局延签》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 9 集《外管局延签》</a>
     </div>
     </div><!-- /第9集 -->
 
@@ -84005,7 +84018,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="10" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/10-学生打工.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 10 集《学生打工》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 10 集《学生打工》</a>
     </div>
     </div><!-- /第10集 -->
 
@@ -84197,7 +84210,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="11" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/11-德铁出行.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 11 集《德铁出行》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 11 集《德铁出行》</a>
     </div>
     </div><!-- /第11集 -->
 
@@ -84421,7 +84434,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="12" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/12-圣诞市场.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 12 集《圣诞市场》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 12 集《圣诞市场》</a>
     </div>
     </div><!-- /第12集 -->
 
@@ -84573,7 +84586,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="13" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/13-圣诞饼干.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 13 集《圣诞饼干》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 13 集《圣诞饼干》</a>
     </div>
     </div><!-- /第13集 -->
 
@@ -84769,7 +84782,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="14" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/14-跨年之夜.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 14 集《跨年之夜》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 14 集《跨年之夜》</a>
     </div>
     </div><!-- /第14集 -->
 
@@ -84941,7 +84954,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="15" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/15-冬季打折.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 15 集《冬季打折》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 15 集《冬季打折》</a>
     </div>
     </div><!-- /第15集 -->
 
@@ -85155,7 +85168,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="16" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/16-Fasching-狂欢.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 16 集《Fasching狂欢》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 16 集《Fasching狂欢》</a>
     </div>
     </div><!-- /第16集 -->
 
@@ -85361,7 +85374,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="17" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/17-学期假出行.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 17 集《学期假出行》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 17 集《学期假出行》</a>
     </div>
     </div><!-- /第17集 -->
 
@@ -85543,7 +85556,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="18" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/18-GEZ-惊魂.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 18 集《GEZ惊魂》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 18 集《GEZ惊魂》</a>
     </div>
     </div><!-- /第18集 -->
 
@@ -85733,7 +85746,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="19" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/19-德国朋友圈.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 19 集《德国朋友圈》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 19 集《德国朋友圈》</a>
     </div>
     </div><!-- /第19集 -->
 
@@ -85915,7 +85928,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="20" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/20-考试季.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 20 集《考试季》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 20 集《考试季》</a>
     </div>
     </div><!-- /第20集 -->
 
@@ -86089,7 +86102,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="21" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/21-Minijob-税卡.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 21 集《Minijob税卡》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 21 集《Minijob税卡》</a>
     </div>
     </div><!-- /第21集 -->
 
@@ -86271,7 +86284,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="22" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/22-Biergarten-夏天.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 22 集《Biergarten夏天》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 22 集《Biergarten夏天》</a>
     </div>
     </div><!-- /第22集 -->
 
@@ -86420,7 +86433,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="23" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/23-柏林之旅.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 23 集《柏林之旅》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 23 集《柏林之旅》</a>
     </div>
     </div><!-- /第23集 -->
 
@@ -86564,7 +86577,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="24" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/24-父母来德.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 24 集《父母来德》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 24 集《父母来德》</a>
     </div>
     </div><!-- /第24集 -->
 
@@ -86709,7 +86722,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="25" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/25-押金纠纷.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 25 集《押金纠纷》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 25 集《押金纠纷》</a>
     </div>
     </div><!-- /第25集 -->
 
@@ -86855,7 +86868,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="26" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/26-德国驾考.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 26 集《德国驾考》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 26 集《德国驾考》</a>
     </div>
     </div><!-- /第26集 -->
 
@@ -86993,7 +87006,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="27" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/27-路考当天.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 27 集《路考当天》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 27 集《路考当天》</a>
     </div>
     </div><!-- /第27集 -->
     <!-- ───── 第 28 集 · 德国人家过圣诞 ───── -->
@@ -87129,7 +87142,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="28" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/28-德国人家过圣诞.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 28 集《德国人家过圣诞》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 28 集《德国人家过圣诞》</a>
     </div>
     </div><!-- /第28集 -->
     <!-- ───── 第 29 集 · 申请实习 ───── -->
@@ -87257,7 +87270,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="29" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/29-申请实习.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 29 集《申请实习》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 29 集《申请实习》</a>
     </div>
     </div><!-- /第29集 -->
     <!-- ───── 第 30 集 · 实习第一天 ───── -->
@@ -87385,7 +87398,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="30" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/30-实习第一天.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 30 集《实习第一天》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 30 集《实习第一天》</a>
     </div>
     </div><!-- /第30集 -->
     <!-- ───── 第 31 集 · 报税 ───── -->
@@ -87513,7 +87526,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="31" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/31-报税.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 31 集《报税》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 31 集《报税》</a>
     </div>
     </div><!-- /第31集 -->
     <!-- ───── 第 32 集 · 看牙医 ───── -->
@@ -87649,7 +87662,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="32" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/32-看牙医.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 32 集《看牙医》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 32 集《看牙医》</a>
     </div>
     </div><!-- /第32集 -->
     <!-- ───── 第 33 集 · 搬家退租 ───── -->
@@ -87785,7 +87798,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="33" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/33-搬家退租.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 33 集《搬家退租》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 33 集《搬家退租》</a>
     </div>
     </div><!-- /第33集 -->
     <!-- ───── 第 34 集 · 期末论文 ───── -->
@@ -87913,7 +87926,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="34" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/34-期末论文.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 34 集《期末论文》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 34 集《期末论文》</a>
     </div>
     </div><!-- /第34集 -->
     <!-- ───── 第 35 集 · 暑期欧铁游 ───── -->
@@ -88049,7 +88062,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="35" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/35-暑期欧铁游.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 35 集《暑期欧铁游》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 35 集《暑期欧铁游》</a>
     </div>
     </div><!-- /第35集 -->
     <!-- ───── 第 36 集 · 来德两周年 ───── -->
@@ -88185,7 +88198,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="36" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/36-来德两周年.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 36 集《来德两周年》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 36 集《来德两周年》</a>
     </div>
     </div><!-- /第36集 -->
     <!-- ───── 第 37 集 · 毕设选题 ───── -->
@@ -88362,7 +88375,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     <!-- 分享本集独立页 -->
     <div class="se-share-ep" data-share-ep="37" style="text-align:center;margin:6px 0 2px">
-      <a href="serie/37-毕设选题.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 37 集《毕设选题》</a>
+      <a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 37 集《毕设选题》</a>
     </div>
     </div><!-- /第37集 -->
 
@@ -88390,7 +88403,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(39)" class="t-cp"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 39 集：企业访谈 →</div><div class="se-next-desc">Exposé 通过了，接下来要发十三封访谈邀请。林夏换上正装，第一次以"研究者"身份踏进德国企业的办公室。可第一场访谈就出了状况——对面坐着的人，说话带着浓重的 Schwäbisch 口音……<br><span style="color:#22d3ee;font-weight:700">点这里看第 39 集 →</span></div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="38" style="text-align:center;margin:6px 0 2px"><a href="serie/38-学术德语初体验.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 38 集《学术德语初体验》</a></div>
+        <div class="se-share-ep" data-share-ep="38" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 38 集《学术德语初体验》</a></div>
         </div><!-- /第38集 -->
         <!-- ───── 第 39 集 · 企业访谈 ───── -->
         <div class="se-episode t-dn" data-ep="39">
@@ -88416,7 +88429,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(40)" class="t-cp"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 40 集：写作瓶颈 →</div><div class="se-next-desc">五场访谈全做完了——Transkription 堆了六十页。林夏坐在图书馆六天了，Word 文档却一直停在二十页原地踏步。最要命的是，她开始怀疑自己的论点到底对不对……<br><span style="color:#22d3ee;font-weight:700">点这里看第 40 集 →</span></div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="39" style="text-align:center;margin:6px 0 2px"><a href="serie/39-企业访谈.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 39 集《企业访谈》</a></div>
+        <div class="se-share-ep" data-share-ep="39" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 39 集《企业访谈》</a></div>
         </div><!-- /第39集 -->
         <!-- ───── 第 40 集 · 写作瓶颈 ───── -->
         <div class="se-episode t-dn" data-ep="40">
@@ -88442,7 +88455,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(41)" class="t-cp"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 41 集：交稿 →</div><div class="se-next-desc">最后两周。论文写完了——但格式检查花的时间比写最后一章还久。目录、页边距、引用格式、Abstract（德文+英文）……交稿前一晚，林夏发现一个灾难性的错误。<br><span style="color:#22d3ee;font-weight:700">点这里看第 41 集 →</span></div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="40" style="text-align:center;margin:6px 0 2px"><a href="serie/40-写作瓶颈.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 40 集《写作瓶颈》</a></div>
+        <div class="se-share-ep" data-share-ep="40" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 40 集《写作瓶颈》</a></div>
         </div><!-- /第40集 -->
         <!-- ───── 第 41 集 · 交稿 ───── -->
         <div class="se-episode t-dn" data-ep="41">
@@ -88468,7 +88481,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(42)" class="t-cp"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 42 集：答辩 →</div><div class="se-next-desc">交稿两周了。林夏第一次觉得时间过得太慢——每天查两遍信箱，三次刷新 Prüfungsamt 网页。而某天下午，一封带着 Uni-Logo 的信终于躺在了信箱里……<br><span style="color:#22d3ee;font-weight:700">点这里看第 42 集 →</span></div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="41" style="text-align:center;margin:6px 0 2px"><a href="serie/41-交稿.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 41 集《交稿》</a></div>
+        <div class="se-share-ep" data-share-ep="41" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 41 集《交稿》</a></div>
         </div><!-- /第41集 -->
         <!-- ───── 第 42 集 · 答辩 ───── -->
         <div class="se-episode t-dn" data-ep="42">
@@ -88494,7 +88507,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(43)" class="t-cp"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 43 集：德国求职 →</div><div class="se-next-desc">答辩通过了——硕士毕业了。但德国的留学生居留还剩六个月，林夏开始投简历。第一份正式的德国工作面试，对方问的第一个问题就把她愣住了……<br><span style="color:#22d3ee;font-weight:700">点这里看第 43 集 →</span></div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="42" style="text-align:center;margin:6px 0 2px"><a href="serie/42-答辩.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 42 集《答辩》</a></div>
+        <div class="se-share-ep" data-share-ep="42" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 42 集《答辩》</a></div>
         </div><!-- /第42集 -->
         <!-- ───── 第 43 集 · 德国求职 ───── -->
         <div class="se-episode t-dn" data-ep="43">
@@ -88520,7 +88533,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </div>
         <div class="se-next" onclick="showSerieEp(44)" style="cursor:pointer;opacity:.65" title="敬请期待"><div class="se-next-tag">NÄCHSTE FOLGE</div><div class="se-next-title">第 44 集（敬请期待）</div><div class="se-next-desc">林夏的德国故事暂告一段落——从 A2 磕磕绊绊到硕士毕业入职，两年零九个月。新的篇章会在德国办公室里继续书写。Bis bald! 👋</div></div>
         <div class="se-watermark"><span class="sw-brand">Leons Deutschzentrum · 德语连续剧</span></div>
-        <div class="se-share-ep" data-share-ep="43" style="text-align:center;margin:6px 0 2px"><a href="serie/43-德国求职.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 43 集《德国求职》</a></div>
+        <div class="se-share-ep" data-share-ep="43" style="text-align:center;margin:6px 0 2px"><a href="javascript:void(0)" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 43 集《德国求职》</a></div>
         </div><!-- /第43集 -->
 
   </div>
@@ -88528,6 +88541,8 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-serie" class="page" data-lazy="true"></div>
 <script>registerLazyPage('serie', 'tpl-page-serie');</script>
 <script>
+  /* 剧集→独立文件名映射（用于分享时生成正确的 OG 抓取地址） */
+  window._serieEpFiles = {1:'1-落地与登记.html',2:'2-开银行账户.html',3:'3-看医生.html',4:'4-药房取药.html',5:'5-大学注册.html',6:'6-超市购物.html',7:'7-图书馆学习.html',8:'8-WG-找房.html',9:'9-外管局延签.html',10:'10-学生打工.html',11:'11-德铁出行.html',12:'12-圣诞市场.html',13:'13-圣诞饼干.html',14:'14-跨年之夜.html',15:'15-冬季打折.html',16:'16-Fasching-狂欢.html',17:'17-学期假出行.html',18:'18-GEZ-惊魂.html',19:'19-德国朋友圈.html',20:'20-考试季.html',21:'21-Minijob-税卡.html',22:'22-Biergarten-夏天.html',23:'23-柏林之旅.html',24:'24-父母来德.html',25:'25-押金纠纷.html',26:'26-德国驾考.html',27:'27-路考当天.html',28:'28-德国人家过圣诞.html',29:'29-申请实习.html',30:'30-实习第一天.html',31:'31-报税.html',32:'32-看牙医.html',33:'33-搬家退租.html',34:'34-期末论文.html',35:'35-暑期欧铁游.html',36:'36-来德两周年.html',37:'37-毕设选题.html',38:'38-学术德语初体验.html',39:'39-企业访谈.html',40:'40-写作瓶颈.html',41:'41-交稿.html',42:'42-答辩.html',43:'43-德国求职.html'};
   window.showSerieEp = function(ep) {
     var page = document.getElementById('page-serie');
     if (!page) return;
@@ -88542,7 +88557,91 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     window._currentSerieEp = ep;
     /* 注入交叉链接 */
     setTimeout(function(){ renderSerieCrosslinks(ep); }, 60);
+    /* 更新 URL 为 /serie/X.html（setTimeout 避免被 showPage 的 hash 同步覆盖） */
+    setTimeout(function(){
+      try { history.replaceState(null, '', '/serie/' + ep + '.html'); } catch(e) {}
+    }, 10);
+    /* 更新 OG 元标签 + 页面标题（微信等社交分享抓取预览卡） */
+    try {
+      var epDiv = page.querySelector('.se-episode[data-ep="' + ep + '"]');
+      var introEl = epDiv ? epDiv.querySelector('.se-intro') : null;
+      var introText = introEl ? introEl.textContent.replace(/^[^a-zA-Z一-鿿ÄÖÜäöüß]+/u,'').trim().substring(0, 160) : '';
+      var selEl = page.querySelector('.se-ep-select option[value="' + ep + '"]');
+      var epTitle = selEl ? selEl.textContent : '第' + ep + '集';
+      var metaTitle = '林夏在德国 · ' + epTitle + ' | Leon 德语';
+      var metaDesc = introText || '林夏在德国——德语A1-B1连续剧，跟林夏一起在德国生活学习和工作。';
+      var ogT = document.querySelector('meta[property="og:title"]');
+      var ogD = document.querySelector('meta[property="og:description"]');
+      var twT = document.querySelector('meta[name="twitter:title"]');
+      var twD = document.querySelector('meta[name="twitter:description"]');
+      if (ogT) ogT.setAttribute('content', metaTitle);
+      if (ogD) ogD.setAttribute('content', metaDesc);
+      if (twT) twT.setAttribute('content', metaTitle);
+      if (twD) twD.setAttribute('content', metaDesc);
+      document.title = metaTitle;
+    } catch(e) {}
   };
+
+  /* 分享本集（更新 OG → 复制链接/原生分享） */
+  window.shareSerieEp = function(ep) {
+    ep = ep || window._currentSerieEp || 1;
+    var page = document.getElementById('page-serie');
+    /* 先更新 OG */
+    try {
+      if (page) {
+        var epDiv = page.querySelector('.se-episode[data-ep="' + ep + '"]');
+        var introEl = epDiv ? epDiv.querySelector('.se-intro') : null;
+        var introText = introEl ? introEl.textContent.replace(/^[^a-zA-Z一-鿿ÄÖÜäöüß]+/u,'').trim().substring(0, 160) : '';
+        var selEl = page.querySelector('.se-ep-select option[value="' + ep + '"]');
+        var epTitle = selEl ? selEl.textContent : '第' + ep + '集';
+        var metaTitle = '林夏在德国 · ' + epTitle + ' | Leon 德语';
+        var metaDesc = introText || '林夏在德国——德语A1-B1连续剧';
+        var ogT = document.querySelector('meta[property="og:title"]');
+        var ogD = document.querySelector('meta[property="og:description"]');
+        if (ogT) ogT.setAttribute('content', metaTitle);
+        if (ogD) ogD.setAttribute('content', metaDesc);
+        document.title = metaTitle;
+        /* 同步更新 URL */
+        try { history.replaceState(null, '', '/serie/' + ep + '.html'); } catch(e) {}
+      }
+    } catch(e) {}
+    var shareFile = (window._serieEpFiles && window._serieEpFiles[ep]) ? window._serieEpFiles[ep] : (ep + '.html');
+    var url = 'https://leonsdeutschzentrum.com/serie/' + shareFile;
+    var copyText = '【林夏在德国】第' + ep + '集\n' + url;
+    function copyFallback() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyText).then(function() {
+          var t = document.createElement('div');
+          t.textContent = '✅ 文案+链接已复制\n直接粘贴到微信即可';
+          t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:12px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;animation:ktFadeIn .3s ease;text-align:center;white-space:pre-line';
+          document.body.appendChild(t);
+          setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 1800);
+          setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 2300);
+        }).catch(function() { prompt('复制此链接分享：', copyText); });
+      } else { prompt('复制此链接分享：', copyText); }
+    }
+    if (navigator.share) {
+      navigator.share({ title: '林夏在德国 · 第' + ep + '集', url: url }).catch(function(err) {
+        if (err.name !== 'AbortError') copyFallback();
+      });
+    } else {
+      copyFallback();
+    }
+  };
+
+  /* 拦截所有分享按钮点击（.se-share-ep 内的 <a>，避免逐集绑定） */
+  if (!window._serieShareBound) {
+    window._serieShareBound = true;
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('.se-share-ep a');
+      if (link) {
+        e.preventDefault();
+        var epDiv = link.closest('.se-share-ep');
+        var ep = epDiv ? parseInt(epDiv.getAttribute('data-share-ep')) : null;
+        if (ep) window.shareSerieEp(ep);
+      }
+    });
+  }
 
   /* 打开当前集的分享页 */
   window.openSerieShare = function(ep) {
