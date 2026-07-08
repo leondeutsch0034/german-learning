@@ -32,9 +32,10 @@
   <meta property="og:image:type" content="image/png"/>
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Leon 德语学习中心 | A1-B1 歌德备考 · 德国文化 · 德语连续剧"/>
   <meta name="twitter:description" content="A1-B1 歌德考试系统备考，德国文化冷知识，林夏在德国连续剧追更。十年教学沉淀，零基础到进阶一站式德语学习。"/>
+  <meta name="twitter:image" content="https://leonsdeutschzentrum.com/share-og-image.png"/>
 
   <!-- 百度/360 适配 -->
   <meta name="applicable-device" content="pc,mobile"/>
@@ -3287,6 +3288,21 @@
     #page-serie .se-watermark { margin-top:28px; padding-top:16px; border-top:1px solid rgba(246,211,101,.12); text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; }
     #page-serie .se-watermark .sw-brand { font-size:.72rem; color:rgba(246,211,101,.55); letter-spacing:.04em; font-weight:600; }
     #page-serie .se-watermark .sw-url { font-size:.66rem; color:rgba(246,211,101,.35); }
+    /* 相关学习交叉链接 */
+    #page-serie .se-crosslinks { margin-top:24px; background:linear-gradient(135deg,rgba(34,211,238,.05),rgba(167,139,250,.03)); border:1px solid rgba(34,211,238,.16); border-radius:16px; padding:18px 20px; }
+    #page-serie .se-crosslinks .se-xl-title { font-size:.8rem; color:#22d3ee; font-weight:700; letter-spacing:.06em; margin-bottom:13px; }
+    #page-serie .se-xl-group { margin-bottom:11px; }
+    #page-serie .se-xl-group:last-child { margin-bottom:0; }
+    #page-serie .se-xl-group .se-xl-group-title { font-size:.68rem; color:#64748b; font-weight:600; letter-spacing:.05em; margin-bottom:6px; text-transform:uppercase; }
+    #page-serie .se-xl-links { display:flex; flex-wrap:wrap; gap:5px; }
+    #page-serie .se-xl-link { display:inline-flex; align-items:center; gap:3px; border-radius:12px; padding:4px 10px; font-size:.73rem; text-decoration:none; font-weight:500; transition:.2s; white-space:nowrap; cursor:pointer; border:1px solid transparent; }
+    #page-serie .se-xl-link.grammar { background:rgba(246,211,101,.06); border-color:rgba(246,211,101,.16); color:#fde68a; }
+    #page-serie .se-xl-link.grammar:hover { background:rgba(246,211,101,.14); border-color:rgba(246,211,101,.35); color:#fff; }
+    #page-serie .se-xl-link.echt { background:rgba(34,211,238,.07); border-color:rgba(34,211,238,.16); color:#bae6fd; }
+    #page-serie .se-xl-link.echt:hover { background:rgba(34,211,238,.15); border-color:rgba(34,211,238,.35); color:#e0f2fe; }
+    #page-serie .se-xl-link.lesen { background:rgba(240,147,251,.06); border-color:rgba(240,147,251,.16); color:#f0abfc; }
+    #page-serie .se-xl-link.lesen:hover { background:rgba(240,147,251,.14); border-color:rgba(240,147,251,.35); color:#f5d0fe; }
+    #page-serie .se-xl-vocab { font-size:.76rem; color:#94a3b8; line-height:1.55; padding:4px 0 0; }
     @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
 
     /* ═══════════════════════════════════════════
@@ -12932,6 +12948,8 @@ function showPage(id) {
   // 地道德语页：渲染对照卡片
   if (id === 'echt' && window.renderEchtGrid) window.renderEchtGrid();
 	  if (id === 'de-en' && window.renderDEENGrid) { window.renderDEENGrid(); if(window.renderDEENSentences) window.renderDEENSentences(); }
+	  // 林夏在德国：首次进入只显示当前集
+	  if (id === 'serie' && window.showSerieEp) window.showSerieEp(window._currentSerieEp || 1);
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
   // 同步 URL hash，分享出去对方看到同一页
@@ -79266,7 +79284,7 @@ window.showKulturEp = function(ep) {
   if (!page) return;
   var eps = page.querySelectorAll('.kd-episode');
   for (var i = 0; i < eps.length; i++) {
-    eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? '' : 'none';
+    eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? 'block' : 'none';
   }
   var sel = document.getElementById('kdEpSelect');
   if (sel) sel.value = ep;
@@ -79289,18 +79307,26 @@ window.showKulturEp = function(ep) {
   try { history.replaceState(null, '', '/kd/' + ep + '.html'); } catch(e) {}
   try {
     var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'25期第一视角德国真相'};
+    var metaTitle = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
+    var metaDesc = info.desc + ' —— Leon德语学习中心「你不知道的德国」专栏';
     var ogT = document.querySelector('meta[property="og:title"]');
     var ogD = document.querySelector('meta[property="og:description"]');
-    if (ogT) ogT.setAttribute('content', '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语');
-    if (ogD) ogD.setAttribute('content', info.desc + ' —— Leon德语学习中心「你不知道的德国」专栏');
-    document.title = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
-      /* 更新 og:image 为当期封面图（跳过 base64，社交爬虫无法识别） */
+    var twT = document.querySelector('meta[name="twitter:title"]');
+    var twD = document.querySelector('meta[name="twitter:description"]');
+    if (ogT) ogT.setAttribute('content', metaTitle);
+    if (ogD) ogD.setAttribute('content', metaDesc);
+    if (twT) twT.setAttribute('content', metaTitle);
+    if (twD) twD.setAttribute('content', metaDesc);
+    document.title = metaTitle;
+      /* 更新 og:image + twitter:image 为当期封面图（跳过 base64，社交爬虫无法识别） */
       var epDiv = page.querySelector('.kd-episode[data-ep="' + ep + '"]');
       if (epDiv) {
         var coverImg = epDiv.querySelector('.cover-img');
         if (coverImg && coverImg.src && coverImg.src.indexOf('data:') !== 0) {
           var ogI = document.querySelector('meta[property="og:image"]');
+          var twI = document.querySelector('meta[name="twitter:image"]');
           if (ogI) ogI.setAttribute('content', coverImg.src);
+          if (twI) twI.setAttribute('content', coverImg.src);
         }
       }
   } catch(e) {}
@@ -82089,7 +82115,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第1集 -->
 
     <!-- ───── 第 2 集 ───── -->
-    <div class="se-episode" data-ep="2" class="t-dn">
+    <div class="se-episode t-dn" data-ep="2">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -82198,7 +82224,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第2集 -->
 
     <!-- ───── 第 3 集 ───── -->
-    <div class="se-episode" data-ep="3" class="t-dn">
+    <div class="se-episode t-dn" data-ep="3">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -82491,7 +82517,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第3集 -->
 
     <!-- ───── 第 4 集 ───── -->
-    <div class="se-episode" data-ep="4" class="t-dn">
+    <div class="se-episode t-dn" data-ep="4">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -82672,7 +82698,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第4集 -->
 
     <!-- ───── 第 5 集 ───── -->
-    <div class="se-episode" data-ep="5" class="t-dn">
+    <div class="se-episode t-dn" data-ep="5">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -82897,7 +82923,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第5集 -->
 
     <!-- ───── 第 6 集 ───── -->
-    <div class="se-episode" data-ep="6" class="t-dn">
+    <div class="se-episode t-dn" data-ep="6">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -83113,7 +83139,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第6集 -->
 
     <!-- ───── 第 7 集 ───── -->
-    <div class="se-episode" data-ep="7" class="t-dn">
+    <div class="se-episode t-dn" data-ep="7">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -83332,7 +83358,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第7集 -->
 
     <!-- ───── 第 8 集 ───── -->
-    <div class="se-episode" data-ep="8" class="t-dn">
+    <div class="se-episode t-dn" data-ep="8">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -83569,7 +83595,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第8集 -->
 
     <!-- ───── 第 9 集 ───── -->
-    <div class="se-episode" data-ep="9" class="t-dn">
+    <div class="se-episode t-dn" data-ep="9">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -83784,7 +83810,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第9集 -->
 
     <!-- ───── 第 10 集 ───── -->
-    <div class="se-episode" data-ep="10" class="t-dn">
+    <div class="se-episode t-dn" data-ep="10">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -83984,7 +84010,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第10集 -->
 
     <!-- ───── 第 11 集 ───── -->
-    <div class="se-episode" data-ep="11" class="t-dn">
+    <div class="se-episode t-dn" data-ep="11">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -84176,7 +84202,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第11集 -->
 
     <!-- ───── 第 12 集 ───── -->
-    <div class="se-episode" data-ep="12" class="t-dn">
+    <div class="se-episode t-dn" data-ep="12">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -84400,7 +84426,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第12集 -->
 
     <!-- ───── 第 13 集 ───── -->
-    <div class="se-episode" data-ep="13" class="t-dn">
+    <div class="se-episode t-dn" data-ep="13">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -84552,7 +84578,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第13集 -->
 
     <!-- ───── 第 14 集 ───── -->
-    <div class="se-episode" data-ep="14" class="t-dn">
+    <div class="se-episode t-dn" data-ep="14">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -84748,7 +84774,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第14集 -->
 
     <!-- ───── 第 15 集 ───── -->
-    <div class="se-episode" data-ep="15" class="t-dn">
+    <div class="se-episode t-dn" data-ep="15">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -84920,7 +84946,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第15集 -->
 
     <!-- ───── 第 16 集 ───── -->
-    <div class="se-episode" data-ep="16" class="t-dn">
+    <div class="se-episode t-dn" data-ep="16">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -85134,7 +85160,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第16集 -->
 
     <!-- ───── 第 17 集 ───── -->
-    <div class="se-episode" data-ep="17" class="t-dn">
+    <div class="se-episode t-dn" data-ep="17">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -85340,7 +85366,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第17集 -->
 
     <!-- ───── 第 18 集 ───── -->
-    <div class="se-episode" data-ep="18" class="t-dn">
+    <div class="se-episode t-dn" data-ep="18">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -85522,7 +85548,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第18集 -->
 
     <!-- ───── 第 19 集 ───── -->
-    <div class="se-episode" data-ep="19" class="t-dn">
+    <div class="se-episode t-dn" data-ep="19">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -85712,7 +85738,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第19集 -->
 
     <!-- ───── 第 20 集 ───── -->
-    <div class="se-episode" data-ep="20" class="t-dn">
+    <div class="se-episode t-dn" data-ep="20">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -85894,7 +85920,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第20集 -->
 
     <!-- ───── 第 21 集 ───── -->
-    <div class="se-episode" data-ep="21" class="t-dn">
+    <div class="se-episode t-dn" data-ep="21">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86068,7 +86094,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第21集 -->
 
     <!-- ───── 第 22 集 · Biergarten 夏天 ───── -->
-    <div class="se-episode" data-ep="22" class="t-dn">
+    <div class="se-episode t-dn" data-ep="22">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86250,7 +86276,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第22集 -->
 
     <!-- ───── 第 23 集 · 柏林之旅 ───── -->
-    <div class="se-episode" data-ep="23" class="t-dn">
+    <div class="se-episode t-dn" data-ep="23">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86399,7 +86425,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第23集 -->
 
     <!-- ───── 第 24 集 · 父母来德 ───── -->
-    <div class="se-episode" data-ep="24" class="t-dn">
+    <div class="se-episode t-dn" data-ep="24">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86543,7 +86569,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第24集 -->
 
     <!-- ───── 第 25 集 · 押金纠纷 ───── -->
-    <div class="se-episode" data-ep="25" class="t-dn">
+    <div class="se-episode t-dn" data-ep="25">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86688,7 +86714,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第25集 -->
 
     <!-- ───── 第 26 集 · 德国驾考 ───── -->
-    <div class="se-episode" data-ep="26" class="t-dn">
+    <div class="se-episode t-dn" data-ep="26">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86834,7 +86860,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第26集 -->
 
     <!-- ───── 第 27 集 · 路考当天 ───── -->
-    <div class="se-episode" data-ep="27" class="t-dn">
+    <div class="se-episode t-dn" data-ep="27">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -86971,7 +86997,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第27集 -->
     <!-- ───── 第 28 集 · 德国人家过圣诞 ───── -->
-    <div class="se-episode" data-ep="28" class="t-dn">
+    <div class="se-episode t-dn" data-ep="28">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87107,7 +87133,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第28集 -->
     <!-- ───── 第 29 集 · 申请实习 ───── -->
-    <div class="se-episode" data-ep="29" class="t-dn">
+    <div class="se-episode t-dn" data-ep="29">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87235,7 +87261,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第29集 -->
     <!-- ───── 第 30 集 · 实习第一天 ───── -->
-    <div class="se-episode" data-ep="30" class="t-dn">
+    <div class="se-episode t-dn" data-ep="30">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87363,7 +87389,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第30集 -->
     <!-- ───── 第 31 集 · 报税 ───── -->
-    <div class="se-episode" data-ep="31" class="t-dn">
+    <div class="se-episode t-dn" data-ep="31">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87491,7 +87517,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第31集 -->
     <!-- ───── 第 32 集 · 看牙医 ───── -->
-    <div class="se-episode" data-ep="32" class="t-dn">
+    <div class="se-episode t-dn" data-ep="32">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87627,7 +87653,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第32集 -->
     <!-- ───── 第 33 集 · 搬家退租 ───── -->
-    <div class="se-episode" data-ep="33" class="t-dn">
+    <div class="se-episode t-dn" data-ep="33">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87763,7 +87789,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第33集 -->
     <!-- ───── 第 34 集 · 期末论文 ───── -->
-    <div class="se-episode" data-ep="34" class="t-dn">
+    <div class="se-episode t-dn" data-ep="34">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -87891,7 +87917,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第34集 -->
     <!-- ───── 第 35 集 · 暑期欧铁游 ───── -->
-    <div class="se-episode" data-ep="35" class="t-dn">
+    <div class="se-episode t-dn" data-ep="35">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -88027,7 +88053,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第35集 -->
     <!-- ───── 第 36 集 · 来德两周年 ───── -->
-    <div class="se-episode" data-ep="36" class="t-dn">
+    <div class="se-episode t-dn" data-ep="36">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -88163,7 +88189,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div>
     </div><!-- /第36集 -->
     <!-- ───── 第 37 集 · 毕设选题 ───── -->
-    <div class="se-episode" data-ep="37" class="t-dn">
+    <div class="se-episode t-dn" data-ep="37">
     <div class="se-cast">
       <div class="se-avatar">👩🏻‍🎓</div>
       <div>
@@ -88341,7 +88367,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     </div><!-- /第37集 -->
 
         <!-- ───── 第 38 集 · 学术德语初体验 ───── -->
-        <div class="se-episode" data-ep="38" class="t-dn">
+        <div class="se-episode t-dn" data-ep="38">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">论文题目登记好了，第一关是写一份<span class="de-kw">Exposé</span>（开题报告）。林夏在图书馆啃学术写作书，发现 Wissenschaftsdeutsch 和日常德语简直两套语言。Anna 神神秘秘地说：Lukas——上个月来的交换生——一直在打听她。</div></div></div>
         <div class="se-intro">📖 德国大学写<b>Exposé</b>（开题报告）是论文第一份正式文件，一般2-5页，包含：<b>Fragestellung</b>（研究问题）、<b>Forschungsstand</b>（文献综述）、<b>Methodik</b>（方法论）、<b>vorläufige Gliederung</b>（暂定目录）和<b>Zeitplan</b>（时间安排）。学术德语（<b>Wissenschaftsdeutsch</b>）典型特征：大量被动语态、名词化结构、间接引语用 Konjunktiv I。多数德国大学设<b>Schreibzentrum</b>（写作中心），为国际学生提供免费一对一学术写作辅导。</div>
         <div class="se-sec-title">🗣️ 对话一 · Im Schreibzentrum（写作中心——Exposé 该怎么写）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">📝</div><div class="se-bubble"><div class="se-spk">Schreibtutor Jonas（翻了翻林夏的草稿）</div><div class="se-de">Frau Lin, Sie haben gute <b>Ideen</b> — aber die <b>Formulierungen</b> sind noch zu <b>umgangssprachlich</b>. Im <b>Wissenschaftsstil</b> sagt man nicht "Ich möchte herausfinden", sondern "<b>Ziel der Arbeit ist es, … zu untersuchen</b>."</div><div class="se-zh">林女士，您点子很好——但措辞还太口语化。学术风格里不说"我想找出"，而是"本研究的目标是探究……"</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（不好意思地笑了）</div><div class="se-de"><b>Kein Wunder</b>, dass mein erster Entwurf so komisch klang. Ich wusste nicht, dass es dafür <b>Regeln</b> gibt. Haben Sie eine <b>Checkliste</b> für den Aufbau?</div><div class="se-zh">难怪我第一稿读起来怪怪的。我不知道还有这种规则。您有结构方面的检查清单吗？</div></div></div><div class="se-line right"><div class="se-who">📝</div><div class="se-bubble"><div class="se-spk">Jonas（递过一张打印好的模板）</div><div class="se-de">Hier — <b>Einleitung</b>, <b>Forschungsstand</b>, <b>Methodik</b>, <b>Gliederung</b>, <b>Zeitplan</b>. Achten Sie auf <b>Konjunktiv I</b> bei indirekter Rede: "Müller (2020) <b>stellt fest, dass</b> …". <b>Kleine Schritte</b>, dann wird das.</div><div class="se-zh">给——引言、研究现状、方法论、目录、时间安排。间接引语注意用第一虚拟式。一步一步来，没问题的。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏</div><div class="se-de">Danke! Ich überarbeite den Entwurf und komme <b>nächste Woche</b> nochmal. <b>Ohne Ihre Hilfe</b> hätte ich das nie geschafft.</div><div class="se-zh">谢谢！我修改一下，下周再来。没有您的帮助我肯定搞不定。</div></div></div></div><div class="se-sec-title">🗣️ 对话二 · In der Mensa（食堂——Lukas 终于出现）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（端着一盘 Schnitzel，略显紧张）</div><div class="se-de"><b>Entschuldigung</b>, ist hier noch <b>frei</b>? Ich bin Lukas — ich studiere <b>Maschinenbau</b>, bin erst <b>seit einem Monat</b> in Deutschland. Du bist Lin, oder? Anna hat mir von dir erzählt.</div><div class="se-zh">不好意思，这里有人吗？我是 Lukas——学机械工程的，来德国才一个月。你是林夏吧？Anna 跟我讲过你。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（忍住笑）</div><div class="se-de">Ja, <b>setz dich ruhig!</b> Du sprichst schon gut Deutsch — erst einen Monat hier? <b>Respekt!</b> Wie läuft's mit der <b>Orientierung</b>?</div><div class="se-zh">对，请坐！你德语已经不错了——才来一个月？佩服！适应得怎么样？</div></div></div><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（不好意思地挠头）</div><div class="se-de"><b>Ehrlich gesagt</b>, nein. Ich war gestern im Bürgeramt und habe <b>kein Wort verstanden</b>. <b>Vielleicht</b> kannst du mir Tipps geben? Auf einen Kaffee?</div><div class="se-zh">老实说，没有。昨天去市政厅，一个字都没听懂。也许你能给我点建议？请你喝咖啡？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（晃了晃手里的咖啡杯，笑）</div><div class="se-de"><b>Kaffee habe ich schon</b> — aber ja, ich helfe gern. Bring deine <b>Unterlagen</b> mit, ich zeig dir, wie man <b>Anträge ausfüllt</b>.</div><div class="se-zh">咖啡我已经有了——不过没问题，我乐意帮忙。带上材料，我教你怎么填申请表。这些事我两年前全经历过。</div></div></div><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（眼睛一亮）</div><div class="se-de"><b>Super, danke!</b> Ich melde mich <b>per WhatsApp</b>. Und — viel <b>Erfolg</b> mit deinem Exposé. Anna sagt, du schreibst über <b>interkulturelle Kommunikation</b>.</div><div class="se-zh">太好了，谢谢！我 WhatsApp 联系你。祝你 Exposé 顺利——Anna 说你在写跨文化沟通，超有意思。</div></div></div></div>
@@ -88367,7 +88393,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
         <div class="se-share-ep" data-share-ep="38" style="text-align:center;margin:6px 0 2px"><a href="serie/38-学术德语初体验.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 38 集《学术德语初体验》</a></div>
         </div><!-- /第38集 -->
         <!-- ───── 第 39 集 · 企业访谈 ───── -->
-        <div class="se-episode" data-ep="39" class="t-dn">
+        <div class="se-episode t-dn" data-ep="39">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">Exposé 被导师批了"<span class="de-kw">sehr gut, nur Kleinigkeiten</span>"（很好，小修即可）。真正的硬仗开始：她要去五家企业的办公室做<b>Leitfadeninterview</b>（半结构化访谈），收集第一手数据。第一站是斯图加特——而对面这位高管一开口就是 Schwäbisch 味儿。</div></div></div>
         <div class="se-intro">🎤 德国学术研究中常用的访谈叫<b>Leitfadeninterview</b>：有提纲（<b>Leitfaden</b>），但允许灵活追问。公司访谈要提前审批——发邀请时附上<b>Forschungszweck</b>（研究目的）、<b>Datenschutzerklärung</b>（数据保护声明）和<b>Einverständniserklärung</b>（知情同意书）。录音必须征得书面同意（<b>Einwilligung</b>），之后做<b>Transkription</b>（逐字转录）——按德国规范，连"ähm"和停顿都要记。</div>
         <div class="se-sec-title">🗣️ 对话一 · Im Konferenzraum（斯图加特某公司——第一场访谈）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👨‍💼</div><div class="se-bubble"><div class="se-spk">Herr Schneider, Projektleiter（握手有力，笑得很友善）</div><div class="se-de">Frau Lin, <b>herzlich willkommen!</b> Sie sind aus China? Ihr Deutsch ist ja <b>ausgezeichnet</b>. <b>Womit</b> kann ich Ihnen helfen?</div><div class="se-zh">林女士，欢迎欢迎！您从中国来？您的德语真出色。我能帮您什么？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（打开笔记本，把同意书推过去）</div><div class="se-de">Vielen Dank für Ihre <b>Zeit</b>, Herr Schneider. Vorher — <b>dürfte ich</b> das Gespräch <b>aufnehmen</b>? Hier ist die <b>Einverständniserklärung</b>. Die Daten werden selbstverständlich <b>anonymisiert</b>.</div><div class="se-zh">感谢您抽时间，Schneider 先生。先说——我能录音吗？这是知情同意书。数据当然会匿名处理。</div></div></div><div class="se-line right"><div class="se-who">👨‍💼</div><div class="se-bubble"><div class="se-spk">Herr Schneider（快速签了字，带 Schwäbisch 口音）</div><div class="se-de"><b>Klar, macha m'r.</b> — Äh, entschuldigen Sie, <b>das Schwäbische</b>. Ich versuche Hochdeutsch, aber <b>manchmal rutscht's raus</b>. Also, Sie interessieren sich für <b>E-Mail-Kommunikation</b> zwischen Stuttgart und Shanghai?</div><div class="se-zh">当然，来吧。——啊不好意思，施瓦本方言不小心跑出来了。我尽量标准德语。所以您感兴趣的是斯图加特和上海团队之间的邮件沟通？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（笑着摇头，表示完全没关系）</div><div class="se-de"><b>Überhaupt kein Problem!</b> Genau — welche <b>Missverständnisse</b> treten auf? Liegt das an der <b>Sprache</b> oder an <b>kulturellen Unterschieden</b>? Wie lösen Sie das im <b>Arbeitsalltag</b>?</div><div class="se-zh">完全没关系！对——具体就是：什么样的误会？是因为语言还是文化差异？日常工作里怎么解决的？</div></div></div><div class="se-line right"><div class="se-who">👨‍💼</div><div class="se-bubble"><div class="se-spk">Herr Schneider（往椅背一靠，显然有很多要说的）</div><div class="se-de">Ach, da könnte ich <b>Bücher schreiben</b>! Wir Deutschen schreiben Mails <b>direkt und kurz</b> — das wirkt auf Chinesen manchmal <b>unhöflich</b>. Und umgekehrt: Chinesische Kollegen <b>kopieren oft den Chef rein</b>, was bei uns wie <b>Misstrauen</b> aussieht. Dabei ist das einfach <b>anders gemeint</b>.</div><div class="se-zh">哎，这个话题我能写一本书！我们德国人写邮件直接又简短——在中国人看来有时不礼貌。反过来：中国同事常常抄送老板，在我们眼里像是不信任。但其实初衷完全不一样。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（眼睛发亮——这就是她论文要抓的核心）</div><div class="se-de"><b>Genau das</b> meinte ich! <b>Dürfte ich</b> ein <b>konkretes Beispiel</b> aufnehmen? Vielleicht eine E-Mail, bei der es mal <b>geknirscht</b> hat?</div><div class="se-zh">对这就是我说的！我能记一个具体例子吗？比如哪封邮件引起过摩擦？</div></div></div></div><div class="se-sec-title">🗣️ 对话二 · In der Cafeteria（访谈结束后的公司食堂——非正式追问）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩‍💼</div><div class="se-bubble"><div class="se-spk">Frau Keller, Teammitglied（端着咖啡坐到林夏旁边）</div><div class="se-de">Sie machen eine <b>wissenschaftliche Arbeit</b> über uns? <b>Spannend!</b> Wissen Sie, was mir auffällt? Wenn ich <b>nach China schreibe</b>, benutze ich jetzt immer <b>mehr Smileys</b> — sonst denken die Kollegen, ich bin <b>sauer</b>. Früher hab ich das nie gemacht.</div><div class="se-zh">原来您在写关于我们的学术论文？有意思！我发现我现在给中国同事写邮件总加更多表情符号——不然他们以为我在生气。以前我从来不用的。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（忍不住笑出来——这种细节是论文最生动的素材）</div><div class="se-de"><b>Das ist ein wunderbares Beispiel</b> für <b>unbewusste Anpassung</b>! Darf ich das <b>zitieren</b>? <b>Natürlich anonym</b>.</div><div class="se-zh">这真是无意识适应的绝妙例子！我能引用吗？当然会匿名的。</div></div></div><div class="se-line right"><div class="se-who">👩‍💼</div><div class="se-bubble"><div class="se-spk">Frau Keller（眨眨眼）</div><div class="se-de"><b>Aber klar!</b> Hauptsache, die <b>Welt versteht</b>, dass Deutsche mehr sind als <b>Pünktlichkeit und Bier</b>. — Ach, und falls Sie später <b>einen Job suchen</b>: Wir brauchen jemanden mit <b>China-Erfahrung</b> in der <b>Kommunikationsabteilung</b>. Nur so als <b>Tipp</b>.</div><div class="se-zh">当然可以！最重要的是让世界明白德国人不只是守时和啤酒。啊对了，要是您以后找工作：我们通讯部需要懂中国经验的人。只是随口一说哦。</div></div></div></div>
@@ -88393,7 +88419,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
         <div class="se-share-ep" data-share-ep="39" style="text-align:center;margin:6px 0 2px"><a href="serie/39-企业访谈.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 39 集《企业访谈》</a></div>
         </div><!-- /第39集 -->
         <!-- ───── 第 40 集 · 写作瓶颈 ───── -->
-        <div class="se-episode" data-ep="40" class="t-dn">
+        <div class="se-episode t-dn" data-ep="40">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">一月中旬。慕尼黑下了四天大雪。林夏在图书馆的<span class="de-kw">Dauerarbeitsplatz</span>（固定座位）已经守了一个星期——咖啡杯换了好几轮，但论文主体部分（<span class="de-kw">Hauptteil</span>）只推进了三页。六十页访谈转录像一座大山压在她面前，而最折磨人的是那个反复出现的念头：<span class="de-kw">"我的论点对吗？万一结论是错的怎么办？"</span></div></div></div>
         <div class="se-intro">✍️ 学术写作中的"瓶颈期"（<b>Schreibblockade</b>）极其普遍。在德国大学，应对写不下去有几个策略：① <b>Sprechstunde</b>（导师约谈）——带已写好的部分去让导师梳理逻辑；② 换一种方式写——用口语先录下来或画<b>Mindmap</b>（思维导图）；③ <b>Schreibgruppe</b>（写作互助小组）——互相读草稿给反馈；④ 给自己设一个"垃圾初稿"（<b>Rohentwurf</b>）的心理策略——允许第一稿很差，先把字落下去。德国人常说"<b>eine schlechte erste Version ist besser als gar keine</b>"。</div>
         <div class="se-sec-title">🗣️ 对话一 · Im Büro von Prof. Wagner（去导师办公室——带着"原地踏步"的草稿）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Wagner（翻完林夏带去的二十页，摘下眼镜）</div><div class="se-de">Frau Lin, Sie haben viel <b>gutes Material</b>. Die <b>Interviewzitate</b> sind <b>hervorragend</b>. Aber — Sie <b>verstecken</b> Ihre eigene <b>Stimme</b> hinter den Zitaten. <b>Ihre Analyse</b> muss die Hauptrolle spielen, nicht die Interviewpartner. Was ist <b>Ihr Argument</b>?</div><div class="se-zh">林女士，您有很多好素材。访谈引用非常出色。但是——您把自己的声音藏在了引文后面。您的分析才是主角，不是受访者。您的论点是什么？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（沉默了几秒，第一次把心底的疑问端出来）</div><div class="se-de">Ehrlich gesagt — ich habe <b>Zweifel</b>. Vielleicht ist meine <b>Fragestellung</b> zu <b>banal</b>? "Kulturelle Unterschiede in E-Mails" — das klingt, als <b>wüsste das schon jeder</b>. Was, wenn ich sechs Monate arbeite und am Ende nichts <b>Neues</b> herausfinde?</div><div class="se-zh">说实话——我有怀疑。也许我的研究问题太肤浅了？"邮件中的文化差异"——听起来好像谁都知道。万一我花了六个月，最后什么新东西都没发现呢？</div></div></div><div class="se-line right"><div class="se-who">👩‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Wagner（身体微微前倾——这是她每次说出关键话时的姿势）</div><div class="se-de">Frau Lin, genau dieser <b>Zweifel</b> ist <b>das Zeichen einer guten Wissenschaftlerin</b>. "Das weiß schon jeder" ist das <b>Gegenteil</b> von Wissenschaft — denn kaum jemand hat das <b>empirisch untersucht</b>. Und Sie haben fünf Unternehmen mit <b>echten Daten</b>. Das ist nicht banal — das ist <b>Pionierarbeit</b>. Schreiben Sie <b>Ihren Befund</b>, nicht das, was andere vielleicht schon wissen.</div><div class="se-zh">林女士，恰恰这种怀疑是一个优秀研究者的标志。"谁都知道"恰恰是科学研究的对立面——因为几乎没人做过实证研究。而您有五家企业的真实数据。这不肤浅——这是开创性工作。写您的发现，不要写别人"可能已经知道"的东西。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（胸口一块石头终于松动了一点）</div><div class="se-de"><b>Pionierarbeit</b> — das Wort nehme ich mit. Ich schreibe <b>zwei neue Kapitel</b> bis <b>Ende Januar</b> und schicke sie Ihnen. <b>Keine Zitate-Mauer mehr</b> — meine Analyse zuerst.</div><div class="se-zh">"开创性工作"——我记住这个词了。一月底前我写两章新的发给您。不再堆引用了——先写我的分析。</div></div></div></div><div class="se-sec-title">🗣️ 对话二 · Abends in der WG-Küche（晚上——Lukas 来串门，Anna 当助攻）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩🏻‍🦰</div><div class="se-bubble"><div class="se-spk">Anna（往锅里扔意大利面，扭头看到 Lukas 站在门口）</div><div class="se-de">Lukas! <b>Perfektes Timing!</b> Lin hat seit drei Tagen nur Kaffee und <b>Schokoriegel</b> gegessen. Bring sie <b>raus an die frische Luft</b> — ich koch inzwischen.</div><div class="se-zh">Lukas！来得正好！林夏三天来只喝了咖啡吃了巧克力棒。带她出去呼吸呼吸新鲜空气——我来做饭。</div></div></div><div class="se-line"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（手里提着两个塑料袋，有些窘）</div><div class="se-de">Ich hab eigentlich nur <b>Milch und Brot</b> vorbeigebracht — für den <b>Schneesturm</b> morgen. Aber ein <b>Spaziergang</b> im Schnee? <b>Zwanzig Minuten</b>, Lin. Dein Schreibtisch <b>läuft nicht weg</b>.</div><div class="se-zh">我其实就是送牛奶和面包过来的——说明天有大雪。不过雪里散个步？二十分钟，林夏。你的书桌又不会跑掉。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（被两人围堵，终于投降了）</div><div class="se-de"><b>Okay, okay.</b> Zwanzig Minuten. Aber dann muss ich <b>weiterschreiben</b>. Ich hab <b>Prof. Wagner versprochen</b>, zwei Kapitel bis Ende Januar zu liefern.</div><div class="se-zh">好吧好吧，二十分钟。但然后我得接着写。我答应了 Wagner 教授一月底前交两章。</div></div></div><div class="se-line"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（走在雪地里，说话时呼出的白汽一团团的）</div><div class="se-de">Weißt du, als ich mein erstes <b>Konstruktionsprojekt</b> hatte, saß ich auch <b>tagelang fest</b>. Mein Professor sagte: "<b>Ein Problem, das man benennen kann, ist schon halb gelöst.</b>" Du hast deinen <b>Zweifel</b> benannt — das ist <b>die halbe Miete</b>.</div><div class="se-zh">你知道吗，我第一次做设计项目的时候也卡了好几天。我的教授说："一个能说出来的问题已经解决了一半。"你说出了你的怀疑——这已经成功了一半。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（在路灯下停住脚，看雪花落在手套上）</div><div class="se-de"><b>Woher weißt du immer</b> genau das Richtige zu sagen? — Komm, wir <b>drehen noch eine Runde</b>. Anna macht eh <b>Spaghetti</b>.</div><div class="se-zh">你怎么总能说出正好的话？——来吧，我们再转一圈。Anna 反正煮的是意大利面。</div></div></div></div>
@@ -88419,7 +88445,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
         <div class="se-share-ep" data-share-ep="40" style="text-align:center;margin:6px 0 2px"><a href="serie/40-写作瓶颈.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 40 集《写作瓶颈》</a></div>
         </div><!-- /第40集 -->
         <!-- ───── 第 41 集 · 交稿 ───── -->
-        <div class="se-episode" data-ep="41" class="t-dn">
+        <div class="se-episode t-dn" data-ep="41">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">三月中旬。六个月倒计时还剩48小时。论文已经写完——但格式检查（<span class="de-kw">Formatierung prüfen</span>）花的时间比写最后一章还久：目录的页码、参考文献的每个逗号、三份装订本的页边距、PDF的嵌入字体……交稿前一晚，林夏在最后一次通读目录时发现了错误。</div></div></div>
         <div class="se-intro">📦 德国大学硕士论文提交（<b>Abgabe</b>）有严格规定：通常交<b>3份装订版</b>（gebundene Exemplare）+ <b>1份数字版</b>（PDF auf USB-Stick或CD）。装订必须用热胶装订（Klebebindung），不能用订书机。必须包含<b>eidesstattliche Erklärung</b>（宣誓声明）——亲笔签名声明独立完成。格式要逐条核对：页边距、字体、行距、引用格式。提交后：<b>4-6周评阅期</b>，两位评审（Betreuer/in + Zweitprüfer/in）独立打分，成绩<b>邮寄通知</b>（不是邮件！）。</div>
         <div class="se-sec-title">🗣️ 对话一 · Letzte Nacht vor der Abgabe（交稿前一晚——WG 厨房，凌晨一点）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩🏻‍🦰</div><div class="se-bubble"><div class="se-spk">Anna（穿着睡衣，揉着眼睛从卧室出来）</div><div class="se-de">Lin. <b>Es ist ein Uhr nachts.</b> Was machst du noch <b>wach</b>? Morgen ist <b>Abgabe</b> — du solltest <b>schlafen</b>!</div><div class="se-zh">林夏。凌晨一点了。你还不睡？明天就是交稿日——你该睡了！</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（盯着屏幕，脸色发白）</div><div class="se-de">Anna — ich hab gerade gemerkt: <b>Die Seitenzahlen im Inhaltsverzeichnis stimmen nicht.</b> Kapitel 4 fängt auf Seite 47 an, aber im Verzeichnis steht Seite 43. Ich hab <b>nach einer Korrektur vergessen</b>, das Verzeichnis zu <b>aktualisieren</b>. Das sind <b>vier Seiten Differenz</b> — das ganze Dokument ist <b>verschoben</b>.</div><div class="se-zh">Anna——我刚发现：目录的页码不对。第四章从第47页开始，但目录写着第43页。我改完忘了更新目录。差了四页——整个文档全错位了。</div></div></div><div class="se-line right"><div class="se-who">👩🏻‍🦰</div><div class="se-bubble"><div class="se-spk">Anna（瞬间清醒了，凑过来看屏幕）</div><div class="se-de"><b>Oh Gott.</b> Hast du das <b>automatisch</b> erstellt oder <b>manuell</b>? Wenn automatisch — einfach <b>aktualisieren</b>. Wenn manuell… <b>Das wird eine lange Nacht.</b></div><div class="se-zh">天哪。你是自动生成的还是手动的？如果自动——直接刷新就行。如果手动……今晚有的熬了。</div></div></div><div class="se-line right"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（深呼吸，点了"更新目录"——页码开始跳）</div><div class="se-de"><b>Automatisch.</b> Gott sei Dank. Ich dachte schon, ich muss das <b>alles von Hand ändern</b>. Okay — Verzeichnis <b>aktualisiert</b>, jetzt nochmal <b>alles durchgehen</b>: Abstract, Erklärung, Formatierung…</div><div class="se-zh">自动的。谢天谢地。我以为要手动一页一页改。好——目录更新了，现在再全部过一遍：Abstract、声明、格式……</div></div></div></div><div class="se-sec-title">🗣️ 对话二 · Am nächsten Morgen im Prüfungsamt（考试处——交稿当天）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">🧑‍💼</div><div class="se-bubble"><div class="se-spk">Sachbearbeiter（从柜台后面抬起头——又是那位先生）</div><div class="se-de">Frau Lin — <b>Sie schon wieder!</b> Diesmal aber nicht anmelden, oder?</div><div class="se-zh">林女士——又是您！这次不是来登记的吧？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（双手递上两份装订好的论文——一份 gebunden、一份 als PDF auf USB-Stick）</div><div class="se-de"><b>Abgeben!</b> Drei <b>gebundene Exemplare</b> und eine <b>digitale Version</b> auf USB. <b>Fristgerecht</b> — der 15. März. <b>Ich hab's geschafft.</b></div><div class="se-zh">交稿！三份装订版加一份 U 盘数字版。按时——3月15日。我做到了。</div></div></div><div class="se-line right"><div class="se-who">🧑‍💼</div><div class="se-bubble"><div class="se-spk">Sachbearbeiter（一项一项检查——装订、签字页、声明、格式，像在验一颗钻石）</div><div class="se-de"><b>Gebundene Exemplare</b> — ja. <b>Eidesstattliche Erklärung</b> unterschrieben — ja. <b>PDF auf USB</b> — ja. <b>Alles vollständig.</b> Frau Lin, Ihre Arbeit ist <b>offiziell eingereicht</b>. <b>Herzlichen Glückwunsch.</b></div><div class="se-zh">装订版——有。宣誓声明已签字——有。U盘 PDF——有。一切齐全。林女士，您的论文已正式提交。恭喜您。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（拿回收据，感觉手里这张纸比论文本身还重）</div><div class="se-de"><b>Danke.</b> Und jetzt? <b>Wann</b> erfahre ich die <b>Note</b>?</div><div class="se-zh">谢谢。然后呢？什么时候能知道成绩？</div></div></div><div class="se-line right"><div class="se-who">🧑‍💼</div><div class="se-bubble"><div class="se-spk">Sachbearbeiter（终于笑了一下——在考试处工作三十年，这种时刻他看过无数次）</div><div class="se-de">Das <b>Gutachten</b> dauert <b>vier bis sechs Wochen</b>. Ihre Betreuerin und der <b>Zweitprüfer</b> lesen unabhängig voneinander. Dann bekommen Sie die <b>Note per Post</b>. Und danach — <b>Verteidigung</b>, falls Ihre Prüfungsordnung das vorsieht.</div><div class="se-zh">评阅需要四到六周。您的导师和第二评审独立打分。然后成绩会邮寄给您。之后——如果有答辩要求的话——就是答辩。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（走出考试处大门，三月阳光晃眼）</div><div class="se-de"><b>Vier bis sechs Wochen warten.</b> Okay. <b>Das schaffe ich auch noch.</b></div><div class="se-zh">等四到六周。行。这我也能做到。</div></div></div></div>
@@ -88445,7 +88471,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
         <div class="se-share-ep" data-share-ep="41" style="text-align:center;margin:6px 0 2px"><a href="serie/41-交稿.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 41 集《交稿》</a></div>
         </div><!-- /第41集 -->
         <!-- ───── 第 42 集 · 答辩 ───── -->
-        <div class="se-episode" data-ep="42" class="t-dn">
+        <div class="se-episode t-dn" data-ep="42">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">交稿五周了。林夏每天查两遍信箱。然后那天下午——一封印着 Uni-Logo 的正式信函躺在信箱最底层，发件人：<b>Prüfungsamt</b>。她没敢在楼道拆，一直跑到图书馆常坐的角落座位才打开——<b>Note: 1,3. Verteidigung am 25. April.</b></div></div></div>
         <div class="se-intro">🎓 德国大学的硕士答辩（<b>Verteidigung</b> 或 <b>Kolloquium</b>）是论文的最后一道关：通常<b>20-30分钟演讲</b>（Präsentation），之后考试委员会（<b>Prüfungskommission</b>，由导师+第二评审+一位中立教授组成）<b>提问15-30分钟</b>。演讲要覆盖研究问题、方法论、核心发现、局限性和展望。德国教授提问风格直接且深入——方法论是否可靠？结论是否过度推广？和已有研究的关系？答辩不只是汇报，更是一场学术对话（<b>wissenschaftliches Gespräch</b>）。部分专业答辩算入总分的比例可高达20-30%。</div>
         <div class="se-sec-title">🗣️ 对话一 · E-Mail von Prof. Wagner（交稿五周后——那封等了很久的邮件）</div><div class="se-dialog"><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（在图书馆收到邮件提醒，手抖着点开）</div><div class="se-de"><b>Betreff: Gutachten Masterarbeit / Termin Verteidigung</b>…</div><div class="se-zh">主题：硕士论文评阅 / 答辩日期……</div></div></div><div class="se-line right"><div class="se-who">👩‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Wagner（邮件正文——专业、精准，但字里行间带着温度）</div><div class="se-de">Liebe Frau Lin, Ihr <b>Gutachten</b> liegt vor. Beide Prüferinnen bewerten Ihre Arbeit mit <b>1,3</b>. Die <b>Verteidigung</b> findet am <b>25. April um 10 Uhr</b> in Raum 3.12 statt — <b>20 Minuten Präsentation</b>, danach <b>15 Minuten Fragen</b> aus der <b>Prüfungskommission</b>. Bitte bereiten Sie eine <b>PowerPoint-Präsentation</b> vor. Herzlich, M. Wagner</div><div class="se-zh">林女士您好，评阅报告已出。两位评审的综合评分为 1,3。答辩定于 4 月 25 日上午 10 点，3.12 室——20 分钟演讲，之后考试委员会提问 15 分钟。请准备 PowerPoint 演示。祝好，M. Wagner</div></div></div></div><div class="se-sec-title">🗣️ 对话二 · Am Tag der Verteidigung（答辩当天——演讲结束，提问环节）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Wagner（坐在三位教授中间，先开口）</div><div class="se-de">Frau Lin, sehr <b>klare Präsentation</b>. Meine erste Frage: Sie schreiben, dass direktes Feedback in Mails in China oft als <b>Gesichtsverlust</b> empfunden wird. Wie haben Sie das in Ihren Interviews <b>operationalisiert</b>?</div><div class="se-zh">林女士，演讲很清晰。第一个问题：您写到在中国的邮件中，直接反馈常被视为"丢面子"。您在访谈中是如何将这个概念操作化的？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（深吸一口气——这个问题她准备过）</div><div class="se-de">Gute Frage. Ich habe nicht nach "Gesichtsverlust" <b>gefragt</b>, sondern nach <b>konkreten Reaktionen</b>: "Wie haben Sie sich nach dieser E-Mail gefühlt?" und "Haben Sie danach anders kommuniziert?" Aus diesen <b>Antworten</b> habe ich das Muster <b>abgeleitet</b> — <b>induktiv</b>, nicht deduktiv.</div><div class="se-zh">好问题。我没有直接问"丢面子"，而是问具体反应："您收到那封邮件后感觉如何？""您之后改变了沟通方式吗？"从这些回答中我归纳出了这个模式——是归纳法，不是演绎法。</div></div></div><div class="se-line right"><div class="se-who">🧑‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Dr. Meier, Zweitprüfer（翻着论文里夹满便签的页面）</div><div class="se-de">Ihre <b>Stichprobe</b> umfasst fünf Unternehmen — alle aus Baden-Württemberg. <b>Inwiefern</b> sind Ihre Ergebnisse auf <b>andere Regionen</b> übertragbar?</div><div class="se-zh">您的样本包括五家企业——全在巴登-符腾堡州。您的研究结果在多大程度上适用于其他地区？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（点头承认局限性——导师说过，坦诚比硬撑好）</div><div class="se-de">Das ist ein <b>berechtigter Einwand</b>. Die <b>Übertragbarkeit</b> ist <b>begrenzt</b> — das habe ich im <b>Methodenteil</b> diskutiert. Ich sehe meine Arbeit als <b>explorative Studie</b>, nicht als repräsentative Umfrage. Eine <b>größer angelegte Folgeuntersuchung</b> mit Unternehmen aus Nord- und Ostdeutschland wäre der nächste Schritt.</div><div class="se-zh">这是一个合理的质疑。可推广性有限——我在方法论部分已讨论过这点。我把我的研究定位为探索性研究，不是代表性调查。下一步应该扩大规模，纳入北德和东德的企业。</div></div></div><div class="se-line right"><div class="se-who">👩‍🏫</div><div class="se-bubble"><div class="se-spk">Prof. Wagner（和 Meier 交换了一个眼神——微微点头）</div><div class="se-de">Gut <b>reflektiert</b>. Letzte Frage: Wenn Sie die Studie <b>noch einmal</b> machen könnten — was würden Sie <b>anders</b> machen?</div><div class="se-zh">反思得很好。最后一个问题：如果您能重做一次——会有什么不同？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（想了想，笑了——这个问题她没想到，但答案脱口而出）</div><div class="se-de">Ich würde <b>früher mit dem Schreiben anfangen</b>. Nicht bis zum Schluss <b>nur Daten sammeln</b>. Und — ich würde <b>öfter ins Schreibzentrum gehen</b>. <b>Gleich von Anfang an.</b></div><div class="se-zh">我会更早开始动笔写。不要到最后还在收集数据。还有——我会多去写作中心。从一开始就去。</div></div></div></div>
@@ -88471,7 +88497,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
         <div class="se-share-ep" data-share-ep="42" style="text-align:center;margin:6px 0 2px"><a href="serie/42-答辩.html" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:8px 22px;border-radius:18px;text-decoration:none;font-weight:700;font-size:.8rem;transition:.2s">📤 分享本集 · 第 42 集《答辩》</a></div>
         </div><!-- /第42集 -->
         <!-- ───── 第 43 集 · 德国求职 ───── -->
-        <div class="se-episode" data-ep="43" class="t-dn">
+        <div class="se-episode t-dn" data-ep="43">
         <div class="se-cast"><div class="se-avatar">👩🏻‍🎓</div><div><div class="se-name">林夏 / Lin Xia</div><div class="se-bio">五月。硕士毕业了——答辩 1,0，总成绩 1,1。但学生居留还剩六个月，林夏开始投简历。第一封正式的德国求职信写完花了三个晚上——<span class="de-kw">Anschreiben</span>（求职信）比论文的 Abstract 还难写。一周后她收到了第一个面试邀请：慕尼黑一家科技公司的<b>跨文化沟通专员</b>。<span class="de-kw">"这个职位简直是为我的论文量身定做的"</span>——林夏想。可德国面试会问什么？</div></div></div>
         <div class="se-intro">💼 德国求职面试（<b>Vorstellungsgespräch</b>）有自己一套规则：不问"你最大的缺点"这类心理游戏，重<b>专业能力（Fachkompetenz）</b>——具体会什么、做过什么，用项目/数据佐证；重视<b>跨文化能力</b>——对国际背景求职者是加分项，但要说清楚"跟德国人比你有什么独特价值"；必问<b>Gehaltsvorstellung</b>（期望薪资）——提前在 kununu.de 或 Tarifvertrag 查好行情，报区间而报单一数字。面试后24小时内发简短的<b>Dankes-E-Mail</b>——在德国这是加分项。标准应聘文件：Anschreiben（1页）+ Lebenslauf（德式表格，1-2页）+ Zeugnisse（含实习和语言证书），全部合并成<b>一个PDF</b>。</div>
         <div class="se-sec-title">🗣️ 对话一 · Im Vorstellungsgespräch（慕尼黑某科技公司——第一场德国正式面试）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👩‍💼</div><div class="se-bubble"><div class="se-spk">Frau Hartmann, Personalchefin（面前的桌上摊着林夏的 Lebenslauf 和 Zeugnisse）</div><div class="se-de">Frau Lin, Ihr <b>Profil</b> ist <b>beeindruckend</b>. Master mit 1,1, China-Erfahrung, fließend Deutsch, Englisch und Chinesisch. Aber bitte erklären Sie mir: <b>Warum</b> sollten wir gerade <b>Sie</b> einstellen und nicht jemanden, der <b>hier aufgewachsen</b> ist?</div><div class="se-zh">林女士，您的简历很亮眼。硕士 1,1 毕业，有中国经验，德英中三语流利。但请告诉我：我们为什么要雇您，而不是一个在这里长大的人？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（这个问题她没准备——但两年的德国经历让她学会了不慌张）</div><div class="se-de">Weil ich genau die <b>kulturellen Missverständnisse</b>, die in Ihren Teams zwischen München und Shanghai <b>täglich passieren</b>, nicht nur <b>theoretisch kenne</b>. Ich habe sie <b>sechs Monate lang untersucht</b> — und ich war auf <b>beiden Seiten</b>. Ich weiß, wie ein Chinese eine deutsche E-Mail liest — und umgekehrt. Das ist mehr wert als <b>Muttersprache allein</b>.</div><div class="se-zh">因为我恰好理解你们慕尼黑和上海团队之间<b>每天</b>在发生的文化误会——不只是理论上的了解。我花了<b>六个月</b>研究这个，而且我<b>两边</b>都站过。我知道一个中国人怎么读一封德国邮件——反过来也是。这比单纯的母语值钱得多。</div></div></div><div class="se-line right"><div class="se-who">👩‍💼</div><div class="se-bubble"><div class="se-spk">Frau Hartmann（眉毛微微扬起——这个回答她没料到）</div><div class="se-de"><b>Interessant.</b> Und wie würden Sie mit einem deutschen Kollegen umgehen, der sagt: "Die Chinesen antworten nie direkt auf meine Fragen"?</div><div class="se-zh">有意思。那如果一个德国同事说"中国人从来不直接回答我的问题"，您会怎么处理？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（点点头——这恰好是她论文里分析过无数次的情境）</div><div class="se-de">Ich würde ihn <b>nicht korrigieren</b>, sondern <b>übersetzen</b> — im wörtlichen und kulturellen Sinn. In China bedeutet "Ich werde es versuchen" oft "<b>Ich kümmere mich darum</b>". In Deutschland hört man "<b>Der hat keine konkrete Zusage gemacht</b>". Beide haben <b>recht</b> — sie sprechen nur <b>unterschiedliche Sprachen</b>, auch wenn beide Deutsch benutzen. Meine Aufgabe wäre, diese <b>zweite Ebene</b> sichtbar zu machen.</div><div class="se-zh">我不会纠正他，而是去<b>翻译</b>——字面意义和文化意义上的翻译。在中国"我试试"通常意味着"<b>我会去办</b>"。在德国听到的是"<b>他没有明确承诺</b>"。两人都<b>没错</b>——他们只是说着<b>不同的语言</b>，哪怕表面上都用德语。我的工作是把这<b>第二层</b>变得可见。</div></div></div><div class="se-line right"><div class="se-who">👩‍💼</div><div class="se-bubble"><div class="se-spk">Frau Hartmann（沉默了两秒——然后把笔放下了）</div><div class="se-de">Frau Lin — ich führe seit <b>15 Jahren</b> Bewerbungsgespräche. <b>Diese Antwort</b> habe ich noch nie gehört. <b>Wann können Sie anfangen?</b></div><div class="se-zh">林女士——我做了<b>15年</b>面试。这个回答我从没听过。<b>您什么时候能入职？</b></div></div></div></div><div class="se-sec-title">🗣️ 对话二 · Abschiedskaffee mit Lukas（告别咖啡——Lukas 的实习也定了）</div><div class="se-dialog"><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（在两人第一次认识的 Mensa——他还是端着 Schnitzel）</div><div class="se-de">Also — <b>München oder Stuttgart?</b> Hast du dich <b>entschieden</b>?</div><div class="se-zh">所以——慕尼黑还是斯图加特？你决定了吗？</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（捧着一杯 Milchkaffee——现在她喝咖啡不加糖了）</div><div class="se-de"><b>München.</b> Die Stelle ist in der <b>interkulturellen Kommunikationsabteilung</b>. Genau das, was ich in meiner Masterarbeit untersucht habe. <b>Vollzeit, unbefristet</b>. Und du? Dein Praktikum?</div><div class="se-zh">慕尼黑。职位在跨文化沟通部——就是我硕士论文研究的那个方向。全职、无限期合同。你呢？你的实习？</div></div></div><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（有点骄傲，又有点不好意思）</div><div class="se-de"><b>BMW, Motorenentwicklung.</b> Sechs Monate, ab Oktober. <b>Deine Tipps</b> beim Bürgeramt und bei der Wohnungssuche haben mir so viel geholfen. <b>Ohne dich</b> würde ich wahrscheinlich immer noch ohne Anmeldung hier sitzen.</div><div class="se-zh">宝马，发动机研发。六个月，十月开始。你在市政厅和找房方面的建议帮了我太多了。<b>没有你</b>我大概现在还坐在这里没登记落户。</div></div></div><div class="se-line"><div class="se-who">👩🏻‍🎓</div><div class="se-bubble"><div class="se-spk">林夏（笑出声来——两年积攒的所有"德国生存术"终于有了传承）</div><div class="se-de">Weißt du, vor zwei Jahren saß <b>ich</b> genau hier — mit einem <b>A2-Zertifikat</b> und <b>null Ahnung</b>, wie man eine Wohnung findet. Jetzt sitzt <b>du</b> hier. <b>Das ist der Kreislauf.</b> Irgendwann hilfst du dem Nächsten.</div><div class="se-zh">你知道吗，两年前<b>我</b>就坐在这——拿着 A2 证书，对怎么找房<b>一无所知</b>。现在<b>你</b>坐在这。<b>这就是循环。</b>总有一天你会帮下一个人的。</div></div></div><div class="se-line right"><div class="se-who">👦🏻</div><div class="se-bubble"><div class="se-spk">Lukas（举起他的 Apfelschorle）</div><div class="se-de"><b>Deal.</b> Auf den <b>Kreislauf</b>! Und — auf dich. <b>Prost.</b></div><div class="se-zh">说定了。为循环干杯！还有——为你。<b>Prost.</b></div></div></div></div>
@@ -88507,13 +88533,15 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     if (!page) return;
     var eps = page.querySelectorAll('.se-episode');
     for (var i = 0; i < eps.length; i++) {
-      eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? '' : 'none';
+      eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? 'block' : 'none';
     }
     var sel = page.querySelector('.se-ep-select');
     if (sel) sel.value = ep;
     page.scrollIntoView({ block: 'start' });
     window.scrollTo(0, 0);
     window._currentSerieEp = ep;
+    /* 注入交叉链接 */
+    setTimeout(function(){ renderSerieCrosslinks(ep); }, 60);
   };
 
   /* 打开当前集的分享页 */
@@ -88522,6 +88550,137 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     if (iframe) iframe.src = '林夏在德国_引流.html?ep=' + (ep || 1);
     showPage('serie-share');
   };
+
+  /* ══════ 交叉链接：跳转到语法章节（支持 A1/B1 语法页） ══════ */
+  window.navGrammar = function(anchor, pageId) {
+    showPage(pageId || 'grammar');
+    setTimeout(function(){
+      var el = document.getElementById(anchor);
+      if (el) { el.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    }, 280);
+  };
+
+  /* ══════ 交叉链接：跳转到 A1 阅朗读指定文章 ══════ */
+  window.navLesen = function(n) {
+    showPage('lesen');
+    setTimeout(function(){
+      if (typeof showLesenArticle === 'function') showLesenArticle(n);
+    }, 220);
+  };
+
+  /* ══════ 交叉链接：跳转到 echt 并筛选分类 ══════ */
+  window.navEcht = function(cat) {
+    showPage('echt');
+    setTimeout(function(){
+      var input = document.getElementById('echt-search');
+      if (input) { input.value = cat; input.dispatchEvent(new Event('input')); }
+    }, 220);
+  };
+
+  /* ══════ 交叉链接数据 ══════ */
+  window.SERIE_CROSSLINKS = {
+    1: { grammar:[{l:'可分动词 (an|melden)',a:'s6'},{l:'情态动词 (müssen, können)',a:'s5'},{l:'疑问句 (Wo? Wohin?)',a:'s12'},{l:'介词 (zu, zur, zum)',a:'s16'},{l:'主格与宾格',a:'s9'}], lesen:[], echt:['打招呼','坐车问路','市民局办登记','听不懂','让人重复'], vocab:'证件/官方事务词汇：der Ausweis 证件 · die Anmeldung 登记 · der Termin 预约 · das Bürgeramt 市民局 · die Meldebescheinigung 落户证明' },
+    2: { grammar:[{l:'情态动词 (möchten, können)',a:'s5'},{l:'可分动词 (er|öffnen, mit|bringen)',a:'s6'},{l:'物主冠词 (Ihr, mein)',a:'s10'},{l:'现在完成时',a:'s17'}], lesen:[], echt:['银行开户','听懂确认','表示没问题'], vocab:'银行词汇：das Konto 账户 · das Girokonto 活期账户 · die IBAN 国际账号 · eröffnen 开设 · der Ausweis 证件' },
+    3: { grammar:[{l:'情态动词 (sollen, müssen)',a:'s5'},{l:'现在完成时',a:'s17'},{l:'人称代词 (mir, Ihnen)',a:'s2'},{l:'否定 (nicht, kein)',a:'s11'}], lesen:[], echt:['看牙医','带病上班','约时间'], vocab:'看病词汇：der Arzt 医生 · die Versichertenkarte 医保卡 · die Erkältung 感冒 · das Rezept 处方 · die Krankenkasse 医保' },
+    4: { grammar:[{l:'情态动词 (können, sollen)',a:'s5'},{l:'介词 (in, aus, mit)',a:'s16'},{l:'疑问句',a:'s12'}], lesen:[], echt:['药房买药','带病上班','表示没问题'], vocab:'药房词汇：die Apotheke 药房 · rezeptfrei 非处方 · rezeptpflichtig 处方药 · die Halsschmerzen 喉咙痛 · das Medikament 药品' },
+    5: { grammar:[{l:'可分动词 (ein|schreiben, aus|füllen)',a:'s6'},{l:'情态动词 (müssen, dürfen)',a:'s5'},{l:'介词 (an, in, bei)',a:'s16'},{l:'名词复数',a:'s8'}], lesen:[], echt:['约教授','听懂确认','表示没问题'], vocab:'大学词汇：die Einschreibung 注册 · das Semester 学期 · der Studiengang 专业 · die Immatrikulation 入学注册 · der Studentenausweis 学生证' },
+    6: { grammar:[{l:'可分动词 (ein|kaufen, mit|bringen)',a:'s6'},{l:'物主冠词 (mein, dein)',a:'s10'},{l:'否定 (kein, nicht)',a:'s11'},{l:'数字与价格',a:'s15'},{l:'主格与宾格',a:'s9'}], lesen:[6], echt:['超市结账','超市','问价格','结账付钱'], vocab:'超市词汇：der Einkaufswagen 购物车 · die Tüte 袋子 · der Pfand 押金 · das Angebot 优惠 · die Kasse 收银台 · bar/Karte 现金/刷卡' },
+    7: { grammar:[{l:'介词 (in, an, vor, hinter)',a:'s16'},{l:'情态动词 (dürfen, können)',a:'s5'},{l:'句子语序',a:'s13'}], lesen:[], echt:['WiFi密码','约时间','让人重复'], vocab:'图书馆词汇：die Bibliothek 图书馆 · ausleihen 借出 · der Lesesaal 阅览室 · die Leihfrist 借阅期限 · verlängern 续借' },
+    8: { grammar:[{l:'可分动词 (an|schauen, ein|ziehen)',a:'s6'},{l:'介词 (in, bei, seit)',a:'s16'},{l:'现在完成时',a:'s17'},{l:'连词 (weil, dass)',a:'s14'}], lesen:[7,11,12,13], echt:['租房看房','约时间','关门窗'], vocab:'租房词汇：die WG 合租 · die Kaltmiete 冷租 · die Warmmiete 暖租 · die Nebenkosten 附加费 · die Kaution 押金 · der Mietvertrag 合同' },
+    9: { grammar:[{l:'情态动词 (müssen, dürfen, können)',a:'s5'},{l:'可分动词 (ver|längern, be|antragen)',a:'s6'},{l:'介词 (bei, für, seit)',a:'s16'},{l:'现在完成时',a:'s17'}], lesen:[], echt:['市民局办登记','拖延/再说','听懂确认'], vocab:'外管局词汇：die Ausländerbehörde 外管局 · der Aufenthaltstitel 居留许可 · verlängern 延长 · beantragen 申请 · die Frist 期限' },
+    10: { grammar:[{l:'情态动词 (dürfen, müssen, können)',a:'s5'},{l:'现在完成时',a:'s17'},{l:'连词 (weil, dass, wenn)',a:'s14'},{l:'数字与时间',a:'s15'}], lesen:[9,10,16,17,18,19], echt:['Minijob发工资','约时间','表示没问题'], vocab:'打工词汇：der Minijob 迷你工 · die Steuerklasse 税级 · brutto/netto 税前/税后 · der Stundenlohn 时薪 · die Bewerbung 求职' },
+    11: { grammar:[{l:'介词 (mit, nach, ab, bis)',a:'s16'},{l:'可分动词 (um|steigen, ein|steigen)',a:'s6'},{l:'情态动词 (müssen, können)',a:'s5'},{l:'疑问句 (Wann? Wo? Wie?)',a:'s12'}], lesen:[], echt:['买车票','坐车问路','吐槽德铁晚点','听不懂'], vocab:'交通词汇：die Verspätung 晚点 · der Zugausfall 取消 · umsteigen 换乘 · das Gleis 站台 · die Fahrkarte 车票 · hin und zurück 往返' },
+    12: { grammar:[{l:'形容词谓语用法',a:'s18'},{l:'介词 (auf, in, zu)',a:'s16'},{l:'连词 (und, aber, oder)',a:'s14'},{l:'数字与时间 (日期)',a:'s15'}], lesen:[], echt:['干杯','吃饭祝好','送礼','邀请做客'], vocab:'圣诞词汇：der Weihnachtsmarkt 圣诞市场 · der Glühwein 热红酒 · die Bratwurst 烤肠 · das Karussell 旋转木马 · der Christkindlmarkt 圣婴市场' },
+    13: { grammar:[{l:'可分动词 (aus|stechen, ein|laden)',a:'s6'},{l:'情态动词 (möchten, können)',a:'s5'},{l:'形容词定语变格',a:'s19'}], lesen:[25], echt:['邀请做客','分享食物','夸奖别人'], vocab:'烘焙词汇：ausstechen 压模 · der Teig 面团 · backen 烤焙 · das Plätzchen 饼干 · der Zimt 肉桂 · die Glasur 糖霜' },
+    14: { grammar:[{l:'现在完成时 (回顾一年)',a:'s17'},{l:'连词 (dass, weil)',a:'s14'},{l:'数字与时间 (年份/钟点)',a:'s15'}], lesen:[], echt:['干杯','道别','表达开心','结束聊天'], vocab:'跨年词汇：Silvester 跨年夜 · der Vorsatz 新年决心 · das Feuerwerk 烟花 · anstoßen 碰杯 · Guten Rutsch! 滑进新年好' },
+    15: { grammar:[{l:'形容词比较级 (billiger)',a:'s18'},{l:'物主冠词 (meine Größe)',a:'s10'},{l:'疑问句 (Haben Sie...?)',a:'s12'},{l:'数字与价格',a:'s15'}], lesen:[6], echt:['问价格','超市结账','网购/二手','表示赞同'], vocab:'购物词汇：der Winterschlussverkauf 冬季打折 · reduziert 降价 · die Größe 尺码 · anprobieren 试穿 · umtauschen 退换 · der Kassenzettel 小票' },
+    16: { grammar:[{l:'形容词谓语用法',a:'s18'},{l:'介词 (in, auf, zu, bei)',a:'s16'},{l:'情态动词 (wollen, dürfen)',a:'s5'}], lesen:[], echt:['打招呼','表示开心','开玩笑','拒绝邀请'], vocab:'狂欢词汇：der Fasching 狂欢节 · die Verkleidung 变装 · der Umzug 游行 · die Süßigkeit 糖果 · Helau! / Alaaf! 狂欢口号' },
+    17: { grammar:[{l:'介词 (mit, nach, in, an)',a:'s16'},{l:'可分动词 (ab|fahren, los|gehen)',a:'s6'},{l:'现在完成时',a:'s17'},{l:'连词 (wenn, als, weil)',a:'s14'}], lesen:[21], echt:['买车票','坐车问路','约时间','吐槽德铁晚点'], vocab:'出行词汇：die Semesterferien 学期假 · verreisen 出游 · die Jugendherberge 青旅 · buchen 预订 · der Reiseführer 旅行指南' },
+    18: { grammar:[{l:'情态动词 (müssen, sollen, dürfen)',a:'s5'},{l:'现在完成时',a:'s17'},{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (wenn, dass, obwohl)',a:'s14'}], lesen:[], echt:['收到GEZ信','拖延/再说','表达困惑','表示没问题'], vocab:'GEZ词汇：der Beitragsservice 收费服务 · die Rundfunkgebühr 广播费 · sich befreien lassen 豁免 · die Schufa 信用局 · der Mahnbescheid 催款通知' },
+    19: { grammar:[{l:'人称代词 (mir, dir, ihm...)',a:'s2'},{l:'情态动词 (können, wollen)',a:'s5'},{l:'连词 (weil, dass)',a:'s14'},{l:'形容词谓语用法',a:'s18'}], lesen:[], echt:['不认识对方','夸奖别人','表达意见','结束聊天','邀请做客'], vocab:'社交词汇：der Freundeskreis 朋友圈 · sich verabreden 约会 · sich treffen 碰面 · das Kompliment 夸奖 · kennenlernen 认识' },
+    20: { grammar:[{l:'连词 (weil, dass, damit, um...zu)',a:'s14'},{l:'现在完成时',a:'s17'},{l:'情态动词 (sollen, müssen, dürfen)',a:'s5'},{l:'形容词定语变格',a:'s19'}], lesen:[], echt:['考试挂科','表示困惑','安慰朋友','拖延/再说'], vocab:'考试词汇：die Prüfung 考试 · die Klausur 笔试 · bestehen/durchfallen 通过/挂科 · lernen/pauken 学习/死磕 · die Note 分数' },
+    21: { grammar:[{l:'数字与时间 (工资、税率)',a:'s15'},{l:'现在完成时',a:'s17'},{l:'情态动词 (müssen, dürfen)',a:'s5'},{l:'介词 (bei, für, von)',a:'s16'}], lesen:[2], echt:['Minijob发工资','银行开户','结账付钱','表示困惑'], vocab:'税卡词汇：die Steuerklasse 税级 · die Lohnsteuer 工资税 · die Sozialversicherung 社保 · die Steuererklärung 报税 · das Finanzamt 税务局' },
+    22: { grammar:[{l:'介词 (im, am, zum, ins)',a:'s16'},{l:'形容词比较级',a:'s18'},{l:'可分动词 (ein|laden, mit|bringen)',a:'s6'},{l:'情态动词 (möchten, können)',a:'s5'}], lesen:[24,26], echt:['Biergarten点酒','干杯','吃饭祝好','约运动','表达开心'], vocab:'啤酒园词汇：der Biergarten 啤酒园 · die Maß 一升装 · das Helle 拉格 · die Brezn 扭结面包 · der Bierdeckel 杯垫 · Brotzeit 简餐' },
+    23: { grammar:[{l:'形容词比较级 (größer, billiger)',a:'s18'},{l:'现在完成时',a:'s17'},{l:'介词 (durch, über, entlang)',a:'s16'},{l:'可分动词 (vor|stellen, an|kommen)',a:'s6'}], lesen:[15], echt:['坐车问路','买车票','点餐','表示惊讶','干杯'], vocab:'柏林词汇：das Brandenburger Tor 勃兰登堡门 · die Berliner Schnauze 柏林嘴皮子 · der Späti 深夜小卖部 · die Currywurst 咖喱香肠 · arm aber sexy 穷但性感' },
+    24: { grammar:[{l:'物主冠词 (mein, dein)',a:'s10'},{l:'情态动词 (dürfen, müssen)',a:'s5'},{l:'可分动词 (ab|holen, ein|laden)',a:'s6'},{l:'现在完成时',a:'s17'}], lesen:[], echt:['打招呼','邀请做客','分享食物','听不懂'], vocab:'探亲词汇：das Schengen-Visum 申根签证 · die Einladung 邀请函 · die Verpflichtungserklärung 经济担保 · die Reiseversicherung 旅行保险 · der Aufenthalt 停留' },
+    25: { grammar:[{l:'现在完成时 (haben...erhalten)',a:'s17'},{l:'连词 (weil, obwohl, dass)',a:'s14'},{l:'否定 (nicht, kein)',a:'s11'},{l:'情态动词 (sollen, müssen)',a:'s5'}], lesen:[8,11,12,13], echt:['抱怨邻居噪音','见房东','表示没问题','拖延/再说'], vocab:'租房纠纷词汇：die Nebenkostenabrechnung 附加费结算 · die Nachzahlung 补交 · die Warmmiete 暖租 · die Kaltmiete 冷租 · der Widerspruch 异议 · die Kaution 押金' },
+    26: { grammar:[{l:'情态动词 (müssen, dürfen, können)',a:'s5'},{l:'数字与时间 (价格、小时)',a:'s15'},{l:'可分动词 (an|melden, mit|bringen)',a:'s6'},{l:'连词 (bevor, nachdem)',a:'s14'}], lesen:[], echt:['约时间','表示困惑','听懂确认','表示没问题'], vocab:'驾考词汇：der Führerschein 驾照 · die Fahrschule 驾校 · die Theoriestunde 理论课 · die Fahrstunde 驾驶课 · die Prüfung 考试 · der Sehtest 视力测试 · der Erste-Hilfe-Kurs 急救课' },
+    27: { grammar:[{l:'现在完成时 (habe...bestanden)',a:'s17'},{l:'介词 (an, vor, hinter, neben)',a:'s16'},{l:'情态动词 (müssen, dürfen)',a:'s5'},{l:'可分动词 (vorbei|fahren, ein|parken)',a:'s6'}], lesen:[], echt:['考试挂科','表示紧张/开心','听懂确认'], vocab:'路考词汇：die Praktische Prüfung 路考 · der Schulterblick 回头看 · die Vorfahrt 先行权 · rechts vor links 右先于左 · durchgefallen 挂科 · bestanden 通过' },
+    28: { grammar:[{l:'形容词定语变格 (ein schöner Abend)',a:'s19'},{l:'介词 (an, zu, bei, mit)',a:'s16'},{l:'现在完成时',a:'s17'},{l:'连词 (dass, weil)',a:'s14'}], lesen:[], echt:['送礼','干杯','吃饭祝好','邀请做客','道别'], vocab:'圣诞词汇：Heiligabend 平安夜 · die Bescherung 礼物分发 · der Christbaum 圣诞树 · der Gottesdienst 礼拜 · das Festessen 节日大餐 · Frohe Weihnachten! 圣诞快乐' },
+    29: { grammar:[{l:'连词 (weil, dass, um...zu)',a:'s14'},{l:'现在完成时 (Berufserfahrung)',a:'s17'},{l:'形容词定语变格',a:'s19'},{l:'情态动词 (sollen, können)',a:'s5'}], lesen:[9,10,16,17,18,19], echt:['Minijob发工资','约时间','表示没问题','听懂确认'], vocab:'求职词汇：das Praktikum 实习 · die Bewerbung 求职申请 · das Anschreiben 求职信 · der Lebenslauf 简历 · das Zeugnis 证书/成绩单 · das Vorstellungsgespräch 面试' },
+    30: { grammar:[{l:'现在完成时 (heute habe ich...)',a:'s17'},{l:'介词 (bei, in, mit, zu)',a:'s16'},{l:'可分动词 (vor|stellen, kennen|lernen)',a:'s6'},{l:'连词 (wenn, weil)',a:'s14'}], lesen:[9,10,16,17], echt:['不认识对方','打招呼','表达意见','听懂确认','结束聊天'], vocab:'职场词汇：der erste Arbeitstag 上班第一天 · die Einarbeitung 入职培训 · der Kollege 同事 · die Kantine 食堂 · die Kaffeepause 咖啡时间 · Du oder Sie? 称你还是您' },
+    31: { grammar:[{l:'数字与时间 (金额、年份、税率)',a:'s15'},{l:'现在完成时',a:'s17'},{l:'可分动词 (zurück|bekommen, aus|füllen)',a:'s6'},{l:'连词 (dass, wenn, weil)',a:'s14'}], lesen:[2], echt:['Minijob发工资','银行开户','表示困惑','表示没问题'], vocab:'税务词汇：die Steuererklärung 报税 · das Finanzamt 税务局 · die Steuerklasse 税级 · die Lohnsteuer 工资税 · die Werbungskosten 职业支出 · der Steuerbescheid 税务通知 · ELSTER 电子报税平台' },
+    32: { grammar:[{l:'现在完成时 (hat...we getan)',a:'s17'},{l:'人称代词 (mir, Ihnen)',a:'s2'},{l:'情态动词 (müssen, können, sollen)',a:'s5'},{l:'疑问句 (Seit wann...?)',a:'s12'}], lesen:[], echt:['看牙医','带病上班','约时间','表示困惑'], vocab:'牙医词汇：der Zahnarzt 牙医 · der Weisheitszahn 智齿 · die Zahnreinigung 洗牙 · die Füllung 补牙 · die Betäubung 麻醉 · die Krankenkasse 医保 · die Zusatzversicherung 附加险' },
+    33: { grammar:[{l:'可分动词 (aus|ziehen, um|ziehen, ein|packen)',a:'s6'},{l:'现在完成时',a:'s17'},{l:'介词 (aus, in, bei, seit)',a:'s16'},{l:'连词 (nachdem, bevor, weil)',a:'s14'}], lesen:[7,11,12,13], echt:['租房看房','搬家','关门窗','见房东','表示没问题'], vocab:'搬家词汇：die Kündigung 解约信 · die Wohnungsübergabe 房屋交接 · die Schönheitsreparaturen 装修义务 · der Umzugswagen 搬家车 · die Ummeldung 改地址登记 · der Nachmieter 续租人' },
+    34: { grammar:[{l:'连词 (weil, dass, damit, um...zu)',a:'s14'},{l:'现在完成时',a:'s17'},{l:'间接问句 (wie man...zitiert)',a:'b1s18',p:'b1grammar'},{l:'形容词定语变格',a:'s19'}], lesen:[], echt:['表达意见','表示困惑','约教授','考试挂科'], vocab:'论文词汇：die Hausarbeit 学期论文 · zitieren 引用 · die Fußnote 脚注 · das Literaturverzeichnis 参考文献 · das Plagiat 抄袭 · die Fragestellung 研究问题' },
+    35: { grammar:[{l:'介词 (mit, nach, von...bis)',a:'s16'},{l:'可分动词 (ab|fahren, um|steigen)',a:'s6'},{l:'现在完成时',a:'s17'},{l:'连词 (wenn, als, während)',a:'s14'}], lesen:[21], echt:['买车票','坐车问路','点餐','吐槽德铁晚点','表示开心'], vocab:'旅行词汇：der Interrail-Pass 欧铁通票 · die Jugendherberge 青旅 · buchen 预订 · die Fahrkarte 车票 · der Sitzplatz 座位 · der Reisebegleiter 旅伴 · das Abenteuer 冒险' },
+    36: { grammar:[{l:'现在完成时 (hat sich verändert)',a:'s17'},{l:'反身动词 (sich erinnern, sich fühlen)',a:'s2'},{l:'形容词比较级 (besser, sicherer)',a:'s18'},{l:'时间表达 (seit zwei Jahren, vor zwei Jahren)',a:'s15'}], lesen:[], echt:['表示开心','结束聊天','表达意见','道别'], vocab:'回顾类词汇：der Jahrestag 周年 · sich verändern 改变 · sich erinnern an 回忆起 · stolz sein auf 为…自豪 · dankbar 感恩的 · der Rückblick 回顾' },
+    37: { grammar:[{l:'情态动词 (können, sollen, wollen)',a:'s5'},{l:'间接问句 (ob, wie, was)',a:'b1s18',p:'b1grammar'},{l:'连词 (dass, weil, ob)',a:'s14'},{l:'现在完成时',a:'s17'}], lesen:[], echt:['约教授','表达意见','表示困惑','拖延/再说'], vocab:'论文词汇：die Masterarbeit 硕士论文 · die Sprechstunde 答疑时间 · der Betreuer 导师 · das Thema 题目 · eingrenzen 限定范围 · die Gliederung 大纲 · das Exposé 开题报告' },
+    38: { grammar:[{l:'Konjunktiv I 第一虚拟式 (indirekte Rede)',a:'b1s8',p:'b1grammar'},{l:'Passiv 被动语态 (wird...untersucht)',a:'b1s9',p:'b1grammar'},{l:'名词化结构 (Nominalisierung)',a:'b1s2',p:'b1grammar'},{l:'Infinitiv + zu',a:'b1s19',p:'b1grammar'}], lesen:[], echt:['约教授','表达意见','表示困惑','听不懂'], vocab:'学术德语词汇：der Wissenschaftsstil 学术风格 · umgangssprachlich 口语化的 · die Einleitung 引言 · der Forschungsstand 研究现状 · der Konjunktiv I 第一虚拟式 · untersuchen 探究 · das Schreibzentrum 写作中心' },
+    39: { grammar:[{l:'间接问句 (ob, wie, wann)',a:'b1s18',p:'b1grammar'},{l:'Konjunktiv II (würden, hätten, könnten)',a:'b1s8',p:'b1grammar'},{l:'现在完成时',a:'s17'},{l:'连词 (damit, um...zu)',a:'s14'}], lesen:[9,10,16,17,18,19], echt:['约时间','打招呼','表示没问题','听懂确认'], vocab:'访谈词汇：das Interview 访谈 · der Interviewpartner 受访者 · aufzeichnen 录音 · transkribieren 转录 · die Einwilligung 同意书 · die Forschungsfrage 研究问题' },
+    40: { grammar:[{l:'Konjunktiv II (würde, könnte, hätte)',a:'b1s8',p:'b1grammar'},{l:'Passiv (wird formuliert)',a:'b1s9',p:'b1grammar'},{l:'连词 (obwohl, während, jedoch)',a:'s14'},{l:'Infinitiv + zu (es ist wichtig, ... zu ...)',a:'b1s19',p:'b1grammar'}], lesen:[], echt:['表达困惑','安慰朋友','表示没问题','拖延/再说'], vocab:'写作词汇：die Schreibblockade 写作瓶颈 · der rote Faden 主线 · überarbeiten 修改 · streichen 删除 · umformulieren 改写 · das Feedback 反馈 · die Überleitung 过渡' },
+    41: { grammar:[{l:'现在完成时 (abgegeben, geschafft)',a:'s17'},{l:'情态动词 (können, müssen, dürfen)',a:'s5'},{l:'时间表达 (bis, seit, vor)',a:'s15'},{l:'连词 (nachdem, sobald, wenn)',a:'s14'}], lesen:[], echt:['表示开心','干杯','道别','结束聊天'], vocab:'论文提交词汇：abgeben 提交 · der Abgabetermin 截止日期 · drucken und binden 打印装订 · die Erklärung 声明 · die Formatierung 格式 · geschafft! 搞定了' },
+    42: { grammar:[{l:'Konjunktiv I (indirekte Rede)',a:'b1s8',p:'b1grammar'},{l:'Passiv (Die Arbeit wurde...)',a:'b1s9',p:'b1grammar'},{l:'现在完成时',a:'s17'},{l:'连词 (wobei, womit, worauf)',a:'b1s20',p:'b1grammar'}], lesen:[], echt:['表示紧张','考试挂科','听懂确认','表示没问题'], vocab:'答辩词汇：die Verteidigung 答辩 · der Vortrag 报告 · die Präsentation 展示 · die Diskussion 讨论 · die Note 分数 · das Prüfungskomitee 答辩委员会 · bestehen 通过' },
+    43: { grammar:[{l:'Konjunktiv II (höfliche Bitte)',a:'b1s8',p:'b1grammar'},{l:'现在完成时 (Berufserfahrung)',a:'s17'},{l:'连词 (da, weil, dass)',a:'s14'},{l:'可分动词 (ein|laden, vor|stellen)',a:'s6'}], lesen:[9,10,16,17,18,19], echt:['Minijob发工资','银行开户','约时间','表示开心','听懂确认'], vocab:'求职词汇：die Stelle 岗位 · der Arbeitsvertrag 劳动合同 · die Gehaltsverhandlung 薪资谈判 · die Probezeit 试用期 · die Krankenversicherung 医保 · die Sozialversicherung 社保 · das Jobcenter 就业中心' }
+  };
+
+  /* ══════ 渲染交叉链接 ══════ */
+  function renderSerieCrosslinks(ep) {
+    var page = document.getElementById('page-serie');
+    if (!page) return;
+    var epDiv = page.querySelector('.se-episode[data-ep="' + ep + '"]');
+    if (!epDiv) return;
+    /* 已有则不重复渲染 */
+    if (epDiv.querySelector('.se-crosslinks')) return;
+
+    var data = window.SERIE_CROSSLINKS && window.SERIE_CROSSLINKS[ep];
+    if (!data) return;
+
+    /* 找插入位置：.se-traps 之后 */
+    var traps = epDiv.querySelector('.se-traps');
+    if (!traps) return;
+
+    var html = '<div class="se-crosslinks"><div class="se-xl-title">📎 相关学习</div>';
+
+    /* 语法 */
+    if (data.grammar && data.grammar.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">📖 语法 Grammatik</div><div class="se-xl-links">';
+      for (var g = 0; g < data.grammar.length; g++) {
+        var gi = data.grammar[g];
+        html += '<a class="se-xl-link grammar" href="javascript:void(0)" onclick="navGrammar(\'' + gi.a + '\',\'' + (gi.p || 'grammar') + '\')" title="跳转到语法对应章节">' + gi.l + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 阅读 */
+    if (data.lesen && data.lesen.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">📖 阅读朗读 Lesen</div><div class="se-xl-links">';
+      for (var rd = 0; rd < data.lesen.length; rd++) {
+        var ln = data.lesen[rd];
+        html += '<a class="se-xl-link lesen" href="javascript:void(0)" onclick="navLesen(\'' + ln + '\')" title="跳转到A1阅朗读对应文章">📄 文章 #' + ln + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 地道德语 */
+    if (data.echt && data.echt.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">💬 地道德语 Echt Deutsch</div><div class="se-xl-links">';
+      for (var e = 0; e < data.echt.length; e++) {
+        html += '<a class="se-xl-link echt" href="javascript:void(0)" onclick="navEcht(\'' + data.echt[e].replace(/'/g, "\\'") + '\')" title="跳转到地道德语对应分类">' + data.echt[e] + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 词汇主题 */
+    if (data.vocab) {
+      html += '<div class="se-xl-vocab">📒 <b>词汇主题：</b>' + data.vocab + '</div>';
+    }
+
+    html += '</div>';
+
+    /* 插入到 .se-traps 之后 */
+    traps.insertAdjacentHTML('afterend', html);
+  }
 
   /* 丁达尔光：生成漂浮浮尘 */
   (function seDustInit(){
