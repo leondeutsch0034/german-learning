@@ -3303,6 +3303,23 @@
     #page-serie .se-xl-link.lesen { background:rgba(240,147,251,.06); border-color:rgba(240,147,251,.16); color:#f0abfc; }
     #page-serie .se-xl-link.lesen:hover { background:rgba(240,147,251,.14); border-color:rgba(240,147,251,.35); color:#f5d0fe; }
     #page-serie .se-xl-vocab { font-size:.76rem; color:#94a3b8; line-height:1.55; padding:4px 0 0; }
+
+    /* 相关学习交叉链接 — kultur-reader */
+    #page-kultur-reader .se-crosslinks { margin-top:24px; background:linear-gradient(135deg,rgba(34,211,238,.05),rgba(167,139,250,.03)); border:1px solid rgba(34,211,238,.16); border-radius:16px; padding:18px 20px; }
+    #page-kultur-reader .se-crosslinks .se-xl-title { font-size:.8rem; color:#22d3ee; font-weight:700; letter-spacing:.06em; margin-bottom:13px; }
+    #page-kultur-reader .se-xl-group { margin-bottom:11px; }
+    #page-kultur-reader .se-xl-group:last-child { margin-bottom:0; }
+    #page-kultur-reader .se-xl-group .se-xl-group-title { font-size:.68rem; color:#64748b; font-weight:600; letter-spacing:.05em; margin-bottom:6px; text-transform:uppercase; }
+    #page-kultur-reader .se-xl-links { display:flex; flex-wrap:wrap; gap:5px; }
+    #page-kultur-reader .se-xl-link { display:inline-flex; align-items:center; gap:3px; border-radius:12px; padding:4px 10px; font-size:.73rem; text-decoration:none; font-weight:500; transition:.2s; white-space:nowrap; cursor:pointer; border:1px solid transparent; }
+    #page-kultur-reader .se-xl-link.grammar { background:rgba(246,211,101,.06); border-color:rgba(246,211,101,.16); color:#fde68a; }
+    #page-kultur-reader .se-xl-link.grammar:hover { background:rgba(246,211,101,.14); border-color:rgba(246,211,101,.35); color:#fff; }
+    #page-kultur-reader .se-xl-link.echt { background:rgba(34,211,238,.07); border-color:rgba(34,211,238,.16); color:#bae6fd; }
+    #page-kultur-reader .se-xl-link.echt:hover { background:rgba(34,211,238,.15); border-color:rgba(34,211,238,.35); color:#e0f2fe; }
+    #page-kultur-reader .se-xl-link.lesen { background:rgba(240,147,251,.06); border-color:rgba(240,147,251,.16); color:#f0abfc; }
+    #page-kultur-reader .se-xl-link.lesen:hover { background:rgba(240,147,251,.14); border-color:rgba(240,147,251,.35); color:#f5d0fe; }
+    #page-kultur-reader .se-xl-vocab { font-size:.76rem; color:#94a3b8; line-height:1.55; padding:4px 0 0; }
+
     @media(max-width:600px){ #page-serie{padding:20px 12px 40px} #page-serie .se-header h2{font-size:1.4rem} #page-serie .se-vocab{grid-template-columns:1fr} #page-serie .se-line{max-width:100%} }
 
     /* ═══════════════════════════════════════════
@@ -79343,6 +79360,8 @@ window.showKulturEp = function(ep) {
         }
       }
   } catch(e) {}
+  /* 渲染交叉链接 */
+  setTimeout(function(){ renderKulturCrosslinks(ep); }, 60);
 };
 window.shareKulturLink = function() {
   var ep = window._currentKulturEp || '1';
@@ -88723,6 +88742,35 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     43: { grammar:[{l:'Konjunktiv II (höfliche Bitte)',a:'b1s8',p:'b1grammar'},{l:'现在完成时 (Berufserfahrung)',a:'s17'},{l:'连词 (da, weil, dass)',a:'s14'},{l:'可分动词 (ein|laden, vor|stellen)',a:'s6'}], lesen:[9,10,16,17,18,19], echt:['Minijob发工资','银行开户','约时间','表示开心','听懂确认'], vocab:'求职词汇：die Stelle 岗位 · der Arbeitsvertrag 劳动合同 · die Gehaltsverhandlung 薪资谈判 · die Probezeit 试用期 · die Krankenversicherung 医保 · die Sozialversicherung 社保 · das Jobcenter 就业中心' }
   };
 
+  /* ══════ 你不知道的德国 交叉链接数据 ══════ */
+  window.KULTUR_CROSSLINKS = {
+    1: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'数字、价格与日期',a:'s15'}], lesen:[6,24,26], echt:['超市结账','超市','退瓶换押金','周日商店关门','垃圾分类'], vocab:'der Pfand 押金 · die Sonntagsruhe 周日休息 · die Einbauküche 整体厨房 · die Mülltrennung 垃圾分类 · das FKK 自由身体文化 · die Pfandflasche 押金瓶' },
+    2: { grammar:[{l:'情态动词 (müssen, können)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'}], lesen:[8,14], echt:['约时间','吐槽德铁晚点','药房买药','Biergarten点酒'], vocab:'der Termin 预约 · die Pünktlichkeit 准时 · der Hausarzt 家庭医生 · das Reinheitsgebot 啤酒纯净法 · auf Kipp 内倒 · das Stoßlüften 冲击通风' },
+    3: { grammar:[{l:'介词 (in, an, auf + Dativ)',a:'s16'},{l:'否定 (nicht, kein)',a:'s11'}], lesen:[7,11,13], echt:['租房看房','见房东','抱怨邻居噪音','搬家'], vocab:'die Kaltmiete 冷租 · die Nebenkosten 附加费 · die Ruhezeit 安静时间 · die SCHUFA 信用评分 · der Verein 协会 · die Schönheitsreparatur 美观修缮' },
+    4: { grammar:[{l:'情态动词 (dürfen, sollen)',a:'s5'},{l:'现在完成时 (Perfekt)',a:'s17'}], lesen:[16,17,18], echt:['带病上班','Minijob发工资','表示累了','结束聊天'], vocab:'der Tarifvertrag 集体协议 · die Probezeit 试用期 · der Urlaubstag 年假 · die Krankmeldung 病假条 · der Feierabend 下班 · der Betriebsrat 员工议会' },
+    5: { grammar:[{l:'情态动词 (müssen, dürfen)',a:'s5'},{l:'介词 (方位与方向)',a:'s16'}], lesen:[5,20], echt:['买车票','火车票查票','坐车问路','迟到道歉'], vocab:'der Führerschein 驾照 · die Umweltzone 环保区 · die Fahrradstraße 自行车道 · die Rettungsgasse 救援通道 · der Blitzer 测速相机 · das Carsharing 共享汽车' },
+    6: { grammar:[{l:'情态动词 (können, müssen)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'}], lesen:[1,4], echt:['市民局办登记','申请居留','银行开户','表示困惑'], vocab:'das Sprachniveau 语言水平 · die Ausbildung 职业教育 · die Chancenkarte 机会卡 · die Anerkennung 学历认证 · die Blaue Karte EU 欧盟蓝卡 · die Anmeldung 户口登记' },
+    7: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'主格与宾格 (Akkusativ)',a:'s9'}], lesen:[3,6,24,25,26], echt:['点餐','干杯','分享食物','Biergarten点酒','吃饭祝好'], vocab:'der Stammtisch 常客桌 · die Kaffeetafel 咖啡蛋糕 · grillen 烧烤 · der Spargel 白芦笋 · das Bio-Siegel 有机认证 · das Trinkgeld 小费' },
+    8: { grammar:[{l:'数字、日期与时间',a:'s15'},{l:'现在完成时 (Perfekt)',a:'s17'}], lesen:[15,21], echt:['周末愉快','祝愿/祝福','送礼','干杯','公共假期'], vocab:'das Silvester 新年夜 · die Weiberfastnacht 女人狂欢节 · das Ostern 复活节 · der Maibaum 五月柱 · das Volksfest 民间节日 · der Weihnachtsmarkt 圣诞市场 · der Glühwein 热红酒' },
+    9: { grammar:[{l:'数字、年龄表达',a:'s15'},{l:'连词 (weil, dass)',a:'s14'}], lesen:[9,10], echt:['表示开心','祝愿/祝福','邀请做客'], vocab:'die Elternzeit 育儿假 · das Elterngeld 育儿津贴 · die Einschulung 入学典礼 · die Schultüte 入学锥筒 · die Halbtagsschule 半日制学校 · das Abitur 高中毕业考试' },
+    10: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (obwohl, trotzdem)',a:'s14'}], lesen:[], echt:['垃圾分类','天气抱怨','关门窗'], vocab:'die Energiewende 能源转型 · das Windrad 风力发电机 · das Tempolimit 限速 · das Mehrweg 可重复使用 · das Balkonkraftwerk 阳台太阳能 · der Ökostrom 绿色电力' },
+    11: { grammar:[{l:'情态动词 (sollen, müssen)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'}], lesen:[8,28,30,31], echt:['药房买药','看牙医','带病上班','约时间'], vocab:'die Krankenversicherung 医保 · die Apotheke 药房 · der Notarzt 急诊医生 · der Heilpraktiker 自然疗法师 · die Reha 康复 · die Impfpflicht 疫苗强制' },
+    12: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (weil, obwohl)',a:'s14'}], lesen:[], echt:['手机合同','WiFi密码','分享账号'], vocab:'das Fax 传真 · der Datenschutz 数据保护 · der Breitbandausbau 宽带建设 · der Handyvertrag 手机合同 · bargeldlos 无现金 · die digitale Behörde 数字政府' },
+    13: { grammar:[{l:'现在完成时 (Perfekt)',a:'s17'},{l:'句子语序',a:'s13'}], lesen:[4,15], echt:['公共假期','表达意见'], vocab:'die Stolpersteine 绊脚石 · der Mauerfall 柏林墙倒塌 · die DDR 东德 · die Vergangenheitsbewältigung 克服过去 · der Denkmalschutz 文物保护 · der Tag der Deutschen Einheit 统一日' },
+    14: { grammar:[{l:'数字与数量',a:'s15'},{l:'否定 (kein, nicht)',a:'s11'}], lesen:[2], echt:['银行开户','退税报税','问价格'], vocab:'das Sparbuch 存折 · die Aktienkultur 股票文化 · der Bausparvertrag 建房储蓄合同 · die Schuldenbremse 债务刹车 · die SCHUFA 信用评分 · die Riester-Rente 里斯特养老金' },
+    15: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'名词复数',a:'s8'}], lesen:[], echt:['表示惊讶','天气抱怨'], vocab:'die Hundesteuer 养狗税 · der Hundeführerschein 养狗驾照 · die Katzenkultur 猫文化 · das Tierheim 动物收容所 · das Wildschwein 野猪 · die Wespe 黄蜂' },
+    16: { grammar:[{l:'现在完成时 (Perfekt)',a:'s17'},{l:'介词 (方向与地点)',a:'s16'}], lesen:[15,21,23], echt:['周末愉快','走大运','表示开心'], vocab:'der Urlaubstag 年假 · das Reisefieber 旅行热 · der Wanderweg 徒步路线 · der Badesee 天然湖 · die Ferienwohnung 度假公寓 · der Campingplatz 露营地' },
+    17: { grammar:[{l:'情态动词 (können, müssen)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'},{l:'连词 (weil, dass)',a:'s14'}], lesen:[10,13], echt:['大学食堂','图书馆学习','约教授','考试挂科'], vocab:'das Abitur 高考 · die Studiengebühren 学费 · der Numerus Clausus 限制专业 · das Studienkolleg 预科 · der Werkstudent 打工学生 · das Studentenwohnheim 学生宿舍 · die WG 合租' },
+    18: { grammar:[{l:'人称代词 (du, Sie)',a:'s2'},{l:'情态动词 (können, dürfen)',a:'s5'}], lesen:[3,14], echt:['打招呼','送礼','拒绝/算了','表示没问题','道歉'], vocab:'das Du/Sie 你/您 · die Low-Context-Kultur 低语境文化 · der Geburtstag 生日 · der Abstand 距离 · das Geschenk 礼物 · Nein ist Nein 不就是不' },
+    19: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (obwohl, weil)',a:'s14'}], lesen:[7], echt:['天气抱怨','抱怨天热','羡慕有空调','关门窗'], vocab:'die Klimaanlage 空调 · die Passivkühlung 被动降温 · der Strompreis 电价 · der Denkmalschutz 文物保护 · die Wärmepumpe 热泵 · die Dämmung 保温层' },
+    20: { grammar:[{l:'介词 (in, an, auf + Dativ)',a:'s16'},{l:'主格与宾格 (Akkusativ)',a:'s9'}], lesen:[7,11,12,13], echt:['租房看房','见房东','搬家','抱怨邻居噪音','室友会议'], vocab:'die WG 合租 · das WG-Casting 合租面试 · die Kaltmiete 冷租 · die Warmmiete 暖租 · die Kaution 押金 · der Mieterverein 租客协会 · die Kehrwoche 扫除周' },
+    21: { grammar:[{l:'连词 (weil, dass, wenn)',a:'s14'},{l:'现在完成时 (Perfekt)',a:'s17'}], lesen:[10,13], echt:['大学食堂','图书馆学习','考试挂科','约教授','咖啡馆自习'], vocab:'die Uni/FH 大学/应用科学大学 · das Semesterticket 学期票 · das BAföG 助学金 · die Mensa 食堂 · die Bibliothek 图书馆 · die Klausur 笔试 · endgültig nicht bestanden 最终不及格' },
+    22: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'否定 (nicht, kein)',a:'s11'}], lesen:[6], echt:['垃圾分类','退瓶换押金','超市结账'], vocab:'der Gelbe Sack 黄色垃圾袋 · die Bio-Tonne 生物垃圾桶 · der Glascontainer 玻璃回收箱 · der Restmüll 残余垃圾 · das Pfandsystem 押金系统 · der Sperrmüll 大件垃圾' },
+    23: { grammar:[{l:'情态动词 (müssen, sollen)',a:'s5'},{l:'否定 (nicht, kein)',a:'s11'}], lesen:[7,12], echt:['关门窗','见房东','抱怨邻居噪音'], vocab:'die Heizung 暖气 · das Thermostat 温控阀 · das Stoßlüften 冲击通风 · der Schimmel 霉菌 · die Nebenkostenabrechnung 附加费账单 · die Fußbodenheizung 地暖 · der Energieausweis 能源证书' },
+    24: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'名词复数',a:'s8'}], lesen:[24,26], echt:['点餐','超市','吃饭祝好'], vocab:'das Brot 面包 · die Bäckerei 面包店 · das Brötchen 小面包 · die Semmel 小面包(南德) · das Abendbrot 冷晚餐 · das Vollkornbrot 全麦面包 · die Brezel 椒盐卷饼' },
+    25: { grammar:[{l:'连词 (und, aber, oder)',a:'s14'},{l:'动词现在时变位',a:'s3'}], lesen:[14,15], echt:['表示开心','干杯','口头禅','表示赞同'], vocab:'die Vereinsfarben 俱乐部颜色 · der Stehplatz 站席 · die Südkurve 南看台 · die 50+1-Regel 50+1规则 · die Fanmeile 球迷大道 · der Dorfverein 乡村俱乐部 · der DFB-Pokal 德国杯' }
+  };
+
   /* ══════ 渲染交叉链接 ══════ */
   function renderSerieCrosslinks(ep) {
     var page = document.getElementById('page-serie');
@@ -88779,6 +88827,64 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 
     /* 插入到 .se-traps 之后 */
     traps.insertAdjacentHTML('afterend', html);
+  }
+
+  /* ══════ 渲染 kultur-reader 交叉链接 ══════ */
+  function renderKulturCrosslinks(ep) {
+    var page = document.getElementById('page-kultur-reader');
+    if (!page) return;
+    var epDiv = page.querySelector('.kd-episode[data-ep="' + ep + '"]');
+    if (!epDiv) return;
+    /* 已有则不重复渲染 */
+    if (epDiv.querySelector('.se-crosslinks')) return;
+
+    var data = window.KULTUR_CROSSLINKS && window.KULTUR_CROSSLINKS[ep];
+    if (!data) return;
+
+    /* 找插入位置：.kd-share-ep 之后 */
+    var share = epDiv.querySelector('.kd-share-ep');
+    if (!share) return;
+
+    var html = '<div class="se-crosslinks"><div class="se-xl-title">📎 相关学习</div>';
+
+    /* 语法 */
+    if (data.grammar && data.grammar.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">📖 语法 Grammatik</div><div class="se-xl-links">';
+      for (var g = 0; g < data.grammar.length; g++) {
+        var gi = data.grammar[g];
+        html += '<a class="se-xl-link grammar" href="javascript:void(0)" onclick="navGrammar(\'' + gi.a + '\',\'' + (gi.p || 'grammar') + '\')" title="跳转到语法对应章节">' + gi.l + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 阅读 */
+    if (data.lesen && data.lesen.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">📖 阅读朗读 Lesen</div><div class="se-xl-links">';
+      for (var rd = 0; rd < data.lesen.length; rd++) {
+        var ln = data.lesen[rd];
+        html += '<a class="se-xl-link lesen" href="javascript:void(0)" onclick="navLesen(\'' + ln + '\')" title="跳转到A1阅朗读对应文章">📄 文章 #' + ln + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 地道德语 */
+    if (data.echt && data.echt.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">💬 地道德语 Echt Deutsch</div><div class="se-xl-links">';
+      for (var e = 0; e < data.echt.length; e++) {
+        html += '<a class="se-xl-link echt" href="javascript:void(0)" onclick="navEcht(\'' + data.echt[e].replace(/'/g, "\\'") + '\')" title="跳转到地道德语对应分类">' + data.echt[e] + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 词汇主题 */
+    if (data.vocab) {
+      html += '<div class="se-xl-vocab">📒 <b>词汇主题：</b>' + data.vocab + '</div>';
+    }
+
+    html += '</div>';
+
+    /* 插入到 .kd-share-ep 之前（正文与分享按钮之间） */
+    share.insertAdjacentHTML('beforebegin', html);
   }
 
   /* 丁达尔光：生成漂浮浮尘 */
