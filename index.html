@@ -4477,6 +4477,7 @@ function createLoginPromptCard() {
 	    desc:'精选德语学习资源 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料 · 一站式汇总',
 	    tags:'资源汇总 · 词典 · 媒体 · 工具 · 社区',
 	    c1:'#0d9488', c2:'#2dd4bf', locked:false },
+
 	];
 // 学习站分组：把同一级别分散的栏目收纳进一张"总模块"卡片，点进去后再分流。
 // 新增级别只需在此登记，并给对应 MODULES 项加 group:'<key>' + hub* 字段，三处自动同步。
@@ -4520,7 +4521,7 @@ function renderNav() {
     }
     var lockIcon = m.locked ? ' 🔒' : '';
     h += '<button onclick="showPage(\'' + m.id + '\')" id="nav-' + m.id + '" class="nav-btn">' + m.icon + ' ' + m.navLabel + lockIcon + '</button>';
-  }
+			}
   h += '<button id="search-nav-btn" onclick="openSearch()" class="nav-btn" style="background:linear-gradient(90deg,#5b21b6,#7c3aed);color:#fff;opacity:1;border-color:rgba(196,181,253,.6);font-weight:600">🔍 搜索</button>';
   document.write('<div class="nav-inner">' + h + '</div>');
 }
@@ -4915,6 +4916,13 @@ function escHtml(s) {
   window.addEventListener('scroll', function(){
     showBottomBar();
   }, { passive: true });
+  // 触摸/点击页面任意位置也能唤出底部按钮（短页面无滚动时也能用）
+  document.addEventListener('touchstart', function(){
+    showBottomBar();
+  }, { passive: true });
+  document.addEventListener('click', function(){
+    showBottomBar();
+  });
   // 页面切换时短暂显示
   var _origShowPage = window.showPage;
   if (typeof _origShowPage === 'function' && !window.showPage._bbWrapped) {
@@ -4924,7 +4932,7 @@ function escHtml(s) {
       return r;
     };
     window.showPage._bbWrapped = true;
-  }
+			}
 })();
 
 // 键盘快捷键 Ctrl+F / Cmd+F
@@ -4979,8 +4987,6 @@ document.addEventListener('keydown', function(e) {
   <div class="hero-links">
   <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
   <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
-  <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
-  <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
   </div>
 </div>
 
@@ -4999,7 +5005,6 @@ document.addEventListener('keydown', function(e) {
         <span class="wds-num" id="wds-num"></span>
         <span>
           <button class="wds-share-btn" onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())">📸 分享</button>
-          <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 201 条 →</a>
         </span>
       </div>
     </div>
@@ -5012,6 +5017,15 @@ document.addEventListener('keydown', function(e) {
 <!-- 主要模块 -->
 <div class="grid">
   <script>renderCards();</script>
+  <!-- 深度文字卡片（独立外部页面） -->
+  <a class="card" href="深度文字卡片.html" target="_blank" rel="noopener" style="--ac:#d4a853">
+    <div class="card-top"><div class="card-icon-wrap">💭</div><span class="card-num">+</span></div>
+    <h2>Tiefe Gedanken</h2>
+    <span class="card-sub-de">Philosophische Karten — Deutsch · Englisch · Chinesisch</span>
+    <p>60张深度思考卡片 · 中德英三语对照 · 哲思金句 · 轮播翻阅</p>
+    <span class="tag">哲思 · 三语 · 金句 · 每日启发</span>
+    <span class="card-arrow">↗</span>
+  </a>
 </div>
 
 <!-- 官方链接 -->
@@ -5117,7 +5131,6 @@ document.addEventListener('keydown', function(e) {
   <div class="wds-grid" id="wds-grid" style="max-width:1040px;margin:0 auto;padding:0 20px"></div>
   <div class="wds-empty" id="wds-empty" style="text-align:center;color:#64748b;font-size:.9rem;padding:50px 20px">🔍 没有找到匹配的冷知识，换个关键词试试</div>
   <div class="wds-page-back" style="text-align:center;margin-top:36px">
-    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
   </div>
 </div>
 <script>
@@ -5136,7 +5149,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-a1hub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat A1</div>
     <h1>A1 学习站</h1>
     <p class="a1hub-sub">语法 · 听力 · 阅朗读 · 写作 · 综合自测 —— A1 全部内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练</p>
@@ -5165,7 +5177,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-a2hub" class="page hub-page" style="--hub:#67e8f9;--hub-soft:rgba(103,232,249,.13)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat A2</div>
     <h1>A2 学习站</h1>
     <p class="a1hub-sub">语法 · 听力 · 阅读 · 写作 · 单元综合 —— A2 全部内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练</p>
@@ -5194,7 +5205,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-b1hub" class="page hub-page" style="--hub:#93c5fd;--hub-soft:rgba(147,197,253,.13)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B1</div>
     <h1>B1 学习站</h1>
     <p class="a1hub-sub">语法 · 语法抄写 · 听力 · 阅读 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
@@ -5223,7 +5233,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-b2hub" class="page hub-page" style="--hub:#f59e0b;--hub-soft:rgba(245,158,11,.13)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B2</div>
     <h1>B2 学习站</h1>
     <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 学术阅读 · 听力进阶 · 写作训练</p>
@@ -5245,7 +5254,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-c1hub" class="page hub-page" style="--hub:#ef4444;--hub-soft:rgba(239,68,68,.13)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat C1</div>
     <h1>C1 学习站</h1>
     <p class="a1hub-sub">C1 高级内容 · 学术德语 · 专业写作 · 文化深读 · 母语级表达</p>
@@ -5272,7 +5280,6 @@ document.addEventListener('keydown', function(e) {
   <div style="max-width:1000px;margin:0 auto;padding:30px 20px 40px;color:#e2e8f0">
 
     <div style="text-align:center;padding:28px 20px 20px;margin-bottom:28px;background:linear-gradient(180deg,rgba(45,212,191,.08),rgba(45,212,191,.02));border:1px solid rgba(45,212,191,.15);border-radius:14px">
-      <a href="#" onclick="showPage('index'); return false;" style="display:inline-block;color:rgba(45,212,191,.5);font-size:.78rem;margin-bottom:12px;text-decoration:none;transition:.2s" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='rgba(45,212,191,.5)'">← 返回首页</a>
       <h1 style="font-size:1.6rem;color:#2dd4bf;margin-bottom:6px">🌐 全网资源推荐</h1>
       <p style="color:rgba(200,210,225,.45);font-size:.82rem;line-height:1.7">精选德语学习资源一站式汇总 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料<br>持续更新，欢迎收藏</p>
     </div>
@@ -5373,7 +5380,6 @@ document.addEventListener('keydown', function(e) {
 <div id="page-prhub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
 
   <div class="a1hub-hero">
-    <a href="#" onclick="showPage('index'); return false;" class="a1hub-back">← 返回首页</a>
     <div class="a1hub-eyebrow">🎙️ AI 发音训练</div>
     <h1>发音训练</h1>
     <p class="a1hub-sub">德语发音器 · 英语发音器 · 德英混淆对照<br>AI 语音识别 · 音素级评分 · 精准纠音 · 假朋友对比</p>
@@ -6610,7 +6616,6 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <div style="text-align:center;margin-top:30px;padding-bottom:30px">
-<a href="#" onclick="showPage('index'); return false;" style="background:#2b6cb0;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;margin-right:12px">🏠 返回首页</a>
 <a href="#" onclick="document.getElementById('page-b1grammar').scrollIntoView({behavior:'smooth'}); return false;" style="background:#1e3a5f;color:#fde68a;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;border:1px solid rgba(246,211,101,.3)">⬆ 回到顶部</a>
 </div>
 
@@ -6631,7 +6636,7 @@ document.addEventListener('keydown', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._b1gWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('b1g-toc-top');
@@ -7452,10 +7457,6 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <div class="nav-bar">
-  <a href="#" onclick="showPage('grammar'); return false;" style="background:#2b6cb0;color:#fff">📖 语法总结</a>
-  <a href="#" onclick="showPage('schreiben'); return false;" style="background:#276749;color:#fff">✍️ 写作练习</a>
-  <a href="#" onclick="showPage('mix'); return false;" style="background:#6b46c1;color:#fff">📝 综合练习</a>
-  <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a">🏠 首页</a>
 </div>
 
 <a href="#hr-toc-top" class="hr-backtotoc" title="回到目录">📋</a>
@@ -7475,7 +7476,7 @@ document.addEventListener('keydown', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._hrWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('hr-toc-top');
@@ -8416,10 +8417,6 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <div class="nav-bar">
-  <a href="#" onclick="showPage('grammar'); return false;" style="background:#2b6cb0;color:#fff">📖 语法总结</a>
-  <a href="#" onclick="showPage('hoeren'); return false;" style="background:#6b21a8;color:#fff">🎧 听力练习</a>
-  <a href="#" onclick="showPage('mix'); return false;" style="background:#6b46c1;color:#fff">📝 综合练习</a>
-  <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a">🏠 首页</a>
 </div>
 
 
@@ -9517,7 +9514,7 @@ document.addEventListener('keydown', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._sbWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('sb-toc-top');
@@ -10098,10 +10095,6 @@ document.addEventListener('keydown', function(e) {
 
 <!-- ===== 底部导航 ===== -->
 <div class="nav-bar">
-  <a href="#" onclick="showPage('grammar'); return false;" style="background:#2b6cb0;color:#fff">📖 语法总结</a>
-  <a href="#" onclick="showPage('hoeren'); return false;" style="background:#6b21a8;color:#fff">🎧 听力练习</a>
-  <a href="#" onclick="showPage('schreiben'); return false;" style="background:#276749;color:#fff">✍️ 写作练习</a>
-  <a href="#" onclick="showPage('grammar'); return false;" style="background:#1e3a5f;color:#fde68a">📖 语法·完成时</a>
 </div>
 
 <div style="text-align:center;color:#9f7aea;font-size:.8rem;margin-top:10px;margin-bottom:20px">
@@ -10987,7 +10980,7 @@ document.addEventListener('keydown', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._mxWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('mx-toc-top');
@@ -12947,10 +12940,6 @@ document.addEventListener('keydown', function(e) {
 <div style="text-align:center;margin-top:28px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.08)">
   <p style="font-size:1.1rem;color:#4a5568;margin-bottom:10px">🎯 配套学习</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a href="#" onclick="showPage('grammar'); return false;" style="background:#2b6cb0;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">📖 语法总结</a>
-    <a href="#" onclick="showPage('hoeren'); return false;" style="background:#553c9a;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">🎧 听力练习</a>
-    <a href="#" onclick="showPage('mix'); return false;" style="background:#6b46c1;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">📝 综合练习</a>
-    <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;border:1px solid rgba(246,211,101,.3)">🏠 返回首页</a>
   </div>
 </div>
 
@@ -12971,7 +12960,7 @@ document.addEventListener('keydown', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._datWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('dat-toc-top');
@@ -13065,7 +13054,7 @@ window.gotoSection = function(secId) {
   if (page && page.id && page.id.indexOf('page-') === 0) {
     var pageId = page.id.slice(5); // 去掉 'page-'
     showPage(pageId); // showPage 内含权限校验 + scrollTo(0,0)
-  }
+			}
   // showPage 会把页面顶到最上面，延迟一帧再滚到目标 section
   // 同时把 hash 更新为精确的 section ID，分享出去直达目标段落
   setTimeout(function() {
@@ -13116,7 +13105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       history.replaceState(null, '', '#kultur-reader&ep=' + ep);
     } else {
       showPage('kultur-reader');
-    }
+			}
   } else if (hashId && document.getElementById('page-' + hashId)) {
     showPage(hashId);
   } else if (hashId && document.getElementById(hashId)) {
@@ -13160,7 +13149,7 @@ window.addEventListener('popstate', function() {
   if (sm) {
     window._currentSerieEp = parseInt(sm[1]);
     showPage('serie');
-  }
+			}
 });
 </script>
 
@@ -16632,7 +16621,7 @@ function brToggleSample4() {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._lsWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('ls-toc-top');
@@ -16701,7 +16690,7 @@ function brToggleSample4() {
       return r;
     };
     window.showPage._lesenInitWrapped=true;
-  }
+			}
 })();
 </script>
 
@@ -18860,7 +18849,7 @@ document.addEventListener('click', function(e) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._a2uWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('a2u-toc-top');
@@ -30378,7 +30367,7 @@ function b1S12CheckB(){
         return r;
       };
       window.showPage._b1lWrapped = true;
-    }
+			}
 
     /* 回到目录按钮点击 */
     if(btoc) btoc.addEventListener('click', function(e){
@@ -30419,7 +30408,7 @@ function b1S12CheckB(){
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._a2gWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('a2g-top');
@@ -34807,7 +34796,7 @@ function b1S12CheckB(){
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._a2sWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('a2s-toc-top');
@@ -39361,170 +39350,170 @@ function b1S12CheckB(){
 <div class="kultur-sec">
   <div class="kultur-sec-title">🇩🇪 你不知道的德国 <span>25 期深度专栏 · Deutschland aus erster Hand</span></div>
   <div class="kultur-episodes">
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(1);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=1');showPage('kultur-reader');return false;">
       <span class="k-ep-num">01</span>
       <span class="k-ep-emoji">🛒</span>
       <div class="k-ep-title">超市与生活</div>
       <div class="k-ep-sub">Supermarkt & Alltag</div>
       <div class="k-ep-desc">Pfandflaschen, Tüten, Bio-Siegel — 德国超市的生存法则</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(2);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=2');showPage('kultur-reader');return false;">
       <span class="k-ep-num">02</span>
       <span class="k-ep-emoji">📋</span>
       <div class="k-ep-title">规则与习惯</div>
       <div class="k-ep-sub">Regeln & Gewohnheiten</div>
       <div class="k-ep-desc">Ruhezeiten, Mülltrennung, Anmeldung — 德国人的秩序世界</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(3);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=3');showPage('kultur-reader');return false;">
       <span class="k-ep-num">03</span>
       <span class="k-ep-emoji">🏠</span>
       <div class="k-ep-title">住与行</div>
       <div class="k-ep-sub">Wohnen & Mobilität</div>
       <div class="k-ep-desc">WG, Nebenkosten, Fahrradstadt — 住在德国,行在德国</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(4);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=4');showPage('kultur-reader');return false;">
       <span class="k-ep-num">04</span>
       <span class="k-ep-emoji">💼</span>
       <div class="k-ep-title">工作与职场</div>
       <div class="k-ep-sub">Arbeit & Karriere</div>
       <div class="k-ep-desc">Urlaub, Krankmeldung, Feierabend — 德国职场文化</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(5);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=5');showPage('kultur-reader');return false;">
       <span class="k-ep-num">05</span>
       <span class="k-ep-emoji">🚆</span>
       <div class="k-ep-title">交通与出行</div>
       <div class="k-ep-sub">Verkehr & Reisen</div>
       <div class="k-ep-desc">Deutschlandticket, Bahn, Autobahn — 德国的交通网络</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(6);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=6');showPage('kultur-reader');return false;">
       <span class="k-ep-num">06</span>
       <span class="k-ep-emoji">🛬</span>
       <div class="k-ep-title">落地德国</div>
       <div class="k-ep-sub">Ankunft in Deutschland</div>
       <div class="k-ep-desc">Anmeldung, Bankkonto, Krankenkasse — 抵德第一周必做清单</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(7);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=7');showPage('kultur-reader');return false;">
       <span class="k-ep-num">07</span>
       <span class="k-ep-emoji">🍽️</span>
       <div class="k-ep-title">饮食与社交</div>
       <div class="k-ep-sub">Essen & Sozialleben</div>
       <div class="k-ep-desc">Abendbrot, Kaffeetafel, Verein — 德国人的餐桌与社交圈</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(8);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=8');showPage('kultur-reader');return false;">
       <span class="k-ep-num">08</span>
       <span class="k-ep-emoji">🎄</span>
       <div class="k-ep-title">节日与庆祝</div>
       <div class="k-ep-sub">Feste & Feiern</div>
       <div class="k-ep-desc">Weihnachtsmarkt, Karneval, Oktoberfest — 德国人的年历</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(9);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=9');showPage('kultur-reader');return false;">
       <span class="k-ep-num">09</span>
       <span class="k-ep-emoji">👶</span>
       <div class="k-ep-title">育儿与教育</div>
       <div class="k-ep-sub">Kinder & Bildung</div>
       <div class="k-ep-desc">Elternzeit, Kindergarten, Schulsystem — 德国养娃与求学之路</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(10);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=10');showPage('kultur-reader');return false;">
       <span class="k-ep-num">10</span>
       <span class="k-ep-emoji">🌍</span>
       <div class="k-ep-title">环保与能源</div>
       <div class="k-ep-sub">Energie & Umwelt</div>
       <div class="k-ep-desc">Energiewende, Balkonkraftwerk, Windkraft — 德国环保密码</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(11);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=11');showPage('kultur-reader');return false;">
       <span class="k-ep-num">11</span>
       <span class="k-ep-emoji">🏥</span>
       <div class="k-ep-title">医疗与健康</div>
       <div class="k-ep-sub">Gesundheit & Medizin</div>
       <div class="k-ep-desc">Krankenkasse, Hausarzt, Kur — 德国医疗体系</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(12);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=12');showPage('kultur-reader');return false;">
       <span class="k-ep-num">12</span>
       <span class="k-ep-emoji">💻</span>
       <div class="k-ep-title">数字生活</div>
       <div class="k-ep-sub">Digitales Leben</div>
       <div class="k-ep-desc">Fax, Bargeld, Datenschutz — 德国数字化的魔幻现实</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(13);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=13');showPage('kultur-reader');return false;">
       <span class="k-ep-num">13</span>
       <span class="k-ep-emoji">🧱</span>
       <div class="k-ep-title">历史记忆</div>
       <div class="k-ep-sub">Erinnerungskultur</div>
       <div class="k-ep-desc">Mauerfall, Stolpersteine, Ost/West — 德国如何面对历史</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(14);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=14');showPage('kultur-reader');return false;">
       <span class="k-ep-num">14</span>
       <span class="k-ep-emoji">💰</span>
       <div class="k-ep-title">理财与储蓄</div>
       <div class="k-ep-sub">Geld & Sparen</div>
       <div class="k-ep-desc">Sparbuch, Bausparvertrag, Riester — 德式理财哲学</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(15);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=15');showPage('kultur-reader');return false;">
       <span class="k-ep-num">15</span>
       <span class="k-ep-emoji">🐕</span>
       <div class="k-ep-title">宠物与动物</div>
       <div class="k-ep-sub">Tiere & Haustiere</div>
       <div class="k-ep-desc">Hundesteuer, Wolf, Tierheim — 德国人与动物</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(16);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=16');showPage('kultur-reader');return false;">
       <span class="k-ep-num">16</span>
       <span class="k-ep-emoji">🏖️</span>
       <div class="k-ep-title">度假与休闲</div>
       <div class="k-ep-sub">Urlaub & Freizeit</div>
       <div class="k-ep-desc">30 Tage Urlaub, Camping, Schrebergarten — 德式休闲</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(17);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=17');showPage('kultur-reader');return false;">
       <span class="k-ep-num">17</span>
       <span class="k-ep-emoji">🎓</span>
       <div class="k-ep-title">高考后留学德国</div>
       <div class="k-ep-sub">Studium in Deutschland</div>
       <div class="k-ep-desc">APS, Studienkolleg, TestDaF — 留学德国完整路径</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(18);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=18');showPage('kultur-reader');return false;">
       <span class="k-ep-num">18</span>
       <span class="k-ep-emoji">🤝</span>
       <div class="k-ep-title">德国人的社交密码</div>
       <div class="k-ep-sub">Ungeschriebene Sozialregeln</div>
       <div class="k-ep-desc">Du/Sie, 直球沟通, 生日禁忌, 送礼清单 — 6个社交潜规则</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(19);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=19');showPage('kultur-reader');return false;">
       <span class="k-ep-num">19</span>
       <span class="k-ep-emoji">🥵</span>
       <div class="k-ep-title">德国空调为什么这么少？</div>
       <div class="k-ep-sub">Klimaanlage? Fehlanzeige!</div>
       <div class="k-ep-desc">3%安装率、厚墙被动降温、Denkmalschutz — 德国人不装空调的真相</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(20);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=20');showPage('kultur-reader');return false;">
       <span class="k-ep-num">20</span><span class="k-ep-emoji">🏠</span>
       <div class="k-ep-title">德国租房全攻略</div>
       <div class="k-ep-sub">WG, Kaltmiete & Kaution</div>
       <div class="k-ep-desc">空壳租房、Mietvertrag合同、Mieterverein — 德国租房的生存法则</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(21);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=21');showPage('kultur-reader');return false;">
       <span class="k-ep-num">21</span><span class="k-ep-emoji">🎓</span>
       <div class="k-ep-title">德国大学体系</div>
       <div class="k-ep-sub">Uni, FH & Studentenleben</div>
       <div class="k-ep-desc">Semesterticket、BAföG助学金、Mensa — 在德国上大学和你想的不一样</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(22);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=22');showPage('kultur-reader');return false;">
       <span class="k-ep-num">22</span><span class="k-ep-emoji">♻️</span>
       <div class="k-ep-title">德国垃圾分类</div>
       <div class="k-ep-sub">Mülltrennung deluxe</div>
       <div class="k-ep-desc">Gelber Sack、Bio-Tonne、Glascontainer — 扔错垃圾可能被罚款</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(23);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=23');showPage('kultur-reader');return false;">
       <span class="k-ep-num">23</span><span class="k-ep-emoji">🌡️</span>
       <div class="k-ep-title">德国供暖与通风</div>
       <div class="k-ep-sub">Heizung, lüften, Schimmel</div>
       <div class="k-ep-desc">Stoßlüften冲击通风、温控阀Thermostat — 德国房子的生存技能</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(24);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=24');showPage('kultur-reader');return false;">
       <span class="k-ep-num">24</span><span class="k-ep-emoji">🥨</span>
       <div class="k-ep-title">德国面包文化</div>
       <div class="k-ep-sub">Brotkultur & UNESCO</div>
       <div class="k-ep-desc">300+种面包世界遗产、Brötchen方言地图 — 德国人是面包做的</div>
     </a>
-    <a class="kultur-ep-card" href="#" onclick="showPage('kultur-reader');showKulturEp(25);return false">
+      <a class="kultur-ep-card" href="#" onclick="history.replaceState(null,'','#kultur-reader&ep=25');showPage('kultur-reader');return false;">
       <span class="k-ep-num">25</span><span class="k-ep-emoji">⚽</span>
       <div class="k-ep-title">德国足球文化</div>
       <div class="k-ep-sub">50+1, Südkurve & Dorfverein</div>
@@ -39885,7 +39874,6 @@ function b1S12CheckB(){
       <div class="kd-sub">25 期第一视角德国真相 · 下拉选择阅读</div>
     </div>
     <div class="kd-topbar">
-      <a href="#" onclick="showPage('kultur');return false" class="kd-back">← 返回文化专栏</a>
       <span class="kd-ep-label" id="kdEpLabel">超市与生活</span>
       <select class="kd-ep-select" id="kdEpSelect" onchange="showKulturEp(this.value)">
               <option value="1">第 1 集 · 超市与生活</option>
@@ -79513,7 +79501,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     return r;
   };
   window.showPage._kdInitWrapped = true;
-}
+			}
 (function() {
   var hash = window.location.hash.replace('#', '');
   if (hash.indexOf('kultur-reader&ep=') === 0) {
@@ -81456,8 +81444,6 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   <div class="echt-grid" id="echt-grid"></div>
   <div class="echt-empty" id="echt-empty">🔍 没有找到匹配的表达，换个关键词或分类试试</div>
   <div class="echt-back" style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
-    <a href="#" onclick="showPage('echt-share');return false" style="display:inline-block;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;padding:10px 28px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s">📤 分享此页给朋友</a>
-    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
   </div>
 </div>
 <script>
@@ -81882,7 +81868,6 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   <div class="de-grid" id="de-en-sent-grid"></div>
   <div class="de-empty" id="de-en-empty">🔍 没有找到匹配的条目，换个关键词试试</div>
   <div class="de-back">
-    <a href="#" onclick="showPage('index');return false">🏠 返回首页</a>
   </div>
 </div>
 <script>
@@ -96834,7 +96819,7 @@ function gsRevealAllChapter(chId) {
       var _orig = window.showPage;
       window.showPage = function(){ var r = _orig.apply(this, arguments); syncBtoc(); return r; };
       window.showPage._gsWrapped = true;
-    }
+			}
     btoc.addEventListener('click', function(e){
       e.preventDefault();
       var toc = document.getElementById('gs-toc-top');
@@ -96863,7 +96848,7 @@ function gsRevealAllChapter(chId) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._a2hWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('hoer-toc');
@@ -96964,7 +96949,6 @@ function gsRevealAllChapter(chId) {
 </div>
 
 <div class="gk-container">
-  <a class="back-link" href="#" onclick="showPage('index');return false">← 返回首页</a>
 
   <div class="gk-stats">
     <div class="gk-stat"><div class="num">150</div><div class="lbl">满分</div></div>
@@ -97226,7 +97210,7 @@ function gsRevealAllChapter(chId) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._gkWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('gk-toc-top');
@@ -97842,7 +97826,7 @@ function gsRevealAllChapter(chId) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._b1hWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('b1hoer-toc');
@@ -102396,7 +102380,7 @@ function gsRevealAllChapter(chId) {
       return r;
     };
     window.showPage._b1exWrapped = true;
-  }
+			}
 
   /* Separator 点击回到目录 */
   var _page = document.getElementById('page-b1-extensiv');
@@ -107960,11 +107944,6 @@ function gsRevealAllChapter(chId) {
 <div style="text-align:center;margin-top:28px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.08)">
   <p style="font-size:1.1rem;color:#4a5568;margin-bottom:10px">🎯 配套学习材料</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a href="#" onclick="showPage('hoeren'); return false;" style="background:#2b6cb0;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">🎧 听力练习</a>
-    <a href="#" onclick="showPage('schreiben'); return false;" style="background:#276749;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">✍️ 写作练习</a>
-    <a href="#" onclick="showPage('mix'); return false;" style="background:#6b46c1;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">📝 综合练习</a>
-    <a href="#" onclick="showPage('daten'); return false;" style="background:#0d9488;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600">📊 数据图表</a>
-    <a href="#" onclick="showPage('index'); return false;" style="background:#1e3a5f;color:#fde68a;padding:10px 22px;border-radius:20px;text-decoration:none;font-weight:600;border:1px solid rgba(246,211,101,.3)">🏠 返回首页</a>
   </div>
 </div>
 
@@ -107985,7 +107964,7 @@ function gsRevealAllChapter(chId) {
       var _orig=window.showPage;
       window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
       window.showPage._gWrapped=true;
-    }
+			}
     btoc.addEventListener('click',function(e){
       e.preventDefault();
       var toc=document.getElementById('top');
@@ -112347,7 +112326,7 @@ function gsRevealAllChapter(chId) {
       return r;
     };
     window.showPage._a2lAllWrapped = true;
-  }
+			}
 })();
 </script>
 
