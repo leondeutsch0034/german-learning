@@ -4913,6 +4913,7 @@ function escHtml(s) {
       document.body.classList.remove('nav-visible');
     }, 2500);
   }
+  window._showBottomBar = showBottomBar;
   window.addEventListener('scroll', function(){
     showBottomBar();
   }, { passive: true });
@@ -4987,6 +4988,8 @@ document.addEventListener('keydown', function(e) {
   <div class="hero-links">
   <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
   <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
+  <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
+  <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
   </div>
 </div>
 
@@ -5005,6 +5008,7 @@ document.addEventListener('keydown', function(e) {
         <span class="wds-num" id="wds-num"></span>
         <span>
           <button class="wds-share-btn" onclick="event.stopPropagation();openWDSShare(window.getWDSIndex())">📸 分享</button>
+          <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 201 条 →</a>
         </span>
       </div>
     </div>
@@ -13071,6 +13075,9 @@ window.addEventListener('message', function(ev) {
   var data = ev.data;
   if (data && data.type === 'goto-section' && typeof data.section === 'string') {
     gotoSection(data.section);
+  }
+  if (data && data.type === 'show-nav') {
+    if (typeof window._showBottomBar === 'function') window._showBottomBar();
   }
 });
 
@@ -39334,6 +39341,24 @@ function b1S12CheckB(){
   </div>
 
 </div>
+</div>
+
+<!-- ══════════ 知识图谱 · 3D交互 ══════════ -->
+<div id="page-wissensgraph" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="知识图谱3D.html"
+    style="width:100%;height:100vh;border:none;display:block"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ══════════ 单词关联索引 ══════════ -->
+<div id="page-vocab-index" class="page" style="background:#0a1428;min-height:100vh;padding:0">
+  <iframe
+    src="词汇索引.html"
+    style="width:100%;height:100vh;border:none;display:block"
+    loading="lazy">
+  </iframe>
 </div>
 
 <div id="page-kultur" class="page" style="background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);min-height:100vh;padding:0 0 40px">
@@ -79516,7 +79541,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <!-- ══════════ 你不知道的德国 · 独立栏目 ══════════ -->
 <div id="page-wissnicht" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe src="你不知道的德国_17篇.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -81837,7 +81862,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-echt-share" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="地道德语_引流.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -88960,7 +88985,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-serie-share" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="林夏在德国_引流.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -88969,7 +88994,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-grammar-cards" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="德语A1语法速查_内容引流页.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -88978,7 +89003,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-grammar-ak" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="内容引流_04_Akkusativ第四格.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -88987,7 +89012,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-grammar-mv" class="page" style="background:#0a1428;min-height:100vh;padding:0">
   <iframe
     src="内容引流_05_情态动词.html"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     loading="lazy">
   </iframe>
 </div>
@@ -88996,7 +89021,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-pronunciation" class="page" style="background:#0f172a;min-height:100vh;padding:0">
   <iframe
     src="https://de.leonsdeutschzentrum.com/"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     allow="microphone"
     loading="lazy">
   </iframe>
@@ -89006,7 +89031,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <div id="page-english-pronunciation" class="page" style="background:#0f172a;min-height:100vh;padding:0">
   <iframe
     src="https://en.leonsdeutschzentrum.com/"
-    style="width:100%;height:calc(100vh - 52px);border:none;display:block"
+    style="width:100%;height:100vh;border:none;display:block"
     allow="microphone"
     loading="lazy">
   </iframe>
