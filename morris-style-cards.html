@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<!-- 微信 webview 优化 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Leon · 深度文字卡片</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #1a1a2e;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  /* 外层卡片容器 */
+  .card {
+    width: 1080px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* 内层：设计画布（桌面透明穿透，手机端固定尺寸被缩放） */
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* ================================================
+     手机竖屏：一屏一卡，scroll-snap + transform 缩放
+     ================================================ */
+  @media (max-width: 768px) {
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    body {
+      display: block;
+      padding: 0;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: none;
+      touch-action: pan-y;
+    }
+    .card {
+      /* 填满完整视口（兼容三档 dvh 降级） */
+      width: 100vw;
+      height: 100vh;
+      height: 100lvh;
+      height: 100dvh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      /* 背景延伸到安全区 */
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .card-inner {
+      /* 固定设计尺寸，由 JS 缩放 */
+      width: 1080px;
+      height: 1440px;
+      flex-shrink: 0;
+      transform-origin: center center;
+      will-change: transform;
+    }
+  }
+
+  /* ===== 小红书轮播计数 ===== */
+  .counter {
+    position: absolute;
+    top: 56px;
+    right: 72px;
+    color: #555;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+    z-index: 2;
+  }
+  .counter .current { color: #d4a853; font-weight: 600; }
+  .card-4 .counter { color: #bbb; }
+  .card-4 .counter .current { color: #8b6914; }
+
+  /* ===== 卡片 1：深黑金 ===== */
+  .card-1 {
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-1 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-1 .accent { color: #d4a853; }
+  .card-1 .text-block { color: #f0ebe3; font-size: 52px; line-height: 1.6; font-weight: 400; letter-spacing: 0.02em; }
+  .card-1 .text-block .question { font-size: 56px; font-weight: 600; margin-bottom: 36px; display: block; color: #fff; }
+  .card-1 .text-block .para { display: block; margin-bottom: 20px; }
+  .card-1 .divider { width: 60px; height: 2px; background: #d4a853; margin: 48px 0; }
+  .card-1 .text-block .punch { font-size: 54px; font-weight: 600; color: #fff; display: block; margin-bottom: 18px; }
+  .card-1 .watermark { position: absolute; bottom: 60px; right: 80px; color: #333; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 卡片 2：墨蓝 + 暖白 ===== */
+  .card-2 {
+    background: linear-gradient(160deg, #0f1e3a 0%, #0a1428 40%, #0d1b33 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-2 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-2 .label { color: #b8860b; font-size: 30px; letter-spacing: 0.15em; margin-bottom: 50px; font-weight: 500; }
+  .card-2 .big-line { color: #f6f2ec; font-size: 64px; font-weight: 700; line-height: 1.35; margin-bottom: 36px; }
+  .card-2 .sub-line { color: #aab4c5; font-size: 42px; line-height: 1.55; }
+  .card-2 .highlight { color: #f6d365; font-weight: 600; }
+  .card-2 .watermark { position: absolute; bottom: 60px; right: 80px; color: #2a3a55; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 卡片 3：暖黑 + 金色点缀 ===== */
+  .card-3 {
+    background: #111110;
+    display: flex;
+    align-items: center;
+  }
+  .card-3 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-3 .content { width: 100%; }
+  .card-3 .step { display: flex; align-items: baseline; margin-bottom: 40px; }
+  .card-3 .step-num { color: #d4a853; font-size: 36px; font-weight: 300; min-width: 60px; }
+  .card-3 .step-text { color: #e8e4dd; font-size: 48px; line-height: 1.5; }
+  .card-3 .step-text .strike { text-decoration: line-through; color: #666; }
+  .card-3 .final { color: #fff; font-size: 56px; font-weight: 600; margin-top: 60px; line-height: 1.5; border-left: 4px solid #d4a853; padding-left: 36px; }
+  .card-3 .watermark { position: absolute; bottom: 60px; right: 80px; color: #333; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 卡片 4：象牙白底 + 深色文字 ===== */
+  .card-4 {
+    background: #faf7f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-4 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-4 .top-gold { width: 80px; height: 4px; background: #b8860b; margin-bottom: 60px; }
+  .card-4 .main-text { color: #1a1a1a; font-size: 56px; font-weight: 600; line-height: 1.5; margin-bottom: 48px; }
+  .card-4 .main-text .gold-word { color: #8b6914; }
+  .card-4 .sub-text { color: #555; font-size: 40px; line-height: 1.6; }
+  .card-4 .watermark { position: absolute; bottom: 60px; right: 80px; color: #ccc; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 卡片 5：纯黑 + 极简排版 ===== */
+  .card-5 {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-5 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-5 .top-line { color: #888; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 56px; text-transform: uppercase; }
+  .card-5 .quote { color: #fff; font-size: 58px; font-weight: 300; line-height: 1.5; margin-bottom: 24px; }
+  .card-5 .quote strong { font-weight: 700; }
+  .card-5 .gap { height: 40px; }
+  .card-5 .tail { color: #555; font-size: 38px; line-height: 1.6; }
+  .card-5 .tail em { color: #d4a853; font-style: normal; }
+  .card-5 .watermark { position: absolute; bottom: 60px; right: 80px; color: #222; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 卡片 6：深灰绿 + 哲思 ===== */
+  .card-6 {
+    background: #141814;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-6 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-6 .rule { width: 100%; height: 1px; background: #2a302a; margin-bottom: 60px; }
+  .card-6 .big { color: #e8ede8; font-size: 58px; font-weight: 600; line-height: 1.45; margin-bottom: 36px; }
+  .card-6 .big .glow { color: #c4a45a; }
+  .card-6 .small { color: #7a807a; font-size: 38px; line-height: 1.7; }
+  .card-6 .watermark { position: absolute; bottom: 60px; right: 80px; color: #222; font-size: 28px; letter-spacing: 0.05em; }
+
+  /* ===== 德英翻译条 ===== */
+  .translations {
+    margin-top: auto;
+    padding-top: 28px;
+    border-top: 1px solid rgba(212,168,83,0.25);
+    width: 100%;
+  }
+  .translations .de {
+    color: #999;
+    font-size: 28px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .translations .en {
+    color: #777;
+    font-size: 26px;
+    line-height: 1.5;
+  }
+  .card-4 .translations { border-top-color: rgba(139,105,20,0.2); }
+  .card-4 .translations .de { color: #888; }
+  .card-4 .translations .en { color: #999; }
+
+  /* ===== 打印/导出辅助 ===== */
+  @media print {
+    body { background: white; gap: 0; padding: 0; }
+    .card { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 卡片 1 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">1</span> / 60</div>
+    <div class="text-block">
+      <span class="question">人在什么情况下<span class="accent">会成长</span>？</span>
+      <span class="para">在你不再试图理解一切，</span>
+      <span class="para">只是允许一切<span class="accent">发生</span>的时候。</span>
+      <div class="divider"></div>
+      <span class="punch">人不是被思考重塑的。</span>
+      <span class="para">人是被一次次的<span class="accent">面对、接受、和放下</span>，</span>
+      <span class="para">打破再重组，才慢慢成长起来的。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 2 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">2</span> / 60</div>
+    <div class="label">关 于 学 习</div>
+    <div class="big-line">学一门语言<br>最好的方式是什么？</div>
+    <div class="sub-line">
+      不是背单词。<br>
+      不是学语法。<br><br>
+      是把自己扔进一个<br><span class="highlight">只能说那种语言</span>的场景里，<br>
+      然后活下来。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 3 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">3</span> / 60</div>
+    <div class="content">
+      <div class="step">
+        <span class="step-num">01</span>
+        <span class="step-text"><span class="strike">等准备好了再开始</span></span>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <span class="step-text"><span class="strike">先学完所有理论</span></span>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <span class="step-text"><span class="strike">完美了再发布</span></span>
+      </div>
+      <div class="final">
+        你永远<br>不会"准备好"。<br>
+        跳下去，<br>然后学会游泳。
+      </div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 4 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">4</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">
+      大多数人<br>不是<span class="gold-word">不努力</span>。
+    </div>
+    <div class="sub-text">
+      是在错误的方向上<br>努力得太认真。<br><br>
+      停下来想一想，<br>比跑得更快<br>更需要勇气。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 5 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">5</span> / 60</div>
+    <div class="top-line">AI · 认知</div>
+    <div class="quote">
+      <strong>AI 不会取代你。</strong>
+    </div>
+    <div class="quote">
+      但<strong>会用 AI 的人</strong>会。
+    </div>
+    <div class="gap"></div>
+    <div class="tail">
+      这两句话之间隔着的，<br>
+      不是技术，<br>
+      是<em>认知</em>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 6 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">6</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">
+      人生最大的<span class="glow">遗憾</span>，<br>
+      不是你选错了。
+    </div>
+    <div class="small">
+      是你一直不敢选。<br>
+      然后在多年后的某个深夜，<br>
+      想：<br>
+      "如果当初……"
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- ══════════════ 卡片 7-36 ══════════════ -->
+
+<!-- 卡片 7：焦虑 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">7</span> / 60</div>
+    <div class="text-block">
+      <span class="question">你为什么总是<span class="accent">焦虑</span>？</span>
+      <span class="para">不是因为你做得不够多。</span>
+      <span class="para">而是因为你想要得太多，</span>
+      <span class="para">却不敢承认自己<span class="accent">其实只想要</span>其中一两样。</span>
+      <div class="divider"></div>
+      <span class="punch">焦虑的本质，是欲望太多而决心太少。</span>
+      <span class="para">砍掉一半"想要的"，焦虑自动消失一半。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 8：耐心 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">8</span> / 60</div>
+    <div class="label">关 于 耐 心</div>
+    <div class="big-line">真正厉害的人，<br>都看起来很"慢"。</div>
+    <div class="sub-line">
+      不是他们做事慢。<br>
+      是他们不急着让世界知道<br>自己有多厉害。<br><br>
+      等你知道自己在做什么，<br><span class="highlight">你也不需要快了</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 9：讨好 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">9</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">不敢拒绝别人</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">不敢表达真实想法</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">不敢让别人失望</span></span></div>
+      <div class="final">你以为这是善良。<br>其实是在用"讨好"，<br>换一个不被讨厌的位置。<br><br>真正的连接，<br>从来不需要你委屈自己。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 10：聪明 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">10</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">聪明人最大的陷阱，<br>是以为自己可以<span class="gold-word">绕过</span>笨功夫。</div>
+    <div class="sub-text">他们习惯了用智力走捷径。<br>但有些事情——<br>信任、手艺、深度关系——<br>没有捷径。<br><br>笨功夫，才是真聪明。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 11：时间 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">11</span> / 60</div>
+    <div class="top-line">时间 · 真相</div>
+    <div class="quote"><strong>你如何度过每一天，</strong></div>
+    <div class="quote"><strong>就如何度过这一生。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">没有"等我有时间了"，<br>只有"<em>我现在选择做什么</em>"。<br>时间是唯一公平的东西，<br>也是唯一你真正拥有的东西。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 12：意义 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">12</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">不要问"<span class="glow">人生的意义</span>是什么"。</div>
+    <div class="small">这个问题太大了，<br>大到你永远找不到答案。<br><br>问自己：<br>"今天，什么让我觉得值得？"<br>意义不在远方，在每一天的答案里。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 13：自由 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">13</span> / 60</div>
+    <div class="text-block">
+      <span class="question">什么是真正的<span class="accent">自由</span>？</span>
+      <span class="para">不是想做什么就做什么。</span>
+      <span class="para">而是<span class="accent">不想做什么</span>，</span>
+      <span class="para">就可以不做什么。</span>
+      <div class="divider"></div>
+      <span class="punch">自由的代价，是你要先有能力说"不"。</span>
+      <span class="para">而能力，从来不是天上掉下来的。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 14：运气 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">14</span> / 60</div>
+    <div class="label">关 于 运 气</div>
+    <div class="big-line">运气不是等来的，<br>是<span class="highlight">撞</span>出来的。</div>
+    <div class="sub-line">
+      你把自己放在更多人面前，<br>放在更多机会旁边，<br>放在更多信息流里——<br><br>
+      运气自然会找到你。<br>
+      所谓"运气好"的人，<br>只是<span class="highlight">暴露在机会里的面积</span>比你大。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 15：完美主义 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">15</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">等一切都准备好</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">等自己足够优秀</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">等别人先认可我</span></span></div>
+      <div class="final">完美主义不是追求卓越。<br>完美主义是恐惧的遮羞布。<br><br>你怕的不是不够好，<br>你怕的是别人说你不够好。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 16：关系 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">16</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">好的关系<br>不需要<span class="gold-word">维系</span>。</div>
+    <div class="sub-text">需要维系的关系，<br>本身就有问题。<br><br>真正的连接，<br>是两个人各自完整，<br>然后恰好同行一段路。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 17：判断 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">17</span> / 60</div>
+    <div class="top-line">判断 · 陷阱</div>
+    <div class="quote"><strong>你讨厌一个人，</strong></div>
+    <div class="quote"><strong>常常是因为</strong>他让你想起了自己。</div>
+    <div class="gap"></div>
+    <div class="tail">那些你最不能容忍的特质，<br>往往是你身上<em>最想隐藏</em>的部分。<br>对他人的严厉，<br>是对自己严厉的投射。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 18：孤独 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">18</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">学会<span class="glow">独处</span>，<br>是成年人最重要的能力之一。</div>
+    <div class="small">不是因为没人陪你。<br>而是因为——<br>如果你不能和自己待在一起，<br>你和谁在一起都不会真正快乐。<br><br>所有关系的质量，<br>最终都取决于你与自己的关系。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 19：改变 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">19</span> / 60</div>
+    <div class="text-block">
+      <span class="question">人为什么<span class="accent">难以改变</span>？</span>
+      <span class="para">不是因为缺乏意志力。</span>
+      <span class="para">是因为<span class="accent">现在的你</span>，</span>
+      <span class="para">是由过去的环境、关系和经历塑造的。</span>
+      <div class="divider"></div>
+      <span class="punch">要改变，先换环境。</span>
+      <span class="para">换不了环境，就先换你每天接触的信息和人。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 20：解决问题 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">20</span> / 60</div>
+    <div class="label">解 决 问 题</div>
+    <div class="big-line">大多数问题，<br>不是被<span class="highlight">解决</span>的。</div>
+    <div class="sub-line">
+      是被<span class="highlight">超越</span>的。<br><br>
+      当你站得足够高，<br>原来的问题就不再是问题。<br>
+      你的认知每升一级，<br>就有一批旧问题自动消失。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 21：内耗 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">21</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">反复纠结别人怎么看你</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">在脑子里演一百遍最坏结果</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">做完决定还不停后悔</span></span></div>
+      <div class="final">内耗的本质：<br>你的大脑在为一个<br>还没发生、<br>甚至不会发生的问题，<br>提前支付情绪成本。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 22：价值 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">22</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">你的价值，<br>不由你<span class="gold-word">认识谁</span>决定。</div>
+    <div class="sub-text">由谁<span class="gold-word">需要你</span>决定。<br><br>不要花时间混圈子。<br>花时间让自己被需要。<br>前者是面子，后者是底牌。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 23：简单 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">23</span> / 60</div>
+    <div class="top-line">简单 · 力量</div>
+    <div class="quote"><strong>复杂是弱者的护城河，</strong></div>
+    <div class="quote"><strong>简单是强者的杀手锏。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">能把复杂的事讲简单，<br>才是<em>真的懂了</em>。<br>说不清楚的，<br>通常就是没想清楚。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 24：遗憾 II -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">24</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">十年后你会后悔的，<br>不是<span class="glow">做过</span>的事。</div>
+    <div class="small">是没敢做的事。<br>是没说出口的话。<br>是那个你没去追的人。<br>是那份你没辞的工作。<br><br>后悔的配方永远一样：<br>我本可以。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 25：认知 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">25</span> / 60</div>
+    <div class="text-block">
+      <span class="question">人和人之间最大的差距是什么？</span>
+      <span class="para">不是努力程度。</span>
+      <span class="para">不是天赋。</span>
+      <span class="para">是<span class="accent">认知框架</span>——你看同一件事，能看到第几层。</span>
+      <div class="divider"></div>
+      <span class="punch">第一层看热闹，第二层看逻辑，第三层看人性。</span>
+      <span class="para">大多数人一辈子停在第一层。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 26：财富 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">26</span> / 60</div>
+    <div class="label">关 于 财 富</div>
+    <div class="big-line">钱不是<span class="highlight">挣</span>来的，<br>是<span class="highlight">认知</span>换来的。</div>
+    <div class="sub-line">
+      你永远赚不到<br>超出你认知范围的钱。<br><br>
+      凭运气赚到的，<br>迟早凭实力亏回去。<br>
+      这个世界最公平的地方在于：<br><span class="highlight">财富会流向最懂它的人</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 27：信息 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">27</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">刷到停不下来</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">看完什么都不记得</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">收藏等于学会</span></span></div>
+      <div class="final">信息泛滥的时代，<br>稀缺的不是信息，<br>是筛选信息的能力。<br><br>你刷什么，<br>就慢慢变成什么样的人。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 28：成熟 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">28</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">成熟的标志之一：</div>
+    <div class="sub-text">不再期待<span class="gold-word">所有人都理解你</span>。<br><br>被误解是表达者的宿命。<br>被一部分人讨厌，<br>是被另一部分人喜欢的前提。<br><br>想通了这一点，<br>你会轻松很多。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 29：沉默 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">29</span> / 60</div>
+    <div class="top-line">沉默 · 力量</div>
+    <div class="quote"><strong>越有底气的人，</strong></div>
+    <div class="quote"><strong>话越少。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">解释是一种消耗。<br>争论赢了，关系输了。<br><br>有些话不说，<br>不是因为<em>不敢</em>，<br>是因为<em>不值得</em>。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 30：底层 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">30</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">所有复杂问题，<br>都有一个<span class="glow">简单的底层逻辑</span>。</div>
+    <div class="small">找不到，是因为你被表象淹没了。<br><br>往上追三层"为什么"，<br>你会看到完全不一样的东西。<br>大部分人停在第一层就停止了思考。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 31：圈子 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">31</span> / 60</div>
+    <div class="text-block">
+      <span class="question">你的收入，约等于你<span class="accent">最亲近五个朋友</span>的平均值。</span>
+      <span class="para">你的认知也是。</span>
+      <span class="para">你的习惯也是。</span>
+      <span class="para">你的上限也是。</span>
+      <div class="divider"></div>
+      <span class="punch">你想成为什么样的人，就去靠近什么样的人。</span>
+      <span class="para">这不是功利，这是最根本的成长逻辑。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 32：行动 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">32</span> / 60</div>
+    <div class="label">行 动 法 则</div>
+    <div class="big-line">想，都是问题。<br>做，才有<span class="highlight">答案</span>。</div>
+    <div class="sub-line">
+      你不迈出第一步，<br>就永远看不到第二步的路。<br><br>
+      大部分你以为的障碍，<br>在你真正动起来之后，<br>会发现<span class="highlight">根本就不存在</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 33：边界 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">33</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">有求必应</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">不好意思说"不"</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">总觉得拒绝会伤害关系</span></span></div>
+      <div class="final">没有边界的人，<br>最终会被别人用尽。<br><br>说"不"是一种能力。<br>它告诉世界：<br>你知道自己的价值在哪里。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 34：幸福 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">34</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">幸福不是<br><span class="gold-word">拥有更多</span>。</div>
+    <div class="sub-text">幸福是<span class="gold-word">需要更少</span>。<br><br>不是消极。<br>是你终于分清了——<br>哪些是你真正想要的，<br>哪些是世界告诉你"应该要的"。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 35：注意力 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">35</span> / 60</div>
+    <div class="top-line">注意力 · 资产</div>
+    <div class="quote"><strong>你注意力的去向，</strong></div>
+    <div class="quote"><strong>就是你人生的去向。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">比金钱更稀缺的资源，<br>是你的<em>注意力</em>。<br>钱没了可以再赚。<br>注意力被切碎了，<br>你的人生也被切碎了。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 36：终点 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">36</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">人生的<span class="glow">终点</span>都一样。</div>
+    <div class="small">区别在于——<br>你走的是别人给你画的路，<br>还是你自己选的路。<br><br>成功只有一个：<br>按照自己的方式，<br>度过人生。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- ══════════════ 卡片 37-46 ══════════════ -->
+
+<!-- 卡片 37：知道 vs 做到 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">37</span> / 60</div>
+    <div class="text-block">
+      <span class="question">为什么你<span class="accent">什么都懂</span>，却还是过不好？</span>
+      <span class="para">你需要的不是更多知识。</span>
+      <span class="para">你已经知道了太多。</span>
+      <span class="para">你需要的是一段足够长的时间——<br>不去学新东西，<br>只是把已经知道的，<span class="accent">真正做一遍</span>。</span>
+      <div class="divider"></div>
+      <span class="punch">知道和做到之间，隔着一整个人生。</span>
+      <span class="para">那条沟，没有人能替你跨过去。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 38：错误 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">38</span> / 60</div>
+    <div class="label">关 于 错 误</div>
+    <div class="big-line">你犯过的每一个错，<br>都是<span class="highlight">定制</span>的。</div>
+    <div class="sub-line">
+      别人的错是别人的教材。<br>
+      你的错才是你的。<br><br>
+      有个残酷的事实是：<br>
+      你没办法通过阅读别人的人生，<br>来绕过自己该走的路。<br><br>
+      该撞的墙，<span class="highlight">一面都少不了</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 39：期待 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">39</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">期待别人理解你</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">期待世界公平对待你</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">期待付出一定有回报</span></span></div>
+      <div class="final">期待是失望的种子。<br>不是让你不期待——<br>是让你把期待放在<br>自己能控制的事情上。<br><br>期待自己，而不是期待别人。<br>前者是力量，后者是赌注。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 40：比较 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">40</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">你所有的焦虑，<br>几乎都来自<span class="gold-word">比较</span>。</div>
+    <div class="sub-text">和别人比收入。<br>和别人比进度。<br>和别人比看起来的幸福。<br><br>但每个人都有自己的时区。<br>纽约比加州早三个小时，<br>但加州的时间<span class="gold-word">没有慢一秒</span>。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 41：控制 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">41</span> / 60</div>
+    <div class="top-line">控制 · 边界</div>
+    <div class="quote"><strong>你唯一能控制的，</strong></div>
+    <div class="quote"><strong>是你对事情的反应。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">别人的评价你控制不了。<br>运气你控制不了。<br>结果你也控制不了。<br><br>但你可以控制：<br>今天读什么，和谁在一起，几点睡觉。<br>把力气花在<em>能控制</em>的事情上，<br>焦虑自动减半。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 42：放下 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">42</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">有些事，不是<span class="glow">想通</span>了才放下。</div>
+    <div class="small">是放下了，才慢慢想通。<br><br>大脑不是用来解所有题的。<br>有些问题本身就是陷阱——<br>你越想，陷得越深。<br><br>往前走。答案不在原地。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 43：深度 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">43</span> / 60</div>
+    <div class="text-block">
+      <span class="question">为什么有人 20 岁就<span class="accent">活明白了</span>，<br>有人 50 岁还在原地？</span>
+      <span class="para">不是经历多与少的区别。</span>
+      <span class="para">是同样的经历——</span>
+      <span class="para">有人只看到了表面，<br>有人<span class="accent">往下挖了三层</span>。</span>
+      <div class="divider"></div>
+      <span class="punch">深度不是天赋，是习惯。</span>
+      <span class="para">每一次"再往下想一层"，<br>都在拉大你和别人的差距。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 44：反馈 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">44</span> / 60</div>
+    <div class="label">关 于 反 馈</div>
+    <div class="big-line">你最不想听的那句话，<br>往往是你<span class="highlight">最需要听</span>的。</div>
+    <div class="sub-line">
+      赞美让你舒服，<br>但不会让你成长。<br><br>
+      讽刺的是：<br>
+      那些让你不舒服的反馈，<br>才是别人花了勇气才说出口的。<br>
+      <span class="highlight">别浪费了它</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 45：拖延 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">45</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">不是懒，是怕做不好</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">不是没时间，是没勇气开始</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">不是忘了，是潜意识在回避</span></span></div>
+      <div class="final">拖延的本质，<br>不是时间管理的问题，<br>是情绪管理的问题。<br><br>你在回避的不是任务本身，<br>是任务带来的那种<br>"我不够好"的感觉。<br><br>面对它，它就不可怕了。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 46：善意 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">46</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">真正的善意，<br>是<span class="gold-word">不需要被看见</span>的。</div>
+    <div class="sub-text">那些做了不说的人。<br>那些帮了不求回报的人。<br>那些在你低谷时，<br>默默递一杯水的人。<br><br>善意最好的样子：<br>被帮助的人甚至没察觉<br>自己被帮助了。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- ══════════════ 卡片 47-60 ══════════════ -->
+
+<!-- 卡片 47：真正的问题 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">47</span> / 60</div>
+    <div class="top-line">真正的问题</div>
+    <div class="quote"><strong>你以为你的问题是"没时间"。</strong></div>
+    <div class="quote"><strong>其实你的问题是"不敢开始"。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">时间永远是可以挤出来的。<br>"没时间"只是你用来骗自己的<br>最体面的借口。<br><br>找到那个<em>真正让你害怕</em>的东西，<br>时间问题自动消失。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 48：隐藏动机 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">48</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">当你不停刷手机的时候，<br>你其实在<span class="glow">逃避</span>一件事。</div>
+    <div class="small">不是逃避无聊。<br>是逃避那个——<br>独处时会冒出来的、<br>让你不舒服的念头。<br><br>手机不是问题。<br>你想回避的那个念头才是。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 49：自信 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">49</span> / 60</div>
+    <div class="text-block">
+      <span class="question">什么是<span class="accent">自信</span>？</span>
+      <span class="para">一般认为，自信是"相信自己能做好"。</span>
+      <span class="para">但更准确地说——</span>
+      <span class="para">自信是"相信自己搞砸了之后，<span class="accent">还能站起来</span>"。</span>
+      <div class="divider"></div>
+      <span class="punch">真正的自信不需要每次都赢。</span>
+      <span class="para">它只需要你不怕输。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 50：能力 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">50</span> / 60</div>
+    <div class="label">关 于 能 力</div>
+    <div class="big-line">最稀缺的能力，<br>不是<span class="highlight">学得快</span>。</div>
+    <div class="sub-line">
+      是<span class="highlight">坐得住</span>。<br><br>
+      不是理解能力。<br>
+      是忍受枯燥的能力。<br>
+      是做了很久看不到结果，<br>还能继续做的能力。<br><br>
+      所有的竞争力，<br>最后拼的都是这个。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 51：自我推翻 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">51</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">我天生不擅长这个</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">别人比我起点高</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">现在开始太晚了</span></span></div>
+      <div class="final">这些都是真的。<br>但更准确地说——<br>这些都是你拿来<br>让自己舒服地待在原地的理由。<br><br>真相是：<br>你做不成，不是因为那些理由。<br>是因为你信了那些理由。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 52：选择 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">52</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">你说你<span class="gold-word">没有选择</span>。</div>
+    <div class="sub-text">但更准确地说——<br>你是不想承担<br>另一个选项的代价。<br><br>不是没有选择。<br>是你把其中一个选项的后果<br>想象得太可怕，<br>可怕到你觉得"没有选择"。<br><br>承认"我不愿意"，<br>比说"我不能"，<br>需要更大的勇气。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 53：理解 vs 接受 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">53</span> / 60</div>
+    <div class="top-line">理解 · 错觉</div>
+    <div class="quote"><strong>你以为你需要被理解。</strong></div>
+    <div class="quote"><strong>其实你需要的是被接受。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">被理解是奢望——<br>没有人能真正走进你的全部。<br><br>但被接受是可以的。<br>被一个人<em>完整地</em>接受——<br>包括你的矛盾、你的反复、你的不堪。<br>那比理解更珍贵。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 54：坚持 -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">54</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">坚持不是<span class="glow">每天都做</span>。</div>
+    <div class="small">坚持是——<br>断了几天之后，<br>还能再捡起来。<br><br>是失败了三次之后，<br>第四次还敢开始。<br><br>是所有人都觉得你该放弃了，<br>你觉得"再试一次"。<br><br>那一次，就是分水岭。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 55：恐惧 -->
+<div class="card card-1">
+  <div class="card-inner">
+    <div class="counter"><span class="current">55</span> / 60</div>
+    <div class="text-block">
+      <span class="question">人最大的<span class="accent">恐惧</span>是什么？</span>
+      <span class="para">不是失败。</span>
+      <span class="para">不是死亡。</span>
+      <span class="para">是被看见之后——<span class="accent">被拒绝</span>。</span>
+      <div class="divider"></div>
+      <span class="punch">所以很多人选择不被看见。</span>
+      <span class="para">他们安全了。<br>但他们也从来没有真正活过。</span>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 56：知识 -->
+<div class="card card-2">
+  <div class="card-inner">
+    <div class="counter"><span class="current">56</span> / 60</div>
+    <div class="label">关 于 知 识</div>
+    <div class="big-line">知识不是力量。<br><span class="highlight">用起来</span>的知识才是。</div>
+    <div class="sub-line">
+      你收藏的文章，<br>
+      你截屏的金句，<br>
+      你标记的"稍后阅读"——<br><br>
+      它们不是你的。<br>
+      它们只是躺在你手机里，<br>让你产生"我已经学到了"的错觉。<br><br>
+      没用的知识，<span class="highlight">只是信息脂肪</span>。
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 57：在意 -->
+<div class="card card-3">
+  <div class="card-inner">
+    <div class="counter"><span class="current">57</span> / 60</div>
+    <div class="content">
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">在意别人怎么看你</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">在意自己看起来是否成功</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">在意是不是被落在后面了</span></span></div>
+      <div class="final">当你在意所有人的时候，<br>你其实谁都没有在意——<br>你只是在意外界的评价体系。<br><br>讽刺的是：<br>你的在意，<br>恰恰是你被操控的方式。<br><br>少在意一点，多自由一点。</div>
+    </div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 58：帮助 -->
+<div class="card card-4">
+  <div class="card-inner">
+    <div class="counter"><span class="current">58</span> / 60</div>
+    <div class="top-gold"></div>
+    <div class="main-text">最好的帮助，<br>不是<span class="gold-word">替他解决问题</span>。</div>
+    <div class="sub-text">是让他相信<br><span class="gold-word">自己可以解决问题</span>。<br><br>前者让他依赖你。<br>后者让他不需要你。<br><br>真正为一个人好，<br>就是帮他强大到<br>有一天不再需要你的帮助。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 59：故事 -->
+<div class="card card-5">
+  <div class="card-inner">
+    <div class="counter"><span class="current">59</span> / 60</div>
+    <div class="top-line">故事 · 真相</div>
+    <div class="quote"><strong>你讲给自己的那个故事，</strong></div>
+    <div class="quote"><strong>决定了你的一生。</strong></div>
+    <div class="gap"></div>
+    <div class="tail">"我不够好"。<br>"我不擅长这个"。<br>"我运气不好"。<br><br>这些都是故事。不是事实。<br>但当你反复讲给自己听，<br>它们就<em>变成了</em>事实。<br><br>换一个故事。从今天开始。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<!-- 卡片 60：终点 II -->
+<div class="card card-6">
+  <div class="card-inner">
+    <div class="counter"><span class="current">60</span> / 60</div>
+    <div class="rule"></div>
+    <div class="big">人生没有<span class="glow">统一的终点</span>。</div>
+    <div class="small">有人 25 岁就死了，75 岁才埋。<br>有人 60 岁才开始真正活着。<br><br>不要用别人的进度条<br>衡量自己的人生。<br><br>你的终点不需要别人看懂。<br>你走到的时候，<br>你自己会知道。</div>
+    <div class="watermark">@Leon</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (window.innerWidth > 768) return;
+
+  var inners = document.querySelectorAll('.card-inner');
+  if (!inners.length) return;
+
+  var rafId = 0;
+
+  function scale() {
+    if (rafId) return;
+    rafId = requestAnimationFrame(function() {
+      rafId = 0;
+      // 真实可视高度（兼容微信 webview 底部栏）
+      var vw = document.documentElement.clientWidth;
+      var vh = document.documentElement.clientHeight;
+      var s = Math.min(vw / 1080, vh / 1440);
+      // 保留两位小数，避免 subpixel 抖动
+      s = Math.round(s * 1000) / 1000;
+      inners.forEach(function(el) {
+        el.style.transform = 'scale(' + s + ')';
+      });
+    });
+  }
+
+  scale();
+
+  // 多事件覆盖：resize / 微信 webview 地址栏显隐 / 屏幕旋转
+  window.addEventListener('resize', scale);
+  window.addEventListener('orientationchange', function() {
+    // 等布局稳定后再算
+    setTimeout(scale, 80);
+    setTimeout(scale, 300);
+  });
+
+  // ResizeObserver：最可靠的尺寸变化检测（含微信地址栏收起/展开）
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(function() { scale(); });
+    ro.observe(document.documentElement);
+  }
+})();
+</script>
+<script>
+// ===== 德英翻译数据 + 注入 =====
+(function() {
+  var T = {
+    1:  { de:'Wir wachsen nicht durch Denken — sondern durch Begegnen, Annehmen und Loslassen.', en:'We don\'t grow through thinking — we grow through facing, accepting, and letting go.' },
+    2:  { de:'Die beste Art, eine Sprache zu lernen? Wirf dich in eine Umgebung, wo du nur sie sprechen kannst — und überlebe.', en:'The best way to learn a language? Throw yourself into an environment where you can only speak it — and survive.' },
+    3:  { de:'Du wirst nie "bereit" sein. Spring — und lerne im Fallen zu schwimmen.', en:'You will never be "ready." Jump — and learn to swim on the way down.' },
+    4:  { de:'Die meisten scheitern nicht an mangelnder Anstrengung — sondern daran, dass sie in die falsche Richtung rennen.', en:'Most people don\'t fail from lack of effort — they fail from running hard in the wrong direction.' },
+    5:  { de:'KI wird dich nicht ersetzen. Aber Menschen, die KI nutzen, werden es tun. Dazwischen liegt nicht Technologie — sondern Denkweise.', en:'AI won\'t replace you. But people who use AI will. The gap isn\'t technology — it\'s mindset.' },
+    6:  { de:'Die größte Reue im Leben? Nicht, dass du falsch gewählt hast — sondern dass du nie gewählt hast.', en:'The biggest regret in life? Not that you chose wrong — but that you never chose at all.' },
+    7:  { de:'Das Wesen der Angst? Zu viele Wünsche, zu wenig Entschlossenheit. Streiche die Hälfte deiner Wünsche — und die Angst verschwindet.', en:'The essence of anxiety? Too many desires, too little resolve. Cut half your wants — the anxiety disappears.' },
+    8:  { de:'Wirklich starke Menschen sehen langsam aus. Sie haben es nicht eilig, der Welt zu beweisen, wie gut sie sind.', en:'Truly capable people look slow. They\'re not in a hurry to prove to the world how good they are.' },
+    9:  { de:'Das ist nicht Nettigkeit — das ist Tauschhandel: "Gefallen" gegen einen sicheren Platz. Echte Verbindung verlangt nicht, dass du dich verbiegst.', en:'That\'s not kindness — it\'s bartering: "pleasing" in exchange for safety. Real connection never requires you to shrink.' },
+    10: { de:'Die größte Falle für kluge Köpfe? Zu glauben, man könne die harte Arbeit umgehen. Vertrauen, Handwerk, Tiefe — dafür gibt es keine Abkürzung.', en:'The biggest trap for smart people? Thinking they can bypass hard work. Trust, craft, deep relationships — there are no shortcuts.' },
+    11: { de:'Wie du deine Tage verbringst, so verbringst du dein Leben. Es gibt kein "Wenn ich Zeit habe" — nur "Was ich jetzt wähle zu tun".', en:'How you spend your days is how you spend your life. There is no "when I have time" — only "what I choose to do now."' },
+    12: { de:'Frag nicht: "Was ist der Sinn des Lebens?" Frag: "Was hat sich heute gelohnt?" Der Sinn wohnt nicht in der Ferne — sondern in jeder Antwort auf diese Frage.', en:'Don\'t ask "What is the meaning of life?" Ask "What made today worth it?" Meaning isn\'t far away — it\'s in every answer to that question.' },
+    13: { de:'Freiheit bedeutet nicht, tun zu können, was man will — sondern nicht tun zu müssen, was man nicht will. Dafür braucht man die Fähigkeit, Nein zu sagen.', en:'Freedom isn\'t doing whatever you want — it\'s not having to do what you don\'t want. And that requires the ability to say no.' },
+    14: { de:'Glück wartet nicht — es wird gestoßen. Setz dich mehr Menschen, mehr Chancen, mehr Informationen aus. "Glückliche" Menschen haben einfach mehr Angriffsfläche für Zufall.', en:'Luck doesn\'t wait — it\'s bumped into. Expose yourself to more people, more opportunities, more information. "Lucky" people just have more surface area for chance.' },
+    15: { de:'Perfektionismus ist nicht das Streben nach Exzellenz — er ist das Deckmäntelchen der Angst. Du fürchtest nicht, nicht gut genug zu sein — du fürchtest, dass andere es sagen.', en:'Perfectionism isn\'t the pursuit of excellence — it\'s fear in disguise. You\'re not afraid of not being good enough — you\'re afraid of others saying so.' },
+    16: { de:'Gute Beziehungen brauchen keine "Pflege". Was Pflege braucht, hat bereits ein Problem. Echte Verbindung: zwei Menschen, jeder für sich ganz, die ein Stück Weg gemeinsam gehen.', en:'Good relationships don\'t need "maintenance." What needs maintenance already has a problem. Real connection: two whole people walking the same path for a while.' },
+    17: { de:'Wen du nicht ausstehen kannst, erinnert dich oft an dich selbst. Deine schärfste Verurteilung anderer ist die Projektion deiner eigenen versteckten Teile.', en:'The person you can\'t stand often reminds you of yourself. Your harshest judgment of others is the projection of your own hidden parts.' },
+    18: { de:'Mit sich selbst allein sein zu können — das ist eine der wichtigsten Fähigkeiten überhaupt. Die Qualität all deiner Beziehungen hängt davon ab, wie gut du mit dir selbst zurechtkommst.', en:'Learning to be alone with yourself is one of the most important adult skills. The quality of all your relationships depends on your relationship with yourself.' },
+    19: { de:'Warum ändern wir uns so schwer? Weil du von deiner Umgebung, deinen Beziehungen und deinen Gewohnheiten geformt wurdest. Willst du dich ändern — ändere zuerst deine Umgebung.', en:'Why is change so hard? Because you were shaped by your environment, relationships, and habits. Want to change? Change your environment first.' },
+    20: { de:'Die meisten Probleme werden nicht gelöst — sie werden überwunden. Stehst du hoch genug, sind die alten Probleme keine mehr. Jede Stufe der Erkenntnis lässt eine Ladung alter Probleme verschwinden.', en:'Most problems aren\'t solved — they\'re outgrown. Stand high enough, and old problems cease to be problems. Every level of understanding makes a batch of old problems disappear.' },
+    21: { de:'Grübeln bedeutet: Dein Gehirn zahlt im Voraus die emotionalen Kosten für ein Problem, das noch nicht eingetreten ist — und vielleicht nie eintreten wird.', en:'Overthinking means your brain is prepaying the emotional cost of a problem that hasn\'t happened yet — and may never happen.' },
+    22: { de:'Dein Wert bemisst sich nicht danach, wen du kennst — sondern danach, wer dich braucht. Verbringe keine Zeit mit Netzwerken. Mach dich unentbehrlich.', en:'Your worth isn\'t measured by who you know — but by who needs you. Don\'t spend time networking. Make yourself needed.' },
+    23: { de:'Komplexität ist der Burggraben der Schwachen. Einfachheit ist die Waffe der Starken. Wer etwas wirklich verstanden hat, kann es einfach erklären.', en:'Complexity is the moat of the weak. Simplicity is the weapon of the strong. If you truly understand something, you can explain it simply.' },
+    24: { de:'In zehn Jahren wirst du nicht bereuen, was du getan hast — sondern was du nicht getan hast. Das Rezept für Reue ist immer dasselbe: "Ich hätte es tun können."', en:'In ten years, you won\'t regret what you did — you\'ll regret what you didn\'t do. The recipe for regret is always the same: "I could have."' },
+    25: { de:'Der größte Unterschied zwischen Menschen? Nicht Fleiß, nicht Talent — sondern die Tiefe, in der sie die Welt sehen. Die erste Schicht sieht Spektakel, die zweite Logik, die dritte die menschliche Natur.', en:'The biggest gap between people? Not effort, not talent — but how many layers deep they can see. First layer sees spectacle, second sees logic, third sees human nature.' },
+    26: { de:'Geld wird nicht verdient — es wird durch Erkenntnis eingetauscht. Du wirst nie mehr verdienen, als dein Denkrahmen zulässt. Der Markt belohnt die, die ihn am besten verstehen.', en:'Money isn\'t earned — it\'s exchanged for understanding. You\'ll never earn beyond what your mental framework allows. Wealth flows to those who understand it best.' },
+    27: { de:'In einer Flut von Informationen ist nicht Information knapp — sondern die Fähigkeit, sie zu filtern. Was du konsumierst, formt, wer du wirst.', en:'In a flood of information, what\'s scarce isn\'t information — it\'s the ability to filter it. What you consume shapes who you become.' },
+    28: { de:'Ein Zeichen der Reife: nicht mehr zu erwarten, dass alle dich verstehen. Missverstanden zu werden ist das Schicksal dessen, der sich ausdrückt.', en:'A sign of maturity: no longer expecting everyone to understand you. Being misunderstood is the fate of anyone who expresses themselves.' },
+    29: { de:'Je mehr Substanz ein Mensch hat, desto weniger Worte macht er. Erklären ist Erschöpfung. Manches bleibt ungesagt — nicht aus Angst, sondern weil es die Mühe nicht wert ist.', en:'The more substance a person has, the fewer words they use. Explaining is exhausting. Some things are left unsaid — not from fear, but because it\'s not worth the effort.' },
+    30: { de:'Jedes komplexe Problem hat eine einfache Grundlogik. Frag dreimal "Warum?" — und du siehst etwas völlig anderes. Die meisten hören nach dem ersten Warum auf.', en:'Every complex problem has a simple underlying logic. Ask "Why?" three times — and you\'ll see something entirely different. Most people stop after the first why.' },
+    31: { de:'Dein Einkommen ist ungefähr der Durchschnitt deiner fünf engsten Freunde. Deine Denkweise auch. Deine Gewohnheiten auch. Deine Obergrenze auch.', en:'Your income is roughly the average of your five closest friends. So is your mindset. So are your habits. So is your ceiling.' },
+    32: { de:'Denken bringt Fragen. Handeln bringt Antworten. Die meisten Hindernisse, die du fürchtest, existieren gar nicht — sie erscheinen nur, solange du stillstehst.', en:'Thinking brings questions. Doing brings answers. Most obstacles you fear don\'t actually exist — they only appear while you\'re standing still.' },
+    33: { de:'Menschen ohne Grenzen werden ausgenutzt. Nein zu sagen ist eine Fähigkeit — sie sagt der Welt: "Ich weiß, was ich wert bin."', en:'People without boundaries get used up. Saying no is a skill — it tells the world: "I know what I\'m worth."' },
+    34: { de:'Glück bedeutet nicht, mehr zu haben — sondern weniger zu brauchen. Es geht darum zu unterscheiden, was du wirklich willst und was die Welt dir sagt, dass du wollen sollst.', en:'Happiness isn\'t having more — it\'s needing less. It\'s about distinguishing what you truly want from what the world tells you to want.' },
+    35: { de:'Wohin deine Aufmerksamkeit fließt, dorthin fließt dein Leben. Aufmerksamkeit ist knapper als Geld — Geld kannst du zurückverdienen, zersplitterte Aufmerksamkeit nicht.', en:'Where your attention goes, your life goes. Attention is scarcer than money — you can earn money back, but fragmented attention can\'t be recovered.' },
+    36: { de:'Das Ziel ist für alle gleich. Der Unterschied: Gehst du den Weg, den andere für dich gezeichnet haben — oder deinen eigenen? Erfolg bedeutet: auf deine eigene Art zu leben.', en:'The destination is the same for everyone. The difference: are you walking the path others drew for you — or your own? Success means living life your own way.' },
+    37: { de:'Warum weißt du so viel und lebst doch nicht gut? Zwischen Wissen und Tun liegt ein ganzes Leben. Und diesen Graben kann niemand für dich überqueren.', en:'Why do you know so much yet still struggle? Between knowing and doing lies an entire lifetime. And no one can cross that gap for you.' },
+    38: { de:'Jeder deiner Fehler ist maßgeschneidert. Die Fehler anderer sind deren Lehrbuch — deine sind deins. Die Mauern, gegen die du laufen musst — keine davon bleibt dir erspart.', en:'Every mistake you make is custom-made. Other people\'s mistakes are their textbook — yours are yours. The walls you need to hit — not one will be spared.' },
+    39: { de:'Erwartungen sind die Saat der Enttäuschung. Setze sie nicht auf andere — setze sie auf das, was du selbst kontrollieren kannst. Das eine ist Kraft, das andere Glücksspiel.', en:'Expectations are the seeds of disappointment. Don\'t place them on others — place them on what you can control. One is strength, the other is gambling.' },
+    40: { de:'Fast all deine Ängste kommen vom Vergleichen. Aber jeder lebt in seiner eigenen Zeitzone. New York ist drei Stunden vor Kalifornien — aber Kalifornien tickt keine Sekunde langsamer.', en:'Almost all your anxiety comes from comparing. But everyone lives in their own time zone. New York is three hours ahead of California — but California isn\'t a second slower.' },
+    41: { de:'Das Einzige, was du kontrollieren kannst, ist deine Reaktion auf das, was passiert. Lenke deine Energie auf das Kontrollierbare — die Angst halbiert sich von selbst.', en:'The only thing you can control is your response to what happens. Direct your energy toward what you can control — anxiety halves on its own.' },
+    42: { de:'Manche Dinge versteht man nicht, um sie loszulassen — man lässt sie los und versteht sie dann. Geh weiter. Die Antwort wartet nicht dort, wo du stehengeblieben bist.', en:'Some things aren\'t understood before you let go — you let go, and then you understand. Keep walking. The answer isn\'t waiting where you stopped.' },
+    43: { de:'Warum verstehen manche das Leben mit 20 und andere mit 50 noch nicht? Tiefe ist keine Gabe — sie ist Gewohnheit. Jedes "eine Schicht tiefer" vergrößert den Abstand.', en:'Why do some figure out life at 20 while others are still lost at 50? Depth isn\'t a gift — it\'s a habit. Every "one layer deeper" widens the gap.' },
+    44: { de:'Der Satz, den du am wenigsten hören willst, ist oft der, den du am meisten brauchst. Lob tut gut — aber es lässt dich nicht wachsen. Verschwende das unbequeme Feedback nicht.', en:'The sentence you least want to hear is often the one you most need. Praise feels good — but it won\'t make you grow. Don\'t waste uncomfortable feedback.' },
+    45: { de:'Aufschieben ist kein Zeitproblem — es ist ein Gefühlsproblem. Du weichst nicht der Aufgabe aus, sondern dem Gefühl von "Ich bin nicht gut genug", das sie auslöst.', en:'Procrastination isn\'t a time problem — it\'s an emotion problem. You\'re not avoiding the task; you\'re avoiding the "I\'m not good enough" feeling it triggers.' },
+    46: { de:'Wahre Güte muss nicht gesehen werden. Die schönste Form der Hilfe: Der Geholfene merkt nicht einmal, dass ihm geholfen wurde.', en:'True kindness doesn\'t need to be seen. The best form of help: the person being helped doesn\'t even notice they were helped.' },
+    47: { de:'Du denkst, dein Problem sei "keine Zeit". In Wahrheit ist es "kein Mut anzufangen". Finde das, wovor du wirklich Angst hast — und das Zeitproblem verschwindet.', en:'You think your problem is "no time." The truth is "no courage to start." Find what you\'re really afraid of — and the time problem disappears.' },
+    48: { de:'Wenn du unentwegt aufs Handy schaust, weichst du nicht der Langeweile aus — sondern dem unangenehmen Gedanken, der in der Stille auftaucht. Nicht das Handy ist das Problem, sondern dieser Gedanke.', en:'When you keep scrolling, you\'re not avoiding boredom — you\'re avoiding the uncomfortable thought that surfaces in silence. The phone isn\'t the problem; that thought is.' },
+    49: { de:'Selbstvertrauen heißt nicht "Ich kann das" — sondern "Wenn ich scheitere, stehe ich wieder auf." Echtes Vertrauen muss nicht jedes Mal gewinnen — es muss nur die Niederlage nicht fürchten.', en:'Confidence isn\'t "I can do this" — it\'s "If I fail, I\'ll get back up." Real confidence doesn\'t need to win every time — it just needs to not fear losing.' },
+    50: { de:'Die seltenste Fähigkeit? Nicht schnell zu lernen — sondern still sitzen zu können. Langeweile auszuhalten. Weiterzumachen, wenn niemand zuschaut und nichts zurückkommt.', en:'The rarest ability? Not learning fast — but sitting still. Enduring boredom. Continuing when no one is watching and nothing is coming back.' },
+    51: { de:'All diese Ausreden sind wahr — aber sie sind die Geschichten, mit denen du dich am Stillstand wärmst. Du scheiterst nicht wegen der Gründe, sondern weil du ihnen glaubst.', en:'All these excuses are true — but they\'re the stories you use to keep yourself comfortable in place. You\'re not failing because of the reasons; you\'re failing because you believe them.' },
+    52: { de:'Du sagst, du hast "keine Wahl". Aber du willst nur den Preis der anderen Option nicht zahlen. Es gibt immer eine Wahl. "Ich will nicht" zuzugeben braucht mehr Mut als "Ich kann nicht".', en:'You say you have "no choice." But you just don\'t want to pay the price of the other option. There is always a choice. Admitting "I don\'t want to" takes more courage than "I can\'t."' },
+    53: { de:'Du denkst, du brauchst Verständnis. Was du wirklich brauchst, ist Annahme. Komplett angenommen zu werden — mit all deinen Widersprüchen — das ist kostbarer als Verstandenwerden.', en:'You think you need to be understood. What you really need is to be accepted. To be fully accepted — with all your contradictions — is more precious than being understood.' },
+    54: { de:'Durchhaltevermögen ist nicht "jeden Tag". Es ist: nach einer Pause wieder anzufangen. Nach dem dritten Scheitern ein viertes Mal zu beginnen. Dieses eine Mal — das ist die Wasserscheide.', en:'Perseverance isn\'t "every day." It\'s: starting again after a break. Beginning a fourth time after failing three times. That one more time — that\'s the watershed.' },
+    55: { de:'Die größte Angst des Menschen? Nicht Versagen, nicht Tod — sondern gesehen und dann abgelehnt zu werden. Also entscheiden sich viele, unsichtbar zu bleiben. Sicher — aber sie haben nie wirklich gelebt.', en:'Our greatest fear? Not failure, not death — but being seen and then rejected. So many choose to remain invisible. Safe — but they never truly lived.' },
+    56: { de:'Wissen ist keine Macht. Angewandtes Wissen ist Macht. Was du nur speicherst und nie nutzt, ist kein Wissen — es ist Informationsfett.', en:'Knowledge isn\'t power. Applied knowledge is power. What you only store and never use isn\'t knowledge — it\'s information fat.' },
+    57: { de:'Wenn du allen gefallen willst, gefällst du niemandem — du gehorchst nur dem Bewertungssystem der Anderen. Deine Sorge ist exakt der Hebel, mit dem du gesteuert wirst.', en:'When you care what everyone thinks, you care about no one — you\'re just obeying the judgment system of others. Your concern is exactly the lever by which you\'re controlled.' },
+    58: { de:'Die beste Hilfe ist nicht, das Problem für jemanden zu lösen — sondern ihn glauben zu lassen, dass er es selbst lösen kann. Hilf ihm, so stark zu werden, dass er dich eines Tages nicht mehr braucht.', en:'The best help isn\'t solving someone\'s problem — it\'s making them believe they can solve it themselves. Help them become so strong that one day they no longer need you.' },
+    59: { de:'Die Geschichte, die du dir selbst erzählst, bestimmt dein Leben. "Ich bin nicht gut genug" — das ist eine Geschichte, keine Tatsache. Erzähle sie oft genug, und sie wird zur Tatsache. Erzähl eine neue.', en:'The story you tell yourself determines your life. "I\'m not good enough" — that\'s a story, not a fact. Tell it often enough, and it becomes fact. Tell a new one.' },
+    60: { de:'Es gibt kein einheitliches Ziel. Manche sterben mit 25 und werden mit 75 begraben. Andere beginnen mit 60 erst wirklich zu leben. Dein Ziel muss niemand sonst verstehen — du wirst es erkennen, wenn du ankommst.', en:'There is no unified finish line. Some die at 25 and are buried at 75. Others start truly living at 60. Your destination doesn\'t need to be understood by anyone else — you\'ll know it when you arrive.' }
+  };
+
+  document.querySelectorAll('.card').forEach(function(card, i) {
+    var t = T[i + 1];
+    if (!t) return;
+    var div = document.createElement('div');
+    div.className = 'translations';
+    div.innerHTML = '<div class="de">' + t.de + '</div><div class="en">' + t.en + '</div>';
+    card.querySelector('.card-inner').appendChild(div);
+  });
+})();
+</script>
+</body>
+</html>
