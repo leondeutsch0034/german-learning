@@ -3472,6 +3472,16 @@
     .t-c-gold{color:var(--gold)}
     .t-table{width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.6}
     .t-card-white{background:#fff;border-radius:14px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+    #page-b1lesen .btn-vocab{background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important}
+    #page-b1lesen .btn-grammatik{background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important}
+    #page-b1lesen .btn-hintergrund{background:linear-gradient(135deg,#e65100,#ff9800)!important;color:#fff!important}
+    #page-b1lesen .btn-kollokation{background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important}
+    #page-b1lesen .btn-redemittel{background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important}
+    #page-b1lesen .btn-beispiele{background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important}
+    #page-b1lesen #b1s13-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+    #page-b1lesen #b1s17-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+    #page-b1lesen #b1s18-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+    #page-b1lesen #b1s19-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
   </style>
 </head>
 <body>
@@ -31729,800 +31739,7 @@ function b1S12CheckB(){
 </script>
 
 </template>
-<div id="page-b1lesen" class="page" data-lazy="true"></div>
-<script>registerLazyPage('b1lesen', 'tpl-page-b1lesen');</script>
-<a href="#b1l-toc" class="b1l-backtotoc" title="回到目录">📋</a>
 
-<a href="#a2g-top" class="a2g-backtotoc" title="回到目录">📋</a>
-
-<script>
-(function(){
-  function setup(){
-    var page=document.getElementById('page-a2grammar');
-    var btoc=document.querySelector('.a2g-backtotoc');
-    if(!page||!btoc)return;
-    var s=document.getElementById('btoc-slot');if(s&&btoc.parentNode!==s){s.appendChild(btoc);}
-    function syncBtoc(){
-      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
-    }
-    syncBtoc();
-    if(typeof window.showPage==='function'&&!window.showPage._a2gWrapped){
-      var _orig=window.showPage;
-      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
-      window.showPage._a2gWrapped=true;
-			}
-    btoc.addEventListener('click',function(e){
-      e.preventDefault();
-      var toc=document.getElementById('a2g-top');
-      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
-    });
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
-  else{setup();}
-})();
-</script>
-
-</div>
-
-<template id="tpl-page-a2schreiben">
-<div style="max-width:860px;margin:0 auto">
-
-  <!-- ===== 页头 ===== -->
-  <div style="text-align:center;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(124,58,237,.35)">
-    <h1 style="font-size:1.8rem;margin-bottom:6px">✍️ Deutsch A2 – Schreiben 写作练习</h1>
-    <p style="font-size:.95rem;opacity:.95;margin:0">8 套模拟题 · Teil 1 私人邮件 + Teil 2 半正式信息 · 歌德 A2 考试格式</p>
-  </div>
-
-  <!-- ===== 目录 Section ===== -->
-  <div class="section" id="a2s-toc-top" style="margin-bottom:28px">
-    <div class="section-header" style="background:linear-gradient(135deg,#7c3aed,#a855f7) !important">📋 目录 Inhaltsverzeichnis · 点击跳转</div>
-    <div class="section-body" style="padding:18px 22px">
-
-      <!-- 基础知识 -->
-      <h3 style="font-size:.92rem;color:#6b21a8;margin:0 0 10px;font-weight:700;letter-spacing:.02em">🎓 考试基础</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
-        <a href="#a2-intro" style="display:block;padding:10px 14px;background:#faf5ff;border:1px solid #e9d5ff;border-left:3px solid #a855f7;border-radius:8px;color:#4c1d95;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#ede9fe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#faf5ff';this.style.transform='translateX(0)'">
-          <strong>① 考试说明</strong><br><span style="font-size:.8rem;color:#7c3aed">Teil 1 / Teil 2 · 4 Leitpunkte</span>
-        </a>
-        <a href="#a2-compare" style="display:block;padding:10px 14px;background:#fdf2f8;border:1px solid #fce7f3;border-left:3px solid #ec4899;border-radius:8px;color:#831843;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fce7f3';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fdf2f8';this.style.transform='translateX(0)'">
-          <strong>② A1 → A2 进阶速查表</strong><br><span style="font-size:.8rem;color:#ec4899">7 维度对比</span>
-        </a>
-      </div>
-
-      <!-- Teil 1 -->
-      <h3 style="font-size:.92rem;color:#15803d;margin:0 0 10px;font-weight:700;letter-spacing:.02em">📧 Teil 1 — 私人邮件（du 形式 · 30–40 词）</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
-        <a href="#a2-sim1" style="display:block;padding:10px 14px;background:#fff5f5;border:1px solid #fed7d7;border-left:3px solid #e53e3e;border-radius:8px;color:#742a2a;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fed7d7';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fff5f5';this.style.transform='translateX(0)'">
-          <strong>题 1 · 受邀回复</strong><br><span style="font-size:.8rem;color:#c53030">聚会 + sich freuen</span>
-        </a>
-        <a href="#a2-sim2" style="display:block;padding:10px 14px;background:#faf5ff;border:1px solid #e9d5ff;border-left:3px solid #9f7aea;border-radius:8px;color:#44337a;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#e9d5ff';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#faf5ff';this.style.transform='translateX(0)'">
-          <strong>题 2 · 搬家通知</strong><br><span style="font-size:.8rem;color:#6b46c1">Perfekt + sein 助动词</span>
-        </a>
-        <a href="#a2-sim3" style="display:block;padding:10px 14px;background:#fffaf0;border:1px solid #feebc8;border-left:3px solid #ed8936;border-radius:8px;color:#7b341e;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#feebc8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fffaf0';this.style.transform='translateX(0)'">
-          <strong>题 3 · 道歉改约</strong><br><span style="font-size:.8rem;color:#c05621">dass + Perfekt 嵌套</span>
-        </a>
-        <a href="#a2-sim4" style="display:block;padding:10px 14px;background:#ebf8ff;border:1px solid #bee3f8;border-left:3px solid #4299e1;border-radius:8px;color:#2a4365;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#bee3f8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ebf8ff';this.style.transform='translateX(0)'">
-          <strong>题 4 · 讲述旅行</strong><br><span style="font-size:.8rem;color:#2b6cb0">Perfekt 集中训练</span>
-        </a>
-        <a href="#a2-sim5" style="display:block;padding:10px 14px;background:#e6fffa;border:1px solid #b2f5ea;border-left:3px solid #38b2ac;border-radius:8px;color:#234e52;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#b2f5ea';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#e6fffa';this.style.transform='translateX(0)'">
-          <strong>题 5 · 抱怨邻居</strong><br><span style="font-size:.8rem;color:#2c7a7b">sich ärgern + dass</span>
-        </a>
-      </div>
-
-      <!-- Teil 2 -->
-      <h3 style="font-size:.92rem;color:#92400e;margin:0 0 10px;font-weight:700;letter-spacing:.02em">📨 Teil 2 — 半正式信息（Sie 形式 · 30–40 词）</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
-        <a href="#a2-sim6" style="display:block;padding:10px 14px;background:#fff5f7;border:1px solid #fbcfe8;border-left:3px solid #d53f8c;border-radius:8px;color:#702459;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fbcfe8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fff5f7';this.style.transform='translateX(0)'">
-          <strong>题 6 · 退换货投诉</strong><br><span style="font-size:.8rem;color:#97266d">möchten + Perfekt</span>
-        </a>
-        <a href="#a2-sim7" style="display:block;padding:10px 14px;background:#fffaf0;border:1px solid #fbd38d;border-left:3px solid #c05621;border-radius:8px;color:#652b19;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fbd38d';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fffaf0';this.style.transform='translateX(0)'">
-          <strong>题 7 · 房东报修</strong><br><span style="font-size:.8rem;color:#9c4221">seit + Dativ + können</span>
-        </a>
-        <a href="#a2-sim8" style="display:block;padding:10px 14px;background:#ebf4ff;border:1px solid #c3dafe;border-left:3px solid #5a67d8;border-radius:8px;color:#2a3170;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#c3dafe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ebf4ff';this.style.transform='translateX(0)'">
-          <strong>题 8 · 课程询问</strong><br><span style="font-size:.8rem;color:#3c366b">sich interessieren für</span>
-        </a>
-      </div>
-
-      <!-- 总结提升 -->
-      <h3 style="font-size:.92rem;color:#155e75;margin:0 0 10px;font-weight:700;letter-spacing:.02em">🏆 总结 + 提升</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
-        <a href="#a2-redemittel" style="display:block;padding:10px 14px;background:#ecfeff;border:1px solid #cffafe;border-left:3px solid #0891b2;border-radius:8px;color:#164e63;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#cffafe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ecfeff';this.style.transform='translateX(0)'">
-          <strong>📚 高频句型库</strong><br><span style="font-size:.8rem;color:#0e7490">Perfekt / 反身 / 从句 / Sie 套语</span>
-        </a>
-        <a href="#a2-strategy" style="display:block;padding:10px 14px;background:#fef2f2;border:1px solid #fecaca;border-left:3px solid #dc2626;border-radius:8px;color:#7f1d1d;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fecaca';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fef2f2';this.style.transform='translateX(0)'">
-          <strong>🎯 4 Leitpunkte 满分策略</strong><br><span style="font-size:.8rem;color:#b91c1c">三步法 + 扣分点 + 加分项</span>
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ===== ① 歌德 A2 Schreiben 考试说明 ===== -->
-  <div class="level-card" id="a2-intro" style="scroll-margin-top:20px;border-top:4px solid #a855f7">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">📋 考试说明</span>
-      <h2>Goethe-Zertifikat A2 – Schreiben 考试结构</h2>
-    </div>
-    <div class="level-desc">总时长 30 分钟 · 总分 20 分 · 两部分写作</div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0">
-      <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:14px 16px">
-        <h4 style="margin:0 0 8px;color:#15803d">📧 Teil 1 — 私人邮件</h4>
-        <ul style="margin:0;padding-left:18px;font-size:.9rem;line-height:1.9;color:#1a3a2a">
-          <li>对象：朋友、亲人（<strong>du</strong> 形式）</li>
-          <li>字数：约 <strong>30 词</strong>（推荐 30–40 词）</li>
-          <li>要点：必须回答 <strong>4 个 Leitpunkte</strong></li>
-          <li>话题：聚会、邀请、道歉、邀约</li>
-        </ul>
-      </div>
-      <div style="background:#fef3c7;border:2px solid #fcd34d;border-radius:12px;padding:14px 16px">
-        <h4 style="margin:0 0 8px;color:#92400e">📨 Teil 2 — 半正式信息</h4>
-        <ul style="margin:0;padding-left:18px;font-size:.9rem;line-height:1.9;color:#3a2a0a">
-          <li>对象：老师、房东、商家（<strong>Sie</strong> 形式）</li>
-          <li>字数：约 <strong>30 词</strong>（推荐 30–40 词）</li>
-          <li>要点：必须回答 <strong>4 个 Leitpunkte</strong></li>
-          <li>话题：投诉、预约、退换货、报修</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="background:#fee2e2;border-left:4px solid #ef4444;border-radius:8px;padding:12px 16px;color:#7f1d1d;font-size:.92rem;line-height:1.85">
-      <strong>⚠️ 4 Leitpunkte 是 A2 写作的关键差异：</strong><br>
-      A1 是 3 个要点，A2 升级为 <strong>4 个要点</strong>。每漏一个 = 扣 25% 分。<br>
-      策略：审题时用笔在题目上把 4 个要点圈出来 → 写完后再逐个核对。
-    </div>
-  </div>
-
-  <!-- ===== ② A1 → A2 写作进阶速查表 ===== -->
-  <div class="level-card" id="a2-compare" style="scroll-margin-top:20px;border-top:4px solid #ec4899">
-    <div class="level-head">
-      <span class="level-badge lv4" style="background:linear-gradient(135deg,#be185d,#ec4899)">🔍 A1 vs A2</span>
-      <h2>A1 → A2 写作进阶速查表</h2>
-    </div>
-    <div class="level-desc">从 A1 升 A2，写作要新增 4 个关键能力</div>
-
-    <div style="overflow-x:auto;margin:14px 0">
-      <table style="width:100%;border-collapse:collapse;font-size:.9rem;background:#fff">
-        <thead>
-          <tr style="background:#fdf2f8">
-            <th style="padding:10px;text-align:left;border:1px solid #fce7f3;width:120px">维度</th>
-            <th style="padding:10px;text-align:left;border:1px solid #fce7f3">A1</th>
-            <th style="padding:10px;text-align:left;border:1px solid #fce7f3">A2 升级</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>字数</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">20–30 词</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">30–40 词（多 50%）</td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>要点数</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">3 个 Leitpunkte</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">4 个 Leitpunkte</td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>时态</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">现在时为主</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">现在时 + <strong>Perfekt（过去）</strong></td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>从句</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">几乎没有</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d"><strong>dass / weil / wenn</strong> 从句</td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>反身动词</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">不用</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d"><strong>sich freuen / ärgern / melden</strong></td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>话题</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">请假、约会、自我介绍</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">搬家、抱怨、退换货、聚会组织</td></tr>
-          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>语气</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">模板化</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">自然口语化（<em>oder? / schön, dass …</em>）</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- ====================== TEIL 1 私人邮件 ====================== -->
-  <!-- ============================================================ -->
-  <div style="background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;padding:18px 24px;border-radius:14px;margin:32px 0 20px;box-shadow:0 4px 14px rgba(34,197,94,.3)">
-    <h2 style="margin:0;font-size:1.35rem">📧 Teil 1 — 私人邮件（du 形式 · 30–40 词）</h2>
-    <p style="margin:6px 0 0;opacity:.95;font-size:.9rem">5 套模拟题 · 每题含 4 Leitpunkte + 两份范文 + 语法重点</p>
-  </div>
-
-  <!-- ===== 模拟题 1：邀请详细回复（聚会组织）===== -->
-  <div class="level-card" id="a2-sim1" style="scroll-margin-top:20px;border-top:4px solid #e53e3e">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#c53030,#e53e3e)">🎯 A2 模拟题 1</span>
-      <h2>Einladung zur Geburtstagsparty 受邀回复（含组织协助）</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 4 Leitpunkte · 重点训练 Perfekt + sich freuen</div>
-    <div class="prompt-box" style="background:#fff5f5;border-color:#fc8181">
-      <span class="task-label" style="color:#c53030">🎯 Aufgabe / 任务：</span>
-      Ihre Freundin Caro schreibt Ihnen:<br><br>
-      <em style="color:#4a5568;display:block;background:#fff;border-radius:8px;padding:10px 14px;margin:8px 0">"Hallo! Am Samstag mache ich eine Geburtstagsparty bei mir zu Hause. Wir feiern ab 19 Uhr. Bringst du etwas mit? Und kannst du beim Aufbauen helfen? Liebe Grüße, Caro"</em>
-      <strong>Schreiben Sie Caro eine Antwort zu diesen <span style="color:#c53030">vier</span> Punkten:</strong><br>
-      ① Danken Sie für die Einladung.<br>
-      ② Sagen Sie, ob Sie kommen können.<br>
-      ③ Sagen Sie, was Sie mitbringen.<br>
-      ④ Antworten Sie auf die Frage zum Aufbauen.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 A2 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Danke für deine Einladung!</span>
-        <span class="chip">Ich freue mich sehr</span>
-        <span class="chip">Ich bringe … mit</span>
-        <span class="chip">Natürlich helfe ich dir</span>
-        <span class="chip">Soll ich um … kommen?</span>
-        <span class="chip">Wann soll ich da sein?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim1-text" placeholder="Hallo Caro,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim1')"></textarea>
-    <div class="word-count" id="wc-a2sim1">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim1" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim1-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim1')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim1-text').value='';document.getElementById('wc-a2sim1').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim1">
-      <strong>写作要点（A2 升级版）：</strong><br>
-      ✅ <strong>4 个要点必须全答</strong>：感谢 → 能否来 → 带什么 → 是否帮忙<br>
-      ✅ <strong>反身动词</strong>：<em>Ich freue mich auf …</em> / <em>Ich freue mich sehr</em><br>
-      ✅ <strong>口语化语气</strong>：<em>klar! / na klar! / gerne!</em>（A2 写作允许自然口语）<br>
-      ✅ 篇幅：3–4 句，比 A1 多一句
-    </div>
-    <div class="sim-samples" id="a2sim1-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文（4 个要点已用①②③④标注）</h4>
-      <div class="sample">
-        <strong style="color:#e53e3e;font-size:.8rem">范文 A（37 词 · 接受 + 自带蛋糕 + 主动帮忙）</strong>
-        <span class="de">Hallo Caro,<br><br>①vielen Dank für deine Einladung! ②Ich komme natürlich gerne und ich freue mich schon sehr. ③Ich bringe einen Schokoladenkuchen mit. ④Klar helfe ich dir beim Aufbauen — ich komme schon um 17 Uhr.<br><br>Liebe Grüße,<br>Lina</span>
-        <span class="cn">嗨 Caro，①非常感谢你的邀请！②我当然乐意来，已经很期待了。③我会带一个巧克力蛋糕。④当然我帮你搭场地——我 17 点就到。祝好，Lina</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#e53e3e;font-size:.8rem">范文 B（35 词 · 接受 + 带饮料 + 道歉无法早到）</strong>
-        <span class="de">Hallo Caro,<br><br>①danke für die Einladung, das ist super! ②Ich komme auf jeden Fall. ③Ich bringe Getränke und Salat mit. ④Leider kann ich nicht früher kommen, weil ich noch arbeiten muss. Tut mir leid!<br><br>Bis Samstag,<br>Tim</span>
-        <span class="cn">嗨 Caro，①谢谢邀请，太棒了！②我一定来。③我带饮料和沙拉。④很遗憾我不能更早到，因为我还得上班。对不起！周六见，Tim</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 语法点：</strong>范文 B 用了 <em>weil</em>-从句（<em>weil ich noch arbeiten muss</em>，动词后置）——这是 A1 没有的句式，A2 必须掌握。
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 2：搬家通知 + 邀请来访 ===== -->
-  <div class="level-card" id="a2-sim2" style="scroll-margin-top:20px;border-top:4px solid #9f7aea">
-    <div class="level-head">
-      <span class="level-badge lv4" style="background:linear-gradient(135deg,#6b21a8,#9f7aea)">🎯 A2 模拟题 2</span>
-      <h2>Umzug — neue Wohnung 搬家通知 + 邀请来访</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt（搬家用 sein 助动词）</div>
-    <div class="prompt-box" style="background:#faf5ff;border-color:#b794f4">
-      <span class="task-label" style="color:#6b21a8">🎯 Aufgabe / 任务：</span>
-      Ihr Freund Lasse hat lange nichts von Ihnen gehört. Schreiben Sie ihm eine E-Mail.<br><br>
-      <strong>Schreiben Sie zu diesen <span style="color:#6b21a8">vier</span> Punkten:</strong><br>
-      ① Entschuldigen Sie sich, dass Sie sich lange nicht gemeldet haben.<br>
-      ② Erzählen Sie, dass Sie umgezogen sind.<br>
-      ③ Beschreiben Sie kurz die neue Wohnung.<br>
-      ④ Laden Sie Lasse zu Besuch ein.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 A2 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Es tut mir leid, dass …</span>
-        <span class="chip">Ich habe mich lange nicht gemeldet</span>
-        <span class="chip">Ich bin umgezogen</span>
-        <span class="chip">Meine neue Wohnung hat …</span>
-        <span class="chip">im dritten Stock</span>
-        <span class="chip">Kommst du mich besuchen?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim2-text" placeholder="Hallo Lasse,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim2')"></textarea>
-    <div class="word-count" id="wc-a2sim2">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim2" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim2-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim2')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim2-text').value='';document.getElementById('wc-a2sim2').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim2">
-      <strong>写作要点（A2 重点 — Perfekt）：</strong><br>
-      ✅ <strong>"搬家"用 sein 构成完成时</strong>：<em>Ich <u>bin</u> umgezogen</em>（不是 habe！）<br>
-      ✅ <strong>"道歉自己很久没联系"</strong>：<em>Es tut mir leid, dass ich mich so lange nicht gemeldet habe.</em>（反身 + dass + Perfekt 三合一）<br>
-      ✅ 描述住房：<em>Die Wohnung hat einen Balkon / eine große Küche / drei Zimmer.</em><br>
-      ✅ 邀请：<em>Kommst du mich bald besuchen?</em>（"besuchen" + Akk）
-    </div>
-    <div class="sim-samples" id="a2sim2-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#9f7aea;font-size:.8rem">范文 A（38 词 · 完整 4 要点）</strong>
-        <span class="de">Hallo Lasse,<br><br>①es tut mir leid, dass ich mich so lange nicht gemeldet habe! ②Ich bin in eine neue Wohnung gezogen. ③Sie ist im dritten Stock und hat einen kleinen Balkon. ④Kommst du mich bald besuchen?<br><br>Liebe Grüße,<br>Olivia</span>
-        <span class="cn">嗨 Lasse，①很抱歉这么久没联系！②我搬到了一套新公寓。③在三楼，有一个小阳台。④你最近来看看我吧？祝好，Olivia</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#9f7aea;font-size:.8rem">范文 B（36 词 · 用 weil 解释）</strong>
-        <span class="de">Hallo Lasse,<br><br>①ich habe mich lange nicht gemeldet, weil ich umgezogen bin. ②Meine neue Wohnung ist toll! ③Sie hat drei Zimmer und eine große Küche. ④Hast du Lust, am Wochenende vorbeizukommen?<br><br>Viele Grüße,<br>Jan</span>
-        <span class="cn">嗨 Lasse，①我很久没联系，因为我搬家了。②我的新公寓很棒！③有三个房间和一个大厨房。④周末有兴趣过来吗？祝好，Jan</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 语法点：</strong>范文 B 用 <em>weil ich umgezogen <u>bin</u></em>——"搬家"是位移动词，用 <strong>sein</strong> 不是 haben，且从句中助动词 bin 在最后。
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 3：道歉 + 改约（Perfekt 训练）===== -->
-  <div class="level-card" id="a2-sim3" style="scroll-margin-top:20px;border-top:4px solid #ed8936">
-    <div class="level-head">
-      <span class="level-badge lv4" style="background:linear-gradient(135deg,#c05621,#ed8936)">🎯 A2 模拟题 3</span>
-      <h2>Entschuldigung — verpasster Termin 道歉 + 改约</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt + dass-从句</div>
-    <div class="prompt-box" style="background:#fffaf0;border-color:#f6ad55">
-      <span class="task-label" style="color:#c05621">🎯 Aufgabe / 任务：</span>
-      Sie hatten gestern einen Termin mit Ihrer Freundin Anna im Café. Sie sind aber nicht gekommen.<br><br>
-      <strong>Schreiben Sie Anna eine E-Mail zu diesen <span style="color:#c05621">vier</span> Punkten:</strong><br>
-      ① Entschuldigen Sie sich.<br>
-      ② Erklären Sie, was passiert ist.<br>
-      ③ Schlagen Sie einen neuen Termin vor.<br>
-      ④ Fragen Sie, ob der neue Termin passt.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 A2 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Es tut mir wirklich leid</span>
-        <span class="chip">Ich habe … vergessen</span>
-        <span class="chip">Mein Handy war kaputt</span>
-        <span class="chip">Ich war krank</span>
-        <span class="chip">Können wir uns … treffen?</span>
-        <span class="chip">Passt dir … ?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim3-text" placeholder="Hallo Anna,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim3')"></textarea>
-    <div class="word-count" id="wc-a2sim3">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim3" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim3-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim3')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim3-text').value='';document.getElementById('wc-a2sim3').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim3">
-      <strong>写作要点：</strong><br>
-      ✅ Perfekt 必用：<em>Ich <u>habe</u> den Termin <u>vergessen</u></em> / <em>Ich <u>habe</u> verschlafen</em><br>
-      ✅ Präteritum 也可：<em>Ich <u>war</u> krank</em> / <em>Mein Handy <u>war</u> kaputt</em>（sein 用 war 简单过去）<br>
-      ✅ 提新时间：<em>Können wir uns am Freitag treffen?</em> / <em>Wie wäre es mit Donnerstag?</em><br>
-      ✅ 询问对方意见：<em>Passt dir das?</em> / <em>Ist das ok für dich?</em>
-    </div>
-    <div class="sim-samples" id="a2sim3-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#ed8936;font-size:.8rem">范文 A（35 词）</strong>
-        <span class="de">Hallo Anna,<br><br>①es tut mir wirklich leid! ②Ich habe unseren Termin total vergessen, weil ich viel Stress hatte. ③Können wir uns am Freitag um 16 Uhr im Café treffen? ④Passt dir das?<br><br>Liebe Grüße,<br>Mia</span>
-        <span class="cn">嗨 Anna，①真的对不起！②我完全忘了我们的约会，因为我压力很大。③我们能周五下午 4 点在咖啡馆见吗？④这样对你方便吗？祝好，Mia</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#ed8936;font-size:.8rem">范文 B（38 词 · 含 Perfekt + dass）</strong>
-        <span class="de">Hallo Anna,<br><br>①entschuldige bitte, dass ich gestern nicht gekommen bin! ②Mein Handy war kaputt und ich habe deine Nachricht zu spät gelesen. ③Wie wäre es am Samstag? ④Ich freue mich, wenn das klappt!<br><br>Bis bald,<br>Leo</span>
-        <span class="cn">嗨 Anna，①请原谅，昨天没来！②我的手机坏了，太晚才看到你的消息。③周六怎么样？④要是能成，我很高兴！再见，Leo</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 语法点：</strong>范文 B 一句话同时用了 <em>dass</em>（从句）+ <em>nicht gekommen bin</em>（Perfekt，sein-动词，bin 在末尾）——这种句子 A1 写不出来，是 A2 的关键能力。
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 4：谈论旅行经历（Perfekt 集中训练）===== -->
-  <div class="level-card" id="a2-sim4" style="scroll-margin-top:20px;border-top:4px solid #4299e1">
-    <div class="level-head">
-      <span class="level-badge lv4" style="background:linear-gradient(135deg,#2b6cb0,#4299e1)">🎯 A2 模拟题 4</span>
-      <h2>Urlaub — Reise erzählen 讲述旅行经历</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt（旅行 = 大量过去式）</div>
-    <div class="prompt-box" style="background:#ebf8ff;border-color:#63b3ed">
-      <span class="task-label" style="color:#2b6cb0">🎯 Aufgabe / 任务：</span>
-      Sie waren im Urlaub. Ihr Freund Felix schreibt:<br><br>
-      <em style="color:#4a5568;display:block;background:#fff;border-radius:8px;padding:10px 14px;margin:8px 0">"Hallo! Wie war dein Urlaub? Wo warst du? Hast du auch Bilder? Liebe Grüße, Felix"</em>
-      <strong>Schreiben Sie Felix zu diesen <span style="color:#2b6cb0">vier</span> Punkten:</strong><br>
-      ① Wo waren Sie im Urlaub?<br>
-      ② Was haben Sie dort gemacht?<br>
-      ③ Wie hat es Ihnen gefallen?<br>
-      ④ Bieten Sie an, Bilder zu schicken.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 A2 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Ich war in …</span>
-        <span class="chip">Ich bin … gefahren / geflogen</span>
-        <span class="chip">Ich habe … besucht / gesehen</span>
-        <span class="chip">Es war wunderschön / toll</span>
-        <span class="chip">Es hat mir sehr gefallen</span>
-        <span class="chip">Ich schicke dir Bilder</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim4-text" placeholder="Hallo Felix,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim4')"></textarea>
-    <div class="word-count" id="wc-a2sim4">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim4" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim4-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim4')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim4-text').value='';document.getElementById('wc-a2sim4').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim4">
-      <strong>写作要点（Perfekt 满分训练）：</strong><br>
-      ✅ 位移动词用 <strong>sein</strong>：<em>Ich bin <u>geflogen</u> / <u>gefahren</u> / <u>gegangen</u></em><br>
-      ✅ 动作动词用 <strong>haben</strong>：<em>Ich habe <u>besucht</u> / <u>gesehen</u> / <u>gemacht</u> / <u>gegessen</u></em><br>
-      ✅ "我觉得……" → <em>Es <u>hat</u> mir gut <u>gefallen</u></em>（gefallen + Dativ）<br>
-      ✅ 时间词排序：<em>Letzte Woche → zuerst → dann → am letzten Tag</em>
-    </div>
-    <div class="sim-samples" id="a2sim4-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#4299e1;font-size:.8rem">范文 A（39 词 · 6 个 Perfekt 形式）</strong>
-        <span class="de">Hallo Felix,<br><br>①ich war zwei Wochen in Italien. ②Ich bin nach Rom geflogen und habe viele Museen besucht. Wir haben jeden Tag Pizza gegessen! ③Es hat mir super gefallen. ④Ich schicke dir morgen Bilder.<br><br>Viele Grüße,<br>Sara</span>
-        <span class="cn">嗨 Felix，①我在意大利待了两周。②飞到罗马，参观了很多博物馆。我们每天吃披萨！③我觉得太棒了。④明天给你发图片。祝好，Sara</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#4299e1;font-size:.8rem">范文 B（37 词 · 含 weil-从句）</strong>
-        <span class="de">Hallo Felix,<br><br>①wir waren auf Mallorca. ②Wir sind viel geschwommen und haben am Strand gelegen. ③Es war super, weil das Wetter perfekt war. ④Soll ich dir ein paar Fotos per WhatsApp schicken?<br><br>Bis bald,<br>Tom</span>
-        <span class="cn">嗨 Felix，①我们在马略卡岛。②我们游了很多泳，在海滩躺着。③太棒了，因为天气完美。④我用 WhatsApp 给你发几张照片？再见，Tom</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 易错点：</strong><em>schwimmen</em> 表"游泳运动"用 <strong>haben</strong>，但表"游到某地"用 <strong>sein</strong>。范文 B 中 <em>geschwommen</em> 跟在 <em>sind</em> 后表示游了一段距离——A2 这种助动词选择是评分点。
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 5：抱怨 + 求建议 ===== -->
-  <div class="level-card" id="a2-sim5" style="scroll-margin-top:20px;border-top:4px solid #38b2ac">
-    <div class="level-head">
-      <span class="level-badge lv4" style="background:linear-gradient(135deg,#2c7a7b,#38b2ac)">🎯 A2 模拟题 5</span>
-      <h2>Ärger mit Nachbarn 抱怨邻居 + 求建议</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 sich ärgern + dass-从句</div>
-    <div class="prompt-box" style="background:#e6fffa;border-color:#4fd1c5">
-      <span class="task-label" style="color:#2c7a7b">🎯 Aufgabe / 任务：</span>
-      Sie haben Probleme mit Ihren neuen Nachbarn. Sie schreiben Ihrer Freundin Pia.<br><br>
-      <strong>Schreiben Sie zu diesen <span style="color:#2c7a7b">vier</span> Punkten:</strong><br>
-      ① Erzählen Sie, dass Sie Probleme mit den Nachbarn haben.<br>
-      ② Beschreiben Sie das Problem konkret.<br>
-      ③ Sagen Sie, wie Sie sich fühlen.<br>
-      ④ Bitten Sie um einen Rat.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 A2 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Ich habe Probleme mit …</span>
-        <span class="chip">Ich ärgere mich über …</span>
-        <span class="chip">Sie hören laute Musik</span>
-        <span class="chip">Das nervt!</span>
-        <span class="chip">Was soll ich machen?</span>
-        <span class="chip">Hast du einen Tipp?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim5-text" placeholder="Hallo Pia,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim5')"></textarea>
-    <div class="word-count" id="wc-a2sim5">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim5" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim5-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim5')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim5-text').value='';document.getElementById('wc-a2sim5').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim5">
-      <strong>写作要点（反身动词集中训练）：</strong><br>
-      ✅ <em>sich ärgern <u>über</u> + Akk</em>：<em>Ich ärgere mich über die Musik</em>（生气因为某事）<br>
-      ✅ <em>sich fühlen</em>：<em>Ich fühle mich gestresst / müde / wütend</em><br>
-      ✅ 求建议三种说法：<em>Was soll ich machen? / Hast du einen Tipp? / Was kann ich tun?</em><br>
-      ✅ A2 口语化感叹：<em>Das nervt total! / Es ist schrecklich!</em>
-    </div>
-    <div class="sim-samples" id="a2sim5-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#38b2ac;font-size:.8rem">范文 A（37 词 · 含 3 个反身动词）</strong>
-        <span class="de">Hallo Pia,<br><br>①ich habe gerade Probleme mit meinen neuen Nachbarn. ②Sie hören jeden Abend laute Musik bis Mitternacht. ③Ich ärgere mich total und kann nicht schlafen. ④Was soll ich machen? Hast du einen Tipp?<br><br>Liebe Grüße,<br>Nina</span>
-        <span class="cn">嗨 Pia，①我现在跟新邻居有麻烦。②他们每晚听吵闹的音乐到半夜。③我特别生气，睡不着。④我该怎么办？你有什么建议？祝好，Nina</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#38b2ac;font-size:.8rem">范文 B（36 词 · 含 dass-从句）</strong>
-        <span class="de">Hallo Pia,<br><br>①meine Nachbarn nerven mich total! ②Sie streiten oft und ihr Hund bellt die ganze Nacht. ③Ich bin müde und fühle mich gestresst. ④Glaubst du, dass ich mit ihnen sprechen soll?<br><br>Bis bald,<br>Ben</span>
-        <span class="cn">嗨 Pia，①我的邻居烦死我了！②他们经常吵架，他们的狗整夜叫。③我很累，感觉压力很大。④你觉得我应该跟他们谈谈吗？再见，Ben</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 语法点：</strong>范文 B 末句 <em>Glaubst du, dass ich mit ihnen sprechen <u>soll</u>?</em> —— dass-从句把动词 soll 推到最后，是 A2 必考结构。
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- =================== TEIL 2 半正式信息（Sie）================== -->
-  <!-- ============================================================ -->
-  <div style="background:linear-gradient(135deg,#92400e,#d97706);color:#fff;padding:18px 24px;border-radius:14px;margin:32px 0 20px;box-shadow:0 4px 14px rgba(217,119,6,.3)">
-    <h2 style="margin:0;font-size:1.35rem">📨 Teil 2 — 半正式信息（Sie 形式 · 30–40 词）</h2>
-    <p style="margin:6px 0 0;opacity:.95;font-size:.9rem">3 套模拟题 · 商家、房东、机构 · Sie-Form + 正式套语</p>
-  </div>
-
-  <!-- ===== 模拟题 6：退换货 / 投诉商品 ===== -->
-  <div class="level-card" id="a2-sim6" style="scroll-margin-top:20px;border-top:4px solid #d53f8c">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#97266d,#d53f8c)">🎯 A2 模拟题 6</span>
-      <h2>Reklamation 退换货 / 投诉商品</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练 Perfekt + möchten</div>
-    <div class="prompt-box" style="background:#fff5f7;border-color:#f687b3">
-      <span class="task-label" style="color:#97266d">🎯 Aufgabe / 任务：</span>
-      Sie haben vor einer Woche im Online-Shop eine Jacke gekauft, aber sie ist kaputt. Schreiben Sie eine E-Mail an den Kundenservice.<br><br>
-      <strong>Schreiben Sie zu diesen <span style="color:#97266d">vier</span> Punkten:</strong><br>
-      ① Erklären Sie, was Sie gekauft haben (wann?).<br>
-      ② Beschreiben Sie das Problem.<br>
-      ③ Sagen Sie, was Sie möchten (Geld zurück / neue Jacke?).<br>
-      ④ Bitten Sie um eine schnelle Antwort.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 Sie-Form 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Sehr geehrte Damen und Herren</span>
-        <span class="chip">ich habe … bestellt</span>
-        <span class="chip">die Jacke ist kaputt</span>
-        <span class="chip">der Reißverschluss funktioniert nicht</span>
-    <div class="vocab-help">
-      <strong>💡 Sie-Form 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">Sehr geehrter Herr Schmidt</span>
-        <span class="chip">die Heizung funktioniert nicht</span>
-        <span class="chip">seit gestern / seit drei Tagen</span>
-        <span class="chip">in meiner Wohnung ist es kalt</span>
-        <span class="chip">Können Sie bitte … reparieren?</span>
-        <span class="chip">Wann kann der Techniker kommen?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim7-text" placeholder="Sehr geehrter Herr Schmidt,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim7')"></textarea>
-    <div class="word-count" id="wc-a2sim7">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim7" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim7-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim7')">💡 写作提示</button>
-        <span class="chip">Ich möchte mein Geld zurück</span>
-        <span class="chip">Bitte antworten Sie bald</span>
-        <span class="chip">Mit freundlichen Grüßen</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim6-text" placeholder="Sehr geehrte Damen und Herren,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim6')"></textarea>
-    <div class="word-count" id="wc-a2sim6">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim6" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim6-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim6')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim6-text').value='';document.getElementById('wc-a2sim6').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim6">
-      <strong>写作要点（Sie-Form 正式信件）：</strong><br>
-      ✅ 开头：<strong>Sehr geehrte Damen und Herren,</strong>（不知道具体姓名时用这个）<br>
-      ✅ 结尾：<strong>Mit freundlichen Grüßen</strong>（缩写 MfG，但写作中写全）<br>
-      ✅ Perfekt 描述已发生：<em>Ich habe … bestellt / gekauft</em><br>
-      ✅ "我想要"用 <strong>möchten</strong> 不用 will（更礼貌）：<em>Ich möchte mein Geld zurück.</em>
-    </div>
-    <div class="sim-samples" id="a2sim6-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#d53f8c;font-size:.8rem">范文 A（38 词 · 要求退款）</strong>
-        <span class="de">Sehr geehrte Damen und Herren,<br><br>①ich habe vor einer Woche eine Jacke bei Ihnen bestellt. ②Leider ist der Reißverschluss kaputt. ③Ich möchte mein Geld zurückbekommen. ④Bitte antworten Sie mir schnell.<br><br>Mit freundlichen Grüßen,<br>Lin Wang</span>
-        <span class="cn">尊敬的先生女士，①一周前我在您处订了一件夹克。②可惜拉链坏了。③我想退款。④请尽快回复我。此致敬礼，王林</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#d53f8c;font-size:.8rem">范文 B（37 词 · 要求换货）</strong>
-        <span class="de">Sehr geehrte Damen und Herren,<br><br>①am 5. Mai habe ich bei Ihnen eine schwarze Jacke gekauft. ②Sie ist aber zu klein und hat einen Fleck. ③Können Sie mir bitte eine neue Jacke schicken? ④Ich warte auf Ihre Antwort.<br><br>Mit freundlichen Grüßen,<br>Anna Müller</span>
-        <span class="cn">尊敬的先生女士，①5 月 5 日我在您处买了一件黑色夹克。②但它太小且有污渍。③请您给我寄一件新的好吗？④期待您的回复。此致敬礼，Anna Müller</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 Sie-Form 易错点：</strong>请求时不能用 <em>du</em> 形式的 <em>Schreib mir!</em> 必须用 <em>Antworten Sie mir, bitte.</em> 或 <em>Können Sie … ?</em>。
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 7：给房东报告问题 ===== -->
-  <div class="level-card" id="a2-sim7" style="scroll-margin-top:20px;border-top:4px solid #c05621">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#7b341e,#c05621)">🎯 A2 模拟题 7</span>
-      <h2>Vermieter — Reparatur 给房东报告报修</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练 seit + Perfekt + können</div>
-    <div class="prompt-box" style="background:#fffaf0;border-color:#f6ad55">
-      <span class="task-label" style="color:#7b341e">🎯 Aufgabe / 任务：</span>
-      In Ihrer Wohnung ist die Heizung kaputt. Schreiben Sie eine E-Mail an Ihren Vermieter, Herrn Schmidt.<br><br>
-      <strong>Schreiben Sie zu diesen <span style="color:#7b341e">vier</span> Punkten:</strong><br>
-      ① Beschreiben Sie das Problem.<br>
-      ② Sagen Sie, seit wann das Problem besteht.<br>
-      ③ Bitten Sie um schnelle Reparatur.<br>
-      ④ Fragen Sie, wann ein Techniker kommen kann.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-      <button class="btn-clear" onclick="document.getElementById('a2sim7-text').value='';document.getElementById('wc-a2sim7').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim7">
-      <strong>写作要点：</strong><br>
-      ✅ 已知具体姓名：<strong>Sehr geehrter Herr Schmidt</strong>（男）/ <strong>Sehr geehrte Frau Schmidt</strong>（女）<br>
-      ✅ <strong>seit + Dativ</strong>：<em>seit <u>gestern</u> / seit <u>einer Woche</u> / seit <u>drei Tagen</u></em>（A2 重点）<br>
-      ✅ 礼貌请求：<em>Können Sie bitte …?</em> 比 <em>Reparieren Sie!</em> 自然得多<br>
-      ✅ 询问时间：<em>Wann kann der Techniker kommen?</em>
-    </div>
-    <div class="sim-samples" id="a2sim7-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#c05621;font-size:.8rem">范文 A（38 词）</strong>
-        <span class="de">Sehr geehrter Herr Schmidt,<br><br>①in meiner Wohnung ist die Heizung kaputt. ②Das Problem besteht seit zwei Tagen und es ist sehr kalt. ③Können Sie bitte schnell jemanden schicken? ④Wann kann der Techniker kommen?<br><br>Mit freundlichen Grüßen,<br>Mei Zhang</span>
-        <span class="cn">尊敬的 Schmidt 先生，①我公寓的暖气坏了。②问题已经持续两天，非常冷。③您能否尽快派人来？④技术员什么时候能来？此致敬礼，张梅</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#c05621;font-size:.8rem">范文 B（36 词 · 含 Perfekt）</strong>
-        <span class="de">Sehr geehrter Herr Schmidt,<br><br>①die Heizung in meiner Wohnung funktioniert nicht. ②Sie ist seit Montag kaputt — ich habe schon zweimal angerufen. ③Bitte reparieren Sie sie bald. ④Wann passt es Ihnen?<br><br>Mit freundlichen Grüßen,<br>Yu Chen</span>
-        <span class="cn">尊敬的 Schmidt 先生，①我公寓的暖气不工作。②从周一就坏了——我已经打了两次电话。③请尽快修理。④您什么时候方便？此致敬礼，陈宇</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 关键介词：</strong><em>seit</em> + <strong>Dativ</strong>，表示"从某时起一直持续"：<em>seit Montag / seit einer Woche / seit drei Tagen</em>（注意 Tage → Tagen 的 n！）
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== 模拟题 8：询问课程 / 报名 ===== -->
-  <div class="level-card" id="a2-sim8" style="scroll-margin-top:20px;border-top:4px solid #5a67d8">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#3c366b,#5a67d8)">🎯 A2 模拟题 8</span>
-      <h2>Kurs-Anfrage 询问课程 / 报名</h2>
-    </div>
-    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练间接疑问 + möchten</div>
-    <div class="prompt-box" style="background:#ebf4ff;border-color:#7f9cf5">
-      <span class="task-label" style="color:#3c366b">🎯 Aufgabe / 任务：</span>
-      Sie möchten einen Yogakurs in einem Sportstudio machen. Schreiben Sie eine E-Mail an das Studio.<br><br>
-      <strong>Schreiben Sie zu diesen <span style="color:#3c366b">vier</span> Punkten:</strong><br>
-      ① Stellen Sie sich kurz vor.<br>
-      ② Sagen Sie, woher Sie vom Kurs wissen.<br>
-      ③ Fragen Sie nach Preis und Uhrzeit.<br>
-      ④ Fragen Sie, ob Sie zur Probe kommen können.<br><br>
-      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
-    </div>
-    <div class="vocab-help">
-      <strong>💡 Sie-Form 关键句型：</strong>
-      <div class="vocab-chips">
-        <span class="chip">mein Name ist …</span>
-        <span class="chip">ich habe … im Internet gesehen</span>
-        <span class="chip">eine Freundin hat mir erzählt</span>
-        <span class="chip">Wie viel kostet …?</span>
-        <span class="chip">Wann findet … statt?</span>
-        <span class="chip">Kann ich zur Probe kommen?</span>
-      </div>
-    </div>
-    <textarea class="write-area" id="a2sim8-text" placeholder="Sehr geehrte Damen und Herren,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim8')"></textarea>
-    <div class="word-count" id="wc-a2sim8">0 Wörter（目标：30–40词）</div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim8" style="width:0"></div></div>
-    <div class="action-row">
-      <button class="btn-check-w" onclick="toggleSamples('a2sim8-samples')">📖 查看 / 隐藏范文</button>
-      <button class="btn-hint" onclick="toggleHint('hint-a2sim8')">💡 写作提示</button>
-      <button class="btn-clear" onclick="document.getElementById('a2sim8-text').value='';document.getElementById('wc-a2sim8').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
-    </div>
-    <div class="hint-box" id="hint-a2sim8">
-      <strong>写作要点：</strong><br>
-      ✅ 自我介绍：<em>Mein Name ist …</em> / <em>Ich heiße …</em><br>
-      ✅ 信息来源：<em>Ich habe Ihren Kurs <u>im Internet</u> gesehen</em> / <em>Eine Freundin hat mir <u>von Ihnen</u> erzählt</em><br>
-      ✅ A2 间接疑问句开头：<em>Wie viel … ? / Wann … ? / Wo … ?</em><br>
-      ✅ "试听一次" → <em>zur Probe kommen</em>（固定搭配）
-    </div>
-    <div class="sim-samples" id="a2sim8-samples">
-      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
-      <div class="sample">
-        <strong style="color:#5a67d8;font-size:.8rem">范文 A（38 词）</strong>
-        <span class="de">Sehr geehrte Damen und Herren,<br><br>①mein Name ist Li Yang. ②Ich habe Ihren Yogakurs auf Instagram gesehen und finde ihn interessant. ③Wie viel kostet der Kurs pro Monat und wann findet er statt? ④Kann ich einmal zur Probe kommen?<br><br>Mit freundlichen Grüßen,<br>Li Yang</span>
-        <span class="cn">尊敬的先生女士，①我叫李阳。②我在 Instagram 上看到了您的瑜伽课，觉得很有意思。③课程每月多少钱？什么时候上课？④我能试听一次吗？此致敬礼，李阳</span>
-      </div>
-      <div class="sample" style="margin-top:10px">
-        <strong style="color:#5a67d8;font-size:.8rem">范文 B（37 词 · 含 dass-从句）</strong>
-        <span class="de">Sehr geehrte Damen und Herren,<br><br>①ich heiße Maria Wang und ich interessiere mich für Yoga. ②Meine Freundin hat mir erzählt, dass Ihr Kurs sehr gut ist. ③Was kostet er und wann beginnt er? ④Darf ich zur Probe kommen?<br><br>Mit freundlichen Grüßen,<br>Maria Wang</span>
-        <span class="cn">尊敬的先生女士，①我叫王玛丽亚，对瑜伽感兴趣。②我朋友跟我说您的课程很好。③费用多少？什么时候开始？④我可以试听吗？此致敬礼，王玛丽亚</span>
-      </div>
-      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
-        <strong>📌 A2 反身动词高频搭配：</strong><em>sich interessieren <u>für</u> + Akk</em>（对……感兴趣）—— A2 听说读写都会考的固定搭配。
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- ====================== A2 句型库 + 策略 ====================== -->
-  <!-- ============================================================ -->
-
-  <!-- ===== A2 高频句型库 ===== -->
-  <div class="level-card" id="a2-redemittel" style="scroll-margin-top:20px;border-top:4px solid #0891b2">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#155e75,#0891b2)">📚 高频句型库</span>
-      <h2>A2 写作必背 — Redemittel</h2>
-    </div>
-    <div class="level-desc">背下这 4 组，A2 写作得分稳上 14/20</div>
-
-    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">① Perfekt 套语（过去经历）</h3>
-    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
-      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>Ich bin … gefahren / geflogen / gegangen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我去了/飞了/走了……</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich habe … gemacht / gesehen / gegessen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我做了/看了/吃了……</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich bin umgezogen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我搬家了（sein！）</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Es hat mir (sehr gut) gefallen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我（很）喜欢</td></tr>
-        <tr><td style="padding:4px 8px"><b>Ich habe … vergessen / verloren</b></td><td style="padding:4px 8px">我忘了/丢了……</td></tr>
-      </table>
-    </div>
-
-    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">② 反身动词高频搭配</h3>
-    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
-      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>sich freuen <u>auf</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">期待（未来）</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich freuen <u>über</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">高兴于（已发生）</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich ärgern <u>über</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">生气因为</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich interessieren <u>für</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">对……感兴趣</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich melden</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">联系（打电话/发消息）</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich entschuldigen <u>für</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">为……道歉</td></tr>
-        <tr><td style="padding:4px 8px"><b>sich fühlen + Adj</b></td><td style="padding:4px 8px">感觉……</td></tr>
-      </table>
-    </div>
-
-    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">③ 从句句型（dass / weil / wenn）</h3>
-    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem;color:#0c4a6e">
-      <p style="margin:0 0 6px"><b>dass-从句</b>（陈述/转述）→ 动词到从句末尾</p>
-      <p style="margin:0 0 10px;padding-left:14px">
-        <em>Es tut mir leid, <u>dass</u> ich nicht gekommen <u>bin</u>.</em><br>
-        <em>Ich glaube, <u>dass</u> du Recht <u>hast</u>.</em><br>
-        <em>Schön, <u>dass</u> du dich gemeldet <u>hast</u>!</em>
-      </p>
-      <p style="margin:0 0 6px"><b>weil-从句</b>（解释原因）→ 动词到从句末尾</p>
-      <p style="margin:0 0 10px;padding-left:14px">
-        <em>Ich komme nicht, <u>weil</u> ich krank <u>bin</u>.</em><br>
-        <em>Sie ist müde, <u>weil</u> sie schlecht <u>geschlafen hat</u>.</em>
-      </p>
-      <p style="margin:0 0 6px"><b>wenn-从句</b>（条件/时间）→ 动词到从句末尾</p>
-      <p style="margin:0;padding-left:14px">
-        <em><u>Wenn</u> du Zeit <u>hast</u>, ruf mich an.</em><br>
-        <em>Ich freue mich, <u>wenn</u> du <u>kommst</u>.</em>
-      </p>
-    </div>
-
-    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">④ Sie-Form 正式套语</h3>
-    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
-      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>Sehr geehrte Damen und Herren,</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">不知姓名时开头</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Sehr geehrter Herr / Sehr geehrte Frau …</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">知道姓名时开头</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Können Sie bitte …?</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">礼貌请求</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich möchte …</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我想要……（比 ich will 礼貌）</td></tr>
-        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich warte auf Ihre Antwort.</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">期待您的回复</td></tr>
-        <tr><td style="padding:4px 8px"><b>Mit freundlichen Grüßen,</b></td><td style="padding:4px 8px">此致敬礼（结尾）</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- ===== 4 Leitpunkte 写作策略卡 ===== -->
-  <div class="level-card" id="a2-strategy" style="scroll-margin-top:20px;border-top:4px solid #dc2626;margin-bottom:40px">
-    <div class="level-head">
-      <span class="level-badge lv5" style="background:linear-gradient(135deg,#991b1b,#dc2626)">🏆 考试策略</span>
-      <h2>4 Leitpunkte 满分策略</h2>
-    </div>
-    <div class="level-desc">A2 写作每漏一个要点 = 扣 25%，这套流程帮你 0 漏点</div>
-
-    <div style="background:#fff1f2;border-left:4px solid #dc2626;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#7f1d1d">
-      <strong>🎯 三步法（考场实操）：</strong><br><br>
-      <strong>第 1 步 · 圈点（30 秒）</strong><br>
-      拿到题目立刻用笔在 4 个 Leitpunkte 上画圈或编号 ①②③④。<br><br>
-      <strong>第 2 步 · 一对一写句（5 分钟）</strong><br>
-      每个要点 = 1 句话（或 1.5 句）。<br>
-      草稿纸上先写"①... ②... ③... ④..."的骨架，再扩展。<br><br>
-      <strong>第 3 步 · 回扫核对（30 秒）</strong><br>
-      写完后用手指数 4 次：第一句对应①吗？第二句对应②吗？……<br>
-      不要追求文采，<strong>4 个要点全写到 = 14 分起步</strong>，再加准确语法和适当的反身/Perfekt = 满分 20。
-    </div>
-
-    <div style="background:#fefce8;border-left:4px solid #eab308;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#713f12">
-      <strong>⚠️ 阅卷老师扣分的 5 个常见原因：</strong><br>
-      1. <strong>漏要点</strong>（最严重）—— 4 个 Leitpunkte 只回应 2-3 个 → 直接扣半<br>
-      2. <strong>开头结尾遗漏</strong> —— 没写 <em>Hallo / Liebe Grüße</em> → 扣形式分<br>
-      3. <strong>du 和 Sie 混用</strong> —— Teil 1 用 Sie，或 Teil 2 用 du → 严重扣分<br>
-      4. <strong>字数严重不足</strong> —— 少于 20 词 → 内容分对半砍<br>
-      5. <strong>抄题目原句</strong> —— 把题目里的句子搬过来 → 不算原创，不得分
-    </div>
-
-    <div style="background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#14532d">
-      <strong>✨ 加分项（拉开档次的关键）：</strong><br>
-      ✅ 至少用 <strong>1 个 Perfekt</strong>（<em>ich habe … gemacht / ich bin … gefahren</em>）<br>
-      ✅ 至少用 <strong>1 个从句</strong>（<em>dass / weil / wenn</em>）<br>
-      ✅ 至少用 <strong>1 个反身动词</strong>（<em>sich freuen / sich ärgern</em>）<br>
-      ✅ 至少 <strong>1 个连接副词</strong>（<em>zuerst / dann / danach / aber / leider</em>）<br>
-      做到上面 4 条，你的 A2 写作 = 18+ 分（满分 20）
-    </div>
-  </div>
-
-</div>
-</div>
-</div>
-
-<!-- ════════════════════════════════════════════════════════════════ -->
 <!-- B1 阅读 10 · Präsentation — vorbereiten & durchführen            -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="b1l-s12-wrapper" class="t-dn">
@@ -36121,41 +35338,10 @@ function b1S12CheckB(){
 
   </div><!-- /section-body -->
 </div><!-- /section -->
-<a href="#a2s-toc-top" class="a2s-backtotoc" title="回到目录">📋</a>
-
-<script>
-(function(){
-  function setup(){
-    var page=document.getElementById('page-a2schreiben');
-    var btoc=document.querySelector('.a2s-backtotoc');
-    if(!page||!btoc)return;
-    var s=document.getElementById('btoc-slot');if(s&&btoc.parentNode!==s){s.appendChild(btoc);}
-    function syncBtoc(){
-      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
-    }
-    syncBtoc();
-    if(typeof window.showPage==='function'&&!window.showPage._a2sWrapped){
-      var _orig=window.showPage;
-      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
-      window.showPage._a2sWrapped=true;
-			}
-    btoc.addEventListener('click',function(e){
-      e.preventDefault();
-      var toc=document.getElementById('a2s-toc-top');
-      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
-    });
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
-  else{setup();}
-})();
-</script>
-
 </div>
-</template>
-<div id="page-a2schreiben" class="page" data-lazy="true"></div>
-<script>registerLazyPage('a2schreiben', 'tpl-page-a2schreiben');</script>
+</div>
 
-<!-- ════════════════════════════════════════════════════════════════ -->
+
 <!-- B1 阅读 11 · Wetter, Wetter, Wetter! · Wetterrekorde & Orkan Kyrill        -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="b1l-s13-wrapper" class="t-dn">
@@ -37215,18 +36401,6 @@ function b1S12CheckB(){
 </div>
 </div>
 
-<style>
-#page-b1lesen .btn-vocab{background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important}
-#page-b1lesen .btn-grammatik{background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important}
-#page-b1lesen .btn-hintergrund{background:linear-gradient(135deg,#e65100,#ff9800)!important;color:#fff!important}
-#page-b1lesen .btn-kollokation{background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important}
-#page-b1lesen .btn-redemittel{background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important}
-#page-b1lesen .btn-beispiele{background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important}
-#page-b1lesen #b1s13-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
-#page-b1lesen #b1s17-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
-#page-b1lesen #b1s18-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
-#page-b1lesen #b1s19-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
-</style>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- B1 阅读 14 · Gründe nennen & Wetter-Erfahrungen                     -->
@@ -39681,6 +38855,838 @@ function b1S12CheckB(){
 
   </div>
 </div>
+</div>
+</div>
+
+<div id="page-b1lesen" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b1lesen', 'tpl-page-b1lesen');</script>
+<a href="#b1l-toc" class="b1l-backtotoc" title="回到目录">📋</a>
+
+<a href="#a2g-top" class="a2g-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2grammar');
+    var btoc=document.querySelector('.a2g-backtotoc');
+    if(!page||!btoc)return;
+    var s=document.getElementById('btoc-slot');if(s&&btoc.parentNode!==s){s.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2gWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2gWrapped=true;
+			}
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('a2g-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
+</div>
+
+<template id="tpl-page-a2schreiben">
+<div style="max-width:860px;margin:0 auto">
+
+  <!-- ===== 页头 ===== -->
+  <div style="text-align:center;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(124,58,237,.35)">
+    <h1 style="font-size:1.8rem;margin-bottom:6px">✍️ Deutsch A2 – Schreiben 写作练习</h1>
+    <p style="font-size:.95rem;opacity:.95;margin:0">8 套模拟题 · Teil 1 私人邮件 + Teil 2 半正式信息 · 歌德 A2 考试格式</p>
+  </div>
+
+  <!-- ===== 目录 Section ===== -->
+  <div class="section" id="a2s-toc-top" style="margin-bottom:28px">
+    <div class="section-header" style="background:linear-gradient(135deg,#7c3aed,#a855f7) !important">📋 目录 Inhaltsverzeichnis · 点击跳转</div>
+    <div class="section-body" style="padding:18px 22px">
+
+      <!-- 基础知识 -->
+      <h3 style="font-size:.92rem;color:#6b21a8;margin:0 0 10px;font-weight:700;letter-spacing:.02em">🎓 考试基础</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
+        <a href="#a2-intro" style="display:block;padding:10px 14px;background:#faf5ff;border:1px solid #e9d5ff;border-left:3px solid #a855f7;border-radius:8px;color:#4c1d95;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#ede9fe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#faf5ff';this.style.transform='translateX(0)'">
+          <strong>① 考试说明</strong><br><span style="font-size:.8rem;color:#7c3aed">Teil 1 / Teil 2 · 4 Leitpunkte</span>
+        </a>
+        <a href="#a2-compare" style="display:block;padding:10px 14px;background:#fdf2f8;border:1px solid #fce7f3;border-left:3px solid #ec4899;border-radius:8px;color:#831843;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fce7f3';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fdf2f8';this.style.transform='translateX(0)'">
+          <strong>② A1 → A2 进阶速查表</strong><br><span style="font-size:.8rem;color:#ec4899">7 维度对比</span>
+        </a>
+      </div>
+
+      <!-- Teil 1 -->
+      <h3 style="font-size:.92rem;color:#15803d;margin:0 0 10px;font-weight:700;letter-spacing:.02em">📧 Teil 1 — 私人邮件（du 形式 · 30–40 词）</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
+        <a href="#a2-sim1" style="display:block;padding:10px 14px;background:#fff5f5;border:1px solid #fed7d7;border-left:3px solid #e53e3e;border-radius:8px;color:#742a2a;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fed7d7';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fff5f5';this.style.transform='translateX(0)'">
+          <strong>题 1 · 受邀回复</strong><br><span style="font-size:.8rem;color:#c53030">聚会 + sich freuen</span>
+        </a>
+        <a href="#a2-sim2" style="display:block;padding:10px 14px;background:#faf5ff;border:1px solid #e9d5ff;border-left:3px solid #9f7aea;border-radius:8px;color:#44337a;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#e9d5ff';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#faf5ff';this.style.transform='translateX(0)'">
+          <strong>题 2 · 搬家通知</strong><br><span style="font-size:.8rem;color:#6b46c1">Perfekt + sein 助动词</span>
+        </a>
+        <a href="#a2-sim3" style="display:block;padding:10px 14px;background:#fffaf0;border:1px solid #feebc8;border-left:3px solid #ed8936;border-radius:8px;color:#7b341e;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#feebc8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fffaf0';this.style.transform='translateX(0)'">
+          <strong>题 3 · 道歉改约</strong><br><span style="font-size:.8rem;color:#c05621">dass + Perfekt 嵌套</span>
+        </a>
+        <a href="#a2-sim4" style="display:block;padding:10px 14px;background:#ebf8ff;border:1px solid #bee3f8;border-left:3px solid #4299e1;border-radius:8px;color:#2a4365;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#bee3f8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ebf8ff';this.style.transform='translateX(0)'">
+          <strong>题 4 · 讲述旅行</strong><br><span style="font-size:.8rem;color:#2b6cb0">Perfekt 集中训练</span>
+        </a>
+        <a href="#a2-sim5" style="display:block;padding:10px 14px;background:#e6fffa;border:1px solid #b2f5ea;border-left:3px solid #38b2ac;border-radius:8px;color:#234e52;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#b2f5ea';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#e6fffa';this.style.transform='translateX(0)'">
+          <strong>题 5 · 抱怨邻居</strong><br><span style="font-size:.8rem;color:#2c7a7b">sich ärgern + dass</span>
+        </a>
+      </div>
+
+      <!-- Teil 2 -->
+      <h3 style="font-size:.92rem;color:#92400e;margin:0 0 10px;font-weight:700;letter-spacing:.02em">📨 Teil 2 — 半正式信息（Sie 形式 · 30–40 词）</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
+        <a href="#a2-sim6" style="display:block;padding:10px 14px;background:#fff5f7;border:1px solid #fbcfe8;border-left:3px solid #d53f8c;border-radius:8px;color:#702459;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fbcfe8';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fff5f7';this.style.transform='translateX(0)'">
+          <strong>题 6 · 退换货投诉</strong><br><span style="font-size:.8rem;color:#97266d">möchten + Perfekt</span>
+        </a>
+        <a href="#a2-sim7" style="display:block;padding:10px 14px;background:#fffaf0;border:1px solid #fbd38d;border-left:3px solid #c05621;border-radius:8px;color:#652b19;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fbd38d';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fffaf0';this.style.transform='translateX(0)'">
+          <strong>题 7 · 房东报修</strong><br><span style="font-size:.8rem;color:#9c4221">seit + Dativ + können</span>
+        </a>
+        <a href="#a2-sim8" style="display:block;padding:10px 14px;background:#ebf4ff;border:1px solid #c3dafe;border-left:3px solid #5a67d8;border-radius:8px;color:#2a3170;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#c3dafe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ebf4ff';this.style.transform='translateX(0)'">
+          <strong>题 8 · 课程询问</strong><br><span style="font-size:.8rem;color:#3c366b">sich interessieren für</span>
+        </a>
+      </div>
+
+      <!-- 总结提升 -->
+      <h3 style="font-size:.92rem;color:#155e75;margin:0 0 10px;font-weight:700;letter-spacing:.02em">🏆 总结 + 提升</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
+        <a href="#a2-redemittel" style="display:block;padding:10px 14px;background:#ecfeff;border:1px solid #cffafe;border-left:3px solid #0891b2;border-radius:8px;color:#164e63;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#cffafe';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#ecfeff';this.style.transform='translateX(0)'">
+          <strong>📚 高频句型库</strong><br><span style="font-size:.8rem;color:#0e7490">Perfekt / 反身 / 从句 / Sie 套语</span>
+        </a>
+        <a href="#a2-strategy" style="display:block;padding:10px 14px;background:#fef2f2;border:1px solid #fecaca;border-left:3px solid #dc2626;border-radius:8px;color:#7f1d1d;text-decoration:none;font-size:.9rem;line-height:1.5;transition:all .2s" onmouseover="this.style.background='#fecaca';this.style.transform='translateX(3px)'" onmouseout="this.style.background='#fef2f2';this.style.transform='translateX(0)'">
+          <strong>🎯 4 Leitpunkte 满分策略</strong><br><span style="font-size:.8rem;color:#b91c1c">三步法 + 扣分点 + 加分项</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== ① 歌德 A2 Schreiben 考试说明 ===== -->
+  <div class="level-card" id="a2-intro" style="scroll-margin-top:20px;border-top:4px solid #a855f7">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">📋 考试说明</span>
+      <h2>Goethe-Zertifikat A2 – Schreiben 考试结构</h2>
+    </div>
+    <div class="level-desc">总时长 30 分钟 · 总分 20 分 · 两部分写作</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0">
+      <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:14px 16px">
+        <h4 style="margin:0 0 8px;color:#15803d">📧 Teil 1 — 私人邮件</h4>
+        <ul style="margin:0;padding-left:18px;font-size:.9rem;line-height:1.9;color:#1a3a2a">
+          <li>对象：朋友、亲人（<strong>du</strong> 形式）</li>
+          <li>字数：约 <strong>30 词</strong>（推荐 30–40 词）</li>
+          <li>要点：必须回答 <strong>4 个 Leitpunkte</strong></li>
+          <li>话题：聚会、邀请、道歉、邀约</li>
+        </ul>
+      </div>
+      <div style="background:#fef3c7;border:2px solid #fcd34d;border-radius:12px;padding:14px 16px">
+        <h4 style="margin:0 0 8px;color:#92400e">📨 Teil 2 — 半正式信息</h4>
+        <ul style="margin:0;padding-left:18px;font-size:.9rem;line-height:1.9;color:#3a2a0a">
+          <li>对象：老师、房东、商家（<strong>Sie</strong> 形式）</li>
+          <li>字数：约 <strong>30 词</strong>（推荐 30–40 词）</li>
+          <li>要点：必须回答 <strong>4 个 Leitpunkte</strong></li>
+          <li>话题：投诉、预约、退换货、报修</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:#fee2e2;border-left:4px solid #ef4444;border-radius:8px;padding:12px 16px;color:#7f1d1d;font-size:.92rem;line-height:1.85">
+      <strong>⚠️ 4 Leitpunkte 是 A2 写作的关键差异：</strong><br>
+      A1 是 3 个要点，A2 升级为 <strong>4 个要点</strong>。每漏一个 = 扣 25% 分。<br>
+      策略：审题时用笔在题目上把 4 个要点圈出来 → 写完后再逐个核对。
+    </div>
+  </div>
+
+  <!-- ===== ② A1 → A2 写作进阶速查表 ===== -->
+  <div class="level-card" id="a2-compare" style="scroll-margin-top:20px;border-top:4px solid #ec4899">
+    <div class="level-head">
+      <span class="level-badge lv4" style="background:linear-gradient(135deg,#be185d,#ec4899)">🔍 A1 vs A2</span>
+      <h2>A1 → A2 写作进阶速查表</h2>
+    </div>
+    <div class="level-desc">从 A1 升 A2，写作要新增 4 个关键能力</div>
+
+    <div style="overflow-x:auto;margin:14px 0">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem;background:#fff">
+        <thead>
+          <tr style="background:#fdf2f8">
+            <th style="padding:10px;text-align:left;border:1px solid #fce7f3;width:120px">维度</th>
+            <th style="padding:10px;text-align:left;border:1px solid #fce7f3">A1</th>
+            <th style="padding:10px;text-align:left;border:1px solid #fce7f3">A2 升级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>字数</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">20–30 词</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">30–40 词（多 50%）</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>要点数</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">3 个 Leitpunkte</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">4 个 Leitpunkte</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>时态</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">现在时为主</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">现在时 + <strong>Perfekt（过去）</strong></td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>从句</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">几乎没有</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d"><strong>dass / weil / wenn</strong> 从句</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>反身动词</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">不用</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d"><strong>sich freuen / ärgern / melden</strong></td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>话题</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">请假、约会、自我介绍</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">搬家、抱怨、退换货、聚会组织</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid #fce7f3"><strong>语气</strong></td><td style="padding:8px 10px;border:1px solid #fce7f3">模板化</td><td style="padding:8px 10px;border:1px solid #fce7f3;color:#be185d">自然口语化（<em>oder? / schön, dass …</em>）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ====================== TEIL 1 私人邮件 ====================== -->
+  <!-- ============================================================ -->
+  <div style="background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;padding:18px 24px;border-radius:14px;margin:32px 0 20px;box-shadow:0 4px 14px rgba(34,197,94,.3)">
+    <h2 style="margin:0;font-size:1.35rem">📧 Teil 1 — 私人邮件（du 形式 · 30–40 词）</h2>
+    <p style="margin:6px 0 0;opacity:.95;font-size:.9rem">5 套模拟题 · 每题含 4 Leitpunkte + 两份范文 + 语法重点</p>
+  </div>
+
+  <!-- ===== 模拟题 1：邀请详细回复（聚会组织）===== -->
+  <div class="level-card" id="a2-sim1" style="scroll-margin-top:20px;border-top:4px solid #e53e3e">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#c53030,#e53e3e)">🎯 A2 模拟题 1</span>
+      <h2>Einladung zur Geburtstagsparty 受邀回复（含组织协助）</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 4 Leitpunkte · 重点训练 Perfekt + sich freuen</div>
+    <div class="prompt-box" style="background:#fff5f5;border-color:#fc8181">
+      <span class="task-label" style="color:#c53030">🎯 Aufgabe / 任务：</span>
+      Ihre Freundin Caro schreibt Ihnen:<br><br>
+      <em style="color:#4a5568;display:block;background:#fff;border-radius:8px;padding:10px 14px;margin:8px 0">"Hallo! Am Samstag mache ich eine Geburtstagsparty bei mir zu Hause. Wir feiern ab 19 Uhr. Bringst du etwas mit? Und kannst du beim Aufbauen helfen? Liebe Grüße, Caro"</em>
+      <strong>Schreiben Sie Caro eine Antwort zu diesen <span style="color:#c53030">vier</span> Punkten:</strong><br>
+      ① Danken Sie für die Einladung.<br>
+      ② Sagen Sie, ob Sie kommen können.<br>
+      ③ Sagen Sie, was Sie mitbringen.<br>
+      ④ Antworten Sie auf die Frage zum Aufbauen.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 A2 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Danke für deine Einladung!</span>
+        <span class="chip">Ich freue mich sehr</span>
+        <span class="chip">Ich bringe … mit</span>
+        <span class="chip">Natürlich helfe ich dir</span>
+        <span class="chip">Soll ich um … kommen?</span>
+        <span class="chip">Wann soll ich da sein?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim1-text" placeholder="Hallo Caro,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim1')"></textarea>
+    <div class="word-count" id="wc-a2sim1">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim1" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim1-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim1')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim1-text').value='';document.getElementById('wc-a2sim1').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim1">
+      <strong>写作要点（A2 升级版）：</strong><br>
+      ✅ <strong>4 个要点必须全答</strong>：感谢 → 能否来 → 带什么 → 是否帮忙<br>
+      ✅ <strong>反身动词</strong>：<em>Ich freue mich auf …</em> / <em>Ich freue mich sehr</em><br>
+      ✅ <strong>口语化语气</strong>：<em>klar! / na klar! / gerne!</em>（A2 写作允许自然口语）<br>
+      ✅ 篇幅：3–4 句，比 A1 多一句
+    </div>
+    <div class="sim-samples" id="a2sim1-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文（4 个要点已用①②③④标注）</h4>
+      <div class="sample">
+        <strong style="color:#e53e3e;font-size:.8rem">范文 A（37 词 · 接受 + 自带蛋糕 + 主动帮忙）</strong>
+        <span class="de">Hallo Caro,<br><br>①vielen Dank für deine Einladung! ②Ich komme natürlich gerne und ich freue mich schon sehr. ③Ich bringe einen Schokoladenkuchen mit. ④Klar helfe ich dir beim Aufbauen — ich komme schon um 17 Uhr.<br><br>Liebe Grüße,<br>Lina</span>
+        <span class="cn">嗨 Caro，①非常感谢你的邀请！②我当然乐意来，已经很期待了。③我会带一个巧克力蛋糕。④当然我帮你搭场地——我 17 点就到。祝好，Lina</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#e53e3e;font-size:.8rem">范文 B（35 词 · 接受 + 带饮料 + 道歉无法早到）</strong>
+        <span class="de">Hallo Caro,<br><br>①danke für die Einladung, das ist super! ②Ich komme auf jeden Fall. ③Ich bringe Getränke und Salat mit. ④Leider kann ich nicht früher kommen, weil ich noch arbeiten muss. Tut mir leid!<br><br>Bis Samstag,<br>Tim</span>
+        <span class="cn">嗨 Caro，①谢谢邀请，太棒了！②我一定来。③我带饮料和沙拉。④很遗憾我不能更早到，因为我还得上班。对不起！周六见，Tim</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 语法点：</strong>范文 B 用了 <em>weil</em>-从句（<em>weil ich noch arbeiten muss</em>，动词后置）——这是 A1 没有的句式，A2 必须掌握。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 2：搬家通知 + 邀请来访 ===== -->
+  <div class="level-card" id="a2-sim2" style="scroll-margin-top:20px;border-top:4px solid #9f7aea">
+    <div class="level-head">
+      <span class="level-badge lv4" style="background:linear-gradient(135deg,#6b21a8,#9f7aea)">🎯 A2 模拟题 2</span>
+      <h2>Umzug — neue Wohnung 搬家通知 + 邀请来访</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt（搬家用 sein 助动词）</div>
+    <div class="prompt-box" style="background:#faf5ff;border-color:#b794f4">
+      <span class="task-label" style="color:#6b21a8">🎯 Aufgabe / 任务：</span>
+      Ihr Freund Lasse hat lange nichts von Ihnen gehört. Schreiben Sie ihm eine E-Mail.<br><br>
+      <strong>Schreiben Sie zu diesen <span style="color:#6b21a8">vier</span> Punkten:</strong><br>
+      ① Entschuldigen Sie sich, dass Sie sich lange nicht gemeldet haben.<br>
+      ② Erzählen Sie, dass Sie umgezogen sind.<br>
+      ③ Beschreiben Sie kurz die neue Wohnung.<br>
+      ④ Laden Sie Lasse zu Besuch ein.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 A2 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Es tut mir leid, dass …</span>
+        <span class="chip">Ich habe mich lange nicht gemeldet</span>
+        <span class="chip">Ich bin umgezogen</span>
+        <span class="chip">Meine neue Wohnung hat …</span>
+        <span class="chip">im dritten Stock</span>
+        <span class="chip">Kommst du mich besuchen?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim2-text" placeholder="Hallo Lasse,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim2')"></textarea>
+    <div class="word-count" id="wc-a2sim2">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim2" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim2-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim2')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim2-text').value='';document.getElementById('wc-a2sim2').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim2">
+      <strong>写作要点（A2 重点 — Perfekt）：</strong><br>
+      ✅ <strong>"搬家"用 sein 构成完成时</strong>：<em>Ich <u>bin</u> umgezogen</em>（不是 habe！）<br>
+      ✅ <strong>"道歉自己很久没联系"</strong>：<em>Es tut mir leid, dass ich mich so lange nicht gemeldet habe.</em>（反身 + dass + Perfekt 三合一）<br>
+      ✅ 描述住房：<em>Die Wohnung hat einen Balkon / eine große Küche / drei Zimmer.</em><br>
+      ✅ 邀请：<em>Kommst du mich bald besuchen?</em>（"besuchen" + Akk）
+    </div>
+    <div class="sim-samples" id="a2sim2-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#9f7aea;font-size:.8rem">范文 A（38 词 · 完整 4 要点）</strong>
+        <span class="de">Hallo Lasse,<br><br>①es tut mir leid, dass ich mich so lange nicht gemeldet habe! ②Ich bin in eine neue Wohnung gezogen. ③Sie ist im dritten Stock und hat einen kleinen Balkon. ④Kommst du mich bald besuchen?<br><br>Liebe Grüße,<br>Olivia</span>
+        <span class="cn">嗨 Lasse，①很抱歉这么久没联系！②我搬到了一套新公寓。③在三楼，有一个小阳台。④你最近来看看我吧？祝好，Olivia</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#9f7aea;font-size:.8rem">范文 B（36 词 · 用 weil 解释）</strong>
+        <span class="de">Hallo Lasse,<br><br>①ich habe mich lange nicht gemeldet, weil ich umgezogen bin. ②Meine neue Wohnung ist toll! ③Sie hat drei Zimmer und eine große Küche. ④Hast du Lust, am Wochenende vorbeizukommen?<br><br>Viele Grüße,<br>Jan</span>
+        <span class="cn">嗨 Lasse，①我很久没联系，因为我搬家了。②我的新公寓很棒！③有三个房间和一个大厨房。④周末有兴趣过来吗？祝好，Jan</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 语法点：</strong>范文 B 用 <em>weil ich umgezogen <u>bin</u></em>——"搬家"是位移动词，用 <strong>sein</strong> 不是 haben，且从句中助动词 bin 在最后。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 3：道歉 + 改约（Perfekt 训练）===== -->
+  <div class="level-card" id="a2-sim3" style="scroll-margin-top:20px;border-top:4px solid #ed8936">
+    <div class="level-head">
+      <span class="level-badge lv4" style="background:linear-gradient(135deg,#c05621,#ed8936)">🎯 A2 模拟题 3</span>
+      <h2>Entschuldigung — verpasster Termin 道歉 + 改约</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt + dass-从句</div>
+    <div class="prompt-box" style="background:#fffaf0;border-color:#f6ad55">
+      <span class="task-label" style="color:#c05621">🎯 Aufgabe / 任务：</span>
+      Sie hatten gestern einen Termin mit Ihrer Freundin Anna im Café. Sie sind aber nicht gekommen.<br><br>
+      <strong>Schreiben Sie Anna eine E-Mail zu diesen <span style="color:#c05621">vier</span> Punkten:</strong><br>
+      ① Entschuldigen Sie sich.<br>
+      ② Erklären Sie, was passiert ist.<br>
+      ③ Schlagen Sie einen neuen Termin vor.<br>
+      ④ Fragen Sie, ob der neue Termin passt.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 A2 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Es tut mir wirklich leid</span>
+        <span class="chip">Ich habe … vergessen</span>
+        <span class="chip">Mein Handy war kaputt</span>
+        <span class="chip">Ich war krank</span>
+        <span class="chip">Können wir uns … treffen?</span>
+        <span class="chip">Passt dir … ?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim3-text" placeholder="Hallo Anna,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim3')"></textarea>
+    <div class="word-count" id="wc-a2sim3">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim3" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim3-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim3')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim3-text').value='';document.getElementById('wc-a2sim3').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim3">
+      <strong>写作要点：</strong><br>
+      ✅ Perfekt 必用：<em>Ich <u>habe</u> den Termin <u>vergessen</u></em> / <em>Ich <u>habe</u> verschlafen</em><br>
+      ✅ Präteritum 也可：<em>Ich <u>war</u> krank</em> / <em>Mein Handy <u>war</u> kaputt</em>（sein 用 war 简单过去）<br>
+      ✅ 提新时间：<em>Können wir uns am Freitag treffen?</em> / <em>Wie wäre es mit Donnerstag?</em><br>
+      ✅ 询问对方意见：<em>Passt dir das?</em> / <em>Ist das ok für dich?</em>
+    </div>
+    <div class="sim-samples" id="a2sim3-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#ed8936;font-size:.8rem">范文 A（35 词）</strong>
+        <span class="de">Hallo Anna,<br><br>①es tut mir wirklich leid! ②Ich habe unseren Termin total vergessen, weil ich viel Stress hatte. ③Können wir uns am Freitag um 16 Uhr im Café treffen? ④Passt dir das?<br><br>Liebe Grüße,<br>Mia</span>
+        <span class="cn">嗨 Anna，①真的对不起！②我完全忘了我们的约会，因为我压力很大。③我们能周五下午 4 点在咖啡馆见吗？④这样对你方便吗？祝好，Mia</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#ed8936;font-size:.8rem">范文 B（38 词 · 含 Perfekt + dass）</strong>
+        <span class="de">Hallo Anna,<br><br>①entschuldige bitte, dass ich gestern nicht gekommen bin! ②Mein Handy war kaputt und ich habe deine Nachricht zu spät gelesen. ③Wie wäre es am Samstag? ④Ich freue mich, wenn das klappt!<br><br>Bis bald,<br>Leo</span>
+        <span class="cn">嗨 Anna，①请原谅，昨天没来！②我的手机坏了，太晚才看到你的消息。③周六怎么样？④要是能成，我很高兴！再见，Leo</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 语法点：</strong>范文 B 一句话同时用了 <em>dass</em>（从句）+ <em>nicht gekommen bin</em>（Perfekt，sein-动词，bin 在末尾）——这种句子 A1 写不出来，是 A2 的关键能力。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 4：谈论旅行经历（Perfekt 集中训练）===== -->
+  <div class="level-card" id="a2-sim4" style="scroll-margin-top:20px;border-top:4px solid #4299e1">
+    <div class="level-head">
+      <span class="level-badge lv4" style="background:linear-gradient(135deg,#2b6cb0,#4299e1)">🎯 A2 模拟题 4</span>
+      <h2>Urlaub — Reise erzählen 讲述旅行经历</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 Perfekt（旅行 = 大量过去式）</div>
+    <div class="prompt-box" style="background:#ebf8ff;border-color:#63b3ed">
+      <span class="task-label" style="color:#2b6cb0">🎯 Aufgabe / 任务：</span>
+      Sie waren im Urlaub. Ihr Freund Felix schreibt:<br><br>
+      <em style="color:#4a5568;display:block;background:#fff;border-radius:8px;padding:10px 14px;margin:8px 0">"Hallo! Wie war dein Urlaub? Wo warst du? Hast du auch Bilder? Liebe Grüße, Felix"</em>
+      <strong>Schreiben Sie Felix zu diesen <span style="color:#2b6cb0">vier</span> Punkten:</strong><br>
+      ① Wo waren Sie im Urlaub?<br>
+      ② Was haben Sie dort gemacht?<br>
+      ③ Wie hat es Ihnen gefallen?<br>
+      ④ Bieten Sie an, Bilder zu schicken.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 A2 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Ich war in …</span>
+        <span class="chip">Ich bin … gefahren / geflogen</span>
+        <span class="chip">Ich habe … besucht / gesehen</span>
+        <span class="chip">Es war wunderschön / toll</span>
+        <span class="chip">Es hat mir sehr gefallen</span>
+        <span class="chip">Ich schicke dir Bilder</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim4-text" placeholder="Hallo Felix,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim4')"></textarea>
+    <div class="word-count" id="wc-a2sim4">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim4" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim4-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim4')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim4-text').value='';document.getElementById('wc-a2sim4').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim4">
+      <strong>写作要点（Perfekt 满分训练）：</strong><br>
+      ✅ 位移动词用 <strong>sein</strong>：<em>Ich bin <u>geflogen</u> / <u>gefahren</u> / <u>gegangen</u></em><br>
+      ✅ 动作动词用 <strong>haben</strong>：<em>Ich habe <u>besucht</u> / <u>gesehen</u> / <u>gemacht</u> / <u>gegessen</u></em><br>
+      ✅ "我觉得……" → <em>Es <u>hat</u> mir gut <u>gefallen</u></em>（gefallen + Dativ）<br>
+      ✅ 时间词排序：<em>Letzte Woche → zuerst → dann → am letzten Tag</em>
+    </div>
+    <div class="sim-samples" id="a2sim4-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#4299e1;font-size:.8rem">范文 A（39 词 · 6 个 Perfekt 形式）</strong>
+        <span class="de">Hallo Felix,<br><br>①ich war zwei Wochen in Italien. ②Ich bin nach Rom geflogen und habe viele Museen besucht. Wir haben jeden Tag Pizza gegessen! ③Es hat mir super gefallen. ④Ich schicke dir morgen Bilder.<br><br>Viele Grüße,<br>Sara</span>
+        <span class="cn">嗨 Felix，①我在意大利待了两周。②飞到罗马，参观了很多博物馆。我们每天吃披萨！③我觉得太棒了。④明天给你发图片。祝好，Sara</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#4299e1;font-size:.8rem">范文 B（37 词 · 含 weil-从句）</strong>
+        <span class="de">Hallo Felix,<br><br>①wir waren auf Mallorca. ②Wir sind viel geschwommen und haben am Strand gelegen. ③Es war super, weil das Wetter perfekt war. ④Soll ich dir ein paar Fotos per WhatsApp schicken?<br><br>Bis bald,<br>Tom</span>
+        <span class="cn">嗨 Felix，①我们在马略卡岛。②我们游了很多泳，在海滩躺着。③太棒了，因为天气完美。④我用 WhatsApp 给你发几张照片？再见，Tom</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 易错点：</strong><em>schwimmen</em> 表"游泳运动"用 <strong>haben</strong>，但表"游到某地"用 <strong>sein</strong>。范文 B 中 <em>geschwommen</em> 跟在 <em>sind</em> 后表示游了一段距离——A2 这种助动词选择是评分点。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 5：抱怨 + 求建议 ===== -->
+  <div class="level-card" id="a2-sim5" style="scroll-margin-top:20px;border-top:4px solid #38b2ac">
+    <div class="level-head">
+      <span class="level-badge lv4" style="background:linear-gradient(135deg,#2c7a7b,#38b2ac)">🎯 A2 模拟题 5</span>
+      <h2>Ärger mit Nachbarn 抱怨邻居 + 求建议</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 1 · 30–40 词 · 重点训练 sich ärgern + dass-从句</div>
+    <div class="prompt-box" style="background:#e6fffa;border-color:#4fd1c5">
+      <span class="task-label" style="color:#2c7a7b">🎯 Aufgabe / 任务：</span>
+      Sie haben Probleme mit Ihren neuen Nachbarn. Sie schreiben Ihrer Freundin Pia.<br><br>
+      <strong>Schreiben Sie zu diesen <span style="color:#2c7a7b">vier</span> Punkten:</strong><br>
+      ① Erzählen Sie, dass Sie Probleme mit den Nachbarn haben.<br>
+      ② Beschreiben Sie das Problem konkret.<br>
+      ③ Sagen Sie, wie Sie sich fühlen.<br>
+      ④ Bitten Sie um einen Rat.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 A2 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Ich habe Probleme mit …</span>
+        <span class="chip">Ich ärgere mich über …</span>
+        <span class="chip">Sie hören laute Musik</span>
+        <span class="chip">Das nervt!</span>
+        <span class="chip">Was soll ich machen?</span>
+        <span class="chip">Hast du einen Tipp?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim5-text" placeholder="Hallo Pia,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim5')"></textarea>
+    <div class="word-count" id="wc-a2sim5">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim5" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim5-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim5')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim5-text').value='';document.getElementById('wc-a2sim5').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim5">
+      <strong>写作要点（反身动词集中训练）：</strong><br>
+      ✅ <em>sich ärgern <u>über</u> + Akk</em>：<em>Ich ärgere mich über die Musik</em>（生气因为某事）<br>
+      ✅ <em>sich fühlen</em>：<em>Ich fühle mich gestresst / müde / wütend</em><br>
+      ✅ 求建议三种说法：<em>Was soll ich machen? / Hast du einen Tipp? / Was kann ich tun?</em><br>
+      ✅ A2 口语化感叹：<em>Das nervt total! / Es ist schrecklich!</em>
+    </div>
+    <div class="sim-samples" id="a2sim5-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#38b2ac;font-size:.8rem">范文 A（37 词 · 含 3 个反身动词）</strong>
+        <span class="de">Hallo Pia,<br><br>①ich habe gerade Probleme mit meinen neuen Nachbarn. ②Sie hören jeden Abend laute Musik bis Mitternacht. ③Ich ärgere mich total und kann nicht schlafen. ④Was soll ich machen? Hast du einen Tipp?<br><br>Liebe Grüße,<br>Nina</span>
+        <span class="cn">嗨 Pia，①我现在跟新邻居有麻烦。②他们每晚听吵闹的音乐到半夜。③我特别生气，睡不着。④我该怎么办？你有什么建议？祝好，Nina</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#38b2ac;font-size:.8rem">范文 B（36 词 · 含 dass-从句）</strong>
+        <span class="de">Hallo Pia,<br><br>①meine Nachbarn nerven mich total! ②Sie streiten oft und ihr Hund bellt die ganze Nacht. ③Ich bin müde und fühle mich gestresst. ④Glaubst du, dass ich mit ihnen sprechen soll?<br><br>Bis bald,<br>Ben</span>
+        <span class="cn">嗨 Pia，①我的邻居烦死我了！②他们经常吵架，他们的狗整夜叫。③我很累，感觉压力很大。④你觉得我应该跟他们谈谈吗？再见，Ben</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 语法点：</strong>范文 B 末句 <em>Glaubst du, dass ich mit ihnen sprechen <u>soll</u>?</em> —— dass-从句把动词 soll 推到最后，是 A2 必考结构。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- =================== TEIL 2 半正式信息（Sie）================== -->
+  <!-- ============================================================ -->
+  <div style="background:linear-gradient(135deg,#92400e,#d97706);color:#fff;padding:18px 24px;border-radius:14px;margin:32px 0 20px;box-shadow:0 4px 14px rgba(217,119,6,.3)">
+    <h2 style="margin:0;font-size:1.35rem">📨 Teil 2 — 半正式信息（Sie 形式 · 30–40 词）</h2>
+    <p style="margin:6px 0 0;opacity:.95;font-size:.9rem">3 套模拟题 · 商家、房东、机构 · Sie-Form + 正式套语</p>
+  </div>
+
+  <!-- ===== 模拟题 6：退换货 / 投诉商品 ===== -->
+  <div class="level-card" id="a2-sim6" style="scroll-margin-top:20px;border-top:4px solid #d53f8c">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#97266d,#d53f8c)">🎯 A2 模拟题 6</span>
+      <h2>Reklamation 退换货 / 投诉商品</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练 Perfekt + möchten</div>
+    <div class="prompt-box" style="background:#fff5f7;border-color:#f687b3">
+      <span class="task-label" style="color:#97266d">🎯 Aufgabe / 任务：</span>
+      Sie haben vor einer Woche im Online-Shop eine Jacke gekauft, aber sie ist kaputt. Schreiben Sie eine E-Mail an den Kundenservice.<br><br>
+      <strong>Schreiben Sie zu diesen <span style="color:#97266d">vier</span> Punkten:</strong><br>
+      ① Erklären Sie, was Sie gekauft haben (wann?).<br>
+      ② Beschreiben Sie das Problem.<br>
+      ③ Sagen Sie, was Sie möchten (Geld zurück / neue Jacke?).<br>
+      ④ Bitten Sie um eine schnelle Antwort.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 Sie-Form 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Sehr geehrte Damen und Herren</span>
+        <span class="chip">ich habe … bestellt</span>
+        <span class="chip">die Jacke ist kaputt</span>
+        <span class="chip">der Reißverschluss funktioniert nicht</span>
+    <div class="vocab-help">
+      <strong>💡 Sie-Form 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">Sehr geehrter Herr Schmidt</span>
+        <span class="chip">die Heizung funktioniert nicht</span>
+        <span class="chip">seit gestern / seit drei Tagen</span>
+        <span class="chip">in meiner Wohnung ist es kalt</span>
+        <span class="chip">Können Sie bitte … reparieren?</span>
+        <span class="chip">Wann kann der Techniker kommen?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim7-text" placeholder="Sehr geehrter Herr Schmidt,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim7')"></textarea>
+    <div class="word-count" id="wc-a2sim7">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim7" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim7-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim7')">💡 写作提示</button>
+        <span class="chip">Ich möchte mein Geld zurück</span>
+        <span class="chip">Bitte antworten Sie bald</span>
+        <span class="chip">Mit freundlichen Grüßen</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim6-text" placeholder="Sehr geehrte Damen und Herren,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim6')"></textarea>
+    <div class="word-count" id="wc-a2sim6">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim6" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim6-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim6')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim6-text').value='';document.getElementById('wc-a2sim6').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim6">
+      <strong>写作要点（Sie-Form 正式信件）：</strong><br>
+      ✅ 开头：<strong>Sehr geehrte Damen und Herren,</strong>（不知道具体姓名时用这个）<br>
+      ✅ 结尾：<strong>Mit freundlichen Grüßen</strong>（缩写 MfG，但写作中写全）<br>
+      ✅ Perfekt 描述已发生：<em>Ich habe … bestellt / gekauft</em><br>
+      ✅ "我想要"用 <strong>möchten</strong> 不用 will（更礼貌）：<em>Ich möchte mein Geld zurück.</em>
+    </div>
+    <div class="sim-samples" id="a2sim6-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#d53f8c;font-size:.8rem">范文 A（38 词 · 要求退款）</strong>
+        <span class="de">Sehr geehrte Damen und Herren,<br><br>①ich habe vor einer Woche eine Jacke bei Ihnen bestellt. ②Leider ist der Reißverschluss kaputt. ③Ich möchte mein Geld zurückbekommen. ④Bitte antworten Sie mir schnell.<br><br>Mit freundlichen Grüßen,<br>Lin Wang</span>
+        <span class="cn">尊敬的先生女士，①一周前我在您处订了一件夹克。②可惜拉链坏了。③我想退款。④请尽快回复我。此致敬礼，王林</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#d53f8c;font-size:.8rem">范文 B（37 词 · 要求换货）</strong>
+        <span class="de">Sehr geehrte Damen und Herren,<br><br>①am 5. Mai habe ich bei Ihnen eine schwarze Jacke gekauft. ②Sie ist aber zu klein und hat einen Fleck. ③Können Sie mir bitte eine neue Jacke schicken? ④Ich warte auf Ihre Antwort.<br><br>Mit freundlichen Grüßen,<br>Anna Müller</span>
+        <span class="cn">尊敬的先生女士，①5 月 5 日我在您处买了一件黑色夹克。②但它太小且有污渍。③请您给我寄一件新的好吗？④期待您的回复。此致敬礼，Anna Müller</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 Sie-Form 易错点：</strong>请求时不能用 <em>du</em> 形式的 <em>Schreib mir!</em> 必须用 <em>Antworten Sie mir, bitte.</em> 或 <em>Können Sie … ?</em>。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 7：给房东报告问题 ===== -->
+  <div class="level-card" id="a2-sim7" style="scroll-margin-top:20px;border-top:4px solid #c05621">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#7b341e,#c05621)">🎯 A2 模拟题 7</span>
+      <h2>Vermieter — Reparatur 给房东报告报修</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练 seit + Perfekt + können</div>
+    <div class="prompt-box" style="background:#fffaf0;border-color:#f6ad55">
+      <span class="task-label" style="color:#7b341e">🎯 Aufgabe / 任务：</span>
+      In Ihrer Wohnung ist die Heizung kaputt. Schreiben Sie eine E-Mail an Ihren Vermieter, Herrn Schmidt.<br><br>
+      <strong>Schreiben Sie zu diesen <span style="color:#7b341e">vier</span> Punkten:</strong><br>
+      ① Beschreiben Sie das Problem.<br>
+      ② Sagen Sie, seit wann das Problem besteht.<br>
+      ③ Bitten Sie um schnelle Reparatur.<br>
+      ④ Fragen Sie, wann ein Techniker kommen kann.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+      <button class="btn-clear" onclick="document.getElementById('a2sim7-text').value='';document.getElementById('wc-a2sim7').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim7">
+      <strong>写作要点：</strong><br>
+      ✅ 已知具体姓名：<strong>Sehr geehrter Herr Schmidt</strong>（男）/ <strong>Sehr geehrte Frau Schmidt</strong>（女）<br>
+      ✅ <strong>seit + Dativ</strong>：<em>seit <u>gestern</u> / seit <u>einer Woche</u> / seit <u>drei Tagen</u></em>（A2 重点）<br>
+      ✅ 礼貌请求：<em>Können Sie bitte …?</em> 比 <em>Reparieren Sie!</em> 自然得多<br>
+      ✅ 询问时间：<em>Wann kann der Techniker kommen?</em>
+    </div>
+    <div class="sim-samples" id="a2sim7-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#c05621;font-size:.8rem">范文 A（38 词）</strong>
+        <span class="de">Sehr geehrter Herr Schmidt,<br><br>①in meiner Wohnung ist die Heizung kaputt. ②Das Problem besteht seit zwei Tagen und es ist sehr kalt. ③Können Sie bitte schnell jemanden schicken? ④Wann kann der Techniker kommen?<br><br>Mit freundlichen Grüßen,<br>Mei Zhang</span>
+        <span class="cn">尊敬的 Schmidt 先生，①我公寓的暖气坏了。②问题已经持续两天，非常冷。③您能否尽快派人来？④技术员什么时候能来？此致敬礼，张梅</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#c05621;font-size:.8rem">范文 B（36 词 · 含 Perfekt）</strong>
+        <span class="de">Sehr geehrter Herr Schmidt,<br><br>①die Heizung in meiner Wohnung funktioniert nicht. ②Sie ist seit Montag kaputt — ich habe schon zweimal angerufen. ③Bitte reparieren Sie sie bald. ④Wann passt es Ihnen?<br><br>Mit freundlichen Grüßen,<br>Yu Chen</span>
+        <span class="cn">尊敬的 Schmidt 先生，①我公寓的暖气不工作。②从周一就坏了——我已经打了两次电话。③请尽快修理。④您什么时候方便？此致敬礼，陈宇</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 关键介词：</strong><em>seit</em> + <strong>Dativ</strong>，表示"从某时起一直持续"：<em>seit Montag / seit einer Woche / seit drei Tagen</em>（注意 Tage → Tagen 的 n！）
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 模拟题 8：询问课程 / 报名 ===== -->
+  <div class="level-card" id="a2-sim8" style="scroll-margin-top:20px;border-top:4px solid #5a67d8">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#3c366b,#5a67d8)">🎯 A2 模拟题 8</span>
+      <h2>Kurs-Anfrage 询问课程 / 报名</h2>
+    </div>
+    <div class="level-desc">歌德 A2 Teil 2 · 30–40 词 · 半正式（Sie） · 重点训练间接疑问 + möchten</div>
+    <div class="prompt-box" style="background:#ebf4ff;border-color:#7f9cf5">
+      <span class="task-label" style="color:#3c366b">🎯 Aufgabe / 任务：</span>
+      Sie möchten einen Yogakurs in einem Sportstudio machen. Schreiben Sie eine E-Mail an das Studio.<br><br>
+      <strong>Schreiben Sie zu diesen <span style="color:#3c366b">vier</span> Punkten:</strong><br>
+      ① Stellen Sie sich kurz vor.<br>
+      ② Sagen Sie, woher Sie vom Kurs wissen.<br>
+      ③ Fragen Sie nach Preis und Uhrzeit.<br>
+      ④ Fragen Sie, ob Sie zur Probe kommen können.<br><br>
+      <em class="t-c-sub">Schreiben Sie 30–40 Wörter.</em>
+    </div>
+    <div class="vocab-help">
+      <strong>💡 Sie-Form 关键句型：</strong>
+      <div class="vocab-chips">
+        <span class="chip">mein Name ist …</span>
+        <span class="chip">ich habe … im Internet gesehen</span>
+        <span class="chip">eine Freundin hat mir erzählt</span>
+        <span class="chip">Wie viel kostet …?</span>
+        <span class="chip">Wann findet … statt?</span>
+        <span class="chip">Kann ich zur Probe kommen?</span>
+      </div>
+    </div>
+    <textarea class="write-area" id="a2sim8-text" placeholder="Sehr geehrte Damen und Herren,&#10;&#10;..." rows="8" oninput="countWords(this,'wc-a2sim8')"></textarea>
+    <div class="word-count" id="wc-a2sim8">0 Wörter（目标：30–40词）</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-a2sim8" style="width:0"></div></div>
+    <div class="action-row">
+      <button class="btn-check-w" onclick="toggleSamples('a2sim8-samples')">📖 查看 / 隐藏范文</button>
+      <button class="btn-hint" onclick="toggleHint('hint-a2sim8')">💡 写作提示</button>
+      <button class="btn-clear" onclick="document.getElementById('a2sim8-text').value='';document.getElementById('wc-a2sim8').textContent='0 Wörter（目标：30–40词）'">🗑️ 清空</button>
+    </div>
+    <div class="hint-box" id="hint-a2sim8">
+      <strong>写作要点：</strong><br>
+      ✅ 自我介绍：<em>Mein Name ist …</em> / <em>Ich heiße …</em><br>
+      ✅ 信息来源：<em>Ich habe Ihren Kurs <u>im Internet</u> gesehen</em> / <em>Eine Freundin hat mir <u>von Ihnen</u> erzählt</em><br>
+      ✅ A2 间接疑问句开头：<em>Wie viel … ? / Wann … ? / Wo … ?</em><br>
+      ✅ "试听一次" → <em>zur Probe kommen</em>（固定搭配）
+    </div>
+    <div class="sim-samples" id="a2sim8-samples">
+      <h4 style="color:#276749;margin-bottom:12px">📝 参考范文</h4>
+      <div class="sample">
+        <strong style="color:#5a67d8;font-size:.8rem">范文 A（38 词）</strong>
+        <span class="de">Sehr geehrte Damen und Herren,<br><br>①mein Name ist Li Yang. ②Ich habe Ihren Yogakurs auf Instagram gesehen und finde ihn interessant. ③Wie viel kostet der Kurs pro Monat und wann findet er statt? ④Kann ich einmal zur Probe kommen?<br><br>Mit freundlichen Grüßen,<br>Li Yang</span>
+        <span class="cn">尊敬的先生女士，①我叫李阳。②我在 Instagram 上看到了您的瑜伽课，觉得很有意思。③课程每月多少钱？什么时候上课？④我能试听一次吗？此致敬礼，李阳</span>
+      </div>
+      <div class="sample" style="margin-top:10px">
+        <strong style="color:#5a67d8;font-size:.8rem">范文 B（37 词 · 含 dass-从句）</strong>
+        <span class="de">Sehr geehrte Damen und Herren,<br><br>①ich heiße Maria Wang und ich interessiere mich für Yoga. ②Meine Freundin hat mir erzählt, dass Ihr Kurs sehr gut ist. ③Was kostet er und wann beginnt er? ④Darf ich zur Probe kommen?<br><br>Mit freundlichen Grüßen,<br>Maria Wang</span>
+        <span class="cn">尊敬的先生女士，①我叫王玛丽亚，对瑜伽感兴趣。②我朋友跟我说您的课程很好。③费用多少？什么时候开始？④我可以试听吗？此致敬礼，王玛丽亚</span>
+      </div>
+      <div style="background:#fffbea;border-left:4px solid #f6ad55;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.86rem;color:#744210">
+        <strong>📌 A2 反身动词高频搭配：</strong><em>sich interessieren <u>für</u> + Akk</em>（对……感兴趣）—— A2 听说读写都会考的固定搭配。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ====================== A2 句型库 + 策略 ====================== -->
+  <!-- ============================================================ -->
+
+  <!-- ===== A2 高频句型库 ===== -->
+  <div class="level-card" id="a2-redemittel" style="scroll-margin-top:20px;border-top:4px solid #0891b2">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#155e75,#0891b2)">📚 高频句型库</span>
+      <h2>A2 写作必背 — Redemittel</h2>
+    </div>
+    <div class="level-desc">背下这 4 组，A2 写作得分稳上 14/20</div>
+
+    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">① Perfekt 套语（过去经历）</h3>
+    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>Ich bin … gefahren / geflogen / gegangen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我去了/飞了/走了……</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich habe … gemacht / gesehen / gegessen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我做了/看了/吃了……</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich bin umgezogen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我搬家了（sein！）</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Es hat mir (sehr gut) gefallen</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我（很）喜欢</td></tr>
+        <tr><td style="padding:4px 8px"><b>Ich habe … vergessen / verloren</b></td><td style="padding:4px 8px">我忘了/丢了……</td></tr>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">② 反身动词高频搭配</h3>
+    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>sich freuen <u>auf</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">期待（未来）</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich freuen <u>über</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">高兴于（已发生）</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich ärgern <u>über</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">生气因为</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich interessieren <u>für</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">对……感兴趣</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich melden</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">联系（打电话/发消息）</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>sich entschuldigen <u>für</u> + Akk</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">为……道歉</td></tr>
+        <tr><td style="padding:4px 8px"><b>sich fühlen + Adj</b></td><td style="padding:4px 8px">感觉……</td></tr>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">③ 从句句型（dass / weil / wenn）</h3>
+    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem;color:#0c4a6e">
+      <p style="margin:0 0 6px"><b>dass-从句</b>（陈述/转述）→ 动词到从句末尾</p>
+      <p style="margin:0 0 10px;padding-left:14px">
+        <em>Es tut mir leid, <u>dass</u> ich nicht gekommen <u>bin</u>.</em><br>
+        <em>Ich glaube, <u>dass</u> du Recht <u>hast</u>.</em><br>
+        <em>Schön, <u>dass</u> du dich gemeldet <u>hast</u>!</em>
+      </p>
+      <p style="margin:0 0 6px"><b>weil-从句</b>（解释原因）→ 动词到从句末尾</p>
+      <p style="margin:0 0 10px;padding-left:14px">
+        <em>Ich komme nicht, <u>weil</u> ich krank <u>bin</u>.</em><br>
+        <em>Sie ist müde, <u>weil</u> sie schlecht <u>geschlafen hat</u>.</em>
+      </p>
+      <p style="margin:0 0 6px"><b>wenn-从句</b>（条件/时间）→ 动词到从句末尾</p>
+      <p style="margin:0;padding-left:14px">
+        <em><u>Wenn</u> du Zeit <u>hast</u>, ruf mich an.</em><br>
+        <em>Ich freue mich, <u>wenn</u> du <u>kommst</u>.</em>
+      </p>
+    </div>
+
+    <h3 style="font-size:1rem;color:#155e75;margin:18px 0 10px;font-weight:700">④ Sie-Form 正式套语</h3>
+    <div style="background:#ecfeff;border-radius:10px;padding:14px 18px;line-height:2;font-size:.92rem">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe;width:50%"><b>Sehr geehrte Damen und Herren,</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">不知姓名时开头</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Sehr geehrter Herr / Sehr geehrte Frau …</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">知道姓名时开头</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Können Sie bitte …?</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">礼貌请求</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich möchte …</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">我想要……（比 ich will 礼貌）</td></tr>
+        <tr><td style="padding:4px 8px;border-bottom:1px solid #cffafe"><b>Ich warte auf Ihre Antwort.</b></td><td style="padding:4px 8px;border-bottom:1px solid #cffafe">期待您的回复</td></tr>
+        <tr><td style="padding:4px 8px"><b>Mit freundlichen Grüßen,</b></td><td style="padding:4px 8px">此致敬礼（结尾）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== 4 Leitpunkte 写作策略卡 ===== -->
+  <div class="level-card" id="a2-strategy" style="scroll-margin-top:20px;border-top:4px solid #dc2626;margin-bottom:40px">
+    <div class="level-head">
+      <span class="level-badge lv5" style="background:linear-gradient(135deg,#991b1b,#dc2626)">🏆 考试策略</span>
+      <h2>4 Leitpunkte 满分策略</h2>
+    </div>
+    <div class="level-desc">A2 写作每漏一个要点 = 扣 25%，这套流程帮你 0 漏点</div>
+
+    <div style="background:#fff1f2;border-left:4px solid #dc2626;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#7f1d1d">
+      <strong>🎯 三步法（考场实操）：</strong><br><br>
+      <strong>第 1 步 · 圈点（30 秒）</strong><br>
+      拿到题目立刻用笔在 4 个 Leitpunkte 上画圈或编号 ①②③④。<br><br>
+      <strong>第 2 步 · 一对一写句（5 分钟）</strong><br>
+      每个要点 = 1 句话（或 1.5 句）。<br>
+      草稿纸上先写"①... ②... ③... ④..."的骨架，再扩展。<br><br>
+      <strong>第 3 步 · 回扫核对（30 秒）</strong><br>
+      写完后用手指数 4 次：第一句对应①吗？第二句对应②吗？……<br>
+      不要追求文采，<strong>4 个要点全写到 = 14 分起步</strong>，再加准确语法和适当的反身/Perfekt = 满分 20。
+    </div>
+
+    <div style="background:#fefce8;border-left:4px solid #eab308;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#713f12">
+      <strong>⚠️ 阅卷老师扣分的 5 个常见原因：</strong><br>
+      1. <strong>漏要点</strong>（最严重）—— 4 个 Leitpunkte 只回应 2-3 个 → 直接扣半<br>
+      2. <strong>开头结尾遗漏</strong> —— 没写 <em>Hallo / Liebe Grüße</em> → 扣形式分<br>
+      3. <strong>du 和 Sie 混用</strong> —— Teil 1 用 Sie，或 Teil 2 用 du → 严重扣分<br>
+      4. <strong>字数严重不足</strong> —— 少于 20 词 → 内容分对半砍<br>
+      5. <strong>抄题目原句</strong> —— 把题目里的句子搬过来 → 不算原创，不得分
+    </div>
+
+    <div style="background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.95;color:#14532d">
+      <strong>✨ 加分项（拉开档次的关键）：</strong><br>
+      ✅ 至少用 <strong>1 个 Perfekt</strong>（<em>ich habe … gemacht / ich bin … gefahren</em>）<br>
+      ✅ 至少用 <strong>1 个从句</strong>（<em>dass / weil / wenn</em>）<br>
+      ✅ 至少用 <strong>1 个反身动词</strong>（<em>sich freuen / sich ärgern</em>）<br>
+      ✅ 至少 <strong>1 个连接副词</strong>（<em>zuerst / dann / danach / aber / leider</em>）<br>
+      做到上面 4 条，你的 A2 写作 = 18+ 分（满分 20）
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<a href="#a2s-toc-top" class="a2s-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  function setup(){
+    var page=document.getElementById('page-a2schreiben');
+    var btoc=document.querySelector('.a2s-backtotoc');
+    if(!page||!btoc)return;
+    var s=document.getElementById('btoc-slot');if(s&&btoc.parentNode!==s){s.appendChild(btoc);}
+    function syncBtoc(){
+      btoc.style.display=(getComputedStyle(page).display!=='none')?'flex':'none';
+    }
+    syncBtoc();
+    if(typeof window.showPage==='function'&&!window.showPage._a2sWrapped){
+      var _orig=window.showPage;
+      window.showPage=function(){var r=_orig.apply(this,arguments);syncBtoc();return r;};
+      window.showPage._a2sWrapped=true;
+			}
+    btoc.addEventListener('click',function(e){
+      e.preventDefault();
+      var toc=document.getElementById('a2s-toc-top');
+      if(toc)toc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
+  else{setup();}
+})();
+</script>
+
+</div>
+</template>
+<div id="page-a2schreiben" class="page" data-lazy="true"></div>
+<script>registerLazyPage('a2schreiben', 'tpl-page-a2schreiben');</script>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
 </div>
 </div>
 
