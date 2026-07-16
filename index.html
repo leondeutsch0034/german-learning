@@ -137,12 +137,14 @@
     body.nav-visible #btoc-slot > a {
       transform: translateY(0); opacity: 1;
     }
-    body.nav-visible #btoc-slot > a                  { transition-delay: 0s; }
-    body.nav-visible #float-nav .float-btn.search    { transition-delay: .1s; }
-    body.nav-visible #float-nav .float-btn:last-child { transition-delay: .2s; }
+    body.nav-visible #btoc-slot > a                   { transition-delay: 0s; }
+    body.nav-visible #float-nav .float-btn.modules   { transition-delay: .1s; }
+    body.nav-visible #float-nav .float-btn.search    { transition-delay: .2s; }
+    body.nav-visible #float-nav .float-btn:last-child { transition-delay: .3s; }
 
     /* 隐藏态：按钮逐个滑出（从右到左反向级联） */
-    body:not(.nav-visible) #btoc-slot > a                  { transition-delay: .2s; }
+    body:not(.nav-visible) #btoc-slot > a                   { transition-delay: .3s; }
+    body:not(.nav-visible) #float-nav .float-btn.modules   { transition-delay: .2s; }
     body:not(.nav-visible) #float-nav .float-btn.search    { transition-delay: .1s; }
     body:not(.nav-visible) #float-nav .float-btn:last-child { transition-delay: 0s; }
 
@@ -3372,6 +3374,7 @@
 
     /* ══════ 📋 目录面板 ══════ */
     #float-nav .float-btn.toc{background:linear-gradient(135deg,#4338ca,#6366f1);color:#fff;border-color:rgba(196,181,253,.55)}
+    #float-nav .float-btn.modules{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;border-color:rgba(94,234,212,.55)}
     #toc-overlay{display:none;position:fixed;inset:0;z-index:99996;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
     #toc-overlay .toc-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:520px;max-height:78vh;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;display:flex;flex-direction:column}
     #toc-overlay .toc-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}
@@ -4619,6 +4622,7 @@ function renderA1HubCards() { renderHubCards('a1'); }
     <span id="btoc-slot"></span>
   </div>
   <div id="nav-right">
+    <a class="float-btn modules" href="javascript:void(0)" onclick="openToc()" title="学习模块">📋</a>
     <a class="float-btn search" href="javascript:void(0)" onclick="openSearch()" title="搜索">🔍</a>
     <a class="float-btn" href="javascript:void(0)" onclick="showPage('index')" title="返回首页">🏠</a>
   </div>
