@@ -3482,6 +3482,7 @@
     #page-b1lesen #b1s17-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
     #page-b1lesen #b1s18-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
     #page-b1lesen #b1s19-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
+    #page-b1lesen #b1s20-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
   </style>
 </head>
 <body>
@@ -3726,7 +3727,7 @@ var LOCKED_SECTIONS_BASIC  = ['s11', 's16b', 's17', 's19', 'schreib-lv3', 'schre
 // A1 阅朗读：全部文章所有人可见（含游客）—— 内容多来源于《交际德语教程》第二版/第三版
 // (function(){ for (var i=1; i<=31; i++) LOCKED_SECTIONS_BASIC.push('ls-s'+i); })();
 var LOCKED_SECTIONS_FULL   = ['a2g-s11','a2g-s12b','a2g-s13','a2l-smuenster','a2l-sumzug','a2l-s3','a2l-s5','a2l-s6','a2l-s7','a2l-s8','a2l-s9','a2l-s10','a2l-s11','a2lesen-weimar','a2lesen-berlin','a2lesen-hamburg','a2lesen-frankfurt','a2lesen-leipzig','a2lesen-duesseldorf','a2lesen-stuttgart','a2lesen-goethe-werke','a2lesen-erbsen','a2lesen-schauspieler','a2lesen-zweifrauen','a2lesen-review15','a2lesen-erfindungen','a2lesen-schokolade','a2lesen-patente','a2lesen-haribo','a2lesen-review16','a2l-s4','dat-s5','dat-panel-a1','dat-panel-a2','dat-c1','gs-k4','gs-k5','gs-k6','gs-k7','gs-k8','gs-k9','gs-k10','gs-k11','gs-k12','gs-k13','gs-k14','gs-k15','gs-k16','gs-k17','gs-k18','gs-k19','gs-k20','a2-sim3','a2-sim4','a2-sim5','a2-sim6','a2-sim7','a2-sim8'];
-var LOCKED_SECTIONS_CUSTOM = ['b1s8','b1s9','b1l-s17','b1l-s18','b1l-s19','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61', 'gs-k62', 'gs-k63', 'gs-k64', 'gs-k65', 'gs-k66', 'gs-k67', 'gs-k68', 'gs-k69', 'gs-k70', 'gs-k71', 'gs-k72']
+var LOCKED_SECTIONS_CUSTOM = ['b1s8','b1s9','b1l-s17','b1l-s18','b1l-s19','b1l-s20','gs-k21','gs-k22','gs-k23','gs-k24','gs-k25','gs-k26','gs-k27','gs-k28','gs-k29','gs-k30','gs-k31','gs-k32','gs-k33','gs-k34','gs-k35','gs-k36','gs-k37','gs-k38','gs-k39','gs-k40','gs-k41','gs-k42','gs-k43','gs-k44','gs-k45','gs-k46','gs-k47','gs-k48','gs-k49','gs-k50','gs-k51','gs-k52','gs-k53','gs-k54','gs-k55','gs-k56','gs-k57','gs-k58','gs-k59','gs-k60','gs-k61', 'gs-k62', 'gs-k63', 'gs-k64', 'gs-k65', 'gs-k66', 'gs-k67', 'gs-k68', 'gs-k69', 'gs-k70', 'gs-k71', 'gs-k72']
 // 合成全量列表（向后兼容）
 var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES_CUSTOM);
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
@@ -18812,7 +18813,7 @@ document.addEventListener('click', function(e) {
   <div class="b1l-hero">
     <div class="b1l-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
     <h1>📖 B1 阅读专栏</h1>
-    <p>Lesen · 13 Artikel — von Zeitgeschichte bis Modelltest</p>
+    <p>Lesen · 18 Artikel — von Jugendroman bis Klimareport</p>
   </div>
 
   <div style="max-width:860px;margin:0 auto 20px;padding:0 4px">
@@ -18826,7 +18827,7 @@ document.addEventListener('click', function(e) {
     <label class="b1l-select-label" for="b1l-article-select">📋 选择文章 · Artikel wählen：</label>
     <select id="b1l-article-select" class="b1l-article-select" onchange="showB1LesenArticle(this.value)">
       <option value="">— 请选择一篇文章 —</option>
-      <optgroup label="📖 B1 阅读文章 (17)">
+      <optgroup label="📖 B1 阅读文章 (18)">
         <option value="1">① Brandenburger Tor — Zeitgeschichte</option>
         <option value="2">② Wo bleibt die Zeit? — Zeitverwendung</option>
         <option value="3">③ Erasmus+ Programm — EU-Bildungsprogramm</option>
@@ -18844,11 +18845,12 @@ document.addEventListener('click', function(e) {
         <option value="17">⑮ 🌍 Der UN-Klimareport — Ursachen &amp; Prognosen</option>
         <option value="18">⑯ 🌱 Umweltprobleme — Wissen Sie, wie stark Sie die Umwelt belasten?</option>
         <option value="19">⑰ 🌡️ Treibhauseffekt &amp; Klimawandel — IEA-Report</option>
+        <option value="20">⑱ 📘 Die blauen und die grauen Tage — Monika Feth</option>
       </optgroup>
     </select>
   </div>
   <script>
-  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','13','14','15','16','17','18','19'];
+  window.B1L_SEQ=['1','2','3','4','6','7','9','10','11','12','13','14','15','16','17','18','19','20'];
   window.showB1LesenArticle=function(n){
     var ids=[];
     for(var i=0;i<window.B1L_SEQ.length;i++){ ids.push('b1l-s'+window.B1L_SEQ[i]); }
@@ -31566,7 +31568,7 @@ function b1S12CheckB(){
     var inner = page.querySelector('div');
     if(!inner) return;
     /* 从隐藏 wrapper 中提取 section */
-    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15'], ['b1l-s16-wrapper','b1l-s16'], ['b1l-s17-wrapper','b1l-s17'], ['b1l-s18-wrapper','b1l-s18'], ['b1l-s19-wrapper','b1l-s19']].forEach(function(pair){
+    [['b1l-s4-wrapper','b1l-s4'], ['b1l-s6-wrapper','b1l-s6'], ['b1l-s7-wrapper','b1l-s7'], ['b1l-s9-wrapper','b1l-s9'], ['b1l-s10-wrapper','b1l-s10'], ['b1l-s11-wrapper','b1l-s11'], ['b1l-s12-wrapper','b1l-s12'], ['b1l-s13-wrapper','b1l-s13'], ['b1l-s14-wrapper','b1l-s14'], ['b1l-s15-wrapper','b1l-s15'], ['b1l-s16-wrapper','b1l-s16'], ['b1l-s17-wrapper','b1l-s17'], ['b1l-s18-wrapper','b1l-s18'], ['b1l-s19-wrapper','b1l-s19'], ['b1l-s20-wrapper','b1l-s20']].forEach(function(pair){
       var wrapper = document.getElementById(pair[0]);
       var existing = document.getElementById(pair[1]);
       if(existing && existing.parentNode === inner) return;
@@ -38760,6 +38762,1213 @@ function b1S12CheckB(){
 </div>
 </div>
 </div>
+
+<!-- B1 阅读 18 · Monika Feth — Die blauen und die grauen Tage          -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="b1l-s20-wrapper" class="t-dn">
+<div style="max-width:860px;margin:0 auto">
+<div class="section" id="b1l-s20">
+  <div class="section-header">阅读 18 · 📘 Die blauen und die grauen Tage — Monika Feth &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">B1 · Leseverstehen · Romanauszug · Demenz · Familie</span></div>
+  <div class="section-body">
+
+    <!-- ═══ Artikel: Inhaltsangabe + Romanauszug ═══ -->
+    <div class="t-card-white">
+      <div style="background:linear-gradient(135deg,#1a237e,#3949ab);padding:16px 28px 18px">
+        <div class="t-flex-between">
+          <div style="color:#fff;font-size:1.3rem;font-weight:700">📘 Monika Feth: Die blauen und die grauen Tage</div>
+          <span class="t-tag-white">Jugendroman · 1996</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Ein einfühlsames Buch über Familie, Demenz und die Kunst, das Glück im richtigen Augenblick zu ergreifen</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <!-- ═══ Inhaltsangabe ═══ -->
+        <div style="background:#e8eaf6;border-left:4px solid #3949ab;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>📋 Inhaltsangabe / 内容概要</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">阅读前先了解故事梗概，降低阅读难度。</span>
+        </div>
+
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify;margin-bottom:16px">
+          <p style="margin:0 0 .8rem">Voller Ungeduld hatte Evi auf den Tag gewartet, an dem ihre geliebte Oma ins Haus der Familie einzog. Vera, Evis Schwester, war weniger begeistert. Als Oma schließlich da ist, wird sie sofort zum <strong>Geist des Hauses</strong>. Doch dann kommt zum ersten Mal das, was Oma später <strong>„die grauen Tage"</strong> nennt: die Aussetzer, nach denen sie sich an nichts mehr erinnern kann.</p>
+          <p style="margin:0 0 .8rem">Evi soll in einem Tagebuch festhalten, welche die blauen, guten Tage sind — und welche die grauen. Als das Wort <strong>„Altersheim"</strong> fällt, spitzen sich die Ereignisse zu. Ein einfühlsames Buch über die Kunst, <strong>das Glück im richtigen Augenblick zu ergreifen</strong>.</p>
+        </div>
+
+        <!-- 预习笔记 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>die Ungeduld</strong> 不耐烦/急切 | <em>der Zustand, nicht länger warten zu können</em><br>
+          • <strong>der Geist, -er</strong> 灵魂/精神 | <em>hier: die zentrale, lebendige Person im Haushalt</em><br>
+          • <strong>der Aussetzer, -</strong> (短暂的)失灵/断片 | <em>kurzer Moment, in dem das Gehirn nicht funktioniert</em><br>
+          • <strong>festhalten (hält fest, hielt fest, hat festgehalten)</strong> 记录/记下 | <em>schriftlich dokumentieren, aufschreiben</em><br>
+          • <strong>das Altersheim, -e</strong> 养老院 | <em>Einrichtung, in der alte Menschen betreut werden</em><br>
+          • <strong>sich zuspitzen</strong> 激化/尖锐化 | <em>kritischer/dramatischer werden (Situation)</em><br>
+          • <strong>das Glück ergreifen</strong> 抓住幸福 | <em>eine glückliche Chance/Gelegenheit aktiv nutzen</em><br>
+          • <strong>einfühlsam</strong> 有同理心的/细腻的 | <em>mit viel Gefühl und Verständnis für andere</em><br>
+          • <strong>der Augenblick, -e</strong> 时刻/瞬间 | <em>sehr kurzer Zeitraum, Moment</em><br>
+          • <strong>begeistert</strong> 热情的/兴奋的 | <em>voller Freude und Enthusiasmus</em>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 📚 专属词汇 — Inhaltsangabe ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-inhalt-vocab')" style="background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important">📚 显示/隐藏 词汇语法 — Inhaltsangabe (12 词条)</button>
+    <div class="answer-box" id="b1s20-inhalt-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen · 名词 (6)</strong><br>
+      • <strong>die Ungeduld</strong> = 不耐烦/急切 | <em>der starke Wunsch, dass etwas sofort passiert</em><br>
+      &nbsp;&nbsp;📌 <em>„Voller Ungeduld hatte Evi auf den Tag gewartet."</em> — Evi 迫不及待地等待那一天。<br>
+      • <strong>der Geist, -er</strong> = 灵魂/活力核心 | <em>hier: die zentrale, belebende Person im Haus</em><br>
+      &nbsp;&nbsp;📌 <em>„Sie wird sofort zum Geist des Hauses."</em> — 她立刻成了这个家的灵魂人物。<br>
+      • <strong>der Aussetzer, -</strong> = (记忆的)短暂失灵 | <em>kurzer Ausfall des Gedächtnisses</em><br>
+      • <strong>das Altersheim, -e</strong> = 养老院 | <em>Einrichtung mit Pflege für Senioren</em><br>
+      • <strong>der Augenblick, -e</strong> = 时刻/瞬间 | <em>ein sehr kurzer, bedeutsamer Moment</em><br>
+      • <strong>das Tagebuch, -¨er</strong> = 日记 | <em>persönliches Buch für tägliche Eintragungen</em><br><br>
+      <strong>🔧 Verben · 动词 (4)</strong><br>
+      • <strong>festhalten (hält fest, hielt fest, hat festgehalten)</strong> = 记录 | <em>schriftlich fixieren</em><br>
+      • <strong>sich zuspitzen</strong> = 激化/尖锐化 | <em>kritischer werden (Situation)</em><br>
+      • <strong>ergreifen (ergreift, ergriff, hat ergriffen)</strong> = 抓住/把握 | <em>aktiv nehmen, nicht passiv verstreichen lassen</em><br>
+      • <strong>einziehen (zieht ein, zog ein, ist eingezogen)</strong> = 搬入 | <em>in ein Haus/eine Wohnung ziehen</em><br><br>
+      <strong>🎨 Adjektive (2)</strong><br>
+      • <strong>einfühlsam</strong> = 有同理心的/细腻的 | <em>mit viel Gefühl und Verständnis</em><br>
+      • <strong>begeistert</strong> = 热情的/兴奋的 | <em>voller Freude und Enthusiasmus</em>
+    </div>
+    </div>
+
+    <!-- ═══ 📖 专属语法 — Inhaltsangabe ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-inhalt-grammatik')" style="background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important">📖 显示/隐藏 语法解析 — Inhaltsangabe (3 项)</button>
+    <div class="answer-box" id="b1s20-inhalt-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. Plusquamperfekt — 过去完成时</strong> | <em>Vorzeitigkeit in der Vergangenheit</em><br>
+      🇩🇪 Formel: <em>hatte/war + Partizip II</em><br>
+      🇨🇳 规则：在 Präteritum 叙述线中表达"在此之前已经完成"的动作。<br>
+      📖 <em>„Voller Ungeduld <strong>hatte</strong> Evi auf den Tag <strong>gewartet</strong>..."</em> — 等待发生在搬入之前<br>
+      ⚠️ 考点：Plusquamperfekt = 过去中的过去，B1 阅读识别即可。<br><br>
+
+      <strong>2. Relativsatz mit Präposition</strong> | <em>an dem / nach denen</em><br>
+      🇩🇪 Formel: <em>Präp. + Relativpronomen + ... + Verb am Ende</em><br>
+      🇨🇳 规则：关系代词格 = 介词要求的格（非先行词的格）。<br>
+      📖 <em>„...den Tag, <strong>an dem</strong> ihre Oma ins Haus <strong>einzog</strong>."</em> — an + Dativ (时间)<br>
+      ⚠️ 考点：an dem (Dativ) ≠ an den (Akkusativ)，时间介词+Dat.<br><br>
+
+      <strong>3. werden zu + Dativ — 变成……</strong> | <em>Veränderung/Zustandswechsel</em><br>
+      🇩🇪 Formel: <em>werden + zu + Dativ</em><br>
+      🇨🇳 规则：表达身份/状态的转变，比 einfaches Verb 更正式。<br>
+      📖 <em>„Sie <strong>wird</strong> sofort <strong>zum Geist</strong> des Hauses."</em> — 她立刻成了家的灵魂。<br>
+      ⚠️ 考点：zu + Dativ（dem→zum, der→zur），不是 Nominativ！
+
+    </div>
+    </div>
+
+    <!-- ═══ 🔗 专属搭配 — Inhaltsangabe ═══ -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s20-inhalt-kollokation')" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important">🔗 显示/隐藏 词汇搭配 — Inhaltsangabe (6 条)</button>
+    <div class="answer-box" id="b1s20-inhalt-kollokation">
+    <table class="t-table">
+      <tr style="background:#1b5e20;color:#fff"><th class="t-p8-12l">搭配</th><th class="t-p8-12l">释义</th><th class="t-p8-12l">例句</th></tr>
+      <tr style="background:#e8f5e9"><td class="t-p8-12b"><strong>voller Ungeduld warten auf + A.</strong></td><td class="t-p8-12">充满急切地等待<br>⚠️ voller + Nomen (ohne Artikel)</td><td class="t-p8-12s"><em><strong>Voller Ungeduld</strong> hatte Evi <strong>auf</strong> den Tag <strong>gewartet</strong>.</em><br><span class="t-c666">Evi 迫不及待地等着那一天。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>zum Geist des Hauses werden</strong></td><td class="t-p8-12">成为家的灵魂人物<br>⚠️ werden zu + Dativ</td><td class="t-p8-12s"><em>Oma <strong>wurde</strong> sofort <strong>zum Geist des Hauses</strong>.</em><br><span class="t-c666">奶奶立刻成了家的灵魂。</span></td></tr>
+      <tr style="background:#e8f5e9"><td class="t-p8-12b"><strong>in einem Tagebuch festhalten</strong></td><td class="t-p8-12">在日记中记录<br>⚠️ festhalten = trennbar!</td><td class="t-p8-12s"><em>Evi soll es <strong>in einem Tagebuch festhalten</strong>.</em><br><span class="t-c666">Evi 要在日记中记录下来。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>sich zuspitzen</strong></td><td class="t-p8-12">激化/尖锐化<br>⚠️ reflexiv, Perfekt mit haben</td><td class="t-p8-12s"><em>Die Ereignisse <strong>spitzen sich zu</strong>.</em><br><span class="t-c666">事态激化了。</span></td></tr>
+      <tr style="background:#e8f5e9"><td class="t-p8-12b"><strong>das Glück ergreifen</strong></td><td class="t-p8-12">抓住幸福<br>⚠️ ergreifen = stark: ergriff, hat ergriffen</td><td class="t-p8-12s"><em>...die Kunst, <strong>das Glück</strong> im richtigen Augenblick zu <strong>ergreifen</strong>.</em><br><span class="t-c666">在正确时刻抓住幸福的艺术。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>ins Haus einziehen</strong></td><td class="t-p8-12">搬进家里<br>⚠️ einziehen = trennbar, Perfekt mit sein</td><td class="t-p8-12s"><em>...als Oma <strong>ins Haus</strong> der Familie <strong>einzog</strong>.</em><br><span class="t-c666">当奶奶搬进家里时。</span></td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ ✍️ 专属仿写 — Inhaltsangabe ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s20-inhalt-beispiele')" style="background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important">✍️ 显示/隐藏 仿写例句 — Inhaltsangabe (3 Muster)</button>
+    <div class="answer-box" id="b1s20-inhalt-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: Plusquamperfekt — 过去中的过去</strong><br>
+      🇩🇪 <em>Voller Ungeduld <strong>hatte</strong> Evi auf den Tag <strong>gewartet</strong>, an dem ihre Oma einzog.</em><br>
+      🇨🇳 Evi 曾迫不及待地等待奶奶搬进来的那一天。<br>
+      👉 <em>Nachbau: ___ (Adverbiale) <strong>hatte</strong> ___ (Subjekt) ___ (Partizip II), an dem ___ (Präteritum).</em><br>
+      ✅ <strong>Musterlösung:</strong> Den ganzen Sommer hatte Max auf den Tag gewartet, an dem das Konzert stattfand.<br>
+      🔄 <strong>Variante:</strong> Evi wartete voller Ungeduld auf den Tag, an dem ihre Oma einzog. (nur Präteritum)<br><br>
+
+      <strong>🔹 Muster 2: werden zu — 转变成</strong><br>
+      🇩🇪 <em>Sie <strong>wird</strong> sofort <strong>zum Geist</strong> des Hauses.</em><br>
+      🇨🇳 她立刻成了这个家的灵魂。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>wird zu</strong> ___ (Dativ-Nomen).</em><br>
+      ✅ <strong>Musterlösung:</strong> Der Junge wurde zum Helden der Klasse.<br>
+      🔄 <strong>Variante:</strong> Sie verwandelte sich sofort in den Geist des Hauses. (sich verwandeln in + Akk.)<br><br>
+
+      <strong>🔹 Muster 3: sich zuspitzen — 事态激化</strong><br>
+      🇩🇪 <em>Als das Wort „Altersheim" fällt, <strong>spitzen sich</strong> die Ereignisse <strong>zu</strong>.</em><br>
+      🇨🇳 当"养老院"这个词出现时，事态激化了。<br>
+      👉 <em>Nachbau: Als ___ (Nomen/Nebensatz), <strong>spitzt sich</strong> ___ (Subjekt) <strong>zu</strong>.</em><br>
+      ✅ <strong>Musterlösung:</strong> Als das Ultimatum gestellt wurde, spitzte sich die Verhandlung zu.<br>
+      🔄 <strong>Variante:</strong> Die Situation wurde immer kritischer. (werden + Komparativ)
+    </div>
+    </div>
+
+    <!-- ═══ Romanauszug ═══ -->
+    <div class="t-card-white">
+      <div style="background:linear-gradient(135deg,#4a148c,#6a1b9a);padding:16px 28px 18px">
+        <div class="t-flex-between">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">📖 Romanauszug — „Wo bist du gewesen, Mutter?"</div>
+          <span class="t-tag-white">Kapitelauszug</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Eine Szene aus dem Roman — die Familie sucht nach Oma, die im Bahnhof gefunden wurde</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <div style="background:#f3e5f5;border-left:4px solid #6a1b9a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🔍 In einen Roman einsteigen</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">Lesen Sie den Romanauszug und achten Sie auf die Atmosphäre der Szene. Was erfahren wir über die Figuren und ihre Beziehungen?</span>
+        </div>
+
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify;margin-bottom:16px">
+          <p style="margin:0 0 .8rem">„<strong>Wo bist du gewesen, Mutter?</strong>", fragte der Vater schließlich vorsichtig.</p>
+          <p style="margin:0 0 .8rem">Omas Gesicht war plötzlich ganz leer. „Ich erinnere mich nicht. Ich ..."</p>
+          <p style="margin:0 0 .8rem">Ihre Hand tastete nach Evis Hand. „Evi, wo bin ich gewesen?"</p>
+          <p style="margin:0 0 .8rem">Der heiße Kakao hatte Evi aufgewärmt, wie die Mutter versprochen hatte. Doch jetzt wurde ihr wieder kalt.</p>
+          <p style="margin:0 0 .8rem">„<strong>In der Bahnhofshalle</strong>", sagte sie und hörte ihre Worte wie die einer anderen. „In der Bahnhofshalle", wiederholte Oma und sah den Vater unsicher an. „Ist etwas falsch daran? Durfte ich nicht dort sein?"</p>
+          <p style="margin:0 0 .8rem">Der Vater schüttelte den Kopf. „Es ist nur — <strong>wir haben es nicht gewusst</strong>. Wir haben uns Sorgen um dich gemacht."</p>
+          <p style="margin:0 0 .8rem">„Ich hab's auch nicht gewusst", sagte Oma. [...]</p>
+          <p style="margin:0 0 .8rem">„In der Bahnhofshalle?", fragte Vera. „Was wolltest du denn da?" Sie zog das <em>da</em> vorwurfsvoll in die Länge.</p>
+          <p style="margin:0 0 .8rem">Oma hob die Schultern. „<strong>Ich fürchte, ich hab's vergessen.</strong>" Sie ließ die Schultern wieder sinken und seufzte. „Weißt du, ich vergesse viel neuerdings. Früher, da hab ich an alles gedacht. Ich wusste, wo die wichtigen Papiere aufbewahrt wurden, wann die Rechnungen zu bezahlen waren und wie oft Opa seine Medizin nehmen musste. Ich hab nichts vergessen. Frag deinen Vater: Nicht wahr, Berti? An deine Schulsachen hab ich gedacht."</p>
+          <p style="margin:0 0 .8rem">Sie lächelte dem Vater zu.</p>
+          <p style="margin:0 0 .8rem">Oma hatte den Vater lange nicht mehr so genannt. Der Name machte ihn wieder zu dem Jungen, der er einmal gewesen war. Es gab nur wenige Fotos aus dieser Zeit. Auf diesen Fotos sah der Vater Vera sehr ähnlich, doch er hatte Evis Haar.</p>
+          <p style="margin:0 0 .8rem">„Du bist älter geworden", sagte der Vater. „Da darf man schon mal das eine oder andere vergessen."</p>
+        </div>
+
+        <!-- 预习笔记 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>vorsichtig</strong> 小心地/试探性地 | <em>mit Bedacht, um niemanden zu verletzen oder zu erschrecken</em><br>
+          • <strong>tasten nach + Dativ</strong> 摸索/探寻 | <em>mit der Hand suchend nach etwas greifen</em><br>
+          • <strong>die Bahnhofshalle, -n</strong> 火车站大厅 | <em>großer Hauptraum im Bahnhofsgebäude</em><br>
+          • <strong>vorwurfsvoll</strong> 责备地 | <em>mit einem Ton, der Kritik oder Anklage ausdrückt</em><br>
+          • <strong>in die Länge ziehen</strong> 拖长 | <em>ein Wort oder einen Satz langsam und gedehnt aussprechen</em><br>
+          • <strong>seufzen</strong> 叹气 | <em>tief und hörbar ausatmen (aus Trauer, Erleichterung oder Resignation)</em><br>
+          • <strong>neuerdings</strong> 近来/最近 | <em>seit kurzer Zeit, in letzter Zeit</em><br>
+          • <strong>aufbewahren</strong> 保存/保管 | <em>an einem sicheren Ort aufheben, verwahren</em><br>
+          • <strong>die Rechnung, -en</strong> 账单 | <em>schriftliche Aufforderung zur Zahlung</em><br>
+          • <strong>nicht wahr?</strong> 不是吗？/对吧？| <em>feste Wendung: Bitte um Zustimmung (≈ stimmt's?)</em>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 📚 专属词汇 — Romanauszug 1 ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-roman1-vocab')" style="background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important">📚 显示/隐藏 词汇语法 — „Wo bist du gewesen?" (12 词条)</button>
+    <div class="answer-box" id="b1s20-roman1-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen · 名词 (5)</strong><br>
+      • <strong>die Bahnhofshalle, -n</strong> = 火车站大厅 | <em>großer Hauptraum im Bahnhof</em><br>
+      &nbsp;&nbsp;📌 <em>„In der Bahnhofshalle, sagte sie..."</em> — "在火车站大厅"，她说……<br>
+      • <strong>die Sorge, -n</strong> = 担忧 | <em>Gefühl der Unruhe um jemanden</em><br>
+      • <strong>die Rechnung, -en</strong> = 账单 | <em>Zahlungsaufforderung</em><br>
+      • <strong>die Schulter, -n</strong> = 肩膀 | <em>Körperteil zwischen Hals und Arm</em><br>
+      • <strong>die Medizin, -en</strong> = 药 | <em>Arzneimittel zur regelmäßigen Einnahme</em><br><br>
+      <strong>🔧 Verben · 动词 (5)</strong><br>
+      • <strong>tasten nach + Dativ</strong> = 摸索/探寻 | <em>mit der Hand suchend greifen</em><br>
+      • <strong>seufzen</strong> = 叹气 | <em>tief und hörbar ausatmen</em><br>
+      • <strong>aufbewahren (bewahrt auf, bewahrte auf, hat aufbewahrt)</strong> = 保存/保管 | <em>sicher aufheben</em><br>
+      • <strong>sich erinnern an + Akkusativ</strong> = 回忆起 | <em>etwas Vergangenes im Gedächtnis abrufen</em><br>
+      • <strong>jdm. zulächeln</strong> = 对某人微笑 | <em>jemanden mit Zuneigung anlächeln</em><br><br>
+      <strong>🎨 Adjektive & Adverbien (2)</strong><br>
+      • <strong>vorsichtig</strong> = 小心的/试探的 | <em>mit Bedacht</em><br>
+      • <strong>neuerdings</strong> = 近来 | <em>seit kurzer Zeit</em>
+    </div>
+    </div>
+
+    <!-- ═══ 📖 专属语法 — Romanauszug 1 ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-roman1-grammatik')" style="background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important">📖 显示/隐藏 语法解析 — „Wo bist du gewesen?" (3 项)</button>
+    <div class="answer-box" id="b1s20-roman1-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. Präteritum als Erzähltempus</strong> 文学叙述中的默认时态 | <em>schriftliche Vergangenheit</em><br>
+      🇩🇪 Formel: <em>regelmäßig: -te (fragte, schüttelte) | unregelmäßig: Vokalwechsel (hob, ließ)</em><br>
+      🇨🇳 规则：小说/文学叙述几乎全部使用 Präteritum，区别于口语的 Perfekt。<br>
+      📖 <em>„Oma <strong>hob</strong> die Schultern." / „Der Vater <strong>schüttelte</strong> den Kopf."</em><br>
+      ⚠️ 考点：B1 阅读必须认识常见不规则过去式（heben→hob, lassen→ließ, schütteln→schüttelte）。<br><br>
+
+      <strong>2. Modalpartikeln — 语气小品词</strong> | <em>denn / schon mal</em><br>
+      🇩🇪 Formel: <em>denn / doch / mal — unbetont, mitten im Satz</em><br>
+      🇨🇳 规则：不改变句意但传达情感态度（惊讶、不耐烦、安慰）。<br>
+      📖 <em>„Was wolltest du <strong>denn</strong> da?" / „Da darf man <strong>schon mal</strong> das eine oder andere vergessen."</em><br>
+      ⚠️ 考点：denn (Modalpartikel) ≠ denn (连词"因为")——位置和重读不同。<br><br>
+
+      <strong>3. Wörtliche Rede im literarischen Text</strong> | <em>„..." + sagte/fragte sie</em><br>
+      🇩🇪 Formel: <em>„wörtliche Rede im Perfekt", sagte/fragte + Subjekt (Präteritum).</em><br>
+      🇨🇳 规则：人物直接引语用口语 Perfekt，叙述句用 Präteritum——文学作品的标准时态切换。<br>
+      📖 <em>„<strong>„Ich fürchte, ich hab's vergessen."</strong>" (Perfekt) / Oma <strong>seufzte</strong>. (Präteritum)</em><br>
+      ⚠️ 考点：德语小说引号 „…" ≠ 英语 "…" ≠ 中文「…」。
+
+    </div>
+    </div>
+
+    <!-- ═══ 🔗 专属搭配 — Romanauszug 1 ═══ -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s20-roman1-kollokation')" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important">🔗 显示/隐藏 词汇搭配 — „Wo bist du gewesen?" (6 条)</button>
+    <div class="answer-box" id="b1s20-roman1-kollokation">
+    <table class="t-table">
+      <tr style="background:#6a1b9a;color:#fff"><th class="t-p8-12l">搭配</th><th class="t-p8-12l">释义</th><th class="t-p8-12l">例句</th></tr>
+      <tr style="background:#f3e5f5"><td class="t-p8-12b"><strong>tasten nach + Dativ</strong></td><td class="t-p8-12">摸索/探寻<br>⚠️ nach + Dativ!</td><td class="t-p8-12s"><em>Ihre Hand <strong>tastete nach</strong> Evis Hand.</em><br><span class="t-c666">她的手摸索着Evi的手。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>sich Sorgen machen um + A.</strong></td><td class="t-p8-12">为某人担心<br>⚠️ um + Akk., nicht für!</td><td class="t-p8-12s"><em>Wir haben <strong>uns Sorgen um</strong> dich gemacht.</em><br><span class="t-c666">我们为你担心了。</span></td></tr>
+      <tr style="background:#f3e5f5"><td class="t-p8-12b"><strong>den Kopf schütteln</strong></td><td class="t-p8-12">摇头（表否定）| <em>"nein" signalisieren</em></td><td class="t-p8-12s"><em>Der Vater <strong>schüttelte den Kopf</strong>.</em><br><span class="t-c666">父亲摇了摇头。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>die Schultern heben / sinken lassen</strong></td><td class="t-p8-12">耸肩/垂肩<br>⚠️ Körpersprache: Unsicherheit</td><td class="t-p8-12s"><em>Oma <strong>hob die Schultern</strong>. Sie <strong>ließ</strong> sie <strong>sinken</strong>.</em><br><span class="t-c666">奶奶耸了耸肩又垂下了。</span></td></tr>
+      <tr style="background:#f3e5f5"><td class="t-p8-12b"><strong>jdn. ansehen (unsicher/vorwurfsvoll)</strong></td><td class="t-p8-12">看着某人（带表情）| <em>mit bestimmtem Ausdruck</em></td><td class="t-p8-12s"><em>Oma <strong>sah</strong> den Vater <strong>unsicher an</strong>.</em><br><span class="t-c666">奶奶不确定地看着父亲。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>etwas wird jdm. kalt/warm</strong></td><td class="t-p8-12">某人感到冷/暖<br>⚠️ Dativ der Person!</td><td class="t-p8-12s"><em>Doch jetzt <strong>wurde ihr</strong> wieder <strong>kalt</strong>.</em><br><span class="t-c666">但现在她又冷了起来。</span></td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ ✍️ 专属仿写 — Romanauszug 1 ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s20-roman1-beispiele')" style="background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important">✍️ 显示/隐藏 仿写例句 — „Wo bist du gewesen?" (3 Muster)</button>
+    <div class="answer-box" id="b1s20-roman1-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: literarisches Präteritum</strong><br>
+      🇩🇪 <em>Oma <strong>hob</strong> die Schultern. Sie <strong>ließ</strong> sie wieder <strong>sinken</strong> und <strong>seufzte</strong>.</em><br>
+      🇨🇳 奶奶耸了耸肩，又垂了下来，叹了口气。<br>
+      👉 <em>Nachbau: ___ (Subj.) <strong>hob</strong> ___. ___ (Subj.) ___ (Prät.) und ___ (Prät.).</em><br>
+      ✅ <strong>Musterlösung:</strong> Der Junge hob den Kopf. Er sah seine Mutter an und lächelte.<br>
+      🔄 <strong>Variante (Perfekt):</strong> Oma hat die Schultern gehoben, hat sie sinken lassen und hat geseufzt.<br><br>
+
+      <strong>🔹 Muster 2: sich erinnern an + Akkusativ</strong><br>
+      🇩🇪 <em>„Ich <strong>erinnere</strong> mich nicht <strong>an</strong> den Weg."</em><br>
+      🇨🇳 "我不记得路了。"<br>
+      👉 <em>Nachbau: Ich <strong>erinnere</strong> mich (nicht) <strong>an</strong> ___ (Akk.).</em><br>
+      ✅ <strong>Musterlösung:</strong> Ich erinnere mich gut an unseren letzten Urlaub.<br>
+      🔄 <strong>Variante (dass):</strong> Ich erinnere mich (daran), dass wir viel gelacht haben.<br><br>
+
+      <strong>🔹 Muster 3: Früher vs. neuerdings — 今昔对比</strong><br>
+      🇩🇪 <em><strong>Früher</strong>, da hab ich an alles gedacht. <strong>Neuerdings</strong> vergesse ich viel.</em><br>
+      🇨🇳 从前我什么都想得到，近来忘了很多事。<br>
+      👉 <em>Nachbau: <strong>Früher</strong> ___ (Perfekt/Prät.). <strong>Jetzt/Neuerdings</strong> ___ (Präsens).</em><br>
+      ✅ <strong>Musterlösung:</strong> Früher hat sie jeden Tag Sport gemacht. Neuerdings hat sie kaum noch Zeit.<br>
+      🔄 <strong>Variante (während):</strong> Während sie früher jeden Tag Sport machte, hat sie heute kaum noch Zeit.
+    </div>
+    </div>
+
+    <!-- ═══ Artikel 3: Das Merkbuch — Interessen ═══ -->
+    <div class="t-card-white">
+      <div style="background:linear-gradient(135deg,#e65100,#ff9800);padding:16px 28px 18px">
+        <div class="t-flex-between">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">📓 Das Merkbuch — „Jeden blauen und jeden grauen Tag notieren"</div>
+          <span class="t-tag-white">Kapitelauszug · Interessen</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Oma erklärt Evi das System der blauen und grauen Tage — ein Tagebuch als Waffe gegen das Vergessen</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <div style="background:#fff3e0;border-left:4px solid #ff9800;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🔍 Interessen und Konflikte</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">Lesen Sie den Romanauszug. Was ist ein „Merkbuch"? Welche Funktion soll es im Alltag mit Oma haben?</span>
+        </div>
+
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify;margin-bottom:16px">
+          <p style="margin:0 0 .8rem">„Das ist <strong>unser Merkbuch</strong>, Evi. Ich möchte, dass du ab heute jeden blauen und jeden grauen Tag notierst."</p>
+          <p style="margin:0 0 .8rem">„Jeden was?" Evi hatte sich durch die Sahne gearbeitet und ließ nun den ersten Löffel Eis auf der Zunge zergehen.</p>
+          <p style="margin:0 0 .8rem">„<strong>Die blauen Tage</strong>", erklärte Oma, „sind die Tage, an denen alles so ist, wie es sein soll. Die grauen sind die, an denen mir passiert, was mir gestern passiert ist. Führe genau <strong>Buch darüber</strong>. Am Ende eines Monats schauen wir uns deine Eintragungen an."</p>
+          <p style="margin:0 0 .8rem">Evi schob das Notizbuch hin und her. <strong>Welchen Sinn sollte das haben?</strong></p>
+          <p style="margin:0 0 .8rem">„<strong>Ich lasse mich nicht unterkriegen</strong>", sagte Oma. „Ich will genau wissen, wie oft es mir passiert. Und ich will mich mit dir über jeden einzelnen blauen Tag freuen."</p>
+        </div>
+
+        <!-- 预习笔记 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>das Merkbuch, -¨er</strong> 记事本/记录本 | <em>ein Buch, in dem man wichtige Dinge notiert (merken = sich erinnern)</em><br>
+          • <strong>notieren</strong> 记录/写下 | <em>schriftlich festhalten, aufschreiben</em><br>
+          • <strong>die Sahne</strong> 奶油 | <em>fetthaltiger Teil der Milch, hier: auf dem Eis oder Kuchen</em><br>
+          • <strong>auf der Zunge zergehen lassen</strong> 让……在舌尖融化 | <em>etwas langsam im Mund genießen (zergehen = schmelzen)</em><br>
+          • <strong>Buch führen über + Akk.</strong> 记录/记账 | <em>systematisch dokumentieren, regelmäßig aufschreiben</em><br>
+          • <strong>die Eintragung, -en</strong> 记录条目 | <em>eine einzelne Notiz in einem Buch/Heft</em><br>
+          • <strong>Welchen Sinn soll das haben?</strong> 这有什么意义呢？| <em>Warum soll man das tun? Ausdruck von Zweifel</em><br>
+          • <strong>sich nicht unterkriegen lassen</strong> 不被打倒/不屈服 | <em>nicht aufgeben, trotz Schwierigkeiten weitermachen</em><br>
+          • <strong>sich freuen über + Akkusativ</strong> 为……感到高兴 | <em>Freude empfinden wegen etwas</em><br>
+          • <strong>ab heute</strong> 从今天起 | <em>von heute an, beginnend mit dem heutigen Tag</em>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 📚 专属词汇 — Merkbuch ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-merkbuch-vocab')" style="background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important">📚 显示/隐藏 词汇语法 — Merkbuch (10 词条)</button>
+    <div class="answer-box" id="b1s20-merkbuch-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen (4)</strong><br>
+      • <strong>das Merkbuch, -¨er</strong> = 记事本 | <em>Buch zum Notieren wichtiger Dinge</em><br>
+      • <strong>die Sahne</strong> = 奶油 | <em>fetthaltiger Teil der Milch</em><br>
+      • <strong>die Eintragung, -en</strong> = 记录条目 | <em>einzelne Notiz in einem Buch</em><br>
+      • <strong>der Sinn, -e</strong> = 意义/目的 | <em>Zweck, Bedeutung einer Handlung</em><br><br>
+      <strong>🔧 Verben (4)</strong><br>
+      • <strong>notieren</strong> = 记录 | <em>schriftlich festhalten</em><br>
+      • <strong>Buch führen über + Akk.</strong> = 记录/记账 | <em>systematisch dokumentieren</em><br>
+      • <strong>auf der Zunge zergehen lassen</strong> = 在舌尖融化 | <em>langsam im Mund genießen</em><br>
+      • <strong>sich nicht unterkriegen lassen</strong> = 不被打倒 | <em>nicht aufgeben (umgangssprachlich)</em><br><br>
+      <strong>🎨 Ausdrücke (2)</strong><br>
+      • <strong>ab heute</strong> = 从今天起 | <em>von heute an</em><br>
+      • <strong>Welchen Sinn soll das haben?</strong> = 这有什么意义？ | <em>Ausdruck von Zweifel</em>
+    </div>
+    </div>
+
+    <!-- ═══ 📖 专属语法 — Merkbuch ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-merkbuch-grammatik')" style="background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important">📖 显示/隐藏 语法解析 — Merkbuch (2 项)</button>
+    <div class="answer-box" id="b1s20-merkbuch-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. sich lassen + Infinitiv — 被动替代形式</strong> | <em>Passiversatz</em><br>
+      🇩🇪 Formel: <em>sich lassen + Infinitiv = können + Partizip II + werden</em><br>
+      🇨🇳 规则：sich lassen + 动词原形 = 可以被……，是一种常见的被动替代表达。<br>
+      📖 <em>„Ich <strong>lasse</strong> mich nicht <strong>unterkriegen</strong>."</em> — 我不会被打倒。 = Ich kann nicht untergekriegt werden.<br>
+      ⚠️ 考点：B1 阅读中识别即可——sich lassen 是 können-Passiv 的口语变体。<br><br>
+
+      <strong>2. sollen — 间接请求/委托</strong> | <em>Auftrag/Aufgabe ausdrücken</em><br>
+      🇩🇪 Formel: <em>sollen + Infinitiv = jemand hat die Aufgabe / den Auftrag, etwas zu tun</em><br>
+      🇨🇳 规则：Oma 委托 Evi 记录——sollen 表示"被要求/被期望"而非"应该"。<br>
+      📖 <em>„Evi <strong>soll</strong> in einem Tagebuch <strong>festhalten</strong>..."</em> — Evi 被要求/被委托在日记中记录……<br>
+      ⚠️ 考点：sollen (Auftrag) ≠ müssen (Zwang) ≠ dürfen (Erlaubnis)。
+
+    </div>
+    </div>
+
+    <!-- ═══ ✍️ 专属仿写 — Merkbuch ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s20-merkbuch-beispiele')" style="background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important">✍️ 显示/隐藏 仿写例句 — Merkbuch (3 Muster)</button>
+    <div class="answer-box" id="b1s20-merkbuch-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: sich nicht unterkriegen lassen</strong><br>
+      🇩🇪 <em>„Ich <strong>lasse</strong> mich nicht <strong>unterkriegen</strong>."</em><br>
+      🇨🇳 "我不会被打倒的。"<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>lässt sich</strong> nicht <strong>___ (Infinitiv).</strong></em><br>
+      ✅ <strong>Musterlösung:</strong> Meine Oma lässt sich von der Krankheit nicht unterkriegen.<br>
+      🔄 <strong>Variante:</strong> Meine Oma kann von der Krankheit nicht untergekriegt werden. (können-Passiv)<br><br>
+
+      <strong>🔹 Muster 2: Buch führen über + Akk.</strong><br>
+      🇩🇪 <em>„<strong>Führe</strong> genau <strong>Buch darüber</strong>."</em><br>
+      🇨🇳 "仔细记录这些。"<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>führt Buch über</strong> ___ (Akk.).</em><br>
+      ✅ <strong>Musterlösung:</strong> Der Arzt führt genau Buch über den Krankheitsverlauf.<br>
+      🔄 <strong>Variante:</strong> Der Arzt dokumentiert den Krankheitsverlauf sorgfältig. (einfaches Verb)<br><br>
+
+      <strong>🔹 Muster 3: sich freuen über + Akk.</strong><br>
+      🇩🇪 <em>„Ich will mich mit dir <strong>über jeden einzelnen blauen Tag freuen</strong>."</em><br>
+      🇨🇳 "我想和你一起为每一个蓝色日子感到高兴。"<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>freut sich über</strong> ___ (Akk.).</em><br>
+      ✅ <strong>Musterlösung:</strong> Die Mutter freut sich über die gute Note ihrer Tochter.<br>
+      🔄 <strong>Variante (auf):</strong> Ich freue mich auf morgen. (auf + Akk. = zukünftiges Ereignis)
+    </div>
+    </div>
+
+    <!-- ═══ Artikel 4: Der Konflikt — Familienstreit ═══ -->
+    <div class="t-card-white">
+      <div style="background:linear-gradient(135deg,#b71c1c,#d32f2f);padding:16px 28px 18px">
+        <div class="t-flex-between">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">💔 Der Konflikt — „Ihr dürft Oma nicht in ein Heim gehen lassen!"</div>
+          <span class="t-tag-white">Kapitelauszug · Konflikte</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Evi wehrt sich gegen das Altersheim — ein emotionaler Familienkonflikt bricht aus</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <div style="background:#ffebee;border-left:4px solid #d32f2f;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🔍 Familienkonflikt</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">Lesen Sie den Romanauszug. Welche Konflikte gibt es zwischen den Figuren? Wer argumentiert wie?</span>
+        </div>
+
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify;margin-bottom:16px">
+          <p style="margin:0 0 .8rem">Da <strong>brach Evi in Tränen aus</strong>. Bestürzt ließ die Mutter die Tasse sinken. „Was ist denn los mit dir?"</p>
+          <p style="margin:0 0 .8rem">„<strong>Ihr dürft Oma nicht in ein Heim gehen lassen!</strong>"</p>
+          <p style="margin:0 0 .8rem">„Sie hat mit dir darüber gesprochen?" Der Vater hob überrascht die Augenbrauen.</p>
+          <p style="margin:0 0 .8rem">„Das wundert dich, ja? Du hättest lieber, dass sie aus allem ein Geheimnis macht, genau wie ihr!" Evi <strong>schrie das heraus</strong>. Es war wohltuend, denn es drängte die Tränen zurück.</p>
+          <p style="margin:0 0 .8rem">„<strong>Oma braucht Schutz</strong>", sagte die Mutter mit einer Geduld, die Evi noch mehr in Rage brachte, „jemanden, der auf sie Acht gibt."</p>
+          <p style="margin:0 0 .8rem">„<strong>Aber doch nicht fremde Leute!</strong>" Evis Kopf dröhnte, der Mund wurde ihr trocken. „Du hast selbst gesagt, dass ein Heim nicht gut für sie ist!"</p>
+          <p style="margin:0 0 .8rem">„<strong>Sie will es so</strong>, Evi, und das müssen wir respektieren."</p>
+          <p style="margin:0 0 .8rem"><strong>Respektieren.</strong> Hinter solchen Worten <strong>verschanzten</strong> sie sich immer, wenn sie nicht in der Lage waren, etwas zu erklären.</p>
+          <p style="margin:0 0 .8rem">„<strong>Man kann sie nicht allein lassen!</strong>", mischte sich Vera ein. „Nicht für eine Sekunde."</p>
+          <p style="margin:0 0 .8rem">„<strong>Sei du bloß still!</strong>", fauchte Evi sie an. „<strong>Dir ist Oma doch von Anfang an lästig gewesen!</strong>"</p>
+          <p style="margin:0 0 .8rem">Evi rückte ein Stück von der Mutter ab. „Ich kann es nicht ändern, Evi. <strong>Ich gäbe was darum</strong>, wenn ich es könnte."</p>
+          <p style="margin:0 0 .8rem">„<strong>Aber du kannst es ändern!</strong> Du kannst zu Hause bleiben und auf sie aufpassen. Oder Papa. Es reicht doch, wenn einer von euch Geld verdient."</p>
+          <p style="margin:0 0 .8rem">„<strong>Es ist nicht nur das Geld</strong>, Evi. Ich mag meine Arbeit und Papa mag seine auch."</p>
+        </div>
+
+        <!-- 预习笔记 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>in Tränen ausbrechen (bricht aus, brach aus, ist ausgebrochen)</strong> 突然大哭起来 | <em>plötzlich anfangen zu weinen</em><br>
+          • <strong>bestürzt</strong> 惊愕的/震惊的 | <em>erschrocken und verwirrt zugleich</em><br>
+          • <strong>die Tasse sinken lassen</strong> 放下杯子 | <em>vor Überraschung/Schreck das, was man in der Hand hält, loslassen</em><br>
+          • <strong>die Augenbrauen heben</strong> 扬起眉毛 | <em>Überraschung oder Skepsis körpersprachlich zeigen</em><br>
+          • <strong>herausschreien (schreit heraus, schrie heraus, hat herausgeschrien)</strong> 喊出来 | <em>laut und emotional aussprechen, oft aus Wut oder Verzweiflung</em><br>
+          • <strong>die Tränen zurückdrängen</strong> 忍住眼泪 | <em>die Tränen unterdrücken, nicht weinen</em><br>
+          • <strong>wohltuend</strong> 令人舒服的/释放的 | <em>angenehm und befreiend wirkend</em><br>
+          • <strong>jemanden in Rage bringen</strong> 激怒某人 | <em>jemanden wütend machen (Rage = große Wut)</em><br>
+          • <strong>Acht geben auf + Akkusativ</strong> 照顾/留意 | <em>aufpassen auf jemanden, sich kümmern um</em><br>
+          • <strong>der Kopf dröhnt</strong> 头嗡嗡响 | <em>starke Kopfschmerzen oder das Gefühl von Druck im Kopf haben</em><br>
+          • <strong>sich verschanzen hinter + Dativ</strong> 躲在……后面（比喻）| <em>sich verstecken, einer direkten Antwort ausweichen</em><br>
+          • <strong>jdn. anfauchen</strong> 对某人怒吼/咆哮 | <em>jemanden aggressiv und laut ansprechen (fauchen = wie eine Katze zischen)</em><br>
+          • <strong>jdm. lästig sein</strong> 对某人来说是负担/麻烦 | <em>unangenehm und störend für jemanden sein</em><br>
+          • <strong>von Anfang an</strong> 从一开始 | <em>seit dem ersten Moment, von Beginn an</em><br>
+          • <strong>von jdm. abrücken</strong> 从某人身边挪开 | <em>sich körperlich entfernen (hier: aus Ablehnung oder Enttäuschung)</em><br>
+          • <strong>Ich gäbe was darum, wenn...</strong> 我愿付出一切，如果…… | <em>starker Wunsch, dass etwas anders wäre (Konjunktiv II: geben → gäbe)</em>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 📚 专属词汇 — Konflikt ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-konflikt-vocab')" style="background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important">📚 显示/隐藏 词汇语法 — Konflikt (12 词条)</button>
+    <div class="answer-box" id="b1s20-konflikt-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen & Wendungen (5)</strong><br>
+      • <strong>die Träne, -n</strong> = 眼泪 | in Tränen ausbrechen = 突然大哭<br>
+      • <strong>die Augenbraue, -n</strong> = 眉毛 | die Augenbrauen heben = 扬起眉毛（表惊讶）<br>
+      • <strong>die Rage</strong> = 狂怒 | jdn. in Rage bringen = 激怒某人<br>
+      • <strong>das Heim, -e</strong> = (养老/护理)院 | hier: Kurzform von Altersheim/Pflegeheim<br>
+      • <strong>die Geduld</strong> = 耐心 | mit einer Geduld = 带着一种耐心<br><br>
+      <strong>🔧 Verben (5)</strong><br>
+      • <strong>herausschreien (schreit heraus, schrie heraus, hat herausgeschrien)</strong> = 喊出来<br>
+      • <strong>die Tränen zurückdrängen</strong> = 忍住眼泪 | <em>nicht weinen, Tränen unterdrücken</em><br>
+      • <strong>sich verschanzen hinter + Dativ</strong> = 躲在……后面（比喻回避）<br>
+      • <strong>jdn. anfauchen</strong> = 对某人怒吼 | <em>aggressiv und laut ansprechen</em><br>
+      • <strong>von jdm. abrücken</strong> = 从某人身边挪开（表疏远）<br><br>
+      <strong>🎨 Ausdrücke (2)</strong><br>
+      • <strong>jdm. lästig sein</strong> = 对某人是负担 | <em>unangenehm und störend sein</em><br>
+      • <strong>Ich gäbe was darum, wenn...</strong> = 我愿付出一切，如果…… | <em>starker Wunsch (Konjunktiv II)</em>
+    </div>
+    </div>
+
+    <!-- ═══ 📖 专属语法 — Konflikt ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-konflikt-grammatik')" style="background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important">📖 显示/隐藏 语法解析 — Konflikt (3 项)</button>
+    <div class="answer-box" id="b1s20-konflikt-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. Konjunktiv II — 非现实愿望</strong> | <em>irrealer Wunsch / Höflichkeit</em><br>
+      🇩🇪 Formel: <em>würde + Infinitiv / starke Verben: Vokalwechsel + e (gäbe, hätte, wäre, könnte)</em><br>
+      🇨🇳 规则：Konjunktiv II 表达非现实愿望、假设、礼貌请求。文中多次出现。<br>
+      📖 <em>„Ich <strong>gäbe</strong> was darum, wenn ich es <strong>könnte</strong>." / „Du <strong>hättest</strong> lieber, dass..."</em><br>
+      ⚠️ 考点：geben→gäbe, haben→hätte, können→könnte 是高频 KII 形式。B1 阅读识别即可。<br><br>
+
+      <strong>2. Imperativ — 命令/请求</strong> | <em>Befehlsform</em><br>
+      🇩🇪 Formel: <em>du-Imperativ: Stamm (+ e) (Sei! / Fahr! / Komm!) | ihr-Imperativ: Stamm + t</em><br>
+      🇨🇳 规则：Evi 在愤怒中使用 Imperativ——表达强烈情感和命令。<br>
+      📖 <em>„<strong>Sei</strong> du bloß still!" / „<strong>Respektieren.</strong>" (Infinitiv als Befehl — ironisch)</em><br>
+      ⚠️ 考点：sein→sei (unregelmäßiger Imperativ)，与 bist 完全不同。sein-Imperativ 高频。<br><br>
+
+      <strong>3. Trennbare Verben im emotionalen Kontext</strong> | <em>herausschreien, einmischen, abrücken</em><br>
+      🇩🇪 Formel: <em>Präfix + Verb → im Satz getrennt: schrie ... heraus, mischte ... ein, rückte ... ab</em><br>
+      🇨🇳 规则：文中大量使用可分动词表达强烈情感动作——前缀强化语义方向（heraus=出来，ein=加入，ab=离开）。<br>
+      📖 <em>„Evi <strong>schrie</strong> das <strong>heraus</strong>." / „...<strong>mischte</strong> sich Vera <strong>ein</strong>." / „Evi <strong>rückte</strong> ein Stück <strong>ab</strong>."</em><br>
+      ⚠️ 考点：可分前缀在情感动词中起强调作用（heraus=向外爆发, ein=介入, ab=疏远）。
+
+    </div>
+    </div>
+
+    <!-- ═══ 🔗 专属搭配 — Konflikt ═══ -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s20-konflikt-kollokation')" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important">🔗 显示/隐藏 词汇搭配 — Konflikt (6 条)</button>
+    <div class="answer-box" id="b1s20-konflikt-kollokation">
+    <table class="t-table">
+      <tr style="background:#b71c1c;color:#fff"><th class="t-p8-12l">搭配</th><th class="t-p8-12l">释义</th><th class="t-p8-12l">例句</th></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12b"><strong>in Tränen ausbrechen</strong></td><td class="t-p8-12">突然大哭起来<br>⚠️ ausbrechen = stark + sein</td><td class="t-p8-12s"><em>Da <strong>brach</strong> Evi <strong>in Tränen aus</strong>.</em><br><span class="t-c666">这时Evi突然大哭起来。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>jdn. in Rage bringen</strong></td><td class="t-p8-12">激怒某人<br>⚠️ Rage = große Wut</td><td class="t-p8-12s"><em>...mit einer Geduld, die Evi noch mehr <strong>in Rage brachte</strong>.</em><br><span class="t-c666">那种耐心更激怒了Evi。</span></td></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12b"><strong>Acht geben auf + Akk.</strong></td><td class="t-p8-12">照顾/留意<br>⚠️ = aufpassen auf + Akk.</td><td class="t-p8-12s"><em>...jemanden, der <strong>auf</strong> sie <strong>Acht gibt</strong>.</em><br><span class="t-c666">一个照顾她的人。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>sich verschanzen hinter + D.</strong></td><td class="t-p8-12">躲在……后面（回避）<br>⚠️ metaphorisch</td><td class="t-p8-12s"><em>Hinter solchen Worten <strong>verschanzten</strong> sie <strong>sich</strong>.</em><br><span class="t-c666">他们躲在那些话后面。</span></td></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12b"><strong>jdn. anfauchen</strong></td><td class="t-p8-12">对某人怒吼<br>⚠️ fauchen = 像猫一样嘶叫</td><td class="t-p8-12s"><em>„Sei du bloß still!", <strong>fauchte</strong> Evi sie <strong>an</strong>.</em><br><span class="t-c666">"你闭嘴！"Evi对她吼道。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>von jdm. abrücken</strong></td><td class="t-p8-12">从某人身边挪开<br>⚠️ körperlich + emotional</td><td class="t-p8-12s"><em>Evi <strong>rückte</strong> ein Stück von der Mutter <strong>ab</strong>.</em><br><span class="t-c666">Evi从母亲身边挪开了一点。</span></td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ 💬 专属 Redemittel — Konflikt ═══ -->
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s20-konflikt-redemittel')" style="background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important">💬 显示/隐藏 常用表达 — Konflikt (4 条)</button>
+    <div class="answer-box" id="b1s20-konflikt-redemittel">
+    <table class="t-table">
+      <tr style="background:#c62828;color:#fff"><th class="t-p8-12l">功能</th><th class="t-p8-12l">🇩🇪 Redemittel</th><th class="t-p8-12l">🇨🇳 中文</th></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12b" rowspan="2">😡 愤怒反驳<br><em>Wut/Widerspruch</em></td><td class="t-p8-12"><em><strong>Aber doch nicht</strong> fremde Leute!</em><br>💡 aber doch nicht = 强烈的反驳（"才不是……呢！"）</td><td class="t-p8-12">才不要陌生人呢！</td></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12"><em><strong>Sei du bloß still!</strong></em><br>💡 bloß = 语气强化（"给我……"），Imperativ + bloß = 粗暴命令</td><td class="t-p8-12">你给我闭嘴！</td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b" rowspan="2">😔 无力/遗憾<br><em>Hilflosigkeit</em></td><td class="t-p8-12"><em><strong>Ich kann es nicht ändern.</strong></em><br>💡 = 我没办法改变它。表达无力感的标准句式。</td><td class="t-p8-12">我没办法改变。</td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12"><em><strong>Ich gäbe was darum</strong>, wenn ich es könnte.</em><br>💡 KII + darum geben = "我愿付出一切"——强烈的非现实愿望</td><td class="t-p8-12">我愿付出一切，如果我能的话。</td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ Artikel 5: Die Lösung — Evi schlägt eine WG vor ═══ -->
+    <div class="t-card-white">
+      <div style="background:linear-gradient(135deg,#00695c,#00897b);padding:16px 28px 18px">
+        <div class="t-flex-between">
+          <div style="color:#fff;font-size:1.2rem;font-weight:700">🏠 Die Lösung — „Evi hat da eine Idee"</div>
+          <span class="t-tag-white">Kapitelauszug · Lösung</span>
+        </div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Evi schlägt eine ungewöhnliche WG-Lösung vor — die Nachbarn diskutieren über eine gemeinsame Zukunft</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <div style="background:#e0f2f1;border-left:4px solid #00897b;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+          <strong>🔍 Die Lösung finden</strong><br>
+          <span style="font-size:.82rem;color:#546e7a">Lesen Sie den Romanauszug. Welche Lösung schlägt Evi vor? Wie reagieren die Nachbarn auf ihren Vorschlag?</span>
+        </div>
+
+        <div style="font-family:Georgia,serif;font-size:.84rem;line-height:1.85;text-align:justify;margin-bottom:16px">
+          <p style="margin:0 0 .8rem">„<strong>Evi hat da eine Idee</strong>", kam Oma ihr zu Hilfe. „Eine … recht, nun ja, recht <strong>ungewöhnliche</strong> Idee." Und da die Idee auch Sie betrifft …</p>
+          <p style="margin:0 0 .8rem"><strong>Frau Klapproth öffnete die Augen</strong>: Sie wirkte mit einem Mal sehr wach. „Ich glaube, ich weiß, was du uns <strong>vorschlagen</strong> willst."</p>
+          <p style="margin:0 0 .8rem">„Weißt du", sagte Frau Klapproth zu Evi, „ich habe selbst schon <strong>darüber nachgedacht</strong>. <strong>Mein Haus ist groß. Allein kann ich es nicht halten.</strong> Die Arbeit ist mir längst <strong>über den Kopf gewachsen</strong>. Aber der Gedanke an ein Heim …" Sie schaute Oma an. „Wir kennen uns noch nicht gut genug, um zu wissen, ob wir auch im Alltag <strong>miteinander auskommen</strong> können. Allerdings haben wir nicht die Zeit, uns besser kennen zu lernen; also sollten wir es einfach <strong>versuchen</strong>. Ins Altersheim können wir schließlich <strong>immer noch</strong>. Das läuft uns nicht weg."</p>
+          <p style="margin:0 0 .8rem"><strong>Frau Perges' Wangen</strong> hatten sich mit einer <strong>fleckigen Röte überzogen</strong>. „Ich bin … im ersten Moment würde ich sagen, das ist eine ganz <strong>wundervolle Idee</strong>!"</p>
+          <p style="margin:0 0 .8rem"><strong>Herr Ronnebach saß da wie vom Donner gerührt.</strong> „Also, wie schon gesagt, ein Heim wäre für mich ja nie <strong>in Betracht gekommen</strong>." Und er sah von einem zum anderen: „<strong>Ja, nun, warum eigentlich nicht?</strong>"</p>
+        </div>
+
+        <!-- 预习笔记 -->
+        <div style="background:#fefce8;border-left:4px solid #e6a817;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037">
+          <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+          • <strong>die Lösung, -en</strong> 解决方案 | <em>der Weg, ein Problem zu beseitigen</em><br>
+          • <strong>vorschlagen (schlägt vor, schlug vor, hat vorgeschlagen)</strong> 提议/建议 | <em>eine Idee zur Diskussion stellen</em><br>
+          • <strong>ungewöhnlich</strong> 不寻常的 | <em>nicht normal, vom Üblichen abweichend</em><br>
+          • <strong>betreffen (betrifft, betraf, hat betroffen)</strong> 涉及/关系到 | <em>mit jemandem zu tun haben, jdn. angehen</em><br>
+          • <strong>jdm. über den Kopf wachsen</strong> 超出某人能力范围 | <em>zu viel Arbeit/Verantwortung für eine Person sein</em><br>
+          • <strong>jdm. zu Hilfe kommen</strong> 来帮助某人 | <em>jemandem helfen, Beistand leisten</em><br>
+          • <strong>miteinander auskommen (kommt aus, kam aus, ist ausgekommen)</strong> 相处融洽 | <em>harmonisch zusammenleben, sich gut verstehen</em><br>
+          • <strong>wie vom Donner gerührt</strong> 像被雷击一样震惊 | <em>völlig überrascht und sprachlos sein</em><br>
+          • <strong>in Betracht kommen (kommt, kam, ist gekommen)</strong> 被考虑/纳入考虑 | <em>als Möglichkeit gesehen werden</em><br>
+          • <strong>die Röte</strong> 脸红/潮红 | <em>rote Färbung der Haut (aus Aufregung oder Gefühl)</em><br>
+          • <strong>fleckig</strong> 有斑点的/不均匀的 | <em>mit unregelmäßigen Flecken, nicht gleichmäßig</em><br>
+          • <strong>allein</strong> 独自/一个人 | <em>ohne Hilfe anderer, auf sich gestellt</em>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ 📚 专属词汇 — Lösung ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-loesung-vocab')" style="background:linear-gradient(135deg,#00897b,#4db6ac)!important;color:#fff!important">📚 显示/隐藏 词汇语法 — Die Lösung (12 词条)</button>
+    <div class="answer-box" id="b1s20-loesung-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen · 名词 (4)</strong><br>
+      • <strong>die Lösung, -en</strong> = 解决方案 | <em>Antwort auf ein Problem</em><br>
+      &nbsp;&nbsp;📌 <em>„Evi hat da eine Idee … eine ungewöhnliche Lösung."</em> — Evi 有一个不寻常的解决方案。<br>
+      • <strong>die Röte</strong> = 脸红/潮红 | <em>rote Gesichtsfarbe aus Aufregung/Bewegung</em><br>
+      • <strong>der Gedanke, -n</strong> = 想法/念头 | <em>das, was man denkt; eine Idee</em><br>
+      &nbsp;&nbsp;📌 <em>„Aber der Gedanke an ein Heim …"</em> — 但想到养老院……<br>
+      • <strong>der Alltag</strong> = 日常生活 | <em>das normale tägliche Leben</em><br><br>
+      <strong>🔧 Verben · 动词 (5)</strong><br>
+      • <strong>vorschlagen (schlägt vor, schlug vor, hat vorgeschlagen)</strong> = 提议 | <em>eine Idee präsentieren</em><br>
+      • <strong>betreffen (betrifft, betraf, hat betroffen)</strong> = 涉及 | <em>angehen, mit jdm. zu tun haben</em><br>
+      • <strong>auskommen (kommt aus, kam aus, ist ausgekommen)</strong> = 相处/够用 | <em>miteinander harmonieren; genug haben</em><br>
+      • <strong>versuchen</strong> = 尝试 | <em>etwas probieren, einen Versuch machen</em><br>
+      • <strong>halten (hält, hielt, hat gehalten)</strong> = 维持/守住 | <em>hier: ein Haus instand halten, bewirtschaften</em><br><br>
+      <strong>🎨 Ausdrücke & Wendungen (3)</strong><br>
+      • <strong>wie vom Donner gerührt</strong> = 如被雷击（极度震惊） | <em>sprachlos vor Überraschung</em><br>
+      • <strong>jdm. über den Kopf wachsen</strong> = 超出能力范围 | <em>zu viel werden, nicht mehr bewältigen können</em><br>
+      • <strong>in Betracht kommen</strong> = 被纳入考虑 | <em>als Möglichkeit erwogen werden</em>
+    </div>
+    </div>
+
+    <!-- ═══ 📖 专属语法 — Lösung ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-loesung-grammatik')" style="background:linear-gradient(135deg,#283593,#5c6bc0)!important;color:#fff!important">📖 显示/隐藏 语法解析 — Die Lösung (3 项)</button>
+    <div class="answer-box" id="b1s20-loesung-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. Konjunktiv II — 非现实/礼貌表达</strong> | <em>irreale Aussagen / Höflichkeit</em><br>
+      🇩🇪 Formel: <em>würde + Infinitiv / starke Verben: Vokalwechsel + e (wäre, käme, gäbe)</em><br>
+      🇨🇳 规则：Konjunktiv II 表达非现实假设（"本会/应该……"）。文中用于礼貌地表达观点——避免太直接。<br>
+      📖 <em>„…im ersten Moment <strong>würde</strong> ich sagen, das ist eine ganz wundervolle Idee!"</em> — 第一反应我会说，这是个绝妙的主意！<br>
+      📖 <em>„…ein Heim <strong>wäre</strong> für mich ja nie in Betracht <strong>gekommen</strong>."</em> — 养老院对我来说从来不在考虑之列。<br>
+      ⚠️ 考点：würde-Form (würde + Infinitiv) 是 B1 核心考点——比强变化 KII (käme, gäbe) 更常用。<br><br>
+
+      <strong>2. Trennbare Verben — 可分动词</strong> | <em>Präfix + Verb → im Satz getrennt</em><br>
+      🇩🇪 Formel: <em>vorschlagen → schlägt vor / nachdenken → dachte nach / auskommen → kommen aus</em><br>
+      🇨🇳 规则：可分动词在主句现在时/过去时中，前缀移至句末。本段有大量可分动词用于日常对话。<br>
+      📖 <em>„…was du uns <strong>vorschlagen</strong> willst."</em> (Modalverb + Infinitiv → 不分离)<br>
+      📖 <em>„…ich habe selbst schon <strong>darüber nachgedacht</strong>."</em> (Perfekt → Partizip II: nach- + ge + dacht)<br>
+      📖 <em>„…ob wir auch im Alltag miteinander <strong>auskommen</strong> können."</em> (Modalverb + Infinitiv)<br>
+      ⚠️ 考点：区分 Modalverb+Infinitiv (不分离) vs. Hauptsatz (分离: „Er <strong>schlug</strong> eine Lösung <strong>vor</strong>.")<br><br>
+
+      <strong>3. Redewendungen mit Bildsprache — 比喻性成语</strong> | <em>metaphorische Ausdrücke im Alltag</em><br>
+      🇩🇪 Formel: <em>wie vom Donner gerührt / jdm. über den Kopf wachsen / jdm. zu Hilfe kommen</em><br>
+      🇨🇳 规则：德语日常对话中大量使用生动比喻——理解其比喻义而非字面义是 B1 阅读的重要能力。<br>
+      📖 <em>„Herr Ronnebach saß da <strong>wie vom Donner gerührt</strong>."</em> — Herr Ronnebach 坐在那里如被雷击般震惊。<br>
+      📖 <em>„Die Arbeit ist mir längst <strong>über den Kopf gewachsen</strong>."</em> — 工作早已超出了我的能力。<br>
+      📖 <em>„<strong>kam</strong> Oma ihr <strong>zu Hilfe</strong>"</em> — Oma 来帮她解围。<br>
+      ⚠️ 考点：B1 阅读不要逐字翻译这些表达——先识别为固定短语，再整体理解含义。
+
+    </div>
+    </div>
+
+    <!-- ═══ 🔗 专属搭配 — Lösung ═══ -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s20-loesung-kollokation')" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)!important;color:#fff!important">🔗 显示/隐藏 词汇搭配 — Die Lösung (6 条)</button>
+    <div class="answer-box" id="b1s20-loesung-kollokation">
+    <table class="t-table">
+      <tr style="background:#00695c;color:#fff"><th class="t-p8-12l">搭配</th><th class="t-p8-12l">释义</th><th class="t-p8-12l">例句</th></tr>
+      <tr style="background:#e0f2f1"><td class="t-p8-12b"><strong>jdm. zu Hilfe kommen</strong></td><td class="t-p8-12">来帮助/解围<br>⚠️ zu + Dativ, 固定搭配</td><td class="t-p8-12s"><em>„Evi hat da eine Idee", <strong>kam</strong> Oma ihr <strong>zu Hilfe</strong>.</em><br><span class="t-c666">"Evi有个主意"，Oma来帮她解围。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>einen Vorschlag machen</strong></td><td class="t-p8-12">提出建议<br>⚠️ = vorschlagen (N-V-V)</td><td class="t-p8-12s"><em>Ich weiß, was du uns <strong>vorschlagen</strong> willst.</em><br><span class="t-c666">我知道你想向我们提议什么。</span></td></tr>
+      <tr style="background:#e0f2f1"><td class="t-p8-12b"><strong>jdm. über den Kopf wachsen</strong></td><td class="t-p8-12">超出某人能力<br>⚠️ Perfekt mit sein!</td><td class="t-p8-12s"><em>Die Arbeit ist mir längst <strong>über den Kopf gewachsen</strong>.</em><br><span class="t-c666">工作早已超出了我的能力。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>in Betracht kommen</strong></td><td class="t-p8-12">被考虑<br>⚠️ 功能动词结构，正式用语</td><td class="t-p8-12s"><em>Ein Heim <strong>wäre</strong> für mich ja nie <strong>in Betracht gekommen</strong>.</em><br><span class="t-c666">养老院对我来说从来不在考虑之列。</span></td></tr>
+      <tr style="background:#e0f2f1"><td class="t-p8-12b"><strong>wie vom Donner gerührt sein</strong></td><td class="t-p8-12">目瞪口呆<br>⚠️ 固定比喻，不可逐字译</td><td class="t-p8-12s"><em>Herr Ronnebach <strong>saß</strong> da <strong>wie vom Donner gerührt</strong>.</em><br><span class="t-c666">Ronnebach先生像被雷击一样坐在那里。</span></td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b"><strong>miteinander auskommen</strong></td><td class="t-p8-12">相处融洽<br>⚠️ trennbar, Perfekt mit sein</td><td class="t-p8-12s"><em>…ob wir auch im Alltag <strong>miteinander auskommen</strong> können.</em><br><span class="t-c666">我们是否在日常生活中也能相处融洽。</span></td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ 💬 专属 Redemittel — Lösung ═══ -->
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s20-loesung-redemittel')" style="background:linear-gradient(135deg,#c62828,#ef5350)!important;color:#fff!important">💬 显示/隐藏 常用表达 — Die Lösung (4 条)</button>
+    <div class="answer-box" id="b1s20-loesung-redemittel">
+    <table class="t-table">
+      <tr style="background:#c62828;color:#fff"><th class="t-p8-12l">功能</th><th class="t-p8-12l">🇩🇪 Redemittel</th><th class="t-p8-12l">🇨🇳 中文</th></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12b" rowspan="2">💡 提出建议<br><em>Vorschlag machen</em></td><td class="t-p8-12"><em>Ich habe selbst schon <strong>darüber nachgedacht</strong>.</em><br>💡 darüber nachdenken = "我也想过这事"——引出自己类似的想法</td><td class="t-p8-12">我自己也已经考虑过这件事。</td></tr>
+      <tr style="background:#ffebee"><td class="t-p8-12"><em>Also sollten wir es einfach <strong>versuchen</strong>.</em><br>💡 also + sollten = "那我们就试试吧"——温和的建议语气</td><td class="t-p8-12">那我们就应该试试。</td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12b" rowspan="2">😲 表达惊讶<br><em>Überraschung</em></td><td class="t-p8-12"><em>Das ist eine ganz <strong>wundervolle Idee</strong>!</em><br>💡 wundervoll = wunderbar（极好的）——正面惊喜</td><td class="t-p8-12">这是个绝妙的主意！</td></tr>
+      <tr class="t-bg-white"><td class="t-p8-12"><em><strong>Warum eigentlich nicht?</strong></em><br>💡 反问句 = 赞同——经过思考后的认可</td><td class="t-p8-12">为什么不呢？</td></tr>
+    </table>
+    </div>
+
+    <!-- ═══ ✍️ 专属仿写 — Lösung ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s20-loesung-beispiele')" style="background:linear-gradient(135deg,#1565c0,#42a5f5)!important;color:#fff!important">✍️ 显示/隐藏 仿写例句 — Die Lösung (3 Muster)</button>
+    <div class="answer-box" id="b1s20-loesung-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: Konjunktiv II — 礼貌地表达想法</strong><br>
+      🇩🇪 <em>Im ersten Moment <strong>würde</strong> ich sagen, das ist eine ganz wundervolle Idee!</em><br>
+      🇨🇳 第一反应我会说，这是个绝妙的主意！<br>
+      👉 <em>Nachbau: Im ersten Moment <strong>würde</strong> ___ (Subjekt) sagen, das ist ___ (Adjektiv).</em><br>
+      ✅ <strong>Musterlösung:</strong> Im ersten Moment würde ich sagen, das ist eine sehr gute Lösung.<br>
+      🔄 <strong>Variante:</strong> Auf den ersten Blick finde ich die Idee wundervoll. (Indikativ, direkter)<br><br>
+
+      <strong>🔹 Muster 2: jdm. über den Kopf wachsen — 表达负担过重</strong><br>
+      🇩🇪 <em>Die Arbeit ist mir längst <strong>über den Kopf gewachsen</strong>.</em><br>
+      🇨🇳 工作早已超出了我的能力。<br>
+      👉 <em>Nachbau: ___ (Subjekt/Nomen) ist mir <strong>über den Kopf gewachsen</strong>.</em><br>
+      ✅ <strong>Musterlösung:</strong> Die Gartenarbeit ist mir längst über den Kopf gewachsen.<br>
+      🔄 <strong>Variante:</strong> Ich schaffe die Arbeit allein nicht mehr. (einfacher Ausdruck)<br><br>
+
+      <strong>🔹 Muster 3: in Betracht kommen — 纳入考虑（正式）</strong><br>
+      🇩🇪 <em>Ein Heim <strong>wäre</strong> für mich ja nie <strong>in Betracht gekommen</strong>.</em><br>
+      🇨🇳 养老院对我来说从来不在考虑之列。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>wäre</strong> für ___ (Akk.) nie <strong>in Betracht gekommen</strong>.</em><br>
+      ✅ <strong>Musterlösung:</strong> Eine Trennung wäre für die beiden nie in Betracht gekommen.<br>
+      🔄 <strong>Variante:</strong> Ich hätte nie an ein Heim gedacht. (an + Akk. denken, umgangssprachlicher)
+    </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- 📋 Gesamtwiederholung · 综合复习（每篇短文下方已有专属模块） -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <div style="background:linear-gradient(135deg,#1e3a5f,#2c5282);color:#fff;border-radius:12px;padding:12px 20px;margin:1.5rem 0 .8rem;text-align:center;font-size:.88rem">
+      📋 <strong>Gesamtwiederholung · 综合复习</strong> &nbsp;—&nbsp; <span style="opacity:.85">以下为全 section 综合复习模块（每篇短文专属的词汇/语法/搭配模块见各短文下方 ▲）</span>
+    </div>
+
+    <!-- ═══ 📚 词汇表 ═══ -->
+    <button class="btn btn-show btn-vocab" onclick="a2ToggleAns('b1s20-vocab')">📚 显示/隐藏 词汇语法 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-vocab">
+    <div style="font-size:.87rem;line-height:2;color:#2d3748">
+      <strong>📋 Nomen · 名词 (12)</strong><br>
+      • <strong>die Ungeduld</strong> = 不耐烦/急切心情 | <em>der starke Wunsch, dass etwas sofort passiert</em><br>
+      &nbsp;&nbsp;📌 <em>„Voller Ungeduld hatte Evi auf den Tag gewartet."</em> — Evi带着满满的不耐烦等待那一天的到来。<br>
+      • <strong>der Geist, -er</strong> = 灵魂/精神/活力核心 | <em>hier: die belebende, zentrale Person</em><br>
+      &nbsp;&nbsp;📌 <em>„Sie wird sofort zum Geist des Hauses."</em> — 她立刻成了这个家的灵魂人物。<br>
+      • <strong>der Aussetzer, -</strong> = (记忆/功能的)短暂失灵 | <em>kurzer Ausfall des Gedächtnisses</em><br>
+      &nbsp;&nbsp;📌 <em>„Die Aussetzer, nach denen sie sich an nichts mehr erinnern kann."</em> — 那些断片时刻——之后她什么也记不起来了。<br>
+      • <strong>das Altersheim, -e</strong> = 养老院 | <em>Einrichtung mit Pflege und Betreuung für Senioren</em><br>
+      • <strong>der Augenblick, -e</strong> = 时刻/瞬间 | <em>ein sehr kurzer Moment, in dem etwas Wichtiges passiert</em><br>
+      &nbsp;&nbsp;📌 <em>„...das Glück im richtigen Augenblick zu ergreifen."</em> — ……在正确的时刻抓住幸福。<br>
+      • <strong>die Bahnhofshalle, -n</strong> = 火车站大厅 | <em>großer, zentraler Raum im Bahnhof</em><br>
+      &nbsp;&nbsp;📌 <em>„In der Bahnhofshalle, sagte sie..."</em> — "在火车站大厅"，她说……<br>
+      • <strong>die Rechnung, -en</strong> = 账单 | <em>Zahlungsaufforderung für eine Leistung/Ware</em><br>
+      &nbsp;&nbsp;📌 <em>„...wann die Rechnungen zu bezahlen waren."</em> — ……什么时候该付账单。<br>
+      • <strong>die Sorge, -n</strong> = 担忧/操心 | <em>Gefühl der Unruhe oder Angst um jemanden/etwas</em><br>
+      &nbsp;&nbsp;📌 <em>„Wir haben uns Sorgen um dich gemacht."</em> — 我们为你担心了。<br>
+      • <strong>der Kakao</strong> = 可可/热巧克力 | <em>heißes Getränk aus Milch und Kakaopulver</em><br>
+      • <strong>das Gedächtnis, -se</strong> = 记忆力 | <em>die Fähigkeit, sich an Dinge zu erinnern</em><br>
+      • <strong>die Schulter, -n</strong> = 肩膀 | <em>Körperteil zwischen Hals und Arm</em><br>
+      &nbsp;&nbsp;📌 <em>„Sie ließ die Schultern wieder sinken."</em> — 她又垂下了肩膀。<br>
+      • <strong>die Medizin, -en</strong> = 药/药物 | <em>Arzneimittel, das man regelmäßig einnehmen muss</em><br>
+      &nbsp;&nbsp;📌 <em>„...wie oft Opa seine Medizin nehmen musste."</em> — ……爷爷多久需要吃一次药。<br><br>
+
+      <strong>🔧 Verben · 动词 (8)</strong><br>
+      • <strong>festhalten (hält fest, hielt fest, hat festgehalten)</strong> = 记录/记下 | <em>schriftlich fixieren, dokumentieren</em><br>
+      &nbsp;&nbsp;📌 <em>„Evi soll in einem Tagebuch festhalten, welche die blauen... Tage sind."</em> — Evi应该在日记里记录哪些是蓝色的日子。<br>
+      • <strong>sich zuspitzen</strong> = 激化/尖锐化 | <em>kritischer und angespannter werden</em><br>
+      &nbsp;&nbsp;📌 <em>„Als das Wort Altersheim fällt, spitzen sich die Ereignisse zu."</em> — 当"养老院"这个词出现时，事态激化了。<br>
+      • <strong>tasten nach + Dativ</strong> = 摸索/探寻 | <em>mit der Hand suchen, ohne hinzusehen</em><br>
+      &nbsp;&nbsp;📌 <em>„Ihre Hand tastete nach Evis Hand."</em> — 她的手摸索着Evi的手。<br>
+      • <strong>seufzen</strong> = 叹气 | <em>tief und hörbar ausatmen (Trauer/Resignation)</em><br>
+      • <strong>aufbewahren (bewahrt auf, bewahrte auf, hat aufbewahrt)</strong> = 保存/保管 | <em>sicher aufheben, an einem bestimmten Ort verwahren</em><br>
+      • <strong>sich erinnern an + Akkusativ</strong> = 回忆起/记得 | <em>etwas Vergangenes im Gedächtnis abrufen</em><br>
+      &nbsp;&nbsp;📌 <em>„Ich erinnere mich nicht." / „...nach denen sie sich an nichts mehr erinnern kann."</em> — 我不记得了。/ ……之后她什么也记不起来了。<br>
+      • <strong>ergreifen (ergreift, ergriff, hat ergriffen)</strong> = 抓住/把握 | <em>aktiv nehmen, nicht passiv verstreichen lassen</em><br>
+      &nbsp;&nbsp;📌 <em>„...das Glück im richtigen Augenblick zu ergreifen."</em> — ……在正确的时刻抓住幸福。<br>
+      • <strong>einziehen (zieht ein, zog ein, ist eingezogen)</strong> = 搬入 | <em>in eine neue Wohnung / ein neues Haus ziehen</em><br>
+      &nbsp;&nbsp;📌 <em>„...an dem ihre geliebte Oma ins Haus der Familie einzog."</em> — ……她心爱的奶奶搬入家里的那一天。<br><br>
+
+      <strong>🎨 Adjektive & Wendungen (6)</strong><br>
+      • <strong>einfühlsam</strong> = 有同理心的/细腻的 | <em>mit viel Gefühl und Verständnis</em><br>
+      • <strong>vorsichtig</strong> = 小心的/试探的 | <em>mit Bedacht, um nichts Falsches zu sagen</em><br>
+      • <strong>vorwurfsvoll</strong> = 责备的 | <em>mit einem anklagenden Unterton</em><br>
+      • <strong>begeistert</strong> = 热情的/兴奋的 | <em>voller Freude und Enthusiasmus</em><br>
+      &nbsp;&nbsp;📌 <em>„Vera, Evis Schwester, war weniger begeistert."</em> — Vera，Evi的姐姐，没那么热情。<br>
+      • <strong>neuerdings</strong> = 近来/最近 | <em>seit kurzer Zeit (Adverb)</em><br>
+      &nbsp;&nbsp;📌 <em>„Ich vergesse viel neuerdings."</em> — 我最近忘了很多事。<br>
+      • <strong>geliebt</strong> = 心爱的 | <em>sehr geliebt, mit starker emotionaler Bindung</em><br>
+      &nbsp;&nbsp;📌 <em>„...ihre geliebte Oma..."</em> — ……她心爱的奶奶……
+    </div>
+    </div>
+
+    <!-- ═══ 📖 语法解析 ═══ -->
+    <button class="btn btn-show btn-grammatik" onclick="a2ToggleAns('b1s20-grammatik')">📖 显示/隐藏 语法解析 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-grammatik">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+
+      <strong>1. Präteritum — 书面叙事过去时</strong> 文学叙述的默认时态 | <em>Erzähltempus der Schriftsprache</em><br>
+      🇩🇪 Formel: <em>regelmäßig: Verbstamm + te (fragen → fragte) | unregelmäßig: Stammvokalwechsel (kommen → kam)</em><br>
+      🇨🇳 规则：文学作品/小说叙述几乎全部使用 Präteritum。与口语中用 Perfekt 完全不同——这是书面叙事体的标志。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„Der heiße Kakao <strong>hatte</strong> Evi <strong>aufgewärmt</strong>..."</em> — 热可可温暖了Evi…… (Plusquamperfekt: 过去完成时，表示比Präteritum更早发生的动作)<br>
+      <em>„Oma <strong>hob</strong> die Schultern."</em> — 奶奶耸了耸肩。 (heben → hob, unregelmäßig)<br>
+      <em>„Sie <strong>ließ</strong> die Schultern wieder <strong>sinken</strong>."</em> — 她又垂下了肩膀。 (lassen → ließ, unregelmäßig)<br>
+      <em>„Der Vater <strong>schüttelte</strong> den Kopf."</em> — 父亲摇了摇头。 (schütteln → schüttelte, regelmäßig)<br><br>
+      ⚠️ 考点 1：B1 阅读中 Präteritum 极高频——必须认识常见不规则动词过去式（kommen→kam, gehen→ging, lassen→ließ, heben→hob）。<br>
+      ⚠️ 考点 2：口语复述时必须转换为 Perfekt：„Oma hat die Schultern gehoben." / „Der Vater hat den Kopf geschüttelt."<br>
+
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin-top:8px;margin-bottom:12px">
+        <tr style="background:#283593;color:#fff">
+          <th class="t-p7-10l">Infinitiv</th><th class="t-p7-10l">Präteritum</th><th class="t-p7-10l">Perfekt</th><th class="t-p7-10l">中文</th>
+        </tr>
+        <tr style="background:#e8eaf6"><td class="t-p7-10">heben</td><td class="t-p7-10">hob</td><td class="t-p7-10">hat gehoben</td><td class="t-p7-10">抬起</td></tr>
+        <tr class="t-bg-white"><td class="t-p7-10">lassen</td><td class="t-p7-10">ließ</td><td class="t-p7-10">hat gelassen</td><td class="t-p7-10">让/使</td></tr>
+        <tr style="background:#e8eaf6"><td class="t-p7-10">schütteln</td><td class="t-p7-10">schüttelte</td><td class="t-p7-10">hat geschüttelt</td><td class="t-p7-10">摇动</td></tr>
+        <tr class="t-bg-white"><td class="t-p7-10">wissen</td><td class="t-p7-10">wusste</td><td class="t-p7-10">hat gewusst</td><td class="t-p7-10">知道</td></tr>
+        <tr style="background:#e8eaf6"><td class="t-p7-10">denken</td><td class="t-p7-10">dachte</td><td class="t-p7-10">hat gedacht</td><td class="t-p7-10">想/思考</td></tr>
+        <tr class="t-bg-white"><td class="t-p7-10">nennen</td><td class="t-p7-10">nannte</td><td class="t-p7-10">hat genannt</td><td class="t-p7-10">称呼/命名</td></tr>
+      </table><br>
+
+      <strong>2. Plusquamperfekt — 过去完成时</strong> 比 Präteritum 更早发生的动作 | <em>Vorzeitigkeit in der Vergangenheit</em><br>
+      🇩🇪 Formel: <em>hatte/war + Partizip II</em><br>
+      🇨🇳 规则：在 Präteritum 叙述线中，如果要表达"在此之前就已经完成"的动作，用 Plusquamperfekt。是一种"过去中的过去"。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„Voller Ungeduld <strong>hatte</strong> Evi auf den Tag <strong>gewartet</strong>..."</em> — Evi曾充满急切地等待那一天的到来…… (等待发生在Oma搬进来之前)<br>
+      <em>„Der heiße Kakao <strong>hatte</strong> Evi <strong>aufgewärmt</strong>, wie die Mutter <strong>versprochen hatte</strong>."</em> — 热可可温暖了Evi，正如妈妈承诺的那样。<br>
+      <em>„Oma <strong>hatte</strong> den Vater lange nicht mehr so <strong>genannt</strong>."</em> — 奶奶已经很久没这么叫过父亲了。<br><br>
+      ⚠️ 考点 1：Plusquamperfekt 识别即可（B1 阅读被动掌握），写作用 Perfekt/Präteritum 足够。<br>
+      ⚠️ 考点 2：hatte + PII 用于及物/反身动词，war + PII 用于位置变化/状态变化动词（gehen→war gegangen, kommen→war gekommen）。<br><br>
+
+      <strong>3. Indirekte Rede / 间接引语</strong> 转述他人话语 | <em>wörtliche Rede → indirekte Wiedergabe</em><br>
+      🇩🇪 Formel: <em>..., sagte sie. / ..., fragte er. / „..."</em> (wörtliche Rede mit Anführungszeichen)<br>
+      🇨🇳 规则：文学作品中对话以直接引语（wörtliche Rede）为主——引号包裹原话，引号外是叙述句（sagte/fragte + 主语）。德语小说的引号用 „…" 格式（前双引号在下，后双引号在上）。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„<strong>„Wo bist du gewesen, Mutter?"</strong>, fragte der Vater schließlich vorsichtig."</em> — "你去哪了，妈妈？"父亲终于小心地问道。<br>
+      <em>„<strong>„Ich fürchte, ich hab's vergessen."</strong>"</em> — "恐怕，我忘了。" (Oma 的直接引语，使用口语 Perfekt)<br><br>
+      ⚠️ 考点 1：德语小说的引号格式 ≠ 英语/中文。„…" = Gänsefüßchen（鹅爪号），B1 阅读识别即可。<br>
+      ⚠️ 考点 2：直接引语中人物用 Perfekt（口语），叙述句中用 Präteritum（书面）——这是文学作品的时态切换规律。<br><br>
+
+      <strong>4. Relativsatz mit Präposition</strong> 带介词的关系从句 | <em>Bezug auf ein vorhergehendes Nomen</em><br>
+      🇩🇪 Formel: <em>Präposition + Relativpronomen (dem/der/denen) + ... + Verb am Ende</em><br>
+      🇨🇳 规则：关系从句中如有介词，介词放在关系代词前。关系代词格 = 介词要求的格（不是先行词的格）。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„Voller Ungeduld hatte Evi auf den Tag gewartet, <strong>an dem</strong> ihre geliebte Oma ins Haus der Familie <strong>einzog</strong>."</em> — Evi曾充满急切地等待那一天——她心爱的奶奶搬入家里的那一天。<br>
+      &nbsp;&nbsp;(warten auf + Akk. → auf den Tag → Relativ: an dem Tag → an dem)<br>
+      <em>„...die Aussetzer, <strong>nach denen</strong> sie sich an nichts mehr <strong>erinnern kann</strong>."</em> — 那些断片时刻——之后她什么也记不起来了。<br>
+      &nbsp;&nbsp;(sich erinnern nach + Dat. → Präposition bestimmt Kasus des Relativpronomens)<br><br>
+      ⚠️ 考点 1：B1 阅读中 Relativsatz + Präposition 高频出现。先确定介词要求的格，再选关系代词。<br>
+      ⚠️ 考点 2：易混：an dem (Dativ, Maskulinum/Neutrum) ≠ an den (Akkusativ, Maskulinum)。方位/时间介词+Dat. 最常见。<br><br>
+
+      <strong>5. Modalpartikeln — 语气小品词</strong> 表达说话人情感态度 | <em>emotionale Färbung der Aussage</em><br>
+      🇩🇪 Formel: <em>denn / doch / mal / schon / ja — unbetont, mitten im Satz</em><br>
+      🇨🇳 规则：德语口语/对话中大量使用 Modalpartikeln（小品词），它们不改变句子的事实内容，但传达说话者的情感态度（惊讶、不耐烦、安慰、强调等）。B1 阅读中识别即可——不影响句子真值理解，但能帮你感受人物语气。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„Was wolltest du <strong>denn</strong> da?"</em> — "那你到底想去那干什么？" (denn = 带有不耐烦/好奇的语气)<br>
+      <em>„Da darf man <strong>schon mal</strong> das eine oder andere vergessen."</em> — 那偶尔忘掉一两件事也是可以的嘛。(schon mal = 安慰/缓和语气)<br>
+      <em>„Nicht wahr, Berti?"</em> — 对吧，Berti？(nicht wahr = Bitte um Zustimmung / 寻求认同的固定短语)<br><br>
+      ⚠️ 考点 1：denn 作 Modalpartikel（语气词）≠ denn 作连词（因为）。位置不同：Modalpartikel 在句中无重读；连词 denn 在从句首。<br>
+      ⚠️ 考点 2：B1 口语考试中适当使用 Modalpartikeln（denn, doch, mal, ja）能让口语更地道——但不要过量。<br><br>
+
+      <strong>6. Funktionsverbgefüge — 功能动词结构</strong> 正式/书面表达 | <em>Nomen-Verb-Verbindungen in formeller Sprache</em><br>
+      🇩🇪 Formel: <em>Funktionsverb (bringen/kommen/stehen/geraten) + Präposition + Nomen</em><br>
+      🇨🇳 规则：功能动词结构 = 动词 + 介词 + 名词——整体表达一个动作含义，比单独动词更正式/书面。文中涉及固定的情感/身体动作表达。<br>
+      📖 文中例句 / Textbelege:<br>
+      <em>„...wird sie sofort <strong>zum Geist des Hauses</strong>."</em> — 她立刻成了这个家的灵魂。 (werden zu + Dativ = sich verwandeln in)<br>
+      <em>„...machte ihn wieder <strong>zu dem Jungen</strong>, der er einmal gewesen war."</em> — ……让他重新变回了曾经的那个男孩。(machen zu + Dativ = jemanden in einen Zustand versetzen)<br>
+      <em>„Wir haben uns <strong>Sorgen um</strong> dich gemacht."</em> — 我们为你担心了。(sich Sorgen machen um + Akk. = 担心某人)<br><br>
+      ⚠️ 考点 1：功能动词结构比单独动词更书面/正式，B1 阅读和写作都应掌握。<br>
+      ⚠️ 考点 2：sich Sorgen machen um + A. 结构固定——介词 um 不能换成 für 或 über。
+
+    </div>
+    </div>
+
+    <!-- ═══ 🏭 背景知识 ═══ -->
+    <button class="btn btn-show btn-hintergrund" onclick="a2ToggleAns('b1s20-hintergrund')">🏭 显示/隐藏 背景知识 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-hintergrund">
+    <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+
+      <div style="background:#e8f5e9;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#1b5e20;font-size:.95rem">👩‍💼 Monika Feth — Die Autorin / 作者莫妮卡·费特</strong><br>
+        🇩🇪 Monika Feth wurde 1951 in Neuwied am Rhein geboren. Sie studierte Germanistik und Publizistik und arbeitete zunächst als Journalistin, bevor sie sich ganz dem Schreiben von Büchern widmete. Feth ist eine der erfolgreichsten deutschen Jugendbuchautorinnen. Ihr bekanntestes Werk ist die Thriller-Reihe um die "Erdbeerpflücker" (ab 2003), die mit mehreren Preisen ausgezeichnet wurde. "Die blauen und die grauen Tage" erschien 1996 und gehört zu ihren frühen, realistischen Jugendromanen. Das Buch wurde in mehrere Sprachen übersetzt und ist bis heute in vielen deutschen Schulen als Klassenlektüre beliebt. Feths Schreibstil zeichnet sich durch feinfühlige Charakterzeichnung und authentische Dialoge aus — wie man im Romanauszug gut erkennen kann.<br>
+        🇨🇳 莫妮卡·费特1951年生于莱茵河畔新维德市。她大学主修日耳曼语言文学和新闻学，最初从事记者工作，后来全心投入写作。费特是德国最成功的青少年文学作家之一，代表作是"草莓采摘者"惊悚系列（2003年起），多次获奖。《蓝色的日子和灰色的日子》出版于1996年，属于她早期的现实主义青少年小说。该书已被翻译成多种语言，至今仍是许多德国中学的课堂读物。费特的写作风格以细腻的人物刻画和真实的对话著称——从上面的小说节选中可以清楚看到。
+      </div>
+
+      <div style="background:#e3f2fd;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#1565c0;font-size:.95rem">🧠 Demenz und Alzheimer / 失智症与阿尔茨海默病</strong><br>
+        🇩🇪 Die "grauen Tage" im Roman sind eine literarische Metapher für Demenz — genauer: für die fortschreitende Alzheimer-Krankheit. Demenz ist ein Überbegriff für verschiedene Erkrankungen, bei denen die geistigen Fähigkeiten (Gedächtnis, Orientierung, Urteilsvermögen) nach und nach nachlassen. Die Alzheimer-Krankheit ist mit etwa 60-70% die häufigste Form. In Deutschland leben derzeit etwa 1,8 Millionen Menschen mit Demenz, weltweit sind es über 55 Millionen. Typische Symptome sind — genau wie im Roman beschrieben — Vergesslichkeit, Orientierungslosigkeit und Verwirrung. Wichtig: Demenz ist keine normale Alterserscheinung, sondern eine Erkrankung des Gehirns. Die "blauen Tage" (gute Tage) und "grauen Tage" (schlechte Tage) sind ein realistisches Phänomen: Viele Demenzkranke haben tagesformabhängige Schwankungen — manche Tage sind klarer als andere.<br>
+        🇨🇳 小说中的"灰色日子"是失智症——更准确地说是阿尔茨海默病——的文学隐喻。失智症是多种脑部疾病的总称，患者的认知能力（记忆、定向、判断力）会逐渐衰退。阿尔茨海默病是最常见的形式，约占60-70%。德国目前约有180万失智症患者，全球超过5500万。典型症状正如小说描述的——健忘、迷路、意识混乱。关键认知：失智症不是正常衰老现象，而是一种脑部疾病。"蓝色日子"（好日子）和"灰色日子"（坏日子）是真实存在的现象：许多失智症患者的认知状态会随"日间状态"波动——有些日子比另一些日子清醒。
+      </div>
+
+      <div style="background:#fff3e0;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#e65100;font-size:.95rem">👨‍👩‍👧‍👦 Pflege in der Familie — wenn Angehörige helfen / 家庭照护——当亲人成为照护者</strong><br>
+        🇩🇪 Im Roman zieht Oma in das Haus der Familie — das ist die häufigste Pflegeform in Deutschland. Etwa 80% der Pflegebedürftigen werden zu Hause versorgt, meist von Familienangehörigen — oft Frauen (Töchter, Ehefrauen). Diese häusliche Pflege ist eine enorme physische und psychische Belastung. Die im Roman beschriebene Situation — die Familie sucht Oma, die weggelaufen ist — ist für viele pflegende Angehörige bittere Realität. Das Wort "Altersheim" (heute eher: Pflegeheim oder Seniorenresidenz) hat im Roman eine besondere Dramatik: Für viele Familien bedeutet dieser Schritt ein emotionales Scheitern — man hat das Gefühl, das Versprechen "Oma kommt nie ins Heim" gebrochen zu haben. Seit 1995 gibt es in Deutschland die gesetzliche Pflegeversicherung, die Pflegebedürftige und ihre Angehörigen finanziell unterstützt.<br>
+        🇨🇳 小说中奶奶搬进家里住——这正是德国最常见的照护形式。约80%需要护理的人在家庭中得到照护，通常是家人承担——大多数是女性（女儿、妻子）。家庭照护是巨大的身心负担。小说描述的场景——全家人寻找走失的奶奶——对许多照护亲属来说是痛苦的现实。"养老院"这个词（现在更常用Pflegeheim或Seniorenresidenz）在小说中具有特殊的戏剧性：对很多家庭来说，这一步意味着情感上的失败——感觉违背了"奶奶永远不会进养老院"的承诺。自1995年起，德国有了法定的护理保险（Pflegeversicherung），为需要护理的人及其家属提供经济支持。
+      </div>
+
+      <div style="background:#fce4ec;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#c62828;font-size:.95rem">📓 Das Tagebuch als Motiv / 日记作为文学母题</strong><br>
+        🇩🇪 Das Tagebuch spielt im Roman eine zentrale Rolle: Evi soll zwischen "blauen" (guten) und "grauen" (schlechten) Tagen unterscheiden und sie dokumentieren. Das Tagebuch als literarisches Motiv hat eine lange Tradition — von Goethes "Die Leiden des jungen Werthers" (1774) bis zu Anne Franks Tagebuch (1947). Im Kontext der Pflege hat das Führen eines Tagebuchs einen doppelten Nutzen: Erstens hilft es, den Krankheitsverlauf zu dokumentieren (wichtig für Ärzte), und zweitens ist es für die schreibende Person eine Möglichkeit der emotionalen Verarbeitung. Studien zeigen, dass expressives Schreiben (das Aufschreiben von belastenden Erlebnissen) die psychische Gesundheit verbessern kann. Auch für pflegende Angehörige wird das Führen eines Pflegetagebuchs oft empfohlen.<br>
+        🇨🇳 日记在小说中扮演了核心角色：Evi要区分"蓝色"（好的）和"灰色"（坏的）日子并记录下来。日记作为文学母题有着悠久的传统——从歌德的《少年维特之烦恼》（1774）到安妮·弗兰克的日记（1947）。在照护语境中，记日记有双重作用：第一，有助于记录病情发展（对医生很重要）；第二，对写作者本身是一种情感处理的途径。研究表明，表达性写作（把负面经历写下来）可以改善心理健康。对照护亲属来说，写护理日记也经常被推荐——既是医疗记录，也是自我疗愈的工具。
+      </div>
+
+      <div style="background:#e8eaf6;border-radius:10px;padding:14px 18px;margin-bottom:16px">
+        <strong style="color:#283593;font-size:.95rem">📚 Deutsche Jugendliteratur / 德国青少年文学传统</strong><br>
+        🇩🇪 "Die blauen und die grauen Tage" gehört zum Genre der realistischen problemorientierten Jugendliteratur — ein Genre, das in Deutschland seit den 1970er Jahren stark gewachsen ist. Anders als Fantasyliteratur behandeln diese Bücher reale Probleme: Krankheit, Tod, Scheidung, Mobbing, Drogen, Migration. Das Ziel ist nicht nur Unterhaltung, sondern auch Identifikation und Lebenshilfe für junge Leser/-innen. Bekannte deutsche Jugendbuchautoren wie Kirsten Boie, Mirjam Pressler und eben Monika Feth haben dieses Genre geprägt. Im Schulunterricht werden solche Bücher gerne eingesetzt, weil sie existenzielle Themen in altersgerechter Sprache behandeln. Der Deutsche Jugendliteraturpreis (seit 1956) ist die wichtigste Auszeichnung in diesem Bereich.<br>
+        🇨🇳 《蓝色的日子和灰色的日子》属于现实主义问题导向青少年文学——这一体裁自20世纪70年代以来在德国蓬勃发展。与奇幻文学不同，这类书处理真实问题：疾病、死亡、离异、欺凌、毒品、移民。目标不仅是娱乐，更为年轻读者提供身份认同和生活帮助。德国著名青少年文学作家如Kirsten Boie、Mirjam Pressler以及Monika Feth塑造了这一体裁。在课堂教学中，这类书很受欢迎，因为它们用适合年龄的语言处理存在性主题。德国青少年文学奖（自1956年起）是该领域最重要的奖项——它每年评选出最优秀的德语青少年图书。
+      </div>
+
+    </div>
+    </div>
+
+    <!-- ═══ 🔗 词汇搭配 ═══ -->
+    <button class="btn btn-show btn-kollokation" onclick="a2ToggleAns('b1s20-kollokation')">🔗 显示/隐藏 词汇搭配 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-kollokation">
+    <table class="t-table">
+      <tr style="background:#2e7d32;color:#fff">
+        <th class="t-p8-12l">搭配 / Kollokation</th>
+        <th class="t-p8-12l">释义 / Bedeutung</th>
+        <th class="t-p8-12l">例句 / Beispiel</th>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>voller Ungeduld warten auf + Akk.</strong></td>
+        <td class="t-p8-12">充满急切地等待 | <em>sehr gespannt und ungeduldig erwarten</em><br>⚠️ voller + Nomen (ohne Artikel!) = voll von/vor</td>
+        <td class="t-p8-12s"><em><strong>Voller Ungeduld</strong> hatte Evi auf den Tag <strong>gewartet</strong>.</em><br><span class="t-c666">Evi曾充满急切地等待那一天的到来。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>sich erinnern an + Akkusativ</strong></td>
+        <td class="t-p8-12">回忆起/记得 | <em>etwas aus dem Gedächtnis abrufen</em><br>⚠️ immer reflexiv: sich erinnern!</td>
+        <td class="t-p8-12s"><em>„Ich <strong>erinnere</strong> mich nicht <strong>an</strong> den Weg."</em><br><span class="t-c666">我不记得路了。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>tasten nach + Dativ</strong></td>
+        <td class="t-p8-12">摸索/探寻 | <em>mit der Hand suchend greifen</em><br>⚠️ tasten nach + Dativ, nicht Akkusativ!</td>
+        <td class="t-p8-12s"><em>Ihre Hand <strong>tastete nach</strong> Evis Hand.</em><br><span class="t-c666">她的手摸索着Evi的手。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>sich Sorgen machen um + Akk.</strong></td>
+        <td class="t-p8-12">为某人/某事担心 | <em>besorgt sein wegen jemandem/etwas</em><br>⚠️ um + Akk., nicht für!</td>
+        <td class="t-p8-12s"><em>Wir haben <strong>uns Sorgen um</strong> dich <strong>gemacht</strong>.</em><br><span class="t-c666">我们为你担心了。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>den Kopf schütteln</strong></td>
+        <td class="t-p8-12">摇头（表示否定/不赞成）| <em>durch Bewegung des Kopfes "nein" signalisieren</em></td>
+        <td class="t-p8-12s"><em>Der Vater <strong>schüttelte den Kopf</strong>.</em><br><span class="t-c666">父亲摇了摇头。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>die Schultern heben / sinken lassen</strong></td>
+        <td class="t-p8-12">耸肩/垂肩（肢体语言）| <em>Körpersprache: Unsicherheit oder Resignation ausdrücken</em></td>
+        <td class="t-p8-12s"><em>Oma <strong>hob die Schultern</strong>. [...] Sie <strong>ließ die Schultern</strong> wieder <strong>sinken</strong>.</em><br><span class="t-c666">奶奶耸了耸肩。……她又垂下了肩膀。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>jdn. ansehen (unsicher / vorwurfsvoll)</strong></td>
+        <td class="t-p8-12">看着某人（带某种表情）| <em>jemanden mit einem bestimmten Gesichtsausdruck anschauen</em></td>
+        <td class="t-p8-12s"><em>Oma <strong>sah</strong> den Vater <strong>unsicher an</strong>.</em><br><span class="t-c666">奶奶不确定地看着父亲。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>sich zuspitzen</strong></td>
+        <td class="t-p8-12">激化/尖锐化 | <em>kritischer werden (Situation/Streit)</em><br>⚠️ immer reflexiv + Perfekt mit haben</td>
+        <td class="t-p8-12s"><em>Die Ereignisse <strong>spitzen sich zu</strong>.</em><br><span class="t-c666">事态激化了。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>das Glück ergreifen</strong></td>
+        <td class="t-p8-12">抓住幸福 | <em>eine glückliche Chance aktiv nutzen</em><br>⚠️ ergreifen = starkes Verb: ergriff, hat ergriffen</td>
+        <td class="t-p8-12s"><em>...die Kunst, <strong>das Glück</strong> im richtigen Augenblick zu <strong>ergreifen</strong>.</em><br><span class="t-c666">……在正确的时刻抓住幸福的艺术。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>in die Länge ziehen</strong></td>
+        <td class="t-p8-12">拖长（音节/时间）| <em>etwas gedehnt und langsam aussprechen</em></td>
+        <td class="t-p8-12s"><em>Sie <strong>zog</strong> das "da" vorwurfsvoll <strong>in die Länge</strong>.</em><br><span class="t-c666">她把那个"da"责备地拖长了。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>nicht wahr?</strong></td>
+        <td class="t-p8-12">不是吗？/对吧？| <em>feste Wendung: Bitte um Zustimmung</em><br>⚠️ = stimmt's? / oder? (Norddeutschland: ne?)</td>
+        <td class="t-p8-12s"><em><strong>Nicht wahr</strong>, Berti? An deine Schulsachen hab ich gedacht.</em><br><span class="t-c666">对吧，Berti？你的学习用品我都想着呢。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>(jemanden) zu dem machen, der er einmal war</strong></td>
+        <td class="t-p8-12">使某人变回曾经的样子 | <em>jemanden in einen früheren Zustand zurückversetzen</em></td>
+        <td class="t-p8-12s"><em>Der Name <strong>machte</strong> ihn wieder <strong>zu dem</strong> Jungen, <strong>der er</strong> einmal <strong>gewesen war</strong>.</em><br><span class="t-c666">这个名字让他重新变回了曾经的那个男孩。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>etwas wird jdm. kalt / warm</strong></td>
+        <td class="t-p8-12">某人变得冷/暖（身体感受）| <em>körperliche Empfindung der Temperaturänderung</em></td>
+        <td class="t-p8-12s"><em>Doch jetzt <strong>wurde</strong> ihr wieder <strong>kalt</strong>.</em><br><span class="t-c666">但现在她又冷了起来。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>seine Worte wie die einer anderen hören</strong></td>
+        <td class="t-p8-12">自己的话听起来像别人的 | <em>sich selbst fremd vorkommen beim Sprechen</em></td>
+        <td class="t-p8-12s"><em>Sie <strong>hörte ihre Worte wie die einer anderen</strong>.</em><br><span class="t-c666">她听着自己的话，像是别人说的。</span></td>
+      </tr>
+      <tr class="t-bg-grn">
+        <td class="t-p8-12b"><strong>an alles denken</strong></td>
+        <td class="t-p8-12">想到一切/什么都不忘 | <em>nichts vergessen, immer organisiert sein</em></td>
+        <td class="t-p8-12s"><em>Früher, da hab ich <strong>an alles gedacht</strong>.</em><br><span class="t-c666">从前，我什么都想得到。</span></td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b"><strong>jdm. zulächeln</strong></td>
+        <td class="t-p8-12">对某人微笑 | <em>jemanden anlächeln, mit Zuneigung</em></td>
+        <td class="t-p8-12s"><em>Sie <strong>lächelte</strong> dem Vater <strong>zu</strong>.</em><br><span class="t-c666">她对父亲微微一笑。</span></td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- ═══ 💬 常用表达 ═══ -->
+    <button class="btn btn-show btn-redemittel" onclick="a2ToggleAns('b1s20-redemittel')">💬 显示/隐藏 常用表达 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-redemittel">
+    <table class="t-table">
+      <tr style="background:#c62828;color:#fff">
+        <th class="t-p8-12l">功能 / Funktion</th>
+        <th class="t-p8-12l">🇩🇪 Redemittel</th>
+        <th class="t-p8-12l">🇨🇳 中文翻译</th>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12b" rowspan="2">😟 表达担忧<br><em>Sorge ausdrücken</em></td>
+        <td class="t-p8-12"><em>Wir haben <strong>uns Sorgen um</strong> dich gemacht.</em><br>💡 sich Sorgen machen um + Akk. = 最常用表达担心的结构</td>
+        <td class="t-p8-12">我们为你担心了。</td>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12"><em>Ich mache mir <strong>Sorgen</strong>, weil Oma immer öfter Dinge vergisst.</em><br>💡 weil-Satz 加原因 = 正式表达担忧+理由</td>
+        <td class="t-p8-12">我很担心，因为奶奶越来越频繁地忘记事情。</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b" rowspan="2">🔍 小心地提问<br><em>Vorsichtig fragen</em></td>
+        <td class="t-p8-12"><em>..., <strong>fragte</strong> der Vater schließlich <strong>vorsichtig</strong>.</em><br>💡 vorsichtig fragen = 小心试探，避免伤害对方</td>
+        <td class="t-p8-12">……父亲终于小心地问道。</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12"><em><strong>Darf</strong> ich <strong>fragen</strong>, wo du gewesen bist?</em><br>💡 Darf ich fragen... = 更礼貌的问法（用 dürfen 表示请求许可）</td>
+        <td class="t-p8-12">我可以问问你去哪了吗？</td>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12b" rowspan="2">🧠 表达忘记<br><em>Vergessen ausdrücken</em></td>
+        <td class="t-p8-12"><em><strong>Ich fürchte, ich hab's vergessen.</strong></em><br>💡 ich fürchte = ich glaube (leider) — 表达遗憾/不好意思的语气</td>
+        <td class="t-p8-12">恐怕，我忘了。</td>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12"><em>Ich vergesse <strong>viel neuerdings</strong>.</em><br>💡 neuerdings + Präsens = 最近开始出现的新情况</td>
+        <td class="t-p8-12">我最近忘了很多事。</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b" rowspan="2">🤷 表达不确定<br><em>Unsicherheit ausdrücken</em></td>
+        <td class="t-p8-12"><em><strong>Ist etwas falsch daran?</strong></em><br>💡 以问句回应对方的沉默 = 表达自己的不安</td>
+        <td class="t-p8-12">有什么不对吗？</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12"><em>Sie <strong>sah</strong> den Vater <strong>unsicher an</strong>.</em><br>💡 jdn. unsicher ansehen = 不确定地看着某人（肢体语言描写）</td>
+        <td class="t-p8-12">她不确定地看着父亲。</td>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12b" rowspan="2">🤗 表达安慰<br><em>Trost spenden</em></td>
+        <td class="t-p8-12"><em>Da <strong>darf</strong> man <strong>schon mal</strong> das eine oder andere vergessen.</em><br>💡 schon mal + dürfen = 安慰对方"没关系的、可以理解的"</td>
+        <td class="t-p8-12">那偶尔忘掉一两件事也是可以的嘛。</td>
+      </tr>
+      <tr class="t-bg-red">
+        <td class="t-p8-12"><em><strong>Es ist nur</strong> — wir haben es nicht gewusst.</em><br>💡 Es ist nur... = 缓和批评/负面信息的前置缓冲语</td>
+        <td class="t-p8-12">只是——我们不知道而已。</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12b" rowspan="2">📝 对比过去和现在<br><em>Früher vs. heute</em></td>
+        <td class="t-p8-12"><em><strong>Früher</strong>, da hab ich <strong>an alles</strong> gedacht.</em><br>💡 Früher, da... = 典型口语化对比引出（da = 复指 früher）</td>
+        <td class="t-p8-12">从前，我什么都想得到。</td>
+      </tr>
+      <tr class="t-bg-white">
+        <td class="t-p8-12"><em>Oma hatte den Vater <strong>lange nicht mehr</strong> so genannt.</em><br>💡 lange nicht mehr + Perfekt = 已经很久没有……了（强调时间跨度）</td>
+        <td class="t-p8-12">奶奶已经很久没这么叫过父亲了。</td>
+      </tr>
+    </table>
+    </div>
+
+    <!-- ═══ ✍️ 仿写例句 ═══ -->
+    <button class="btn btn-show btn-beispiele" onclick="a2ToggleAns('b1s20-beispiele')">✍️ 显示/隐藏 仿写例句 · Gesamtwiederholung</button>
+    <div class="answer-box" id="b1s20-beispiele">
+    <div style="font-size:.87rem;line-height:1.9;color:#2d3748">
+      <strong>🔹 Muster 1: 文学叙述中的 Präteritum — 过去时态链</strong><br>
+      🇩🇪 <em>Oma <strong>hob</strong> die Schultern. Sie <strong>ließ</strong> die Schultern wieder <strong>sinken</strong> und <strong>seufzte</strong>.</em><br>
+      🇨🇳 奶奶耸了耸肩。她又垂下了肩膀，叹了口气。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>hob</strong> ___ (Akk.-Objekt). ___ (Subjekt) ___ (Verb Präteritum) und ___ (Verb Präteritum).</em><br>
+      ✅ <strong>Musterlösung:</strong> Der Junge hob den Kopf. Er sah seine Mutter an und lächelte.<br>
+      🔄 <strong>Variante (Perfekt, mündlich):</strong> Oma hat die Schultern gehoben. Dann hat sie die Schultern wieder sinken lassen und hat geseufzt.<br><br>
+
+      <strong>🔹 Muster 2: Plusquamperfekt — 过去中的过去</strong><br>
+      🇩🇪 <em>Voller Ungeduld <strong>hatte</strong> Evi auf den Tag <strong>gewartet</strong>, an dem ihre Oma einzog.</em><br>
+      🇨🇳 Evi曾充满急切地等待奶奶搬进来的那一天。<br>
+      👉 <em>Nachbau: ___ (Adverbiale) <strong>hatte</strong> ___ (Subjekt) ___ (Partizip II), an dem ___ (Verb Präteritum).</em><br>
+      ✅ <strong>Musterlösung:</strong> Den ganzen Sommer hatte Max auf den Tag gewartet, an dem das Konzert stattfand.<br>
+      🔄 <strong>Variante (nur Präteritum):</strong> Evi wartete voller Ungeduld auf den Tag, an dem ihre Oma einzog. (更简单，但失去了"等待发生在搬入之前"的时间层次)<br><br>
+
+      <strong>🔹 Muster 3: sich erinnern an — 回忆/记得</strong><br>
+      🇩🇪 <em>„Ich <strong>erinnere</strong> mich nicht <strong>an</strong> den Weg."</em><br>
+      🇨🇳 "我不记得路了。"<br>
+      👉 <em>Nachbau: <strong>Ich erinnere mich</strong> (nicht) <strong>an</strong> ___ (Akkusativ-Objekt).</em><br>
+      ✅ <strong>Musterlösung:</strong> Ich erinnere mich nicht an den Namen des Restaurants. Aber ich erinnere mich gut an das Essen dort.<br>
+      🔄 <strong>Variante (mit dass-Satz):</strong> Ich erinnere mich (daran), dass das Essen sehr gut war. (daran + dass 更正式)<br><br>
+
+      <strong>🔹 Muster 4: sich Sorgen machen um — 表达担心</strong><br>
+      🇩🇪 <em>Wir <strong>haben</strong> uns <strong>Sorgen um</strong> dich <strong>gemacht</strong>.</em><br>
+      🇨🇳 我们为你担心了。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>macht sich Sorgen um</strong> ___ (Akkusativ-Objekt), weil ___ (Grund).</em><br>
+      ✅ <strong>Musterlösung:</strong> Die Mutter macht sich Sorgen um ihre Tochter, weil sie so spät nach Hause kommt.<br>
+      🔄 <strong>Variante (formeller):</strong> Die Mutter ist um ihre Tochter besorgt. (sein + besorgt um + Akk. = 更书面的表达)<br><br>
+
+      <strong>🔹 Muster 5: Früher... heute... — 过去和现在的对比</strong><br>
+      🇩🇪 <em><strong>Früher</strong>, da hab ich an alles gedacht. <strong>Neuerdings</strong> vergesse ich viel.</em><br>
+      🇨🇳 从前，我什么都想得到。近来，我忘了很多事。<br>
+      👉 <em>Nachbau: <strong>Früher</strong> ___ (Verb Perfekt/Präteritum). <strong>Jetzt/Neuerdings/Heute</strong> ___ (Verb Präsens/Perfekt).</em><br>
+      ✅ <strong>Musterlösung:</strong> Früher hat er jeden Tag Sport gemacht. Jetzt hat er kaum noch Zeit dafür.<br>
+      🔄 <strong>Variante (mit während):</strong> Während er früher jeden Tag Sport machte, hat er heute kaum noch Zeit. (während + Genitiv/Gegensatz)<br><br>
+
+      <strong>🔹 Muster 6: jdn. zu dem machen — 使某人变成……</strong><br>
+      🇩🇪 <em>Der Name <strong>machte</strong> ihn wieder <strong>zu dem</strong> Jungen, der er einmal gewesen war.</em><br>
+      🇨🇳 这个名字让他重新变回了曾经的那个男孩。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>machte</strong> ___ (Akk.-Person) <strong>zu</strong> ___ (Dativ-Nomen), der/die/das ___ (Relativsatz).</em><br>
+      ✅ <strong>Musterlösung:</strong> Das Wiedersehen mit seiner alten Schule machte ihn zu dem Mann, der er heute ist.<br>
+      🔄 <strong>Variante (werden zu):</strong> Durch das Wiedersehen wurde er (wieder) zu dem Jungen von früher.<br><br>
+
+      <strong>🔹 Muster 7: etwas wie das einer anderen hören — 疏离感表达</strong><br>
+      🇩🇪 <em>Sie <strong>hörte ihre Worte wie die einer anderen</strong>.</em><br>
+      🇨🇳 她听着自己的话，像是别人说的。<br>
+      👉 <em>Nachbau: ___ (Subjekt) <strong>hörte/sah/fühlte</strong> ___ (Possessiv + Nomen) <strong>wie das/die</strong> ___ (Genitiv: einer/eines anderen).</em><br>
+      ✅ <strong>Musterlösung:</strong> Er sah sein Spiegelbild wie das eines Fremden. / Sie fühlte ihre Stimme wie die einer anderen Person.<br>
+      🔄 <strong>Variante (als ob):</strong> Sie hörte ihre Worte, als ob eine andere Person sprechen würde. (als ob + Konjunktiv II = 更直白的表达)
+    </div>
+    </div>
+
+    <!-- ═══ 📝 互动练习 ═══ -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;margin-top:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+      <div style="background:linear-gradient(135deg,#1a237e,#3949ab);padding:16px 28px 18px">
+        <div style="color:#fff;font-size:1.2rem;font-weight:700">📝 互动练习 · Übungen zum Textverständnis</div>
+        <div style="color:rgba(255,255,255,.85);font-size:.85rem;margin-top:4px">Leseverstehen + Grammatik · 8 Aufgaben zu „Die blauen und die grauen Tage"</div>
+      </div>
+      <div style="padding:24px 28px 28px;font-size:.9rem;line-height:1.9;color:#2d3748">
+
+        <div class="mcq-list" id="b1s20-mcq">
+          <div class="mcq-item" data-ans="B">
+            <p><strong>1.</strong> Worauf hat Evi voller Ungeduld gewartet?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q1" value="A"> A) Auf ein Geschenk von Oma</label>
+              <label><input type="radio" name="b1s20-q1" value="B"> B) Auf den Tag, an dem Oma ins Haus der Familie einzog</label>
+              <label><input type="radio" name="b1s20-q1" value="C"> C) Auf ihren Geburtstag</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p><strong>2.</strong> Was sind „die grauen Tage"?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q2" value="A"> A) Tage mit schlechtem Wetter</label>
+              <label><input type="radio" name="b1s20-q2" value="B"> B) Tage, an denen Oma traurig war</label>
+              <label><input type="radio" name="b1s20-q2" value="C"> C) Tage mit Gedächtnisaussetzern, an die Oma sich nicht erinnern kann</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p><strong>3.</strong> Wo wurde Oma gefunden, nachdem sie verschwunden war?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q3" value="A"> A) In der Bahnhofshalle</label>
+              <label><input type="radio" name="b1s20-q3" value="B"> B) Im Park</label>
+              <label><input type="radio" name="b1s20-q3" value="C"> C) Im Supermarkt</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p><strong>4.</strong> Wie reagiert der Vater auf Omas Vergesslichkeit?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q4" value="A"> A) Er wird wütend und schimpft</label>
+              <label><input type="radio" name="b1s20-q4" value="B"> B) Er tröstet sie: „Da darf man schon mal das eine oder andere vergessen"</label>
+              <label><input type="radio" name="b1s20-q4" value="C"> C) Er sagt gar nichts</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p><strong>5.</strong> Was soll Evi in einem Tagebuch festhalten?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q5" value="A"> A) Ihre Hausaufgaben</label>
+              <label><input type="radio" name="b1s20-q5" value="B"> B) Was sie jeden Tag gegessen hat</label>
+              <label><input type="radio" name="b1s20-q5" value="C"> C) Welche Tage blau (gut) und welche grau (schlecht) sind</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="A">
+            <p><strong>6.</strong> Welche grammatische Zeitform dominiert den Romanauszug?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q6" value="A"> A) Präteritum (z.B. fragte, hob, seufzte)</label>
+              <label><input type="radio" name="b1s20-q6" value="B"> B) Perfekt (z.B. hat gefragt, hat gehoben)</label>
+              <label><input type="radio" name="b1s20-q6" value="C"> C) Präsens (z.B. fragt, hebt, seufzt)</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="B">
+            <p><strong>7.</strong> Was bedeutet der Satz „Ich fürchte, ich hab's vergessen"?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q7" value="A"> A) Ich habe Angst vor dem Vergessen</label>
+              <label><input type="radio" name="b1s20-q7" value="B"> B) Leider habe ich es vergessen (ich glaube, ich habe es vergessen)</label>
+              <label><input type="radio" name="b1s20-q7" value="C"> C) Ich will mich nicht erinnern</label>
+            </div>
+          </div>
+          <div class="mcq-item" data-ans="C">
+            <p><strong>8.</strong> Welches Wort wird im Roman zum Symbol für die schwerste Entscheidung der Familie?</p>
+            <div class="mcq-options">
+              <label><input type="radio" name="b1s20-q8" value="A"> A) „Bahnhofshalle"</label>
+              <label><input type="radio" name="b1s20-q8" value="B"> B) „Kakao"</label>
+              <label><input type="radio" name="b1s20-q8" value="C"> C) „Altersheim"</label>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-check" onclick="a2CheckMCQ('b1s20-mcq')">批改答案</button>
+        <button class="btn btn-show" onclick="a2ToggleAns('b1s20-explain')">显示/隐藏 解析</button>
+        <button class="btn btn-reset" onclick="a2ResetMCQ('b1s20-mcq')">重置</button>
+        <div id="b1s20-mcq-score" style="text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px"></div>
+
+        <div class="answer-box" id="b1s20-explain">
+        <div style="font-size:.87rem;line-height:1.85;color:#2d3748">
+          <strong>📖 解析 / Erläuterung：</strong><br><br>
+
+          <strong>1. → B) Auf den Tag, an dem Oma ins Haus der Familie einzog</strong><br>
+          🇩🇪 <em>„Voller Ungeduld hatte Evi auf den Tag gewartet, an dem ihre geliebte Oma ins Haus der Familie einzog."</em><br>
+          🇨🇳 Inhaltsangabe 第一句明确说明——Evi等待的是奶奶搬进家里的那一天。A和C是编造的选项。<br>
+          🧠 记忆技巧：关键词 "einzog" (einziehen 的 Präteritum) = 搬入。<br>
+          ⚠️ 混淆项辨析：A的"Geschenk"在文中未出现；C的"Geburtstag"也未在文中出现。<br><br>
+
+          <strong>2. → C) Tage mit Gedächtnisaussetzern, an die Oma sich nicht erinnern kann</strong><br>
+          🇩🇪 <em>„...die Aussetzer, nach denen sie sich an nichts mehr erinnern kann."</em><br>
+          🇨🇳 文中"graue Tage"是Oma自己命名的——指那些记忆断片、什么都想不起来的时刻。A的"坏天气"是字面理解，未触及文学隐喻。B的"悲伤"虽有关联但不够精确——核心是记忆丧失。<br>
+          🧠 记忆技巧：blau（蓝天=晴朗=好）vs. grau（灰色=阴沉=坏）→ 用颜色对立象征记忆状态。<br>
+          ⚠️ 混淆项辨析：德语中用颜色命名状态是常见的文学手法——不按字面理解。<br><br>
+
+          <strong>3. → A) In der Bahnhofshalle</strong><br>
+          🇩🇪 <em>„In der Bahnhofshalle, sagte sie und hörte ihre Worte wie die einer anderen."</em><br>
+          🇨🇳 文章明确——Evi找到Oma时她们在火车站大厅。Oma不记得为什么去那里。<br>
+          🧠 记忆技巧：Bahnhof = 火车站 + Halle = 大厅 → 德国火车站的主大厅（Frankfurt Hbf 的 Bahnhofshalle 很著名）。<br>
+          ⚠️ 混淆项辨析：Park和Supermarkt都是常见走失地点但文中未提。<br><br>
+
+          <strong>4. → B) Er tröstet sie: „Da darf man schon mal das eine oder andere vergessen"</strong><br>
+          🇩🇪 <em>„Du bist älter geworden", sagte der Vater. „Da darf man schon mal das eine oder andere vergessen."</em><br>
+          🇨🇳 父亲用温暖的话安慰Oma——"年纪大了嘛，偶尔忘掉一两件事是可以的"。他轻轻带过，不让Oma感到羞耻。<br>
+          🧠 记忆技巧：schon mal = 缓和语气的 Modalpartikel，这里传达"没关系的，别太自责"。<br>
+          ⚠️ 混淆项辨析：文中父亲一直是温和的——"vorsichtig"（小心地）问话、摇头（不赞同但不过激）、最后安慰。A的"wütend"完全不符合他的性格。<br><br>
+
+          <strong>5. → C) Welche Tage blau (gut) und welche grau (schlecht) sind</strong><br>
+          🇩🇪 <em>„Evi soll in einem Tagebuch festhalten, welche die blauen, guten Tage sind — und welche die grauen."</em><br>
+          🇨🇳 日记的任务是记录Oma的"蓝色日子"和"灰色日子"——作为观察和记录病情发展的工具。<br>
+          🧠 记忆技巧：Tagebuch（日记）在文中是双重工具：医学记录+情感出口。<br>
+          ⚠️ 混淆项辨析：A的Hausaufgaben和B的Essen都是普通日记内容但不是本书的情节设定。<br><br>
+
+          <strong>6. → A) Präteritum</strong><br>
+          🇩🇪 <em>„fragte der Vater" / „Oma hob die Schultern" / „sie seufzte"</em> — 全部在 Präteritum 中。<br>
+          🇨🇳 德语小说和书面叙事使用 Präteritum（过去时）。这是区别于口语（用Perfekt）的重要特征。<br>
+          🧠 记忆技巧：打开任何德文小说→看动词词尾→-te (fragte, machte) 或元音变化 (kam, ging, hob) = Präteritum。<br>
+          ⚠️ 混淆项辨析：直接引语（"..."）中人物说话用Perfekt（口语），但叙述句（sagte/fragte sie）用Präteritum——这是文学作品的时态切换规律。<br><br>
+
+          <strong>7. → B) Leider habe ich es vergessen</strong><br>
+          🇩🇪 <em>„Ich fürchte, ich hab's vergessen."</em> — ich fürchte = ich glaube (mit Bedauern).<br>
+          🇨🇳 "ich fürchte" 在这里不是"我害怕"，而是"恐怕/我估计（遗憾地）"——一种表达遗憾和不好意思的固定用法。<br>
+          🧠 记忆技巧：ich fürchte ≈ leider ≈ ich glaube (es tut mir leid, aber...)。口语高频。<br>
+          ⚠️ 混淆项辨析：A是"ich fürchte"的字面翻译（fürchten=害怕）但上下文不含恐惧——只是不好意思地说自己忘了。C的"不愿想起"歪曲了原意。<br><br>
+
+          <strong>8. → C) „Altersheim"</strong><br>
+          🇩🇪 <em>„Als das Wort 'Altersheim' fällt, spitzen sich die Ereignisse zu."</em><br>
+          🇨🇳 "养老院"这个词是小说的情感转折点——一旦说出口，就意味着家庭照护可能失败了，事态随之激化。<br>
+          🧠 记忆技巧：sich zuspitzen = 激化/尖锐化 (spitz = 尖的 → 越来越尖锐)。Altersheim 是德语中情感负载很重的词。<br>
+          ⚠️ 混淆项辨析：Bahnhofshalle是具体场景但不是"最艰难决定"的象征；Kakao是温暖安慰的象征（母亲给Evi热可可暖身）。只有Altersheim代表了家庭必须面对的最痛苦的选择。
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+<!-- end b1l-s20 -->
 
 <div id="page-b1lesen" class="page" data-lazy="true"></div>
 <script>registerLazyPage('b1lesen', 'tpl-page-b1lesen');</script>
