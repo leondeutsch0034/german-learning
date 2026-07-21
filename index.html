@@ -4338,11 +4338,16 @@ function createLoginPromptCard() {
     tags:'泛读 · 18篇 · B1 · 多主题',
     c1:'#0c4a6e', c2:'#0ea5e9', locked:false },
 
-	  // ── B2 中高级（筹备中）──
-	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — demnächst verfügbar', cardTitle:'B2语法', group:'b2',
-	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'B2 语法内容筹备中',
-	    desc:'B2中高级语法 · 内容筹备中，敬请期待',
-	    tags:'B2 · 即将上线',
+	  // ── B2 中高级 ──
+	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — Wortstellung · Negation', cardTitle:'B2语法', group:'b2',
+	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'Wortstellung im Satz · Negation · Präpositionalergänzungen',
+	    desc:'B2中高级语法 · 语序规则 · 否定形式 · 介词补足语',
+	    tags:'B2语法 · 语序 · 否定',
+	    c1:'#d97706', c2:'#f59e0b', locked:false },
+	  { id:'b2lesen', icon:'📰', navLabel:'B2阅读', cardTitleDe:'B2 Leseverstehen', cardSubDe:'Heimat ist… — Auswandern, Integration & Multikulti', cardTitle:'B2阅读', group:'b2',
+	    hubStep:2, hubSkill:'Lesen', hubSkillZh:'阅读', hubAccent:'#f59e0b', hubTip:'走进德国B2 · Heimat ist… — 移居·融入·多元文化',
+	    desc:'B2中高级阅读 · 移民故事 · 瑞士多语言 · 社会融入 · 人物传记',
+	    tags:'B2阅读 · Heimat · 移民 · 多元文化',
 	    c1:'#d97706', c2:'#f59e0b', locked:false },
 
 	  // ── C1 高级（筹备中）──
@@ -4408,9 +4413,9 @@ var HUBS = {
   b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Grammatik · Hören · Lesen — B1 Niveau', cardTitle:'B1 学习站',
         desc:'语法 · 语法抄写 · 听力 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
-  b2: { id:'b2hub', icon:'🎓', navLabel:'B2 学习站', cardTitleDe:'B2 Lernstation', cardSubDe:'Mittelstufe — demnächst verfügbar', cardTitle:'B2 学习站',
-        desc:'B2 中高级内容 · 语法深化 · 学术阅读 · 听力进阶 — 内容筹备中，敬请期待',
-        tags:'歌德B2 · 中高级 · 即将上线' },
+  b2: { id:'b2hub', icon:'🎓', navLabel:'B2 学习站', cardTitleDe:'B2 Lernstation', cardSubDe:'Grammatik · Lesen — Heimat ist…', cardTitle:'B2 学习站',
+        desc:'B2 中高级内容 · 语法深化 · 阅读：移居·多语言·融入 · 走进德国B2教材',
+        tags:'歌德B2 · 中高级 · Heimat · 移民' },
   c1: { id:'c1hub', icon:'🎓', navLabel:'C1 学习站', cardTitleDe:'C1 Lernstation', cardSubDe:'Fortgeschritten — demnächst verfügbar', cardTitle:'C1 学习站',
         desc:'C1 高级内容 · 学术德语 · 专业写作 · 文化深读 — 内容筹备中，敬请期待',
         tags:'歌德C1 · 高级 · 即将上线' },
@@ -5157,7 +5162,7 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-hero">
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B2</div>
     <h1>B2 学习站</h1>
-    <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 学术阅读 · 听力进阶 · 写作训练</p>
+    <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 走进德国B2 · 阅读精讲 · 听力进阶 · 写作训练</p>
   </div>
 
   <div class="a1hub-sec">📚 B2 板块</div>
@@ -5171,6 +5176,913 @@ document.addEventListener('keydown', function(e) {
   </footer>
 
 </div>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- B2 阅读 · 走进德国B2 · Heimat ist…                          -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-b2lesen" class="page" data-lazy="true" style="background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);min-height:100vh;padding:0 0 60px;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+<script>registerLazyPage("b2lesen","tpl-page-b2lesen")</script>
+
+<style>
+/* ── B2 Lesen Hero & Flag ── */
+#page-b2lesen .b2l-hero{text-align:center;padding:44px 20px 30px;max-width:860px;margin:0 auto}
+#page-b2lesen .b2l-flag{display:flex;height:5px;border-radius:3px;overflow:hidden;width:64px;margin:0 auto 18px}
+#page-b2lesen .b2l-flag span{flex:1}
+#page-b2lesen .b2l-hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;background:linear-gradient(100deg,#ffd770,#fff3b8 30%,#fff 50%,#ffe088 70%,#ffc448);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;margin-bottom:10px}
+#page-b2lesen .b2l-hero p{color:rgba(255,245,230,.7);font-size:.9rem}
+
+/* ── TOC Dropdown ── */
+#page-b2lesen .b2l-select-wrap{max-width:860px;margin:0 auto 20px;padding:14px 18px;background:linear-gradient(150deg,#13243f,#0f1c33);border:1px solid rgba(246,211,101,.18);border-radius:14px;scroll-margin-top:20px}
+#page-b2lesen .b2l-select-label{display:block;font-size:.85rem;color:#f6d365;font-weight:600;margin-bottom:.5rem}
+#page-b2lesen .b2l-article-select{width:100%;padding:.7rem .9rem;padding-right:36px;border:2px solid #b8860b;border-radius:10px;background:#fff;color:#1a1a1a;font-size:.98rem;font-weight:600;cursor:pointer;outline:none;font-family:inherit;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23b8860b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:.2s}
+#page-b2lesen .b2l-article-select:focus{border-color:#f6d365;box-shadow:0 0 0 3px rgba(246,211,101,.15)}
+
+/* ── Article Card ── */
+#page-b2lesen .b2l-card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+#page-b2lesen .b2l-card-header{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#b8860b,#d4a030,#f6d365);color:#0a1428;padding:14px 22px;font-weight:700;font-size:.95rem}
+#page-b2lesen .b2l-card-body{background:#fff;padding:22px 28px 28px;font-size:.9rem;line-height:1.85;color:#2d3748}
+#page-b2lesen .b2l-card-body p{margin-bottom:.8rem}
+#page-b2lesen .b2l-card-body strong{color:#b8860b}
+
+/* ── Lernwortschatz ── */
+#page-b2lesen .b2l-lern{background:#fefce8;border-left:4px solid #b8860b;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.84rem;line-height:1.75;color:#5d4037}
+
+/* ── Module Buttons ── */
+#page-b2lesen .b2l-btn{display:inline-block;margin:4px 6px 4px 0;padding:7px 16px;border-radius:20px;border:none;color:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:.2s}
+#page-b2lesen .b2l-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.25)}
+#page-b2lesen .b2l-btn-vocab{background:linear-gradient(135deg,#00897b,#4db6ac)}
+#page-b2lesen .b2l-btn-gram{background:linear-gradient(135deg,#283593,#5c6bc0)}
+#page-b2lesen .b2l-btn-bg{background:linear-gradient(135deg,#e65100,#ff9800)}
+#page-b2lesen .b2l-btn-koll{background:linear-gradient(135deg,#2e7d32,#66bb6a)}
+#page-b2lesen .b2l-btn-red{background:linear-gradient(135deg,#c62828,#ef5350)}
+#page-b2lesen .b2l-btn-bei{background:linear-gradient(135deg,#1565c0,#42a5f5)}
+#page-b2lesen .b2l-ans{display:none;background:#f8fafc;border-radius:10px;padding:18px 20px;margin-top:10px;font-size:.87rem;line-height:1.8;color:#2d3748;border:1px solid #e2e8f0}
+#page-b2lesen .b2l-ans table{width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6;margin:12px 0}
+#page-b2lesen .b2l-ans th{background:#1a3a5c;color:#fde68a;padding:8px 12px;text-align:left;font-weight:600}
+#page-b2lesen .b2l-ans td{padding:8px 12px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+#page-b2lesen .b2l-ans tr:nth-child(even) td{background:#f1f5f9}
+#page-b2lesen .b2l-ans tr:nth-child(odd) td{background:#fff}
+
+/* ── Background Cards ── */
+#page-b2lesen .b2l-bg-card{border-radius:10px;padding:14px 18px;margin-bottom:14px}
+
+/* ── MCQ ── */
+#page-b2lesen .mcq-list{margin-top:12px}
+#page-b2lesen .mcq-item{padding:10px 0;border-bottom:1px solid #e2e8f0}
+#page-b2lesen .mcq-item p{font-weight:600;margin-bottom:6px}
+#page-b2lesen .mcq-options label{display:block;padding:3px 0;cursor:pointer}
+#page-b2lesen .b2l-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid #e2e8f0}
+#page-b2lesen .b2l-nav-btn{background:linear-gradient(135deg,#1e3a5f,#2e527c);color:#fde68a;border:1px solid rgba(246,211,101,.4);padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:.2s}
+#page-b2lesen .b2l-nav-btn:hover{background:linear-gradient(135deg,#2e527c,#3d6a9e)}
+#page-b2lesen .b2l-nav-btn:disabled{opacity:.4;cursor:default}
+#page-b2lesen .b2l-nav-info{color:#64748b;font-size:.82rem}
+#page-b2lesen .b2l-separator{height:2px;margin:2.5rem 0;background:linear-gradient(90deg,transparent,rgba(246,211,101,.35),rgba(246,211,101,.12),transparent);border:none;position:relative}
+#page-b2lesen .b2l-separator::after{content:'\25C6  \25C6  \25C6';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f1e3a;padding:0 16px;color:rgba(246,211,101,.5);font-size:.55rem;letter-spacing:6px;white-space:nowrap}
+#page-b2lesen .b2l-backtotoc{display:block;text-align:center;margin:1rem 0 3rem;color:#f6d365;text-decoration:none;font-size:.85rem;cursor:pointer}
+#page-b2lesen .b2l-backtotoc:hover{color:#fde68a}
+@media(max-width:600px){#page-b2lesen .b2l-hero{padding:28px 14px 20px}#page-b2lesen .b2l-card-body{padding:16px 16px 22px}}
+#page-b2lesen .b2l-section{max-width:860px;margin:0 auto;padding:0 16px}
+</style>
+
+<div class="b2l-section">
+
+<div class="b2l-hero">
+  <div class="b2l-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
+  <h1>Heimat ist…</h1>
+  <p>🇩🇪 走进德国 B2 · Kapitel 1 — Auswandern · Integration · Multikulturelle Gesellschaft</p>
+</div>
+
+<div class="b2l-select-wrap" id="b2l-toc-top">
+  <label class="b2l-select-label">📑 选择文章 / Artikel wählen：</label>
+  <select class="b2l-article-select" id="b2l-article-select" onchange="showB2LArticle(this.value)">
+    <option value="">— 全部显示 / Alle anzeigen —</option>
+    <option value="1">1 · Mein Glück in der neuen Heimat — 移居澳洲的博客</option>
+    <option value="2">2 · Ein Land, viele Sprachen — 瑞士多语言国家</option>
+    <option value="3">3 · Zu Hause in Deutschland — 三个移民肖像</option>
+    <option value="4">4 · Fatih Akin — 德土裔导演传记</option>
+  </select>
+</div>
+
+<!-- ═══════════ ARTICLE 1 ═══════════ -->
+<div id="b2l-a1-anchor"></div>
+<div class="b2l-card" id="b2l-a1">
+  <div class="b2l-card-header">📰 1 · Mein Glück in der neuen Heimat <span style="font-weight:400;font-size:.78rem;margin-left:auto">Blog · Ella aus Australien</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Soll ich das wirklich riskieren?</strong> Mein gewohntes Leben aufgeben, den Job kündigen, Familie und Freunde verlassen und in einem anderen Land komplett neu anfangen? <strong>Ich habe es gewagt!</strong> Ich bin letztes Jahr aus Liebe ziemlich spontan nach Australien ausgewandert.<br><br>
+      Eigentlich bin ich gar kein so besonders abenteuerlicher Typ. Aber als ich vor zwei Jahren zufällig diesen netten Typen während meines Urlaubs kennengelernt hatte und mich nicht nur in Australien, sondern auch in David verliebt hatte, <strong>beschloss ich, mein Leben komplett zu ändern</strong> und auszuwandern. Das war ganz schön aufregend. Ich musste so viel erledigen! Ich musste mich um ein Visum kümmern, meine Zeugnisse übersetzen lassen, meine Wohnung auflösen usw.<br><br>
+      In meinem Job war ich eigentlich zufrieden und es fiel mir nicht leicht zu kündigen. Auch der Abschied von Freunden und Familie war natürlich traurig. Als ich dann sechs Monate nach dem Urlaub wieder aufgeregt im Flugzeug saß, habe ich mich aber <strong>auf mein neues Leben gefreut</strong>.<br><br>
+      Der Anfang in einem neuen Land ist allerdings ganz schön schwierig. Ich kannte niemanden außer David, musste mir eine Arbeit suchen und eine Arbeitserlaubnis zu bekommen, war schwieriger, als ich gedacht hatte. Ich hatte <strong>ziemlich großes Heimweh</strong>. Leider war die Beziehung mit David auch ziemlich schnell wieder zu Ende. Aber ich habe nicht aufgegeben und zum Glück irgendwann eine Stelle als Grafikerin in einer großen Agentur gefunden.<br><br>
+      Meine Entscheidung habe ich <strong>nie bereut</strong>. Ich habe die Erfahrung gemacht, dass man einfach Zeit braucht, um sich in einem fremden Land einzuleben. So eine Auslandserfahrung <strong>erweitert einfach den Horizont</strong>. Man lernt die Kultur eines anderen Landes kennen und erfährt dadurch auch viel über sich selbst und die eigene Kultur.<br><br>
+      Am Anfang hatte ich trotz vieler Jahre Englischunterricht in der Schule Probleme mit der Sprache, aber mittlerweile ist mein Englisch richtig gut. Überraschend war für mich, dass das Leben hier <strong>lockerer als in Deutschland</strong> ist. Die Leute sind nicht immer so gestresst und ich habe schnell viele neue Freunde gefunden.<br><br>
+      Natürlich skype ich auch jetzt noch oft stundenlang mit alten Freunden in Deutschland. Es ist nicht immer einfach, so weit weg zu sein. Auch wenn ich wirklich gut Englisch spreche, kann ich trotzdem nicht immer ganz genau das ausdrücken, was ich denke oder fühle. <strong>Da tut es einfach gut, zwischendurch mal in der eigenen Sprache zu sprechen.</strong>
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>auswandern (wanderte aus, ist ausgewandert)</strong> 移居国外 | <em>sein Heimatland dauerhaft verlassen</em><br>
+      • <strong>das Visum, Visa</strong> 签证 | <em>offizielle Erlaubnis, in ein Land einzureisen</em><br>
+      • <strong>die Arbeitserlaubnis, -se</strong> 工作许可 | <em>behördliche Genehmigung zu arbeiten</em><br>
+      • <strong>kündigen</strong> 辞职/解约 | <em>ein Arbeitsverhältnis oder einen Vertrag beenden</em><br>
+      • <strong>der Abschied, -e</strong> 告别 | <em>das Sich-Trennen von Menschen oder Orten</em><br>
+      • <strong>das Heimweh</strong> 思乡 | <em>Sehnsucht nach der Heimat, wenn man weit weg ist</em><br>
+      • <strong>bereuen</strong> 后悔 | <em>wünschen, dass man etwas anders gemacht hätte</em><br>
+      • <strong>sich einleben</strong> 适应/融入 | <em>sich an eine neue Umgebung gewöhnen</em><br>
+      • <strong>den Horizont erweitern</strong> 开阔视野 | <em>neue Erfahrungen sammeln und dazulernen</em><br>
+      • <strong>locker</strong> 放松的/随意的 | <em>entspannt, nicht so streng oder gestresst</em><br>
+      • <strong>sehnsüchtig</strong> 渴望地 | <em>voller Sehnsucht, mit starkem Wunsch</em><br>
+      • <strong>etwas ausdrücken</strong> 表达 | <em>Gefühle oder Gedanken in Worte fassen</em>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a1-vocab')">📚 词汇语法 (12)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-a1-gram')">📖 语法：Wortstellung (语序)</button>
+<button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-a1-koll')">🔗 词汇搭配 (10)</button>
+<button class="b2l-btn b2l-btn-bei" onclick="b2lToggle('b2l-a1-bei')">✍️ 仿写例句 (4)</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-a1-ex')">📝 阅读理解 (5题)</button>
+
+<div class="b2l-ans" id="b2l-a1-vocab">
+<strong>📚 词汇语法 / Wortschatz (12)</strong><br><br>
+<strong>📋 Nomen · 名词 (5)</strong><br>
+• <strong>das Visum, Visa</strong> = 签证 | <em>Einreiseerlaubnis</em><br>
+&nbsp;&nbsp;📌 <em>„Ich musste mich um ein Visum kümmern."</em> — 我必须办理签证<br>
+• <strong>die Arbeitserlaubnis, -se</strong> = 工作许可<br>
+&nbsp;&nbsp;📌 <em>„Eine Arbeitserlaubnis zu bekommen, war schwieriger, als ich gedacht hatte."</em><br>
+• <strong>der Abschied, -e</strong> = 告别<br>
+&nbsp;&nbsp;📌 <em>„Der Abschied von Freunden und Familie war natürlich traurig."</em><br>
+• <strong>das Heimweh</strong> = 思乡<br>
+&nbsp;&nbsp;📌 <em>„Ich hatte ziemlich großes Heimweh."</em><br>
+• <strong>der Horizont</strong> = 视野<br>
+&nbsp;&nbsp;📌 <em>„So eine Auslandserfahrung erweitert einfach den Horizont."</em><br><br>
+<strong>🔧 Verben · 动词 (4)</strong><br>
+• <strong>auswandern (wanderte aus, ist ausgewandert)</strong> = 移居国外 | <em>trennbar</em><br>
+• <strong>kündigen (kündigte, hat gekündigt)</strong> = 辞职/解约<br>
+• <strong>bereuen (bereute, hat bereut)</strong> = 后悔<br>
+&nbsp;&nbsp;📌 <em>„Meine Entscheidung habe ich nie bereut."</em><br>
+• <strong>sich einleben (lebte sich ein, hat sich eingelebt)</strong> = 适应 | <em>trennbar, reflexiv</em><br><br>
+<strong>🎨 Adjektive & Wendungen (3)</strong><br>
+• <strong>abenteuerlich</strong> = 冒险的 ↔ <strong>locker</strong> = 放松的<br>
+• <strong>sehnsüchtig</strong> = 渴望地<br>
+• <strong>den Horizont erweitern</strong> = 开阔视野 | feste Wendung
+</div>
+
+<div class="b2l-ans" id="b2l-a1-gram">
+<strong>📖 语法：Wortstellung im Satz (句子语序)</strong><br><br>
+<strong>1. Angaben im Mittelfeld — tekamolo</strong> 中段状语语序<br>
+🇩🇪 <em>Formel:</em> <strong>te</strong>mporal (Wann?) → <strong>ka</strong>usal (Warum?) → <strong>mo</strong>dal (Wie?) → <strong>lo</strong>kal (Wo?)<br>
+🇨🇳 规则：句中多个状语时，优先顺序为 时间 → 原因 → 方式 → 地点<br>
+📖 文中例句:<br>
+<em>„Ich bin <strong>letztes Jahr</strong> (te) <strong>aus Liebe</strong> (ka) <strong>ziemlich spontan</strong> (mo) <strong>nach Australien</strong> (lo) ausgewandert."</em> — 我去年因为爱情相当自发地移居到了澳大利亚<br>
+⚠️ 考点：tekamolo 是 B2 写作的重要评分点，语序错误会扣分<br><br>
+<strong>2. Betonung durch Position 1</strong> 句首强调<br>
+🇩🇪 <em>Formel:</em> Angabe auf Position 1 → Verb (Pos. 2) → Subjekt → Rest<br>
+🇨🇳 规则：强调状语时可放句首，动词仍在第二位<br>
+📖 <em>„<strong>Aus Liebe</strong> bin ich letztes Jahr ziemlich spontan nach Australien ausgewandert."</em><br>
+⚠️ 考点：句首状语后必须 V2（动词第二位），主语不能丢<br><br>
+<strong>3. Dativ- und Akkusativergänzung</strong> 三格/四格补足语<br>
+🇩🇪 <em>Formel:</em> Dativ (vor temporal) … Akkusativ (nach kausal/modal)<br>
+📖 <em>„Ella schreibt <strong>ihren Eltern</strong> (Dat) einmal pro Woche <strong>eine längere E-Mail</strong> (Akk)."</em><br>
+⚠️ 考点：Dativ vor Akkusativ 适用于名词，代词有例外
+</div>
+
+<div class="b2l-ans" id="b2l-a1-koll">
+<strong>🔗 词汇搭配 / Kollokationen (10)</strong>
+<table>
+<tr><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>ein Visum beantragen</strong></td><td>申请签证 | <em>offiziell um Einreise bitten</em></td><td><em>Ich musste ein <strong>Visum beantragen</strong>.</em></td></tr>
+<tr><td><strong>eine Wohnung auflösen</strong></td><td>退租/清空公寓</td><td><em>Sie musste ihre <strong>Wohnung auflösen</strong>.</em></td></tr>
+<tr><td><strong>Kontakte knüpfen</strong></td><td>建立人脉</td><td><em>Man muss neue <strong>Kontakte knüpfen</strong>.</em></td></tr>
+<tr><td><strong>sich von jmd. verabschieden</strong></td><td>告别</td><td><em>Der <strong>Abschied</strong> fiel ihr schwer.</em></td></tr>
+<tr><td><strong>eine Stelle finden</strong></td><td>找到工作</td><td><em>Sie hat eine <strong>Stelle als Grafikerin gefunden</strong>.</em></td></tr>
+<tr><td><strong>Heimweh haben</strong></td><td>想家</td><td><em>Sie hatte <strong>ziemlich großes Heimweh</strong>.</em></td></tr>
+<tr><td><strong>den Horizont erweitern</strong></td><td>开阔视野 ⚠️ 固定搭配</td><td><em>Eine Auslandserfahrung <strong>erweitert den Horizont</strong>.</em></td></tr>
+<tr><td><strong>etwas nicht bereuen</strong></td><td>不后悔</td><td><em>Ihre Entscheidung hat sie <strong>nie bereut</strong>.</em></td></tr>
+<tr><td><strong>sich in jmd. verlieben</strong></td><td>爱上某人</td><td><em>Sie <strong>verliebte sich in David</strong>.</em></td></tr>
+<tr><td><strong>Gefühle ausdrücken</strong></td><td>表达感情</td><td><em>Sie kann nicht genau <strong>ausdrücken, was sie fühlt</strong>.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-a1-bei">
+<strong>✍️ 仿写例句 (4 Muster)</strong><br><br>
+<strong>🔹 Muster 1: 表达原因</strong><br>
+🇩🇪 <em>Ich bin <strong>aus Liebe</strong> ziemlich spontan nach Australien ausgewandert.</em><br>
+🇨🇳 我因为爱情相当自发地移居到了澳大利亚<br>
+👉 <em>Nachbau: Ich bin aus ___ (Grund) nach ___ (Ort) ___. (Partizip II)</em><br>
+✅ <em>Ich bin aus beruflichen Gründen nach Berlin gezogen.</em><br><br>
+<strong>🔹 Muster 2: 表达困难与克服</strong><br>
+🇩🇪 <em><strong>Am Anfang</strong> war es schwierig, aber ich habe <strong>nicht aufgegeben</strong>.</em><br>
+🇨🇳 一开始很难，但我没有放弃<br>
+👉 <em>Nachbau: Am Anfang ___, aber ich habe ___.</em><br>
+✅ <em>Am Anfang konnte ich kaum Deutsch, aber ich habe fleißig gelernt.</em><br><br>
+<strong>🔹 Muster 3: 比较两国差异</strong><br>
+🇩🇪 <em>Das Leben hier ist <strong>lockerer als</strong> in Deutschland.</em><br>
+🇨🇳 这里的生活比德国更随意<br>
+👉 <em>Nachbau: ___ ist ___ als ___. (Komparativ + als)</em><br>
+✅ <em>Das Essen hier ist würziger als zu Hause.</em><br><br>
+<strong>🔹 Muster 4: 现在与过去的对比</strong><br>
+🇩🇪 <em><strong>Am Anfang</strong> habe ich täglich SMS geschickt, <strong>jetzt</strong> schreibe ich einmal pro Woche.</em><br>
+🇨🇳 一开始我每天发短信，现在每周写一次<br>
+👉 <em>Nachbau: Am Anfang ___, jetzt ___. (Perfekt / Präsens)</em>
+</div>
+
+<div class="b2l-ans" id="b2l-a1-ex">
+<strong>📝 阅读理解 (5 Fragen)</strong>
+<div class="mcq-list" id="b2l-a1-mcq">
+<div class="mcq-item" data-ans="B"><p><strong>1.</strong> Warum ist Ella nach Australien ausgewandert?</p><div class="mcq-options"><label><input type="radio" name="b2l-a1-q1" value="A"> A) Wegen eines Jobs</label><label><input type="radio" name="b2l-a1-q1" value="B"> B) Aus Liebe zu David</label><label><input type="radio" name="b2l-a1-q1" value="C"> C) Wegen des Wetters</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>2.</strong> Wie war die Beziehung mit David?</p><div class="mcq-options"><label><input type="radio" name="b2l-a1-q2" value="A"> A) Sie ging schnell zu Ende</label><label><input type="radio" name="b2l-a1-q2" value="B"> B) Sie sind verheiratet</label><label><input type="radio" name="b2l-a1-q2" value="C"> C) David zog nach Deutschland</label></div></div>
+<div class="mcq-item" data-ans="C"><p><strong>3.</strong> Was findet Ella überraschend an Australien?</p><div class="mcq-options"><label><input type="radio" name="b2l-a1-q3" value="A"> A) Gleiches Wetter wie in DE</label><label><input type="radio" name="b2l-a1-q3" value="B"> B) Leute sind gestresster</label><label><input type="radio" name="b2l-a1-q3" value="C"> C) Leben ist lockerer</label></div></div>
+<div class="mcq-item" data-ans="B"><p><strong>4.</strong> Welches Problem hatte Ella am Anfang?</p><div class="mcq-options"><label><input type="radio" name="b2l-a1-q4" value="A"> A) Sie fand viele Freunde</label><label><input type="radio" name="b2l-a1-q4" value="B"> B) Sprachprobleme trotz Englisch</label><label><input type="radio" name="b2l-a1-q4" value="C"> C) Sie behielt ihren Job</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>5.</strong> Bereut Ella ihre Entscheidung?</p><div class="mcq-options"><label><input type="radio" name="b2l-a1-q5" value="A"> A) Nein, nie bereut</label><label><input type="radio" name="b2l-a1-q5" value="B"> B) Ja, will zurück</label><label><input type="radio" name="b2l-a1-q5" value="C"> C) Noch unsicher</label></div></div>
+</div>
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lCheckMCQ('b2l-a1-mcq','b2l-a1-score')" style="margin-top:10px">✅ 批改</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lResetMCQ('b2l-a1-mcq','b2l-a1-score')" style="margin-top:10px">🔄 重置</button>
+<div id="b2l-a1-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:24px;color:#2d3748"></div>
+</div>
+</div>
+
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ ARTICLE 2 ═══════════ -->
+<div id="b2l-a2-anchor"></div>
+<div class="b2l-card" id="b2l-a2">
+  <div class="b2l-card-header">📰 2 · Ein Land, viele Sprachen <span style="font-weight:400;font-size:.78rem;margin-left:auto">Die vielsprachige Schweiz</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Die <strong>Schweiz</strong> war von Anfang an ein vielsprachiges, multikulturelles Land, in dem mehrere Muttersprachen gesprochen werden; denn die Schweiz ist eine <strong>Eidgenossenschaft</strong>. Das bedeutet, ein Zusammenschluss von inzwischen 26 Kantonen. Die einzelnen Kantone sind politisch sehr selbstständig und haben z. B. jeweils ein eigenes Parlament und auch unterschiedliche <strong>Amtssprachen</strong>.<br><br>
+      Schon im 17. Jahrhundert wurde jemand, der innerhalb der Schweiz reisen wollte oder musste, schnell mit einer anderen Sprache konfrontiert. Die Eliten in der Schweiz des 17. Jahrhunderts sprachen Latein und vor allem Französisch. Die <strong>Verwaltungssprache</strong> war aber Deutsch. Nachdem sich das Land um französisch- und italienischsprachige Gebiete vergrößert hatte, bekamen Französisch und Italienisch dieselbe Bedeutung wie Deutsch und <strong>1848 wurden alle drei Sprachen als offizielle Landessprachen anerkannt</strong>. 1938 kam Rätoromanisch als vierte Sprache dazu. Neben diesen vier Sprachen werden dank Migration auch zahlreiche andere Sprachen gesprochen. Man sieht: Die Vielfalt der Sprachen ist in der Schweiz sehr groß und hat eine lange Tradition: Es gehört zum Alltag dazu.<br><br>
+      <strong>Die Muttersprache — ein Stück Heimat.</strong> Sie gibt uns das Gefühl der Vertrautheit und der Sicherheit. Mit ihr können wir unsere Gefühle, aber auch komplexe Sachverhalte am besten ausdrücken. Sie ist Heimat und Teil unserer Identität. Das Wort „Muttersprache" drückt vieles aus: Unsere Mütter haben uns in dieser Sprache getröstet und uns in den Schlaf gesungen; unsere ersten Worte formulierten wir in dieser Sprache.<br><br>
+      <strong>Alltag in der Schweiz.</strong> Manchmal glauben Nicht-Schweizer fälschlicherweise, dass alle Schweizerinnen und Schweizer vier Sprachen fließend beherrschen. Die meisten Schweizer leben jedoch in ihrem Sprachgebiet und nutzen Medien wie Zeitungen, Radio, Fernsehen usw. in ihrer Muttersprache. In der Schule lernen die Kinder in den französischsprachigen Kantonen als erste Fremdsprache Deutsch. In den deutschsprachigen Kantonen der Zentralschweiz und der Ostschweiz ist Englisch die erste Fremdsprache, und in den übrigen Deutschschweizer Kantonen sowie im italienischsprachigen Tessin beginnen die Kinder in der Schule mit Französisch. Im großen Kanton Graubünden ist die erste Fremdsprache je nach Sprachregion Deutsch, Italienisch oder Rätoromanisch. Die Lehrpläne sind also innerhalb der Schweiz nicht einheitlich.<br><br>
+      Diese Sprachenvielfalt bedeutet auch, dass sämtliche amtlichen Schriften und Bekanntmachungen in allen Landessprachen veröffentlicht werden müssen. Das gilt für Gesetze und Berichte genauso wie für andere Texte, die das ganze Land betreffen: Webseiten, Broschüren, Flyer, Verkehrsschilder und Schilder in öffentlichen Verkehrsmitteln und Gebäuden. Auch die Verpackungen von Lebensmitteln und anderen Alltagsprodukten sind in mehreren Sprachen beschriftet, was bei kleinen Produkten zu Platzproblemen führen kann.<br><br>
+      In Geschäftsverhandlungen oder bei Konferenzen und Sitzungen mit Leuten aus verschiedenen Sprachgebieten sprechen oft alle in ihrer Muttersprache. Dabei wird vorausgesetzt, dass man die Sprachen der Gesprächspartner versteht. In letzter Zeit kann man hier einen Wandel beobachten: Immer häufiger wird auch bei schweiz-internen Geschäftsbeziehungen das Englische als gemeinsame Sprache verwendet.
+    </p>
+
+
+
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Eidgenossenschaft, -en</strong> 联邦 | <em>Zusammenschluss von Staaten/Kantonen</em><br>
+      • <strong>die Amtssprache, -n</strong> 官方语言 | <em>offiziell anerkannte Sprache</em><br>
+      • <strong>die Landessprache, -n</strong> 国家语言 | <em>in der Verfassung anerkannt</em><br>
+      • <strong>die Muttersprache, -n</strong> 母语 | <em>Sprache, die man als Kind zuerst lernt</em><br>
+      • <strong>fließend beherrschen</strong> 流利掌握 | <em>eine Sprache sehr gut können</em><br>
+      • <strong>die Vielfalt</strong> 多样性 | <em>das Vorhandensein vieler verschiedener Dinge</em><br>
+      • <strong>der Wandel</strong> 变化/变迁 | <em>Veränderung über die Zeit</em><br>
+      • <strong>voraussetzen</strong> 预设/假定 | <em>als gegeben annehmen</em><br>
+      • <strong>veröffentlichen</strong> 发表/公布 | <em>publizieren</em><br>
+      • <strong>mit etw. konfrontiert werden</strong> 面对/遭遇 | <em>sich auseinandersetzen müssen</em>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a2-vocab')">📚 词汇语法 (10)</button>
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-a2-bg')">🏭 背景知识：瑞士多语言</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-a2-red')">💬 Redemittel：比较&观点 (8)</button>
+
+<div class="b2l-ans" id="b2l-a2-vocab">
+<strong>📚 词汇语法 (10)</strong><br><br>
+• <strong>die Eidgenossenschaft, -en</strong> = 联邦 | <em>schweizerisch für Bundesstaat</em><br>
+• <strong>die Amtssprache, -n</strong> = 官方语言<br>
+• <strong>die Muttersprache, -n</strong> = 母语<br>
+• <strong>die Landessprache, -n</strong> = 国家语言<br>
+• <strong>die Vielfalt</strong> = 多样性<br>
+• <strong>der Wandel</strong> = 变化<br>
+• <strong>fließend beherrschen</strong> = 流利掌握<br>
+• <strong>voraussetzen</strong> = 预设<br>
+• <strong>veröffentlichen</strong> = 发表<br>
+• <strong>mit etw. konfrontiert werden</strong> = 面对
+</div>
+
+<div class="b2l-ans" id="b2l-a2-bg">
+<strong>🏭 背景知识：瑞士多语言</strong><br><br>
+<div class="b2l-bg-card" style="background:#e8f5e9">
+<strong style="color:#1a5a2a">🇨🇭 Die Schweiz — eine Willensnation</strong><br>
+🇩🇪 Die Schweiz ist keine ethnische, sondern eine politische Nation. Die Zusammengehörigkeit ergibt sich aus dem gemeinsamen politischen Willen der Bürger. 1848 wurde der moderne Schweizer Bundesstaat gegründet.<br>
+🇨🇳 瑞士不是民族国家，而是"意志国家"。公民归属感来自共同的政治意愿而非共同语言。1848年现代瑞士联邦成立。
+</div>
+<div class="b2l-bg-card" style="background:#fff3e0">
+<strong style="color:#e65100">🗣️ Vier Landessprachen</strong><br>
+🇩🇪 Deutsch (63%), Französisch (23%), Italienisch (8%) und Rätoromanisch (0.5%). Rätoromanisch wurde 1938 per Volksabstimmung als vierte Landessprache anerkannt — einzigartig in Europa.<br>
+🇨🇳 德语（63%）、法语（23%）、意大利语（8%）和列托罗曼语（0.5%）。列托罗曼语1938年公投成为第四官方语言——欧洲唯一。
+</div>
+<div class="b2l-bg-card" style="background:#e3f2fd">
+<strong style="color:#1565c0">📚 Fremdsprachen in der Schule</strong><br>
+🇩🇪 Jeder Kanton bestimmt selbst über Fremdsprachenunterricht. In der Deutschschweiz ist oft Englisch erste Fremdsprache (nicht Französisch!) — ein politisches Streitthema.<br>
+🇨🇳 每个州自主决定外语教学。德语区常以英语为第一外语（非法语！），引发政治争议。
+</div>
+</div>
+
+<div class="b2l-ans" id="b2l-a2-red">
+<strong>💬 Redemittel：比较与表达观点 (8)</strong>
+<table>
+<tr><th>功能</th><th>🇩🇪 Redemittel</th><th>🇨🇳</th></tr>
+<tr><td rowspan="2"><strong>📊 比较</strong></td><td><em>In meinem Land ist die Situation ähnlich / ganz anders, denn …</em></td><td>我国情况类似/不同</td></tr>
+<tr><td><em>Während in … ist die Situation in …</em></td><td>在…是…而在…</td></tr>
+<tr><td rowspan="2"><strong>👍 优缺点</strong></td><td><em>Ein großer Vorteil ist, dass …</em></td><td>很大优点是…</td></tr>
+<tr><td><em>Ein entscheidender Nachteil ist, dass …</em></td><td>决定性缺点是…</td></tr>
+<tr><td rowspan="2"><strong>💭 表达观点</strong></td><td><em>Ich bin der Auffassung, dass …</em></td><td>我认为…（正式）</td></tr>
+<tr><td><em>Ich bin überzeugt, dass …</em></td><td>我确信…</td></tr>
+<tr><td rowspan="2"><strong>🤔 权衡</strong></td><td><em>Einerseits …, andererseits …</em></td><td>一方面…另一方面…</td></tr>
+<tr><td><em>Ich bin da geteilter Meinung.</em></td><td>我对此意见分歧</td></tr>
+</table>
+</div>
+</div>
+
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ ARTICLE 3 ═══════════ -->
+<div id="b2l-a3-anchor"></div>
+<div class="b2l-card" id="b2l-a3">
+  <div class="b2l-card-header">📰 3 · Zu Hause in Deutschland <span style="font-weight:400;font-size:.78rem;margin-left:auto">Drei Migranten-Porträts</span></div>
+  <div class="b2l-card-body">
+
+    <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:16px">
+      <strong style="color:#b8860b">👤 Koko N'Diabi Roubatou Affo-Tenin</strong> — <em>aus Togo, lebt in Berlin</em>
+    </div>
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Koko N'Diabi Roubatou Affo-Tenin kann ihre Herkunft nicht verbergen, allerdings liegt ihr auch nichts ferner: Ihr Haar, in Zöpfchen geflochten, bindet die Togoerin auf dem Rücken zusammen; in ihrem Kleid leuchtet sie farbenfroh inmitten hellgrauer Häuser. <strong>„Ich trage nur afrikanische Kleidung, weil ich mich darin wohlfühle."</strong><br><br>
+      Zweimal floh sie vor der eigenen Familie: Wanderarbeiter, die das Mädchen an einen Fremden verheiraten wollten. Sie besucht in der nächsten Stadt die Schule, wird schwanger, muss für den kleinen Sohn sorgen, verkauft Feuerholz und selbstgebackene Kekse. Aber Koko will mehr. Nach einer Odyssee durch die Wüste und übers Meer erreicht sie ihr Traumziel Berlin, studiert schließlich Betriebswirtschaft.<br><br>
+      Heute leitet sie mit ihrem Mann eine Hausverwaltung in Berlin; ihr Sohn ist Ingenieur, Koko fühlt sich zu Hause: <strong>„Ich hatte Glück, Diskriminierung habe ich nicht erlebt. Noch nicht"</strong>, fügt sie nachdenklich an. Ihr Selbstbewusstsein ist vielleicht der beste Schutz: <strong>„Ich bin Deutsch-Afrikanerin und will zeigen, dass Deutschland nicht nur blond und blauäugig ist."</strong>
+    </p>
+
+    <div style="background:#f0f9ff;border-left:4px solid #0ea5e9;padding:10px 14px;border-radius:0 8px 8px 0;margin:18px 0 16px">
+      <strong style="color:#0369a1">👤 Ivan Novoselic</strong> — <em>aus Kroatien, lebt in Wolfsburg</em>
+    </div>
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Ivan Novoselic kam vor zwanzig Jahren mit seiner Familie aus Kroatien nach Wolfsburg und arbeitet in der Produktion eines großen Autoherstellers. Seine Kinder gehen in Deutschland zur Schule, seine jüngste Tochter wurde hier geboren. <strong>„Aber trotzdem fühle ich mich hier nicht wirklich zu Hause. Wir werden immer Ausländer bleiben. Ich habe das Gefühl, wir können machen, was wir wollen. Nachbarn und Kollegen sehen uns immer als ,die Fremden'."</strong><br><br>
+      Die Freunde stammen auch aus Kroatien. Kontakte zu Deutschen gibt es kaum. Seine Kinder kennen Kroatien nur aus dem Urlaub, aber hier fühlen sie sich auch nicht vollkommen zu Hause. Sie fühlen sich zerrissen, leben zwischen zwei Kulturen. Ivan Novoselic denkt oft darüber nach, ob er wieder nach Kroatien gehen soll. <strong>„Bis zur Rente bleibe ich noch hier, aber dann will ich zurück. Die Kinder sind dann alt genug. Sie können dann selbst entscheiden, wo sie leben wollen."</strong>
+    </p>
+
+    <div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:10px 14px;border-radius:0 8px 8px 0;margin:18px 0 16px">
+      <strong style="color:#15803d">👤 Sandeep Singh Jolly</strong> — <em>aus Indien, Gründer in Berlin</em>
+    </div>
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Sandeep Singh Jolly, Gründer der Berliner Software- und Telekomfirma teta, wird nach 30 Jahren in Deutschland immer noch gelegentlich gefragt, wann er denn <strong>„wieder mal nach Hause"</strong> fahre. <strong>„Ich sage dann gern: ,Jeden Abend!'"</strong>, erzählt er.<br><br>
+      Als er 1982 nach Deutschland kam, wurde sein Schulabschluss von einer Elite-High-School in Bombay nicht anerkannt. Nachdem er in Windeseile Deutsch gelernt, die Hochschulreife nachgeholt und nebenbei noch das Charlottenburger Gewürz- und Gemüsegeschäft der Familie geführt hatte, ließ man ihn wegen einer Ausländerquote ein Jahr lang warten, bis er endlich Informatik studieren durfte. Doch Sandeep Jolly ließ sich nicht ausbremsen. Während des zweiten Semesters gründete er mit Kommilitonen seine erste Firma. Und dann ging es eigentlich immer so weiter.<br><br>
+      Was ist das Geheimnis seines Erfolgs? <strong>„Ich habe mich von Anfang an für Deutschland entschieden"</strong>, sagt er. Zurückgehen war keine Option, und Scheitern kam nicht infrage. Er musste um jeden Preis in dem fremden Land zurechtkommen. Fragt man Herrn Jolly, der längst deutscher Staatsbürger ist, nach seiner Identität, dann sagt er: <strong>„Ich bin Deutsch-Inder."</strong>
+    </p>
+
+    <!-- ═══ 预习笔记：每人专属 Lernwortschatz ═══ -->
+    <div class="b2l-lern" style="border-left:4px solid #f59e0b;margin-bottom:12px">
+      <strong>📖 👤 Koko — Lernwortschatz：</strong><br>
+      • <strong>die Herkunft, -¨e</strong> 出身/来源 | <em>wo jemand herkommt; Abstammung</em><br>
+      • <strong>verbergen (verbirgt, verbarg, hat verborgen)</strong> 隐藏 | <em>etwas nicht zeigen; verstecken</em><br>
+      • <strong>fliehen (floh, ist geflohen)</strong> 逃离 | <em>vor Gefahr weglaufen; mit sein!</em><br>
+      • <strong>der Wanderarbeiter, -</strong> 流动工人 | <em>Arbeiter ohne festen Wohnsitz</em><br>
+      • <strong>verheiraten (verheiratete, hat verheiratet)</strong> 嫁/娶 | <em>jmd. zur Ehe geben</em><br>
+      • <strong>schwanger</strong> 怀孕的 | <em>ein Kind erwartend</em><br>
+      • <strong>sorgen für + Akk.</strong> 照顾 | <em>sich kümmern um</em><br>
+      • <strong>das Selbstbewusstsein</strong> 自信 | <em>Vertrauen in die eigene Person</em><br>
+      • <strong>die Diskriminierung, -en</strong> 歧视 | <em>ungerechte Behandlung</em><br>
+      • <strong>nachdenklich</strong> 沉思地 | <em>in Gedanken versunken</em>
+    </div>
+    <div class="b2l-lern" style="border-left:4px solid #0ea5e9;margin-bottom:12px">
+      <strong>📖 👤 Ivan — Lernwortschatz：</strong><br>
+      • <strong>die Produktion, -en</strong> 生产 | <em>Herstellung von Waren</em><br>
+      • <strong>der Autohersteller, -</strong> 汽车制造商 | <em>Firma, die Autos produziert</em><br>
+      • <strong>der/die Einheimische, -n</strong> 本地人 | <em>Mensch aus dem Ort/der Gegend</em><br>
+      • <strong>der Fremde, -n</strong> 陌生人/外国人 | <em>jmd., der nicht von hier ist</em><br>
+      • <strong>stammen aus + Dat.</strong> 来自/源于 | <em>herkommen aus; die Herkunft haben</em><br>
+      • <strong>sich zerrissen fühlen</strong> 感到撕裂 | <em>zwischen zwei Kulturen stehen</em><br>
+      • <strong>vollkommen</strong> 完全的 | <em>total; komplett; völlig</em><br>
+      • <strong>nachdenken über + Akk. (dachte nach, hat nachgedacht)</strong> 思考 | <em>gründlich überlegen; trennbar</em>
+    </div>
+    <div class="b2l-lern" style="border-left:4px solid #22c55e">
+      <strong>📖 👤 Sandeep — Lernwortschatz：</strong><br>
+      • <strong>gelegentlich</strong> 偶尔 | <em>manchmal; ab und zu</em><br>
+      • <strong>die Hochschulreife</strong> 高校入学资格 | <em>= Abitur; Zugang zur Universität</em><br>
+      • <strong>nachholen (trennbar)</strong> 补上/补考 | <em>Versäumtes später erledigen</em><br>
+      • <strong>das Gewürz, -e</strong> 香料 | <em>zum Würzen von Speisen</em><br>
+      • <strong>führen</strong> 经营/领导 | <em>leiten; ein Geschäft betreiben</em><br>
+      • <strong>die Ausländerquote, -n</strong> 外国人配额 | <em>zahlenmäßige Beschränkung für Ausländer</em><br>
+      • <strong>der Kommilitone, -n</strong> 大学同学 | <em>Mitstudent an der Universität</em><br>
+      • <strong>gründen</strong> 创建/成立 | <em>etwas Neues ins Leben rufen</em><br>
+      • <strong>das Geheimnis, -se</strong> 秘密 | <em>etwas, das nicht alle wissen</em><br>
+      • <strong>infrage kommen (kam infrage, ist infrage gekommen)</strong> 可以考虑 | <em>als Möglichkeit bestehen</em><br>
+      • <strong>um jeden Preis</strong> 不惜一切代价 | <em>unter allen Umständen; koste es, was es wolle</em><br>
+      • <strong>der Staatsbürger, -</strong> 公民 | <em>Person mit Bürgerrechten eines Staates</em><br>
+      • <strong>die Identität, -en</strong> 身份 | <em>das, was eine Person ausmacht</em><br>
+      • <strong>anerkennen (erkennt an, erkannte an, hat anerkannt)</strong> 承认 | <em>offiziell bestätigen; trennbar + unregelmäßig</em><br>
+      • <strong>zurechtkommen (kam zurecht, ist zurechtgekommen)</strong> 应付得来 | <em>mit Schwierigkeiten fertig werden; trennbar + sein</em><br>
+      • <strong>scheitern (scheiterte, ist gescheitert)</strong> 失败 | <em>keinen Erfolg haben; mit sein!</em><br>
+      • <strong>in Windeseile</strong> 飞速地 | <em>extrem schnell; in kürzester Zeit</em>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 👤 Koko — 专属模块 ═══ -->
+<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-vocab')">📚 👤 Koko — 词汇语法 (8)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-gram')">📖 👤 Koko — 语法：Partizip II (5项)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-koll')">🔗 👤 Koko — 词汇搭配 (6)</button>
+
+<div class="b2l-ans" id="b2l-a3-koko-vocab">
+<strong>📚 👤 Koko — 词汇语法 (8)</strong><br>
+• <strong>die Herkunft, -¨e</strong> = 出身/来源<br>
+• <strong>verbergen (verbirgt, verbarg, hat verborgen)</strong> = 隐藏<br>
+• <strong>fliehen (floh, ist geflohen)</strong> = 逃离 | ⚠️ <em>mit sein! starkes Verb</em><br>
+• <strong>der Wanderarbeiter, -</strong> = 流动工人<br>
+• <strong>verheiraten (verheiratete, hat verheiratet)</strong> = 嫁/娶<br>
+• <strong>schwanger</strong> = 怀孕的 | <em>sie ist schwanger</em><br>
+• <strong>sorgen für + Akk.</strong> = 照顾/负责<br>
+• <strong>das Selbstbewusstsein</strong> = 自信
+</div>
+
+<div class="b2l-ans" id="b2l-a3-koko-gram">
+<strong>📖 👤 Koko — 语法解析 (5项)</strong><br><br>
+<strong>1. Präteritum 书面过去时</strong><br>
+🇩🇪 Formel: <em>fliehen → floh / erreichen → erreichte / studieren → studierte</em><br>
+🇨🇳 规则：Koko 的故事用 Präteritum 叙述（书面/报道体裁），口语用 Perfekt。<br>
+📖 <em>„Zweimal floh sie vor der eigenen Familie."</em> — 她两次逃离家庭。<br>
+⚠️ 考点：floh (fliehen) 是 sein 完成时，不是 haben。<br><br>
+
+<strong>2. Perfekt mit sein</strong><br>
+🇩🇪 Formel: <em>ist + Partizip II (位移/状态变化动词)</em><br>
+🇨🇳 规则：fliehen, erreichen, werden 用 sein 构成完成时。<br>
+📖 <em>„ist geflohen" / „ist ... erreicht" / „ist ... geworden"</em><br>
+⚠️ 考点：sorgen → hat gesorgt (haben)，不要混淆。<br><br>
+
+<strong>3. ver- 前缀（不可分）</strong><br>
+🇩🇪 Formel: <em>verbergen → verbarg → hat verborgen (Partizip II 不加 ge-)</em><br>
+🇨🇳 规则：ver- 前缀不可分，Partizip II 不加 ge-。同族：verheiraten、verkaufen。<br>
+📖 <em>„Koko kann ihre Herkunft nicht verbergen."</em><br>
+⚠️ 考点：对比可分前缀 verkaufen → verkaufte → hat verkauft（仍是 ver- 不可分）。<br><br>
+
+<strong>4. Modalverb können + Infinitiv</strong><br>
+🇩🇪 Formel: <em>können + Infinitiv (am Satzende)</em><br>
+🇨🇳 规则：情态动词+实义动词原形置于句末。<br>
+📖 <em>„Ich bin Deutsch-Afrikanerin und will zeigen, dass Deutschland nicht nur blond und blauäugig ist."</em><br>
+⚠️ 考点：wollen + zeigen (Infinitiv mit zu? Nein! Modalverb → ohne zu)。<br><br>
+
+<strong>5. „Noch nicht" — 时间副词</strong><br>
+🇩🇪 Formel: <em>noch nicht = 还没有 / noch = 仍然</em><br>
+🇨🇳 规则：noch nicht 否定已发生但预期会发生的事。<br>
+📖 <em>„Ich hatte Glück, Diskriminierung habe ich nicht erlebt. Noch nicht."</em><br>
+⚠️ 考点：nicht 和 noch nicht 的区别——nicht=绝对否定；noch nicht=暂时未发生。
+</div>
+
+<div class="b2l-ans" id="b2l-a3-koko-koll">
+<strong>🔗 👤 Koko — 词汇搭配 (6)</strong>
+<table>
+<tr style="background:#f59e0b;color:#fff"><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>vor jmd./etw. fliehen</strong></td><td>逃离某人/某物</td><td><em>Koko <strong>floh</strong> zweimal <strong>vor</strong> der eigenen Familie.</em></td></tr>
+<tr><td><strong>sich zu Hause fühlen</strong></td><td>感到在家/自在</td><td><em>Koko <strong>fühlt sich zu Hause</strong> in Berlin.</em></td></tr>
+<tr><td><strong>Diskriminierung erleben</strong></td><td>经历歧视</td><td><em>„<strong>Diskriminierung</strong> habe ich nicht <strong>erlebt</strong>."</em></td></tr>
+<tr><td><strong>sich wohlfühlen</strong></td><td>感到舒适</td><td><em>„Ich <strong>fühle</strong> mich in afrikanischer Kleidung <strong>wohl</strong>."</em></td></tr>
+<tr><td><strong>seine Herkunft verbergen</strong></td><td>隐藏出身</td><td><em>Koko kann <strong>ihre Herkunft</strong> nicht <strong>verbergen</strong>.</em></td></tr>
+<tr><td><strong>Glück haben</strong></td><td>运气好</td><td><em>„Ich <strong>hatte Glück</strong>."</em></td></tr>
+</table>
+</div>
+
+<!-- ═══ 👤 Ivan — 专属模块 ═══ -->
+<button class="b2l-btn" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff;margin-top:8px" onclick="b2lToggle('b2l-a3-ivan-vocab')">📚 👤 Ivan — 词汇语法 (8)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff" onclick="b2lToggle('b2l-a3-ivan-gram')">📖 👤 Ivan — 语法：从句语序 (4项)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff" onclick="b2lToggle('b2l-a3-ivan-koll')">🔗 👤 Ivan — 词汇搭配 (6)</button>
+
+<div class="b2l-ans" id="b2l-a3-ivan-vocab">
+<strong>📚 👤 Ivan — 词汇语法 (8)</strong><br>
+• <strong>die Produktion, -en</strong> = 生产<br>
+• <strong>der Autohersteller, -</strong> = 汽车制造商<br>
+• <strong>der/die Einheimische, -n</strong> = 本地人<br>
+• <strong>der Fremde, -n</strong> = 陌生人/外国人<br>
+• <strong>stammen aus + Dat.</strong> = 来自<br>
+• <strong>vollkommen</strong> = 完全地<br>
+• <strong>sich zerrissen fühlen</strong> = 感到撕裂<br>
+• <strong>nachdenken über + Akk.</strong> = 思考/考虑
+</div>
+
+<div class="b2l-ans" id="b2l-a3-ivan-gram">
+<strong>📖 👤 Ivan — 语法解析 (4项)</strong><br><br>
+<strong>1. ob 引导的间接疑问从句</strong><br>
+🇩🇪 Formel: <em>Hauptsatz + ob + Nebensatz (Verb am Ende)</em><br>
+🇨🇳 规则：ob 引导间接疑问，变位动词置于从句末尾。<br>
+📖 <em>„Ivan Novoselic denkt oft darüber nach, <strong>ob</strong> er wieder nach Kroatien gehen <strong>soll</strong>."</em> — 他常思考是否该回克罗地亚。<br>
+⚠️ 考点：ob=是否（Ja/Nein-Frage），不是 wenn（条件）！<br><br>
+
+<strong>2. Relativsatz mit wo</strong><br>
+🇩🇪 Formel: <em>Ort + wo + Nebensatz</em><br>
+🇨🇳 规则：wo 作关系副词引导地点从句，动词置末。<br>
+📖 <em>„Sie können dann selbst entscheiden, <strong>wo</strong> sie leben <strong>wollen</strong>."</em><br>
+⚠️ 考点：wo 从句中 wollen 是情态动词，实义动词 leben 前置。<br><br>
+
+<strong>3. Präposition mit Dativ: aus + Dat.</strong><br>
+🇩🇪 Formel: <em>stammen aus + Dativ (来源国家/城市)</em><br>
+🇨🇳 规则：表示来自某地/某群体用 aus + Dativ。<br>
+📖 <em>„Die Freunde <strong>stammen</strong> auch <strong>aus Kroatien</strong>."</em><br>
+⚠️ 考点：aus 只接 Dativ，国家名无冠词时不加词尾。<br><br>
+
+<strong>4. aber trotzdem — 转折加强</strong><br>
+🇩🇪 Formel: <em>aber + trotzdem = 但还是（双重转折=强调）</em><br>
+🇨🇳 规则：aber 和 trotzdem 可叠用加强转折语气。<br>
+📖 <em>„<strong>Aber trotzdem</strong> fühle ich mich hier nicht wirklich zu Hause."</em><br>
+⚠️ 考点：trotzdem 是副词非连词，需占位（Verb 第二位）。
+</div>
+
+<div class="b2l-ans" id="b2l-a3-ivan-koll">
+<strong>🔗 👤 Ivan — 词汇搭配 (6)</strong>
+<table>
+<tr style="background:#0ea5e9;color:#fff"><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>Kontakte zu jmd. haben</strong></td><td>与某人有联系</td><td><em>Ivan hat kaum <strong>Kontakte</strong> <strong>zu</strong> Deutschen.</em></td></tr>
+<tr><td><strong>zwischen zwei Kulturen leben</strong></td><td>生活在两种文化间</td><td><em>Seine Kinder <strong>leben zwischen zwei Kulturen</strong>.</em></td></tr>
+<tr><td><strong>in Rente gehen</strong></td><td>退休</td><td><em>„<strong>Bis zur Rente</strong> bleibe ich noch hier."</em></td></tr>
+<tr><td><strong>nachdenken über + Akk.</strong></td><td>思考某事</td><td><em>Ivan <strong>denkt</strong> oft <strong>über</strong> die Rückkehr <strong>nach</strong>.</em></td></tr>
+<tr><td><strong>sich nicht zu Hause fühlen</strong></td><td>不感到在家的</td><td><em>„Ich <strong>fühle</strong> mich hier nicht wirklich <strong>zu Hause</strong>."</em></td></tr>
+<tr><td><strong>als Fremden sehen</strong></td><td>视为外国人</td><td><em>„Nachbarn <strong>sehen</strong> uns immer <strong>als</strong> ,die <strong>Fremden</strong>'."</em></td></tr>
+</table>
+</div>
+
+<!-- ═══ 👤 Sandeep — 专属模块 ═══ -->
+<button class="b2l-btn" style="background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;margin-top:8px" onclick="b2lToggle('b2l-a3-sand-vocab')">📚 👤 Sandeep — 词汇语法 (10)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#15803d,#22c55e);color:#fff" onclick="b2lToggle('b2l-a3-sand-gram')">📖 👤 Sandeep — 语法：nachdem & Partizip (4项)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#15803d,#22c55e);color:#fff" onclick="b2lToggle('b2l-a3-sand-koll')">🔗 👤 Sandeep — 词汇搭配 (6)</button>
+
+<div class="b2l-ans" id="b2l-a3-sand-vocab">
+<strong>📚 👤 Sandeep — 词汇语法 (10)</strong><br>
+• <strong>gelegentlich</strong> = 偶尔<br>
+• <strong>die Hochschulreife</strong> = 高校入学资格 (=Abitur)<br>
+• <strong>nachholen (trennbar)</strong> = 补上/补考<br>
+• <strong>das Gewürz, -e</strong> = 香料<br>
+• <strong>führen</strong> = 经营/领导<br>
+• <strong>die Ausländerquote, -n</strong> = 外国人配额<br>
+• <strong>der Kommilitone, -n</strong> = 大学同学<br>
+• <strong>der Staatsbürger, -</strong> = 公民<br>
+• <strong>die Identität, -en</strong> = 身份<br>
+• <strong>infrage kommen</strong> = 可以考虑
+</div>
+
+<div class="b2l-ans" id="b2l-a3-sand-gram">
+<strong>📖 👤 Sandeep — 语法解析 (4项)</strong><br><br>
+<strong>1. nachdem + Plusquamperfekt（过去完成时）</strong><br>
+🇩🇪 Formel: <em>nachdem + Plusquamperfekt (hatte + Partizip II) + Hauptsatz Präteritum</em><br>
+🇨🇳 规则：nachdem 从句用过去完成时（更早发生），主句用过去时。<br>
+📖 <em>„<strong>Nachdem</strong> er in Windeseile Deutsch gelernt <strong>hatte</strong>, ... ließ man ihn warten."</em><br>
+⚠️ 考点：nachdem→Vorzeitigkeit→Plusquamperfekt 必考。<br><br>
+
+<strong>2. Partizip II 作名词修饰语（扩展定语）</strong><br>
+🇩🇪 Formel: <em>Partizip II + 形容词词尾 + Nomen</em><br>
+🇨🇳 规则：Partizip II 可作形容词修饰名词，需加词尾。<br>
+📖 <em>„das Charlottenburger Gewürz- und Gemüsegeschäft der Familie <strong>geführt</strong>"</em><br>
+⚠️ 考点：此处 geführt 是 Partizip II 作后置定语，等于 das er geführt hatte。<br><br>
+
+<strong>3. lassen + Infinitiv（使役/允许）</strong><br>
+🇩🇪 Formel: <em>lassen + Infinitiv (lassen → ließ → hat lassen)</em><br>
+🇨🇳 规则：lassen 做使役动词时，实义动词用原形。其过去式为 ließ。<br>
+📖 <em>„... <strong>ließ</strong> man ihn ein Jahr lang <strong>warten</strong>."</em><br>
+⚠️ 考点：lassen 的 Perfekt = hat ... lassen（不加 ge-），如 hat warten lassen。<br><br>
+
+<strong>4. sich entscheiden für + Akk.（决定选择）</strong><br>
+🇩🇪 Formel: <em>sich entscheiden für + Akkusativ</em><br>
+🇨🇳 规则：反身动词，介词用 für + Akk.，表示选择/决定某事。<br>
+📖 <em>„Ich habe mich von Anfang an <strong>für Deutschland entschieden</strong>."</em><br>
+⚠️ 考点：entscheiden → entschied → hat entschieden (unregelmäßig, untrennbar)。
+</div>
+
+<div class="b2l-ans" id="b2l-a3-sand-koll">
+<strong>🔗 👤 Sandeep — 词汇搭配 (6)</strong>
+<table>
+<tr style="background:#22c55e;color:#fff"><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>eine Firma gründen</strong></td><td>创建公司</td><td><em>Sandeep <strong>gründete</strong> im 2. Semester seine erste <strong>Firma</strong>.</em></td></tr>
+<tr><td><strong>sich entscheiden für + Akk.</strong></td><td>决定选择</td><td><em>Er <strong>entschied sich für</strong> Deutschland.</em></td></tr>
+<tr><td><strong>die Staatsbürgerschaft besitzen</strong></td><td>拥有国籍</td><td><em>Jolly ist längst <strong>deutscher Staatsbürger</strong>.</em></td></tr>
+<tr><td><strong>um jeden Preis</strong></td><td>不惜一切代价</td><td><em>Er musste <strong>um jeden Preis</strong> zurechtkommen.</em></td></tr>
+<tr><td><strong>zurechtkommen mit + Dat.</strong></td><td>应付/应对</td><td><em>Er musste in dem fremden Land <strong>zurechtkommen</strong>.</em></td></tr>
+<tr><td><strong>in Windeseile</strong></td><td>飞速地</td><td><em>Er lernte <strong>in Windeseile</strong> Deutsch.</em></td></tr>
+</table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📋 Gesamtwiederholung · 综合复习（每篇短文下方已有专属模块） -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div style="background:linear-gradient(135deg,#1e3a5f,#2c5282);color:#fff;border-radius:12px;padding:12px 20px;margin:1.2rem 0 .8rem;text-align:center;font-size:.88rem">
+  📋 <strong>Gesamtwiederholung · 综合复习</strong> &nbsp;—&nbsp; <span style="opacity:.85">以下为全 section 综合复习模块（每篇肖像专属的词汇/语法/搭配模块见各肖像下方 ▲）</span>
+</div>
+
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-a3-bg')">🏭 背景知识：移民融入 · Gesamtwiederholung</button>
+
+<div class="b2l-ans" id="b2l-a3-bg">
+<strong>🏭 背景知识：Integration in Deutschland</strong><br><br>
+<div class="b2l-bg-card" style="background:#fce4ec">
+<strong style="color:#880e4f">📊 Migrationshintergrund in Zahlen</strong><br>
+🇩🇪 In Deutschland leben rund 84 Mio. Menschen, davon ca. 24 Mio. mit Migrationshintergrund (29%). In Großstädten liegt der Anteil bei über 40%. Größte Gruppen: Türkei, Polen, Russland, Italien, Rumänien.<br>
+🇨🇳 德国约8400万人口，约2400万有移民背景（29%）。大城市超40%。最大群体来自土耳其、波兰、俄罗斯。
+</div>
+<div class="b2l-bg-card" style="background:#e8eaf6">
+<strong style="color:#283593">🏛️ Integration vs. Assimilation</strong><br>
+🇩🇪 Integration = Teil der Gesellschaft werden ohne Aufgabe der eigenen Identität. Assimilation = vollständige Anpassung. Die drei Porträts zeigen verschiedene Modelle: Koko (Doppelidentität), Ivan (Außenseiter), Sandeep (erfolgreiche Integration).<br>
+🇨🇳 融入=成为社会一部分而不放弃自己身份。同化=完全适应。三个肖像展示不同模式。
+</div>
+</div>
+
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-a3-ex')">📝 判断正误 (6题) · Gesamtwiederholung</button>
+
+<div class="b2l-ans" id="b2l-a3-ex">
+<strong>📝 判断正误 (6 Fragen)</strong>
+<div class="mcq-list" id="b2l-a3-mcq">
+<div class="mcq-item" data-ans="A"><p><strong>1.</strong> Koko trägt nur afrikanische Kleidung, weil sie sich darin wohlfühlt.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q1" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q1" value="B"> B) Falsch ✗</label></div></div>
+<div class="mcq-item" data-ans="B"><p><strong>2.</strong> Ivan fühlt sich in Deutschland vollkommen zu Hause.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q2" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q2" value="B"> B) Falsch ✗</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>3.</strong> Sandeeps Schulabschluss wurde zunächst nicht anerkannt.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q3" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q3" value="B"> B) Falsch ✗</label></div></div>
+<div class="mcq-item" data-ans="B"><p><strong>4.</strong> Alle drei Personen planen, in ihre Heimatländer zurückzukehren.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q4" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q4" value="B"> B) Falsch ✗</label></div></div>
+<div class="mcq-item" data-ans="B"><p><strong>5.</strong> Koko hat in Deutschland viel Diskriminierung erlebt.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q5" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q5" value="B"> B) Falsch ✗</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>6.</strong> Ivan denkt oft darüber nach, ob er nach Kroatien zurückgehen soll.</p><div class="mcq-options"><label><input type="radio" name="b2l-a3-q6" value="A"> A) Richtig ✓</label><label><input type="radio" name="b2l-a3-q6" value="B"> B) Falsch ✗</label></div></div>
+</div>
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lCheckMCQ('b2l-a3-mcq','b2l-a3-score')" style="margin-top:10px">✅ 批改</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lResetMCQ('b2l-a3-mcq','b2l-a3-score')" style="margin-top:10px">🔄 重置</button>
+<div id="b2l-a3-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:24px;color:#2d3748"></div>
+</div>
+</div>
+
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ ARTICLE 4 ═══════════ -->
+<div id="b2l-a4-anchor"></div>
+<div class="b2l-card" id="b2l-a4">
+  <div class="b2l-card-header">📰 4 · Fatih Akin — Deutsch-Türkischer Filmregisseur <span style="font-weight:400;font-size:.78rem;margin-left:auto">Porträt</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Fatih Akin</strong> (*25. August 1973 in Hamburg-Altona) ist deutscher Filmregisseur, Drehbuchautor, Schauspieler und Produzent türkischer Abstammung. Fatih Akins Filme zeigen oft ein Milieu, das nahe „an der Straße" liegt. Bereits in seinem ersten, von der Kritik gefeierten Langspielfilm <strong>„Kurz und Schmerzlos"</strong> zeichnete Akin 1998 eine Kleinkriminellenstudie, die voller Schmerz und Härte, deutlich vom Gangsterkino seines Vorbilds Martin Scorsese beeinflusst.<br><br>
+      Dabei entstammt der am 25. August 1973 in Hamburg-Altona geborene Sohn eines Arbeiters und einer Grundschullehrerin einem fast schon bürgerlichen Milieu, geprägt von der ersten Generation türkischer Einwanderer im Viertel. Obwohl die Eltern Fatih und den älteren Sohn Cem als gläubige Muslime erziehen, besuchen beide einen katholischen Kindergarten, später das Gymnasium. Im Jahr 2000 macht Fatih das Diplom für Visuelle Kommunikation an der Hamburger Hochschule für Bildende Künste. Denn schon mit 16 Jahren weiß er, dass er Regisseur werden will. So jobbt er bei der Hamburger Wüste-Filmproduktion, die später seine ersten Filme produziert.<br><br>
+      Mit seinem dritten Spielfilm <strong>„Gegen die Wand"</strong>, der Geschichte einer unglücklichen Scheinehe mit Birol Ünel und Sibel Kekilli in den Hauptrollen, gelingt dem Regisseur 2004 der internationale Durchbruch. Das Melodram erhält auf der Berlinale den <strong>Goldenen Bären</strong> — es ist das erste Mal in 18 Jahren, dass ein deutscher Film die begehrte Trophäe bekommt. Es folgt eine Einladung nach Cannes, dem Kino-Olymp, wo der Drehbuchautor und Regisseur im Folgejahr den Juryvorsitz der Reihe <strong>„Un Certain Régard"</strong> übernimmt.<br><br>
+      2007 wird <strong>„Auf der anderen Seite"</strong> auf dem französischen Festival sogar mit dem Drehbuchpreis ausgezeichnet. Das Migrationsdrama erzählt von sechs Menschen auf ihrem Lebensweg zwischen Bremen und Istanbul. Sein Kinofilm <strong>„Soul Kitchen"</strong>, eine Komödie um den Kneipenbesitzer Zinos und seine persönliche Hommage an Hamburg, ist in Deutschland mit 1,3 Millionen Zuschauern sein kommerziell stärkster und auch im Ausland an der Kinokasse erfolgreich.<br><br>
+      Dem heimischen <strong>Kiez</strong> ist Akin stets treu geblieben. Der passionierte Hobby-DJ und Amateur-Boxer fühlt sich in Hamburg-Altona am wohlsten. Dort wohnt er mit seiner Frau, der Schauspielerin und Regisseurin <strong>Monique Akin</strong>, und den zwei Kindern.
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Filmregisseur, -e</strong> 电影导演 | <em>künstlerische Leitung bei Filmen</em><br>
+      • <strong>der Drehbuchautor, -en</strong> 编剧 | <em>schreibt das Drehbuch</em><br>
+      • <strong>türkischer Abstammung</strong> 土耳其血统 | <em>mit türkischen Wurzeln; Genitiv</em><br>
+      • <strong>von der Kritik gefeiert</strong> 受评论界赞誉的 | <em>von Kritikern gelobt</em><br>
+      • <strong>der Langspielfilm, -e</strong> 长片电影 | <em>Spielfilm von normaler Länge (≥60 Min.)</em><br>
+      • <strong>die Kleinkriminellenstudie, -n</strong> 小罪犯群像 | <em>Darstellung von Kleinkriminellen</em><br>
+      • <strong>entstammen + Dat. (entstammte, ist entstammt)</strong> 出身于 | <em>aus einer Familie/Schicht kommen; mit sein!</em><br>
+      • <strong>bürgerlich</strong> 市民的/中产的 | <em>zur Mittelschicht gehörend</em><br>
+      • <strong>geprägt von + Dat.</strong> 受…影响/塑造 | <em>beeinflusst und geformt von</em><br>
+      • <strong>der Einwanderer, -</strong> 移民（入） | <em>Person, die in ein Land einwandert</em><br>
+      • <strong>gläubig</strong> 信教的/虔诚的 | <em>religiös; an Gott glaubend</em><br>
+      • <strong>erziehen (erzog, hat erzogen)</strong> 教育/抚养 | <em>Kinder zu selbstständigen Menschen machen</em><br>
+      • <strong>die Hochschule für Bildende Künste</strong> 造型艺术学院 | <em>Kunsthochschule</em><br>
+      • <strong>jobben</strong> 打工 | <em>einen Nebenjob machen (ugs.)</em><br>
+      • <strong>der Durchbruch, -¨e</strong> 突破 | <em>der große Erfolg; internationaler Durchbruch</em><br>
+      • <strong>die Scheinehe, -n</strong> 假结婚 | <em>Ehe nur auf dem Papier, nicht aus Liebe</em><br>
+      • <strong>die Hauptrolle, -n</strong> 主角 | <em>wichtigste Rolle in einem Film</em><br>
+      • <strong>der Goldene Bär</strong> 金熊奖 | <em>höchster Preis der Berlinale</em><br>
+      • <strong>der Juryvorsitz</strong> 评审团主席 | <em>Leitung einer Jury; Vorsitz = Vorsitzender</em><br>
+      • <strong>das Melodram, -en</strong> 情节剧 | <em>gefühlvolles Drama</em><br>
+      • <strong>der Drehbuchpreis, -e</strong> 最佳剧本奖 | <em>Preis für das beste Drehbuch</em><br>
+      • <strong>der Kneipenbesitzer, -</strong> 酒吧老板 | <em>Person, die eine Kneipe besitzt</em><br>
+      • <strong>die Hommage, -n</strong> 致敬之作 | <em>Ehrung/Widmung an jmd./etw. (frz. Lehnwort)</em><br>
+      • <strong>kommerziell</strong> 商业上的 | <em>auf Gewinn ausgerichtet; wirtschaftlich</em><br>
+      • <strong>der Kiez, -e</strong> 街区（北德方言） | <em>Stadtviertel (norddeutsch, bes. Hamburg)</em><br>
+      • <strong>passioniert</strong> 充满热情的 | <em>mit Leidenschaft; begeistert</em>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a4-vocab')">📚 词汇语法 (16)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-a4-gram')">📖 语法：Relativsatz & Partizip (5项)</button>
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-a4-bg')">🏭 背景知识：Deutscher Film & Berlinale</button>
+<button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-a4-koll')">🔗 词汇搭配 (10)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#c62828,#ef5350);color:#fff" onclick="b2lToggle('b2l-a4-red')">💬 Redemittel：人物传记 (6)</button>
+<button class="b2l-btn" style="background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff" onclick="b2lToggle('b2l-a4-bei')">✍️ 仿写例句 (4)</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-a4-ex')">📝 阅读理解 (5题)</button>
+
+<div class="b2l-ans" id="b2l-a4-vocab">
+<strong>📚 词汇语法 (16)</strong><br><br>
+<strong>📋 Nomen · 名词 (9)</strong><br>
+• <strong>der Filmregisseur, -e</strong> = 电影导演<br>
+• <strong>der Drehbuchautor, -en</strong> = 编剧<br>
+• <strong>der Langspielfilm, -e</strong> = 长片电影<br>
+• <strong>die Kleinkriminellenstudie, -n</strong> = 小罪犯群像研究<br>
+• <strong>der Einwanderer, -</strong> = 移民（入）<br>
+• <strong>der Durchbruch, -¨e</strong> = 突破<br>
+• <strong>die Scheinehe, -n</strong> = 假结婚<br>
+• <strong>die Hauptrolle, -n</strong> = 主角<br>
+• <strong>der Kneipenbesitzer, -</strong> = 酒吧老板<br>
+• <strong>die Hommage, -n</strong> = 致敬之作 | <em>frz. Lehnwort, sprich: [ɔˈmaːʒ]</em><br><br>
+<strong>🔧 Verben · 动词 (4)</strong><br>
+• <strong>entstammen + Dat. (entstammte, ist entstammt)</strong> = 出身于 | ⚠️ <em>mit sein!</em><br>
+• <strong>erziehen (erzog, hat erzogen)</strong> = 教育/抚养<br>
+• <strong>jobben</strong> = 打工 | <em>ugs. für einen Nebenjob ausüben</em><br>
+• <strong>zeichnen</strong> = 描绘/刻画 | <em>hier: darstellen, nicht malen!</em><br><br>
+<strong>🎨 Adjektive & Wendungen (3)</strong><br>
+• <strong>bürgerlich</strong> = 市民的/中产的<br>
+• <strong>gläubig</strong> = 信教的/虔诚的<br>
+• <strong>passioniert</strong> = 充满热情的
+</div>
+
+<div class="b2l-ans" id="b2l-a4-gram">
+<strong>📖 语法解析 (5项)</strong><br><br>
+<strong>1. erweiterter Relativsatz（扩展关系从句）</strong><br>
+🇩🇪 Formel: <em>Bezugswort, + Relativpronomen + ... + Verb (am Ende)</em><br>
+🇨🇳 规则：关系代词紧跟先行词，从句动词置末。可嵌套多个从句。<br>
+📖 <em>„Fatih Akins Filme zeigen oft ein Milieu, <strong>das</strong> nahe „an der Straße" <strong>liegt</strong>."</em> — 他的电影常展示贴近"街头"的环境。<br>
+📖 <em>„... eine Kleinkriminellenstudie, <strong>die</strong> voller Schmerz und Härte, deutlich vom Gangsterkino ... <strong>beeinflusst</strong>."</em><br>
+⚠️ 考点：Relativpronomen 性数格=先行词；动词永远在从句末尾。<br><br>
+
+<strong>2. Partizip II als Attribut（第二分词作定语）</strong><br>
+🇩🇪 Formel: <em>Partizip II + Adjektivendung + Nomen</em><br>
+🇨🇳 规则：Partizip II 可前置作定语修饰名词，需按形容词变位加词尾。<br>
+📖 <em>„Bereits in seinem ersten, <strong>von der Kritik gefeierten</strong> Langspielfilm ..."</em> — 在他第一部受评论界赞誉的长片中…<br>
+📖 <em>„der am 25. August 1973 in Hamburg-Altona <strong>geborene</strong> Sohn"</em> — 1973年生于汉堡的…<br>
+⚠️ 考点：gefeiert=Partizip II von feiern；geboren=Partizip II von gebären（只作定语/状态被动）。<br><br>
+
+<strong>3. Partizip I als Attribut（第一分词作定语）</strong><br>
+🇩🇪 Formel: <em>Infinitiv + d + Adjektivendung + Nomen</em><br>
+🇨🇳 规则：第一分词（Partizip I）表示正在进行的动作，作定语时加形容词词尾。<br>
+📖 <em>„einem fast schon bürgerlichen Milieu, <strong>geprägt</strong> von der ersten Generation türkischer Einwanderer"</em> — 一个几乎已是市民阶级的环境...<br>
+⚠️ 考点：geprägt 此处是 Partizip II（被动完成），不是 Partizip I。区分标准：Partizip I = 主动进行(-end)，Partizip II = 被动完成(-t/en)。<br><br>
+
+<strong>4. obwohl + Nebensatz（让步从句）</strong><br>
+🇩🇪 Formel: <em>obwohl + Subjekt + ... + Verb (am Ende)</em><br>
+🇨🇳 规则：obwohl 引导让步从句，变位动词置末。= "虽然…但是…"<br>
+📖 <em>„<strong>Obwohl</strong> die Eltern Fatih ... als gläubige Muslime <strong>erziehen</strong>, besuchen beide einen katholischen Kindergarten."</em> — 虽然父母以虔诚穆斯林方式教育…<br>
+⚠️ 考点：obwohl ≠ trotzdem（obwohl=连词+从句，trotzdem=副词+主句V2）。<br><br>
+
+<strong>5. Präteritum in Biografien（传记中的过去时）</strong><br>
+🇩🇪 Formel: <em>Präteritum = 书面叙事标准时态</em><br>
+🇨🇳 规则：人物传记/新闻报道统一用 Präteritum，非 Perfekt。<br>
+📖 <em>„Im Jahr 2000 <strong>macht</strong> Fatih das Diplom ..."</em> — 注意！此处用 Präsens（历史现在时）增加生动感。<br>
+📖 <em>„So <strong>jobbt</strong> er bei der Hamburger Wüste-Filmproduktion, die später seine ersten Filme <strong>produziert</strong>."</em><br>
+⚠️ 考点：德语传记中 Präsens 和 Präteritum 交替使用，Präsens 用于拉近时间距离、增加戏剧性。
+</div>
+
+<div class="b2l-ans" id="b2l-a4-bg">
+<strong>🏭 背景知识：Deutscher Film & Berlinale</strong><br><br>
+<div class="b2l-bg-card" style="background:#e8eaf6">
+<strong style="color:#283593">🏛️ Die Berlinale — Internationale Filmfestspiele Berlin</strong><br>
+🇩🇪 Die Berlinale, 1951 gegründet, zählt neben Cannes und Venedig zu den drei wichtigsten Filmfestivals der Welt. Der Hauptpreis ist der <strong>Goldene Bär</strong>. Jährlich werden rund 400 Filme gezeigt und über 300.000 Tickets verkauft — das größte Publikumsfilmfestival weltweit. Fatih Akin war 2004 der erste Deutsche seit 18 Jahren, der den Goldenen Bären gewann.<br>
+🇨🇳 柏林电影节（Berlinale）创立于1951年，与戛纳、威尼斯并称世界三大电影节。最高奖为金熊奖（Goldener Bär）。每年展映约400部影片，售出超30万张票——是全球观众规模最大的电影节。Fatih Akin 是18年来首位获金熊奖的德国导演。
+</div>
+<div class="b2l-bg-card" style="background:#fce4ec">
+<strong style="color:#880e4f">🎬 Deutsch-türkisches Kino</strong><br>
+🇩🇪 Seit den 1990er Jahren prägen deutsch-türkische Regisseure wie Fatih Akin, Yasemin Samdereli und Bora Dagtekin das deutsche Kino. Ihre Filme thematisieren oft Migration, Identität und das Leben zwischen zwei Kulturen. Akin gilt als wichtigster Vertreter dieses Genres, das man auch „Brückenkino" nennt.<br>
+🇨🇳 自90年代以来，德裔土耳其导演（Fatih Akin, Yasemin Samdereli, Bora Dagtekin 等）深刻影响了德国电影。他们的作品常以移民、身份认同、双重文化生活为主题。Akin 被视为这一类型（人称"桥梁电影"）最重要的代表人物。
+</div>
+<div class="b2l-bg-card" style="background:#e8f5e9">
+<strong style="color:#1a5a2a">🎓 Hamburger Hochschule für Bildende Künste (HFBK)</strong><br>
+🇩🇪 Die HFBK wurde 1767 gegründet und ist eine der renommiertesten Kunsthochschulen Deutschlands. Sie bietet Studiengänge in Malerei, Bildhauerei, Grafik, Fotografie und Visueller Kommunikation an. Akin studierte dort Visuelle Kommunikation und machte 2000 sein Diplom.<br>
+🇨🇳 汉堡造型艺术学院（HFBK）创建于1767年，是德国最负盛名的艺术学院之一。提供绘画、雕塑、版画、摄影、视觉传达等专业。Akin 在此学习视觉传达，2000年毕业。
+</div>
+</div>
+
+<div class="b2l-ans" id="b2l-a4-koll">
+<strong>🔗 词汇搭配 (10)</strong>
+<table>
+<tr style="background:#2e7d32;color:#fff"><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>der internationale Durchbruch</strong></td><td>国际突破</td><td><em>Mit „Gegen die Wand" <strong>gelingt</strong> ihm der <strong>internationale Durchbruch</strong>.</em></td></tr>
+<tr><td><strong>einen Preis erhalten</strong></td><td>获得奖项</td><td><em>Das Melodram <strong>erhält</strong> den <strong>Goldenen Bären</strong>.</em></td></tr>
+<tr><td><strong>mit etw. auszeichnen</strong></td><td>授予…奖项</td><td><em>„Auf der anderen Seite" <strong>wird</strong> mit dem Drehbuchpreis <strong>ausgezeichnet</strong>.</em></td></tr>
+<tr><td><strong>jmdm. treu bleiben</strong></td><td>保持忠诚</td><td><em>Dem heimischen Kiez <strong>ist</strong> Akin stets <strong>treu geblieben</strong>.</em></td></tr>
+<tr><td><strong>von der Kritik gefeiert</strong></td><td>受评论界赞誉</td><td><em>Sein erster, <strong>von der Kritik gefeierter</strong> Langspielfilm.</em></td></tr>
+<tr><td><strong>einem Milieu entstammen</strong></td><td>出身于某环境</td><td><em>Er <strong>entstammt</strong> einem fast schon bürgerlichen <strong>Milieu</strong>.</em></td></tr>
+<tr><td><strong>geprägt von + Dat.</strong></td><td>受…影响/塑造</td><td><em>Ein Milieu, <strong>geprägt von</strong> der ersten Generation türkischer Einwanderer.</em></td></tr>
+<tr><td><strong>den Juryvorsitz übernehmen</strong></td><td>担任评审团主席</td><td><em>Er <strong>übernimmt</strong> den <strong>Juryvorsitz</strong> der Reihe „Un Certain Régard".</em></td></tr>
+<tr><td><strong>eine Hommage an + Akk.</strong></td><td>向…致敬的作品</td><td><em>„Soul Kitchen" ist seine persönliche <strong>Hommage an</strong> Hamburg.</em></td></tr>
+<tr><td><strong>sich am wohlsten fühlen</strong></td><td>感到最舒适</td><td><em>In Hamburg-Altona <strong>fühlt</strong> er <strong>sich am wohlsten</strong>.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-a4-red">
+<strong>💬 Redemittel：人物传记 (6)</strong>
+<table>
+<tr style="background:#c62828;color:#fff"><th>功能 / Funktion</th><th>🇩🇪 Redemittel</th><th>🇨🇳 中文翻译</th></tr>
+<tr><td><strong>📌 Herkunft & Familie</strong><br><em>出身与家庭</em></td><td><em>Er entstammt einem bürgerlichen Milieu, geprägt von der ersten Generation türkischer Einwanderer.</em></td><td>他出身于一个市民阶层环境，受第一代土耳其移民影响。</td></tr>
+<tr><td><strong>🎓 Ausbildung</strong><br><em>教育经历</em></td><td><em>Im Jahr 2000 macht er das Diplom für Visuelle Kommunikation an der HFBK.</em></td><td>2000年他在汉堡造型艺术学院获得视觉传达学位。</td></tr>
+<tr><td><strong>🚀 Karrierebeginn</strong><br><em>事业起步</em></td><td><em>Schon mit 16 Jahren weiß er, dass er Regisseur werden will. So jobbt er bei einer Filmproduktion.</em></td><td>16岁时他就知道自己想当导演，于是去电影公司打工。</td></tr>
+<tr><td><strong>⭐ Durchbruch</strong><br><em>突破时刻</em></td><td><em>Mit seinem dritten Spielfilm gelingt ihm der internationale Durchbruch.</em></td><td>他的第三部长片使他获得了国际突破。</td></tr>
+<tr><td><strong>🏆 Auszeichnungen</strong><br><em>荣誉奖项</em></td><td><em>Das Melodram erhält den Goldenen Bären — das erste Mal in 18 Jahren, dass ein deutscher Film diese Trophäe bekommt.</em></td><td>这部情节剧获得金熊奖——18年来首次有德国电影获此殊荣。</td></tr>
+<tr><td><strong>🫶 Persönliches</strong><br><em>个人生活</em></td><td><em>Der passionierte Hobby-DJ und Amateur-Boxer fühlt sich in Hamburg-Altona am wohlsten.</em></td><td>这位充满热情的业余DJ和拳击手在汉堡Altona感到最自在。</td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-a4-bei">
+<strong>✍️ 仿写例句 (4 Muster)</strong><br><br>
+<strong>🔹 Muster 1: 描述出身</strong><br>
+🇩🇪 <em>Er <strong>entstammt</strong> einem bürgerlichen Milieu, <strong>geprägt von</strong> der ersten Generation türkischer Einwanderer.</em><br>
+🇨🇳 他出身于市民环境，受第一代土耳其移民影响。<br>
+👉 Nachbau: <em>Sie entstammt ___ (Dativ: Familie/Schicht), geprägt von ___ (Dativ: Einfluss).</em><br><br>
+<strong>🔹 Muster 2: 描述突破（gelingen + Dativ）</strong><br>
+🇩🇪 <em>Mit seinem dritten Spielfilm <strong>gelingt</strong> dem Regisseur 2004 der internationale Durchbruch.</em><br>
+🇨🇳 2004年，导演凭借第三部长片获得国际突破。<br>
+👉 Nachbau: <em>Mit ___ (Dativ: Werk/Leistung) gelingt ___ (Dativ: Person) der Durchbruch.</em><br><br>
+<strong>🔹 Muster 3: 让步从句（obwohl）</strong><br>
+🇩🇪 <em><strong>Obwohl</strong> die Eltern Fatih als gläubige Muslime <strong>erziehen</strong>, besuchen beide einen katholischen Kindergarten.</em><br>
+🇨🇳 虽然父母以虔诚穆斯林方式教育他们，两人却上了天主教幼儿园。<br>
+👉 Nachbau: <em>Obwohl ___ (Subjekt) ___ (Akk.) als ___ (Akk.) erzieht/erziehen, ___ (Hauptsatz V2).</em><br><br>
+<strong>🔹 Muster 4: 被动获奖（werden + Partizip II）</strong><br>
+🇩🇪 <em>2007 <strong>wird</strong> der Film mit dem Drehbuchpreis <strong>ausgezeichnet</strong>.</em><br>
+🇨🇳 2007年该影片被授予最佳剧本奖。<br>
+👉 Nachbau: <em>___ (Jahr) wird ___ (Nominativ: Person/Werk) mit ___ (Dativ: Preis) ausgezeichnet.</em>
+</div>
+
+<div class="b2l-ans" id="b2l-a4-ex">
+<strong>📝 阅读理解 (5 Fragen)</strong>
+<div class="mcq-list" id="b2l-a4-mcq">
+<div class="mcq-item" data-ans="B"><p><strong>1.</strong> Was für einen Hintergrund hat Fatih Akins Familie?</p><div class="mcq-options"><label><input type="radio" name="b2l-a4-q1" value="A"> A) Reiche Unternehmerfamilie</label><label><input type="radio" name="b2l-a4-q1" value="B"> B) Arbeitervater und Grundschullehrerin</label><label><input type="radio" name="b2l-a4-q1" value="C"> C) Beide Eltern waren Filmproduzenten</label></div></div>
+<div class="mcq-item" data-ans="C"><p><strong>2.</strong> Welcher Film brachte Akin den internationalen Durchbruch?</p><div class="mcq-options"><label><input type="radio" name="b2l-a4-q2" value="A"> A) Kurz und Schmerzlos</label><label><input type="radio" name="b2l-a4-q2" value="B"> B) Auf der anderen Seite</label><label><input type="radio" name="b2l-a4-q2" value="C"> C) Gegen die Wand</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>3.</strong> Was ist „Soul Kitchen" für ein Film?</p><div class="mcq-options"><label><input type="radio" name="b2l-a4-q3" value="A"> A) Eine Komödie um einen Kneipenbesitzer</label><label><input type="radio" name="b2l-a4-q3" value="B"> B) Ein Actionfilm über einen Boxer</label><label><input type="radio" name="b2l-a4-q3" value="C"> C) Ein Drama über Migration</label></div></div>
+<div class="mcq-item" data-ans="B"><p><strong>4.</strong> Wo studierte Fatih Akin?</p><div class="mcq-options"><label><input type="radio" name="b2l-a4-q4" value="A"> A) An der Universität Hamburg</label><label><input type="radio" name="b2l-a4-q4" value="B"> B) An der HFBK (Hochschule für Bildende Künste)</label><label><input type="radio" name="b2l-a4-q4" value="C"> C) An der Filmakademie Berlin</label></div></div>
+<div class="mcq-item" data-ans="A"><p><strong>5.</strong> Wofür bekam „Auf der anderen Seite" einen Preis in Cannes?</p><div class="mcq-options"><label><input type="radio" name="b2l-a4-q5" value="A"> A) Für das beste Drehbuch</label><label><input type="radio" name="b2l-a4-q5" value="B"> B) Für die beste Regie</label><label><input type="radio" name="b2l-a4-q5" value="C"> C) Für den besten Film</label></div></div>
+</div>
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lCheckMCQ('b2l-a4-mcq','b2l-a4-score')" style="margin-top:10px">✅ 批改</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lResetMCQ('b2l-a4-mcq','b2l-a4-score')" style="margin-top:10px">🔄 重置</button>
+<div id="b2l-a4-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:24px;color:#2d3748"></div>
+</div>
+</div>
+
+<a class="b2l-backtotoc" href="#b2l-toc-top">📋 回到目录 / Zurück zum Inhaltsverzeichnis</a>
+
+</div><!-- /b2l-section -->
+
+<script>
+/* ═══════════════ B2 阅读 · Heimat ist… — 交互函数 ═══════════════ */
+/* toggle 答案块 */
+window.b2lToggle = function(id) {
+  var el = document.getElementById(id);
+  if (el) { el.style.display = el.style.display === 'block' ? 'none' : 'block'; }
+};
+
+/* MCQ 批改 */
+window.b2lCheckMCQ = function(mcqId, scoreId) {
+  var list = document.getElementById(mcqId);
+  if (!list) return;
+  var items = list.querySelectorAll('.mcq-item');
+  var correct = 0, total = items.length;
+  items.forEach(function(item, i) {
+    var ans = item.getAttribute('data-ans');
+    var radios = item.querySelectorAll('input[type=radio]');
+    radios.forEach(function(r) {
+      r.disabled = true;
+      var label = r.parentElement;
+      if (r.value === ans) label.style.color = '#15803d';
+      else if (r.checked && r.value !== ans) label.style.color = '#dc2626';
+      if (r.checked && r.value === ans) correct++;
+    });
+  });
+  var scoreEl = document.getElementById(scoreId);
+  if (scoreEl) {
+    var pct = Math.round(correct/total*100);
+    scoreEl.innerHTML = '✅ ' + correct + '/' + total + ' (' + pct + '%)';
+    scoreEl.style.color = pct >= 60 ? '#15803d' : '#dc2626';
+  }
+};
+
+/* MCQ 重置 */
+window.b2lResetMCQ = function(mcqId, scoreId) {
+  var list = document.getElementById(mcqId);
+  if (!list) return;
+  list.querySelectorAll('input[type=radio]').forEach(function(r) {
+    r.checked = false;
+    r.disabled = false;
+    r.parentElement.style.color = '';
+  });
+  var scoreEl = document.getElementById(scoreId);
+  if (scoreEl) { scoreEl.innerHTML = ''; }
+};
+
+/* 目录切换：单选一篇显示 */
+window.showB2LArticle = function(n) {
+  var cards = document.querySelectorAll('#page-b2lesen .b2l-card');
+  var seps = document.querySelectorAll('#page-b2lesen .b2l-separator');
+  var btnGroups = document.querySelectorAll('#page-b2lesen [style*="max-width:860px;margin:0 auto 0"]');
+
+  if (!n || n === '') {
+    /* 显示全部 */
+    cards.forEach(function(c) { c.style.display = ''; });
+    seps.forEach(function(s) { s.style.display = ''; });
+    btnGroups.forEach(function(g) { g.style.display = ''; });
+    /* 滚动到第一篇 */
+    var first = document.getElementById('b2l-a1-anchor');
+    if (first) first.scrollIntoView({behavior: 'smooth', block: 'start'});
+  } else {
+    /* 只显示第 n 篇 */
+    var targetCard = document.getElementById('b2l-a' + n);
+    var targetAnchor = document.getElementById('b2l-a' + n + '-anchor');
+    cards.forEach(function(c) { c.style.display = 'none'; });
+    seps.forEach(function(s) { s.style.display = 'none'; });
+    btnGroups.forEach(function(g) { g.style.display = 'none'; });
+
+    if (targetCard) {
+      targetCard.style.display = '';
+      /* 显示该卡片后的按钮组 */
+      var next = targetCard.nextElementSibling;
+      if (next && next.getAttribute('style') && next.getAttribute('style').indexOf('max-width') >= 0) {
+        next.style.display = '';
+      }
+      /* 显示下一个分隔条 */
+      var nextSep = targetCard.nextElementSibling;
+      if (nextSep) nextSep = nextSep.nextElementSibling;
+      if (nextSep && nextSep.classList.contains('b2l-separator')) {
+        nextSep.style.display = '';
+      }
+      if (targetAnchor) targetAnchor.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+};
+</script>
+</div><!-- /page-b2lesen -->
 
 <!-- C1 学习站 -->
 <div id="page-c1hub" class="page hub-page" style="--hub:#ef4444;--hub-soft:rgba(239,68,68,.13)">
@@ -106052,7 +106964,6 @@ function gsRevealAllChapter(chId) {
       }
     });
   }
-})();
 </script>
 </template>
 <template id="tpl-page-a2grammar">
