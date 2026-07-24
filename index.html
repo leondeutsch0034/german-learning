@@ -5196,7 +5196,8 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-article-select:focus{border-color:#f6d365;box-shadow:0 0 0 3px rgba(246,211,101,.15)}
 
 /* ── Article Card ── */
-#page-b2lesen .b2l-card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+#page-b2lesen .b2l-card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:0.5rem;margin-top:3.5rem;box-shadow:0 4px 20px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+#page-b2lesen .b2l-card:first-of-type{margin-top:0}
 #page-b2lesen .b2l-card-header{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#b8860b,#d4a030,#f6d365);color:#0a1428;padding:14px 22px;font-weight:700;font-size:.95rem}
 #page-b2lesen .b2l-card-body{background:#fff;padding:22px 28px 28px;font-size:.9rem;line-height:1.85;color:#2d3748}
 #page-b2lesen .b2l-card-body p{margin-bottom:.8rem}
@@ -5214,6 +5215,7 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-btn-koll{background:linear-gradient(135deg,#2e7d32,#66bb6a)}
 #page-b2lesen .b2l-btn-red{background:linear-gradient(135deg,#c62828,#ef5350)}
 #page-b2lesen .b2l-btn-bei{background:linear-gradient(135deg,#1565c0,#42a5f5)}
+#page-b2lesen .b2l-btn-row{margin-bottom:8rem !important; padding-bottom:2rem}
 #page-b2lesen .b2l-ans{display:none;background:#f8fafc;border-radius:10px;padding:18px 20px;margin-top:10px;font-size:.87rem;line-height:1.8;color:#2d3748;border:1px solid #e2e8f0}
 #page-b2lesen .b2l-ans table{width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.6;margin:12px 0}
 #page-b2lesen .b2l-ans th{background:#1a3a5c;color:#fde68a;padding:8px 12px;text-align:left;font-weight:600}
@@ -5246,18 +5248,24 @@ document.addEventListener('keydown', function(e) {
 
 <div class="b2l-hero">
   <div class="b2l-flag"><span style="background:#000"></span><span style="background:#d00"></span><span style="background:#fc0"></span></div>
-  <h1>Heimat ist…</h1>
-  <p>🇩🇪 走进德国 B2 · Kapitel 1 — Auswandern · Integration · Multikulturelle Gesellschaft</p>
+  <h1 id="b2l-hero-title">Heimat ist…</h1>
+  <p id="b2l-hero-sub">🇩🇪 走进德国 B2 · Kapitel 1 — Auswandern · Integration · Multikulturelle Gesellschaft</p>
 </div>
 
 <div class="b2l-select-wrap" id="b2l-toc-top">
+  <label class="b2l-select-label">📚 选择单元 / Kapitel wählen：</label>
+  <select class="b2l-article-select" id="b2l-chapter-select" onchange="b2lSwitchChapter(this.value)" style="margin-bottom:12px">
+    <option value="k1">Kapitel 1 · Auswandern · Integration · Multikulturelle Gesellschaft</option>
+    <option value="k2">Kapitel 2 · Kommunikation — Körpersprache · Mehrsprachigkeit · Smalltalk · Konflikte</option>
+        <option value="k3">Kapitel 3 · Arbeit ist das halbe Leben? — Beruf · Teamgeist · Bewerbung</option>
+  </select>
   <label class="b2l-select-label">📑 选择文章 / Artikel wählen：</label>
   <select class="b2l-article-select" id="b2l-article-select" onchange="showB2LArticle(this.value)">
     <option value="">— 全部显示 / Alle anzeigen —</option>
-    <option value="1">1 · Mein Glück in der neuen Heimat — 移居澳洲的博客</option>
-    <option value="2">2 · Ein Land, viele Sprachen — 瑞士多语言国家</option>
-    <option value="3">3 · Zu Hause in Deutschland — 三个移民肖像</option>
-    <option value="4">4 · Fatih Akin — 德土裔导演传记</option>
+    <option value="b2l-a1">1 · Mein Glück in der neuen Heimat — 移居澳洲的博客</option>
+    <option value="b2l-a2">2 · Ein Land, viele Sprachen — 瑞士多语言国家</option>
+    <option value="b2l-a3">3 · Zu Hause in Deutschland — 三个移民肖像</option>
+    <option value="b2l-a4">4 · Fatih Akin — 德土裔导演传记</option>
   </select>
 </div>
 
@@ -5293,7 +5301,7 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
-<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
 <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a1-vocab')">📚 词汇语法 (12)</button>
 <button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-a1-gram')">📖 语法：Wortstellung (语序)</button>
 <button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-a1-koll')">🔗 词汇搭配 (10)</button>
@@ -5433,7 +5441,7 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
-<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
 <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a2-vocab')">📚 词汇语法 (10)</button>
 <button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-a2-bg')">🏭 背景知识：瑞士多语言</button>
 <button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-a2-red')">💬 Redemittel：比较&观点 (8)</button>
@@ -5570,7 +5578,7 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <!-- ═══ 👤 Koko — 专属模块 ═══ -->
-<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
 <button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-vocab')">📚 👤 Koko — 词汇语法 (8)</button>
 <button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-gram')">📖 👤 Koko — 语法：Partizip II (5项)</button>
 <button class="b2l-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff" onclick="b2lToggle('b2l-a3-koko-koll')">🔗 👤 Koko — 词汇搭配 (6)</button>
@@ -5836,7 +5844,7 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
-<div style="max-width:860px;margin:0 auto 0;padding:0 0 0 4px">
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
 <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-a4-vocab')">📚 词汇语法 (16)</button>
 <button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-a4-gram')">📖 语法：Relativsatz & Partizip (5项)</button>
 <button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-a4-bg')">🏭 背景知识：Deutscher Film & Berlinale</button>
@@ -5989,28 +5997,1820 @@ document.addEventListener('keydown', function(e) {
 </div>
 </div>
 
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- Kapitel 2 · Kommunikation — Arbeitswelt · Sprachen · Konflikte   -->
+<!-- ════════════════════════════════════════════════════════════ -->
+
+<!-- ═══════════ K2 ARTICLE 1 ═══════════ -->
+<div id="b2l-k2-a1-anchor"></div>
+<div class="b2l-card" id="b2l-k2-a1">
+  <div class="b2l-card-header">📰 1 · Viele Sprachen? Kinderleicht! <span style="font-weight:400;font-size:.78rem;margin-left:auto">Simon Tauber · Mehrsprachigkeit</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Sonia Ladet ist ein gutes Beispiel für gelungene Mehrsprachigkeit.</strong> Schon mit 18 Jahren hatte sie den Wunsch, viele Sprachen zu beherrschen und viele Kulturen kennenzulernen. Und nach nicht allzu langer Zeit baute die Tochter einer Deutschen und eines Chinesen, die in Paris aufwuchs, ihren Sprachschatz auf: Sie führte Verhandlungen auf Arabisch, übersetzte auf Englisch, befragte für ihren Job als Trendforscherin Frauen auf Japanisch. Russisch hat sie schon in der Schule gelernt.<br><br>
+      Für Eltern ist es nicht leicht, fest daran zu glauben, dass das Aufwachsen mit mehreren Sprachen ein Vorteil für die eigenen Kinder ist. <strong>Warum spricht mein Kind nicht in der zweiten Sprache? Warum dauert die Sprachentwicklung länger als bei einsprachigen Kindern?</strong> Das sind Fragen, mit denen sich Eltern zweisprachiger Kinder oft herumschlagen. Oder wenn Kinder beim Spielen die fremde Sprache vermeiden, weil sie nicht anders sein wollen. Die betroffenen Eltern müssen sehr geduldig sein. <strong>Und diese Geduld kann sich im späteren Leben auch auszahlen.</strong><br><br>
+      Neben der Fähigkeit, mehrere Sprachen gut zu beherrschen, gibt es noch weitere Kompetenzen, wie <strong>Albert Costa</strong> von der Universität Barcelona beobachtet hat. Der Psychologe stellte fest, dass zweisprachige Kinder mehr Eindrücke aufnehmen und <strong>wichtige Dinge besser von unwichtigen unterscheiden</strong> können. Schon vorher konnte er nachweisen, dass Personen, die bilingual aufgewachsen waren, in einem lauten Großraumbüro bessere Konzentrationsleistungen zeigten als monolinguale Menschen.<br><br>
+      <strong>Die Forschung unterstützt Eltern, denen die Mehrsprachigkeit ihrer Kinder von Anfang an wichtig ist.</strong> Sind die Kinder noch klein, also nicht älter als drei oder vier Jahre, scheinen sie eine fremde Sprache ohne große Mühe aufzunehmen und darin zu kommunizieren. Aber schon ab vier Jahren gelingt die Konjugation der Verben nicht mehr fehlerlos. Und bereits mit acht bis zehn Jahren ist die Phase des kinderleichten Sprachenlernens vorbei — und das zu einem Zeitpunkt, zu dem Kinder normalerweise in der Schule mit dem Erlernen der ersten Fremdsprache beginnen.<br><br>
+      Damit ist Sonia Ladet ein Vorbild für die europäische Sprachenpolitik, denn momentan fällt es <strong>44 Prozent der EU-Bürger</strong> noch schwer, sich in einer Fremdsprache zu unterhalten. Daher wird in Zukunft noch stärker für das Lernen mehrerer Sprachen geworben, versprach der EU-Kommissar für Mehrsprachigkeit. Das Ziel lautet: <strong>Bereits kleine Kinder sollen mit Fremdsprachen vertraut gemacht werden.</strong> Das frühe Lernen von fremden Sprachen, also noch vor der Schule, wird daher immer häufiger diskutiert. Viele Eltern sehen darin bessere Startchancen für ihre Kinder.<br><br>
+      Es gibt aber auch kritische Stimmen: Sind Kleinkinder mit Fremdsprachen nicht überfordert? Wissenschaftler haben bewiesen, dass diese Sorge unnötig ist. Ein Blick über Europa hinaus zeigt, dass z. B. in Asien oder Afrika oft mehrere Sprachen im Alltag benutzt werden: eine Sprache in Schulen und Behörden, eine andere im Bereich des Handels und wieder andere in der Familie oder im Dorf nebenan. <strong>Unser Gehirn ist dafür angelegt, mehrere Sprachen zu lernen. Wir unterfordern Kinder, wenn wir ihnen diese Chance nicht bieten</strong>, sagt <strong>Jürgen Meisel</strong>, Sprachwissenschaftler an der Universität Hamburg.<br><br>
+      Aber wie geht Sonia Ladet eigentlich mit den vielen Sprachen um? Sie hört russische Lieder, diskutiert in englischen Polit-Foren und fragt auf Japanisch nach, was Frauen unter Schönheit verstehen. <strong>„So geht Sprachenlernen ganz leicht", sagt die Pariserin.</strong>
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Mehrsprachigkeit</strong> 多语能力 | <em>die Fähigkeit, mehrere Sprachen zu sprechen und zu verstehen</em><br>
+      • <strong>beherrschen</strong> 掌握/精通 | <em>etwas sehr gut können; eine Sprache fließend sprechen</em><br>
+      • <strong>aufwachsen (wuchs auf, ist aufgewachsen)</strong> 成长/长大 | <em>seine Kindheit an einem Ort verbringen; groß werden</em><br>
+      • <strong>die Verhandlung, -en</strong> 谈判/协商 | <em>formelles Gespräch, um eine Vereinbarung zu erzielen</em><br>
+      • <strong>befragen</strong> 询问/采访 | <em>jemandem (gezielt) Fragen stellen, um Informationen zu bekommen</em><br>
+      • <strong>der Trendforscher, - / die Trendforscherin, -nen</strong> 趋势研究员 | <em>Person, die gesellschaftliche und wirtschaftliche Entwicklungen untersucht</em><br>
+      • <strong>sich herumschlagen mit + Dat.</strong> 纠结于/与…斗争 | <em>sich lange und mühsam mit einem Problem beschäftigen müssen</em><br>
+      • <strong>vermeiden (vermied, hat vermieden)</strong> 避免/回避 | <em>etwas bewusst nicht tun; einer Sache aus dem Weg gehen</em><br>
+      • <strong>geduldig</strong> 有耐心的 | <em>ruhig und ohne Eile wartend; nicht schnell frustriert</em><br>
+      • <strong>sich auszahlen</strong> 得到回报/值得 | <em>sich später als vorteilhaft erweisen; langfristig einen Nutzen bringen</em><br>
+      • <strong>die Kompetenz, -en</strong> 能力/素养 | <em>die Fähigkeit, etwas gut zu können; erworbene Fertigkeit</em><br>
+      • <strong>der Eindruck, -¨e</strong> 印象 | <em>das Bild oder Gefühl, das man von etwas oder jemandem bekommt</em><br>
+      • <strong>unterscheiden (unterschied, hat unterschieden)</strong> 区分/辨别 | <em>den Unterschied zwischen zwei oder mehr Dingen erkennen</em><br>
+      • <strong>nachweisen (wies nach, hat nachgewiesen)</strong> 证明/证实 | <em>etwas mit Fakten oder wissenschaftlichen Methoden belegen</em>
+    </div>
+  </div>
+</div>
+
+<!-- Button row -->
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k2-a1-vocab')">📚 词汇语法 (18)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k2-a1-gram')">📖 语法解析 (4)</button>
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k2-a1-bg')">🏭 背景知识 (3)</button>
+<button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k2-a1-koll')">🔗 词汇搭配 (10)</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k2-a1-red')">💬 Redemittel (8)</button>
+<button class="b2l-btn b2l-btn-bei" onclick="b2lToggle('b2l-k2-a1-bei')">✍️ 仿写例句 (4)</button>
+
+<!-- VOCAB TABLE -->
+<div class="b2l-ans" id="b2l-k2-a1-vocab">
+<strong>📚 词汇语法 / Wortschatz & Grammatik (18)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">例句 / Beispiel</th></tr>
+<tr><td><strong>die Mehrsprachigkeit</strong></td><td>多语能力 | <em>Fähigkeit, mehrere Sprachen zu sprechen</em></td><td><em>Sonia ist ein gutes Beispiel für gelungene <strong>Mehrsprachigkeit</strong>.</em></td></tr>
+<tr><td><strong>beherrschen</strong></td><td>掌握/精通 | <em>sehr gut können</em></td><td><em>Sie wollte viele Sprachen <strong>beherrschen</strong>.</em></td></tr>
+<tr><td><strong>aufwachsen</strong><br><em>wuchs auf, ist aufgewachsen</em></td><td>成长/长大 | <em>seine Kindheit verbringen; groß werden</em></td><td><em>Sie <strong>wuchs</strong> in Paris <strong>auf</strong>.</em> ⚠️ trennbar + sein</td></tr>
+<tr><td><strong>die Verhandlung, -en</strong></td><td>谈判/协商 | <em>formelles Gespräch für Vereinbarung</em></td><td><em>Sie führte <strong>Verhandlungen</strong> auf Arabisch.</em></td></tr>
+<tr><td><strong>befragen</strong></td><td>询问/采访 | <em>gezielt Fragen stellen</em></td><td><em>Sie <strong>befragte</strong> Frauen auf Japanisch.</em></td></tr>
+<tr><td><strong>der Trendforscher, -</strong><br><em>die Trendforscherin, -nen</em></td><td>趋势研究员 | <em>jemand, der Entwicklungen untersucht</em></td><td><em>Für ihren Job als <strong>Trendforscherin</strong> reist sie viel.</em></td></tr>
+<tr><td><strong>sich herumschlagen mit</strong><br><em>schlug sich herum, hat sich herumgeschlagen</em></td><td>纠结于/与…斗争 | <em>sich mühsam beschäftigen mit</em></td><td><em>Eltern <strong>schlagen</strong> sich oft mit diesen Fragen <strong>herum</strong>.</em></td></tr>
+<tr><td><strong>vermeiden</strong><br><em>vermied, hat vermieden</em></td><td>避免/回避 | <em>bewusst nicht tun</em></td><td><em>Kinder <strong>vermeiden</strong> die fremde Sprache beim Spielen.</em></td></tr>
+<tr><td><strong>geduldig</strong></td><td>有耐心的 | <em>ruhig wartend; nicht schnell frustriert</em></td><td><em>Die Eltern müssen sehr <strong>geduldig</strong> sein.</em></td></tr>
+<tr><td><strong>sich auszahlen</strong></td><td>得到回报/值得 | <em>sich später als vorteilhaft erweisen</em></td><td><em>Diese Geduld kann <strong>sich</strong> später <strong>auszahlen</strong>.</em></td></tr>
+<tr><td><strong>die Kompetenz, -en</strong></td><td>能力/素养 | <em>erworbene Fähigkeit</em></td><td><em>Es gibt noch weitere <strong>Kompetenzen</strong>.</em></td></tr>
+<tr><td><strong>der Eindruck, -¨e</strong></td><td>印象 | <em>Bild/Gefühl von etwas</em></td><td><em>Zweisprachige Kinder nehmen mehr <strong>Eindrücke</strong> auf.</em></td></tr>
+<tr><td><strong>unterscheiden</strong><br><em>unterschied, hat unterschieden</em></td><td>区分/辨别 | <em>den Unterschied erkennen</em></td><td><em>Sie können Wichtiges von Unwichtigem <strong>unterscheiden</strong>.</em></td></tr>
+<tr><td><strong>nachweisen</strong><br><em>wies nach, hat nachgewiesen</em></td><td>证明/证实 | <em>mit Fakten belegen</em></td><td><em>Costa konnte das wissenschaftlich <strong>nachweisen</strong>.</em></td></tr>
+<tr><td><strong>bilingual</strong></td><td>双语的 | <em>zweisprachig</em></td><td><em>Menschen, die <strong>bilingual</strong> aufgewachsen sind.</em></td></tr>
+<tr><td><strong>monolingual</strong></td><td>单语的 | <em>einsprachig</em></td><td><em>... zeigten bessere Leistungen als <strong>monolinguale</strong> Menschen.</em></td></tr>
+<tr><td><strong>die Startchance, -n</strong></td><td>起步机会/起跑优势 | <em>gute Ausgangsbedingungen</em></td><td><em>Viele Eltern sehen darin bessere <strong>Startchancen</strong>.</em></td></tr>
+<tr><td><strong>jdn. mit etw. vertraut machen</strong></td><td>让某人熟悉某事 | <em>jdm. etwas näherbringen; bekannt machen</em></td><td><em>Kleine Kinder sollen mit Fremdsprachen <strong>vertraut gemacht</strong> werden.</em></td></tr>
+</table>
+</div>
+
+<!-- GRAMMAR -->
+<div class="b2l-ans" id="b2l-k2-a1-gram">
+<strong>📖 语法解析 / Grammatik (4 Schwerpunkte)</strong><br><br>
+
+<strong>1. Temporale Nebensätze mit „wenn" und „als"</strong> 时间从句<br>
+🇩🇪 <em>Formel:</em> <strong>wenn</strong> (重复/现在/将来) + Nebensatz → Verb am Ende | <strong>als</strong> (过去一次性) + Nebensatz → Verb am Ende<br>
+🇨🇳 规则：<strong>wenn</strong> 用于重复事件、现在或将来；<strong>als</strong> 仅用于过去发生的一次性事件。两者都引导从句，变位动词置末。<br>
+📖 文中例句:<br>
+<em>„<strong>Wenn</strong> Kinder beim Spielen die fremde Sprache <strong>vermeiden</strong>, müssen Eltern geduldig sein."</em> — 当孩子在玩耍时回避外语时，父母必须耐心。（重复性场景→wenn）<br>
+<em>„<strong>Als</strong> ich vor zwei Jahren diesen netten Typen <strong>kennenlernte</strong>, verliebte ich mich in Australien."</em> — 两年前认识他时（一次性→als）<br>
+⚠️ 考点：B2 写作中 wenn/als 混用是高频扣分点。口诀：过去一次 als，其余全 wenn。<br><br>
+
+<strong>2. Komparation — Vergleiche mit „als"</strong> 比较级<br>
+🇩🇪 <em>Formel:</em> Adjektiv + <strong>-er</strong> + <strong>als</strong> + Vergleichsobjekt<br>
+🇨🇳 规则：德语比较级在形容词后加 -er，然后用 als（不是 wie！）连接比较对象。<br>
+📖 文中例句:<br>
+<em>„Warum dauert die Sprachentwicklung <strong>länger als</strong> bei einsprachigen Kindern?"</em> — 为什么语言发展比单语孩子更长？<br>
+<em>„...bessere Konzentrationsleistungen <strong>als</strong> monolinguale Menschen."</em> — 比单语者更好的专注力<br>
+⚠️ 考点：德语中"比"用 als 而非 wie（英语用 than，德语用 als）。常见错误：*länger wie → 正确：länger als。<br><br>
+
+<strong>3. Partizip II als Attribut (erweitertes Attribut)</strong> 第二分词作定语<br>
+🇩🇪 <em>Formel:</em> Partizip II + Adjektivdeklination vor dem Nomen (≈ 中文"被…的")<br>
+🇨🇳 规则：Partizip II 可以像形容词一样放在名词前作定语，需要按性数格变位。常用于书面语和科学文章中。<br>
+📖 文中例句:<br>
+<em>„<strong>gelungene</strong> Mehrsprachigkeit"</em> (gelingen → gelungen) — 成功的多语能力<br>
+<em>„die <strong>betroffenen</strong> Eltern"</em> (betreffen → betroffen) — 受影响的父母<br>
+<em>„das <strong>erworbene</strong> Wissen"</em> (erwerben → erworben) — 已获得的知识<br>
+⚠️ 考点：B2 阅读理解中大量出现扩展定语，必须能识别 Partizip II + Nomen 的结构。<br><br>
+
+<strong>4. Infinitiv mit „zu" nach bestimmten Ausdrücken</strong> 带 zu 不定式<br>
+🇩🇪 <em>Formel:</em> <strong>es ist + Adj. + , … zu + Infinitiv</strong> | <strong>scheinen … zu + Infinitiv</strong><br>
+🇨🇳 规则：es ist + 形容词 + zu 不定式 表示客观评价（≈ 中文"做某事是…的"）；scheinen zu 表示"似乎/看起来"。<br>
+📖 文中例句:<br>
+<em>„Für Eltern <strong>ist es nicht leicht,</strong> fest daran <strong>zu glauben</strong>…"</em> — 对父母来说，坚信…并不容易<br>
+<em>„…<strong>scheinen</strong> sie eine fremde Sprache ohne große Mühe <strong>aufzunehmen</strong>."</em> — 他们似乎毫不费力地吸收外语<br>
+<em>„…momentan <strong>fällt es</strong> 44 Prozent der EU-Bürger noch <strong>schwer,</strong> sich in einer Fremdsprache <strong>zu unterhalten</strong>."</em> — 目前44%的欧盟公民仍难以用外语交流<br>
+⚠️ 考点：es + Adj. + zu-Infinitiv 是 B2 写作核心句型（表达观点/评价）。注意：可分动词的 zu 插在中间（aufzunehmen, nicht: *zu aufnehmen）。
+</div>
+
+<!-- BACKGROUND -->
+<div class="b2l-ans" id="b2l-k2-a1-bg">
+<strong>🏭 背景知识 / Hintergrundwissen (3)</strong><br><br>
+
+<div class="b2l-bg-card" style="background:#e8f5e9">
+<strong style="color:#1a5a2a">🇪🇺 EU-Sprachenpolitik & „Muttersprache + 2"</strong><br>
+🇩🇪 Die EU verfolgt das Ziel „Muttersprache + zwei weitere Sprachen" (Barcelona-Prinzip, 2002). Jeder EU-Bürger soll neben seiner Muttersprache mindestens zwei Fremdsprachen beherrschen. Derzeit erreichen nur etwa 54% der EU-Bürger dieses Ziel. Der EU-Kommissar für Mehrsprachigkeit wirbt daher aktiv für frühes Sprachenlernen — am besten noch vor Schulbeginn.<br>
+🇨🇳 欧盟推行"母语+2"目标（2002巴塞罗那原则）：每位公民除母语外应至少掌握两门外语。目前仅约54%达到。欧盟多语专员积极倡导学前外语启蒙。
+</div>
+
+<div class="b2l-bg-card" style="background:#fff3e0">
+<strong style="color:#e65100">🧠 Albert Costa & Jürgen Meisel — 双语研究先驱</strong><br>
+🇩🇪 <strong>Albert Costa</strong> (1970-2018), Psychologe an der Universität Barcelona, erforschte die kognitiven Vorteile von Bilingualismus. Seine Studien zeigten: Zweisprachige Kinder können Relevantes besser von Irrelevantem trennen und haben bessere Konzentrationsfähigkeit. <strong>Jürgen Meisel</strong> (*1944), Sprachwissenschaftler an der Universität Hamburg, forscht zum kindlichen Spracherwerb. Seine These: Das Gehirn ist biologisch auf Mehrsprachigkeit angelegt — wir unterfordern Kinder, wenn wir ihnen nur eine Sprache anbieten.<br>
+🇨🇳 Albert Costa（巴塞罗那大学）研究双语认知优势——双语儿童更能区分主次信息、专注力更强。Jürgen Meisel（汉堡大学）研究儿童语言习得，核心观点：大脑天然为多语而设计——只给一种语言反而是对孩子潜力的浪费。
+</div>
+
+<div class="b2l-bg-card" style="background:#e3f2fd">
+<strong style="color:#1565c0">🌍 Mehrsprachigkeit weltweit — Europa ist die Ausnahme</strong><br>
+🇩🇪 Weltweit ist Mehrsprachigkeit der Normalfall, nicht die Ausnahme. In vielen Regionen Asiens und Afrikas wachsen Kinder ganz selbstverständlich mit drei oder mehr Sprachen auf: eine Schul- und Behördensprache, eine Handelssprache und eine oder mehrere Familiensprachen. In Indien z. B. sind oft Hindi, Englisch und eine Regionalsprache Alltag. Europa mit seinen vielen einsprachigen Nationalstaaten ist global betrachtet eher die Ausnahme.<br>
+🇨🇳 在全球范围内，多语才是常态而非例外。亚非很多地区孩子天然习得三四种语言：学校官方语+商业交易语+家庭方言。印度日常使用印地语、英语和一种地方语言。欧洲的单一民族语言国家反而是全球特例。
+</div>
+</div>
+
+<!-- KOLLOKATIONEN -->
+<div class="b2l-ans" id="b2l-k2-a1-koll">
+<strong>🔗 词汇搭配 / Kollokationen (10)</strong>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">搭配 / Kollokation</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">例句 / Beispiel</th></tr>
+<tr><td><strong>eine Sprache beherrschen</strong></td><td>掌握一门语言 | <em>fließend können</em></td><td><em>Sie <strong>beherrscht</strong> sechs <strong>Sprachen</strong>.</em></td></tr>
+<tr><td><strong>Verhandlungen führen</strong></td><td>进行谈判 ⚠️ 固定搭配</td><td><em>Sie <strong>führte Verhandlungen</strong> auf Arabisch.</em></td></tr>
+<tr><td><strong>Sprachschatz aufbauen</strong></td><td>积累语言储备</td><td><em>Sie baute ihren <strong>Sprachschatz</strong> schnell <strong>auf</strong>.</em></td></tr>
+<tr><td><strong>in einer Sprache kommunizieren</strong></td><td>用某语言交流</td><td><em>Kinder <strong>kommunizieren</strong> mühelos <strong>in</strong> der neuen <strong>Sprache</strong>.</em></td></tr>
+<tr><td><strong>sich mit Fragen herumschlagen</strong></td><td>纠结于问题 | <em>sich lange plagen mit</em></td><td><em>Eltern <strong>schlagen sich</strong> oft <strong>mit</strong> diesen <strong>Fragen herum</strong>.</em></td></tr>
+<tr><td><strong>jdn. mit etw. vertraut machen</strong></td><td>让某人熟悉某事</td><td><em>Kinder sollen mit Sprachen <strong>vertraut gemacht</strong> werden.</em></td></tr>
+<tr><td><strong>Eindrücke aufnehmen</strong></td><td>吸收印象/信息</td><td><em>Bilinguale Kinder <strong>nehmen</strong> mehr <strong>Eindrücke auf</strong>.</em></td></tr>
+<tr><td><strong>Startchancen verbessern</strong></td><td>改善起步机会</td><td><em>Frühes Lernen <strong>verbessert</strong> die <strong>Startchancen</strong>.</em></td></tr>
+<tr><td><strong>eine Chance bieten</strong></td><td>提供机会</td><td><em>Wir müssen Kindern diese <strong>Chance bieten</strong>.</em></td></tr>
+<tr><td><strong>mit Sprachen umgehen</strong><br><em>ging um, ist umgegangen</em></td><td>处理/应对多语言 | <em>zurechtkommen mit</em></td><td><em>Wie <strong>geht</strong> Sonia mit den vielen Sprachen <strong>um</strong>?</em></td></tr>
+</table>
+</div>
+
+<!-- REDEMITTEL -->
+<div class="b2l-ans" id="b2l-k2-a1-red">
+<strong>💬 Redemittel：观点表达与论证 / Meinung äußern & argumentieren (8)</strong>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">功能 / Funktion</th><th style="background:#1a3a5c;color:#fde68a">🇩🇪 Redemittel</th><th style="background:#1a3a5c;color:#fde68a">🇨🇳 中文</th></tr>
+<tr><td rowspan="2"><strong>💭 表达观点</strong><br>Meinung äußern</td><td><em>Ich bin der Meinung, dass frühes Sprachenlernen viele Vorteile bringt.</em></td><td>我认为早期学语言好处多</td></tr>
+<tr><td><em>Meiner Auffassung nach sollten Kinder so früh wie möglich mit Fremdsprachen in Kontakt kommen.</em></td><td>依我看孩子应尽早接触外语</td></tr>
+<tr><td rowspan="2"><strong>📊 引用研究</strong><br>Forschung zitieren</td><td><em>Studien haben gezeigt, dass zweisprachige Kinder kognitive Vorteile haben.</em></td><td>研究表明双语儿童有认知优势</td></tr>
+<tr><td><em>Wissenschaftler haben nachgewiesen, dass das Gehirn für Mehrsprachigkeit angelegt ist.</em></td><td>科学家证明大脑天然适应多语</td></tr>
+<tr><td rowspan="2"><strong>⚖️ 权衡利弊</strong><br>Abwägen</td><td><em>Einerseits fördert Mehrsprachigkeit die kognitive Entwicklung, andererseits kann sie die Sprachentwicklung vorübergehend verlangsamen.</em></td><td>一方面…另一方面…</td></tr>
+<tr><td><em>Es stimmt zwar, dass …, aber die langfristigen Vorteile überwiegen.</em></td><td>虽然…没错，但长期优势更大</td></tr>
+<tr><td rowspan="2"><strong>💡 举例说明</strong><br>Beispiele nennen</td><td><em>Ein gutes Beispiel dafür ist Sonia Ladet, die sechs Sprachen beherrscht.</em></td><td>一个好例子是掌握六语的Sonia</td></tr>
+<tr><td><em>Man denke nur an Länder wie Indien oder die Schweiz, wo Mehrsprachigkeit Alltag ist.</em></td><td>想想印度或瑞士等多语日常国家</td></tr>
+</table>
+</div>
+
+<!-- BEISPIELE -->
+<div class="b2l-ans" id="b2l-k2-a1-bei">
+<strong>✍️ 仿写例句 / Beispielsätze zum Nachbauen (4 Muster)</strong><br><br>
+
+<strong>🔹 Muster 1: 表达"对某人而言…不容易"</strong><br>
+🇩🇪 <em><strong>Für Eltern ist es nicht leicht,</strong> fest daran zu glauben, dass Mehrsprachigkeit ein Vorteil ist.</em><br>
+🇨🇳 对父母来说，坚信多语能力是一种优势并不容易<br>
+👉 <em>Nachbau: Für ___ ist es nicht leicht, ___ zu ___.</em><br>
+✅ <em>Für viele Lernende ist es nicht leicht, die deutsche Grammatik zu verstehen.</em><br><br>
+
+<strong>🔹 Muster 2: 引用研究结论</strong><br>
+🇩🇪 <em><strong>Wissenschaftler haben nachgewiesen, dass</strong> zweisprachige Kinder bessere Konzentrationsleistungen zeigen.</em><br>
+🇨🇳 科学家已经证明，双语儿童表现出更好的专注力<br>
+👉 <em>Nachbau: Forscher/Studien haben ___, dass ___.</em><br>
+✅ <em>Studien haben bestätigt, dass regelmäßige Bewegung die Lernfähigkeit verbessert.</em><br><br>
+
+<strong>🔹 Muster 3: 时间节点 + 状态转变</strong><br>
+🇩🇪 <em><strong>Bereits ab vier Jahren</strong> gelingt die Konjugation der Verben nicht mehr fehlerlos.</em><br>
+🇨🇳 从四岁开始，动词变位就不再完全正确<br>
+👉 <em>Nachbau: Bereits ab ___ (Alter) ___ (Verb) ___.</em><br>
+✅ <em>Bereits ab sechs Jahren können Kinder einfache Sätze in einer Fremdsprache bilden.</em><br><br>
+
+<strong>🔹 Muster 4: 用反问引出讨论</strong><br>
+🇩🇪 <em><strong>Sind Kleinkinder mit Fremdsprachen nicht überfordert?</strong> Diese Sorge ist verständlich, aber unnötig.</em><br>
+🇨🇳 幼儿学外语难道不会负担过重吗？这种担忧可以理解，但是多余的<br>
+👉 <em>Nachbau: Sind ___ nicht ___? Diese Sorge/Frage ist ___, aber ___.</em><br>
+✅ <em>Sind Ganztagsschulen nicht zu anstrengend für Kinder? Diese Frage stellen sich viele Eltern, aber Studien zeigen positive Effekte.</em>
+</div>
+
+</div>
+
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ K2 ARTICLE 2 ═══════════ -->
+<div id="b2l-k2-a2-anchor"></div>
+<div class="b2l-card" id="b2l-k2-a2">
+  <div class="b2l-card-header">📰 2 · Smalltalk & Sprachen-Debatte <span style="font-weight:400;font-size:.78rem;margin-left:auto">Kommunikation im Alltag</span></div>
+  <div class="b2l-card-body">
+
+    <!-- ═══ TEIL A: Smalltalk ═══ -->
+    <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:8px;padding:10px 16px;margin-bottom:18px;color:#0a1428;font-weight:700;font-size:.88rem">
+      🎙️ Teil A &nbsp;·&nbsp; Smalltalk — Die Kunst der kleinen Worte
+    </div>
+
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>„Smalltalk? Das kann ich nicht. Ich hasse es."</strong> — Diesen Satz hört man oft. Viele Menschen empfinden Smalltalk als oberflächlich, langweilig oder sogar als Zeitverschwendung. Manche fühlen sich unwohl, wenn sie mit Fremden über scheinbar banale Dinge sprechen sollen. Doch Smalltalk ist weit mehr als nur ein harmloses Geplauder über das Wetter: Es ist ein <strong>soziales Werkzeug</strong>, das Türen öffnet, Beziehungen aufbaut und Vertrauen schafft.<br><br>
+
+      In einer Radiosendung hat <strong>Frau Dr. Witter</strong>, Kommunikationsexpertin, erklärt, warum wir Smalltalk nicht unterschätzen sollten und wie man die Kunst der kleinen Worte meistern kann.<br><br>
+
+      <strong>Orte für Smalltalk.</strong> Es gibt unzählige Situationen, in denen Smalltalk stattfindet: auf Partys und bei Familienfeiern, im Fahrstuhl, beim Friseur oder beim Zahnarzt, an der Bushaltestelle oder in der Bahn, bei Geschäftstreffen oder Konferenzen, aber auch ganz alltäglich im Supermarkt oder im Treppenhaus. Dr. Witter betonte: <strong>„Smalltalk kann überall passieren, wo Menschen für kurze Zeit zusammenkommen."</strong><br><br>
+
+      <strong>Gesprächspartner als Basis.</strong> Wer sind die typischen Smalltalk-Partner? Das können Kollegen sein, die man nur flüchtig kennt, Nachbarn, die man im Hausflur trifft, Bekannte auf einer Feier oder vollkommen Fremde, mit denen man zufällig ins Gespräch kommt. Die Gemeinsamkeit: Man teilt eine <strong>Situation</strong>, wenn auch nur für wenige Minuten. Dr. Witter erklärte, dass genau diese gemeinsame Situation die Grundlage für ein lockeres Gespräch bildet.<br><br>
+
+      <strong>Funktion von Smalltalk.</strong> Warum betreiben wir Smalltalk überhaupt? Seine Hauptfunktion ist es, eine <strong>angenehme soziale Atmosphäre</strong> zu schaffen. Er dient als Eisbrecher, bevor man zu ernsteren Themen übergeht. Er signalisiert dem Gegenüber: <strong>„Ich bin freundlich und kooperativ."</strong> Smalltalk reduziert Spannungen, überbrückt peinliche Stille und kann im beruflichen Kontext sogar Karrieretüren öffnen. Kurz gesagt: Smalltalk ist sozialer Kitt.<br><br>
+
+      <strong>Entspannt bleiben.</strong> Der wichtigste Tipp von Frau Dr. Witter: <strong>„Verkrampfen Sie nicht!"</strong> Wer zu sehr darüber nachdenkt, was er sagen soll, macht sich selbst unnötig Druck. Smalltalk lebt von Leichtigkeit und Spontaneität. Wenn Sie sich entspannen, wird auch Ihr Gegenüber lockerer. Die Expertin riet dazu, Smalltalk nicht als Prüfung zu sehen, sondern als Spiel — mit einfachen Regeln, die jeder lernen kann.<br><br>
+
+      <strong>Gründe für die Ablehnung.</strong> Warum lehnen viele Menschen Smalltalk ab? Die Gründe sind vielfältig:
+    </p>
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>1. Oberflächlichkeit:</strong> Smalltalk wird oft als inhaltsleer empfunden. Man spricht über Belangloses, statt über das, was wirklich zählt.<br>
+      <strong>2. Kulturelle Unterschiede:</strong> In manchen Kulturen, wie z. B. in Deutschland, wird Direktheit und Tiefe geschätzt. Smalltalk gilt schnell als unehrlich.<br>
+      <strong>3. Unbehagen und Unsicherheit:</strong> Viele Menschen wissen einfach nicht, was sie sagen sollen. Sie haben Angst vor peinlichen Pausen.<br>
+      <strong>4. Zeitverschwendung:</strong> Besonders im Berufsleben empfinden manche Smalltalk als ineffizient — man könnte die Zeit ja für Wichtigeres nutzen.<br>
+      <strong>5. Introversion:</strong> Introvertierte Menschen fühlen sich bei Smalltalk oft unwohl, weil sie gezwungen sind, mit Fremden zu interagieren.
+    </p>
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Dr. Witter wies jedoch darauf hin, dass diese ablehnende Haltung oft auf Missverständnissen beruhe. <strong>„Guter Smalltalk ist keineswegs oberflächlich</strong> — er ist ein Türöffner. Wer die Tür nicht öffnet, wird nie eintreten."<br><br>
+
+      <strong>Sieben Tipps für guten Smalltalk.</strong> Im zweiten Teil der Sendung gab Frau Dr. Witter folgende praktische Ratschläge:<br>
+      <strong>1. Wählen Sie ein Thema, das Ihnen sofort einfällt.</strong> Zerbrechen Sie sich nicht den Kopf! Spontane Themen wirken natürlicher als lange überlegte Gesprächseinstiege.<br>
+      <strong>2. Entdecken Sie Ihr Talent.</strong> Jeder hat Themen, über die er gerne spricht. Finden Sie heraus, worin Ihr persönliches Smalltalk-Talent liegt — sei es Humor, Empathie oder Neugier auf andere Menschen.<br>
+      <strong>3. Fragen Sie nicht direkt nach der beruflichen Tätigkeit.</strong> In manchen Kulturen, besonders in Deutschland, wird die Frage „Was machen Sie beruflich?" als zu direkt empfunden. Es gibt angenehmere Gesprächseinstiege.<br>
+      <strong>4. Sie sollten in der Lage sein, etwas Komisches zu sagen.</strong> Ein bisschen Humor lockert jede Situation. Es muss kein Witz sein — eine kleine ironische Bemerkung über die Situation reicht oft schon aus.<br>
+      <strong>5. Fragen Sie Ihr Gegenüber nach Hobbys.</strong> Menschen sprechen gerne über ihre Leidenschaften. Ob Kochen, Reisen, Sport oder Musik — die meisten haben ein Thema, bei dem sie aufblühen.<br>
+      <strong>6. Zeigen Sie Interesse an Ihrem Gegenüber.</strong> Echtes Interesse spürt man sofort. Stellen Sie offene Fragen und hören Sie aufmerksam zu. Wer nur darauf wartet, selbst zu sprechen, wird kein guter Smalltalk-Partner sein.<br>
+      <strong>7. Sprechen Sie über das Wetter, wenn Sie auf Nummer sicher gehen wollen.</strong> Ja, es ist ein Klischee — aber das Wetter ist das universellste und neutralste Thema überhaupt. Es ist ein sicherer Einstieg, der fast nie scheitert.
+    </p>
+
+    <!-- ═══ TEIL B: Blog-Kommentare ═══ -->
+    <div style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);border-radius:8px;padding:10px 16px;margin:24px 0 18px;color:#1a237e;font-weight:700;font-size:.88rem">
+      💬 Teil B &nbsp;·&nbsp; Blog-Kommentare: Sollten Kinder früh Fremdsprachen lernen?
+    </div>
+
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      Ein Online-Artikel über die Vorteile des frühen Fremdsprachenlernens hat eine <strong>lebhafte Debatte</strong> ausgelöst. Fünf Leser haben ihre Meinung in den Kommentaren geäußert — und sind sich keineswegs einig. Lesen Sie die kontroversen Beiträge:
+    </p>
+
+    <!-- Kommentar 1: Monika -->
+    <div style="background:#fafafa;border-left:4px solid #7c3aed;border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:#7c3aed;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem">M</span>
+        <div>
+          <strong style="color:#5b21b6;font-size:.92rem">Monika</strong>
+          <span style="color:#9ca3af;font-size:.78rem;margin-left:8px">17.07. &nbsp;16:30 Uhr</span>
+        </div>
+      </div>
+      <p style="font-family:Georgia,serif;font-size:.9rem;line-height:1.75;text-align:justify;margin:0;color:#374151">
+        🇩🇪 <em>„Die meisten Familien sind doch einsprachig. Das ist kein Defizit und sollte kein Nachteil für die Kinder sein."</em><br>
+        🇨🇳 "大多数家庭本来就是单语的。这不是缺陷，也不应该成为孩子的劣势。"
+      </p>
+    </div>
+
+    <!-- Kommentar 2: Tabea -->
+    <div style="background:#fafafa;border-left:4px solid #db2777;border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:#db2777;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem">T</span>
+        <div>
+          <strong style="color:#be185d;font-size:.92rem">Tabea</strong>
+          <span style="color:#9ca3af;font-size:.78rem;margin-left:8px">13.07. &nbsp;12:56 Uhr</span>
+        </div>
+      </div>
+      <p style="font-family:Georgia,serif;font-size:.9rem;line-height:1.75;text-align:justify;margin:0;color:#374151">
+        🇩🇪 <em>„Die Tochter einer Bekannten ist vier Jahre alt. Nach dem Kindergarten geht sie zum Ballett und übt Klavier. Jetzt kommt noch eine Trainerin nach Hause und singt und spielt mit ihr — auf Chinesisch! Das ist doch zu viel. Kinder sollten selbst aussuchen dürfen, was und wie sie spielen."</em><br>
+        🇨🇳 "我认识一个人，她女儿才四岁。幼儿园之后去跳芭蕾、练钢琴。现在又有一个老师来家里，跟她唱歌玩耍——用中文！这太过分了。孩子应该有权自己选择玩什么、怎么玩。"
+      </p>
+    </div>
+
+    <!-- Kommentar 3: Robert -->
+    <div style="background:#fafafa;border-left:4px solid #059669;border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:#059669;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem">R</span>
+        <div>
+          <strong style="color:#047857;font-size:.92rem">Robert</strong>
+          <span style="color:#9ca3af;font-size:.78rem;margin-left:8px">12.07. &nbsp;18:12 Uhr</span>
+        </div>
+      </div>
+      <p style="font-family:Georgia,serif;font-size:.9rem;line-height:1.75;text-align:justify;margin:0;color:#374151">
+        🇩🇪 <em>„Wenn Kinder mehrere Sprachen von den Eltern lernen, dann ist das ganz normal und alltäglich. Das passiert ganz nebenbei. Englisch im Kindergarten ist aber keine natürliche Situation und kann für manche Kinder schon Stress sein."</em><br>
+        🇨🇳 "如果孩子从父母那里学多种语言，那是很正常的日常行为，自然而然地发生。但幼儿园里学英语不是自然情境，对某些孩子来说可能已经是压力了。"
+      </p>
+    </div>
+
+    <!-- Kommentar 4: Haymo -->
+    <div style="background:#fafafa;border-left:4px solid #d97706;border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:#d97706;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem">H</span>
+        <div>
+          <strong style="color:#b45309;font-size:.92rem">Haymo</strong>
+          <span style="color:#9ca3af;font-size:.78rem;margin-left:8px">11.06. &nbsp;22:46 Uhr</span>
+        </div>
+      </div>
+      <p style="font-family:Georgia,serif;font-size:.9rem;line-height:1.75;text-align:justify;margin:0;color:#374151">
+        🇩🇪 <em>„In unserer Straße spielen unsere Kinder mit Kindern, die auch andere Muttersprachen sprechen. Sollen meine Kinder jetzt die anderen Sprachen lernen? Da lernen sie vier Sprachen nur ein bisschen und keine davon richtig."</em><br>
+        🇨🇳 "我们街上，孩子们跟那些说其他母语的孩子一起玩。我的孩子现在要去学那些语言吗？那样的话，他们四种语言都只学一点点，哪种都学不好。"
+      </p>
+    </div>
+
+    <!-- Kommentar 5: Patrizia -->
+    <div style="background:#fafafa;border-left:4px solid #2563eb;border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:#2563eb;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem">P</span>
+        <div>
+          <strong style="color:#1d4ed8;font-size:.92rem">Patrizia</strong>
+          <span style="color:#9ca3af;font-size:.78rem;margin-left:8px">09.07. &nbsp;18:43 Uhr</span>
+        </div>
+      </div>
+      <p style="font-family:Georgia,serif;font-size:.9rem;line-height:1.75;text-align:justify;margin:0;color:#374151">
+        🇩🇪 <em>„Alles schön und gut mit dem kindlichen Lernen von Fremdsprachen. Man kann aber eine Fremdsprache erst richtig beherrschen, wenn man sie auch lesen und schreiben kann. Und das lernt man vor der Schule eben noch nicht."</em><br>
+        🇨🇳 "儿童学外语，说起来都很好。但一门外语要真正掌握，得能读能写才行。而学龄前孩子根本还没学这些呢。"
+      </p>
+    </div>
+
+    <!-- Lernwortschatz -->
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Smalltalk</strong> 寒暄/闲聊 | <em>leichtes, unverbindliches Gespräch</em><br>
+      • <strong>oberflächlich</strong> 肤浅的/表面的 | <em>nicht tiefgehend; ohne Tiefgang</em><br>
+      • <strong>die Zeitverschwendung, -en</strong> 浪费时间 | <em>unnütze Verwendung der Zeit</em><br>
+      • <strong>der Gesprächspartner, -</strong> 交谈对象 | <em>Person, mit der man spricht</em><br>
+      • <strong>das Gegenüber</strong> 对面的人/对方 | <em>die Person, die einem gegenübersitzt/steht</em><br>
+      • <strong>der Eisbrecher, -</strong> 破冰者/开场白 | <em>etwas, das eine unangenehme Situation auflockert</em><br>
+      • <strong>auf Nummer sicher gehen</strong> 求稳/保险起见 | <em>kein Risiko eingehen</em><br>
+      • <strong>die Leichtigkeit</strong> 轻松/轻盈 | <em>ohne Anstrengung; beschwingt</em><br>
+      • <strong>inhaltsleer</strong> 空洞无物的 | <em>ohne bedeutenden Inhalt</em><br>
+      • <strong>missverstehen (missverstand, hat missverstanden)</strong> 误解 | <em>falsch verstehen; nicht trennbar</em><br>
+      • <strong>die Leidenschaft, -en</strong> 热情/酷爱 | <em>starke Begeisterung für etwas</em><br>
+      • <strong>aufblühen (blühte auf, ist aufgeblüht)</strong> 焕发光彩/活跃起来 | <em>lebendig und glücklich werden; trennbar</em><br>
+      • <strong>die Debatte, -n</strong> 辩论 | <em>lebhafte Diskussion; Auseinandersetzung</em><br>
+      • <strong>einsprachig</strong> 单语的 | <em>nur eine Sprache sprechend (↔ mehrsprachig)</em><br>
+      • <strong>das Defizit, -e</strong> 缺陷/赤字 | <em>Mangel; Fehlbetrag</em><br>
+      • <strong>eine Fremdsprache beherrschen</strong> 掌握一门外语 | <em>eine Sprache sehr gut können</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+  <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k2-a2-vocab')">📚 词汇语法 (16)</button>
+  <button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k2-a2-gram')">📖 语法：Das Wort "es"</button>
+  <button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k2-a2-bg')">🏭 背景知识</button>
+  <button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k2-a2-koll')">🔗 词汇搭配 (10)</button>
+  <button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k2-a2-red')">💬 Redemittel：Argumente (12)</button>
+
+  <!-- ═══ 词汇语法 ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a2-vocab">
+  <strong>📚 词汇语法 (16)</strong><br><br>
+  <strong>🎙️ Smalltalk：</strong><br>
+  • <strong>der Smalltalk</strong> = 寒暄/闲聊 | <em>unverbindliches Alltagsgespräch</em><br>
+  • <strong>oberflächlich</strong> = 肤浅的 | <em>nicht tiefgehend</em><br>
+  • <strong>die Zeitverschwendung, -en</strong> = 浪费时间<br>
+  • <strong>der Gesprächspartner, -</strong> = 交谈对象<br>
+  • <strong>das Gegenüber</strong> = 对方（不变格）<br>
+  • <strong>der Eisbrecher, -</strong> = 破冰者 | ⚠️ <em>von „das Eis brechen"</em><br>
+  • <strong>auf Nummer sicher gehen</strong> = 求稳/保险起见<br>
+  • <strong>die Leichtigkeit</strong> = 轻松<br>
+  • <strong>inhaltsleer</strong> = 空洞无物的<br>
+  • <strong>missverstehen (missverstand, hat missverstanden)</strong> = 误解 | ⚠️ <em>nicht trennbar!</em><br>
+  • <strong>die Leidenschaft, -en</strong> = 热情<br>
+  • <strong>aufblühen (blühte auf, ist aufgeblüht)</strong> = 焕发光彩 | ⚠️ <em>trennbar + sein</em><br><br>
+  <strong>💬 Blog-Debatte：</strong><br>
+  • <strong>die Debatte, -n</strong> = 辩论 | <em>Synonym: die Diskussion</em><br>
+  • <strong>einsprachig</strong> = 单语的 | ↔ <em>mehrsprachig (多语的)</em><br>
+  • <strong>das Defizit, -e</strong> = 缺陷/赤字<br>
+  • <strong>eine Fremdsprache beherrschen</strong> = 掌握一门外语
+  </div>
+
+  <!-- ═══ 语法：Das Wort "es" ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a2-gram">
+  <strong>📖 语法：Das Wort "es" — 一个小词，多种功能</strong><br><br>
+
+  <strong>1. „es" als unpersönliches Subjekt（无人称主语）</strong><br>
+  🇩🇪 Bei Wetter, Temperatur und Naturphänomenen steht „es" als formales Subjekt. Es bezeichnet keine Person oder Sache.<br>
+  🇨🇳 天气、温度、自然现象中，"es"作形式主语，不指代任何具体人或物。<br>
+  📖 <em>„Heute ist es aber wieder heiß!"</em> — 今天又热起来了！<br>
+  📖 <em>„Es schneit seit gestern Abend."</em> — 从昨晚开始一直在下雪。<br>
+  📖 <em>„Regnet es bei Ihnen auch so oft?"</em> — 您那里也经常下雨吗？<br>
+  📖 <em>„Endlich wird es wieder wärmer."</em> — 终于又变暖了。<br>
+  📖 <em>„Es bleibt die nächsten Tage kühl."</em> — 接下来几天保持凉爽。<br>
+  📖 <em>„Morgen soll es sogar regnen."</em> — 明天据说甚至会下雨。<br>
+  ⚠️ 考点：天气动词（regnen, schneien, donnern 等）必须带 „es", 不能省略！<br><br>
+
+  <strong>2. „es" als Platzhalter（占位词）</strong><br>
+  🇩🇪 Bei festen Wendungen wie <em>es gibt</em> (有/存在) oder <em>es geht um</em> (关系到/涉及) steht „es" obligatorisch.<br>
+  🇨🇳 固定搭配中"es"必须出现。<br>
+  📖 <em>„Es gibt unzählige Situationen für Smalltalk."</em> — 有无数的寒暄场合。<br>
+  📖 <em>„Es geht um die Frage, ob Kinder früh Sprachen lernen sollten."</em> — 这关系到孩子是否应该早学语言的问题。<br><br>
+
+  <strong>3. „es" als Korrelat（关联词，指代 dass-Satz / Infinitivsatz）</strong><br>
+  🇩🇪 <em>es</em> kann auf einen nachfolgenden <em>dass</em>-Satz oder Infinitivsatz vorausweisen. Im Gegensatz zum Platzhalter ist es hier meist <strong>weglaßbar</strong>, wenn der Nebensatz auf Position 1 steht.<br>
+  🇨🇳 "es"可预指后置的 dass 从句或不定式从句。当从句在句首时，"es"通常可省略。<br>
+  📖 <em>„Ich hasse es, Smalltalk zu führen."</em> → <em>Smalltalk zu führen, hasse ich.</em><br>
+  📖 <em>„Viele empfinden es als anstrengend, mit Fremden zu sprechen."</em> — 很多人觉得和陌生人说话很累。<br>
+  ⚠️ 考点：某些动词（如 lieben, hassen, begrüßen, bedauern）的 Korrelat-„es" 在口语中常保留，即使从句前置。<br><br>
+
+  <strong>4. „es" im Passiversatz（被动替代）</strong><br>
+  🇩🇪 Mit <em>es</em> + <em>sich lassen</em> kann man eine passive Bedeutung ausdrücken.<br>
+  🇨🇳 "es lässt sich" 结构表达被动含义，相当于 "man kann"。<br>
+  📖 <em>„Es lässt sich nicht leugnen, dass Smalltalk nützlich ist."</em> — 不可否认，寒暄是有用的。<br><br>
+
+  <strong>📌 Zusammenfassung（小结）</strong>
+  <table>
+  <tr><th>Funktion</th><th>🇩🇪 Beispiel</th><th>🇨🇳</th></tr>
+  <tr><td><strong>Unpersönliches Subjekt</strong></td><td><em>Es regnet. / Es ist kalt.</em></td><td>天气/自然现象</td></tr>
+  <tr><td><strong>Platzhalter (obligatorisch)</strong></td><td><em>Es gibt … / Es geht um …</em></td><td>固定搭配，不可省略</td></tr>
+  <tr><td><strong>Korrelat (weglaßbar)</strong></td><td><em>Ich liebe es, zu reisen.</em></td><td>指代 dass/Infinitiv 从句</td></tr>
+  <tr><td><strong>Passiversatz</strong></td><td><em>Es lässt sich machen.</em></td><td>= Man kann es machen.</td></tr>
+  </table>
+  </div>
+
+  <!-- ═══ 背景知识 ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a2-bg">
+  <strong>🏭 背景知识</strong><br><br>
+
+  <div class="b2l-bg-card" style="background:#fff3e0">
+  <strong style="color:#e65100">🌍 Smalltalk in verschiedenen Kulturen</strong><br>
+  🇩🇪 In Deutschland ist Smalltalk weniger verbreitet als in den USA oder Großbritannien. Deutsche schätzen oft Direktheit und Tiefgang — ein Gespräch über das Wetter kann als oberflächlich gelten. In angelsächsischen Ländern hingegen ist Smalltalk ein fester Bestandteil der Höflichkeitskultur: „How are you?" ist dort eine Begrüßungsformel, keine echte Frage. In asiatischen Kulturen wie China oder Japan beginnt ein Gespräch oft mit indirekten Themen, um das Gesicht des Gegenübers zu wahren. Wer international arbeitet, sollte diese kulturellen Unterschiede kennen.<br>
+  🇨🇳 在德国，寒暄文化不如美国或英国普遍。德国人常看重直接和深度——聊天气可能被视为肤浅。而在英美国家，寒暄是礼貌文化的固定组成部分："How are you?" 是问候语，不是真正的问题。在中国或日本等亚洲文化中，谈话常从间接话题入手，以保全对方面子。跨国工作的人应该了解这些文化差异。
+  </div>
+
+  <div class="b2l-bg-card" style="background:#e8eaf6">
+  <strong style="color:#283593">🇪🇺 EU-Sprachenpolitik: „Muttersprache plus zwei"</strong><br>
+  🇩🇪 Die Europäische Union verfolgt das Ziel, dass jede EU-Bürgerin und jeder EU-Bürger neben der Muttersprache <strong>zwei weitere Sprachen</strong> beherrscht. Dieses Konzept heißt <strong>„Muttersprache plus zwei"</strong> und wurde 2002 vom Europäischen Rat in Barcelona beschlossen. Hintergrund: Mehrsprachigkeit soll die Mobilität im europäischen Arbeitsmarkt fördern und das gegenseitige Verständnis der Kulturen vertiefen. Viele EU-Länder haben daraufhin den Fremdsprachenunterricht in der Grundschule eingeführt oder ausgeweitet. Die Debatte, ob Kinder schon im Kindergarten mit einer Fremdsprache beginnen sollten, ist jedoch bis heute kontrovers.<br>
+  🇨🇳 欧盟奉行"母语+两门"目标：每个欧盟公民除了母语外应掌握两门外语。2002年巴塞罗那欧盟理事会通过该决议。背景：多语能力应促进欧洲劳动力市场的流动性并加深文化间的相互理解。许多欧盟国家随后引入或扩大了小学外语教学。但关于孩子是否应该在幼儿园就开始学外语的争论至今仍很激烈。
+  </div>
+  </div>
+
+  <!-- ═══ 词汇搭配 (10) ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a2-koll">
+  <strong>🔗 词汇搭配 / Kollokationen (10)</strong>
+  <table>
+  <tr><th>#</th><th>🇩🇪 Kollokation</th><th>🇨🇳 中文</th><th>📖 Beispiel</th></tr>
+  <tr><td>1</td><td><strong>ins Gespräch kommen</strong></td><td>开始交谈</td><td><em>Im Fahrstuhl kam ich mit einer netten Kollegin ins Gespräch.</em></td></tr>
+  <tr><td>2</td><td><strong>ein Thema anschneiden</strong></td><td>提起一个话题</td><td><em>Er schnitt das Thema Gehaltserhöhung vorsichtig an.</em></td></tr>
+  <tr><td>3</td><td><strong>Interesse zeigen an + Dat.</strong></td><td>对…表现出兴趣</td><td><em>Sie zeigte großes Interesse an seiner Reise nach Japan.</em></td></tr>
+  <tr><td>4</td><td><strong>auf Nummer sicher gehen</strong></td><td>求稳，保险起见</td><td><em>Wenn Sie unsicher sind, gehen Sie auf Nummer sicher und sprechen über das Wetter.</em></td></tr>
+  <tr><td>5</td><td><strong>Smalltalk betreiben</strong></td><td>进行寒暄</td><td><em>Vor der Sitzung betrieben die Kollegen etwas Smalltalk.</em></td></tr>
+  <tr><td>6</td><td><strong>eine Sprache beherrschen</strong></td><td>掌握一门语言</td><td><em>Er beherrscht drei Sprachen fließend.</em></td></tr>
+  <tr><td>7</td><td><strong>zur Debatte stehen</strong></td><td>处于讨论中</td><td><em>Das frühe Fremdsprachenlernen steht zur Debatte.</em></td></tr>
+  <tr><td>8</td><td><strong>eine Fremdsprache erwerben</strong></td><td>习得一门外语（正式）</td><td><em>Kinder erwerben Sprachen spielerisch und mühelos.</em></td></tr>
+  <tr><td>9</td><td><strong>mehrsprachig aufwachsen</strong></td><td>在多语言环境中成长</td><td><em>In Grenzregionen wachsen viele Kinder mehrsprachig auf.</em></td></tr>
+  <tr><td>10</td><td><strong>Argumente anführen</strong></td><td>提出论据</td><td><em>Die Gegner führten überzeugende Argumente an.</em></td></tr>
+  </table>
+  </div>
+
+  <!-- ═══ Redemittel：Argumente (12) ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a2-red">
+  <strong>💬 Redemittel：Argumente & Gegenargumente (12)</strong><br>
+  🇩🇪 Diese Redemittel helfen Ihnen, auf die Blog-Kommentare zu antworten und Ihre eigene Position in einer Debatte klar auszudrücken.<br>
+  🇨🇳 以下表达方式帮助您回复博客评论，在辩论中清晰表达立场。
+  <table>
+  <tr><th>功能</th><th>🇩🇪 Redemittel</th><th>🇨🇳</th></tr>
+  <tr><td rowspan="3"><strong>💡 Argumente nennen</strong><br><span style="font-size:.78rem;color:#6b7280">提出论点</span></td><td><em>An erster Stelle steht für mich, dass …</em></td><td>对我来说首要的是…</td></tr>
+  <tr><td><em>Viel wichtiger als … finde ich …</em></td><td>比…更重要的是…</td></tr>
+  <tr><td><em>Im Prinzip ist das richtig, trotzdem …</em></td><td>原则上没错，但…</td></tr>
+  <tr><td rowspan="2"><strong>⚠️ Gegenargumente nennen</strong><br><span style="font-size:.78rem;color:#6b7280">提出反论</span></td><td><em>Das Gegenteil ist der Fall: …</em></td><td>事实恰恰相反：…</td></tr>
+  <tr><td><em>Dagegen spricht, dass …</em></td><td>反对的理由是…</td></tr>
+  <tr><td rowspan="3"><strong>🤝 Zustimmung ausdrücken</strong><br><span style="font-size:.78rem;color:#6b7280">表达赞同</span></td><td><em>Sie haben recht damit, dass …</em></td><td>您说得对，…</td></tr>
+  <tr><td><em>Ich stimme Ihnen zu, dass …</em></td><td>我同意您…</td></tr>
+  <tr><td><em>Genau das finde ich auch, denn …</em></td><td>我也这么认为，因为…</td></tr>
+  <tr><td rowspan="2"><strong>📖 Über Erfahrungen berichten</strong><br><span style="font-size:.78rem;color:#6b7280">讲述经历</span></td><td><em>In meiner Kindheit habe ich …</em></td><td>在我的童年，我…</td></tr>
+  <tr><td><em>Im Umgang mit … habe ich erlebt, dass …</em></td><td>在与…打交道中我经历过…</td></tr>
+  <tr><td rowspan="2"><strong>⚖️ Einen Kompromiss vorschlagen</strong><br><span style="font-size:.78rem;color:#6b7280">提出折中</span></td><td><em>Man könnte einen Mittelweg finden, indem …</em></td><td>可以通过…找到折中方案</td></tr>
+  <tr><td><em>Es wäre sinnvoll, wenn …</em></td><td>如果…会是有意义的</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ K2 ARTICLE 3 ═══════════ -->
+<div id="b2l-k2-a3-anchor"></div>
+<div class="b2l-card" id="b2l-k2-a3">
+  <div class="b2l-card-header">📰 3 · So streiten Sie richtig! <span style="font-weight:400;font-size:.78rem;margin-left:auto">Sigrid Meissner · Konfliktlösung</span></div>
+  <div class="b2l-card-body">
+
+    <!-- Einstieg: Kritik-Mottos aus dem Berufsleben -->
+    <div style="background:#f8f6f0;border-left:4px solid #b8860b;padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:16px">
+      <strong style="color:#b8860b">🗣️ Wenn zwei sich streiten — drei Stimmen zum Thema Kritik</strong><br>
+      <span style="font-size:.85rem">
+      <strong>Tony Trifft</strong> (Kabarettist, 26): <em>„Hau drauf — es trifft immer den Richtigen."</em> |
+      <strong>Tanja Block</strong> (Gepäckermittlerin, 35): <em>„Immer ruhig bleiben und nichts persönlich nehmen."</em> |
+      <strong>Simone Ritterbusch</strong> (Lehrerin, 31): <em>„Kritik und Respekt gehören zusammen."</em>
+      </span>
+    </div>
+
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Streit kommt in den besten Familien vor</strong>, heißt es in einer deutschen Redewendung. Doch nicht nur dort, sondern auch am Arbeitsplatz oder unter Freunden geht es nicht ganz ohne Konflikte. Streit ist also ganz normal, solange er niemanden verletzt und eine Lösung findet. Wie man richtig streitet, kann man lernen. Endete der letzte Streit wieder mal mit lautem Schreien und Türenknallen? Die Hamburger Therapeutin <strong>Sigrid Meissner</strong> sagt, dass das nicht sein muss, und gibt <strong>acht praktische Tipps</strong>, was man beachten kann, um der Konfliktlösung näher zu kommen.<br><br>
+
+      <strong style="color:#c62828">1. Keine Vorwürfe</strong><br>
+      "Du hast schon wieder ..." — Hier kommt der Vorwurf gleich im ersten Satz und damit beginnen eher destruktive Gespräche. Keine guten Aussichten auf Erfolg hat ein Streit, der mit einem Vorwurf beginnt. Sie sind richtig sauer? Vielleicht mit Recht; aber versuchen Sie trotzdem, ruhig zu bleiben und über Ihre Gefühle zu sprechen. Wer mit Anschuldigungen startet, provoziert beim Gegenüber automatisch eine Abwehrhaltung — und schon ist die Eskalation vorprogrammiert.<br><br>
+
+      <strong style="color:#c62828">2. Immer bei einer Sache bleiben</strong><br>
+      Die dreckige Küche hat Ihren Streit ausgelöst? Dann sprechen Sie auch nur darüber. Erweitern Sie Ihre Kritik nicht auf andere Punkte, die Sie eventuell auch noch stören wie Erziehungsfragen, Geld oder die Erledigung von Arbeiten. <strong>Bleiben Sie beim Thema</strong>, rät die Therapeutin. Dann hat Ihr Gegenüber auch die Chance, konkret zu reagieren. Wer im Streit sämtliche alten Kamellen hervorholt, macht eine Lösung unmöglich — das Gegenüber fühlt sich überfordert und schaltet ab.<br><br>
+
+      <strong style="color:#c62828">3. Alles zu seiner Zeit</strong><br>
+      Suchen Sie sich für eine Diskussion einen Zeitpunkt, zu dem Sie auch tatsächlich sprechen können. Kurz vor Feierabend oder vor dem Einschlafen noch wichtige Themen anzusprechen, erzeugt nur unnötige Spannung. Man kann nicht konstruktiv über etwas sprechen, wenn einer müde ist oder unter Druck steht, rät Meissner. Zeit ist für jede Problemlösung eine wichtige Basis, die man sich und dem anderen geben sollte. Die Diskussion sollte <strong>nicht auf die lange Bank</strong>, aber auf einen <strong>Termin mit Spielraum für beide</strong> verschoben werden.<br><br>
+
+      <strong style="color:#c62828">4. Genau hinhören</strong><br>
+      Was der andere sagt, ist vielleicht nicht angenehm, trotzdem sollten Sie gut zuhören und Interesse zeigen. Der Partner will in erster Linie eines: <strong>verstanden werden</strong>, sagt Meissner. Seien Sie also offen und achten Sie darauf, was Ihr Partner Ihnen sagen möchte. Sie wünschen sich sicherlich ähnlich viel Respekt für Ihre Themen. Aktives Zuhören bedeutet nicht zustimmen — es bedeutet, dem anderen das Gefühl zu geben, dass seine Perspektive gehört und ernst genommen wird.<br><br>
+
+      <strong style="color:#c62828">5. "Ich" statt "Du"</strong><br>
+      Statt Vorwürfe zu machen ("Du machst nie ...", "Du hast schon wieder ..."), formulieren Sie <strong>Ich-Botschaften</strong>: "Ich fühle mich ...", "Ich wünsche mir ...", "Ich brauche ...". "Ich möchte gerne ..." leitet viel eher eine konstruktive Diskussion ein. Der Unterschied ist grundlegend: Eine Du-Botschaft greift an und beschuldigt — eine Ich-Botschaft teilt ein Bedürfnis mit und lädt zur Kooperation ein. So fühlt sich der andere nicht angegriffen und ist eher bereit, Ihnen zuzuhören.<br><br>
+
+      <strong style="color:#c62828">6. Kein Konsens? Dann Kompromiss!</strong><br>
+      Eine gemeinsame Lösung, mit der alle zufrieden sind, lässt sich nicht immer erreichen. Bei der Verteilung der Arbeit im Beruf muss man ab und zu auch mal eine weniger gerechte Aufgabenteilung hinnehmen. Sie ist dann aber die <strong>Basis für die Verhandlung von einem Kompromiss</strong> in einem anderen Bereich. Ein Kompromiss bedeutet nicht, dass einer verliert — es bedeutet, dass beide etwas geben und beide etwas bekommen. Das ist die Kunst des fairen Verhandelns in jeder Partnerschaft.<br><br>
+
+      <strong style="color:#c62828">7. Entschuldigungen sind keine Schwäche</strong><br>
+      Wurden Sie zu laut, zu hitzig, zu böse und es tut Ihnen jetzt leid? Dann sollten Sie sich entschuldigen. Da muss man dann auch <strong>Größe zeigen</strong>, um Verzeihung bitten und keine Rechtfertigungen für sein Verhalten suchen. Das sollte Ihnen am besten erst gar nicht passieren; wenn die falschen Worte aber erst einmal raus sind, ist hier eine Entschuldigung umso nötiger. Eine echte Entschuldigung enthält kein "aber" — sie steht für sich und erkennt den Fehler vorbehaltlos an.<br><br>
+
+      <strong style="color:#c62828">8. Wie war's heute?</strong><br>
+      Am Ende des Gesprächs kann man ein <strong>Resümee ziehen</strong>. Was hat heute gut geklappt, was nicht? Nutzen Sie die Chance für einen gemeinsamen Austausch, bei dem Sie kleinere Unstimmigkeiten entspannt ansprechen können. Diese kurze Nachbesprechung ist wie ein kleines Ritual — sie entdramatisiert den Streit und macht beide zu einem Team, das gemeinsam an der Beziehung arbeitet, statt gegeneinander zu kämpfen.<br><br>
+
+      <strong style="display:block;text-align:center;margin-top:20px;color:#b8860b;font-size:.95rem">🗣️ Sprache im Alltag</strong>
+      <span style="display:block;text-align:center;font-size:.88rem;line-height:2">
+      <em>Streit liegt in der Luft.</em> — 气氛很紧张 / 山雨欲来<br>
+      <em>Ich glaub', es geht los!</em> — 我觉得要开始了！（冲突前的预感）<br>
+      <em>Können wir uns kurz mal unterhalten?</em> — 我们能简短谈一下吗？<br>
+      <em>Das darf doch nicht wahr sein!</em> — 这不会是真的吧！<br>
+      <em>Ich träum' wohl!</em> — 我是在做梦吧！（表示难以置信）<br>
+      <em>Geht's noch?</em> — 你还好吧？/ 这还能行吗？（口语中常带讽刺）
+      </span>
+    </p>
+
+    <!-- Lernwortschatz -->
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Streit, -s / -e</strong> 争吵/争执 | <em>heftige Auseinandersetzung; Konflikt</em><br>
+      • <strong>streiten (stritt, hat gestritten)</strong> 争吵 | <em>sich heftig mit Worten auseinandersetzen</em><br>
+      • <strong>der Vorwurf, Vorwürfe</strong> 指责/谴责 | <em>beschuldigende Aussage; Anschuldigung</em><br>
+      • <strong>die Konfliktlösung, -en</strong> 解决冲突 | <em>Art und Weise, einen Streit beizulegen</em><br>
+      • <strong>die Ich-Botschaft, -en</strong> 我-信息 | <em>persönliche Aussage mit "Ich" statt anklagendem "Du"</em><br>
+      • <strong>der Kompromiss, -e</strong> 妥协 | <em>Einigung durch gegenseitige Zugeständnisse</em><br>
+      • <strong>die Rechtfertigung, -en</strong> 辩解/辩护 | <em>Erklärung, warum etwas richtig oder nötig war</em><br>
+      • <strong>die Verzeihung</strong> 原谅/宽恕 | <em>Entschuldigung; Vergebung für einen Fehler</em><br>
+      • <strong>das Resümee, -s</strong> 总结/回顾 | <em>Zusammenfassung; abschließende Bewertung</em><br>
+      • <strong>die Unstimmigkeit, -en</strong> 分歧/不一致 | <em>kleiner Konflikt; Meinungsverschiedenheit</em><br>
+      • <strong>der Feierabend</strong> 下班 | <em>Ende der täglichen Arbeitszeit; frei nach der Arbeit</em><br>
+      • <strong>der Spielraum, Spielräume</strong> 余地/灵活空间 | <em>Freiheit, die man für Entscheidungen hat</em><br>
+      • <strong>hitzig</strong> 激烈的/暴躁的 | <em>sehr emotional und aggressiv in einer Diskussion</em><br>
+      • <strong>destruktiv ↔ konstruktiv</strong> 破坏性的 ↔ 建设性的 | <em>zerstörend ↔ aufbauend, lösungsorientiert</em><br>
+      • <strong>etwas auf die lange Bank schieben</strong> 拖延（Redewendung）| <em>etwas Wichtiges immer wieder verschieben</em><br>
+      • <strong>Größe zeigen</strong> 表现出大度/胸怀 | <em>sich nicht kleinlich verhalten; über dem Streit stehen</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+  <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k2-a3-vocab')">📚 词汇语法</button>
+  <button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k2-a3-gram')">📖 语法：Konjunktiv II & Imperativ</button>
+  <button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k2-a3-bg')">🏭 背景知识：Streitkultur</button>
+  <button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k2-a3-koll')">🔗 词汇搭配 (10)</button>
+  <button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k2-a3-red')">💬 Redemittel：Konflikte (8)</button>
+
+  <!-- ═══ VOCAB ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a3-vocab">
+  <strong>📚 词汇语法 / Wortschatz & Grammatik (16)</strong><br><br>
+  <strong>📋 Nomen · 名词 (8)</strong><br>
+  • <strong>der Streit, -s / -e</strong> = 争吵/争执 | <em>heftige Auseinandersetzung</em><br>
+  &nbsp;&nbsp;📌 <em>„Streit kommt in den besten Familien vor."</em> — 争吵在最好的家庭里也会发生<br>
+  • <strong>der Vorwurf, Vorwürfe</strong> = 指责 | <em>Beschuldigung; Anschuldigung</em><br>
+  &nbsp;&nbsp;📌 <em>„Hier kommt der Vorwurf gleich im ersten Satz."</em><br>
+  • <strong>die Konfliktlösung, -en</strong> = 解决冲突<br>
+  &nbsp;&nbsp;📌 <em>„... was man beachten kann, um der Konfliktlösung näher zu kommen."</em><br>
+  • <strong>die Ich-Botschaft, -en</strong> = 我-信息（以"我"开头的表达）<br>
+  • <strong>der Kompromiss, -e</strong> = 妥协<br>
+  • <strong>das Resümee, -s</strong> = 总结 | <em>Zusammenfassung; Fazit</em><br>
+  &nbsp;&nbsp;📌 <em>„Am Ende des Gesprächs kann man ein Resümee ziehen."</em><br>
+  • <strong>die Rechtfertigung, -en</strong> = 辩解<br>
+  &nbsp;&nbsp;📌 <em>„... keine Rechtfertigungen für sein Verhalten suchen."</em><br>
+  • <strong>die Unstimmigkeit, -en</strong> = 分歧/不一致 | <em>kleine Meinungsverschiedenheit</em><br><br>
+
+  <strong>🔧 Verben · 动词 (5)</strong><br>
+  • <strong>streiten (stritt, hat gestritten)</strong> = 争吵 | <em>starkes Verb, untrennbar</em><br>
+  &nbsp;&nbsp;📌 <em>„Wie man richtig streitet, kann man lernen."</em><br>
+  • <strong>sich entschuldigen (entschuldigte sich, hat sich entschuldigt)</strong> = 道歉 | <em>reflexiv</em><br>
+  &nbsp;&nbsp;📌 <em>„Dann sollten Sie sich entschuldigen."</em><br>
+  • <strong>hinnehmen (nahm hin, hat hingenommen)</strong> = 接受/容忍 | <em>trennbar, stark</em><br>
+  &nbsp;&nbsp;📌 <em>„... eine weniger gerechte Aufgabenteilung hinnehmen."</em><br>
+  • <strong>ansprechen (sprach an, hat angesprochen)</strong> = 提起/谈到 | <em>trennbar, stark</em><br>
+  &nbsp;&nbsp;📌 <em>„... wichtige Themen anzusprechen, erzeugt nur unnötige Spannung."</em><br>
+  • <strong>verschieben (verschob, hat verschoben)</strong> = 推迟/移动 | <em>stark, untrennbar</em><br>
+  &nbsp;&nbsp;📌 <em>„Die Diskussion sollte auf einen Termin verschoben werden."</em><br><br>
+
+  <strong>🎨 Adjektive & Wendungen (3)</strong><br>
+  • <strong>destruktiv ↔ konstruktiv</strong> = 破坏性的 ↔ 建设性的<br>
+  &nbsp;&nbsp;📌 <em>„... damit beginnen eher destruktive Gespräche."</em> / <em>„... leitet viel eher eine konstruktive Diskussion ein."</em><br>
+  • <strong>hitzig</strong> = 激烈的/暴躁的 | <em>emotional; aggressiv</em><br>
+  &nbsp;&nbsp;📌 <em>„Wurden Sie zu laut, zu hitzig, zu böse?"</em><br>
+  • <strong>auf die lange Bank schieben</strong> = 拖延（固定表达）<br>
+  &nbsp;&nbsp;📌 <em>„Die Diskussion sollte nicht auf die lange Bank geschoben werden."</em>
+  </div>
+
+  <!-- ═══ GRAMMAR ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a3-gram">
+  <strong>📖 语法：Konjunktiv II & Imperativ — 建议与请求</strong><br><br>
+
+  <strong>1. Konjunktiv II — höfliche Ratschläge und Empfehlungen</strong><br>
+  🇩🇪 <em>Formel:</em> <strong>sollte</strong> + Infinitiv (Ratschlag) · <strong>könnte</strong> + Infinitiv (Möglichkeit) · <strong>würde</strong> + Infinitiv (höfliche Form)<br>
+  🇨🇳 规则：Konjunktiv II 在建议类文章中极为高频。用 sollte/könnte/würde 代替 muss/kann/wird，语气从"命令"变为"建议"。<br>
+  📖 文中例句:<br>
+  • <em>„<strong>Das sollte</strong> Ihnen im Beruf zwar am besten erst gar nicht <strong>passieren</strong>."</em> — 这在工作中最不应该发生<br>
+  • <em>„Die Diskussion <strong>sollte</strong> nicht auf die lange Bank, aber auf einen Termin <strong>verschoben werden</strong>."</em> — 讨论不应拖延，而应安排有弹性的时间<br>
+  • <em>„Dann <strong>sollten</strong> Sie sich <strong>entschuldigen</strong>."</em> — 那你应该道歉<br>
+  ⚠️ 考点：sollte 是 sollen 的 Konjunktiv II，表示"应该/最好"，语气比 muss 弱；用在第二虚拟式中表达委婉建议是 B2 写作的加分项<br><br>
+
+  <strong>2. Konjunktiv II — irreale Bedingungen / Wünsche</strong><br>
+  🇩🇪 <em>Formel:</em> Wenn + Konjunktiv II (Vergangenheit: hätte/wäre + Partizip II), dann + Konjunktiv II<br>
+  🇨🇳 规则：表达与现实相反的假设或愿望<br>
+  📖 文中可仿写:<br>
+  • <em>„<strong>Wenn</strong> Sie ruhig <strong>bleiben würden</strong>, <strong>könnten</strong> Sie konstruktiver diskutieren."</em> — 如果你保持冷静，就能更有建设性地讨论<br>
+  • <em>„<strong>Hätten</strong> Sie einen besseren Zeitpunkt <strong>gewählt</strong>, <strong>wäre</strong> das Gespräch erfolgreicher <strong>gewesen</strong>."</em> — 选个更好的时间，对话本会更成功<br>
+  ⚠️ 考点：würde-Form 在日常口语中更常见；书面语中强动词多用 hätte/wäre + Partizip II<br><br>
+
+  <strong>3. Imperativ — direkte Handlungsaufforderung (Sie-Form)</strong><br>
+  🇩🇪 <em>Formel:</em> <strong>Verb (Infinitiv) + Sie</strong> + Ergänzung<br>
+  🇨🇳 规则：正式命令式（您），动词原形 + Sie。在建议类文章中，Imperativ 和 Konjunktiv II 交替使用，增加语言多样性。<br>
+  📖 文中例句:<br>
+  • <em>„<strong>Bleiben Sie</strong> beim Thema!"</em> — 不离题！<br>
+  • <em>„<strong>Suchen Sie</strong> sich einen Zeitpunkt!"</em> — 选一个合适的时间！<br>
+  • <em>„<strong>Versuchen Sie</strong> es lieber mit Botschaften über Sie selbst!"</em> — 试试用关于你自己的信息！<br>
+  • <em>„<strong>Achten Sie</strong> darauf, was Ihr Partner sagen möchte!"</em> — 注意你的伴侣想说什么！<br>
+  • <em>„<strong>Nutzen Sie</strong> die Chance für einen gemeinsamen Austausch!"</em> — 利用这个机会进行共同交流！<br>
+  ⚠️ 考点：Sie-Imperativ = Infinitiv + Sie（动词不变位！）；区别于 du-Imperativ（去词尾 -st）和 ihr-Imperativ（去代词）
+  </div>
+
+  <!-- ═══ BACKGROUND ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a3-bg">
+  <strong>🏭 背景知识：Streitkultur — 德语区的冲突文化</strong><br><br>
+
+  <div class="b2l-bg-card" style="background:#e8eaf6">
+  <strong style="color:#283593">🇩🇪 Deutsche Streitkultur: Direktheit als Stärke</strong><br>
+  🇩🇪 In Deutschland gilt direkte Kommunikation oft als Zeichen von Ehrlichkeit und Respekt — nicht als Unhöflichkeit. Wer Konflikte offen anspricht, zeigt, dass ihm die Beziehung wichtig ist. Indirekte Andeutungen oder Schweigen werden dagegen schnell als mangelndes Interesse interpretiert. Diese Direktheit kann für Lernende aus Kulturen mit indirekter Konfliktvermeidung (z. B. Ostasien) zunächst befremdlich oder sogar verletzend wirken.<br>
+  🇨🇳 在德国，直接沟通常被视为诚实和尊重的表现，而非不礼貌。公开谈论冲突表示重视关系。间接暗示或沉默反而容易被解读为缺乏兴趣。这种直接性对来自间接冲突回避文化（如东亚）的学习者来说，可能一开始会感觉陌生甚至伤人。
+  </div>
+
+  <div class="b2l-bg-card" style="background:#fff3e0">
+  <strong style="color:#e65100">👤 Drei Berufe — drei Kritik-Mottos</strong><br>
+  🇩🇪 <strong>Tony Trifft (Kabarettist):</strong> <em>„Hau drauf — es trifft immer den Richtigen."</em> Kabarett als Ventil: Gesellschaftskritik verpackt in Humor. Das deutsche Kabarett hat eine lange Tradition politischer Satire.<br>
+  <strong>Tanja Block (Gepäckermittlerin):</strong> <em>„Immer ruhig bleiben und nichts persönlich nehmen."</em> Im Kundenservice ist professionelle Distanz zur Kritik überlebenswichtig.<br>
+  <strong>Simone Ritterbusch (Lehrerin):</strong> <em>„Kritik und Respekt gehören zusammen."</em> Konstruktive Kritik ist ein pädagogisches Werkzeug — sie soll fördern, nicht verletzen.<br>
+  🇨🇳 <strong>Tony（脱口秀演员）:</strong> "狠批——总批对人。" 脱口秀作为发泄口：用幽默包装社会批评。德国卡巴莱（政治讽刺剧）有悠久的政治讽刺传统。<br>
+  <strong>Tanja（行李调查员）:</strong> "永远保持冷静，别往心里去。" 客服行业对批评保持职业距离是生存关键。<br>
+  <strong>Simone（老师）:</strong> "批评和尊重是一体的。" 建设性批评是教育工具——旨在促进而非伤害。
+  </div>
+
+  <div class="b2l-bg-card" style="background:#e8f5e9">
+  <strong style="color:#1b5e20">📚 „Streiten will gelernt sein" — Konflikt als Kulturtechnik</strong><br>
+  🇩🇪 In deutschen Ratgebern und Partnerschaftsseminaren ist "richtiges Streiten" ein etabliertes Thema. Die Botschaft: Streit an sich ist nicht das Problem — sondern <em>wie</em> man streitet. Entscheidend ist die Fähigkeit, Konflikte fair auszutragen, ohne die Beziehung zu zerstören. Begriffe wie <strong>„Ich-Botschaft"</strong>, <strong>„aktives Zuhören"</strong> und <strong>„gewaltfreie Kommunikation"</strong> (nach Marshall Rosenberg) sind fester Bestandteil dieser Streitkultur und werden in Unternehmen, Schulen und Therapien vermittelt.<br>
+  🇨🇳 在德国的自助指南和伴侣研讨会中，"正确吵架"是一个成熟的主题。核心信息：争吵本身不是问题，<em>如何</em>争吵才是关键。决定性的是公平处理冲突而不破坏关系的能力。"我-信息""积极倾听"和"非暴力沟通"（马歇尔·罗森伯格）等概念是这种冲突文化的固定组成部分，在企业、学校和心理治疗中广泛传授。
+  </div>
+  </div>
+
+  <!-- ═══ KOLLOKATIONEN ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a3-koll">
+  <strong>🔗 词汇搭配 / Kollokationen (10)</strong>
+  <table>
+  <tr><th>搭配</th><th>释义</th><th>例句</th></tr>
+  <tr><td><strong>einen Streit auslösen</strong></td><td>触发争吵 | <em>der Auslöser für einen Konflikt sein</em></td><td><em>Die dreckige Küche hat den <strong>Streit ausgelöst</strong>.</em></td></tr>
+  <tr><td><strong>einen Vorwurf machen</strong></td><td>提出指责</td><td><em>Gleich im ersten Satz <strong>macht</strong> sie ihm einen <strong>Vorwurf</strong>.</em></td></tr>
+  <tr><td><strong>Kritik üben</strong></td><td>提出批评 | <em>konstruktiv kritisieren</em></td><td><em>Simone Ritterbusch muss als Lehrerin viel <strong>Kritik üben</strong>.</em></td></tr>
+  <tr><td><strong>Kritik einstecken</strong></td><td>承受批评 | <em>Kritik ertragen / annehmen</em></td><td><em>Tanja Block muss im Job viel <strong>Kritik einstecken</strong>.</em></td></tr>
+  <tr><td><strong>ruhig bleiben</strong></td><td>保持冷静 | <em>die Nerven behalten</em></td><td><em>Versuchen Sie trotzdem, <strong>ruhig zu bleiben</strong>.</em></td></tr>
+  <tr><td><strong>einen Kompromiss schließen</strong></td><td>达成妥协 ⚠️ 固定搭配</td><td><em>Bei der Verhandlung lässt sich ein <strong>Kompromiss schließen</strong>.</em></td></tr>
+  <tr><td><strong>sich entschuldigen für + Akk</strong></td><td>为…道歉</td><td><em><strong>Für</strong> die bösen Worte <strong>sollten</strong> Sie <strong>sich entschuldigen</strong>.</em></td></tr>
+  <tr><td><strong>um Verzeihung bitten</strong></td><td>请求原谅</td><td><em>Da muss man auch mal <strong>um Verzeihung bitten</strong>.</em></td></tr>
+  <tr><td><strong>ein Resümee ziehen</strong></td><td>做总结</td><td><em>Am Ende kann man <strong>ein Resümee ziehen</strong>.</em></td></tr>
+  <tr><td><strong>etw. auf die lange Bank schieben</strong></td><td>拖延某事（Redewendung）</td><td><em>Die Diskussion <strong>sollte</strong> man nicht <strong>auf die lange Bank schieben</strong>.</em></td></tr>
+  </table>
+  </div>
+
+  <!-- ═══ REDEMITTEL ═══ -->
+  <div class="b2l-ans" id="b2l-k2-a3-red">
+  <strong>💬 Redemittel：Konflikte lösen (8)</strong>
+  <table>
+  <tr><th>功能</th><th>🇩🇪 Redemittel</th><th>🇨🇳</th></tr>
+  <tr><td rowspan="2"><strong>🗣️ 表达情绪</strong><br>Gefühle ausdrücken</td><td><em>Ich fühle mich ..., wenn du ...</em></td><td>当你…我感觉…（Ich-Botschaft）</td></tr>
+  <tr><td><em>Es stört mich, dass ...</em></td><td>让我困扰的是…</td></tr>
+  <tr><td rowspan="2"><strong>🙏 道歉与原谅</strong><br>Entschuldigung</td><td><em>Es tut mir leid, dass ich ... war.</em></td><td>很抱歉我刚才…了</td></tr>
+  <tr><td><em>Das war nicht in Ordnung von mir.</em></td><td>我那样做是不对的</td></tr>
+  <tr><td rowspan="2"><strong>🤝 寻求方案</strong><br>Lösung suchen</td><td><em>Lass uns einen Kompromiss finden.</em></td><td>让我们找个折中方案</td></tr>
+  <tr><td><em>Was hältst du von folgendem Vorschlag?</em></td><td>你觉得以下建议怎么样？</td></tr>
+  <tr><td rowspan="2"><strong>📋 总结回顾</strong><br>Resümee ziehen</td><td><em>Was hat heute gut geklappt?</em></td><td>今天什么顺利？</td></tr>
+  <tr><td><em>Beim nächsten Mal sollten wir ...</em></td><td>下次我们应该…</td></tr>
+  </table>
+  </div>
+</div>
+<div class="b2l-separator"></div>
+
+<!-- ═══════════ K2 ARTICLE 4 ═══════════ -->
+<div id="b2l-k2-a4-anchor"></div>
+<div class="b2l-card" id="b2l-k2-a4">
+  <div class="b2l-card-header">📰 4 · Sophie Hunger — Multilinguale Künstlerin <span style="font-weight:400;font-size:.78rem;margin-left:auto">SPIEGEL ONLINE · Porträt</span></div>
+  <div class="b2l-card-body">
+
+    <!-- Bio Introduction -->
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Sophie Hunger</strong> (*31. März 1983 in Bern) ist eine Schweizer Musikerin, Komponistin und Autorin. Sie gilt als eine der eigenwilligsten Stimmen des europäischen Indie-Pop. Hunger singt in vier Sprachen — Schweizerdeutsch, Französisch, Hochdeutsch und Englisch — und brilliert mit smartem, poetischem Sound, der nie platt daherkommt. Ihr Album <strong>„1983"</strong> erreichte 2010 Platz eins der Schweizer Charts und machte sie auch international bekannt. Sophie Hunger möchte nach eigener Aussage mit ihrer Musik kommunizieren — über Sprachgrenzen hinweg.<br><br>
+      Im folgenden SPIEGEL-ONLINE-Interview spricht sie über die Macht der Musik, ihre Lieblingswörter in verschiedenen Sprachen und ihr ambivalentes Verhältnis zur Schweiz als „geliebter Heimat".
+    </p>
+
+    <!-- Interview Block -->
+    <div style="background:#f7f8fc;border-left:4px solid #b8860b;padding:18px 22px;margin:18px 0;border-radius:0 10px 10px 0;font-family:Georgia,serif;font-size:.88rem;line-height:1.85">
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Sie haben mal gesagt: Irgendwann habe ich entdeckt, dass ich mit Gesang die Menschen wütend, traurig oder fröhlich machen kann. Welches dieser drei Gefühle lösen Sie eigentlich am liebsten aus?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Sophie Hunger</strong><br>
+        Ha! So funktioniert das nicht. Das ist kein Domino-Spiel, in dem ein Stein fällt, dann der nächste und der nächste — das hat nichts Systematisches. Es kommt darauf an, wie man die Sachen singt oder sagt.</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Trotzdem: Wer Gefühle auslösen kann, hat Macht über Menschen. Sind Sie sich dessen bewusst?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Ja, in manchen Momenten.</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Erzählen Sie mal.</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Zur ersten Zugabe kehre ich zurück auf die Bühne, alleine. Das Publikum klatscht; ein klassischer Live-Moment. Da spüre ich viel Aufmerksamkeit und viel Gunst. Die Leute erwarten, dass ich jetzt etwas mache — sie sind bereit, etwas anzunehmen.</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Sophie Hunger möchte nach eigener Aussage mit ihrer Musik kommunizieren — und das in vier Sprachen. Eine Sache fällt an Ihrer Musik besonders auf: Sie empfinden viel Spaß daran, Worte zu phrasieren, in allen Sprachen, in denen Sie singen. Haben Sie ein Lieblingswort?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Auf Schweizerdeutsch mag ich sehr gerne <strong>„chumm"</strong> — also „komm". Das drückt so eine Dringlichkeit aus. Man will unbedingt, dass die Person kommt.</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Im Französischen?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        <strong>„Personne".</strong> Das Wort heißt „niemand" und zugleich „Person". Wer „niemand" sagt, sagt zugleich „jemand". Das ist hervorragend!</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Und im Hochdeutschen?</em></p>
+
+        <p style="margin:0 0 8px 0"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Ein hochdeutsches Wort, das ich mag? Ich weiß nicht ... <em style="color:#888">[überlegt länger]</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Ist es Zufall, dass Sie beim Hochdeutschen länger überlegen?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Sie sind Deutscher, vielleicht deswegen. Aber das Wort <strong>„niemand"</strong> gefällt mir schon sehr. Das habe ich dann auch mal gebraucht für ein Stück: <strong>„Walzer für Niemand".</strong></p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Ihr Album „1983" war international erfolgreich; aber nirgends so sehr wie in der Schweiz: Platz eins der Charts. Ist die Schweiz als kleines Land besonders stolz, wenn Schweizer Erfolg in der großen, weiten Welt haben?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Die Schweizer können oft nur als Schweizer in der Schweiz stolz auf sich sein. Denn wenn etwas die Schweiz verlässt, verlässt es meistens den Wahrnehmungsbereich der Schweiz.</p>
+      </div>
+
+      <div style="margin-bottom:30px;padding-bottom:20px;border-bottom:1px dashed #d4a030">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Was bedeutet Ihnen die Schweiz?</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Die Schweiz ist meine <strong>geliebte Heimat</strong>. Geliebt, weil man ja das liebt, was zu einem gehört, <strong>abgesehen davon, ob man es mag oder nicht</strong>. Wenn ich die Alpen sehe, dann fühle ich sie in meinem Bauch. Diese Landschaft hat mich <strong>gezeichnet</strong> — sie ist immer bei mir. Ich wurde aber <strong>ungefragt als Schweizerin geboren</strong>.</p>
+      </div>
+
+      <div style="margin-bottom:0">
+        <p style="margin:0 0 8px 0"><strong style="color:#c62828;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">SPIEGEL ONLINE</strong><br>
+        <em>Klingt ein wenig nach Schicksal — und fast nach einer Last.</em></p>
+
+        <p style="margin:0 0 0 24px"><strong style="color:#1565c0;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px">Hunger</strong><br>
+        Nein! Die Schweiz ist eines der reichsten Länder der Welt, Schweizer zu sein, ist keine Last. <strong>Die Frage ist: Was macht man daraus?</strong></p>
+      </div>
+
+    </div>
+
+    <!-- Mehr Informationen Box -->
+    <div style="background:#fff8e1;border:1px solid #f6d365;border-radius:10px;padding:16px 20px;margin:18px 0">
+      <p style="margin:0;font-size:.82rem;line-height:1.7;color:#5d4037">
+        <strong style="color:#b8860b">📋 Mehr Informationen:</strong> Sammeln Sie Informationen über Persönlichkeiten aus dem In- und Ausland, die für das Thema „Kommunikation" interessant sind, und stellen Sie sie im Kurs vor. Sie können dazu die Vorlage „Porträt" im Anhang verwenden.<br><br>
+        <strong>Beispiele aus dem deutschsprachigen Bereich:</strong><br>
+        <span style="display:inline-block;margin:4px 12px 4px 0">&#8226; <strong>Ruth Cohn</strong> (1912–2010) — Begründerin der Themenzentrierten Interaktion (TZI)</span>
+        <span style="display:inline-block;margin:4px 12px 4px 0">&#8226; <strong>Paul Watzlawick</strong> (1921–2007) — Kommunikationswissenschaftler, „Man kann nicht nicht kommunizieren"</span>
+        <span style="display:inline-block;margin:4px 12px 4px 0">&#8226; <strong>Massimo Rocchi</strong> (*1957) — italienisch-schweizerischer Komiker, spielt mit Sprachklischees</span>
+        <span style="display:inline-block;margin:4px 12px 4px 0">&#8226; <strong>Michaela Maria Drux</strong> — deutsche Performance-Künstlerin und Autorin</span>
+      </p>
+    </div>
+
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      &#8226; <strong>wütend / traurig / fröhlich</strong> 愤怒的 / 悲伤的 / 快乐的 | <em>drei Grundgefühle; jdn. wütend machen = jdn. ärgern</em><br>
+      &#8226; <strong>der Gesang, -¨e</strong> 歌唱/歌声 | <em>das Singen; von singen → der Gesang</em><br>
+      &#8226; <strong>Gefühle auslösen (löste aus, hat ausgelöst)</strong> 引发情感 | <em>Emotionen hervorrufen; trennbares Verb</em><br>
+      &#8226; <strong>die Macht über + Akk.</strong> 对…的权力/掌控 | <em>Kontrolle oder Einfluss auf jdn./etw.</em><br>
+      &#8226; <strong>sich einer Sache (Gen.) bewusst sein</strong> 意识到某事 | <em>⚠️ 固定搭配用 Genitiv! sich des Problems bewusst sein</em><br>
+      &#8226; <strong>die Gunst</strong> (nur Sg.) 好感/青睐 | <em>Wohlwollen, positive Zuwendung; ≠ Kunst!</em><br>
+      &#8226; <strong>phrasieren</strong> 划分乐句/措辞 | <em>Musik: Töne zu Phrasen gliedern; Sprache: Worte kunstvoll formen</em><br>
+      &#8226; <strong>das Lieblingswort, -¨er</strong> 最喜欢的词 | <em>Liebling + s + Wort; Fugen-s bei Komposita</em><br>
+      &#8226; <strong>die Dringlichkeit, -en</strong> 紧迫性/急切 | <em>von dringend; etw. drückt Dringlichkeit aus = etw. wirkt dringend</em><br>
+      &#8226; <strong>unbedingt</strong> 无论如何/一定 | <em>auf jeden Fall; man will unbedingt = man will mit aller Kraft</em><br>
+      &#8226; <strong>hervorragend</strong> 出色的/卓越的 | <em>ausgezeichnet, exzellent; ≠ hervorragend (Adverb)</em><br>
+      &#8226; <strong>überlegen</strong> 思考/考虑 | <em>nachdenken; länger überlegen = gründlich nachdenken</em><br>
+      &#8226; <strong>gebrauchen für + Akk.</strong> 用于/用作 | <em>verwenden, benutzen (gehobener als benutzen)</em><br>
+      &#8226; <strong>der Wahrnehmungsbereich, -e</strong> 感知范围 | <em>Wahrnehmung (感知) + Bereich (范围); das, was man wahrnimmt</em><br>
+      &#8226; <strong>die geliebte Heimat</strong> 心爱的故乡 | <em>geliebt = Partizip II von lieben, als Adjektiv dekliniert</em><br>
+      &#8226; <strong>abgesehen davon, ob ...</strong> 不管…/无论是否… | <em>unabhängig davon, ob; leitet Nebensatz ein</em><br>
+      &#8226; <strong>zeichnen (zeichnete, hat gezeichnet)</strong> 塑造/刻画 | <em>hier: prägen, formen (nicht: malen!); die Landschaft hat mich gezeichnet</em><br>
+      &#8226; <strong>ungefragt</strong> 未被询问的/未经同意的 | <em>ohne gefragt zu werden; ungefragt geboren werden</em><br>
+      &#8226; <strong>das Schicksal, -e</strong> 命运 | <em>Fügung, Vorbestimmung; nach Schicksal klingen = schicksalhaft wirken</em><br>
+      &#8226; <strong>die Last, -en</strong> 负担/重负 | <em>etw. Schweres, Belastendes (physisch + psychisch); ≠ die Lust!</em><br>
+      &#8226; <strong>aus etw. (Dat.) etwas machen</strong> 用…做成/对待… | <em>Was macht man daraus? = Wie geht man damit um? / Wie nutzt man es?</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+  <button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k2-a4-vocab')">📚 词汇语法 (21)</button>
+  <button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k2-a4-gram')">📖 语法：Indirekte Rede &amp; Konjunktiv I</button>
+  <button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k2-a4-bg')">🏭 背景知识：Schweiz &amp; Mehrsprachigkeit</button>
+  <button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k2-a4-koll')">🔗 词汇搭配 (10)</button>
+  <button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k2-a4-red')">💬 Redemittel：Interview &amp; Biografie (8)</button>
+  <button class="b2l-btn" style="background:linear-gradient(135deg,#c62828,#ef5350);color:#fff" onclick="b2lToggle('b2l-k2-a4-ex')">📝 阅读理解 (5题)</button>
+
+  <!-- VOCAB PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-vocab">
+    <strong>📚 词汇语法 (21)</strong><br><br>
+    <strong>📋 Nomen · 名词 (9)</strong><br>
+    &#8226; <strong>der Gesang, -¨e</strong> = 歌唱/歌声<br>
+    &#8226; <strong>die Macht</strong> (nur Sg.) = 权力/掌控 | <em>Macht über + Akk. haben</em><br>
+    &#8226; <strong>die Gunst</strong> (nur Sg.) = 好感/青睐 | <em>⚠️ ≠ die Kunst (艺术)!</em><br>
+    &#8226; <strong>das Lieblingswort, -¨er</strong> = 最喜欢的词 | <em>Liebling + s + Wort → Fugen-s</em><br>
+    &#8226; <strong>die Dringlichkeit, -en</strong> = 紧迫性 | <em>von dringend → Dringlichkeit</em><br>
+    &#8226; <strong>der Wahrnehmungsbereich, -e</strong> = 感知范围 | <em>Wahrnehmung + s + Bereich</em><br>
+    &#8226; <strong>die Heimat</strong> (nur Sg.) = 故乡/家园 | <em>emotionale Bindung an einen Ort</em><br>
+    &#8226; <strong>das Schicksal, -e</strong> = 命运 | <em>nach Schicksal klingen = 听起来像命运安排</em><br>
+    &#8226; <strong>die Last, -en</strong> = 负担 | <em>⚠️ ≠ die Lust (兴趣/乐趣)!</em><br><br>
+
+    <strong>🔧 Verben · 动词 (6)</strong><br>
+    &#8226; <strong>auslösen (löste aus, hat ausgelöst)</strong> = 引发/触发 | <em>trennbar; Gefühle auslösen</em><br>
+    &#8226; <strong>phrasieren</strong> = 划分乐句/措辞 | <em>regelmäßig; Worte kunstvoll formen</em><br>
+    &#8226; <strong>überlegen</strong> = 思考/考虑 | <em>regelmäßig; länger überlegen = 深思熟虑</em><br>
+    &#8226; <strong>gebrauchen</strong> = 使用/用于 | <em>regelmäßig; gehobener als benutzen</em><br>
+    &#8226; <strong>zeichnen (zeichnete, hat gezeichnet)</strong> = 塑造/刻画 | <em>⚠️ 此处非"绘画"！= prägen, formen</em><br>
+    &#8226; <strong>zurückkehren (kehrte zurück, ist zurückgekehrt)</strong> = 返回 | <em>⚠️ mit sein! trennbar; auf die Bühne zurückkehren</em><br><br>
+
+    <strong>🎨 Adjektive & Adverbien (4)</strong><br>
+    &#8226; <strong>wütend / traurig / fröhlich</strong> = 愤怒的 / 悲伤的 / 快乐的<br>
+    &#8226; <strong>hervorragend</strong> = 出色的/卓越的 | <em>= ausgezeichnet, exzellent</em><br>
+    &#8226; <strong>unbedingt</strong> = 无论如何/一定 | <em>Adverb: man will unbedingt = 无论如何都想</em><br>
+    &#8226; <strong>ungefragt</strong> = 未被询问的/未经同意的 | <em>un- + gefragt (Partizip II von fragen)</em><br><br>
+
+    <strong>🔗 Wendungen · 固定短语 (2)</strong><br>
+    &#8226; <strong>sich einer Sache (Gen.) bewusst sein</strong> = 意识到某事 | <em>⚠️ Genitiv! sich des Problems bewusst sein</em><br>
+    &#8226; <strong>abgesehen davon, ob ...</strong> = 不管…/无论是否… | <em>leitet indirekten Fragesatz ein</em>
+  </div>
+
+  <!-- GRAMMAR PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-gram">
+    <strong>📖 语法：Indirekte Rede &amp; Konjunktiv I</strong><br><br>
+
+    <strong>1. Konjunktiv I — 间接引语的德语标配</strong><br>
+    🇩🇪 在新闻报道、人物专访中，记者转述采访对象的话时，必须用 Konjunktiv I。<br>
+    🇨🇳 Konjunktiv I（第一虚拟式）是德语书面语的核心语法工具，用于客观、中立地转述他人言论。它让读者清楚分辨：这是被采访者的原意转述，不是记者的观点。<br><br>
+
+    <strong>Formenbildung / 构成规则：</strong><br>
+    <table style="width:100%;border-collapse:collapse;margin:8px 0">
+    <tr style="background:#2e7d32;color:#fff"><th>Infinitiv</th><th>Konjunktiv I (3. Person)</th><th>Beispiel</th></tr>
+    <tr><td>sein</td><td><strong>sei</strong></td><td>Sie sagt, sie <strong>sei</strong> müde.</td></tr>
+    <tr><td>haben</td><td><strong>habe</strong></td><td>Er meint, er <strong>habe</strong> recht.</td></tr>
+    <tr><td>können</td><td><strong>könne</strong></td><td>Sie glaubt, sie <strong>könne</strong> singen.</td></tr>
+    <tr><td>müssen</td><td><strong>müsse</strong></td><td>Er sagt, er <strong>müsse</strong> gehen.</td></tr>
+    <tr><td>wollen</td><td><strong>wolle</strong></td><td>Sie erklärt, sie <strong>wolle</strong> kommunizieren.</td></tr>
+    <tr><td>werden</td><td><strong>werde</strong></td><td>Er sagt, er <strong>werde</strong> kommen.</td></tr>
+    </table>
+    ⚠️ 考点：Konjunktiv I 的第三人称单数 = 词干 + e（弱变化动词可能和直陈式相同→这时用 Konjunktiv II 替代或加 wäre/hätte/ würde）。<br><br>
+
+    <strong>2. 从采访看间接引语的实际运用</strong><br><br>
+
+    <strong>🔹 转述事实 / Tatsachenbehauptung</strong><br>
+    🇩🇪 <em>Sophie Hunger sagt, ihr Album „1983" <strong>sei</strong> international erfolgreich gewesen, aber nirgends so sehr wie in der Schweiz.</em><br>
+    🇨🇳 → Sophie Hunger 说她的专辑"1983"在国际上很成功，但哪里都比不上在瑞士。<br>
+    📖 结构：Hauptsatz (Präsens) + <strong>dass</strong>-Nebensatz / oder uneingeleiteter Nebensatz mit Konjunktiv I<br><br>
+
+    <strong>🔹 转述观点 / Meinungsäußerung</strong><br>
+    🇩🇪 <em>Hunger meint, die Schweiz <strong>sei</strong> ihre geliebte Heimat. Sie fügt hinzu, man <strong>liebe</strong> das, was zu einem <strong>gehöre</strong>.</em><br>
+    🇨🇳 → Hunger 认为瑞士是她心爱的故乡。她补充说，人会爱属于自己的一切。<br>
+    📖 注意：多个 Konjunktiv I 动词串联时，每个都要变形。<br><br>
+
+    <strong>🔹 转述否定/纠正 / Widerspruch</strong><br>
+    🇩🇪 <em>Hunger widerspricht: Schweizer zu sein, <strong>sei</strong> keine Last. Die Frage <strong>sei</strong>, was man daraus <strong>mache</strong>.</em><br>
+    🇨🇳 → Hunger 反驳道：当瑞士人不是负担。问题在于你如何对待它。<br>
+    📖 注意：widersprechen + Konjunktiv I 转述是记者常用的中立表达。<br><br>
+
+    <strong>3. Konjunktiv I vs. Konjunktiv II — 何时用哪个？</strong><br>
+    🇩🇪 规则：<br>
+    <strong>Konjunktiv I</strong> → 中立转述（记者引用）<br>
+    <strong>Konjunktiv II</strong> → 非现实/假设/怀疑（„würde" + Infinitiv）<br>
+    🇨🇳 对比：<br>
+    &#8226; <em>Hunger sagt, sie <strong>sei</strong> Schweizerin.</em> ← 中立转述<br>
+    &#8226; <em>Hunger sagt, sie <strong>wäre</strong> gern öfter in Deutschland.</em> ← 假设/愿望<br>
+    &#8226; <em>Wenn ich das Alpenpanorama <strong>sähe</strong>, <strong>würde</strong> ich es auch im Bauch <strong>fühlen</strong>.</em> ← irrealer Konditionalsatz<br><br>
+
+    <strong>4. Interview-Sprache: Vom direkten Zitat zur Indirekten Rede</strong><br>
+
+    <table style="width:100%;border-collapse:collapse;margin:8px 0">
+    <tr style="background:#c62828;color:#fff"><th>Direktes Zitat (原文)</th><th>Indirekte Rede (转述)</th></tr>
+    <tr><td style="padding:8px"><em>„Die Schweiz ist meine geliebte Heimat."</em></td><td style="padding:8px"><em>Hunger sagt, die Schweiz <strong>sei</strong> ihre geliebte Heimat.</em></td></tr>
+    <tr><td style="padding:8px"><em>„Ich wurde ungefragt als Schweizerin geboren."</em></td><td style="padding:8px"><em>Sie erklärt, sie <strong>sei</strong> ungefragt als Schweizerin geboren <strong>worden</strong>.</em></td></tr>
+    <tr><td style="padding:8px"><em>„Das ist kein Domino-Spiel."</em></td><td style="padding:8px"><em>Sie betont, das <strong>sei</strong> kein Domino-Spiel.</em></td></tr>
+    <tr><td style="padding:8px"><em>„Die Frage ist: Was macht man daraus?"</em></td><td style="padding:8px"><em>Sie stellt klar, die Frage <strong>sei</strong>, was man daraus <strong>mache</strong>.</em></td></tr>
+    </table>
+    ⚠️ 考点：直接引语→间接引语时，Pronomen 也要变（ich→sie, mein→ihr）！<br><br>
+
+    <strong>5. 总结口诀 / Merksatz</strong><br>
+    🇩🇪 <em>Konjunktiv I im Presse-Deutsch: „Der Interviewte <strong>habe</strong> gesagt, er <strong>sei</strong> der Meinung, man <strong>könne</strong> nicht anders."</em><br>
+    🇨🇳 德语新闻体的灵魂就是 Konjunktiv I — 不带感情、不站队、只转述。B2 考试中如果写错了虚拟式，整篇 Leseverstehen 都会被扣分。
+  </div>
+
+  <!-- BACKGROUND PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-bg">
+    <strong>🏭 背景知识：Schweiz &amp; Mehrsprachigkeit</strong><br><br>
+
+    <div class="b2l-bg-card" style="background:#e8f5e9">
+      <strong style="color:#1a5a2a">🇨🇭 Die viersprachige Schweiz</strong><br>
+      🇩🇪 Die Schweiz hat <strong>vier offizielle Landessprachen</strong>: Deutsch (63%), Französisch (23%), Italienisch (8%) und Rätoromanisch (0.5%). Das Schweizerdeutsch — oder Schwyzerdütsch — ist jedoch keine einzelne Sprache, sondern ein Sammelbegriff für zahlreiche alemannische Dialekte, die sich von Kanton zu Kanton unterscheiden. Im Alltag sprechen die meisten Deutschschweizer Dialekt; Hochdeutsch wird vor allem in der Schule, in den Medien und in formellen Kontexten verwendet. Für Sophie Hunger bedeutet das: Sie ist mit dieser Mehrsprachigkeit aufgewachsen und bewegt sich ganz selbstverständlich zwischen den Sprachwelten.<br>
+      🇨🇳 瑞士有四门官方语言：德语(63%)、法语(23%)、意大利语(8%)和罗曼什语(0.5%)。瑞士德语（Schwyzerdütsch）并非单一语言，而是各州不同的阿勒曼尼方言总称。日常生活中大多数德语区瑞士人说方言；标准德语主要用于学校、媒体和正式场合。Sophie Hunger 在这种多语环境中长大，自如地穿梭于不同语言世界之间。
+    </div>
+
+    <div class="b2l-bg-card" style="background:#e3f2fd">
+      <strong style="color:#0d47a1">🎵 Sophie Hunger — Musikalische Grenzgängerin</strong><br>
+      🇩🇪 Sophie Hunger, geboren 1983 in Bern als Tochter eines Diplomaten, wuchs in Bern, London, Bonn und Zürich auf — eine Kindheit zwischen den Sprachen. Sie spielt Klavier, Gitarre und singt, oft alles gleichzeitig auf der Bühne. Ihr Stil vereint Indie-Pop, Folk, Jazz und Chanson. Ihren Durchbruch hatte sie 2008 mit dem Album <strong>„Monday's Ghost"</strong>. Das Album <strong>„1983"</strong> (2010) erreichte Platz 1 der Schweizer Charts und wurde auch in Deutschland, Frankreich und England beachtet. Sie komponierte auch Filmmusik, u.a. für den Schweizer Film <strong>„Der Goalie bin ig"</strong> (2014). Hunger gilt als eine der wichtigsten Stimmen der jungen Schweizer Kulturszene — eine Künstlerin, die bewusst mit Sprache als Klangmaterial arbeitet.<br>
+      🇨🇳 Sophie Hunger 1983年生于伯尔尼，父亲是外交官，童年辗转于伯尔尼、伦敦、波恩和苏黎世之间——在多语言环境中长大。她同时演奏钢琴、吉他并演唱，风格融合独立流行、民谣、爵士和香颂。2008年以专辑《Monday's Ghost》崭露头角，2010年《1983》登顶瑞士排行榜并在德法英受到关注。她还创作电影配乐，包括瑞士电影《Der Goalie bin ig》(2014)。Hunger 被视为瑞士年轻文化界最重要的声音之一——一位有意识地将语言作为声音材料来创作的艺术家。
+    </div>
+
+    <div class="b2l-bg-card" style="background:#fff3e0">
+      <strong style="color:#e65100">🗣️ Diglossie: Mundart vs. Standarddeutsch</strong><br>
+      🇩🇪 In der Deutschschweiz herrscht eine <strong>Diglossie-Situation</strong>: Mundart und Standarddeutsch werden je nach Situation verwendet — man spricht Dialekt, aber man schreibt und liest Hochdeutsch. Dieses Phänomen macht die Deutschschweizer quasi von Geburt an zweisprachig innerhalb derselben Sprachfamilie. Für Sophie Hunger ist das künstlerisch relevant: Sie kann wählen, ob ein Lied auf Schweizerdeutsch (intimer, emotionaler) oder auf Hochdeutsch (distanzierter, literarischer) klingen soll. In ihrem Song <strong>„Walzer für Niemand"</strong> singt sie auf Hochdeutsch — und spielt genau mit dieser Distanz.<br>
+      🇨🇳 德语区瑞士存在"双言现象"（Diglossie）：方言和标准德语按情境切换——口头说方言，书面读写用标准德语。这让德语区瑞士人几乎从出生起就是同一语系内的双语者。对此 Sophie Hunger 的艺术表达至关重要：她可以选择一首歌用瑞士德语（更亲密、更感性）还是标准德语（更疏离、更文学化）来演绎。在《Walzer für Niemand》中她用标准德语演唱——恰恰利用了这种距离感。
+    </div>
+  </div>
+
+  <!-- COLLOCATIONS PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-koll">
+    <strong>🔗 词汇搭配 (10)</strong>
+    <table>
+    <tr style="background:#2e7d32;color:#fff"><th>搭配 / Kollokation</th><th>释义</th><th>例句 / Beispiel</th></tr>
+    <tr><td><strong>Gefühle auslösen</strong></td><td>引发情感</td><td><em>Mit Gesang kann man bei Menschen <strong>Gefühle auslösen</strong>.</em></td></tr>
+    <tr><td><strong>Macht über + Akk. haben</strong></td><td>对…有掌控力</td><td><em>Wer Emotionen wecken kann, <strong>hat Macht über</strong> das Publikum.</em></td></tr>
+    <tr><td><strong>sich (Gen.) bewusst sein</strong></td><td>意识到…（⚠️ Genitiv）</td><td><em>Ist sie <strong>sich dessen bewusst</strong>, welche Wirkung sie hat?</em></td></tr>
+    <tr><td><strong>auf die Bühne zurückkehren</strong></td><td>回到舞台</td><td><em>Zur Zugabe <strong>kehrte</strong> sie allein <strong>auf die Bühne zurück</strong>.</em></td></tr>
+    <tr><td><strong>bereit sein, etw. anzunehmen</strong></td><td>准备好接受某物</td><td><em>Das Publikum <strong>ist bereit, etwas anzunehmen</strong>.</em></td></tr>
+    <tr><td><strong>Spaß daran haben, etw. zu tun</strong></td><td>从做某事中获得乐趣</td><td><em>Sie <strong>hat Spaß daran, Worte zu phrasieren</strong>.</em></td></tr>
+    <tr><td><strong>eine Dringlichkeit ausdrücken</strong></td><td>表达一种紧迫感</td><td><em>„Chumm" <strong>drückt eine Dringlichkeit aus</strong> — man will, dass die Person kommt.</em></td></tr>
+    <tr><td><strong>stolz auf sich (Akk.) sein</strong></td><td>为自己感到骄傲</td><td><em>Schweizer <strong>sind oft nur als Schweizer in der Schweiz stolz auf sich</strong>.</em></td></tr>
+    <tr><td><strong>jdn. zeichnen (Landschaft zeichnet jdn.)</strong></td><td>塑造/刻画一个人</td><td><em>Die Alpenlandschaft <strong>hat</strong> sie <strong>gezeichnet</strong> — sie ist immer bei ihr.</em></td></tr>
+    <tr><td><strong>aus etw. (Dat.) etwas machen</strong></td><td>用…做成/对待…</td><td><em>Die Frage ist nicht, was man ist, sondern was <strong>man daraus macht</strong>.</em></td></tr>
+    </table>
+  </div>
+
+  <!-- REDEMITTEL PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-red">
+    <strong>💬 Redemittel：Interview &amp; Biografie (8)</strong>
+    <table>
+    <tr style="background:#c62828;color:#fff"><th>功能 / Funktion</th><th>🇩🇪 Redemittel</th><th>🇨🇳 中文翻译</th></tr>
+    <tr><td><strong>🎤 Offene Frage stellen</strong><br><em>提出开放性问题</em></td><td><em>Welches dieser drei Gefühle lösen Sie eigentlich am liebsten aus?</em></td><td>这三种情感中，您最喜欢引发哪一种？</td></tr>
+    <tr><td><strong>🔍 Nachhaken / Vertiefen</strong><br><em>追问/深挖</em></td><td><em>Trotzdem: Wer Gefühle auslösen kann, hat Macht über Menschen. Sind Sie sich dessen bewusst?</em></td><td>尽管如此：谁能引发情感，谁就对人拥有权力。您意识到这点了 吗？</td></tr>
+    <tr><td><strong>🗣️ Nach einer persönlichen Erfahrung fragen</strong><br><em>询问个人经历</em></td><td><em>Erzählen Sie mal.</em></td><td>说说看。</td></tr>
+    <tr><td><strong>🌍 Persönliche Verbindung zu einem Ort</strong><br><em>表达与某地的情感联系</em></td><td><em>Die Schweiz ist meine geliebte Heimat. Wenn ich die Alpen sehe, fühle ich sie in meinem Bauch.</em></td><td>瑞士是我心爱的故乡。当我看到阿尔卑斯山时，我能在肚子里感受到 它们。</td></tr>
+    <tr><td><strong>💡 Sprachliche Nuance ausdrücken</strong><br><em>表达语言上的细微差别</em></td><td><em>Das Wort heißt „niemand" und zugleich „Person". Wer „niemand" sagt, sagt zugleich „jemand".</em></td><td>这个词意思是"无人"同时又是"人"。说"无人"的人，同时也说了" 有人"。</td></tr>
+    <tr><td><strong>🙅 Eine Annahme korrigieren</strong><br><em>纠正对方的假设</em></td><td><em>Ha! So funktioniert das nicht. Das ist kein Domino-Spiel.</em></td><td>哈！不是这样的。这不是多米诺骨牌游戏。</td></tr>
+    <tr><td><strong>🤔 Eine ambivalente Haltung zeigen</strong><br><em>展现矛盾态度</em></td><td><em>Geliebt, weil man ja das liebt, was zu einem gehört, abgesehen davon, ob man es mag oder nicht.</em></td><td>之所以爱它，是因为人会爱属于自己的一切，不管你是否喜欢它。</td></tr>
+    <tr><td><strong>💪 Mit einem starken Statement schließen</strong><br><em>以有力的金句收尾</em></td><td><em>Die Frage ist: Was macht man daraus?</em></td><td>问题是：你用它来做什么？</td></tr>
+    </table>
+  </div>
+
+  <!-- READING COMPREHENSION PANEL -->
+  <div class="b2l-ans" id="b2l-k2-a4-ex">
+    <strong>📝 阅读理解 (5 Fragen)</strong>
+    <div class="mcq-list" id="b2l-k2-a4-mcq">
+
+    <div class="mcq-item" data-ans="B">
+      <p><strong>1.</strong> Wie reagiert Sophie Hunger auf die Frage, welches Gefühl sie am liebsten auslöst?</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b2l-k2-a4-q1" value="A"> A) Sie sagt, sie löse am liebsten Freude aus.</label>
+        <label><input type="radio" name="b2l-k2-a4-q1" value="B"> B) Sie lehnt die Frage ab — so funktioniere das nicht, es sei kein Domino-Spiel.</label>
+        <label><input type="radio" name="b2l-k2-a4-q1" value="C"> C) Sie antwortet, sie mache die Menschen am liebsten traurig.</label>
+      </div>
+    </div>
+
+    <div class="mcq-item" data-ans="C">
+      <p><strong>2.</strong> Was ist das Besondere am französischen Wort „personne"?</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b2l-k2-a4-q2" value="A"> A) Es hat keine deutsche Übersetzung.</label>
+        <label><input type="radio" name="b2l-k2-a4-q2" value="B"> B) Es klingt besonders schön.</label>
+        <label><input type="radio" name="b2l-k2-a4-q2" value="C"> C) Es bedeutet zugleich „niemand" und „Person" — ein Widerspruch in einem Wort.</label>
+      </div>
+    </div>
+
+    <div class="mcq-item" data-ans="A">
+      <p><strong>3.</strong> Warum überlegt Sophie Hunger beim Hochdeutschen länger als beim Schweizerdeutschen und Französischen?</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b2l-k2-a4-q3" value="A"> A) Sie scherzt, ihr Gesprächspartner sei Deutscher — vielleicht liege es daran.</label>
+        <label><input type="radio" name="b2l-k2-a4-q3" value="B"> B) Sie spricht kein Hochdeutsch.</label>
+        <label><input type="radio" name="b2l-k2-a4-q3" value="C"> C) Sie mag die hochdeutsche Sprache nicht.</label>
+      </div>
+    </div>
+
+    <div class="mcq-item" data-ans="B">
+      <p><strong>4.</strong> Warum, so Hunger, können Schweizer oft nur in der Schweiz stolz auf sich sein?</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b2l-k2-a4-q4" value="A"> A) Weil die Schweiz zu klein ist, um international wahrgenommen zu werden.</label>
+        <label><input type="radio" name="b2l-k2-a4-q4" value="B"> B) Weil das, was die Schweiz verlässt, meistens den Wahrnehmungsbereich der Schweiz verlässt.</label>
+        <label><input type="radio" name="b2l-k2-a4-q4" value="C"> C) Weil Schweizer im Ausland nicht anerkannt werden.</label>
+      </div>
+    </div>
+
+    <div class="mcq-item" data-ans="C">
+      <p><strong>5.</strong> Was meint Sophie Hunger mit „Ich wurde ungefragt als Schweizerin geboren"?</p>
+      <div class="mcq-options">
+        <label><input type="radio" name="b2l-k2-a4-q5" value="A"> A) Sie hätte lieber eine andere Nationalität.</label>
+        <label><input type="radio" name="b2l-k2-a4-q5" value="B"> B) Sie fand die Geburt schmerzhaft.</label>
+        <label><input type="radio" name="b2l-k2-a4-q5" value="C"> C) Man sucht sich seine Herkunft nicht aus — es ist Schicksal, aber keine Last.</label>
+      </div>
+    </div>
+
+    </div>
+    <button class="b2l-btn b2l-btn-vocab" onclick="b2lCheckMCQ('b2l-k2-a4-mcq','b2l-k2-a4-score')" style="margin-top:10px">✅ 批改</button>
+    <button class="b2l-btn b2l-btn-gram" onclick="b2lResetMCQ('b2l-k2-a4-mcq','b2l-k2-a4-score')" style="margin-top:10px">🔄 重置</button>
+    <div id="b2l-k2-a4-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:24px;color:#2d3748"></div>
+  </div>
+
+</div>
+
 <a class="b2l-backtotoc" href="#b2l-toc-top">📋 回到目录 / Zurück zum Inhaltsverzeichnis</a>
+
+<a class="b2l-backtotoc" href="#b2l-toc-top">📋 回到目录 / Zurück zum Inhaltsverzeichnis</a>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- B2 阅读 · Kapitel 3 · Arbeit ist das halbe Leben?            -->
+<!-- ════════════════════════════════════════════════════════════ -->
+
+<div class="b2l-separator" style="max-width:860px;margin:30px auto 20px;height:1px;position:relative"></div>
+<div id="b2l-k3-banner" style="max-width:860px;margin:10px auto 5px;text-align:center">
+  <span style="display:inline-block;background:linear-gradient(135deg,#e65100,#ff9800);color:#fff;padding:6px 22px;border-radius:20px;font-size:.88rem;font-weight:700;letter-spacing:.03em">
+    📘 Kapitel 3 · Arbeit ist das halbe Leben?
+  </span>
+</div>
+
+<!-- ═══════════ ARTICLE K3-1 ═══════════ -->
+<div id="b2l-k3-a1-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a1">
+  <div class="b2l-card-header">📰 1 · 6 ungewöhnliche Berufe <span style="font-weight:400;font-size:.78rem;margin-left:auto">Berufsporträts · Arbeit ist das halbe Leben?</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>1 — Stuntman:</strong> In meinem Beruf muss man auf jeden Fall sehr sportlich sein und den Nervenkitzel lieben. Ich habe eine Stuntschule besucht und arbeite jetzt seit fünf Jahren als Stuntman beim Film. Mein Job ist oft gefährlich, aber immer abwechslungsreich. Trotzdem muss ich mir jetzt mal überlegen, was ich danach machen will. Denn länger als 15 bis 20 Jahre hält man das eigentlich nicht durch.<br><br>
+      <strong>2 — Bloggerin:</strong> Zuerst war es nur ein Zeitvertreib, aber dann lief es immer besser und ich habe begonnen, mein Geld als Bloggerin zu verdienen. Mittlerweile habe ich so viele Werbepartner, dass ich vor zwei Jahren meinen Job an den Nagel hängen konnte und jetzt meinen Blog hauptberuflich betreibe. Ich schreibe über alles Mögliche: Musik, Mode, Reisen, Lifestyle. Das ist natürlich kein Job bis zur Rente. Mal sehen, was noch kommt.<br><br>
+      <strong>3 — Parfümeurin:</strong> Düfte fand ich schon immer faszinierend, deshalb wollte ich auch unbedingt Parfümeurin werden. Jetzt kreiere ich die passenden Düfte für Waschmittel, Shampoos oder Hautcremes. Zuerst schreibe ich die Rezeptur, dann mische ich. Man muss wissen, welche Bestandteile man wie mischen kann. Das ist das Handwerk. Und dann braucht man natürlich auch einen hervorragenden Geruchssinn.<br><br>
+      <strong>4 — Maskenbildner:</strong> Ich arbeite am Theater als Maskenbildner. Vorher habe ich eine Ausbildung zum Friseur gemacht und dann eine spezielle Schule für Maskenbildner besucht. Man braucht viel Fantasie, Fingerspitzengefühl und Ausdauer in diesem Beruf und man muss sich drauf einstellen, dass man oft abends und am Wochenende arbeiten muss.<br><br>
+      <strong>5 — Klavierbauer:</strong> Eigentlich wollte ich immer Konzertpianist werden, aber dann habe ich irgendwann eingesehen, dass mein Talent nicht reicht. Ich wollte trotzdem etwas machen, was irgendwie mit dem Klavier verbunden ist, also bin ich Klavierbauer geworden. In diesem Beruf sind vor allem handwerkliches Geschick und Genauigkeit besonders wichtig. Ich restauriere, repariere und stimme Klaviere.<br><br>
+      <strong>6 — Innenarchitektin:</strong> Meine Leidenschaft waren schon immer Farben, Formen und Licht. Mir hat es immer Spaß gemacht, Räume zu dekorieren und umzugestalten. Nach dem Abitur habe ich Innenarchitektur studiert und habe heute mein eigenes Büro mit drei Angestellten. Wir richten Privatwohnungen, Arztpraxen, Restaurants usw. ein. Das ist mein absoluter Traumberuf, auch wenn ich bei großen Projekten oft bis spät in die Nacht arbeite.
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Stuntman, Stuntmen</strong> 特技演员 | <em>Person, die gefährliche Szenen im Film selbst ausführt</em><br>
+      • <strong>der Nervenkitzel</strong> 刺激感/惊险 | <em>aufregendes, prickelndes Gefühl bei Gefahr oder Abenteuer</em><br>
+      • <strong>abwechslungsreich</strong> 丰富多彩的/多样化的 | <em>vielseitig, nicht eintönig oder langweilig</em><br>
+      • <strong>durchhalten (hält durch, hielt durch, hat durchgehalten)</strong> 坚持住/撑下去 | <em>trotz Schwierigkeiten bis zum Ende weitermachen</em><br>
+      • <strong>der Zeitvertreib</strong> 消遣/打发时间 | <em>angenehme Beschäftigung, mit der man sich die Zeit vertreibt</em><br>
+      • <strong>hauptberuflich</strong> 全职地 | <em>als Hauptberuf, nicht nebenbei</em> ↔ <em>nebenberuflich</em> 兼职地<br>
+      • <strong>den Job an den Nagel hängen</strong> 辞职/不干了 | <em>Redewendung: den Beruf aufgeben, kündigen</em><br>
+      • <strong>die Rezeptur, -en</strong> 配方 | <em>genaue Zusammensetzung eines Produkts (z.B. Parfüm, Medikament)</em><br>
+      • <strong>das Fingerspitzengefühl</strong> 细腻的感觉/敏锐的触觉 | <em>besonderes Feingefühl und Geschicklichkeit</em><br>
+      • <strong>das handwerkliche Geschick</strong> 手艺/手工技能 | <em>Fähigkeit, mit den Händen präzise und geschickt zu arbeiten</em><br>
+      • <strong>umgestalten</strong> 改造/重新布置 | <em>etwas verändern und neu gestalten</em><br>
+      • <strong>der Traumberuf, -e</strong> 梦想职业 | <em>Beruf, den man sich immer gewünscht hat</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a1-vocab')">📚 词汇扩展 (14)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k3-a1-gram')">📖 语法：zweiteilige Konnektoren (并列连词)</button>
+<button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k3-a1-koll')">🔗 词汇搭配 (8)</button>
+
+<div class="b2l-ans" id="b2l-k3-a1-vocab">
+<strong>📚 词汇扩展 / Erweiterter Wortschatz (14)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">例句 / Beispiel</th></tr>
+<tr><td><strong>der Beruf, -e</strong></td><td>职业 | <em>die Arbeit, die man erlernt hat und dauerhaft ausübt</em></td><td><em>In meinem <strong>Beruf</strong> muss man sportlich sein.</em></td></tr>
+<tr><td><strong>sportlich</strong></td><td>运动的/体育的 | <em>körperlich fit und aktiv</em></td><td><em>Man muss sehr <strong>sportlich</strong> sein.</em></td></tr>
+<tr><td><strong>gefährlich</strong></td><td>危险的 | <em>mit Risiko verbunden; nicht sicher</em></td><td><em>Mein Job ist oft <strong>gefährlich</strong>.</em></td></tr>
+<tr><td><strong>sich (Dat.) überlegen</strong></td><td>考虑/思考 | <em>über etwas nachdenken; eine Entscheidung vorbereiten</em></td><td><em>Ich muss mir <strong>überlegen</strong>, was ich danach machen will.</em></td></tr>
+<tr><td><strong>verdienen</strong></td><td>赚(钱) | <em>Geld für Arbeit bekommen</em></td><td><em>Ich habe begonnen, mein Geld als Bloggerin zu <strong>verdienen</strong>.</em></td></tr>
+<tr><td><strong>der Werbepartner, -</strong></td><td>广告合作伙伴 | <em>Unternehmen, das für Werbung auf einer Plattform bezahlt</em></td><td><em>Ich habe so viele <strong>Werbepartner</strong>.</em></td></tr>
+<tr><td><strong>die Rente, -n</strong></td><td>退休金/养老金 | <em>regelmäßige Zahlung nach dem Berufsleben</em></td><td><em>Das ist kein Job bis zur <strong>Rente</strong>.</em></td></tr>
+<tr><td><strong>kreiieren</strong></td><td>创造/设计 | <em>etwas Neues erschaffen oder entwickeln</em></td><td><em>Ich <strong>kreiere</strong> die passenden Düfte.</em></td></tr>
+<tr><td><strong>der Bestandteil, -e</strong></td><td>成分/组成部分 | <em>ein Teil, aus dem etwas zusammengesetzt ist</em></td><td><em>Man muss wissen, welche <strong>Bestandteile</strong> man mischen kann.</em></td></tr>
+<tr><td><strong>das Handwerk</strong></td><td>手工业/手艺 | <em>praktische, mit der Hand ausgeübte Tätigkeit</em></td><td><em>Das ist das <strong>Handwerk</strong>.</em></td></tr>
+<tr><td><strong>hervorragend</strong></td><td>出色的/卓越的 | <em>ausgezeichnet, besonders gut</em></td><td><em>Man braucht einen <strong>hervorragenden</strong> Geruchssinn.</em></td></tr>
+<tr><td><strong>der Geruchssinn</strong></td><td>嗅觉 | <em>die Fähigkeit, Gerüche wahrzunehmen</em></td><td><em>einen <strong>hervorragenden Geruchssinn</strong> haben</em></td></tr>
+<tr><td><strong>die Ausdauer</strong></td><td>毅力/耐力 | <em>Fähigkeit, lange durchzuhalten</em></td><td><em>Man braucht viel Fantasie und <strong>Ausdauer</strong>.</em></td></tr>
+<tr><td><strong>sich einstellen auf + Akk.</strong></td><td>适应/做好准备 | <em>sich auf eine Situation vorbereiten</em></td><td><em>Man muss sich <strong>darauf einstellen</strong>, oft am Wochenende zu arbeiten.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a1-gram">
+<strong>📖 语法：Zweiteilige Konnektoren（并列连词）</strong><br><br>
+<strong>1. 概述</strong> 德语中有多种 zweiteilige Konnektoren（双部连词），连接两个句子或句子成分。B2考试中正确使用它们是高分关键。<br><br>
+<strong>2. 主要类型：</strong><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">类型</th><th style="background:#1a3a5c;color:#fde68a">连词</th><th style="background:#1a3a5c;color:#fde68a">例句</th></tr>
+<tr><td><strong>Aufzählung 列举</strong></td><td><strong>nicht nur …, sondern auch</strong><br><strong>sowohl … als auch</strong></td><td><em>Jetzt habe ich <strong>nicht nur</strong> nette Kollegen, <strong>sondern auch</strong> abwechslungsreichere Aufgaben.</em></td></tr>
+<tr><td><strong>negative Aufzählung 否定列举</strong></td><td><strong>weder … noch</strong></td><td><em>Ich habe <strong>weder</strong> über Zeitung <strong>noch</strong> über Internetportale eine Stelle gefunden.</em></td></tr>
+<tr><td><strong>Vergleich 比较</strong></td><td><strong>je … desto/umso</strong></td><td><em><strong>Je</strong> mehr Absagen ich bekam, <strong>desto</strong> frustrierter wurde ich.</em></td></tr>
+<tr><td><strong>Alternative 选择</strong></td><td><strong>entweder … oder</strong></td><td><em><strong>Entweder</strong> kämpft man sich durch, <strong>oder</strong> man findet nie eine Stelle.</em></td></tr>
+<tr><td><strong>Gegensatz 对立</strong></td><td><strong>zwar …, aber</strong><br><strong>einerseits …, andererseits</strong></td><td><em>Ich verdiene <strong>zwar</strong> nichts, <strong>aber</strong> ich sammle Berufserfahrung.</em><br><em><strong>Einerseits</strong> hat mir der Job gut gefallen, <strong>andererseits</strong> brauche ich neue Herausforderungen.</em></td></tr>
+</table><br>
+<strong>3. 考点注意：</strong><br>
+⚠️ 在 <strong>weder … noch</strong>, <strong>nicht nur …, sondern auch</strong> 和 <strong>sowohl … als auch</strong> 之间通常 <strong>不加逗号</strong>（连接 Satzteile 时）<br>
+⚠️ 在 <strong>zwar …, aber</strong> / <strong>je …, desto</strong> / <strong>einerseits …, andererseits</strong> 之间必须 <strong>加逗号</strong><br>
+⚠️ <strong>je … desto/umso</strong> 中，je-从句动词在末尾，desto-主句动词在第二位
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a1-koll">
+<strong>🔗 词汇搭配 / Kollokationen (8)</strong>
+<table>
+<tr><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>den Job an den Nagel hängen</strong></td><td>辞职/放弃工作 | Redewendung</td><td><em>Sie hat ihren Job <strong>an den Nagel gehängt</strong>.</em></td></tr>
+<tr><td><strong>Geld verdienen</strong></td><td>赚钱</td><td><em>Ich <strong>verdiene</strong> mein <strong>Geld</strong> als Bloggerin.</em></td></tr>
+<tr><td><strong>einen Blog betreiben</strong></td><td>运营博客</td><td><em>Jetzt <strong>betreibe</strong> ich meinen <strong>Blog</strong> hauptberuflich.</em></td></tr>
+<tr><td><strong>sich (Dat.) Gedanken machen</strong></td><td>思考/考虑</td><td><em>Ich muss mir <strong>Gedanken machen</strong>, was danach kommt.</em></td></tr>
+<tr><td><strong>Fantasie brauchen</strong></td><td>需要想象力</td><td><em>Man <strong>braucht</strong> viel <strong>Fantasie</strong> in diesem Beruf.</em></td></tr>
+<tr><td><strong>eine Ausbildung machen</strong></td><td>接受职业培训</td><td><em>Vorher habe ich eine <strong>Ausbildung</strong> zum Friseur <strong>gemacht</strong>.</em></td></tr>
+<tr><td><strong>Talent reicht nicht</strong></td><td>天赋不够</td><td><em>Ich habe eingesehen, dass mein <strong>Talent</strong> nicht <strong>reicht</strong>.</em></td></tr>
+<tr><td><strong>ein Büro einrichten</strong></td><td>布置办公室</td><td><em>Wir <strong>richten</strong> Privatwohnungen und Arztpraxen <strong>ein</strong>.</em></td></tr>
+</table>
+</div>
+</div>
+
+<!-- ═══════════ ARTICLE K3-2 ═══════════ -->
+<div id="b2l-k3-a2-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a2">
+  <div class="b2l-card-header">📰 2 · Lieben Sie Ihre Arbeit? <span style="font-weight:400;font-size:.78rem;margin-left:auto">Leseverstehen · Glück im Beruf</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Lieben Sie Ihre Arbeit?</strong><br><br>
+      Während man früher davon ausging, dass Arbeit eine reine Last ist, weiß man heute, dass der Job mitverantwortlich für das Lebensglück ist.<br><br>
+      Als sicher gilt: Vor allem Menschen, die keine Arbeit haben, sind unzufrieden. Am wichtigsten sind den meisten Menschen Gesundheit und Familie, aber gleich dahinter kommt der Beruf. Eine aktuelle Studie besagt, dass fast die Hälfte der arbeitenden Menschen sehr zufrieden mit ihrem Beruf ist, unabhängig davon, ob die Befragten Vollzeit oder Teilzeit arbeiten, angestellt oder selbstständig sind. Doch nur ein Fünftel der Arbeitslosen fühlt sich wohl. Wer arbeitslos ist, hat besonders mit dem Verlust von Ansehen und sozialen Kontakten und der mangelnden Strukturierung des Tages zu kämpfen.<br><br>
+      Eine große Rolle bei der Zufriedenheit spielt auch, ob man wirklich das macht, was man möchte. Viele träumen von der Schauspielschule, machen dann aber eine Banklehre, weil es vernünftiger und sicherer scheint, oder studieren Jura statt Philosophie, weil es die Eltern so möchten. Dabei lockt auch das erwartete gute Gehalt. Doch dann kommt plötzlich alles anders, als man denkt, weil z. B. eine Finanzkrise die Karriereplanung stört. Und so kommt zum ungeliebten Beruf noch der Misserfolg dazu. Studieren, was einen wirklich interessiert, könnte in den unsicheren wirtschaftlichen Zeiten von heute die einzige verlässliche Entscheidungshilfe sein.<br><br>
+      Männer entscheiden sich eher als Frauen für lukrative Berufe, obwohl auch für sie Geld keine Garantie für Glück bedeutet. Wissenschaftler sind öfter zufrieden als Manager, obwohl sie weniger verdienen. Das Gehalt ist also gar nicht so entscheidend, sollte aber der Leistung angemessen sein. Auch Flexibilität und die Möglichkeit, Teilzeit zu arbeiten, erhöhen das Glück des Einzelnen. So bekommt man das Gefühl, sein Leben selbst in der Hand zu haben.<br><br>
+      Um glücklich und zufrieden zu sein, braucht man aber nicht nur den richtigen Beruf, sondern auch den richtigen Arbeitsplatz. Und dort spielen natürlich auch die Vorgesetzten eine große Rolle. Wer als Chef hauptsächlich Druck ausübt, der demotiviert die Angestellten auf Dauer. Stattdessen sollten Mitarbeiter fachlich unterstützt und Konflikte schnell gelöst werden. Ein guter Chef kann auch eigene Fehler eingestehen und weiß, dass er nicht perfekt ist. Damit sich die Mitarbeiter wohlfühlen, ist eine positive und kooperative Firmenkultur unverzichtbar.<br><br>
+      Aber auch die Art der Arbeit ist von Bedeutung. Die meisten Menschen beschäftigen sich gern mit anspruchsvollen Aufgaben. Um diese zu bewältigen, sollte man allerdings genug Zeit haben und nicht ständig unter Stress stehen. Außerdem ist das Gefühl wichtig, etwas Sinnvolles zu tun. Besonders schlimm ist es für Angestellte, wenn sie ständig Angst um ihren Job haben müssen und keinen Ausweg aus dieser Situation sehen, z. B. durch einen Stellenwechsel. Die Wirtschaft verändert sich heutzutage immer schneller. Arbeitnehmer sollten sich deshalb öfter fragen, ob die Arbeit ihre Erwartungen erfüllt. Sonst stellen besonders diejenigen, die sich im Job aufreiben, irgendwann fest, dass das restliche Leben leidet.
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>die Last, -en</strong> 负担/重担 | <em>etwas, das schwer auf einem liegt (körperlich oder seelisch)</em><br>
+      • <strong>die Studie, -n</strong> 研究 | <em>wissenschaftliche Untersuchung zu einem Thema</em><br>
+      • <strong>unabhängig davon, ob …</strong> 无论是否… | <em>es spielt keine Rolle, ob …</em><br>
+      • <strong>das Ansehen</strong> 声望/名誉 | <em>der gute Ruf, den jemand bei anderen hat</em><br>
+      • <strong>mangelnd</strong> 缺乏的/不足的 | <em>nicht genug vorhanden; fehlend</em><br>
+      • <strong>der Misserfolg, -e</strong> 失败/挫折 | <em>das Gegenteil von Erfolg; negatives Ergebnis</em><br>
+      • <strong>verlässlich</strong> 可靠的/可信赖的 | <em>auf jemanden/etwas kann man sich immer verlassen</em><br>
+      • <strong>lukrativ</strong> 有利可图的/赚钱的 | <em>finanziell sehr vorteilhaft; viel Gewinn bringend</em><br>
+      • <strong>angemessen</strong> 适当的/合理的 | <em>passend, im richtigen Verhältnis</em><br>
+      • <strong>Druck ausüben (auf + Akk.)</strong> 施加压力 | <em>jemanden unter Druck setzen</em><br>
+      • <strong>demotivieren</strong> 使失去动力 | <em>jemandem die Motivation nehmen</em><br>
+      • <strong>die Firmenkultur, -en</strong> 企业文化 | <em>die Werte, Normen und Verhaltensweisen in einem Unternehmen</em><br>
+      • <strong>unverzichtbar</strong> 不可或缺的 | <em>absolut notwendig; man kann nicht darauf verzichten</em><br>
+      • <strong>anspruchsvoll</strong> 要求高的/有挑战的 | <em>hohe Anforderungen stellend; schwierig, aber interessant</em><br>
+      • <strong>bewältigen</strong> 克服/胜任 | <em>eine schwierige Aufgabe erfolgreich erledigen</em><br>
+      • <strong>sich aufreiben (rieb sich auf, hat sich aufgerieben)</strong> 耗尽精力/过度劳累 | <em>sich durch zu viel Arbeit völlig erschöpfen</em><br>
+      • <strong>der Stellenwechsel, -</strong> 换工作 | <em>Wechsel des Arbeitsplatzes oder der Position</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a2-vocab')">📚 词汇详解 (16)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k3-a2-gram')">📖 语法：Infinitiv mit zu (不定式)</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k3-a2-ex')">📝 阅读理解 (5题)</button>
+
+<div class="b2l-ans" id="b2l-k3-a2-vocab">
+<strong>📚 词汇详解 / Detaillierter Wortschatz (16)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">例句 / Beispiel</th></tr>
+<tr><td><strong>davon ausgehen, dass …</strong><br><em>ging davon aus, ist davon ausgegangen</em></td><td>认为/假设 | <em>etwas als wahrscheinlich annehmen</em></td><td><em>Früher <strong>ging</strong> man <strong>davon aus</strong>, dass Arbeit eine Last ist.</em></td></tr>
+<tr><td><strong>die Last, -en</strong></td><td>负担 | <em>schwere Bürde (körperlich/seelisch)</em></td><td><em>Arbeit war früher eine reine <strong>Last</strong>.</em></td></tr>
+<tr><td><strong>mitverantwortlich</strong></td><td>共同负责的 | <em>einen Teil der Verantwortung tragend</em></td><td><em>Der Job ist <strong>mitverantwortlich</strong> für das Lebensglück.</em></td></tr>
+<tr><td><strong>unabhängig von + Dat.</strong></td><td>与…无关/无论 | <em>ohne Abhängigkeit; egal ob</em></td><td><em><strong>unabhängig davon</strong>, ob man Vollzeit arbeitet</em></td></tr>
+<tr><td><strong>das Fünftel, -</strong></td><td>五分之一 | <em>ein Teil von fünf gleichen Teilen</em></td><td><em>Nur ein <strong>Fünftel</strong> der Arbeitslosen fühlt sich wohl.</em></td></tr>
+<tr><td><strong>das Ansehen</strong></td><td>声望 | <em>guter Ruf, Respekt in der Gesellschaft</em></td><td><em>der Verlust von <strong>Ansehen</strong></em></td></tr>
+<tr><td><strong>mangelnd</strong></td><td>缺少的 | <em>fehlend, nicht ausreichend</em></td><td><em>die <strong>mangelnde</strong> Strukturierung des Tages</em></td></tr>
+<tr><td><strong>locken</strong></td><td>吸引/诱惑 | <em>anziehend wirken; verlocken</em></td><td><em>Das erwartete gute Gehalt <strong>lockt</strong>.</em></td></tr>
+<tr><td><strong>der Misserfolg, -e</strong></td><td>失败 | <em>negatives Ergebnis; Scheitern</em></td><td><em>Zum ungeliebten Beruf kommt der <strong>Misserfolg</strong> dazu.</em></td></tr>
+<tr><td><strong>verlässlich</strong></td><td>可靠的 | <em>zuverlässig, vertrauenswürdig</em></td><td><em>die einzige <strong>verlässliche</strong> Entscheidungshilfe</em></td></tr>
+<tr><td><strong>lukrativ</strong></td><td>有利可图的 | <em>finanziell lohnend</em></td><td><em>Männer entscheiden sich eher für <strong>lukrative</strong> Berufe.</em></td></tr>
+<tr><td><strong>angemessen</strong></td><td>适当的 | <em>im richtigen Verhältnis stehend</em></td><td><em>Das Gehalt sollte der Leistung <strong>angemessen</strong> sein.</em></td></tr>
+<tr><td><strong>Druck ausüben</strong></td><td>施加压力 | <em>unter Druck setzen</em></td><td><em>Wer als Chef <strong>Druck ausübt</strong>, demotiviert die Angestellten.</em></td></tr>
+<tr><td><strong>auf Dauer</strong></td><td>长期来看 | <em>langfristig, für längere Zeit</em></td><td><em>Das demotiviert die Angestellten <strong>auf Dauer</strong>.</em></td></tr>
+<tr><td><strong>Fehler eingestehen</strong><br><em>gesteht ein, gestand ein, hat eingestanden</em></td><td>承认错误 | <em>eigene Fehler offen zugeben</em></td><td><em>Ein guter Chef kann eigene <strong>Fehler eingestehen</strong>.</em></td></tr>
+<tr><td><strong>unverzichtbar</strong></td><td>不可或缺的 | <em>absolut notwendig</em></td><td><em>Eine positive Firmenkultur ist <strong>unverzichtbar</strong>.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a2-gram">
+<strong>📖 语法：Infinitiv mit „zu"（带 zu 不定式）</strong><br><br>
+<strong>1. Grundregel:</strong> 德语中很多动词、名词和形容词搭配需要带 zu 的不定式。zu 放在不定式动词前，可分动词的 zu 插入前缀和词根之间。<br>
+🇩🇪 <em>Formel:</em> … + <strong>zu</strong> + Infinitiv | 可分动词：… + Präfix + <strong>zu</strong> + Verbstamm<br>
+📖 <em>Er hat begonnen, sein Geld <strong>zu verdienen</strong>.</em> — 他开始赚钱了<br>
+📖 <em>Er hat vor zwei Jahren seinen Job <strong>aufzugeben</strong>.</em> ← auf|geben<br><br>
+
+<strong>2. 常见触发词 (Auslöser):</strong><br>
+<table>
+<tr><th>类型</th><th>常见词</th><th>例句</th></tr>
+<tr><td>动词</td><td>beginnen, versuchen, vergessen, hoffen, planen, scheinen, brauchen</td><td><em>Er <strong>scheint</strong> zufrieden <strong>zu sein</strong>.</em></td></tr>
+<tr><td>Adjektiv + sein</td><td>wichtig, möglich, nötig, leicht, schwierig, schön</td><td><em>Es ist <strong>wichtig</strong>, etwas Sinnvolles <strong>zu tun</strong>.</em></td></tr>
+<tr><td>Nomen + haben</td><td>Lust haben, Zeit haben, die Möglichkeit haben, Angst haben</td><td><em>Sie haben <strong>Angst</strong>, ihren Job <strong>zu verlieren</strong>.</em></td></tr>
+<tr><td>unpersönlich</td><td>es gilt, es lohnt sich, es macht Spaß</td><td><em><strong>Es gilt</strong>, die richtige Entscheidung <strong>zu treffen</strong>.</em></td></tr>
+</table><br>
+
+<strong>3. 与 um zu / ohne zu / (an)statt zu 的区别见 Artikel 3。</strong><br>
+⚠️ 考点：B2 写作中 zu-不定式的正确使用是重要评分点。可分动词的 zu 位置是高频错误点。
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a2-ex">
+<strong>📝 阅读理解 / Leseverstehen (5 Fragen)</strong><br><br>
+<div class="mcq-list" id="b2l-k3-a2-mcq">
+<div class="mcq-item" data-ans="b"><p>1. Heute kann man davon ausgehen, dass …</p>
+<label><input type="radio" name="a2q1" value="a"> a) Arbeit für die meisten Menschen eine lästige Pflicht ist.</label>
+<label><input type="radio" name="a2q1" value="b"> b) Menschen nicht glücklich sind, wenn sie keine Arbeit haben.</label>
+<label><input type="radio" name="a2q1" value="c"> c) die Arbeit für viele wichtiger als die Gesundheit ist.</label></div>
+<div class="mcq-item" data-ans="a"><p>2. Besonders zufrieden sind Menschen, die …</p>
+<label><input type="radio" name="a2q2" value="a"> a) bei der Berufswahl ihrem Herzenswunsch nachgehen.</label>
+<label><input type="radio" name="a2q2" value="b"> b) ihren Beruf aus vernünftigen Gründen wie Sicherheit wählen.</label>
+<label><input type="radio" name="a2q2" value="c"> c) ihren Beruf nach dem möglichen Einkommen aussuchen.</label></div>
+<div class="mcq-item" data-ans="a"><p>3. Männer entscheiden sich öfter als Frauen für …</p>
+<label><input type="radio" name="a2q3" value="a"> a) einen gut bezahlten Beruf.</label>
+<label><input type="radio" name="a2q3" value="b"> b) eine flexible Tätigkeit.</label>
+<label><input type="radio" name="a2q3" value="c"> c) ihren Wunschberuf.</label></div>
+<div class="mcq-item" data-ans="a"><p>4. Vorgesetzte sollten …</p>
+<label><input type="radio" name="a2q4" value="a"> a) ein angenehmes Arbeitsumfeld schaffen.</label>
+<label><input type="radio" name="a2q4" value="b"> b) wenige Fehler im Umgang mit ihren Mitarbeitern machen.</label>
+<label><input type="radio" name="a2q4" value="c"> c) die Mitarbeiter durch Druck motivieren.</label></div>
+<div class="mcq-item" data-ans="b"><p>5. Arbeitnehmer sind besonders unzufrieden, wenn sie …</p>
+<label><input type="radio" name="a2q5" value="a"> a) den Job häufig wechseln müssen.</label>
+<label><input type="radio" name="a2q5" value="b"> b) denken, dass ihre Stelle in Gefahr ist.</label>
+<label><input type="radio" name="a2q5" value="c"> c) die Erwartungen in der Firma nicht erfüllen.</label></div>
+</div>
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lCheckMCQ('b2l-k3-a2-mcq','b2l-k3-a2-score')" style="margin-top:10px">✅ 批改</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lResetMCQ('b2l-k3-a2-mcq','b2l-k3-a2-score')" style="margin-top:10px">🔄 重置</button>
+<div id="b2l-k3-a2-score" style="text-align:center;margin-top:10px;font-size:1.1rem;font-weight:700;min-height:24px;color:#2d3748"></div>
+</div>
+</div>
+
+<!-- ═══════════ ARTICLE K3-3 ═══════════ -->
+<div id="b2l-k3-a3-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a3">
+  <div class="b2l-card-header">📰 3 · Teamgeist <span style="font-weight:400;font-size:.78rem;margin-left:auto">Teambildung · um/ohne/(an)statt zu + Infinitiv</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Einladung zum Team-Tag!</strong><br><br>
+      Liebe Kolleginnen und Kollegen,<br><br>
+      am Freitag, den 25. April, lösen wir zusammen mal ganz andere Probleme: Anstatt im Büro zu sitzen, bauen wir gemeinsam ein Drachenboot! Mit Hammer und Säge machen wir uns an die Arbeit, ohne von Mails oder Anrufen abgelenkt zu werden. Sobald das Boot fertig ist — voraussichtlich am späten Nachmittag —, rudern wir in Fünfer-Teams um die Wette. Welches Team umrundet die nahegelegene Insel am schnellsten? Danach rudern wir ganz gemütlich zur Insel, um uns dort von einem Grillmeister verwöhnen zu lassen.<br><br>
+      <strong>Die wichtigsten Daten:</strong><br>
+      ▲ Freitag, 25. April<br>
+      ▲ Abfahrt 8:00 Uhr vor dem Büro<br>
+      ▲ wir fahren mit dem Bus<br>
+      ▲ Freizeitkleidung + warme Jacke<br>
+      ▲ Kleidung zum Wechseln<br>
+      ▲ Rückkehr: spät<br><br>
+      Wir fahren bei jedem Wetter!<br>
+      Wir freuen uns auf einen spannenden, lustigen und unser Team stärkenden Tag!<br><br>
+      <em>Die Geschäftsleitung</em>
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 📌 语法核心：um zu / ohne zu / (an)statt zu + Infinitiv</strong><br>
+      • <strong>um … zu + Inf.</strong> = 为了…（表目的/意图）→ <em>„…um uns verwöhnen zu lassen."</em><br>
+      • <strong>ohne … zu + Inf.</strong> = 没有…就…（表缺失/未发生的伴随情况）→ <em>„…ohne von Mails abgelenkt zu werden."</em><br>
+      • <strong>(an)statt … zu + Inf.</strong> = 不是…而是…（表替代/对立）→ <em>„Anstatt im Büro zu sitzen, bauen wir ein Boot!"</em><br>
+      ⚠️ <strong>前提条件：</strong>主句和不定式从句的<strong>主语必须相同</strong>（否则用 damit, ohne dass, (an)statt dass）
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a3-vocab')">📚 词汇详解 (12)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k3-a3-gram')">📖 语法：um/ohne/(an)statt zu 深度解析</button>
+<button class="b2l-btn b2l-btn-bei" onclick="b2lToggle('b2l-k3-a3-bei')">✍️ 句型转换练习 (4)</button>
+
+<div class="b2l-ans" id="b2l-k3-a3-vocab">
+<strong>📚 词汇详解 / Wortschatz (12)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th></tr>
+<tr><td><strong>der Teamgeist</strong></td><td>团队精神 | <em>gute Zusammenarbeit und Zusammenhalt in einer Gruppe</em></td></tr>
+<tr><td><strong>das Drachenboot, -e</strong></td><td>龙舟 | <em>langes, schmales Boot, das von einem Team gerudert wird</em></td></tr>
+<tr><td><strong>Hammer und Säge</strong></td><td>锤子和锯子 | <em>Werkzeuge zum Bauen</em> — <em>sich an die Arbeit machen</em> = 开始干活</td></tr>
+<tr><td><strong>ablenken von + Dat.</strong></td><td>分散注意力/使分心 | <em>die Aufmerksamkeit von etwas wegleiten</em></td></tr>
+<tr><td><strong>um die Wette rudern</strong></td><td>赛艇/竞划 | <em>mit anderen im Wettkampf rudern</em></td></tr>
+<tr><td><strong>die nahegelegene Insel</strong></td><td>附近的岛屿 | <em>Insel, die nicht weit entfernt liegt</em></td></tr>
+<tr><td><strong>gemütlich</strong></td><td>舒适的/惬意的 | <em>behaglich, angenehm entspannt</em></td></tr>
+<tr><td><strong>verwöhnen</strong></td><td>宠爱/款待 | <em>jemandem besondere Annehmlichkeiten bieten</em></td></tr>
+<tr><td><strong>die Geschäftsleitung, -en</strong></td><td>管理层/公司领导 | <em>die leitenden Personen eines Unternehmens</em></td></tr>
+<tr><td><strong>voraussichtlich</strong></td><td>预计/大概 | <em>nach jetziger Einschätzung; wahrscheinlich</em></td></tr>
+<tr><td><strong>die Teambildung</strong></td><td>团队建设 | <em>Maßnahmen zur Verbesserung der Zusammenarbeit im Team</em></td></tr>
+<tr><td><strong>das Teamevent, -s</strong></td><td>团队活动 | <em>gemeinsame Veranstaltung für ein Arbeitsteam</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a3-gram">
+<strong>📖 语法：um zu / ohne zu / (an)statt zu — 深度解析</strong><br><br>
+<strong>1. Grundregel:</strong> 这三种 Infinitivsätze 用于表达目的、缺失情况和替代关系。<strong>前提：Hauptsatz 和 Infinitivsatz 的主语必须相同。</strong><br><br>
+
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">连词</th><th style="background:#1a3a5c;color:#fde68a">含义</th><th style="background:#1a3a5c;color:#fde68a">例句</th><th style="background:#1a3a5c;color:#fde68a">主语</th></tr>
+<tr><td><strong>um … zu</strong></td><td>为了…（目的）<br>final</td><td><em>Ich rufe an, <strong>um</strong> das Teamevent <strong>zu buchen</strong>.</em></td><td>ich = ich ✓</td></tr>
+<tr><td><strong>ohne … zu</strong></td><td>没有…就…<br>restriktiv</td><td><em>Ich habe lange gewartet, <strong>ohne</strong> ein Angebot <strong>zu bekommen</strong>.</em></td><td>ich = ich ✓</td></tr>
+<tr><td><strong>(an)statt … zu</strong></td><td>不是…而是…<br>alternativ</td><td><em><strong>(An)statt</strong> lange <strong>zu telefonieren</strong>, könntest du das Angebot fertig machen.</em></td><td>du = du ✓</td></tr>
+</table><br>
+
+<strong>2. 主语不同时的替代方案：</strong><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">同主语</th><th style="background:#1a3a5c;color:#fde68a">不同主语</th></tr>
+<tr><td>um … zu → <em>Ich rufe an, um das Event zu buchen.</em></td><td>damit → <em>Ich rufe an, <strong>damit die Firma</strong> ein Angebot erstellt.</em></td></tr>
+<tr><td>ohne … zu → <em>Ich wartete, ohne ein Angebot zu bekommen.</em></td><td>ohne dass → <em>Ich wartete, <strong>ohne dass die Firma</strong> ein Angebot schickte.</em></td></tr>
+<tr><td>(an)statt … zu → <em>Statt zu telefonieren, schickte ich eine Mail.</em></td><td>(an)statt dass → <em><strong>(An)statt dass wir</strong> telefonieren, könnten Sie mir das per Mail schicken.</em></td></tr>
+</table><br>
+
+<strong>3. Alternativen (同主语时也可使用):</strong><br>
+• um … zu = <em>weil + möchten/wollen</em>  → <em>Ich rufe an, <strong>weil</strong> ich das Event buchen <strong>möchte</strong>.</em><br>
+• ohne … zu = <em>aber + Negation</em> → <em>Ich habe lange gewartet, <strong>aber</strong> ich habe das Angebot <strong>nicht</strong> bekommen.</em><br>
+• (an)statt … zu = <em>nicht … sondern</em> → <em>Sie haben <strong>nicht</strong> telefoniert, <strong>sondern</strong> die Firma hat das Angebot per Mail geschickt.</em><br><br>
+
+⚠️ <strong>B2 考点：</strong>写作中用 um/ohne/(an)statt zu 替代简单的 damit/aber/sondern 从句可以提升语言等级。
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a3-bei">
+<strong>✍️ 句型转换练习 / Satzumformung (4 Aufgaben)</strong><br><br>
+<strong>Aufgabe: Formen Sie die Sätze um. Verwenden Sie ohne zu, um zu oder (an)statt zu.</strong><br><br>
+<strong>1.</strong> Sie ruft an, weil sie das Teamevent für die Firma buchen möchte.<br>
+👉 <em>Sie ruft an, <strong>um das Teamevent für die Firma zu buchen</strong>.</em><br><br>
+<strong>2.</strong> Sie hat angerufen, aber sie hat das Teamevent nicht gebucht.<br>
+👉 <em>Sie hat angerufen, <strong>ohne das Teamevent zu buchen</strong>.</em><br><br>
+<strong>3.</strong> Sie hat angerufen, damit sie Informationen zum Teamevent bekommt.<br>
+👉 <em>Sie hat angerufen, <strong>um Informationen zum Teamevent zu bekommen</strong>.</em><br><br>
+<strong>4.</strong> Sie hat nicht angerufen, sondern sie hat das Event per Mail gebucht.<br>
+👉 <em><strong>Anstatt anzurufen</strong>, hat sie das Event per Mail gebucht.</em><br><br>
+<strong>⚠️ 主语检查 (Subjektkontrolle):</strong> 标记下列句子的主语是否相同：<br>
+• <em>Viele Firmen bieten Teamevents an, <strong>damit</strong> ihre Mitarbeiter besser zusammenarbeiten.</em><br>
+&nbsp;&nbsp;→ Firmen ≠ Mitarbeiter → 主语不同，必须用 damit（不能改成 um zu）<br>
+• <em>Sie hat lange gewartet, <strong>ohne dass</strong> die Firma ein Angebot geschickt hat.</em><br>
+&nbsp;&nbsp;→ Sie ≠ Firma → 主语不同，必须用 ohne dass
+</div>
+</div>
+
+<!-- ═══════════ ARTICLE K3-4 ═══════════ -->
+<div id="b2l-k3-a4-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a4">
+  <div class="b2l-card-header">📰 4 · Werben Sie für sich! <span style="font-weight:400;font-size:.78rem;margin-left:auto">Lebenslauf · Bewerbungsschreiben · Vorstellungsgespräch</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>A. Der Lebenslauf — Tipps einer Bewerbungstrainerin</strong><br><br>
+      1. Die Überschrift ist wichtig: Jeder erkennt sofort, was vor ihm liegt. Übersichtlicher ist es, wenn die Überschrift über der zweiten Spalte steht.<br>
+      2. Nicht nur das Jahr, sondern auch die Monate angeben, z. B. 06/13 oder Juni 13. Achten Sie darauf, dass die Datumsangaben einheitlich sind.<br>
+      3. Sprachkenntnisse stehen am Ende des Lebenslaufs.<br>
+      4. Die Überschriften „Studium" und „Abschlüsse" sollte man besser unter einer Überschrift, z. B. „Ausbildung", zusammenfassen.<br>
+      5. Bei EDV-Kenntnissen immer auch angeben, wie gut man das Programm kann und seit wann man das Programm verwendet.<br>
+      6. Der Lebenslauf ist ein offizielles Dokument, deswegen dürfen Ort, Datum und Unterschrift niemals fehlen.<br>
+      7. Nennen Sie nur Weiterbildungen, die im Zusammenhang mit der Stelle stehen.<br>
+      8. Tipp- und Rechtschreibfehler unbedingt vermeiden!<br>
+      9. Zu Berufserfahrung und Praktika gehören eine kurze Beschreibung der Tätigkeiten.<br>
+      10. Das Foto kommt oben rechts auf den Lebenslauf. Man sollte seriös und freundlich zugleich aussehen.<br><br>
+      <strong>📋 Aufbau eines Lebenslaufs (简历结构):</strong><br>
+      Persönliche Angaben → Berufserfahrung → Ausbildung/Studium → Praktika → Weiterbildung → EDV-Kenntnisse → Sprachen<br><br>
+      <strong>B. Das Bewerbungsschreiben — Aufbau (求职信结构):</strong><br>
+      1. <strong>Absender</strong> (发件人地址) → 2. <strong>Adresse</strong> (收件人地址) → 3. <strong>Ort, Datum</strong> (地点日期) → 4. <strong>Betreff</strong> (事由) → 5. <strong>Anrede</strong> (称呼) → 6. <strong>Einleitung</strong> (开头) → 7. <strong>Vorstellung der eigenen Person</strong> (自我介绍) → 8. <strong>Eintrittstermin</strong> (入职时间) → 9. <strong>Erwartungen und Ziele</strong> (期望与目标) → 10. <strong>Schlusssatz</strong> (结束语) → 11. <strong>Grußformel</strong> (问候) → 12. <strong>Unterschrift</strong> (签名)
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 核心词汇 / Wichtiger Wortschatz：</strong><br>
+      • <strong>der Lebenslauf, -läufe</strong> 简历 | <em>tabellarische Darstellung des beruflichen Werdegangs</em><br>
+      • <strong>das Bewerbungsschreiben, -</strong> 求职信 | <em>Brief, mit dem man sich um eine Stelle bewirbt</em><br>
+      • <strong>das Vorstellungsgespräch, -e</strong> 面试 | <em>persönliches Gespräch mit dem potenziellen Arbeitgeber</em><br>
+      • <strong>die Stellenausschreibung, -en</strong> 招聘启事 | <em>öffentliche Bekanntmachung einer freien Stelle</em><br>
+      • <strong>die Anforderung, -en</strong> 要求 | <em>was von einem Bewerber erwartet wird</em><br>
+      • <strong>die Berufserfahrung</strong> 工作经验 | <em>praktische Kenntnisse aus der beruflichen Tätigkeit</em><br>
+      • <strong>die Weiterbildung, -en</strong> 进修/继续教育 | <em>zusätzliche Qualifikation nach der Ausbildung</em><br>
+      • <strong>der Eintrittstermin, -e</strong> 入职日期 | <em>Datum, an dem man die neue Stelle antritt</em><br>
+      • <strong>einheitlich</strong> 统一的/一致的 | <em>nach dem gleichen Muster; einheitliches Format</em><br>
+      • <strong>vermeiden (vermied, hat vermieden)</strong> 避免 | <em>etwas bewusst nicht tun</em><br>
+      • <strong>seriös</strong> 可靠的/正经的 | <em>ernsthaft und vertrauenswürdig wirkend</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a4-vocab')">📚 求职词汇 (15)</button>
+<button class="b2l-btn b2l-btn-gram" onclick="b2lToggle('b2l-k3-a4-gram')">💬 Redemittel 求职常用表达 (12)</button>
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k3-a4-bg')">🏭 面试10大注意事项</button>
+
+<div class="b2l-ans" id="b2l-k3-a4-vocab">
+<strong>📚 求职词汇 / Bewerbungswortschatz (15)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇</th><th style="background:#1a3a5c;color:#fde68a">释义</th><th style="background:#1a3a5c;color:#fde68a">搭配/例句</th></tr>
+<tr><td><strong>der Lebenslauf, -läufe</strong></td><td>简历</td><td><em>einen <strong>Lebenslauf</strong> schreiben / aktualisieren</em></td></tr>
+<tr><td><strong>das Bewerbungsschreiben, -</strong></td><td>求职信</td><td><em>ein aussagekräftiges <strong>Bewerbungsschreiben</strong></em></td></tr>
+<tr><td><strong>sich bewerben um + Akk.</strong><br><em>bewirbt sich, bewarb sich, hat sich beworben</em></td><td>申请（职位）</td><td><em>Ich <strong>bewerbe</strong> mich <strong>um</strong> die Stelle als Managerin.</em></td></tr>
+<tr><td><strong>die Stellenausschreibung, -en</strong></td><td>招聘启事</td><td><em>eine <strong>Stellenausschreibung</strong> aufgeben / lesen</em></td></tr>
+<tr><td><strong>die Anforderung, -en</strong></td><td>要求</td><td><em>die <strong>Anforderungen</strong> erfüllen</em></td></tr>
+<tr><td><strong>der Eintrittstermin, -e</strong></td><td>入职日期</td><td><em>Die Tätigkeit könnte ich ab dem 1. Juli <strong>aufnehmen</strong>.</em></td></tr>
+<tr><td><strong>die Berufserfahrung</strong></td><td>职业经验</td><td><em>mindestens 2-3 Jahre <strong>Berufserfahrung</strong></em></td></tr>
+<tr><td><strong>die Weiterbildung, -en</strong></td><td>进修</td><td><em>Nennen Sie nur <strong>Weiterbildungen</strong>, die relevant sind.</em></td></tr>
+<tr><td><strong>die Kenntnis, -se</strong></td><td>知识/技能</td><td><em>gute Englisch<strong>kenntnisse</strong></em></td></tr>
+<tr><td><strong>verhandlungssicher</strong></td><td>谈判级别的（语言能力）</td><td><em>Englisch C1, <strong>verhandlungssicher</strong></em></td></tr>
+<tr><td><strong>das Praktikum, Praktika</strong></td><td>实习</td><td><em>ein <strong>Praktikum</strong> bei der Firma machen</em></td></tr>
+<tr><td><strong>selbstständig</strong></td><td>独立的/自主的</td><td><em>selbstständige und zielorientierte Arbeitsweise</em></td></tr>
+<tr><td><strong>zielorientiert</strong></td><td>目标导向的</td><td><em>eine <strong>zielorientierte</strong> Arbeitsweise</em></td></tr>
+<tr><td><strong>die Unterschrift, -en</strong></td><td>签名</td><td><em>Ort, Datum und <strong>Unterschrift</strong> dürfen niemals fehlen.</em></td></tr>
+<tr><td><strong>einheitlich</strong></td><td>一致的</td><td><em>Datumsangaben müssen <strong>einheitlich</strong> sein.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a4-gram">
+<strong>💬 Redemittel: Eine Bewerbung schreiben（求职信常用表达 12 条）</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">场景</th><th style="background:#1a3a5c;color:#fde68a">表达</th></tr>
+<tr><td><strong>Einleitung 开头</strong></td><td><em>In Ihrer oben genannten Anzeige …</em><br><em>vielen Dank für das informative und freundliche Telefonat.</em><br><em>da ich mich beruflich verändern möchte, …</em></td></tr>
+<tr><td><strong>Berufserfahrung 经验</strong></td><td><em>Nach erfolgreichem Abschluss meines Studiums …</em><br><em>In meiner jetzigen Tätigkeit als … bin ich …</em><br><em>Im Praktikum bei der Firma … habe ich gelernt, wie/dass …</em></td></tr>
+<tr><td><strong>Erwartungen 期望</strong></td><td><em>Von einem beruflichen Wechsel zu Ihrer Firma erhoffe ich mir, …</em><br><em>Mit dem Eintritt in Ihr Unternehmen verbinde ich die Erwartung, …</em></td></tr>
+<tr><td><strong>Eintrittstermin 入职</strong></td><td><em>Mit der Tätigkeit als … kann ich zum … beginnen.</em></td></tr>
+<tr><td><strong>Schlusssatz 结尾</strong></td><td><em>Ich freue mich darauf, Sie in einem persönlichen Gespräch kennenzulernen.</em><br><em>Über eine Einladung zu einem Vorstellungsgespräch freue ich mich sehr.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a4-bg">
+<strong>🏭 Checkliste Selbstdarstellung im Vorstellungsgespräch（面试自我展示10大注意事项）</strong><br><br>
+<strong>1.</strong> Machen Sie deutlich, welche Stationen Ihrer Ausbildung/Karriere für die Stelle wichtig sind.<br>
+<strong>2.</strong> Erklären Sie, welche Ziele Sie noch erreichen möchten.<br>
+<strong>3.</strong> Beschreiben Sie persönliche Erfahrungen und Qualifikationen, die wichtig für die Stelle sind.<br>
+<strong>4.</strong> Reden Sie niemals schlecht über andere Arbeitgeber.<br>
+<strong>5.</strong> Seien Sie selbstbewusst, aber nicht arrogant!<br>
+<strong>6.</strong> Werden Sie nicht zu privat. Was Sie erzählen, sollte im Zusammenhang mit der Stelle stehen.<br>
+<strong>7.</strong> Machen Sie deutlich, warum Sie sich gerade auf diese Stelle bewerben.<br>
+<strong>8.</strong> Bereiten Sie Fragen zum Unternehmen vor — das zeigt Interesse.<br>
+<strong>9.</strong> Achten Sie auf angemessene Kleidung und pünktliches Erscheinen.<br>
+<strong>10.</strong> Bedanken Sie sich nach dem Gespräch per E-Mail für die Gelegenheit.<br>
+</div>
+</div>
+
+<!-- ═══════════ ARTICLE K3-5 ═══════════ -->
+<div id="b2l-k3-a5-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a5">
+  <div class="b2l-card-header">📰 5 · manomama — Ein Social Business <span style="font-weight:400;font-size:.78rem;margin-left:auto">Porträt · Sina Trinkwalder</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>manomama® — Eine textile Geschäftsidee von Sina Trinkwalder</strong><br><br>
+      Sina Trinkwalder ist Textilunternehmerin. Aber nicht irgendeine. Sie hat mit manomama® das erste öko-soziale Unternehmen (Social Business) im Textilbereich in Deutschland gegründet. Für ihr Engagement kam Lob von allen Seiten und das Schönste ist: Das Unternehmen arbeitet wirtschaftlich erfolgreich.<br><br>
+      Sie hatte es auch lassen können. Sina Trinkwalder, 36, Mutter eines kleinen Sohnes, verdiente gutes Geld als Geschäftsführerin einer Werbeagentur. Aber sie besitzt nun mal von Kindesbeinen an einen ausgesprochenen Gerechtigkeitssinn. So hängte sie ihren Job an den Nagel und gründete manomama®, das erste Social Business im Textilbereich in Deutschland — 100 Prozent ökologisch und regional verankert.<br><br>
+      <strong>„Wir machen nicht bio, weil es sich gut verkauft, sondern weil wir es als Grundvoraussetzung für ein respektvolles, soziales Handeln sehen",</strong> sagt die Unternehmerin. Wichtiger als bio ist ihr aber der soziale Aspekt. <strong>„Wir können doch Menschen, die gern arbeiten würden, nicht die Chance verweigern!"</strong><br><br>
+      manomama® startete mit einer kleinen Manufaktur 2010, produziert sie mittlerweile in einem umgebauten Rohwarenlager im Zentrum Augsburgs Biobaumwolltaschen und Bekleidung. Alles, was dafür gebraucht wird, vom Garn bis zur Naht, wird in Deutschland oder wenn möglich im Umkreis von 250 km um Augsburg hergestellt. Einzig die Baumwolle (kba = kontrolliert biologischer Anbau) wird aus der Türkei und aus Westafrika importiert. Sina Trinkwalder beschäftigt rund 150 Menschen, die auf dem Arbeitsmarkt sonst kaum mehr gefragt wären, wie Langzeitarbeitslose, ältere Frauen.<br><br>
+      Dass es gelingen würde, in Deutschland konkurrenzfähige Textilien herzustellen, haben ihr nicht viele zugetraut — das sei hier einfach zu teuer. Zur Erinnerung: Tausende Näherinnen hatten hierzulande ihren Job verloren, die Produktion wurde vor allem in Billiglohnländer verlagert.<br><br>
+      Mit ihrem Projekt hat sie viel Aufsehen erregt, avancierte zum Liebling der Arbeitsagentur und wird von Politik und Gewerkschaften hofiert. Aber auch die Kunden kommen. <strong>„Wir können das bieten, was die Kunden bei anderen Textilherstellern verzweifelt suchen: Transparenz — vom Feld bis in den Schrank",</strong> sagt die manomama-Chefin.
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>das Social Business</strong> 社会企业 | <em>Unternehmen, das soziale Ziele verfolgt und gleichzeitig wirtschaftlich arbeitet</em><br>
+      • <strong>gründen</strong> 创立/创办 | <em>ein Unternehmen / eine Organisation ins Leben rufen</em><br>
+      • <strong>das Engagement</strong> 投入/奉献 | <em>freiwilliger, oft ideeller Einsatz für eine Sache</em><br>
+      • <strong>der Gerechtigkeitssinn</strong> 正义感 | <em>das innere Gefühl dafür, was gerecht und was ungerecht ist</em><br>
+      • <strong>von Kindesbeinen an</strong> 从小/自幼 | <em>Redewendung: seit frühester Kindheit</em><br>
+      • <strong>ökologisch</strong> 生态的/环保的 | <em>umweltfreundlich, die Natur schützend</em><br>
+      • <strong>regional verankert</strong> 扎根于本地 | <em>fest mit der Region verbunden; lokal verwurzelt</em><br>
+      • <strong>die Grundvoraussetzung, -en</strong> 基本前提 | <em>wichtigste Bedingung, ohne die etwas nicht geht</em><br>
+      • <strong>verweigern</strong> 拒绝/不给 | <em>jemandem etwas nicht geben oder erlauben</em><br>
+      • <strong>die Manufaktur, -en</strong> 手工工坊 | <em>handwerklich arbeitender Produktionsbetrieb</em><br>
+      • <strong>konkurrenzfähig</strong> 有竞争力的 | <em>im Wettbewerb mit anderen bestehen könnend</em><br>
+      • <strong>jdm. etwas zutrauen</strong> 相信某人能做到某事 | <em>glauben, dass jemand etwas schaffen kann</em><br>
+      • <strong>Aufsehen erregen</strong> 引起轰动 | <em>viel öffentliche Aufmerksamkeit bekommen</em><br>
+      • <strong>die Transparenz</strong> 透明度 | <em>Durchschaubarkeit; Offenlegung aller wichtigen Informationen</em><br>
+      • <strong>die Billiglohnländer (Pl.)</strong> 低工资国家 | <em>Länder mit sehr niedrigen Lohnkosten</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a5-vocab')">📚 词汇详解 (14)</button>
+<button class="b2l-btn b2l-btn-koll" onclick="b2lToggle('b2l-k3-a5-koll')">🔗 词汇搭配 (8)</button>
+
+<div class="b2l-ans" id="b2l-k3-a5-vocab">
+<strong>📚 词汇详解 / Detaillierter Wortschatz (14)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">例句 / Beispiel</th></tr>
+<tr><td><strong>der/die Unternehmer/in, -nen</strong></td><td>企业家</td><td><em>Sina Trinkwalder ist <strong>Textilunternehmerin</strong>.</em></td></tr>
+<tr><td><strong>gründen</strong></td><td>创立</td><td><em>Sie hat ein Social Business <strong>gegründet</strong>.</em></td></tr>
+<tr><td><strong>das Engagement</strong></td><td>奉献/投入</td><td><em>Für ihr <strong>Engagement</strong> kam Lob von allen Seiten.</em></td></tr>
+<tr><td><strong>der Gerechtigkeitssinn</strong></td><td>正义感</td><td><em>Sie besitzt einen ausgesprochenen <strong>Gerechtigkeitssinn</strong>.</em></td></tr>
+<tr><td><strong>ausgesprochen</strong></td><td>特别的/显著的</td><td><em>ein <strong>ausgesprochener</strong> Gerechtigkeitssinn</em> = 特别强烈的正义感</td></tr>
+<tr><td><strong>ökologisch</strong></td><td>生态的</td><td><em>100 Prozent <strong>ökologisch</strong> und regional verankert</em></td></tr>
+<tr><td><strong>verankern</strong></td><td>锚定/扎根</td><td><em>regional <strong>verankert</strong></em> = 根植于本地的</td></tr>
+<tr><td><strong>verweigern</strong></td><td>拒绝</td><td><em>Wir können Menschen nicht die Chance <strong>verweigern</strong>.</em></td></tr>
+<tr><td><strong>der Langzeitarbeitslose, -n</strong></td><td>长期失业者</td><td><em>Menschen, die sonst kaum mehr gefragt wären, wie <strong>Langzeitarbeitslose</strong>.</em></td></tr>
+<tr><td><strong>konkurrenzfähig</strong></td><td>有竞争力的</td><td><em>in Deutschland <strong>konkurrenzfähige</strong> Textilien herstellen</em></td></tr>
+<tr><td><strong>verlagern</strong></td><td>转移/外迁</td><td><em>Die Produktion wurde in Billiglohnländer <strong>verlagert</strong>.</em></td></tr>
+<tr><td><strong>Aufsehen erregen</strong></td><td>引起轰动</td><td><em>Mit ihrem Projekt hat sie viel <strong>Aufsehen erregt</strong>.</em></td></tr>
+<tr><td><strong>avancieren zu + Dat.</strong></td><td>晋升为/成为</td><td><em>Sie <strong>avancierte</strong> zum Liebling der Arbeitsagentur.</em></td></tr>
+<tr><td><strong>die Transparenz</strong></td><td>透明度</td><td><em><strong>Transparenz</strong> — vom Feld bis in den Schrank</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a5-koll">
+<strong>🔗 词汇搭配 / Kollokationen (8)</strong>
+<table>
+<tr><th>搭配</th><th>释义</th><th>例句</th></tr>
+<tr><td><strong>ein Unternehmen gründen</strong></td><td>创办企业</td><td><em>Sie hat manomama <strong>gegründet</strong>.</em></td></tr>
+<tr><td><strong>wirtschaftlich erfolgreich</strong></td><td>经济上成功的</td><td><em>Das Unternehmen arbeitet <strong>wirtschaftlich erfolgreich</strong>.</em></td></tr>
+<tr><td><strong>den Job an den Nagel hängen</strong></td><td>辞职</td><td><em>Sie <strong>hängte</strong> ihren <strong>Job an den Nagel</strong>.</em></td></tr>
+<tr><td><strong>Lob von allen Seiten</strong></td><td>各方面的赞扬</td><td><em>Für ihr Engagement kam <strong>Lob von allen Seiten</strong>.</em></td></tr>
+<tr><td><strong>im Umkreis von … km</strong></td><td>在…公里范围内</td><td><em><strong>im Umkreis von 250 km</strong> um Augsburg</em></td></tr>
+<tr><td><strong>Menschen beschäftigen</strong></td><td>雇佣员工</td><td><em>Sie <strong>beschäftigt</strong> rund 150 <strong>Menschen</strong>.</em></td></tr>
+<tr><td><strong>sich von etw. unterscheiden</strong></td><td>与…不同</td><td><em>manomama <strong>unterscheidet sich</strong> von anderen Textilherstellern.</em></td></tr>
+<tr><td><strong>eine Chance bieten</strong></td><td>提供机会</td><td><em>Das Unternehmen <strong>bietet</strong> Langzeitarbeitslosen eine <strong>Chance</strong>.</em></td></tr>
+</table>
+</div>
+</div>
+
+<!-- ═══════════ ARTICLE K3-6 ═══════════ -->
+<div id="b2l-k3-a6-anchor"></div>
+<div class="b2l-card" id="b2l-k3-a6">
+  <div class="b2l-card-header">📰 6 · Gleicher Lohn für gleiche Arbeit? <span style="font-weight:400;font-size:.78rem;margin-left:auto">Gleichberechtigung im Beruf · Forum-Diskussion</span></div>
+  <div class="b2l-card-body">
+    <p style="font-family:Georgia,serif;font-size:.92rem;line-height:1.8;text-align:justify">
+      <strong>Gleicher Lohn für gleiche Arbeit?</strong><br><br>
+      In Deutschland gilt gesetzlich: Gleicher Lohn für gleiche Arbeit. Trotzdem verdienen Frauen oft weniger als Männer. Gründe dafür sind:<br>
+      • Typische Frauenberufe sind meist schlechter bezahlt.<br>
+      • Frauen haben oft weniger Berufsjahre wegen der Familie.<br>
+      • Wegen Schwangerschaft und Familie unterbrechen Frauen häufiger ihre Karriere.<br>
+      • Frauen achten bei der Berufswahl oft nicht als Erstes auf das Gehalt.<br><br>
+      <strong>📱 Forum-Diskussion:</strong><br><br>
+      <strong>🎤 user1 (15.07. | 16:30 Uhr):</strong><br>
+      Die meisten Frauen arbeiten, aber die große Karriere machen die Männer. Ich finde, man sollte auch bei uns eine verpflichtende Frauenquote einführen. Mindestens 40 Prozent der oberen Führungspositionen sollten mit Frauen besetzt werden. In vielen anderen Ländern gibt es so eine Frauenquote. Warum nicht auch bei uns?<br><br>
+      <strong>🎤 user2 (15.07. | 16:38 Uhr):</strong><br>
+      Beruf und Familie unter einen Hut zu bekommen, ist wirklich schwierig. Wie soll man Vollzeit arbeiten und Karriere machen, wenn man zwei kleine Kinder hat? Aber vielleicht könnten ja auch mal die Väter eine Weile Teilzeit arbeiten und sich mehr um die Familie kümmern.<br><br>
+      <strong>🎤 user3 (15.07. | 16:42 Uhr):</strong><br>
+      Besonders Frauen arbeiten oft in Berufen, bei denen man sich um andere Menschen kümmert. Und die sind ja meistens besonders schlecht bezahlt. Ich verstehe nicht, warum man als Krankenschwester nicht mehr verdient. Das ist wirklich eine schwere und anstrengende Arbeit und das sollte auch honoriert werden. Das Gleiche gilt natürlich für Altenpfleger, Erzieher usw.<br><br>
+      <strong>🎤 user4 (15.07. | 16:45 Uhr):</strong><br>
+      Wenn man wirklich Karriere machen möchte, dann kann man das auch; egal, ob man eine Frau oder ein Mann ist. Die richtige Ausbildung, genug Durchsetzungsvermögen und Zielstrebigkeit sind wichtig, denke ich. Und am besten ein Arbeitgeber, der familienfreundlich ist, also z. B. durch flexible Arbeitszeiten oder Homeoffice.
+    </p>
+    <div class="b2l-lern">
+      <strong>📖 预习笔记 / Lernwortschatz：</strong><br>
+      • <strong>der Lohn, -Löhne</strong> 工资/报酬 | <em>Bezahlung für geleistete Arbeit</em><br>
+      • <strong>die Gleichberechtigung</strong> 平等权利 | <em>gleiche Rechte für alle Menschen, unabhängig vom Geschlecht</em><br>
+      • <strong>die Frauenquote, -n</strong> 女性配额 | <em>vorgeschriebener Mindestanteil von Frauen in Führungspositionen</em><br>
+      • <strong>die Führungsposition, -en</strong> 领导职位 | <em>leitende Stelle in einem Unternehmen</em><br>
+      • <strong>etwas unter einen Hut bringen</strong> 协调/兼顾 | <em>Redewendung: zwei schwierige Dinge miteinander vereinbaren</em><br>
+      • <strong>Teilzeit arbeiten</strong> 兼职工作 | <em>nicht Vollzeit, sondern mit reduzierter Stundenzahl arbeiten</em><br>
+      • <strong>sich kümmern um + Akk.</strong> 照顾/关心 | <em>für jemanden oder etwas sorgen</em><br>
+      • <strong>honorieren</strong> 给予报酬/肯定 | <em>eine Leistung angemessen bezahlen oder anerkennen</em><br>
+      • <strong>das Durchsetzungsvermögen</strong> 执行力/决断力 | <em>Fähigkeit, eigene Ziele gegen Widerstände zu erreichen</em><br>
+      • <strong>die Zielstrebigkeit</strong> 目标坚定 | <em>konsequente Ausrichtung auf ein Ziel</em><br>
+      • <strong>familienfreundlich</strong> 对家庭友好的 | <em>Rücksicht auf die Bedürfnisse von Familien nehmend</em><br>
+      • <strong>das Homeoffice</strong> 居家办公 | <em>Arbeiten von zu Hause aus (auch: Home-Office)</em>
+    </div>
+  </div>
+</div>
+
+<div class="b2l-btn-row" style="max-width:860px;margin:0 auto;padding:0 0 0 4px">
+<button class="b2l-btn b2l-btn-vocab" onclick="b2lToggle('b2l-k3-a6-vocab')">📚 词汇详解 (14)</button>
+<button class="b2l-btn b2l-btn-bg" onclick="b2lToggle('b2l-k3-a6-bg')">🏭 背景：德国性别平等数据</button>
+<button class="b2l-btn b2l-btn-red" onclick="b2lToggle('b2l-k3-a6-ex')">📝 讨论题 (4)</button>
+
+<div class="b2l-ans" id="b2l-k3-a6-vocab">
+<strong>📚 词汇详解 / Wortschatz (14)</strong><br><br>
+<table>
+<tr><th style="background:#1a3a5c;color:#fde68a">词汇 / Wort</th><th style="background:#1a3a5c;color:#fde68a">释义 / Bedeutung</th><th style="background:#1a3a5c;color:#fde68a">搭配/例句</th></tr>
+<tr><td><strong>der Lohn, -Löhne</strong></td><td>工资</td><td><em>Gleicher <strong>Lohn</strong> für gleiche Arbeit.</em></td></tr>
+<tr><td><strong>gesetzlich</strong></td><td>法定的</td><td><em><strong>gesetzlich</strong> gilt: …</em> = 法律规定：…</td></tr>
+<tr><td><strong>die Gleichberechtigung</strong></td><td>平等权利</td><td><em><strong>Gleichberechtigung</strong> im Beruf</em></td></tr>
+<tr><td><strong>die Frauenquote, -n</strong></td><td>女性配额</td><td><em>eine verpflichtende <strong>Frauenquote</strong> einführen</em></td></tr>
+<tr><td><strong>die Führungsposition, -en</strong></td><td>领导职位</td><td><em>40 Prozent der oberen <strong>Führungspositionen</strong></em></td></tr>
+<tr><td><strong>etw. unter einen Hut bringen</strong></td><td>兼顾/协调</td><td><em>Beruf und Familie <strong>unter einen Hut bringen</strong></em></td></tr>
+<tr><td><strong>Teilzeit (f.)</strong></td><td>兼职</td><td><em>eine Weile <strong>Teilzeit</strong> arbeiten</em></td></tr>
+<tr><td><strong>sich kümmern um + Akk.</strong></td><td>照顾/关心</td><td><em>sich mehr <strong>um</strong> die Familie <strong>kümmern</strong></em></td></tr>
+<tr><td><strong>honorieren</strong></td><td>酬谢/肯定</td><td><em>Diese Arbeit sollte <strong>honoriert</strong> werden.</em></td></tr>
+<tr><td><strong>das Durchsetzungsvermögen</strong></td><td>执行力</td><td><em>genug <strong>Durchsetzungsvermögen</strong> haben</em></td></tr>
+<tr><td><strong>die Zielstrebigkeit</strong></td><td>目标坚定性</td><td><em>Ausbildung, <strong>Zielstrebigkeit</strong> und Durchsetzungsvermögen</em></td></tr>
+<tr><td><strong>familienfreundlich</strong></td><td>家庭友好的</td><td><em>ein <strong>familienfreundlicher</strong> Arbeitgeber</em></td></tr>
+<tr><td><strong>das Homeoffice</strong></td><td>居家办公</td><td><em>flexible Arbeitszeiten oder <strong>Homeoffice</strong></em></td></tr>
+<tr><td><strong>der/die Altenpfleger/in</strong></td><td>养老护理员</td><td><em>Das Gleiche gilt für <strong>Altenpfleger</strong> und Erzieher.</em></td></tr>
+</table>
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a6-bg">
+<strong>🏭 背景知识：德国性别工资差距 (Gender Pay Gap)</strong><br><br>
+• 德国是欧盟中性别工资差距最大的国家之一（约 18% unbereinigt / 6% bereinigt）。<br>
+• <strong>unbereinigt:</strong> 未调整的工资差距（包含了兼职比例、行业选择等结构性因素）<br>
+• <strong>bereinigt:</strong> 调整后的工资差距（排除结构性因素后，同等职位同等工作量的差距）<br>
+• 2024年起，德国上市公司监事会必须有至少 30% 的女性成员（Frauenquote）。<br>
+• <strong>Care-Arbeit (护理工作):</strong> 主要由女性从事的教育、护理、育儿等社会服务类工作长期被低估报酬。<br>
+• <strong>Elternzeit (育儿假):</strong> 德国的 Elternzeit 允许父母双方最多各休 3 年。但现实中母亲休育儿假的比例远高于父亲。
+</div>
+
+<div class="b2l-ans" id="b2l-k3-a6-ex">
+<strong>📝 讨论问题 / Diskussionsfragen (4)</strong><br><br>
+<strong>1.</strong> Wie sieht es mit der beruflichen Gleichberechtigung in Ihrem Heimatland aus? Berichten Sie.<br><br>
+<strong>2.</strong> Finden Sie eine Frauenquote sinnvoll? Welche Vor- und Nachteile hat sie?<br><br>
+<strong>3.</strong> Wie kann man Beruf und Familie besser vereinbaren? Welche Maßnahmen sollten Unternehmen ergreifen?<br><br>
+<strong>4.</strong> Warum sind soziale Berufe (Krankenschwester, Erzieher, Altenpfleger) oft schlecht bezahlt? Ist das gerecht?<br><br>
+<em>💡 Tipp: Nutzen Sie die Redemittel aus dem Lehrbuch:</em><br>
+• Für mich ist es wichtig, … · Ein wichtiger Punkt ist … · Ich habe die Erfahrung gemacht, dass …<br>
+• Meine Erfahrungen haben mir gezeigt, dass … · … bedeutet viel/wenig für mich.<br>
+• Ich könnte mir vorstellen, dass … · Eventuell/Wahrscheinlich …
+</div>
+</div>
+
+<!-- ═══════════ K3 GRAMMATIK-RÜCKSCHAU ═══════════ -->
+<div class="b2l-separator" style="max-width:860px;margin:20px auto;height:1px;position:relative"></div>
+<div id="b2l-k3-gram-banner" style="max-width:860px;margin:10px auto 5px;text-align:center">
+  <span style="display:inline-block;background:linear-gradient(135deg,#283593,#5c6bc0);color:#fff;padding:6px 22px;border-radius:20px;font-size:.88rem;font-weight:700;letter-spacing:.03em">
+    📘 Grammatik-Rückschau · Kapitel 3
+  </span>
+</div>
+
+<div id="b2l-k3-gram-anchor"></div>
+<div class="b2l-card" id="b2l-k3-gram">
+  <div class="b2l-card-header">📖 Grammatik-Rückschau <span style="font-weight:400;font-size:.78rem;margin-left:auto">Kapitel 3 — Zusammenfassung</span></div>
+  <div class="b2l-card-body">
+    <p style="font-size:.9rem;line-height:1.8;color:#2d3748">
+      <strong>1. Zweiteilige Konnektoren (并列连词)</strong><br><br>
+      <table>
+      <tr><th style="background:#1a3a5c;color:#fde68a">功能</th><th style="background:#1a3a5c;color:#fde68a">连词</th><th style="background:#1a3a5c;color:#fde68a">逗号规则</th></tr>
+      <tr><td>Aufzählung 列举</td><td>nicht nur …, sondern auch<br>sowohl … als auch</td><td>❌ kein Komma (bei Satzteilen)</td></tr>
+      <tr><td>Negative Aufzählung</td><td>weder … noch</td><td>❌ kein Komma (bei Satzteilen)</td></tr>
+      <tr><td>Vergleich 比较</td><td>je … desto/umso</td><td>✅ Komma zwischen den Teilen</td></tr>
+      <tr><td>Alternative 选择</td><td>entweder … oder</td><td>✅ Komma vor „oder"</td></tr>
+      <tr><td>Gegensatz 对立</td><td>zwar …, aber<br>einerseits …, andererseits</td><td>✅ Komma vor „aber" / „andererseits"</td></tr>
+      </table><br><br>
+      <strong>2. Konnektoren um zu, ohne zu, (an)statt zu + Infinitiv</strong><br><br>
+      <table>
+      <tr><th style="background:#1a3a5c;color:#fde68a">连词</th><th style="background:#1a3a5c;color:#fde68a">含义</th><th style="background:#1a3a5c;color:#fde68a">同主语 → Infinitiv</th><th style="background:#1a3a5c;color:#fde68a">不同主语 → Nebensatz</th></tr>
+      <tr><td>目的</td><td>um … zu</td><td><em>um das Event zu buchen</em></td><td><em>damit die Firma ein Angebot erstellt</em></td></tr>
+      <tr><td>限制</td><td>ohne … zu</td><td><em>ohne ein Angebot zu bekommen</em></td><td><em>ohne dass die Firma ein Angebot schickt</em></td></tr>
+      <tr><td>替代</td><td>(an)statt … zu</td><td><em>statt lange zu telefonieren</em></td><td><em>(an)statt dass wir telefonieren</em></td></tr>
+      </table><br>
+      ⚠️ <strong>B2 考点口诀：</strong>主语同→Infinitivsatz；主语异→dass-Satz。可分动词 zu 插入中间：<em>anzurufen, aufzugeben</em>。
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════ K3 WORTSCHATZ ═══════════ -->
+<div id="b2l-k3-wort-anchor"></div>
+<div class="b2l-card" id="b2l-k3-wort">
+  <div class="b2l-card-header">📝 Wortschatz <span style="font-weight:400;font-size:.78rem;margin-left:auto">Kapitel 3 — Arbeit & Beruf (42 Einträge)</span></div>
+  <div class="b2l-card-body">
+    <p style="font-size:.9rem;line-height:1.8;color:#2d3748">
+      <strong>📋 Nomen · 名词 (18)</strong><br>
+      • <strong>die Absage, -n</strong> 拒绝/回绝 | <strong>die Berufserfahrung</strong> 工作经验<br>
+      • <strong>die Bewerbung, -en</strong> 申请/求职 | <strong>die Herausforderung, -en</strong> 挑战<br>
+      • <strong>der Lebenslauf, -läufe</strong> 简历 | <strong>das Praktikum, Praktika</strong> 实习<br>
+      • <strong>die Stellenanzeige, -n</strong> 招聘广告 | <strong>die Tätigkeit, -en</strong> 工作/活动<br>
+      • <strong>der Vertrag, -räge</strong> 合同 | <strong>das Ansehen</strong> 声望<br>
+      • <strong>die Finanzkrise, -n</strong> 金融危机 | <strong>die Flexibilität</strong> 灵活性<br>
+      • <strong>die Last</strong> 负担 | <strong>die Leistung, -en</strong> 成绩/绩效<br>
+      • <strong>der Misserfolg, -e</strong> 失败 | <strong>der/die Vorgesetzte, -n</strong> 上司<br>
+      • <strong>die Geschäftsleitung, -en</strong> 管理层 | <strong>der Abschluss, -lüsse</strong> 毕业/结业<br>
+      • <strong>die Anforderung, -en</strong> 要求 | <strong>der Eintrittstermin, -e</strong> 入职日期<br>
+      • <strong>die Kenntnis, -se</strong> 知识/技能 | <strong>die Stellenausschreibung, -en</strong> 招聘启事<br>
+      • <strong>die Weiterbildung, -en</strong> 进修/继续教育<br><br>
+      <strong>🔧 Verben · 动词 (8)</strong><br>
+      • <strong>sich durchkämpfen</strong> 奋力前进/拼搏 | <strong>vermitteln</strong> 中介/传授<br>
+      • <strong>bewältigen</strong> 克服/胜任 | <strong>klappen</strong> 成功/顺利<br>
+      • <strong>nahelegen</strong> 建议/暗示 | <strong>übernehmen</strong> 接手/承担<br><br>
+      <strong>🎨 Adjektive · 形容词 (16)</strong><br>
+      • <strong>abwechslungsreich</strong> 丰富多彩的 | <strong>anstrengend</strong> 辛苦的<br>
+      • <strong>angemessen</strong> 适当的 | <strong>anspruchsvoll</strong> 要求高的<br>
+      • <strong>berechtigt</strong> 有理由的 | <strong>geeignet</strong> 合适的<br>
+      • <strong>genügend</strong> 足够的 | <strong>hauptsächlich</strong> 主要的<br>
+      • <strong>lukrativ</strong> 有利可图的 | <strong>verlässlich</strong> 可靠的<br>
+      • <strong>vernünftig</strong> 理智的 | <strong>übersichtlich</strong> 清晰的<br>
+      • <strong>voraussichtlich</strong> 预计的 | <strong>umfangreich</strong> 大范围的<br>
+      • <strong>einheitlich</strong> 统一的 | <strong>zielorientiert</strong> 目标导向的<br>
+      • <strong>teamfähig</strong> 有团队能力的 | <strong>zahlreich</strong> 众多的<br><br>
+      <strong>💬 Wendungen · 习惯用语 (10)</strong><br>
+      • <strong>Anforderungen erfüllen</strong> 满足要求 · <strong>jmd. fest anstellen</strong> 正式雇佣<br>
+      • <strong>sich an die Arbeit machen</strong> 开始干活 · <strong>eine Aufgabe übernehmen</strong> 承担任务<br>
+      • <strong>Druck ausüben</strong> 施加压力 · <strong>Fehler eingestehen</strong> 承认错误<br>
+      • <strong>in Gefahr sein</strong> 处于危险中 · <strong>sich im Job aufreiben</strong> 在工作中耗尽精力<br>
+      • <strong>Konflikte lösen</strong> 解决冲突 · <strong>Kontakte knüpfen</strong> 建立人脉<br>
+      • <strong>Sinn und Zweck von etw.</strong> 某事的意义和目的<br>
+      • <strong>im Zusammenhang mit etw. stehen</strong> 与某事有关联<br>
+      • <strong>zwei linke Hände haben</strong> 笨手笨脚（字面：两只左手）<br>
+      • <strong>mangeln an + Dat.</strong> 缺少… · <strong>ablenken von + Dat.</strong> 使分心<br>
+      • <strong>zwingen zu + Dat.</strong> 迫使 · <strong>einbringen in + Akk.</strong> 贡献于
+    </p>
+  </div>
+</div>
 
 </div><!-- /b2l-section -->
 
 <script>
-/* ═══════════════ B2 阅读 · Heimat ist… — 交互函数 ═══════════════ */
-/* toggle 答案块 */
+/* ═══════════════ B2 阅读 — 数据驱动 · 单元+文章双级导航 ═══════════════ */
+
+/* ── 数据层：每个 Kapitel 对应一组文章 ── */
+var B2_LESEN = {
+  k1: {
+    title: 'Heimat ist…',
+    sub: '🇩🇪 走进德国 B2 · Kapitel 1 — Auswandern · Integration · Multikulturelle Gesellschaft',
+    articles: [
+      { cardId:'b2l-a1', label:'1 · Mein Glück in der neuen Heimat — 移居澳洲的博客' },
+      { cardId:'b2l-a2', label:'2 · Ein Land, viele Sprachen — 瑞士多语言国家' },
+      { cardId:'b2l-a3', label:'3 · Zu Hause in Deutschland — 三个移民肖像' },
+      { cardId:'b2l-a4', label:'4 · Fatih Akin — 德土裔导演传记' }
+    ]
+  },
+  k2: {
+    title: 'Kommunikation',
+    sub: '🇩🇪 走进德国 B2 · Kapitel 2 — Körpersprache · Mehrsprachigkeit · Smalltalk · Konflikte',
+    articles: [
+      { cardId:'b2l-k2-a1', label:'1 · Viele Sprachen? Kinderleicht! — 多语学习' },
+      { cardId:'b2l-k2-a2', label:'2 · Smalltalk & Sprachen-Debatte — 日常沟通' },
+      { cardId:'b2l-k2-a3', label:'3 · So streiten Sie richtig! — 建设性争论' },
+      { cardId:'b2l-k2-a4', label:'4 · Sophie Hunger — 多语音乐人肖像' }
+    ]
+  },
+  k3: {
+    title: 'Arbeit ist das halbe Leben?',
+    sub: '🇩🇪 走进德国 B2 · Kapitel 3 — Beruf · Zufriedenheit · Teamgeist · Bewerbung · Gleichberechtigung',
+    articles: [
+      { cardId:'b2l-k3-banner', label:'📘 Kapitel 3 — 标题横幅' },
+      { cardId:'b2l-k3-a1', label:'1 · 6 ungewöhnliche Berufe — 六种非常规职业' },
+      { cardId:'b2l-k3-a2', label:'2 · Lieben Sie Ihre Arbeit? — 职业满意度阅读' },
+      { cardId:'b2l-k3-a3', label:'3 · Teamgeist — 团队建设活动 + 语法' },
+      { cardId:'b2l-k3-a4', label:'4 · Werben Sie für sich — 简历与求职信' },
+      { cardId:'b2l-k3-a5', label:'5 · manomama — 社会企业肖像' },
+      { cardId:'b2l-k3-a6', label:'6 · Gleicher Lohn — 同工同酬论坛讨论' },
+      { cardId:'b2l-k3-gram-banner', label:'📘 语法回顾 — 标题横幅' },
+      { cardId:'b2l-k3-gram', label:'📖 Grammatik-Rückschau — 语法总结' },
+      { cardId:'b2l-k3-wort', label:'📝 Wortschatz — 词汇总表 (42条)' }
+    ]
+  }
+};
+var B2L_CUR = 'k1'; // 当前显示的单元
+
+/* ── 工具：收集所有文章的 cardId ── */
+function b2lAllIds() {
+  var ids = [];
+  for (var k in B2_LESEN) {
+    if (!B2_LESEN.hasOwnProperty(k)) continue;
+    B2_LESEN[k].articles.forEach(function(a) { ids.push(a.cardId); });
+  }
+  return ids;
+}
+function b2lCurIds() {
+  return B2_LESEN[B2L_CUR].articles.map(function(a) { return a.cardId; });
+}
+
+/* ── 切换单元 ── */
+window.b2lSwitchChapter = function(k) {
+  if (!B2_LESEN[k]) return;
+  B2L_CUR = k;
+  var ch = B2_LESEN[k];
+  /* 更新 Hero 标题 */
+  document.getElementById('b2l-hero-title').textContent = ch.title;
+  document.getElementById('b2l-hero-sub').textContent = ch.sub;
+  /* 重建文章下拉菜单 */
+  var sel = document.getElementById('b2l-article-select');
+  sel.innerHTML = '<option value="">— 全部显示 / Alle anzeigen —</option>';
+  ch.articles.forEach(function(a) {
+    sel.innerHTML += '<option value="' + a.cardId + '">' + a.label + '</option>';
+  });
+  /* 展示当前单元全部文章 */
+  showB2LArticle('');
+};
+
+/* ── toggle 答案块（不变）── */
 window.b2lToggle = function(id) {
   var el = document.getElementById(id);
   if (el) { el.style.display = el.style.display === 'block' ? 'none' : 'block'; }
 };
 
-/* MCQ 批改 */
+/* ── MCQ 批改（不变）── */
 window.b2lCheckMCQ = function(mcqId, scoreId) {
   var list = document.getElementById(mcqId);
   if (!list) return;
   var items = list.querySelectorAll('.mcq-item');
   var correct = 0, total = items.length;
-  items.forEach(function(item, i) {
+  items.forEach(function(item) {
     var ans = item.getAttribute('data-ans');
-    var radios = item.querySelectorAll('input[type=radio]');
-    radios.forEach(function(r) {
+    item.querySelectorAll('input[type=radio]').forEach(function(r) {
       r.disabled = true;
       var label = r.parentElement;
       if (r.value === ans) label.style.color = '#15803d';
@@ -6026,7 +7826,7 @@ window.b2lCheckMCQ = function(mcqId, scoreId) {
   }
 };
 
-/* MCQ 重置 */
+/* ── MCQ 重置（不变）── */
 window.b2lResetMCQ = function(mcqId, scoreId) {
   var list = document.getElementById(mcqId);
   if (!list) return;
@@ -6039,45 +7839,55 @@ window.b2lResetMCQ = function(mcqId, scoreId) {
   if (scoreEl) { scoreEl.innerHTML = ''; }
 };
 
-/* 目录切换：单选一篇显示 */
-window.showB2LArticle = function(n) {
-  var cards = document.querySelectorAll('#page-b2lesen .b2l-card');
-  var seps = document.querySelectorAll('#page-b2lesen .b2l-separator');
-  var btnGroups = document.querySelectorAll('#page-b2lesen [style*="max-width:860px;margin:0 auto 0"]');
+/* ── 文章切换：接受 cardId 字符串（'' = 当前单元全部显示）── */
+window.showB2LArticle = function(cardId) {
+  var allIds = b2lAllIds();
+  var curIds = b2lCurIds();
+  var seps   = document.querySelectorAll('#page-b2lesen .b2l-separator');
+  var btnRows = document.querySelectorAll('#page-b2lesen .b2l-btn-row');
 
-  if (!n || n === '') {
-    /* 显示全部 */
-    cards.forEach(function(c) { c.style.display = ''; });
-    seps.forEach(function(s) { s.style.display = ''; });
-    btnGroups.forEach(function(g) { g.style.display = ''; });
-    /* 滚动到第一篇 */
-    var first = document.getElementById('b2l-a1-anchor');
-    if (first) first.scrollIntoView({behavior: 'smooth', block: 'start'});
-  } else {
-    /* 只显示第 n 篇 */
-    var targetCard = document.getElementById('b2l-a' + n);
-    var targetAnchor = document.getElementById('b2l-a' + n + '-anchor');
-    cards.forEach(function(c) { c.style.display = 'none'; });
+  if (!cardId || cardId === '') {
+    /* ── 全部显示（仅当前单元）── */
+    allIds.forEach(function(id) {
+      var card = document.getElementById(id);
+      if (card) card.style.display = curIds.indexOf(id) >= 0 ? '' : 'none';
+    });
     seps.forEach(function(s) { s.style.display = 'none'; });
-    btnGroups.forEach(function(g) { g.style.display = 'none'; });
-
+    btnRows.forEach(function(r) { r.style.display = 'none'; });
+    curIds.forEach(function(id) {
+      var card = document.getElementById(id);
+      if (card) {
+        var next = card.nextElementSibling;
+        if (next && next.classList.contains('b2l-btn-row')) next.style.display = '';
+      }
+    });
+    /* 滚到当前单元第一篇 */
+    var firstId = B2_LESEN[B2L_CUR].articles[0].cardId;
+    var anchor = document.getElementById(firstId + '-anchor');
+    if (anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    /* ── 单选一篇 ── */
+    allIds.forEach(function(id) {
+      var card = document.getElementById(id);
+      if (card) card.style.display = 'none';
+    });
+    seps.forEach(function(s) { s.style.display = 'none'; });
+    btnRows.forEach(function(r) { r.style.display = 'none'; });
+    var targetCard = document.getElementById(cardId);
     if (targetCard) {
       targetCard.style.display = '';
-      /* 显示该卡片后的按钮组 */
+      /* 显示紧随其后的按钮行 */
       var next = targetCard.nextElementSibling;
-      if (next && next.getAttribute('style') && next.getAttribute('style').indexOf('max-width') >= 0) {
-        next.style.display = '';
-      }
-      /* 显示下一个分隔条 */
-      var nextSep = targetCard.nextElementSibling;
-      if (nextSep) nextSep = nextSep.nextElementSibling;
-      if (nextSep && nextSep.classList.contains('b2l-separator')) {
-        nextSep.style.display = '';
-      }
-      if (targetAnchor) targetAnchor.scrollIntoView({behavior: 'smooth', block: 'start'});
+      if (next && next.classList.contains('b2l-btn-row')) next.style.display = '';
+      /* 滚到锚点 */
+      var anchor = document.getElementById(cardId + '-anchor');
+      if (anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
     }
   }
 };
+
+/* ── 初始化：首次加载只显示 Kapitel 1 ── */
+showB2LArticle('');
 </script>
 </div><!-- /page-b2lesen -->
 
@@ -100505,7 +102315,7 @@ function gsRevealAllChapter(chId) {
   #page-b1lesen .b1l-hero{padding:28px 14px 20px}
   #page-b1lesen .b1l-toc-grid{grid-template-columns:1fr 1fr}
   #page-b1lesen .section{margin-bottom:0;border-radius:12px}
-  #page-b1lesen .section:last-of-type{margin-bottom:4rem}
+  #page-b1lesen .section:last-of-type{margin-bottom:6rem}
   #page-b1lesen .b1l-separator{margin:2rem 0}
   #page-b1lesen .section-header{font-size:.88rem;padding:.6rem 1rem;flex-wrap:wrap;gap:6px}
   #page-b1lesen .section-body{padding:14px 16px 22px}
