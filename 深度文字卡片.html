@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Leons Deutschzentrum · 深度哲学卡片</title>
+<title>Leons Deutschzentrum · 德国哲学深度卡片</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
@@ -17,11 +17,31 @@
   .card { width: 1080px; height: 1440px; position: relative; overflow: hidden; flex-shrink: 0; }
   .card-inner { width: 100%; height: 100%; position: relative; }
 
+  /* 返回网站首页 */
+  .home-btn {
+    position: fixed; z-index: 1000;
+    top: calc(14px + env(safe-area-inset-top));
+    left: calc(14px + env(safe-area-inset-left));
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    color: #f6d365; background: rgba(10,20,40,0.85);
+    border: 1px solid rgba(212,168,83,0.55);
+    border-radius: 999px;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  }
+  .home-btn:active { transform: scale(0.96); }
+  .home-btn .hb-arrow { font-size: 16px; }
+
   @media (max-width: 768px) {
     html, body { height: 100%; overflow: hidden; background: #000; }
     body { display: block; padding: 0; overflow-y: scroll; scroll-snap-type: y mandatory; -webkit-overflow-scrolling: touch; overscroll-behavior: none; touch-action: pan-y; }
     .card { width: 100vw; height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
     .card-inner { width: 1080px; height: 1440px; flex-shrink: 0; transform-origin: center center; will-change: transform; }
+    .home-btn { font-size: 13px; padding: 8px 14px; }
   }
 
   .counter { position: absolute; top: 56px; right: 72px; color: #555; font-size: 26px; letter-spacing: 0.06em; font-weight: 400; z-index: 2; }
@@ -31,571 +51,179 @@
   .watermark { position: absolute; top: 92px; right: 72px; text-align: right; color: rgba(255,255,255,0.55); font-size: 24px; font-weight: 500; line-height: 1; letter-spacing: 0.05em; z-index: 2; }
   .card-4 .watermark { color: rgba(0,0,0,0.35); }
 
-  /* 卡片 1：深黑金 */
+  /* 1：深黑金 */
   .card-1 { background: #0d0d0d; display: flex; flex-direction: column; justify-content: center; }
-  .card-1 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-1 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
   .card-1 .accent { color: #d4a853; }
-  .card-1 .text-block { color: #f0ebe3; font-size: 52px; line-height: 1.6; font-weight: 400; letter-spacing: 0.02em; }
-  .card-1 .text-block .question { font-size: 56px; font-weight: 600; margin-bottom: 36px; display: block; color: #fff; }
-  .card-1 .text-block .para { display: block; margin-bottom: 20px; }
+  .card-1 .text-block { color: #f0ebe3; font-size: 46px; line-height: 1.5; font-weight: 400; letter-spacing: 0.02em; }
+  .card-1 .text-block .question { font-size: 50px; font-weight: 600; margin-bottom: 36px; display: block; color: #fff; }
+  .card-1 .text-block .para { display: block; margin-bottom: 18px; }
   .card-1 .divider { width: 60px; height: 2px; background: #d4a853; margin: 48px 0; }
-  .card-1 .text-block .punch { font-size: 54px; font-weight: 600; color: #fff; display: block; margin-bottom: 18px; }
-  .card-1 .text-block .silence { display: block; font-size: 36px; color: #d4a853; font-weight: 300; margin: 28px 0; line-height: 1.3; }
+  .card-1 .text-block .punch { font-size: 50px; font-weight: 600; color: #fff; display: block; margin-bottom: 20px; }
+  .card-1 .text-block .silence { display: block; font-size: 34px; color: #d4a853; font-weight: 300; margin: 30px 0; line-height: 1.2; }
 
-  /* 卡片 2：墨蓝 */
+  /* 2：墨蓝 */
   .card-2 { background: linear-gradient(160deg, #0f1e3a 0%, #0a1428 40%, #0d1b33 100%); display: flex; flex-direction: column; justify-content: center; }
-  .card-2 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
-  .card-2 .label { color: #b8860b; font-size: 30px; letter-spacing: 0.15em; margin-bottom: 50px; font-weight: 500; }
-  .card-2 .big-line { color: #f6f2ec; font-size: 64px; font-weight: 700; line-height: 1.35; margin-bottom: 36px; }
-  .card-2 .sub-line { color: #aab4c5; font-size: 40px; line-height: 1.5; }
+  .card-2 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-2 .label { color: #b8860b; font-size: 28px; letter-spacing: 0.15em; margin-bottom: 50px; font-weight: 500; }
+  .card-2 .big-line { color: #f6f2ec; font-size: 58px; font-weight: 700; line-height: 1.3; margin-bottom: 40px; }
+  .card-2 .sub-line { color: #aab4c5; font-size: 34px; line-height: 1.45; }
   .card-2 .highlight { color: #f6d365; font-weight: 600; }
 
-  /* 卡片 3：暖黑 */
+  /* 3：暖黑 */
   .card-3 { background: #111110; display: flex; align-items: center; }
-  .card-3 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-3 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
   .card-3 .content { width: 100%; }
   .card-3 .step { display: flex; align-items: baseline; margin-bottom: 28px; }
-  .card-3 .step-num { color: #d4a853; font-size: 34px; font-weight: 300; min-width: 56px; }
-  .card-3 .step-text { color: #e8e4dd; font-size: 44px; line-height: 1.45; }
+  .card-3 .step-num { color: #d4a853; font-size: 30px; font-weight: 300; min-width: 56px; }
+  .card-3 .step-text { color: #e8e4dd; font-size: 40px; line-height: 1.4; }
   .card-3 .step-text .strike { text-decoration: line-through; color: #666; }
-  .card-3 .final { color: #fff; font-size: 46px; font-weight: 600; margin-top: 36px; line-height: 1.3; border-left: 4px solid #d4a853; padding-left: 36px; }
+  .card-3 .final { color: #fff; font-size: 44px; font-weight: 600; margin-top: 40px; line-height: 1.3; border-left: 4px solid #d4a853; padding-left: 40px; }
 
-  /* 卡片 4：象牙白 */
+  /* 4：象牙白 */
   .card-4 { background: #faf7f2; display: flex; flex-direction: column; justify-content: center; }
-  .card-4 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-4 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
   .card-4 .top-gold { width: 80px; height: 4px; background: #b8860b; margin-bottom: 60px; }
-  .card-4 .main-text { color: #1a1a1a; font-size: 56px; font-weight: 600; line-height: 1.5; margin-bottom: 48px; }
+  .card-4 .main-text { color: #1a1a1a; font-size: 54px; font-weight: 600; line-height: 1.4; margin-bottom: 48px; }
   .card-4 .main-text .gold-word { color: #8b6914; }
-  .card-4 .sub-text { color: #555; font-size: 36px; line-height: 1.5; }
+  .card-4 .sub-text { color: #555; font-size: 34px; line-height: 1.45; }
 
-  /* 卡片 5：纯黑极简 */
+  /* 5：纯黑 */
   .card-5 { background: #000; display: flex; flex-direction: column; justify-content: center; }
-  .card-5 .card-inner { padding: 70px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-5 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
   .card-5 .top-line { color: #888; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 56px; text-transform: uppercase; }
-  .card-5 .quote { color: #fff; font-size: 58px; font-weight: 300; line-height: 1.5; margin-bottom: 24px; }
+  .card-5 .quote { color: #fff; font-size: 54px; font-weight: 300; line-height: 1.4; margin-bottom: 24px; }
   .card-5 .quote strong { font-weight: 700; }
   .card-5 .gap { height: 40px; }
-  .card-5 .tail { color: #555; font-size: 36px; line-height: 1.55; }
+  .card-5 .tail { color: #555; font-size: 34px; line-height: 1.45; }
   .card-5 .tail em { color: #d4a853; font-style: normal; }
 
-  /* 卡片 6：深灰绿 */
+  /* 6：深灰绿 */
   .card-6 { background: #141814; display: flex; flex-direction: column; justify-content: center; }
-  .card-6 .card-inner { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; }
+  .card-6 .card-inner { padding: 100px 100px; display: flex; flex-direction: column; justify-content: center; }
   .card-6 .rule { width: 100%; height: 1px; background: #2a302a; margin-bottom: 60px; }
-  .card-6 .big { color: #e8ede8; font-size: 58px; font-weight: 600; line-height: 1.45; margin-bottom: 36px; }
+  .card-6 .big { color: #e8ede8; font-size: 52px; font-weight: 600; line-height: 1.4; margin-bottom: 40px; }
   .card-6 .big .glow { color: #c4a45a; }
-  .card-6 .small { color: #7a807a; font-size: 36px; line-height: 1.6; }
+  .card-6 .small { color: #7a807a; font-size: 34px; line-height: 1.45; }
 
-  /* 翻译条 */
-  .translations { margin-top: 44px; padding-top: 24px; border-top: 1px solid rgba(212,168,83,0.25); width: 100%; }
-  .translations .de { color: #999; font-size: 30px; line-height: 1.35; margin-bottom: 10px; }
-  .translations .en { color: #777; font-size: 20px; line-height: 1.35; }
+  .translations { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(212,168,83,0.25); width: 100%; }
+  .translations .de { color: #999; font-size: 28px; line-height: 1.3; margin-bottom: 8px; }
+  .translations .en { color: #777; font-size: 19px; line-height: 1.3; }
   .card-4 .translations { border-top-color: rgba(139,105,20,0.2); }
   .card-4 .translations .de { color: #888; } .card-4 .translations .en { color: #999; }
 
-  @media print { body { background: white; gap: 0; padding: 0; } .card { page-break-after: always; } }
+  @media print { .home-btn { display: none; } body { background: white; gap: 0; padding: 0; } .card { page-break-after: always; } }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════ 1-6 ═══════════════ -->
+<a class="home-btn" href="index.html" title="返回网站首页"><span class="hb-arrow">←</span> 返回网站首页</a>
 
-<!-- 1：理解——悖论：越想懂越不懂 -->
-<div class="card card-1">
-  <div class="card-inner">
-    <div class="counter"><span class="current">1</span> / 30</div>
-    <div class="text-block">
-      <span class="question">你不需要<span class="accent">理解</span>一切。</span>
-      <span class="para">你越想搞懂自己为什么痛苦，</span>
-      <span class="para">就越被困在那个问题里。</span>
-      <span class="silence">松手。</span>
-      <div class="divider"></div>
-      <span class="punch">成长不是想通的。</span>
-      <span class="para">是你终于累了，不再用思考围堵痛苦。</span>
-      <span class="para">然后你变成了<span class="accent">新的人</span>。</span>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 2：语言——不可传递性 -->
-<div class="card card-2">
-  <div class="card-inner">
-    <div class="counter"><span class="current">2</span> / 30</div>
-    <div class="label">S P R A C H E</div>
-    <div class="big-line">你学一门语言，<br>不是为了<span class="highlight">会说</span>。</div>
-    <div class="sub-line">
-      是为了——<br>
-      在另一种语言里，<br><span class="highlight">成为另一个人</span>。<br><br>
-      每一种语言都是一套<br>看世界的方式。<br>
-      你学的不只是单词。<br>
-      是一整个民族的感知结构。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 3：开始——先给再夺：准备→回避 -->
-<div class="card card-3">
-  <div class="card-inner">
-    <div class="counter"><span class="current">3</span> / 30</div>
-    <div class="content">
-      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">等准备好了再开始</span></span></div>
-      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">先学完所有理论</span></span></div>
-      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">完美了再发布</span></span></div>
-      <div class="final">
-        你以为你在准备。<br>其实你在回避一件事——<br>被别人看见自己还不够好的样子。<br><br>跳下去。<br>笨拙地开始，比完美的等待更接近真相。
-      </div>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 4：奔跑——隐藏动机揭示 -->
-<div class="card card-4">
-  <div class="card-inner">
-    <div class="counter"><span class="current">4</span> / 30</div>
-    <div class="top-gold"></div>
-    <div class="main-text">你不停地跑，<br>不是因为<span class="gold-word">有目标</span>。</div>
-    <div class="sub-text">
-      是你害怕停下来。<br><br>
-      停下来就要面对：<br>"我跑了这么久，<br>到底在跑向哪里？"<br><br>
-      真正的勇气不是跑得快。<br>是敢停下来，问自己这个问题。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 5：AI——表层→根因迁移 -->
-<div class="card card-5">
-  <div class="card-inner">
-    <div class="counter"><span class="current">5</span> / 30</div>
-    <div class="top-line">W E R K Z E U G</div>
-    <div class="quote"><strong>AI 不会取代你。</strong></div>
-    <div class="quote">但<strong>会用 AI 的人</strong>会。</div>
-    <div class="gap"></div>
-    <div class="tail">
-      人和工具之间的那条线，<br>从来不在工具身上。<br><br>
-      在你愿不愿意<em>重新定义自己</em>。<br>不是学一个新工具。<br>是成为另一种人。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 6：遗憾——最X的不是Y，是Z -->
+<!-- ═══ 1/6：康德——头顶的星空，心中的道德律 ═══ -->
 <div class="card card-6">
   <div class="card-inner">
-    <div class="counter"><span class="current">6</span> / 30</div>
+    <div class="counter"><span class="current">1</span> / 6</div>
     <div class="rule"></div>
-    <div class="big">你最后悔的，<br>不是<span class="glow">选错了</span>。</div>
+    <div class="big">头顶的<span class="glow">星空</span>。<br>心中的<span class="glow">道德律</span>。</div>
     <div class="small">
-      是那个从来没有出现过的自己。<br><br>
-      那个敢选的人。<br>那个敢输的人。<br>那个明明在你心里，<br>却被你一直关着的自己。<br><br>
-      遗憾不是错误的选择。<br>是一个从未被活出来的版本。
+      康德说，让心灵常怀敬畏的，<br>永远是这两样东西。<br><br>
+      星空告诉我：你渺小如尘埃。<br>
+      道德律告诉你：你自由如星辰。<br><br>
+      不是服从谁的命令——<br>
+      是自己为世界立法。
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">Immanuel Kant · Leons Deutschzentrum</div>
   </div>
 </div>
 
-<!-- ═══════════════ 7-12 ═══════════════ -->
-
-<!-- 7：焦虑——概念翻转：焦虑→不敢排除 -->
-<div class="card card-1">
-  <div class="card-inner">
-    <div class="counter"><span class="current">7</span> / 30</div>
-    <div class="text-block">
-      <span class="question">你为什么<span class="accent">焦虑</span>？</span>
-      <span class="para">不是因为想要的太多。</span>
-      <span class="para">是因为你不敢只选一个。</span>
-      <span class="silence">选一个，就意味着对其他所有可能说再见。</span>
-      <div class="divider"></div>
-      <span class="punch">焦虑是你想要所有可能性同时存在。</span>
-      <span class="para">但人生不是可能性。</span>
-      <span class="para">人生是一次次的排除。</span>
-      <span class="para">排除得越果断，越自由。</span>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 8：慢——概念翻转：慢→时间观 -->
+<!-- ═══ 2/6：黑格尔——最熟悉的，最不被认识 ═══ -->
 <div class="card card-2">
   <div class="card-inner">
-    <div class="counter"><span class="current">8</span> / 30</div>
-    <div class="label">G E D U L D</div>
-    <div class="big-line">慢，不是<span class="highlight">速度问题</span>。</div>
+    <div class="counter"><span class="current">2</span> / 6</div>
+    <div class="label">H E G E L</div>
+    <div class="big-line">最<span class="highlight">熟悉</span>的，<br>恰恰最不被<span class="highlight">认识</span>。</div>
     <div class="sub-line">
-      慢是一种<span class="highlight">时间观</span>。<br><br>
-      急的人活在他人的时钟里。<br>慢的人活在自己的节奏里。<br><br>
-      你不需要比别人快。<br>你只需要比昨天的自己<br>多理解了一点点。<br><br>
-      复利不在速度。<br>在<span class="highlight">不中断</span>。
+      黑格尔说：因为熟悉，<br>所以我们不再去看。<br><br>
+      呼吸不需要你理解肺。<br>
+      说话不需要你认识语言。<br><br>
+      真正的思考，<br>始于"我以为我懂"，<br>终于"我其实不知道"。<br><br>
+      <span class="highlight">陌生的目光</span>，<br>才能看见熟悉的世界。
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">G. W. F. Hegel · Leons Deutschzentrum</div>
   </div>
 </div>
 
-<!-- 9：讨好——命名即疗愈 -->
+<!-- ═══ 3/6：叔本华——看清欲望，轻轻放手 ═══ -->
 <div class="card card-3">
   <div class="card-inner">
-    <div class="counter"><span class="current">9</span> / 30</div>
+    <div class="counter"><span class="current">3</span> / 6</div>
     <div class="content">
-      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">不敢拒绝别人</span></span></div>
-      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">不敢表达真实想法</span></span></div>
-      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">不敢让别人失望</span></span></div>
+      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">消除痛苦</span></span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">满足欲望</span></span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">占有更多</span></span></div>
       <div class="final">
-        你以为这是善良。<br>其实，这是你小时候学会的生存策略。<br><br>Gefälligkeitsfalle.<br>讨好陷阱。<br><br>能叫出这个名字的人，<br>已经开始走出来了。
+        叔本华说：人生如钟摆——<br>
+        欲望不满足，就痛苦；<br>
+        满足了，就无聊。<br><br>
+        你可以做你想做的，<br>
+        却不能"想要"你想要的。<br><br>
+        解脱不是得到一切。<br>
+        是看清欲望，<br>
+        然后轻轻地放手。
       </div>
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">Arthur Schopenhauer · Leons Deutschzentrum</div>
   </div>
 </div>
 
-<!-- 10：聪明——概念翻转：聪明→防御 -->
-<div class="card card-4">
-  <div class="card-inner">
-    <div class="counter"><span class="current">10</span> / 30</div>
-    <div class="top-gold"></div>
-    <div class="main-text">聪明人最大的陷阱，<br>不是<span class="gold-word">骄傲</span>。</div>
-    <div class="sub-text">
-      是用智力来逃避笨拙。<br><br>
-      他们习惯了用脑子绕路，<br>但有些东西——<br>信任、连接、被爱——<br>没有捷径。<br><br>
-      因为这些需要的不是聪明。<br>是<span class="gold-word">卸下聪明</span>之后的那个你。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 11：时间——时间不是用来管理的，是用来暴露你的 -->
+<!-- ═══ 4/6：海德格尔——向死而生 ═══ -->
 <div class="card card-5">
   <div class="card-inner">
-    <div class="counter"><span class="current">11</span> / 30</div>
-    <div class="top-line">Z E I T</div>
-    <div class="quote"><strong>你如何度过每一天，</strong></div>
-    <div class="quote"><strong>就如何度过这一生。</strong></div>
+    <div class="counter"><span class="current">4</span> / 6</div>
+    <div class="top-line">S E I N &nbsp; Z U M &nbsp; T O D E</div>
+    <div class="quote">人生是<br><strong>向死而生</strong>。</div>
+    <div class="quote">承认这一点，<br>才开始<strong>真正地活</strong>。</div>
     <div class="gap"></div>
     <div class="tail">
-      时间不是用来"管理"的。<br>时间是用来<em>暴露</em>你的。<br><br>
-      你说你重视什么，不算。<br>你的时间花在哪，才算。<br>时间是唯一不说谎的镜子。
+      海德格尔说：人一出生，<br>就已在走向死亡。<br><br>
+      逃避它，就活成"别人"：<br>随波逐流，人云亦云。<br><br>
+      直视它，才拥有当下——<br>每一天，都是唯一的<em>此刻</em>。
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">Martin Heidegger · Leons Deutschzentrum</div>
   </div>
 </div>
 
-<!-- 12：意义——不是找到了才活，是活了才留下 -->
-<div class="card card-6">
-  <div class="card-inner">
-    <div class="counter"><span class="current">12</span> / 30</div>
-    <div class="rule"></div>
-    <div class="big">不要问"<span class="glow">人生的意义</span>"是什么。</div>
-    <div class="small">
-      意义不是一个答案。<br>是你和世界之间磨出来的那道痕迹。<br><br>
-      不是找到了才活。<br>是活了才留下意义。<br><br>
-      河水不是先有河道再流。<br>是流了，才有了河道。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- ═══════════════ 13-18 ═══════════════ -->
-
-<!-- 13：自由——自由=不再证明 -->
+<!-- ═══ 5/6：维特根斯坦——不可说，必须沉默 ═══ -->
 <div class="card card-1">
   <div class="card-inner">
-    <div class="counter"><span class="current">13</span> / 30</div>
+    <div class="counter"><span class="current">5</span> / 6</div>
     <div class="text-block">
-      <span class="question">什么是真正的<span class="accent">自由</span>？</span>
-      <span class="para">不是想做什么就做什么。</span>
-      <span class="para">是终于不需要</span>
-      <span class="para">向<span class="accent">任何人证明</span>任何事。</span>
-      <span class="silence">不证。</span>
+      <span class="question">当语言走到<span class="accent">尽头</span>，<br>你怎么办？</span>
+      <span class="para">维特根斯坦说：</span>
+      <span class="para">"凡不可说的，必须保持<span class="accent">沉默</span>。"</span>
+      <span class="silence">沉默。</span>
       <div class="divider"></div>
-      <span class="punch">不用证明选对了。不用证明够好。</span>
-      <span class="para">那种自由不是争取来的。</span>
-      <span class="para">是你放下被认可的执念，自己来的。</span>
+      <span class="punch">不是所有沉默都是空白。</span>
+      <span class="para">有些东西，说出来就变小了。</span>
+      <span class="para">正因说不清，<br>才需要用一生去"说"。</span>
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">Ludwig Wittgenstein · Leons Deutschzentrum</div>
   </div>
 </div>
 
-<!-- 14：运气——运气是认出来的 -->
-<div class="card card-2">
-  <div class="card-inner">
-    <div class="counter"><span class="current">14</span> / 30</div>
-    <div class="label">G L Ü C K</div>
-    <div class="big-line">运气不是撞出来的。<br>运气是<span class="highlight">认</span>出来的。</div>
-    <div class="sub-line">
-      大多数人不是没有运气。<br>是运气来的时候，<br>他们<span class="highlight">认不出来</span>。<br><br>
-      运气穿着"麻烦"的外衣。<br>戴着"失败"的面具。<br>化名为"巧合"。<br><br>
-      你只认一种样子，<br>所以错过了它所有的伪装。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 15：完美主义——墙后面是"我还值得被爱吗" -->
-<div class="card card-3">
-  <div class="card-inner">
-    <div class="counter"><span class="current">15</span> / 30</div>
-    <div class="content">
-      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">等一切都准备好</span></span></div>
-      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">等自己足够优秀</span></span></div>
-      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">等别人先认可我</span></span></div>
-      <div class="final">
-        完美主义不是追求卓越。<br>它是你建的一堵墙——<br>墙后面藏着一个问题：<br>"如果我不够好，<br>还会有人爱我吗？"<br><br>Perfektionismusfalle.<br>完美陷阱。<br><br>你不需要完美。<br>你需要被看见。
-      </div>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 16：关系——不是绑在一起，是选择不离开 -->
+<!-- ═══ 6/6：尼采——成为你自己，爱你的命运 ═══ -->
 <div class="card card-4">
   <div class="card-inner">
-    <div class="counter"><span class="current">16</span> / 30</div>
+    <div class="counter"><span class="current">6</span> / 6</div>
     <div class="top-gold"></div>
-    <div class="main-text">好的关系<br>不需要<span class="gold-word">维系</span>。</div>
+    <div class="main-text">成为<span class="gold-word">你自己</span>。<br>这是最难的一条<span class="gold-word">路</span>。</div>
     <div class="sub-text">
-      它靠的不是每天发消息。<br>不是记住每个纪念日。<br><br>
-      它靠的是——<br>两个人都在做自己，<br>而那个自己恰好<br>还愿意留在对方身边。<br><br>
-      不是绑在一起。<br>是<span class="gold-word">选择不离开</span>。
+      尼采说：没有人能替你，<br>成为你自己。<br><br>
+      别人替你活出的人生，<br>只是"他们"的人生。<br><br>
+      去爱你的命运——<br>Amor fati。<br><br>
+      不要问"人生有何意义"，<br>要问"<span class="gold-word">我</span>能给它什么意义"。
     </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 17：投射——你对他人的严厉，是对自己的放逐 -->
-<div class="card card-5">
-  <div class="card-inner">
-    <div class="counter"><span class="current">17</span> / 30</div>
-    <div class="top-line">P R O J E K T I O N</div>
-    <div class="quote"><strong>你讨厌一个人，</strong></div>
-    <div class="quote"><strong>常常是因为</strong>他让你想起了自己。</div>
-    <div class="gap"></div>
-    <div class="tail">
-      但更准确地说——<br>你讨厌的，是那个<br>被你<em>流放</em>了的自己。<br><br>
-      那个也自私过的自己。<br>那个也软弱过的自己。<br>那个被你判了"不许出现"的自己。<br><br>
-      你对他人的严厉，<br>是对自己的放逐。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 18：孤独——不是你不在人群里，是你不在你自己里 -->
-<div class="card card-6">
-  <div class="card-inner">
-    <div class="counter"><span class="current">18</span> / 30</div>
-    <div class="rule"></div>
-    <div class="big">孤独不是<span class="glow">身边没人</span>。</div>
-    <div class="small">
-      孤独是——<br>身边有人，<br>你却感觉自己不存在。<br><br>
-      不是因为没人懂你。<br>是因为你不在那里。<br>你把自己藏起来了。<br><br>
-      真正的独处不是逃避人群。<br>是敢在人群中，还是自己。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- ═══════════════ 19-24 ═══════════════ -->
-
-<!-- 19：改变——改变是一场哀悼 -->
-<div class="card card-1">
-  <div class="card-inner">
-    <div class="counter"><span class="current">19</span> / 30</div>
-    <div class="text-block">
-      <span class="question">人为什么<span class="accent">难以改变</span>？</span>
-      <span class="para">不是因为缺乏意志力。</span>
-      <span class="para">是因为改变意味着</span>
-      <span class="para">对过去的自己说：</span>
-      <span class="para">"<span class="accent">那个我</span>，已经不在了。"</span>
-      <span class="silence">哀悼。</span>
-      <div class="divider"></div>
-      <span class="punch">改变不是换个环境。改变是一场哀悼。</span>
-      <span class="para">旧的你放手，新的你才敢进来。</span>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 20：溶解——不是你找到了答案，是你变了 -->
-<div class="card card-2">
-  <div class="card-inner">
-    <div class="counter"><span class="current">20</span> / 30</div>
-    <div class="label">L Ö S U N G</div>
-    <div class="big-line">大多数问题，<br>不是被<span class="highlight">解决</span>的。</div>
-    <div class="sub-line">
-      是被<span class="highlight">溶解</span>的。<br><br>
-      不是找到了答案。<br>是你变了，问题就不再是问题。<br><br>
-      有些问题本身就是一面镜子——<br>照出来的不是答案，<br>是你<span class="highlight">还没成为的那个人</span>。<br><br>
-      成为他。问题自动消失。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 21：控制——越控制，越失控 -->
-<div class="card card-3">
-  <div class="card-inner">
-    <div class="counter"><span class="current">21</span> / 30</div>
-    <div class="content">
-      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">试图掌控一切变量</span></span></div>
-      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">试图预测所有结果</span></span></div>
-      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">试图确保万无一失</span></span></div>
-      <div class="final">
-        你越控制，越失控。<br><br>控制是一种反向的努力——<br>握得越紧，沙子流得越快。<br><br>Kontrollillusion.<br>控制幻觉。<br><br>你以为在掌控局面，<br>其实只是在确认<br>自己有多害怕失控。
-      </div>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 22：接受——学会和它坐在一起 -->
-<div class="card card-4">
-  <div class="card-inner">
-    <div class="counter"><span class="current">22</span> / 30</div>
-    <div class="top-gold"></div>
-    <div class="main-text">有些事<br>你<span class="gold-word">无法改变</span>。</div>
-    <div class="sub-text">
-      不是因为你不够努力。<br>不是因为方法不对。<br><br>
-      是它们本来就不属于<br>"能被改变"这个范畴。<br><br>
-      <span class="gold-word">学会和它坐在一起。</span><br>
-      不是对抗。不是认输。<br>是一种更深的智慧。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 23：知道——知道≠活出来，你是自己的观众 -->
-<div class="card card-5">
-  <div class="card-inner">
-    <div class="counter"><span class="current">23</span> / 30</div>
-    <div class="top-line">W I S S E N</div>
-    <div class="quote"><strong>你什么都知道。</strong></div>
-    <div class="quote">但<strong>知道</strong>不等于活出来。</div>
-    <div class="gap"></div>
-    <div class="tail">
-      知道和活出来之间，<br>隔着一整个深渊。<br><br>
-      那个深渊不是知识。<br>是你不敢跳下去。<br><br>
-      跳下去意味着：<br>你不是你以为的那个你。<br>你只是自己的<em>观众</em>。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 24：沉默——语言碰不到的地方 -->
-<div class="card card-6">
-  <div class="card-inner">
-    <div class="counter"><span class="current">24</span> / 30</div>
-    <div class="rule"></div>
-    <div class="big">有些东西，<br><span class="glow">语言</span>碰不到。</div>
-    <div class="small">
-      不是你描述得不够好。<br>是它本来就住在语言外面。<br><br>
-      沉默不是空白。<br>沉默是——<br>你终于不需要用词语<br>来证明自己存在。<br><br>
-      最深的理解，<br>发生在你停止解释的那一刻。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- ═══════════════ 25-30 ═══════════════ -->
-
-<!-- 25：等待——最体面的逃避 -->
-<div class="card card-1">
-  <div class="card-inner">
-    <div class="counter"><span class="current">25</span> / 30</div>
-    <div class="text-block">
-      <span class="question">你在<span class="accent">等</span>什么？</span>
-      <span class="para">等一个时机。</span>
-      <span class="para">等一句道歉。</span>
-      <span class="para">等自己准备好。</span>
-      <span class="para">等世界变公平。</span>
-      <span class="silence">够了。</span>
-      <div class="divider"></div>
-      <span class="punch">等待是最体面的逃避。</span>
-      <span class="para">它让你觉得自己在做点什么。</span>
-      <span class="para">其实你只是在原地变老。</span>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 26：自由②——不是想做什么就做什么 -->
-<div class="card card-2">
-  <div class="card-inner">
-    <div class="counter"><span class="current">26</span> / 30</div>
-    <div class="label">F R E I H E I T</div>
-    <div class="big-line">自由不是<br><span class="highlight">想做什么就做什么</span>。</div>
-    <div class="sub-line">
-      那不是自由。<br>那是欲望的奴隶。<br><br>
-      自由是——<br>你终于不需要<br>向任何人<span class="highlight">证明任何事</span>。<br><br>
-      不需要证明你够好。<br>不需要证明你选对了。<br>不需要证明<br>你的人生有意义。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 27：故事——你活在自己讲的故事里 -->
-<div class="card card-3">
-  <div class="card-inner">
-    <div class="counter"><span class="current">27</span> / 30</div>
-    <div class="content">
-      <div class="step"><span class="step-num">01</span><span class="step-text"><span class="strike">我不够好</span></span></div>
-      <div class="step"><span class="step-num">02</span><span class="step-text"><span class="strike">我不擅长这个</span></span></div>
-      <div class="step"><span class="step-num">03</span><span class="step-text"><span class="strike">已经太晚了</span></span></div>
-      <div class="final">
-        这些都是故事。<br>不是事实。<br><br>
-        但反复讲给自己听，<br>它们就变成了事实。<br><br>
-        你活在自己讲的故事里。<br>问题不是故事的真假。<br>问题是——<br>谁在讲这个故事？<br><br>
-        是过去的你。<br>而过去已经不存在了。
-      </div>
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 28：放手——不是放弃，是更深的参与 -->
-<div class="card card-4">
-  <div class="card-inner">
-    <div class="counter"><span class="current">28</span> / 30</div>
-    <div class="top-gold"></div>
-    <div class="main-text">放手<br>不是<span class="gold-word">放弃</span>。</div>
-    <div class="sub-text">
-      放手是一种<span class="gold-word">更深的参与</span>——<br>你参与到生命本身，<br>而不是你对生命的计划。<br><br>
-      你怕的从来不是失去。<br>你怕的是放手之后，<br>你不知道自己是谁。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 29：接住自己——你从来没学会 -->
-<div class="card card-5">
-  <div class="card-inner">
-    <div class="counter"><span class="current">29</span> / 30</div>
-    <div class="top-line">A N K O M M E N</div>
-    <div class="quote"><strong>你怕的不是失败。</strong></div>
-    <div class="quote">是失败之后<strong>没有人接住你</strong>。</div>
-    <div class="gap"></div>
-    <div class="tail">
-      但更深的真相是：<br>你从来没学会<em>接住自己</em>。<br><br>
-      你一直在等别人<br>做那个接住你的人。<br><br>
-      从今天起，<br>你自己来。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
-  </div>
-</div>
-
-<!-- 30：到达——你走到的时候，自己会知道 -->
-<div class="card card-4">
-  <div class="card-inner">
-    <div class="counter"><span class="current">30</span> / 30</div>
-    <div class="top-gold"></div>
-    <div class="main-text">你不必<br>跑<span class="gold-word">那么快</span>。</div>
-    <div class="sub-text">
-      凌晨四点醒来，<br>天花板还是那块天花板。<br><br>
-      你在追赶什么？<br>终点是谁画的？<br><br>
-      有人25岁就到了。<br>有人60岁才出发。<br>有人选了一条没有终点的路。<br><br>
-      那也可以。<br>你走到的时候，<br>自己会知道。
-    </div>
-    <div class="watermark">Leons Deutschzentrum</div>
+    <div class="watermark">Friedrich Nietzsche · Leons Deutschzentrum</div>
   </div>
 </div>
 
@@ -625,36 +253,12 @@
 <script>
 (function() {
   var T = {
-    1:  { de:'Wachstum passiert nicht durch Verstehen — sondern wenn du aufhörst, deinen Schmerz mit Denken einzukreisen. Im Moment des Loslassens wirst du ein neuer Mensch.', en:'Growth doesn\'t happen through understanding — but when you stop encircling your pain with thinking. In the moment of letting go, you become someone new.' },
-    2:  { de:'Du lernst eine Sprache nicht, um sie zu sprechen — sondern um in ihr ein anderer Mensch zu werden. Jede Sprache ist eine eigene Art, die Welt zu sehen.', en:'You don\'t learn a language to speak it — but to become a different person in it. Every language is its own way of seeing the world.' },
-    3:  { de:'Du denkst, du bereitest dich vor. In Wahrheit weichst du dem Anblick aus, noch nicht gut genug zu sein. Spring. Unbeholfen anzufangen ist näher an der Wahrheit als perfektes Warten.', en:'You think you\'re preparing. In truth, you\'re avoiding being seen as not good enough yet. Jump. Starting awkwardly is closer to the truth than waiting perfectly.' },
-    4:  { de:'Du rennst nicht, weil du ein Ziel hast — sondern weil du Angst vor dem Anhalten hast. Der wahre Mut liegt nicht im Laufen, sondern darin, stehenzubleiben und zu fragen: Wohin renne ich eigentlich?', en:'You don\'t run because you have a goal — but because you\'re afraid of stopping. Real courage isn\'t in running; it\'s in stopping to ask: Where am I actually running to?' },
-    5:  { de:'Die Grenze zwischen Mensch und Werkzeug lag nie im Werkzeug — sondern in deiner Bereitschaft, dich neu zu definieren. Kein neues Tool lernen. Ein anderer Mensch werden.', en:'The line between human and tool was never in the tool — but in your willingness to redefine yourself. Not learning a new tool. Becoming a different person.' },
-    6:  { de:'Was du am meisten bereust? Nicht die falsche Wahl — sondern die Version deiner selbst, die nie auftauchte. Reue ist kein Fehler — sie ist ein nie gelebtes Leben.', en:'What you regret most? Not the wrong choice — but the version of yourself that never showed up. Regret isn\'t a mistake — it\'s a life never lived.' },
-    7:  { de:'Angst entsteht nicht aus zu vielen Wünschen — sondern aus der Unfähigkeit, nur einen zu wählen. Leben ist nicht Möglichkeit. Leben ist Ausschluss. Je entschiedener du ausschließt, desto freier wirst du.', en:'Anxiety doesn\'t come from too many desires — but from the inability to choose just one. Life isn\'t possibility. Life is exclusion. The more decisively you exclude, the freer you become.' },
-    8:  { de:'Langsamkeit ist keine Frage der Geschwindigkeit — sondern der Zeitauffassung. Wer eilt, lebt in der Uhr der anderen. Der Zinseszins liegt nicht im Tempo — sondern im Nicht-Abbrechen.', en:'Slowness isn\'t a matter of speed — but of how you relate to time. Those who hurry live in others\' clocks. Compound interest isn\'t in pace — but in not stopping.' },
-    9:  { de:'Das ist nicht Nettigkeit — das ist eine Überlebensstrategie aus deiner Kindheit. Gefälligkeitsfalle. Wer sie beim Namen nennen kann, hat schon begonnen, herauszutreten.', en:'That\'s not kindness — that\'s a survival strategy from your childhood. Gefälligkeitsfalle. The people-pleasing trap. Whoever can name it has already begun to step out of it.' },
-    10: { de:'Die größte Falle für kluge Köpfe? Nicht Stolz — sondern den Verstand zu nutzen, um Verletzlichkeit zu vermeiden. Vertrauen, Verbindung, Geliebtwerden — dafür musst du deine Klugheit ablegen.', en:'The biggest trap for smart people? Not pride — but using intellect to avoid vulnerability. Trust, connection, being loved — for these, you must take off your cleverness.' },
-    11: { de:'Zeit ist nicht zum Managen da — sie entlarvt dich. Was dir wirklich wichtig ist, zeigt sich nicht in deinen Worten, sondern in deinem Kalender. Zeit ist der einzige Spiegel, der nie lügt.', en:'Time isn\'t for managing — it exposes you. What truly matters to you isn\'t shown in your words, but in your calendar. Time is the only mirror that never lies.' },
-    12: { de:'Sinn ist keine Antwort — er ist die Spur, die du im Reiben mit der Welt hinterlässt. Wie ein Fluss: Nicht das Ufer war zuerst da, sondern das Fließen formt es.', en:'Meaning isn\'t an answer — it\'s the trace you leave in friction with the world. Like a river: the banks weren\'t there first; the flowing carved them.' },
-    13: { de:'Freiheit ist nicht, tun oder lassen zu können, was du willst — sondern nichts mehr beweisen zu müssen. Sie kommt, wenn du das Bedürfnis nach Anerkennung loslässt.', en:'Freedom isn\'t doing or not doing what you want — it\'s no longer needing to prove anything. It comes when you let go of the need for approval.' },
-    14: { de:'Glück wird nicht gestoßen — es wird erkannt. Die meisten verpassen es, weil es als "Problem" oder "Zufall" verkleidet kam. Du erkennst nur eine Gestalt — und verpasst all seine Verkleidungen.', en:'Luck isn\'t bumped into — it\'s recognized. Most miss it because it arrived disguised as "trouble" or "coincidence." You only recognize one shape — and miss all its costumes.' },
-    15: { de:'Perfektionismus ist keine Exzellenz — er ist eine Mauer. Dahinter: "Bin ich noch liebenswert, wenn ich nicht perfekt bin?" Perfektionismusfalle. Du brauchst keine Perfektion — du brauchst, gesehen zu werden.', en:'Perfectionism isn\'t excellence — it\'s a wall. Behind it: "Am I still lovable if I\'m not perfect?" Perfektionismusfalle. You don\'t need perfection — you need to be seen.' },
-    16: { de:'Gute Beziehungen brauchen keine erzwungene Pflege. Sie leben davon, dass zwei Menschen sie selbst sind — und sich trotzdem füreinander entscheiden. Nicht gebunden. Sondern wählend.', en:'Good relationships don\'t need forced maintenance. They thrive because two people are themselves — and still choose each other. Not bound. But choosing.' },
-    17: { de:'Was du an anderen verurteilst, ist das, was du an dir selbst verbannt hast. Deine Härte gegen andere ist die Verbannung deiner eigenen verborgenen Teile.', en:'What you judge in others is what you\'ve exiled in yourself. Your harshness toward others is the banishment of your own hidden parts.' },
-    18: { de:'Einsamkeit ist nicht die Abwesenheit von Menschen — sondern die Abwesenheit deiner selbst. Du hast dich versteckt. Wahre Einsamkeitsfähigkeit heißt: in der Menge du selbst zu bleiben.', en:'Loneliness isn\'t the absence of people — it\'s the absence of yourself. You\'ve hidden yourself away. True solitude means: staying yourself even in the crowd.' },
-    19: { de:'Veränderung ist schwer, weil sie Trauer bedeutet. Du musst dich von dem Menschen verabschieden, der du warst. Veränderung ist keine neue Umgebung — sie ist eine Beerdigung.', en:'Change is hard because it means grief. You must say goodbye to the person you were. Change isn\'t a new environment — it\'s a funeral. Only then can the new enter.' },
-    20: { de:'Die meisten Probleme werden nicht gelöst — sie lösen sich auf, wenn du ein anderer wirst. Manche Fragen sind Spiegel: Sie zeigen den Menschen, der du noch nicht bist. Werde er.', en:'Most problems aren\'t solved — they dissolve when you become someone else. Some questions are mirrors: they show the person you haven\'t become yet. Become him.' },
-    21: { de:'Je fester du greifst, desto schneller rinnt der Sand. Kontrollillusion. Du glaubst, du beherrschst die Lage — in Wahrheit bestätigst du nur, wie sehr du dich vor Kontrollverlust fürchtest.', en:'The tighter you grip, the faster the sand slips. Kontrollillusion. You think you\'re in charge — in truth, you\'re only confirming how terrified you are of losing control.' },
-    22: { de:'Was du nicht ändern kannst: Lerne, mit ihm zu sitzen, statt gegen es zu kämpfen. Das ist keine Niederlage. Das ist Weisheit.', en:'What you cannot change: learn to sit with it, rather than fight it. That\'s not defeat. That\'s wisdom.' },
-    23: { de:'Zwischen Wissen und Leben liegt ein Abgrund — kein Wissensabgrund, sondern ein Mutabgrund. Du bist nicht, wer du dachtest. Du warst nur der Zuschauer deiner selbst.', en:'Between knowing and living lies an abyss — not of knowledge, but of courage. You aren\'t who you thought. You were only the spectator of yourself.' },
-    24: { de:'Manches wohnt außerhalb der Sprache. Schweigen ist nicht Leere — es ist der Moment, in dem du nicht mehr beweisen musst, dass du existierst. Das tiefste Verstehen geschieht, wenn du aufhörst zu erklären.', en:'Some things dwell outside language. Silence isn\'t emptiness — it\'s the moment you no longer need to prove you exist. The deepest understanding happens when you stop explaining.' },
-    25: { de:'Warten ist die eleganteste Form der Flucht. Du glaubst, du tust etwas — aber du wirst nur älter. Der richtige Moment kommt nicht. Fang jetzt an.', en:'Waiting is the most elegant form of escape. You think you\'re doing something — but you\'re just getting older. The right moment won\'t come. Start now.' },
-    26: { de:'Freiheit ist nicht, tun zu können, was du willst — das ist Sklaverei der Begierde. Freiheit ist: nichts mehr beweisen zu müssen.', en:'Freedom isn\'t doing whatever you want — that\'s slavery to desire. Freedom is: not having to prove anything anymore.' },
-    27: { de:'Du lebst in der Geschichte, die du dir selbst erzählst. Die Frage ist nicht, ob sie wahr ist — sondern wer sie erzählt. Es ist die Vergangenheit. Und die existiert nicht mehr.', en:'You live in the story you tell yourself. The question isn\'t whether it\'s true — but who is telling it. It\'s the past. And the past no longer exists.' },
-    28: { de:'Loslassen ist nicht Aufgeben. Es ist eine tiefere Form der Teilnahme — am Leben selbst, nicht an deinem Plan dafür. Du fürchtest nicht den Verlust — du fürchtest die Frage: Wer bin ich ohne das?', en:'Letting go isn\'t giving up. It\'s a deeper form of participation — in life itself, not your plan for it. You don\'t fear the loss — you fear the question: Who am I without it?' },
-    29: { de:'Du fürchtest nicht das Scheitern — sondern dass dich danach niemand auffängt. Die tiefere Wahrheit: Du hast nie gelernt, dich selbst aufzufangen. Von heute an: Fang dich selbst.', en:'You don\'t fear failure — you fear that no one will catch you after. The deeper truth: you never learned to catch yourself. From today on: catch yourself.' },
-    30: { de:'Du musst nicht so schnell laufen. Wen jagst du? Wer hat das Ziel gemalt? Es ist in Ordnung, einen anderen Weg zu gehen. Du wirst es erkennen, wenn du ankommst.', en:'You don\'t have to run so fast. Who are you chasing? Who painted the finish line? It\'s okay to take a different path. You\'ll know when you arrive.' }
+    1:  { de:'Zwei Dinge erfüllen das Gemüt mit immer neuer Bewunderung und Ehrfurcht: der bestirnte Himmel über mir und das moralische Gesetz in mir. Der Himmel zeigt mir, wie klein ich bin — das Gesetz in mir, wie frei ich sein kann. Nicht Gehorsam gegenüber jemandem: Ich gebe mir selbst das Gesetz.', en:'Two things fill the mind with ever renewed awe: the starry heavens above me and the moral law within me. The heavens show me how small I am — the law within me, how free I can be. Not obedience to anyone: I give myself the law.' },
+    2:  { de:'Das Bekannte, gerade weil es bekannt ist, ist nicht erkannt. Weil wir es gewohnt sind, schauen wir nicht mehr hin. Echtes Denken beginnt, wo "ich glaube, ich weiß es" in "ich weiß es eigentlich nicht" umschlägt. Ein fremder Blick sieht die vertraute Welt neu.', en:'The familiar, precisely because it is familiar, is not known. Because we are used to it, we stop looking. True thinking begins where "I think I know" turns into "I actually don\'t know". A stranger\'s gaze sees the familiar world anew.' },
+    3:  { de:'Das Leben gleicht einem Pendel: Ist der Wunsch unerfüllt, leiden wir; ist er erfüllt, langweilen wir uns. Du kannst tun, was du willst — aber du kannst nicht wollen, was du willst. Erlösung ist nicht, alles zu bekommen. Es ist, den Wunsch zu durchschauen und sanft loszulassen.', en:'Life is like a pendulum: when desire is unfulfilled, we suffer; when it is fulfilled, we are bored. You can do what you will — but you cannot will what you will. Release is not getting everything. It is seeing through desire and gently letting go.' },
+    4:  { de:'Der Mensch ist Sein zum Tode. Solange wir den Tod verdrängen, leben wir uneigentlich — wie man eben lebt. Wer den Tod anerkennt, gewinnt das Jetzt zurück: Jeder Tag ist der einzige Augenblick.', en:'The human being is being-toward-death. As long as we repress death, we live inauthentically — as one happens to live. Whoever acknowledges death regains the now: every day is the one and only moment.' },
+    5:  { de:'Wovon man nicht sprechen kann, darüber muss man schweigen. Nicht jedes Schweigen ist Leere. Manche Dinge werden kleiner, wenn man sie ausspricht. Der Sinn des Lebens, die Liebe, der Tod — gerade weil sie sich nicht sagen lassen, brauchen sie ein ganzes Leben, um sich zu zeigen.', en:'Whereof one cannot speak, thereof one must be silent. Not all silence is emptiness. Some things shrink when spoken aloud. The meaning of life, love, death — precisely because they cannot be said, they take a whole life to show.' },
+    6:  { de:'Werde, der du bist! Niemand kann dir diesen Weg abnehmen. Ein Leben, das andere für dich leben, ist nur ihr Leben. Liebe dein Schicksal — amor fati. Frage nicht: "Was ist der Sinn des Lebens?" — sondern: "Welchen Sinn kann ich ihm geben?"', en:'Become who you are! No one can take this path for you. A life others live for you is only their life. Love your fate — amor fati. Don\'t ask: "What is the meaning of life?" — but: "What meaning can I give it?"' }
   };
   document.querySelectorAll('.card').forEach(function(card, i) {
     var t = T[i + 1];
