@@ -17,15 +17,13 @@
   }
   .tab-bar {
     width: 100%; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: flex; justify-content: center; gap: 0;
+    display: flex; justify-content: center; align-items: center; gap: 2px; row-gap: 4px;
     position: sticky; top: 0; z-index: 200;
-    overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+    flex-wrap: wrap; overflow-x: visible; scrollbar-width: none;
   }
-  .tab-bar::-webkit-scrollbar { height: 3px; }
-  .tab-bar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 2px; }
   .tab-btn {
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    padding: 12px 18px; border: none; background: transparent; cursor: pointer;
+    padding: 10px 15px; border: none; background: transparent; cursor: pointer;
     font-size: 0.88rem; color: #888; border-bottom: 3px solid transparent;
     transition: color 0.2s, border-color 0.2s; white-space: nowrap; flex-shrink: 0;
   }
@@ -497,6 +495,40 @@
 .vb-table .td-inf{color:#0f1e3a;}
 .vb-table tr:last-child td{border-bottom:none;}
 @media(max-width:560px){.vb-table{font-size:.78rem;} .vb-table td,.vb-table th{padding:6px 5px;}}
+/* ── 手机单屏适配：压缩字号与间距，让题目+完整变位反馈在一屏内完整显示 ── */
+@media only screen and (max-width:560px){
+  #book-verben{ padding:8px 8px 28px; }
+  .vb-app{ font-size:13px; }
+  .vb-top{ gap:7px; margin-bottom:9px; }
+  .vb-back{ padding:7px 13px; font-size:.8rem; }
+  .vb-mbtn{ font-size:.8rem; padding:6px 11px; }
+  .vb-score{ font-size:.78rem; padding:5px 10px; }
+  .vb-desc{ font-size:.88rem; margin-bottom:10px; }
+  .vb-card{ padding:10px 11px; gap:4px; }
+  .vb-crule{ font-size:.73rem; }
+  .vb-cnote{ font-size:.77rem; }
+  .vb-qmeta{ margin-bottom:3px; }
+  .vb-bar{ height:7px; margin-bottom:10px; }
+  .vb-rule{ padding:6px 11px; margin-bottom:8px; }
+  .vb-rrule{ font-size:.86rem; }
+  .vb-rnote{ font-size:.7rem; }
+  .vb-qtype{ font-size:.68rem; margin-bottom:3px; }
+  .vb-prompt{ padding:12px 12px; margin-bottom:9px; gap:8px; }
+  .vb-inf{ font-size:1.28rem; }
+  .vb-arrow{ font-size:.98rem; }
+  .vb-blank{ font-size:1.26rem; letter-spacing:1px; }
+  .vb-opts{ grid-template-columns:1fr 1fr; gap:8px; }
+  .vb-opt{ font-size:.95rem; padding:11px 8px; border-radius:11px; }
+  .vb-fb{ margin-top:9px; }
+  .vb-fbcard{ padding:9px 11px; }
+  .vb-res2{ font-size:.96rem; margin-bottom:6px; }
+  .vb-regel{ margin:6px 0 4px; }
+  .vb-full{ padding:7px 10px; }
+  .vb-fullline{ font-size:1rem; margin-bottom:3px; }
+  .vb-fgrid{ font-size:.82rem; gap:8px; }
+  .vb-next{ padding:11px; font-size:.92rem; margin-top:9px; }
+  .vb-big{ padding:12px; font-size:.92rem; }
+}
 </style>
 
 
@@ -2695,12 +2727,16 @@ function initVerben(root){
         vbMQuiz=root.querySelector('#vbMQuiz'), vbMTable=root.querySelector('#vbMTable');
 
   const S = { mode:'quiz', gid:null, flat:[], qi:0, correct:0, wrong:0, streak:0, wrongList:[], done:false,
-              groupTitle:'', cV:null, cKey:'', cOpts:[], cLabel:'', answered:false };
+              groupTitle:'', cV:null, cKey:'', cOpts:[], cLabel:'', answered:false, cdLeft:0, cdInterval:null };
 
   function optionsFor(v,key){
     const correct=v[key], poolArr=shuffle(POOL[key].slice()), seen=new Set([correct]), picks=[];
     for(var i=0;i<poolArr.length && picks.length<3;i++){ const d=poolArr[i]; if(!seen.has(d)){ seen.add(d); picks.push(d); } }
     return shuffle(picks.concat([correct]));
+  }
+  function clearAdv(){
+    if(S.cdInterval){ clearInterval(S.cdInterval); S.cdInterval=null; }
+    S.cdLeft=0;
   }
 
   function render(){
@@ -2741,6 +2777,7 @@ function initVerben(root){
   function renderQ(){
     vbPick.style.display='none'; vbQuiz.style.display='block'; vbRes.style.display='none'; vbTable.style.display='none';
     vbBack.style.display='block';
+    clearAdv();
     const q=S.flat[S.qi], v=q.v, g=v.grp;
     S.cV=v; S.cKey=['pr','pret','perf'][q.fi]; S.cOpts=optionsFor(v,S.cKey);
     S.cLabel=['Präsens','Präteritum','Partizip Perfekt'][q.fi];
@@ -2773,8 +2810,18 @@ function initVerben(root){
       +'<span><i>Perfekt</i>'+v.aux+' '+v.perf+'</span></div></div>';
     const fb=vbQuiz.querySelector('#vbFb');
     if(ok){
-      fb.innerHTML='<div class="vb-fbcard ok"><div class="vb-res2">✓ Richtig!</div><div class="vb-regel">Regel: '+g.rule+'</div>'+full+'</div>';
-      setTimeout(next, 950);
+      clearAdv();
+      fb.innerHTML='<div class="vb-fbcard ok"><div class="vb-res2">✓ Richtig!</div><div class="vb-regel">Regel: '+g.rule+'</div>'+full+'</div>'
+        +'<button class="vb-next" id="vbNext"><b id="vbCd">6</b>&nbsp;后自动继续 · Weiter ▶</button>';
+      S.cdLeft=6;
+      const cdEl=fb.querySelector('#vbCd');
+      S.cdInterval=setInterval(function(){
+        S.cdLeft--;
+        if(cdEl) cdEl.textContent=S.cdLeft;
+        if(S.cdLeft<=0){ clearAdv(); next(); }
+      }, 1000);
+      const nxt=fb.querySelector('#vbNext');
+      if(nxt) nxt.onclick=function(){ clearAdv(); next(); };
     } else {
       fb.innerHTML='<div class="vb-fbcard bad"><div class="vb-res2">✗ Richtig wäre: <b>'+correct+'</b></div>'
         +'<div class="vb-yours">Deine Antwort: <span class="strike">'+chosen+'</span></div>'
@@ -2784,6 +2831,7 @@ function initVerben(root){
     }
   }
   function next(){
+    clearAdv();
     S.answered=false; S.qi++;
     if(S.qi>=S.flat.length){ S.done=true; render(); } else renderQ();
   }
