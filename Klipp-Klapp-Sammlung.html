@@ -394,6 +394,7 @@
   <button class="tab-btn" data-book="wohnung" onclick="showBook('wohnung')">🏠 Wohnung</button>
   <button class="tab-btn" data-book="kleidung" onclick="showBook('kleidung')">👗 Kleidung</button>
   <button class="tab-btn" data-book="stadt" onclick="showBook('stadt')">🗺️ Stadt</button>
+  <button class="tab-btn" data-book="verben" onclick="showBook('verben')">⚡ Verben</button>
 </div>
 
 <div id="book-schaf" class="book-container"></div>
@@ -405,6 +406,99 @@
 <div id="book-wohnung" class="book-container"></div>
 <div id="book-kleidung" class="book-container"></div>
 <div id="book-stadt" class="book-container"></div>
+<div id="book-verben" class="book-container"></div>
+<style id="vb-style">
+/* ═══════ Verben-Quiz · Starke Verben (Ablautreihen) ═══════ */
+#book-verben{width:100%;display:flex;justify-content:center;padding:12px 10px 42px;}
+.vb-app{width:100%;max-width:760px;font-family:'Open Sans',-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#243044;}
+.vb-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.vb-tl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.vb-back{background:#0f1e3a;color:#fff;border:none;border-radius:20px;padding:8px 16px;font-family:inherit;font-size:.9rem;cursor:pointer;}
+.vb-back:hover{opacity:.92;}
+.vb-mode{display:inline-flex;background:#e7edf5;border-radius:22px;padding:4px;gap:2px;}
+.vb-mbtn{border:none;background:transparent;font-family:inherit;font-size:.9rem;padding:7px 15px;border-radius:19px;cursor:pointer;color:#64748b;transition:all .15s;}
+.vb-mbtn.on{background:#0f1e3a;color:#fff;font-weight:700;}
+.vb-score{font-size:.86rem;color:#0f1e3a;background:#fbe9d0;padding:6px 13px;border-radius:18px;font-weight:700;white-space:nowrap;}
+.vb-desc{font-size:1rem;color:#33415c;text-align:center;margin:6px 0 16px;font-weight:600;}
+.vb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
+@media(max-width:430px){.vb-cards{grid-template-columns:1fr 1fr;}}
+.vb-card{background:#fff;border:1px solid #e6ebf2;border-left:5px solid #0f1e3a;border-radius:16px;padding:13px 14px;cursor:pointer;text-align:left;box-shadow:0 2px 8px rgba(15,30,58,.06);transition:transform .15s,box-shadow .15s;font-family:inherit;display:flex;flex-direction:column;gap:6px;width:100%;}
+.vb-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,30,58,.12);}
+.vb-crule{align-self:flex-start;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:700;}
+.vb-crule.grad{background:linear-gradient(90deg,#0f1e3a,#1e3a5f);}
+.vb-cnote{font-size:.82rem;color:#4b5c76;}
+.vb-ccount{font-size:.72rem;color:#98a5b8;text-transform:uppercase;letter-spacing:.5px;}
+.vb-tip{font-size:.82rem;color:#718096;text-align:center;margin-top:18px;line-height:1.5;background:#fff;border-radius:14px;padding:10px 14px;border:1px dashed #d7dee8;}
+/* Quiz */
+.vb-qmeta{font-size:.8rem;color:#64748b;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;}
+.vb-qnum{color:#94a3b8;font-weight:600;}
+.vb-qcount{font-weight:700;color:#0f1e3a;}
+.vb-bar{height:8px;background:#e0e7f0;border-radius:6px;overflow:hidden;margin-bottom:16px;}
+.vb-fill{height:100%;background:linear-gradient(90deg,#b8860b,#f6d365);transition:width .35s ease;border-radius:6px;}
+.vb-rule{display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:12px;padding:9px 14px;color:#fff;margin-bottom:14px;flex-wrap:wrap;}
+.vb-rrule{font-weight:800;font-size:1.02rem;}
+.vb-rnote{font-size:.78rem;opacity:.92;}
+.vb-qtype{font-size:.78rem;color:#8a97ab;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+.vb-prompt{background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:18px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(15,30,58,.05);margin-bottom:16px;flex-wrap:wrap;}
+.vb-inf{font-size:1.65rem;font-weight:800;color:#0f1e3a;letter-spacing:.5px;}
+.vb-arrow{font-size:1.3rem;color:#b8860b;}
+.vb-blank{font-size:1.6rem;color:#b8860b;font-weight:800;letter-spacing:2px;}
+.vb-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:430px){.vb-opts{grid-template-columns:1fr;}}
+.vb-opt{background:#fff;border:2px solid #e6ebf2;border-radius:14px;padding:15px 12px;font-family:inherit;font-size:1.08rem;font-weight:700;color:#243044;cursor:pointer;transition:all .15s;text-align:center;}
+.vb-opt:hover{border-color:#b8860b;transform:translateY(-2px);}
+.vb-opt[disabled]{cursor:default;}
+.vb-opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;animation:vbpop .35s ease;}
+.vb-opt.wrong{background:#fee2e2;border-color:#dc2626;color:#b91c1c;animation:vbshake .4s ease;}
+@keyframes vbpop{0%{transform:scale(.92);opacity:.7}100%{transform:scale(1);opacity:1}}
+@keyframes vbshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.vb-fb{margin-top:16px;}
+.vb-fbcard{border-radius:16px;padding:14px 16px;margin-top:4px;}
+.vb-fbcard.ok{background:#f0fdf4;border:1px solid #bbf7d0;}
+.vb-fbcard.bad{background:#fef2f2;border:1px solid #fecaca;}
+.vb-res2{font-size:1.1rem;font-weight:800;margin-bottom:10px;}
+.vb-fbcard.ok .vb-res2{color:#15803d;}
+.vb-fbcard.bad .vb-res2{color:#b91c1c;}
+.vb-yours{color:#7f1d1d;font-size:.9rem;margin-bottom:4px;}
+.strike{text-decoration:line-through;opacity:.7;}
+.vb-regel{font-size:.78rem;color:#8a97ab;margin:8px 0 6px;font-style:italic;}
+.vb-full{background:#fff;border-radius:12px;padding:10px 14px;border:1px solid #eef1f6;margin-top:4px;}
+.vb-fullline{font-size:1.15rem;font-weight:800;color:#0f1e3a;margin-bottom:4px;}
+.vb-fgrid{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:#33415c;}
+.vb-fgrid span{white-space:nowrap;}
+.vb-fgrid i{font-style:normal;font-weight:700;color:#94a3b8;margin-right:4px;}
+.vb-next{width:100%;margin-top:14px;background:#0f1e3a;color:#fff;border:none;border-radius:14px;padding:14px;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;}
+.vb-next:hover{opacity:.92;}
+/* Result */
+.vb-rescard{background:#fff;border-radius:20px;padding:24px 18px;text-align:center;box-shadow:0 4px 20px rgba(15,30,58,.08);}
+.vb-rdone{font-size:1.2rem;font-weight:800;color:#0f1e3a;}
+.vb-stars{font-size:1.7rem;color:#f6c445;letter-spacing:4px;margin:10px 0 2px;}
+.vb-pct{font-size:2.4rem;font-weight:800;color:#0f1e3a;}
+.vb-rcount{font-size:.92rem;color:#64748b;margin-bottom:14px;}
+.vb-wrongs{text-align:left;margin:6px 0 16px;max-height:200px;overflow:auto;background:#fef2f2;border-radius:12px;padding:10px 12px;}
+.vb-wrongs h4{font-size:.85rem;color:#b91c1c;margin-bottom:6px;}
+.vb-wrongs .wr{font-size:.85rem;color:#33415c;padding:3px 0;}
+.vb-rabtns{display:flex;flex-direction:column;gap:10px;}
+.vb-big{width:100%;background:#0f1e3a;color:#fff;border:none;border-radius:14px;padding:14px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;}
+.vb-big.alt{background:#fff;color:#0f1e3a;border:2px solid #0f1e3a;}
+.vb-big.alt:hover{background:#eef2f7;}
+/* Tabelle */
+.vb-tgroup{margin-bottom:12px;background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(15,30,58,.06);overflow:hidden;}
+.vb-thead{width:100%;background:#fff;border-left:5px solid;border:none;border-bottom:0;padding:13px 14px;display:flex;align-items:center;gap:10px;font-family:inherit;cursor:pointer;flex-wrap:wrap;text-align:left;}
+.vb-tnote{font-size:.82rem;color:#4b5c76;flex:1;min-width:120px;}
+.vb-tn{font-size:.72rem;color:#98a5b8;}
+.vb-tcaret{transition:transform .25s;color:#98a5b8;font-size:.85rem;margin-left:4px;}
+.vb-tgroup.open .vb-tcaret{transform:rotate(180deg);}
+.vb-tbody{display:none;padding:2px 14px 14px;}
+.vb-tgroup.open .vb-tbody{display:block;}
+.vb-table{width:100%;border-collapse:collapse;font-size:.9rem;}
+.vb-table th{text-align:left;font-size:.72rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;padding:6px 8px;border-bottom:2px solid #eef1f6;}
+.vb-table td{padding:7px 8px;border-bottom:1px solid #f0f3f7;color:#33415c;}
+.vb-table .td-inf{color:#0f1e3a;}
+.vb-table tr:last-child td{border-bottom:none;}
+@media(max-width:560px){.vb-table{font-size:.78rem;} .vb-table td,.vb-table th{padding:6px 5px;}}
+</style>
+
 
 <script>
 // Load Three.js with fallback CDN
@@ -2422,6 +2516,336 @@ function initKleidung(root) {
 
 // Tab switching
 let currentBook = null;
+
+// ═══════════════════════════════════════════
+// VERBEN-QUIZ — Starke Verben / Ablautreihen
+// 《标准德语教程 1/2 册》不规则动词表 → 交互记忆游戏
+// ═══════════════════════════════════════════
+function initVerben(root){
+  if (root.querySelector('.vb-app')) return;
+
+  // ---- Verbenlexikon: starke Verben nach Ablautreihen ----
+  function mk(inf, pr, pret, perf, aux, prFull, subj){
+    return { inf:inf, pr:pr, pret:pret, perf:perf, aux:aux, prFull:prFull||pr, subj:subj||'er' };
+  }
+  const GROUPS = [
+    { id:'ioo', rule:'i: – o: – o:', note:'长音 i: → o: → o: · fliegen 飞', color:'#0f766e', verbs:[
+      mk('biegen','biegt','bog','geflogen','hat/ist'),
+      mk('fliegen','fliegt','flog','geflogen','hat/ist'),
+      mk('schließen','schließt','schloss','geschlossen','hat'),
+      mk('verlieren','verliert','verlor','verloren','hat'),
+      mk('wiegen','wiegt','wog','gewogen','hat'),
+      mk('ziehen','zieht','zog','gezogen','hat/ist'),
+      mk('frieren','friert','fror','gefroren','hat/ist'),
+      mk('bieten','bietet','bot','geboten','hat'),
+      mk('genießen','genießt','genoss','genossen','hat'),
+      mk('schieben','schiebt','schob','geschoben','hat'),
+      mk('riechen','riecht','roch','gerochen','hat'),
+      mk('kriechen','kriecht','kroch','gekrochen','ist'),
+      mk('schießen','schießt','schoss','geschossen','hat'),
+      mk('leiden','leidet','litt','gelitten','hat'),
+      mk('meiden','meidet','mied','gemieden','hat')
+    ]},
+    { id:'eii', rule:'ei – i – i', note:'ei → i · schreiben 写', color:'#7c3aed', verbs:[
+      mk('streichen','streicht','strich','gestrichen','hat/ist'),
+      mk('bleiben','bleibt','blieb','geblieben','ist'),
+      mk('pfeifen','pfeift','pfiff','gepfiffen','hat'),
+      mk('schreiben','schreibt','schrieb','geschrieben','hat'),
+      mk('steigen','steigt','stieg','gestiegen','ist'),
+      mk('treiben','treibt','trieb','getrieben','hat'),
+      mk('gleichen','gleicht','glich','geglichen','hat'),
+      mk('leihen','leiht','lieh','geliehen','hat'),
+      mk('verzeihen','verzeiht','verzieh','verziehen','hat'),
+      mk('beißen','beißt','biss','gebissen','hat'),
+      mk('weisen','weist','wies','gewiesen','hat'),
+      mk('greifen','greift','griff','gegriffen','hat'),
+      mk('schleifen','schleift','schliff','geschliffen','hat'),
+      mk('scheiden','scheidet','schied','geschieden','hat'),
+      mk('schneiden','schneidet','schnitt','geschnitten','hat'),
+      mk('scheinen','scheint','schien','geschienen','hat'),
+      mk('schreien','schreit','schrie','geschrien','hat'),
+      mk('streiten','streitet','stritt','gestritten','hat'),
+      mk('reiben','reibt','rieb','gerieben','hat')
+    ]},
+    { id:'aia', rule:'a/a: – i – a/a:', note:'a → i → a · fangen 抓', color:'#b45309', verbs:[
+      mk('fangen','fängt','fing','gefangen','hat'),
+      mk('blasen','bläst','blies','geblasen','hat'),
+      mk('fallen','fällt','fiel','gefallen','ist'),
+      mk('halten','hält','hielt','gehalten','hat','du hältst · er hält'),
+      mk('lassen','lässt','ließ','gelassen','hat'),
+      mk('raten','rät','riet','geraten','hat','du rätst · er rät'),
+      mk('schlafen','schläft','schlief','geschlafen','hat'),
+      mk('braten','brät','briet','gebraten','hat','du brätst · er brät')
+    ]},
+    { id:'iao', rule:'i – a – o', note:'短音 i → a → o · beginnen 开始', color:'#1d4ed8', verbs:[
+      mk('beginnen','beginnt','begann','begonnen','hat'),
+      mk('gewinnen','gewinnt','gewann','gewonnen','hat'),
+      mk('schwimmen','schwimmt','schwamm','geschwommen','hat/ist'),
+      mk('spinnen','spinnt','spann','gesponnen','hat')
+    ]},
+    { id:'eao', rule:'e(a:) – a – o(o:)', note:'e/(i) → a → o · sprechen 说', color:'#be185d', verbs:[
+      mk('brechen','bricht','brach','gebrochen','hat/ist'),
+      mk('empfehlen','empfiehlt','empfahl','empfohlen','hat'),
+      mk('helfen','hilft','half','geholfen','hat'),
+      mk('nehmen','nimmt','nahm','genommen','hat'),
+      mk('sprechen','spricht','sprach','gesprochen','hat'),
+      mk('treffen','trifft','traf','getroffen','hat'),
+      mk('werfen','wirft','warf','geworfen','hat'),
+      mk('befehlen','befiehlt','befahl','befohlen','hat'),
+      mk('erschrecken','erschrickt','erschrak','erschrocken','ist'),
+      mk('gelten','gilt','galt','gegolten','hat','du giltst · er gilt'),
+      mk('stechen','sticht','stach','gestochen','hat'),
+      mk('stehlen','stiehlt','stahl','gestohlen','hat'),
+      mk('sterben','stirbt','starb','gestorben','ist')
+    ]},
+    { id:'aua', rule:'a/a: – u – a/a:', note:'a → u → a · fahren 开车', color:'#047857', verbs:[
+      mk('fahren','fährt','fuhr','gefahren','hat/ist'),
+      mk('laden','lädt','lud','geladen','hat','du lädst · er lädt'),
+      mk('schlagen','schlägt','schlug','geschlagen','hat'),
+      mk('tragen','trägt','trug','getragen','hat'),
+      mk('waschen','wäscht','wusch','gewaschen','hat'),
+      mk('schaffen','schafft','schuf','geschaffen','hat'),
+      mk('wachsen','wächst','wuchs','gewachsen','ist')
+    ]},
+    { id:'iau', rule:'i – a – u', note:'短音 i → a → u · singen 唱', color:'#9333ea', verbs:[
+      mk('binden','bindet','band','gebunden','hat'),
+      mk('finden','findet','fand','gefunden','hat'),
+      mk('singen','singt','sang','gesungen','hat'),
+      mk('trinken','trinkt','trank','getrunken','hat'),
+      mk('gelingen','gelingt','gelang','gelungen','ist','es gelingt','es'),
+      mk('klingen','klingt','klang','geklungen','hat'),
+      mk('sinken','sinkt','sank','gesunken','ist'),
+      mk('stinken','stinkt','stank','gestunken','hat'),
+      mk('springen','springt','sprang','gesprungen','ist'),
+      mk('verschwinden','verschwindet','verschwand','verschwunden','ist'),
+      mk('winden','windet','wand','gewunden','hat'),
+      mk('zwingen','zwingt','zwang','gezwungen','hat')
+    ]},
+    { id:'eae', rule:'e/e: – a – e', note:'e/(i) → a → e · essen 吃', color:'#c2410c', verbs:[
+      mk('essen','isst','aß','gegessen','hat'),
+      mk('fressen','frisst','fraß','gefressen','hat'),
+      mk('messen','misst','maß','gemessen','hat'),
+      mk('vergessen','vergisst','vergaß','vergessen','hat'),
+      mk('geben','gibt','gab','gegeben','hat'),
+      mk('lesen','liest','las','gelesen','hat'),
+      mk('sehen','sieht','sah','gesehen','hat'),
+      mk('geschehen','geschieht','geschah','geschehen','ist','es geschieht','es'),
+      mk('treten','tritt','trat','getreten','hat/ist','du trittst · er tritt')
+    ]},
+    { id:'sonst', rule:'Sonstiges', note:'其它特殊变位 (不规则)', color:'#64748b', verbs:[
+      mk('bitten','bittet','bat','gebeten','hat'),
+      mk('liegen','liegt','lag','gelegen','hat/ist'),
+      mk('sitzen','sitzt','saß','gesessen','hat'),
+      mk('kommen','kommt','kam','gekommen','ist'),
+      mk('heißen','heißt','hieß','geheißen','hat'),
+      mk('rufen','ruft','rief','gerufen','hat'),
+      mk('laufen','läuft','lief','gelaufen','ist'),
+      mk('stehen','steht','stand','gestanden','hat'),
+      mk('tun','tut','tat','getan','hat'),
+      mk('gehen','geht','ging','gegangen','ist')
+    ]},
+    { id:'misch', rule:'词尾弱 · 元音强 (混合)', note:'词尾弱变位 + 元音强变化', color:'#0d9488', verbs:[
+      mk('heben','hebt','hob','gehoben','hat'),
+      mk('hängen','hängt','hing','gehangen','hat'),
+      mk('lügen','lügt','log','gelogen','hat'),
+      mk('backen','bäckt','backte','gebacken','hat'),
+      mk('mahlen','mahlt','mahlte','gemahlen','hat'),
+      mk('bringen','bringt','brachte','gebracht','hat'),
+      mk('denken','denkt','dachte','gedacht','hat'),
+      mk('kennen','kennt','kannte','gekannt','hat'),
+      mk('nennen','nennt','nannte','genannt','hat'),
+      mk('rennen','rennt','rannte','gerannt','ist'),
+      mk('brennen','brennt','brannte','gebrannt','hat'),
+      mk('senden','sendet','sandte','gesandt','hat'),
+      mk('wissen','weiß','wusste','gewusst','hat','ich weiß · du weißt · er weiß · wir wissen · ihr wisst · Sie wissen')
+    ]}
+  ];
+
+  const allVerbs = [];
+  GROUPS.forEach(function(g){ g.verbs.forEach(function(v){ v.grp = g; allVerbs.push(v); }); });
+  function pool(key){
+    const seen = new Set(), out = [];
+    allVerbs.forEach(function(v){ if(!seen.has(v[key])){ seen.add(v[key]); out.push(v[key]); } });
+    return out;
+  }
+  const POOL = { pr:pool('pr'), pret:pool('pret'), perf:pool('perf') };
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+  root.innerHTML =
+    '<div class="vb-app">'+
+      '<div class="vb-top">'+
+        '<div class="vb-tl">'+
+          '<button class="vb-back" id="vbBack" style="display:none">‹ Gruppen</button>'+
+          '<div class="vb-mode">'+
+            '<button class="vb-mbtn on" id="vbMQuiz">🎯 Üben</button>'+
+            '<button class="vb-mbtn" id="vbMTable">📖 Überblick</button>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vb-score" id="vbScore"></div>'+
+      '</div>'+
+      '<div id="vbPick"></div>'+
+      '<div id="vbQuiz" style="display:none"></div>'+
+      '<div id="vbRes" style="display:none"></div>'+
+      '<div id="vbTable" style="display:none"></div>'+
+    '</div>';
+
+  const vbPick=root.querySelector('#vbPick'), vbQuiz=root.querySelector('#vbQuiz'),
+        vbRes=root.querySelector('#vbRes'), vbTable=root.querySelector('#vbTable'),
+        vbScore=root.querySelector('#vbScore'), vbBack=root.querySelector('#vbBack'),
+        vbMQuiz=root.querySelector('#vbMQuiz'), vbMTable=root.querySelector('#vbMTable');
+
+  const S = { mode:'quiz', gid:null, flat:[], qi:0, correct:0, wrong:0, streak:0, wrongList:[], done:false,
+              groupTitle:'', cV:null, cKey:'', cOpts:[], cLabel:'', answered:false };
+
+  function optionsFor(v,key){
+    const correct=v[key], poolArr=shuffle(POOL[key].slice()), seen=new Set([correct]), picks=[];
+    for(var i=0;i<poolArr.length && picks.length<3;i++){ const d=poolArr[i]; if(!seen.has(d)){ seen.add(d); picks.push(d); } }
+    return shuffle(picks.concat([correct]));
+  }
+
+  function render(){
+    vbMQuiz.classList.toggle('on', S.mode==='quiz');
+    vbMTable.classList.toggle('on', S.mode==='table');
+    if(S.mode==='table'){ renderTable(); return; }
+    if(!S.gid){ renderPick(); return; }
+    if(S.done){ renderResult(); return; }
+    renderQ();
+  }
+  function renderPick(){
+    vbPick.style.display='block'; vbQuiz.style.display='none'; vbRes.style.display='none'; vbTable.style.display='none';
+    vbScore.textContent=''; vbBack.style.display='none';
+    let h='<div class="vb-desc">Starke Verben · wähle eine Ablautreihe zum Üben</div><div class="vb-cards">';
+    GROUPS.forEach(function(g){
+      h+='<button class="vb-card" data-g="'+g.id+'" style="border-left-color:'+g.color+'">'
+        +'<span class="vb-crule" style="background:'+g.color+'">'+g.rule+'</span>'
+        +'<span class="vb-cnote">'+g.note+'</span>'
+        +'<span class="vb-ccount">'+g.verbs.length+' Verben</span></button>';
+    });
+    h+='<button class="vb-card" data-g="ALL" style="border-left-color:#0f1e3a">'
+      +'<span class="vb-crule grad">🎲 Alle Ablautreihen</span>'
+      +'<span class="vb-cnote">Alle 10 Reihen vermischt · '+allVerbs.length+' Verben</span>'
+      +'<span class="vb-ccount">'+allVerbs.length+' Verben</span></button>';
+    h+='</div><p class="vb-tip">💡 <b>Tipp:</b> Übe zuerst jede Reihe einzeln, zum Schluss „Alle“ mischen. Überblick zeigt die komplette Tabelle.</p>';
+    vbPick.innerHTML=h;
+    vbPick.querySelectorAll('.vb-card').forEach(function(b){ b.onclick=function(){ startGroup(b.dataset.g); }; });
+  }
+  function startGroup(gid){
+    S.gid=gid;
+    const verbs = (gid==='ALL') ? allVerbs.slice() : GROUPS.find(function(g){ return g.id===gid; }).verbs.slice();
+    S.flat=[]; shuffle(verbs).forEach(function(v){ S.flat.push({v:v,fi:0},{v:v,fi:1},{v:v,fi:2}); });
+    shuffle(S.flat);
+    S.qi=0; S.correct=0; S.wrong=0; S.streak=0; S.wrongList=[]; S.done=false;
+    S.groupTitle = (gid==='ALL') ? 'Alle Ablautreihen' : GROUPS.find(function(g){ return g.id===gid; }).rule;
+    renderQ();
+  }
+  function renderQ(){
+    vbPick.style.display='none'; vbQuiz.style.display='block'; vbRes.style.display='none'; vbTable.style.display='none';
+    vbBack.style.display='block';
+    const q=S.flat[S.qi], v=q.v, g=v.grp;
+    S.cV=v; S.cKey=['pr','pret','perf'][q.fi]; S.cOpts=optionsFor(v,S.cKey);
+    S.cLabel=['Präsens','Präteritum','Partizip Perfekt'][q.fi];
+    const total=S.flat.length, n=S.qi+1, subj = q.fi===2 ? '' : v.subj;
+    vbScore.textContent = '✓'+S.correct+' · ✗'+S.wrong + (S.streak>=3 ? ' · 🔥' : '');
+    let h='<div class="vb-qmeta"><span class="vb-qnum"> '+n+'/'+total+'</span><span class="vb-qcount">'+S.groupTitle+'</span></div>'
+      +'<div class="vb-bar"><div class="vb-fill" style="width:'+Math.round(S.qi/total*100)+'%"></div></div>'
+      +'<div class="vb-rule" style="background:'+g.color+'"><span class="vb-rrule">'+g.rule+'</span><span class="vb-rnote">'+g.note+'</span></div>'
+      +'<div class="vb-qtype">'+S.cLabel+(q.fi!==2 ? ' ('+v.subj+')' : '')+'</div>'
+      +'<div class="vb-prompt"><span class="vb-inf">'+v.inf+'</span><span class="vb-arrow">→</span><span class="vb-blank">'+(subj ? subj+' ＿＿' : '＿＿')+'</span></div>'
+      +'<div class="vb-opts">';
+    S.cOpts.forEach(function(o,i){ h+='<button class="vb-opt" data-i="'+i+'">'+o+'</button>'; });
+    h+='</div><div class="vb-fb" id="vbFb"></div>';
+    vbQuiz.innerHTML=h; S.answered=false;
+    vbQuiz.querySelectorAll('.vb-opt').forEach(function(b){ b.onclick=function(){ answer(+b.dataset.i); }; });
+  }
+  function answer(i){
+    if(S.answered) return; S.answered=true;
+    const v=S.cV, key=S.cKey, opts=S.cOpts, chosen=opts[i], correct=v[key], ok=(chosen===correct);
+    vbQuiz.querySelectorAll('.vb-opt').forEach(function(b,j){
+      if(opts[j]===correct) b.classList.add('correct'); else if(j===i) b.classList.add('wrong'); b.disabled=true;
+    });
+    if(ok){ S.correct++; S.streak++; }
+    else { S.wrong++; S.streak=0; S.wrongList.push({inf:v.inf, tense:S.cLabel, yours:chosen, right:correct}); }
+    vbScore.textContent = '✓'+S.correct+' · ✗'+S.wrong + (S.streak>=3 ? ' · 🔥' : '');
+    const g=v.grp;
+    const full='<div class="vb-full"><div class="vb-fullline">'+v.inf+'</div><div class="vb-fgrid">'
+      +'<span><i>Präsens</i>'+v.prFull+'</span>'
+      +'<span><i>Präteritum</i>'+v.pret+'</span>'
+      +'<span><i>Perfekt</i>'+v.aux+' '+v.perf+'</span></div></div>';
+    const fb=vbQuiz.querySelector('#vbFb');
+    if(ok){
+      fb.innerHTML='<div class="vb-fbcard ok"><div class="vb-res2">✓ Richtig!</div><div class="vb-regel">Regel: '+g.rule+'</div>'+full+'</div>';
+      setTimeout(next, 950);
+    } else {
+      fb.innerHTML='<div class="vb-fbcard bad"><div class="vb-res2">✗ Richtig wäre: <b>'+correct+'</b></div>'
+        +'<div class="vb-yours">Deine Antwort: <span class="strike">'+chosen+'</span></div>'
+        +'<div class="vb-regel">Regel: '+g.rule+'</div>'+full+'</div>'
+        +'<button class="vb-next" id="vbNext">Weiter ▶</button>';
+      vbQuiz.querySelector('#vbNext').onclick=function(){ next(); };
+    }
+  }
+  function next(){
+    S.answered=false; S.qi++;
+    if(S.qi>=S.flat.length){ S.done=true; render(); } else renderQ();
+  }
+  function renderResult(){
+    vbPick.style.display='none'; vbQuiz.style.display='none'; vbRes.style.display='block'; vbTable.style.display='none';
+    vbBack.style.display='block';
+    const total=S.flat.length, done=S.correct+S.wrong, pct= done ? Math.round(S.correct/done*100) : 0;
+    const st = (pct>=90)?5:(pct>=75)?4:(pct>=55)?3:(pct>=40)?2:1;
+    const stars='★'.repeat(st)+'☆'.repeat(5-st);
+    let wrong='';
+    if(S.wrongList.length){
+      wrong='<div class="vb-wrongs"><h4>Noch üben ('+S.wrongList.length+')</h4>'
+        +S.wrongList.map(function(w){ return '<div class="wr"><b>'+w.inf+'</b> · '+w.tense+': <span class="strike">'+w.yours+'</span> → <b>'+w.right+'</b></div>'; }).join('')
+        +'</div>';
+    }
+    vbRes.innerHTML='<div class="vb-rescard"><div class="vb-rdone">Runde geschafft! 🎉</div>'
+      +'<div class="vb-stars">'+stars+'</div><div class="vb-pct">'+pct+'%</div>'
+      +'<div class="vb-rcount">✓ '+S.correct+' · ✗ '+S.wrong+' · '+done+'/'+total+'</div>'
+      +wrong
+      +'<div class="vb-rabtns">'
+      +(S.wrongList.length ? '<button class="vb-big" id="vbRetry">🔁 只练错题 ('+S.wrongList.length+')</button>' : '')
+      +'<button class="vb-big alt" id="vbAgain">🔄 再来一轮</button>'
+      +'<button class="vb-big alt" id="vbBackHome">‹ 其它规律</button>'
+      +'</div></div>';
+    const r=vbRes.querySelector('#vbRetry'); if(r) r.onclick=function(){ retry(); };
+    vbRes.querySelector('#vbAgain').onclick=function(){ startGroup(S.gid); };
+    vbRes.querySelector('#vbBackHome').onclick=function(){ S.gid=null; S.done=false; render(); };
+  }
+  function retry(){
+    const seen=new Set(), verbs=[];
+    S.wrongList.forEach(function(w){ if(!seen.has(w.inf)){ seen.add(w.inf); const v=allVerbs.find(function(x){ return x.inf===w.inf; }); if(v) verbs.push(v); } });
+    if(!verbs.length){ render(); return; }
+    S.flat=[]; shuffle(verbs).forEach(function(v){ S.flat.push({v:v,fi:0},{v:v,fi:1},{v:v,fi:2}); }); shuffle(S.flat);
+    S.qi=0; S.correct=0; S.wrong=0; S.streak=0; S.wrongList=[]; S.done=false;
+    renderQ();
+  }
+  function renderTable(){
+    vbPick.style.display='none'; vbQuiz.style.display='none'; vbRes.style.display='none'; vbTable.style.display='block';
+    vbBack.style.display='none'; vbScore.textContent='';
+    let h='<div class="vb-desc">Überblick · alle Ablautreihen (antippen zum Aufklappen)</div>';
+    GROUPS.forEach(function(g){
+      h+='<div class="vb-tgroup"><button class="vb-thead" style="border-left-color:'+g.color+'">'
+        +'<span class="vb-crule" style="background:'+g.color+'">'+g.rule+'</span>'
+        +'<span class="vb-tnote">'+g.note+'</span>'
+        +'<span class="vb-tn">'+g.verbs.length+' Verben</span>'
+        +'<span class="vb-tcaret">▾</span></button>'
+        +'<div class="vb-tbody"><table class="vb-table"><thead><tr><th>Infinitiv</th><th>Präsens</th><th>Präteritum</th><th>Partizip</th><th>haben/sein</th></tr></thead><tbody>'
+        +g.verbs.map(function(vv){ return '<tr><td class="td-inf"><b>'+vv.inf+'</b></td><td>'+vv.prFull+'</td><td>'+vv.pret+'</td><td>'+vv.perf+'</td><td>'+vv.aux+'</td></tr>'; }).join('')
+        +'</tbody></table></div></div>';
+    });
+    vbTable.innerHTML=h;
+    vbTable.querySelectorAll('.vb-thead').forEach(function(b){ b.onclick=function(){ b.parentElement.classList.toggle('open'); }; });
+  }
+
+  vbMQuiz.onclick=function(){ S.mode='quiz'; render(); };
+  vbMTable.onclick=function(){ S.mode='table'; render(); };
+  vbBack.onclick=function(){ S.gid=null; S.done=false; render(); };
+
+  render();
+}
+
+
 function showBook(bookId) {
   document.querySelectorAll('.book-container').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -2439,6 +2863,7 @@ function showBook(bookId) {
     else if (bookId === 'wohnung') initWohnung(container);
     else if (bookId === 'kleidung') initKleidung(container);
     else if (bookId === 'stadt') initStadt(container);
+    else if (bookId === 'verben') initVerben(container);
   }
 }
 
