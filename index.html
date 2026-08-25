@@ -5255,6 +5255,41 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-ans .b2l-def{color:#64748b;font-style:italic}
 @media(max-width:600px){#page-b2lesen .b2l-tbl-wrap table{font-size:.8rem;min-width:520px}}
 
+/* ── B2 词汇侧栏（桌面粘性 + 移动抽屉） ── */
+#page-b2lesen .b2l-vocab-fab{position:fixed;right:16px;bottom:82px;z-index:8800;width:54px;height:54px;border-radius:50%;border:none;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-size:26px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.4);cursor:pointer;display:none;align-items:center;justify-content:center}
+#page-b2lesen .b2l-vocab-fab:hover{transform:translateY(-1px)}
+#page-b2lesen .b2l-vocab-panel{position:fixed;top:0;right:0;height:100vh;width:min(90vw,420px);background:#0f1e3a;color:#e2e8f0;z-index:8900;transform:translateX(105%);transition:transform .32s ease;box-shadow:-6px 0 24px rgba(0,0,0,.5);display:flex;flex-direction:column;border-left:1px solid rgba(246,211,101,.2)}
+#page-b2lesen .b2l-vocab-panel.open{transform:translateX(0)}
+#page-b2lesen .b2l-vocab-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8850;opacity:0;pointer-events:none;transition:opacity .3s}
+#page-b2lesen .b2l-vocab-backdrop.show{opacity:1;pointer-events:auto}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(246,211,101,.18);background:linear-gradient(135deg,#0a1428,#13223c)}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-head h3{margin:0;font-size:.95rem;font-weight:800;color:#fde68a;flex:1;line-height:1.35}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-close{width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,.1);color:#fff;font-size:20px;cursor:pointer;line-height:1;flex:0 0 auto}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-body{flex:1;overflow-y:auto;padding:14px 16px 30px;font-size:.84rem;line-height:1.7}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-body .b2l-vp-lern{background:#fefce8;border-left:4px solid #b8860b;border-radius:0 8px 8px 0;padding:10px 13px;margin-bottom:14px;color:#5d4037;font-size:.82rem;line-height:1.7}
+/* 侧栏表格：紧凑三栏(隐藏扩展列)，响应式不横滚 */
+#page-b2lesen .b2l-vocab-panel table{width:100%;border-collapse:collapse;font-size:.8rem;line-height:1.5;margin:4px 0 10px}
+#page-b2lesen .b2l-vocab-panel .b2l-tbl-wrap table{min-width:0}
+#page-b2lesen .b2l-vocab-panel th{background:#1a3a5c;color:#fde68a;padding:6px 8px;text-align:left;font-weight:700;font-size:.78rem}
+#page-b2lesen .b2l-vocab-panel td{padding:6px 8px;border-bottom:1px solid rgba(246,211,101,.12);vertical-align:top;color:#dbe4ee}
+#page-b2lesen .b2l-vocab-panel td:nth-child(4),#page-b2lesen .b2l-vocab-panel th:nth-child(4){display:none}
+#page-b2lesen .b2l-vocab-panel .b2l-zh{color:#f6d365;font-weight:700}
+#page-b2lesen .b2l-vocab-panel .b2l-def{color:#94a3b8;font-style:italic}
+#page-b2lesen .b2l-vocab-panel strong{color:#fde68a}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-note{font-size:.74rem;color:#94a3b8;margin-top:6px}
+#page-b2lesen .b2l-vocab-panel em{color:#cbd5e1}
+/* 桌面：正文右侧留白，侧栏粘性常驻 */
+@media(min-width:1100px){
+  #page-b2lesen{padding-right:444px !important}
+  #page-b2lesen .b2l-vocab-panel{right:16px;top:14px;height:calc(100vh - 28px);width:400px;border-radius:14px;transform:none}
+  #page-b2lesen .b2l-vocab-fab{display:none}
+  #page-b2lesen .b2l-vocab-backdrop{display:none}
+}
+/* 移动：显示浮动按钮，面板为抽屉 */
+@media(max-width:1099.9px){
+  #page-b2lesen .b2l-vocab-fab{display:flex}
+}
+
 /* ── Background Cards ── */
 #page-b2lesen .b2l-bg-card{border-radius:10px;padding:14px 18px;margin-bottom:14px}
 
@@ -18304,10 +18339,105 @@ window.showB2LArticle = function(cardId) {
       if (anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
     }
   }
+  /* 同步词汇侧栏 */
+  if (window.b2lSyncVocab) window.b2lSyncVocab(cardId || '');
 };
 
 /* ── 初始化：首次加载只显示 Kapitel 1 ── */
 showB2LArticle('');
+</script>
+
+<!-- 📖 B2 词汇侧栏（桌面粘性 / 移动抽屉） -->
+<button id="b2l-vocab-fab" class="b2l-vocab-fab" onclick="b2lSyncVocab('');b2lVocabOpen()" title="词汇表">📖</button>
+<div id="b2l-vocab-backdrop" class="b2l-vocab-backdrop" onclick="b2lVocabClose()"></div>
+<aside id="b2l-vocab-panel" class="b2l-vocab-panel">
+  <div class="b2l-vp-head"><h3>📖 词汇解析</h3><button class="b2l-vp-close" onclick="b2lVocabClose()">✕</button></div>
+  <div class="b2l-vp-body"></div>
+</aside>
+<script>
+(function(){
+  var vpCurrent = null;
+
+  window.b2lVocabOpen = function(){
+    var p = document.getElementById('b2l-vocab-panel');
+    if (p) p.classList.add('open');
+    var b = document.getElementById('b2l-vocab-backdrop');
+    if (b) b.classList.add('show');
+  };
+  window.b2lVocabClose = function(){
+    var p = document.getElementById('b2l-vocab-panel');
+    if (p) p.classList.remove('open');
+    var b = document.getElementById('b2l-vocab-backdrop');
+    if (b) b.classList.remove('show');
+  };
+
+  window.b2lSyncVocab = function(forcedId){
+    var panel = document.getElementById('b2l-vocab-panel');
+    if (!panel) return;
+    var body = panel.querySelector('.b2l-vp-body');
+    var head = panel.querySelector('.b2l-vp-head h3');
+    var cardId = forcedId || '';
+    if (!cardId){
+      try{
+        var cur = (typeof window.B2L_CUR !== 'undefined') ? window.B2L_CUR : (typeof B2L_CUR !== 'undefined' ? B2L_CUR : null);
+        if (cur && window.B2_LESEN && window.B2_LESEN[cur] && window.B2_LESEN[cur].articles[0]){
+          cardId = window.B2_LESEN[cur].articles[0].cardId;
+        }
+      }catch(e){}
+    }
+    if (!cardId){
+      var cs = document.querySelectorAll('#page-b2lesen .b2l-card');
+      if (cs.length) cardId = cs[0].id;
+    }
+    var card = document.getElementById(cardId);
+    if (!card) return;
+    vpCurrent = cardId;
+    var hd = card.querySelector('.b2l-card-header');
+    if (head && hd) head.textContent = '📖 ' + hd.textContent.trim();
+    var lern = card.querySelector('.b2l-lern');
+    /* 词汇块：先取 cardId-vocab；否则取 cardId- 前缀下所有 -vocab 块（如 b2l-a3 三移民） */
+    var vocabDivs = [];
+    var v0 = document.getElementById(cardId + '-vocab');
+    if (v0) vocabDivs.push(v0);
+    if (!vocabDivs.length){
+      var prefix = cardId + '-';
+      var allAns = document.querySelectorAll('#page-b2lesen .b2l-ans');
+      for (var i=0;i<allAns.length;i++){
+        if (allAns[i].id.indexOf(prefix) === 0 && allAns[i].id.slice(-6) === '-vocab') vocabDivs.push(allAns[i]);
+      }
+    }
+    var html = '';
+    if (lern) html += '<div class="b2l-vp-lern">' + lern.innerHTML + '</div>';
+    if (vocabDivs.length){
+      for (var k=0;k<vocabDivs.length;k++) html += vocabDivs[k].innerHTML;
+    } else {
+      html += '<div class="b2l-vp-note">本文暂无词汇解析。</div>';
+    }
+    if (body) body.innerHTML = html;
+  };
+
+  /* 桌面滚动跟随：读到哪篇显示哪篇 */
+  var spyT = null;
+  function spy(){
+    clearTimeout(spyT);
+    spyT = setTimeout(function(){
+      if (!window.matchMedia || !window.matchMedia('(min-width:1100px)').matches) return;
+      var cards = document.querySelectorAll('#page-b2lesen .b2l-card');
+      var best = null, bestTop = Infinity, mid = window.innerHeight * 0.4;
+      for (var i=0;i<cards.length;i++){
+        var c = cards[i];
+        if (c.style.display === 'none') continue;
+        var r = c.getBoundingClientRect();
+        if (r.top <= mid && r.top < bestTop){ bestTop = r.top; best = c; }
+      }
+      if (best && best.id && best.id !== vpCurrent) window.b2lSyncVocab(best.id);
+    }, 180);
+  }
+  window.addEventListener('scroll', spy, {passive:true});
+
+  /* 初始填充 */
+  window.b2lSyncVocab('');
+})();
 </script>
 </div><!-- /page-b2lesen -->
 
