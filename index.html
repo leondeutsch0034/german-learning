@@ -5278,6 +5278,13 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-vocab-panel strong{color:#fde68a}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-note{font-size:.74rem;color:#94a3b8;margin-top:6px}
 #page-b2lesen .b2l-vocab-panel em{color:#cbd5e1}
+/* 回退：无独立词汇块时显示卡片自身内容（gram 总结 / wort 词汇表） */
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card{background:#fff;color:#2d3748;border-radius:10px;padding:12px 14px;font-size:.8rem;line-height:1.65;box-shadow:0 1px 5px rgba(0,0,0,.2)}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card strong{color:#b8860b}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card table{width:100%;border-collapse:collapse;font-size:.78rem;margin:6px 0}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card td,#page-b2lesen .b2l-vocab-panel .b2l-vp-card th{border:1px solid #e2e8f0;padding:5px 7px;vertical-align:top}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card th{background:#f1f5f9;font-weight:700}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card em{color:#64748b}
 /* 桌面：正文右侧留白，侧栏粘性常驻 */
 @media(min-width:1100px){
   #page-b2lesen{padding-right:444px !important}
@@ -18348,7 +18355,7 @@ showB2LArticle('');
 </script>
 
 <!-- 📖 B2 词汇侧栏（桌面粘性 / 移动抽屉） -->
-<button id="b2l-vocab-fab" class="b2l-vocab-fab" onclick="b2lSyncVocab('');b2lVocabOpen()" title="词汇表">📖</button>
+<button id="b2l-vocab-fab" class="b2l-vocab-fab" onclick="b2lVocabOpen()" title="词汇表">📖</button>
 <div id="b2l-vocab-backdrop" class="b2l-vocab-backdrop" onclick="b2lVocabClose()"></div>
 <aside id="b2l-vocab-panel" class="b2l-vocab-panel">
   <div class="b2l-vp-head"><h3>📖 词汇解析</h3><button class="b2l-vp-close" onclick="b2lVocabClose()">✕</button></div>
@@ -18393,7 +18400,7 @@ showB2LArticle('');
     if (!card) return;
     vpCurrent = cardId;
     var hd = card.querySelector('.b2l-card-header');
-    if (head && hd) head.textContent = '📖 ' + hd.textContent.trim();
+    if (head && hd) head.textContent = hd.textContent.trim();
     var lern = card.querySelector('.b2l-lern');
     /* 词汇块：先取 cardId-vocab；否则取 cardId- 前缀下所有 -vocab 块（如 b2l-a3 三移民） */
     var vocabDivs = [];
@@ -18411,17 +18418,22 @@ showB2LArticle('');
     if (vocabDivs.length){
       for (var k=0;k<vocabDivs.length;k++) html += vocabDivs[k].innerHTML;
     } else {
-      html += '<div class="b2l-vp-note">本文暂无词汇解析。</div>';
+      /* 无独立词汇块 → 回退显示卡片自身内容（gram 总结 / wort 词汇表等模块） */
+      var cb = card.querySelector('.b2l-card-body');
+      if (cb && cb.innerHTML.trim()){
+        html += '<div class="b2l-vp-card">' + cb.innerHTML + '</div>';
+      } else {
+        html += '<div class="b2l-vp-note">本文暂无词汇解析。</div>';
+      }
     }
     if (body) body.innerHTML = html;
   };
 
-  /* 桌面滚动跟随：读到哪篇显示哪篇 */
+  /* 滚动跟随：读到哪篇显示哪篇（全设备生效，便于手机点开即当前篇） */
   var spyT = null;
   function spy(){
     clearTimeout(spyT);
     spyT = setTimeout(function(){
-      if (!window.matchMedia || !window.matchMedia('(min-width:1100px)').matches) return;
       var cards = document.querySelectorAll('#page-b2lesen .b2l-card');
       var best = null, bestTop = Infinity, mid = window.innerHeight * 0.4;
       for (var i=0;i<cards.length;i++){
