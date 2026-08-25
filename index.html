@@ -18385,16 +18385,12 @@ showB2LArticle('');
     var head = panel.querySelector('.b2l-vp-head h3');
     var cardId = forcedId || '';
     if (!cardId){
-      try{
-        var cur = (typeof window.B2L_CUR !== 'undefined') ? window.B2L_CUR : (typeof B2L_CUR !== 'undefined' ? B2L_CUR : null);
-        if (cur && window.B2_LESEN && window.B2_LESEN[cur] && window.B2_LESEN[cur].articles[0]){
-          cardId = window.B2_LESEN[cur].articles[0].cardId;
-        }
-      }catch(e){}
-    }
-    if (!cardId){
-      var cs = document.querySelectorAll('#page-b2lesen .b2l-card');
-      if (cs.length) cardId = cs[0].id;
+      /* 取当前可见的第一张卡（当前章节显示的最首篇） */
+      var csAll = document.querySelectorAll('#page-b2lesen .b2l-card');
+      for (var ci=0;ci<csAll.length;ci++){
+        if (csAll[ci].style.display !== 'none'){ cardId = csAll[ci].id; break; }
+      }
+      if (!cardId && csAll.length) cardId = csAll[0].id;
     }
     var card = document.getElementById(cardId);
     if (!card) return;
@@ -18435,12 +18431,22 @@ showB2LArticle('');
     clearTimeout(spyT);
     spyT = setTimeout(function(){
       var cards = document.querySelectorAll('#page-b2lesen .b2l-card');
-      var best = null, bestTop = Infinity, mid = window.innerHeight * 0.4;
+      var best = null, bestTop = -Infinity, readY = window.innerHeight * 0.4;
+      /* 优先选“覆盖读线”的卡（正在读的这一篇）；否则选读线上方最近的卡 */
       for (var i=0;i<cards.length;i++){
         var c = cards[i];
         if (c.style.display === 'none') continue;
         var r = c.getBoundingClientRect();
-        if (r.top <= mid && r.top < bestTop){ bestTop = r.top; best = c; }
+        if (r.bottom < 0 || r.top > window.innerHeight) continue; /* 完全在视口外 */
+        if (r.top <= readY && r.bottom >= readY){ best = c; break; }
+      }
+      if (!best){
+        for (var j=0;j<cards.length;j++){
+          var cc = cards[j];
+          if (cc.style.display === 'none') continue;
+          var rr = cc.getBoundingClientRect();
+          if (rr.top <= readY && rr.top > bestTop){ bestTop = rr.top; best = cc; }
+        }
       }
       if (best && best.id && best.id !== vpCurrent) window.b2lSyncVocab(best.id);
     }, 180);
