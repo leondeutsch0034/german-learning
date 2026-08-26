@@ -5290,6 +5290,13 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern td{padding:6px 9px;color:#4a3b28;border-bottom:1px solid #eee2c2;vertical-align:top}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern tr:nth-child(even) td{background:#fbf6e6}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-tbl-wrap table{min-width:0}
+/* 圆点列表里：中文用深金 <b>，分节标题，防长词撑出横滑 */
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern b{color:#92400e;font-weight:600}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern{word-break:break-word;overflow-wrap:anywhere}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-vp-sec{font-weight:800;color:#7a4a08;margin:8px 0 3px;border-top:1px dashed #e0cf9a;padding-top:5px;font-size:.86rem}
+/* 回退白卡里的表格也不横向滚 */
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card .b2l-tbl-wrap{overflow-x:visible}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-card table{word-break:break-word;overflow-wrap:anywhere;table-layout:fixed;width:100%}
 /* 回退：无独立词汇块时显示卡片自身内容（gram 总结 / wort 词汇表） */
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card{background:#fff;color:#2d3748;border-radius:10px;padding:12px 14px;font-size:.84rem;line-height:1.65;box-shadow:0 1px 5px rgba(0,0,0,.2)}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card strong{color:#92400e;font-weight:700}
@@ -18392,6 +18399,44 @@ showB2LArticle('');
     if (b) b.classList.remove('show');
   };
 
+  /* 把词汇语法表格转成“预习笔记”同款圆点列表（词 · 中文 · 德文释义），一屏内无横向滚动 */
+  function vocabBullets(vid, inner){
+    var tmp = document.createElement('div');
+    tmp.innerHTML = inner;
+    var rows = tmp.querySelectorAll('tr');
+    var out = '';
+    for (var r=0;r<rows.length;r++){
+      if (rows[r].querySelector('th')) continue;
+      var tds = rows[r].querySelectorAll('td');
+      if (!tds.length) continue;
+      if (tds[0].getAttribute('colspan')){ out += '<div class="b2l-vp-sec">' + tds[0].textContent.trim() + '</div>'; continue; }
+      if (vid === 'b2l-k10-wort-vocab'){
+        var fam = tds[0].textContent.trim();
+        var list = tds[1] ? tds[1].textContent.trim() : '';
+        var zhw = tds[2] ? tds[2].textContent.trim() : '';
+        out += '• <strong>' + fam + '</strong> ' + list + (zhw ? ' —— <b>' + zhw + '</b>' : '') + '<br>';
+        continue;
+      }
+      var w = tds[0].querySelector('strong');
+      var wText = w ? w.textContent.trim() : tds[0].textContent.trim();
+      var fmEl = tds[0].querySelector('em');
+      var forms = fmEl ? fmEl.textContent.trim() : '';
+      if (forms && forms.charAt(0) !== '(') forms = '(' + forms + ')';
+      var zh = '', def = '';
+      var m1 = tds[1];
+      if (m1){
+        var ze = m1.querySelector('.b2l-zh');
+        var de = m1.querySelector('.b2l-def');
+        if (ze) zh = ze.textContent.trim();
+        if (de) def = de.textContent.trim();
+        if (!zh && !def) zh = m1.textContent.trim();
+      }
+      out += '• <strong>' + wText + '</strong>' + (forms ? ' <em>(' + forms + ')</em>' : '') +
+             (zh ? ' <b>' + zh + '</b>' : '') + (def ? ' | <em>' + def + '</em>' : '') + '<br>';
+    }
+    return out;
+  }
+
   window.b2lSyncVocab = function(forcedId){
     var panel = document.getElementById('b2l-vocab-panel');
     if (!panel) return;
@@ -18426,7 +18471,9 @@ showB2LArticle('');
     var html = '';
     if (lern) html += '<div class="b2l-vp-lern">' + lern.innerHTML + '</div>';
     if (vocabDivs.length){
-      for (var k=0;k<vocabDivs.length;k++) html += '<div class="b2l-vp-lern">' + vocabDivs[k].innerHTML + '</div>';
+      var bullets = '';
+      for (var k=0;k<vocabDivs.length;k++) bullets += vocabBullets(vocabDivs[k].id, vocabDivs[k].innerHTML);
+      html += '<div class="b2l-vp-lern"><strong>📚 词汇语法 / Wortschatz：</strong><br>' + bullets + '</div>';
     } else {
       /* 无独立词汇块 → 回退显示卡片自身内容（gram 总结 / wort 词汇表等模块） */
       var cb = card.querySelector('.b2l-card-body');
