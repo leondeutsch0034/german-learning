@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"/>
+<meta name="theme-color" content="#0a1428"/>
+<title>教室预约 · Leon教学组</title>
+<style>
+  :root{
+    --bg:#0a1428; --card:#0f1e3a; --card2:#1e3a5f; --line:#2a4a72;
+    --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+    --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --red:#f87171; --green:#4ade80;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent; margin:0; padding:0;}
+  html,body{background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;}
+  body{min-height:100vh; padding-bottom:calc(66px + env(safe-area-inset-bottom));}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+  .hidden{display:none !important;}
+
+  /* 顶部 */
+  #topbar{position:sticky; top:0; z-index:20; background:linear-gradient(180deg,#0a1428,#0e1d38);
+    padding:calc(env(safe-area-inset-top) + 12px) 16px 12px; border-bottom:1px solid var(--line);}
+  #topbar .row{display:flex; align-items:center; justify-content:space-between;}
+  #topbar h1{font-size:19px; font-weight:700; letter-spacing:.5px;}
+  #topbar h1 b{background:linear-gradient(100deg,#b8860b,#f6d365); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #topbar .who{font-size:13px; color:var(--dim);}
+  #topbar .logout{color:var(--dim); font-size:13px; padding:4px 8px;}
+  #nowbar{display:flex; gap:8px; margin-top:10px;}
+  .nowchip{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 10px; text-align:center; position:relative;}
+  .nowchip .rname{font-size:13px; font-weight:600; color:var(--gold); }
+  .nowchip .st{font-size:12px; color:var(--dim); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .nowchip.free .dot{color:var(--green);}
+  .nowchip.busy .dot{color:var(--red);}
+  .nowchip .dot{font-size:10px; position:absolute; top:6px; right:8px;}
+
+  /* 提示条 */
+  #banner{background:rgba(246,211,101,.12); border-bottom:1px solid var(--line); color:var(--gold-light);
+    font-size:12.5px; padding:8px 16px; text-align:center;}
+
+  /* 周导航 + 日期条 */
+  .weeknav{display:flex; align-items:center; justify-content:space-between; padding:12px 12px 4px;}
+  .weeknav .navbtn{color:var(--gold); font-size:14px; width:44px; height:40px; font-weight:600;}
+  .weeknav .title{font-size:15px; font-weight:600;}
+  .daychips{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; padding:8px 12px;}
+  .daychip{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:7px 2px; text-align:center;}
+  .daychip .w{font-size:12px; color:var(--dim);}
+  .daychip .d{font-size:14px; font-weight:600; margin-top:1px;}
+  .daychip.sel{border-color:var(--gold); background:rgba(246,211,101,.12);}
+  .daychip.sel .w,.daychip.sel .d{color:var(--gold);}
+  .daychip.today .d{color:var(--green);}
+
+  /* 视图切换 + 图例 */
+  .vtoolbar{display:flex; align-items:center; justify-content:space-between; padding:6px 12px 10px;}
+  .seg{display:flex; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .seg button{padding:6px 14px; font-size:13px; color:var(--dim);}
+  .seg button.on{background:var(--gold); color:#0a1428; font-weight:700;}
+  .legend{font-size:11px; color:var(--dim);}
+  .addbk{background:linear-gradient(100deg,#b8860b,#f6d365); color:#0a1428; font-weight:700; font-size:13px; border-radius:10px; padding:6px 14px;}
+
+  /* 课表表格 */
+  .wrap{padding:0 10px;}
+  table.grid{width:100%; border-collapse:collapse; table-layout:fixed;}
+  table.grid th{font-size:12px; color:var(--gold); font-weight:600; padding:6px 4px; border-bottom:1px solid var(--line);}
+  table.grid th.timecol{width:52px; color:var(--muted);}
+  table.grid td{vertical-align:top;}
+  table.grid td.timecol{text-align:center; color:var(--muted); font-size:11px; border-bottom:1px solid rgba(255,255,255,.03);}
+  table.grid td.cell{border:1px solid rgba(255,255,255,.04);}
+  .cell.empty{background:var(--card); color:var(--muted); font-size:17px; font-weight:700; text-align:center; min-height:26px; padding:10px 0;}
+  .cell.empty:active{background:rgba(246,211,101,.14); color:var(--gold);}
+  .cell.occupied{border:1px solid var(--gold-dim); background:linear-gradient(160deg,#14264a,#0f1e3a);}
+  .banner{display:flex; flex-direction:column; justify-content:center; height:100%; padding:6px 8px; font-size:12px; line-height:1.35;}
+  .banner .subj{color:#fff; font-weight:600;}
+  .banner .tchr{color:var(--dim); font-size:11px;}
+  .banner .tag{display:inline-block; color:#0a1428; background:linear-gradient(100deg,#b8860b,#f6d365); border-radius:6px; font-size:9.5px; padding:1px 5px; margin-top:3px; font-weight:600;}
+  .mine{border-color:#2dd4bf !important;}
+
+  /* 列表视图 */
+  .listday{margin:8px 0;}
+  .listday .ltitle{font-size:13px; color:var(--gold); font-weight:700; margin:10px 4px 6px;}
+  .listcard{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--gold-dim); border-radius:12px; padding:10px 12px; margin-bottom:8px;}
+  .listcard .lc-h{display:flex; justify-content:space-between; align-items:center;}
+  .listcard .lc-t{font-size:14px; font-weight:600;}
+  .listcard .lc-m{font-size:12px; color:var(--dim); margin-top:3px;}
+  .listcard .lc-room{color:var(--gold); font-size:12px;}
+  .listcard .cnl{color:var(--red); font-size:12px; padding:3px 8px; border:1px solid rgba(248,113,113,.4); border-radius:8px;}
+  .mine .cnl.active{border-color:var(--red);}
+  .listcard .recur-note{font-size:11px; color:var(--dim);}
+  .empty-note{text-align:center; color:var(--muted); padding:32px 0; font-size:14px;}
+
+  /* 底部 Tab */
+  #tabbar{position:fixed; left:0; right:0; bottom:0; z-index:30; background:rgba(10,20,40,.98); border-top:1px solid var(--line);
+    display:flex; padding-bottom:env(safe-area-inset-bottom); backdrop-filter:blur(8px);}
+  #tabbar button{flex:1; padding:9px 0 7px; color:var(--muted); font-size:12px; display:flex; flex-direction:column; align-items:center; gap:2px;}
+  #tabbar button .ico{font-size:19px;}
+  #tabbar button.on{color:var(--gold);}
+  #tabbar button.on .ico{color:var(--gold);}
+
+  /* 覆盖层弹窗 */
+  .overlay{position:fixed; inset:0; background:rgba(4,10,22,.75); z-index:40; display:flex; align-items:flex-end; justify-content:center; backdrop-filter:blur(3px);}
+  .sheet{width:100%; max-width:520px; background:var(--card); border-radius:20px 20px 0 0; padding:18px 18px calc(20px + env(safe-area-inset-bottom)); border:1px solid var(--line); max-height:88vh; overflow:auto;}
+  .sheet h2{font-size:17px; margin-bottom:14px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block; font-size:13px; color:var(--dim); margin-bottom:6px;}
+  .input,.select,textarea.input{width:100%; background:rgba(246,211,101,.05); border:1px solid var(--line); color:var(--text); border-radius:10px; padding:11px 12px; font-size:15px; outline:none;}
+  .select{appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center;}
+  .input:focus,.select:focus,textarea.input:focus{border-color:var(--gold);}
+  .seg-2{display:flex; gap:8px;}
+  .seg-2 button{flex:1; background:var(--card2); color:var(--dim); border-radius:10px; padding:10px; font-size:14px; text-align:center;}
+  .seg-2 button.on{background:rgba(246,211,101,.14); color:var(--gold); border:1px solid var(--gold);}
+  .mrow{display:flex; gap:8px;}
+  .mrow>*{flex:1;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; width:100%; border-radius:12px; padding:13px; font-size:16px; font-weight:700; background:linear-gradient(100deg,#b8860b,#f6d365); color:#0a1428;}
+  .btn.ghost{background:transparent; border:1px solid var(--line); color:var(--text); font-weight:400;}
+  .btn.ghost.red{color:var(--red); border-color:rgba(248,113,113,.4);}
+  .err{color:var(--red); font-size:13px; min-height:18px; margin-bottom:8px; text-align:center;}
+  .hint{color:var(--muted); font-size:12px; line-height:1.5;}
+
+  /* 登录/门 */
+  .gate{max-width:460px; margin:0 auto; padding:30px 22px 20px;}
+  .gate .logo{text-align:center; margin-bottom:20px;}
+  .gate .logo h1{font-size:26px; font-weight:800; background:linear-gradient(100deg,#b8860b,#f6d365); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .gate .logo p{color:var(--dim); font-size:13px; margin-top:6px;}
+  .gate .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px;}
+
+  /* 我的 / 管理 */
+  .section-title{font-size:15px; font-weight:700; color:var(--gold); padding:16px 14px 8px;}
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:0 12px 14px;}
+  .panel h3{color:var(--text); font-size:15px; margin-bottom:12px;}
+  .mini-label{font-size:12px; color:var(--dim); margin:10px 0 6px;}
+  .roster-item{display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.05);}
+  .roster-item:last-child{border-bottom:none;}
+  .roster-item .n{font-size:14px;}
+  .roster-item .badge{font-size:10.5px; color:var(--gold); background:rgba(246,211,101,.12); padding:1px 6px; border-radius:6px; margin-left:6px;}
+  .roster-item .btns{display:flex; gap:6px;}
+  .roster-item .op{font-size:12px; padding:5px 8px; border:1px solid var(--line); border-radius:7px; color:var(--dim);}
+
+  .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:90px; z-index:60; background:var(--card2); border:1px solid var(--line);
+    color:var(--text); font-size:13px; padding:10px 16px; border-radius:10px; max-width:86%; text-align:center; box-shadow:0 6px 24px rgba(0,0,0,.4);}
+  .toast.err{color:#fff; background:#7f1d1d; border-color:var(--red);}
+</style>
+</head>
+<body>
+
+<!-- 顶部（登录后显示） -->
+<div id="topbar" class="hidden">
+  <div class="row">
+    <h1>教室预约 <b>Classroom</b></h1>
+    <div class="who" style="display:flex;align-items:center;gap:10px;">
+      <span id="whoText"></span>
+      <button class="logout" onclick="doLogout()">退出</button>
+    </div>
+  </div>
+  <div id="nowbar"></div>
+</div>
+<div id="banner" class="hidden"></div>
+
+<!-- 主体 -->
+<main id="app" class="hidden">
+  <!-- 课程表 -->
+  <section id="tab-schedule">
+    <div class="weeknav">
+      <button class="navbtn" onclick="shiftWeek(-1)">‹</button>
+      <button class="title" onclick="goToday()">本周 · <span id="weekLabel"></span></button>
+      <button class="navbtn" onclick="shiftWeek(1)">›</button>
+    </div>
+    <div class="daychips" id="daychips"></div>
+    <div class="vtoolbar">
+      <div class="seg">
+        <button id="seg-grid" class="on" onclick="setView('grid')">课表</button>
+        <button id="seg-list" onclick="setView('list')">清单</button>
+      </div>
+      <button class="addbk" onclick="openBkManual()">＋ 预约</button>
+    </div>
+    <div class="wrap" id="scheduleBody"></div>
+  </section>
+
+  <!-- 我的 -->
+  <section id="tab-mine" class="hidden">
+    <div class="section-title">我的预约</div>
+    <div id="mineBody"></div>
+  </section>
+
+  <!-- 管理 -->
+  <section id="tab-admin" class="hidden">
+    <div class="section-title">管理</div>
+    <div id="adminBody"></div>
+  </section>
+</main>
+
+<!-- 底部 Tab -->
+<div id="tabbar" class="hidden">
+  <button id="tb-schedule" class="on" onclick="showTab('schedule')"><span class="ico">📅</span>课程表</button>
+  <button id="tb-mine" onclick="showTab('mine')"><span class="ico">👤</span>我的</button>
+  <button id="tb-admin" onclick="showTab('admin')" style="display:none;"><span class="ico">⚙️</span>管理</button>
+</div>
+
+<!-- 登录/设置门 -->
+<div id="gate">
+  <div class="gate">
+    <div class="logo">
+      <h1>教室预约</h1>
+      <p>Leon 教学组 · 共享课表</p>
+    </div>
+    <div class="card">
+      <div id="gateMode"></div>
+      <form id="gateForm" onsubmit="return false;">
+        <div class="field">
+          <label>姓名</label>
+          <input class="input" id="gName" placeholder="你的姓名" autocomplete="name"/>
+        </div>
+        <div class="field">
+          <label>口令</label>
+          <input class="input" id="gPin" type="password" placeholder="至少 4 位口令"/>
+        </div>
+        <div class="err" id="gErr"></div>
+        <button class="btn" onclick="gateSubmit()">进入</button>
+        <p class="hint" id="gHint" style="margin-top:10px;"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 预约弹窗 -->
+<div id="bkModal" class="overlay hidden" onclick="if(event.target===this)closeBk()">
+  <div class="sheet">
+    <h2 id="bkTitle">预约</h2>
+    <div id="bkBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<!-- 科目建议 -->
+<datalist id="subjectList"></datalist>
+
+<script>
+/* ================= 配置 ================= */
+// 部署时把下面替换成你在阿里云 FC 控制台拿到的函数 URL（http 触发地址）
+const BACKEND_URL = 'https://classro-booking-kzgfzdswxd.cn-hangzhou.fcapp.run';
+const SKEY = 'booking_session_v1';
+
+/* ================= 状态 ================= */
+let session = null;      // {name,token,isAdmin}
+let meta = { rooms:['room1','room2'], roomNames:{room1:'1号教室',room2:'2号教室'}, subjects:[], dayStart:'08:00', dayEnd:'22:00' };
+let curWeek = weekStart(todayStr());
+let selDay = todayStr();
+let viewMode = 'grid';
+let cache = { start:null, singles:[], recurring:[] };
+let curTab = 'schedule';
+let nowTimer = null;
+let bkCtx = { room:'room1', date:null, start:null };
+
+/* ================= 工具 ================= */
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toast(msg, isErr){ const t=$('toast'); t.textContent=msg; t.className='toast'+(isErr?' err':''); t.classList.remove('hidden');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.add('hidden'),2600); }
+function toMin(t){ const p=String(t||'').split(':'); return (+p[0]||0)*60 + (+p[1]||0); }
+function fmt(m){ const h=Math.floor(m/60), mm=m%60; return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm; }
+function ymd(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function parseDate(s){ const p=String(s).split('-').map(Number); return new Date(p[0],p[1]-1,p[2]); }
+function todayStr(){ return ymd(new Date()); }
+function addDays(s,n){ const d=parseDate(s); d.setDate(d.getDate()+n); return ymd(d); }
+function weekStart(s){ const d=parseDate(s); const wd=d.getDay(); const diff=(wd===0)?-6:(1-wd); d.setDate(d.getDate()+diff); return ymd(d); }
+function weekdayCN(s){ return '日一二三四五六'[parseDate(s).getDay()]; }
+function shortCN(s){ const d=parseDate(s); return (d.getMonth()+1)+'/'+d.getDate(); }
+function labelWeek(s){ return shortCN(s)+' – '+shortCN(addDays(s,6)); }
+
+/* ================= API ================= */
+async function api(action, payload){
+  const body = Object.assign({action, token: session ? session.token : null}, payload || {});
+  try{
+    const res = await fetch(BACKEND_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const data = await res.json().catch(()=>({error:'服务器返回异常'}));
+    return { status: res.status, ...data };
+  }catch(e){
+    return { status: 0, error: '无法连接服务器：' + e.message + '（请确认后端已部署、URL 已填写）' };
+  }
+}
+
+/* ================= 启动 ================= */
+async function boot(){
+  if (BACKEND_URL.indexOf('REPLACE_WITH_') >= 0){ renderConfigNotice(); return; }
+  const r = await api('status', {});
+  if (r.ok){
+    meta.roomNames = Object.assign({room1:'1号教室',room2:'2号教室'}, r.roomNames||{});
+    meta.subjects = r.subjects || [];
+    meta.dayStart = r.dayStart || '08:00';
+    meta.dayEnd = r.dayEnd || '22:00';
+  }
+  showGate(r.ok ? r.initialized : false);
+  const saved = localStorage.getItem(SKEY);
+  if (saved){ try{ const j=JSON.parse(saved); if(j && j.token){ session=j; await enterApp(false); return; } }catch(e){} }
+}
+function renderConfigNotice(){
+  $('gate').classList.remove('hidden');
+  $('gateMode').innerHTML = '<p style="text-align:center;color:var(--red);padding:8px 0;">⚠️ 尚未配置后端地址</p>';
+  $('gateForm').classList.add('hidden');
+  $('gHint').textContent = '请打开 "教室预约.html"，把顶部 BACKEND_URL 的值替换成你在阿里云 FC 控制台创建的预约函数 HTTP 触发地址。';
+}
+
+/* ================= 门（登录/首次设置） ================= */
+function showGate(initialized){
+  $('gate').classList.remove('hidden');
+  $('app').classList.add('hidden');
+  $('topbar').classList.add('hidden');
+  $('tabbar').classList.add('hidden');
+  $('gErr').textContent = '';
+  $('gName').value=''; $('gPin').value='';
+  if (initialized){
+    $('gateMode').innerHTML = '<h3 style="font-size:17px;margin-bottom:12px;text-align:center;">老师登录</h3>';
+    $('gHint').textContent = '姓名需已由管理员添加；忘记口令请联系管理员。';
+    $('gateForm').classList.remove('hidden');
+    window._gateIsSetup = false;
+  } else {
+    $('gateMode').innerHTML = '<h3 style="font-size:17px;margin-bottom:12px;text-align:center;">首次使用 · 创建管理员</h3>';
+    $('gHint').textContent = '系统尚无任何老师。你创建的第一位老师会成为管理员，之后即可在"管理"里添加其他老师。';
+    $('gateForm').classList.remove('hidden');
+    window._gateIsSetup = true;
+  }
+}
+async function gateSubmit(){
+  const name = $('gName').value.trim(), pin = $('gPin').value.trim();
+  if(!name){ $('gErr').textContent='请输入姓名'; return; }
+  if(pin.length<4){ $('gErr').textContent='口令至少 4 位'; return; }
+  $('gErr').textContent = '';
+  const action = window._gateIsSetup ? 'setup' : 'login';
+  const r = await api(action, { name, pin });
+  if(!r.ok){ $('gErr').textContent = r.error || '操作失败'; if(!window._gateIsSetup && r.status===401 && /名单/.test(r.error||'')){ /* 保持登录页 */ } return; }
+  session = { name: r.name, token: r.token, isAdmin: !!r.isAdmin };
+  localStorage.setItem(SKEY, JSON.stringify(session));
+  await enterApp(true);
+}
+function doLogout(){ localStorage.removeItem(SKEY); session=null; clearInterval(nowTimer); boot(); }
+
+/* ================= 进入应用 ================= */
+async function enterApp(showToast){
+  $('gate').classList.add('hidden');
+  $('app').classList.remove('hidden');
+  $('topbar').classList.remove('hidden');
+  $('tabbar').classList.remove('hidden');
+  $('whoText').textContent = session.name + (session.isAdmin ? ' · 管理员' : '');
+  $('tb-admin').style.display = session.isAdmin ? 'flex' : 'none';
+  await loadData();
+  await renderNow();
+  clearInterval(nowTimer); nowTimer = setInterval(renderNow, 30000);
+  showTab('schedule');
+  if(showToast && cache.ephemeral) toast('⚠️ 后端未配置存储，数据不会保存', true);
+}
+async function loadData(){
+  const from = curWeek, to = addDays(curWeek, 6);
+  const r = await api('load', { from, to });
+  if(r.status===401){ doLogout(); return; }
+  if(r.error){ toast(r.error, true); return; }
+  meta = { rooms:r.rooms, roomNames:r.roomNames, subjects:r.subjects, dayStart:r.dayStart, dayEnd:r.dayEnd };
+  session.isAdmin = r.isAdmin; session.name = r.you; localStorage.setItem(SKEY, JSON.stringify(session));
+  cache = { start: from, singles: r.singles||[], recurring: r.recurring||[], ephemeral: r.ephemeral };
+  renderBanner();
+  renderSchedule();
+}
+
+/* ================= 顶栏 ================= */
+function renderBanner(){
+  const b=$('banner');
+  if(cache.ephemeral){ b.textContent='⚠️ 当前为演示模式（未配置 OSS 存储），数据不会保存'; b.classList.remove('hidden'); }
+  else b.classList.add('hidden');
+}
+function occupiedNow(){ // 计算当前两教室谁在上课
+  const d = new Date(); const ds = ymd(d); const wd = d.getDay(); const min = d.getHours()*60 + d.getMinutes();
+  const out = {};
+  for(const room of meta.rooms){
+    let who = null;
+    for(const s of cache.singles) if(s.room===room && s.date===ds && toMin(s.start)<=min && min<toMin(s.end)){ who={teacher:s.teacher,subject:s.subject}; break; }
+    if(!who) for(const r of cache.recurring) if(r.room===room && r.weekday===wd && toMin(r.start)<=min && min<toMin(r.end)){ who={teacher:r.teacher,subject:r.subject}; break; }
+    out[room]=who;
+  }
+  return { out, ds };
+}
+function renderNow(){
+  const { out } = occupiedNow();
+  let html='';
+  for(const room of meta.rooms){
+    const w = out[room];
+    const name = esc(meta.roomNames[room]||room);
+    if(w) html += `<div class="nowchip busy"><span class="dot">●</span><div class="rname">${name}</div><div class="st">${esc(w.teacher)} · ${esc(w.subject)}</div></div>`;
+    else html += `<div class="nowchip free"><span class="dot">●</span><div class="rname">${name}</div><div class="st">空闲</div></div>`;
+  }
+  $('nowbar').innerHTML = html;
+}
+
+/* ================= 课表 ================= */
+function weekIntervals(dateStr){
+  const res = [];
+  for(const s of cache.singles) if(s.date===dateStr) res.push({ key:'s:'+s.id, id:s.id, teacher:s.teacher, subject:s.subject, room:s.room, startMin:toMin(s.start), endMin:toMin(s.end), recurring:false });
+  const wd = parseDate(dateStr).getDay();
+  for(const r of cache.recurring) if(r.weekday===wd && (!r.until || r.until>=dateStr)) res.push({ key:'r:'+r.id, id:r.id, teacher:r.teacher, subject:r.subject, room:r.room, startMin:toMin(r.start), endMin:toMin(r.end), recurring:true, until:r.until });
+  return res;
+}
+function slots(){ const a=[]; for(let m=toMin(meta.dayStart); m<toMin(meta.dayEnd); m+=30) a.push(m); return a; }
+function roomCells(room, sl, ints){
+  const cells=[];
+  for(let i=0;i<sl.length;i++){
+    const s=sl[i];
+    const it = ints.find(x => x.room===room && x.startMin<=s && s<x.endMin);
+    if(!it){ cells.push({type:'empty', slot:s}); continue; }
+    const isStart = i===0 || !(sl[i-1]>=it.startMin && sl[i-1]<it.endMin);
+    if(!isStart){ cells.push({type:'skip'}); continue; }
+    let span=0; for(let j=i;j<sl.length;j++){ if(sl[j]>=it.startMin && sl[j]<it.endMin) span++; else break; }
+    cells.push({type:'block', it, span});
+  }
+  return cells;
+}
+function renderSchedule(){
+  $('weekLabel').textContent = labelWeek(curWeek);
+  // 日期条
+  let chips='';
+  for(let i=0;i<7;i++){
+    const ds = addDays(curWeek, i);
+    const cls = 'daychip' + (ds===selDay?' sel':'') + (ds===todayStr()?' today':'');
+    chips += `<button class="${cls}" onclick="pickDay('${ds}')"><div class="w">周${weekdayCN(ds)}</div><div class="d">${shortCN(ds)}</div></button>`;
+  }
+  $('daychips').innerHTML = chips;
+  // 主体
+  $('scheduleBody').innerHTML = (viewMode==='grid') ? renderGrid() : renderList();
+}
+function renderGrid(){
+  const ints = weekIntervals(selDay);
+  const sl = slots();
+  const perRoom = {};
+  for(const room of meta.rooms) perRoom[room] = roomCells(room, sl, ints);
+  let html = `<table class="grid"><thead><tr><th class="timecol">时间</th>`;
+  for(const room of meta.rooms) html += `<th>${esc(meta.roomNames[room]||room)}</th>`;
+  html += `</tr></thead><tbody>`;
+  for(let i=0;i<sl.length;i++){
+    html += `<tr><td class="timecol">${fmt(sl[i])}</td>`;
+    for(const room of meta.rooms){
+      const c = perRoom[room][i];
+      if(c.type==='empty') html += `<td class="cell empty" onclick="quickBook('${room}',${sl[i]})">+</td>`;
+      else if(c.type==='block'){
+        const it = c.it;
+        const isMine = session && it.teacher===session.name;
+        const tag = it.recurring ? `<span class="tag">每周</span>` : '';
+        html += `<td class="cell occupied${isMine?' mine':''}" rowspan="${c.span}" onclick="onCell(${JSON.stringify(it).replace(/"/g,'&quot;')})">
+          <div class="banner"><span class="subj">${esc(it.subject)}</span><span class="tchr">${esc(it.teacher)} ${it.recurring&&it.until?('至 '+shortCN(it.until)):''}</span>${tag}</div></td>`;
+      }
+    }
+    html += `</tr>`;
+  }
+  html += `</tbody></table>`;
+  if(ints.length===0) html = `<div class="empty-note" style="padding:12px 0;">当天暂无课，点空白格预约</div>` + html;
+  return html;
+}
+function renderList(){
+  let html='';
+  for(let i=0;i<7;i++){
+    const ds = addDays(curWeek, i);
+    const items = weekIntervals(ds).sort((a,b)=>a.startMin-b.startMin);
+    if(!items.length) continue;
+    html += `<div class="listday"><div class="ltitle">周${weekdayCN(ds)} ${shortCN(ds)}</div>`;
+    for(const it of items){
+      const isMine = session && it.teacher===session.name;
+      const roomName = meta.roomNames[it.room]||it.room;
+      const reNote = it.recurring ? `<div class="recur-note">每周 ${fmt(it.startMin)}–${fmt(it.endMin)}${it.until?('，至 '+it.until):''}</div>` : '';
+      html += `<div class="listcard${isMine?' mine':''}">
+        <div class="lc-h"><span class="lc-t">${fmt(it.startMin)}–${fmt(it.endMin)}</span>
+          <span class="lc-room">${esc(roomName)}</span></div>
+        <div class="lc-m">${esc(it.subject)} · ${esc(it.teacher)}${isMine?' · 我':''}</div>${reNote}
+        ${isMine? `<div style="margin-top:8px;"><button class="cnl active" onclick="cancelBooking('${it.id}',${it.recurring})">取消</button></div>`:''}
+      </div>`;
+    }
+    html += `</div>`;
+  }
+  if(!html) html = `<div class="empty-note">本周还没有预约</div>`;
+  return html;
+}
+
+/* ================= 视图切换 / 周导航 ================= */
+function setView(v){ viewMode = v; $('seg-grid').classList.toggle('on', v==='grid'); $('seg-list').classList.toggle('on', v==='list');
+  $('scheduleBody').innerHTML = (v==='grid')?renderGrid():renderList(); }
+function shiftWeek(n){ curWeek = addDays(curWeek, n*7); if(selDay<curWeek || selDay>addDays(curWeek,6)) selDay = curWeek; loadData(); }
+function goToday(){ curWeek = weekStart(todayStr()); selDay = todayStr(); loadData(); }
+function pickDay(ds){ selDay = ds; renderSchedule(); }
+
+/* ================= 预约 ================= */
+function quickBook(room, slot){ openBk(room, selDay, slot); }
+function openBkManual(){ openBk(meta.rooms[0], selDay, toMin(meta.dayStart)); }
+function onCell(it){
+  if(session && it.teacher===session.name) return;
+  toast(`教室「${meta.roomNames[it.room]||it.room}」· ${fmt(it.startMin)}–${fmt(it.endMin)} 被 ${it.teacher} 占用`);
+}
+function openBk(room, date, start){
+  bkCtx.room = room; bkCtx.date = date || selDay;
+  const s = start!=null ? start : toMin(meta.dayStart);
+  renderBk(s);
+  $('bkModal').classList.remove('hidden');
+  $('bkTitle').textContent = '预约教室';
+}
+function closeBk(){ $('bkModal').classList.add('hidden'); }
+function timeOptions(){ const o=[]; for(let m=toMin(meta.dayStart); m<toMin(meta.dayEnd); m+=30) o.push({v:fmt(m), m}); return o; }
+function startOptions(){ const o=[]; for(let m=toMin(meta.dayStart); m<toMin(meta.dayEnd); m+=30) o.push({v:fmt(m), m}); return o; }
+function endOptionsAll(){ const o=[]; for(let m=toMin(meta.dayStart)+30; m<=toMin(meta.dayEnd); m+=30) o.push({v:fmt(m), m}); return o; }
+function renderBk(pos){
+  const opts = startOptions();
+  const startOn = opts.find(o=>o.m===pos) ? pos : (opts.length? opts[0].m : toMin(meta.dayStart));
+  const mode = window._bkMode==='recurring' ? 'recurring' : 'single';
+  const bks = [];
+  bks.push(`<div class="seg-2" id="bkMode">
+      <button class="${mode==='single'?'on':''}" data-m="single" onclick="setBkMode('single')">单次</button>
+      <button class="${mode==='recurring'?'on':''}" data-m="recurring" onclick="setBkMode('recurring')">每周重复</button>
+    </div>`);
+  // 教室
+  bks.push(`<div class="field"><label>教室</label><div class="seg-2" id="bkRoom">` +
+    meta.rooms.map(r=>`<button data-r="${r}" class="${r===bkCtx.room?'on':''}" onclick="pickRoom('${r}')">${esc(meta.roomNames[r]||r)}</button>`).join('') +
+    `</div></div>`);
+  // 科目建议
+  let dl=''; meta.subjects.forEach(s=>dl+=`<option value="${esc(s)}">`);
+  $('subjectList').innerHTML = dl;
+  // 单次日期 / 每周星期
+  bks.push(`<div class="field"><label>${mode==='recurring'?'每周的星期':'上课日期'}</label>
+    <div id="bkDateWrap">${mode==='recurring' ? weekdaySelect() : `<input class="input" id="bkDate" type="date" value="${bkCtx.date||todayStr()}"/>`}</div></div>`);
+  // 结束日期(每周)
+  if(mode==='recurring') bks.push(`<div class="field"><label>重复至（可选，留空=长期）</label><input class="input" id="bkUntil" type="date" min="${todayStr()}"/></div>`);
+  // 科目、时间
+  bks.push(`<div class="field"><label>科目</label><input class="input" id="bkSubject" list="subjectList" placeholder="选择或输入科目"/></div>`);
+  bks.push(`<div class="field"><label>时间</label><div class="mrow">
+      <select class="select" id="bkStart" onchange="onStartChange()">${startOpts(startOn)}</select>
+      <select class="select" id="bkEnd">${endOpts(startOn, startOn+30)}</select>
+    </div></div>`);
+  bks.push(`<div class="err" id="bkErr"></div>`);
+  bks.push(`<div style="display:flex;gap:10px;"><button class="btn ghost" style="flex:1" onclick="closeBk()">取消</button><button class="btn" style="flex:2" onclick="submitBk()">确定预约</button></div>`);
+  $('bkBody').innerHTML = bks.join('');
+}
+function startOpts(startOn){ const o=startOptions(); const cur=o.find(x=>x.m===startOn)?startOn:(o.length?o[0].m:startOn); return o.map(x=>`<option value="${x.v}" ${x.m===cur?'selected':''}>${x.v}</option>`).join(''); }
+function endOpts(startVal, defaultM){
+  const o = endOptionsAll().filter(x => x.m > toMin(startVal));
+  if(!o.length) return `<option value="${fmt(defaultM)}">${fmt(defaultM)}</option>`;
+  const cur = o.find(x=>x.m===defaultM) ? defaultM : o[0].m;
+  return o.map(x=>`<option value="${x.v}" ${x.m===cur?'selected':''}>${x.v}</option>`).join('');
+}
+function onStartChange(){ $('bkEnd').innerHTML = endOpts($('bkStart').value, toMin($('bkStart').value)+30); }
+function weekdaySelect(){ const opts=['周日','周一','周二','周三','周四','周五','周六'].map((l,i)=>`<option value="${i}">${l}</option>`).join(''); return `<select class="select" id="bkWeekday">${opts}</select>`; }
+function setBkMode(m){ window._bkMode = m; document.querySelectorAll('#bkMode button').forEach(b=>b.classList.toggle('on', b.dataset.m===m)); renderBk(toMin($('bkStart')?$('bkStart').value:meta.dayStart)); }
+function pickRoom(r){ bkCtx.room = r; document.querySelectorAll('#bkRoom button').forEach(b=>b.classList.toggle('on', b.dataset.r===r)); }
+function submitBk(){
+  const subject = $('bkSubject').value.trim();
+  const start = $('bkStart').value, end = $('bkEnd').value;
+  if(!subject){ $('bkErr').textContent='请填写或选择科目'; return; }
+  if(toMin(start)>=toMin(end)){ $('bkErr').textContent='结束时间须晚于开始时间'; return; }
+  const room = bkCtx.room;
+  const mode = window._bkMode==='recurring' ? 'recurring' : 'single';
+  const payload = { mode, room, subject, start, end };
+  if(mode==='single') payload.date = $('bkDate').value;
+  else { payload.weekday = Number($('bkWeekday').value); const u=$('bkUntil').value; if(u) payload.until=u; }
+  $('bkErr').textContent='';
+  api('reserve', payload).then(r=>{
+    if(r.status===409){
+      const c = r.conflict;
+      let msg = '⛔ 该时段已被占用';
+      if(c) msg += `：${c.teacher}（${c.weekly?('每周'+['日','一','二','三','四','五','六'][c.weekday]):c.date} ${c.start}–${c.end}）`;
+      $('bkErr').textContent = msg; return;
+    }
+    if(!r.ok){ $('bkErr').textContent = r.error || '预约失败'; return; }
+    closeBk(); toast('✅ 预约成功'); loadData().then(renderNow);
+  });
+}
+function cancelBooking(id, recurring){
+  const tip = recurring ? '将取消整条「每周」预约，确定？' : '确定取消这条预约？';
+  if(!confirm(tip)) return;
+  api('cancel', { id }).then(r=>{ if(r.ok){ toast('已取消'); loadData().then(renderNow); } else toast(r.error||'取消失败', true); });
+}
+
+/* ================= 我的 ================= */
+async function renderMine(){
+  const to = addDays(todayStr(), 60);
+  const r = await api('load', { from: todayStr(), to });
+  if(r.status===401){ doLogout(); return; }
+  if(r.error){ toast(r.error,true); return; }
+  const mineS = (r.singles||[]).filter(s=>s.teacher===session.name).sort((a,b)=> (a.date+a.start).localeCompare(b.date+b.start));
+  const mineR = (r.recurring||[]).filter(x=>x.teacher===session.name);
+  let html='';
+  if(!mineS.length && !mineR.length) html = `<div class="empty-note">你还没有预约</div>`;
+  for(const x of mineR){
+    html += `<div class="listcard mine"><div class="lc-h"><span class="lc-t">每周 ${['日','一','二','三','四','五','六'][x.weekday]} ${x.start}–${x.end}</span><span class="lc-room">${esc(meta.roomNames[x.room]||x.room)}</span></div>
+      <div class="lc-m">${esc(x.subject)} · ${x.until?('重复至 '+x.until):'长期重复'}</div>
+      <div style="margin-top:8px;"><button class="cnl active" onclick="cancelBooking('${x.id}',true)">取消整周</button></div></div>`;
+  }
+  for(const s of mineS){
+    html += `<div class="listcard mine"><div class="lc-h"><span class="lc-t">${s.date} ${s.start}–${s.end}</span><span class="lc-room">${esc(meta.roomNames[s.room]||s.room)}</span></div>
+      <div class="lc-m">${esc(s.subject)} · ${esc(s.teacher)}</div>
+      <div style="margin-top:8px;">${(s.date>=todayStr())? `<button class="cnl active" onclick="cancelBooking('${s.id}',false)">取消</button>`:`<span style="color:var(--muted);font-size:12px;">已结束</span>`}</div></div>`;
+  }
+  $('mineBody').innerHTML = html;
+}
+
+/* ================= 管理 ================= */
+async function renderAdmin(){
+  const r = await api('admin_roster', { sub:'list' });
+  let html = '';
+  html += `<div class="panel"><h3>老师名单</h3><div id="roster">`;
+  if(r.list) for(const t of r.list){
+    html += `<div class="roster-item"><span class="n">${esc(t.name)}${t.isAdmin?'<span class="badge">管理员</span>':''}</span>
+      <span class="btns"><button class="op" onclick="resetPin('${esc(t.name)}')">重置口令</button><button class="op" style="color:var(--red)" onclick="removeTeacher('${esc(t.name)}')">移除</button></span></div>`;
+  }
+  html += `</div></div>`;
+  html += `<div class="panel"><h3>添加老师</h3>
+    <div class="field"><label>姓名</label><input class="input" id="adName" placeholder="老师姓名"/></div>
+    <div class="field"><label>口令（≥4位）</label><input class="input" id="adPin" type="text" placeholder="初始口令"/></div>
+    <button class="btn" style="padding:11px" onclick="addTeacher()">添加 / 重置</button></div>`;
+  html += `<div class="panel"><h3>教室名称</h3>`;
+  meta.rooms.forEach((room,i)=>{ html += `<div class="field"><label>${esc(meta.roomNames[room]||room)}</label><input class="input" id="rn_${room}" value="${esc(meta.roomNames[room]||room)}"/></div>`; });
+  html += `<button class="btn ghost" style="padding:10px" onclick="saveRooms()">保存教室名</button></div>`;
+  html += `<div class="panel"><h3>开放时段</h3><div class="mrow">
+    <div><label class="mini-label">开始</label><select class="select" id="cfgStart">${configTimeOpts(meta.dayStart)}</select></div>
+    <div><label class="mini-label">结束</label><select class="select" id="cfgEnd">${configTimeOpts(meta.dayEnd)}</select></div></div>
+    <button class="btn ghost" style="padding:10px;margin-top:12px" onclick="saveConfig()">保存时段</button></div>`;
+  html += `<div class="panel"><h3>预设科目（逗号分隔）</h3><textarea class="input" id="cfgSubjects" rows="2">${esc((meta.subjects||[]).join(', '))}</textarea>
+    <button class="btn ghost" style="padding:10px;margin-top:12px" onclick="saveSubjects()">保存科目</button></div>`;
+  $('adminBody').innerHTML = html;
+}
+function configTimeOpts(cur){ const o=[]; for(let m=0;m<24*60;m+=30) o.push(`<option value="${fmt(m)}" ${fmt(m)===cur?'selected':''}>${fmt(m)}</option>`); return o.join(''); }
+async function addTeacher(){
+  const name = $('adName').value.trim(), pin = $('adPin').value.trim();
+  if(!name||pin.length<4){ toast('请填写姓名和≥4位口令',true); return; }
+  const r = await api('admin_roster', { sub:'add', name, pin });
+  if(r.ok){ toast('已保存'); renderAdmin(); } else toast(r.error||'失败', true);
+}
+async function removeTeacher(name){
+  const t = name.replace(/&quot;/g,'"');
+  if(!confirm('移除 ' + t + '？将同时删除其全部预约。')) return;
+  const r = await api('admin_roster', { sub:'remove', name });
+  if(r.ok){ toast('已移除'); renderAdmin(); } else toast(r.error||'失败', true);
+}
+async function resetPin(name){
+  const t = name.replace(/&quot;/g,'"');
+  const pin = prompt('为 ' + t + ' 设置新口令（≥4位）：');
+  if(!pin) return;
+  const r = await api('admin_roster', { sub:'reset', name, pin });
+  if(r.ok){ toast('已重置'); } else toast(r.error||'失败', true);
+}
+async function saveRooms(){
+  const names = meta.rooms.map(r=>$('rn_'+r).value.trim());
+  const r = await api('admin_config', { roomNames: names });
+  if(r.ok){ meta.roomNames = r.roomNames; toast('已保存教室名'); renderSchedule(); renderAdmin(); } else toast(r.error||'失败',true);
+}
+async function saveConfig(){
+  const dayStart = $('cfgStart').value, dayEnd = $('cfgEnd').value;
+  const r = await api('admin_config', { dayStart, dayEnd });
+  if(r.ok){ meta.dayStart=r.dayStart; meta.dayEnd=r.dayEnd; toast('已保存时段'); loadData(); renderAdmin(); } else toast(r.error||'失败',true);
+}
+async function saveSubjects(){
+  const subs = $('cfgSubjects').value.split(',').map(x=>x.trim()).filter(Boolean);
+  const r = await api('admin_config', { subjects: subs });
+  if(r.ok){ meta.subjects = r.subjects; toast('已保存科目'); renderAdmin(); } else toast(r.error||'失败',true);
+}
+
+/* ================= Tab ================= */
+function showTab(t){
+  curTab = t;
+  $('tab-schedule').classList.toggle('hidden', t!=='schedule');
+  $('tab-mine').classList.toggle('hidden', t!=='mine');
+  $('tab-admin').classList.toggle('hidden', t!=='admin');
+  $('tb-schedule').classList.toggle('on', t==='schedule');
+  $('tb-mine').classList.toggle('on', t==='mine');
+  $('tb-admin').classList.toggle('on', t==='admin');
+  if(t==='mine') renderMine();
+  if(t==='admin') renderAdmin();
+  if(t==='schedule') renderSchedule();
+  renderNow();
+}
+
+/* ================= 启动 ================= */
+boot();
+</script>
+</body>
+</html>
