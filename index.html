@@ -4330,7 +4330,12 @@ function createLoginPromptCard() {
 	    tags:"B1 · 精读 · 泛读 · 39篇",
 	    c1:"#0c4a6e", c2:"#0ea5e9", locked:false },
 
-	  // ── B2 中高级 ──
+	    { id:"b1pruefung", icon:"📝", navLabel:"B1模拟考试", cardTitleDe:"B1 Modelltest", cardSubDe:"Lesen · Hören · Schreiben · Sprechen — Goethe B1 Prüfungssimulation", cardTitle:"B1模拟考试", group:"b1",
+    hubStep:5, hubSkill:"Test", hubSkillZh:"模拟考试", hubAccent:"#a78bfa", hubTip:"考前冲刺：完整还原歌德 B1 听说读写 · 实时判分 · 含范文",
+    desc:"B1模拟考试 · 歌德 B1 完整还原 · 阅读可判分+听力+写作范文+口语表达",
+    tags:"歌德B1 · 模拟考试 · 听说读写 · 实时判分",
+    c1:"#6b21a8", c2:"#a78bfa", locked:false },
+// ── B2 中高级 ──
 	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — Modalverben', cardTitle:'B2语法', group:'b2',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'Modalverben · objektiver/subjektiver Gebrauch · Passiv',
 	    desc:'B2中高级语法 · 情态动词 · 由易到难六层体系',
@@ -5138,7 +5143,7 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-path">
     <span class="a1hub-path-lbl">📈 建议学习路径</span>
     <div class="a1hub-path-flow">
-      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span>
+      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span><i>→</i><span>📝 模拟考试</span>
     </div>
   </div>
 
@@ -5154,6 +5159,720 @@ document.addEventListener('keydown', function(e) {
 
 </div>
 
+<template id="tpl-page-b1pruefung">
+<!-- ════════════════════════════════════════════════════════════
+     B1 模拟考试 · B1 Modelltest · Goethe-Zertifikat B1
+     忠实还原歌德 B1 真实考试四大模块：Lesen · Hören · Schreiben · Sprechen
+     复用全局 .mcq-item 判分机制（b2lCheckMCQ / b2lResetMCQ）
+     ════════════════════════════════════════════════════════════ -->
+<style>
+  #page-b1pruefung {
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);
+    color:#263238;line-height:1.7;padding:20px;
+  }
+  #page-b1pruefung .bp-wrap{max-width:960px;margin:0 auto}
+  #page-b1pruefung .bp-hero{
+    text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a,#1e3a5f);
+    color:#fff;padding:34px 24px 26px;border-radius:20px;margin-bottom:28px;
+    box-shadow:0 8px 24px rgba(30,58,95,.5);border:1px solid rgba(246,211,101,.18);
+  }
+  #page-b1pruefung .bp-hero h1{font-size:1.9rem;margin:0 0 6px;color:#fff}
+  #page-b1pruefung .bp-hero .bp-eyebrow{display:inline-block;background:rgba(246,211,101,.15);
+    color:#fde68a;font-size:.82rem;font-weight:700;letter-spacing:.06em;
+    padding:5px 16px;border-radius:20px;margin-bottom:14px;border:1px solid rgba(246,211,101,.25)}
+  #page-b1pruefung .bp-hero p{opacity:.9;font-size:.97rem;margin:6px 0 0}
+  /* 模块 nav 卡片 */
+  #page-b1pruefung .bp-modnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px}
+  #page-b1pruefung .bp-modnav a{display:block;text-decoration:none;color:#fde68a;background:rgba(255,255,255,.06);
+    border:1px solid rgba(246,211,101,.18);border-radius:14px;padding:16px 18px;transition:.2s}
+  #page-b1pruefung .bp-modnav a:hover{background:rgba(246,211,101,.12);transform:translateY(-3px)}
+  #page-b1pruefung .bp-modnav .m-icon{font-size:1.7rem;margin-bottom:6px}
+  #page-b1pruefung .bp-modnav .m-t{font-weight:700;font-size:.98rem}
+  #page-b1pruefung .bp-modnav .m-d{font-size:.78rem;color:rgba(255,245,230,.55);margin-top:3px}
+  /* Section 卡片 */
+  #page-b1pruefung .bp-sec{background:rgba(255,255,255,.04);border:1px solid rgba(246,211,101,.12);
+    border-radius:16px;padding:22px 24px;margin-bottom:24px}
+  #page-b1pruefung .bp-sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;
+    border-bottom:2px solid rgba(246,211,101,.18)}
+  #page-b1pruefung .bp-sec-h .b{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2c5f8a,#63b3ed);
+    display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+  #page-b1pruefung .bp-sec-h h2{font-size:1.35rem;color:#fde68a;margin:0}
+  #page-b1pruefung .bp-sec-h .sub{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:2px}
+  /* 提示/考试说明盒 */
+  #page-b1pruefung .bp-box{background:rgba(30,58,95,.35);border:1px solid rgba(246,211,101,.14);
+    border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.92rem;color:#e2e8f0;line-height:1.85}
+  #page-b1pruefung .bp-box.gold{border-left:4px solid #b8860b;background:rgba(184,134,11,.08)}
+  #page-b1pruefung .bp-box.blue{border-left:4px solid #63b3ed;background:rgba(60,95,140,.12)}
+  #page-b1pruefung .bp-box .lbl{font-weight:700;color:#fde68a;margin-right:6px}
+  /* 题目区域 */
+  #page-b1pruefung .bp-ex{background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:inset 0 0 0 1px rgba(246,211,101,.06)}
+  #page-b1pruefung .bp-inst{font-size:.86rem;color:rgba(255,245,230,.7);line-height:1.8;margin-bottom:12px}
+  /* 判分按钮行 */
+  #page-b1pruefung .bp-checkrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+  #page-b1pruefung .bp-btn{background:linear-gradient(90deg,#2c5f8a,#63b3ed);color:#fff;border:none;padding:8px 22px;border-radius:18px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.2s}
+  #page-b1pruefung .bp-btn:hover{transform:scale(1.03)}
+  #page-b1pruefung .bp-btn.reset{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:#e2e8f0}
+  #page-b1pruefung .bp-score{font-size:1.05rem;font-weight:700;color:#fde68a;min-height:22px}
+  #page-b1pruefung .bp-score.ok{color:#4ade80}
+  #page-b1pruefung .bp-score.bad{color:#f87171}
+  /* MCQ 单选（复制 #page-lesen 深色适配样式） */
+  #page-b1pruefung .mcq-list{list-style:none;padding:0;margin:0}
+  #page-b1pruefung .mcq-item{margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(246,211,101,.08)}
+  #page-b1pruefung .mcq-item:last-child{border-bottom:none}
+  #page-b1pruefung .mcq-item .bp-q{color:#e2e8f0;font-size:.93rem;line-height:1.7;margin-bottom:.5rem}
+  #page-b1pruefung .mcq-options{display:flex;flex-wrap:wrap;gap:.5rem}
+  #page-b1pruefung .mcq-options label{display:flex;align-items:center;gap:.35rem;padding:.4rem .9rem;border:1.5px solid rgba(255,255,255,.2);border-radius:2rem;cursor:pointer;font-size:.87rem;color:#cbd5e1;transition:all .2s;user-select:none}
+  #page-b1pruefung .mcq-options label:hover{border-color:#fde68a;background:rgba(246,211,101,.1)}
+  #page-b1pruefung .mcq-options input[type="radio"]{display:none}
+  #page-b1pruefung .mcq-options label.selected{border-color:#fde68a;background:rgba(246,211,101,.15);color:#fde68a}
+  #page-b1pruefung .mcq-options label.correct-ans{border-color:#4ade80;background:rgba(74,222,128,.12);color:#4ade80;font-weight:700}
+  #page-b1pruefung .mcq-options label.wrong-ans{border-color:#f87171;background:rgba(248,113,113,.12);color:#f87171}
+  /* 音频条 */
+  #page-b1pruefung .bp-audio{background:linear-gradient(135deg,rgba(30,58,95,.5),rgba(44,95,138,.4));border:1px solid rgba(246,211,101,.2);border-radius:12px;padding:14px 18px;margin:12px 0}
+  #page-b1pruefung .bp-audio .a-h{display:flex;align-items:center;gap:10px;margin-bottom:8px;color:#fde68a;font-weight:700;font-size:.92rem}
+  #page-b1pruefung .mcq-fb{font-size:.85rem;font-weight:600;min-height:20px;margin-top:8px;color:#cbd5e1}
+  /* 范文/答案折叠 */
+  #page-b1pruefung .bp-ans{background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;margin:12px 0;display:none}
+  #page-b1pruefung .bp-ans h4{color:#fde68a;font-size:1rem;margin:0 0 8px}
+  #page-b1pruefung .bp-mu-text{font-size:.92rem;color:#e2e8f0;line-height:1.9}
+  #page-b1pruefung .bp-mu-text p{margin:0 0 .7rem}
+  #page-b1pruefung .bp-toggle{background:rgba(246,211,101,.14);border:1px solid rgba(246,211,101,.35);color:#fde68a;padding:7px 18px;border-radius:18px;font-size:.86rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:12px}
+  #page-b1pruefung .bp-toggle:hover{background:rgba(246,211,101,.24)}
+  /* 表格 */
+  #page-b1pruefung table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
+  #page-b1pruefung th{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+  #page-b1pruefung td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+  #page-b1pruefung tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+  /* 口语/写作提示卡 */
+  #page-b1pruefung .bp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  #page-b1pruefung .bp-chip{background:rgba(99,179,237,.12);border:1px solid rgba(99,179,237,.3);color:#9bd0f5;padding:4px 13px;border-radius:16px;font-size:.83rem}
+  #page-b1pruefung .bp-points{list-style:none;padding:0;margin:8px 0}
+  #page-b1pruefung .bp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:5px;padding-left:22px;position:relative}
+  #page-b1pruefung .bp-points li::before{content:"✎";position:absolute;left:0;color:#fde68a}
+  #page-b1pruefung .bp-grad{font-size:.8rem;color:rgba(255,245,230,.55);font-style:italic}
+  @media(max-width:600px){
+    #page-b1pruefung{padding:6px}
+    #page-b1pruefung .bp-hero{padding:24px 16px 20px}
+    #page-b1pruefung .bp-hero h1{font-size:1.4rem}
+    #page-b1pruefung .bp-sec{padding:16px 14px}
+    #page-b1pruefung .bp-sec-h h2{font-size:1.15rem}
+    #page-b1pruefung .mcq-options{gap:.4rem}
+    #page-b1pruefung .mcq-options label{font-size:.8rem;padding:.35rem .7rem}
+  }
+</style>
+
+<div class="bp-wrap" id="b1pruefung-top">
+
+  <!-- ═══════════ 页头 ═══════════ -->
+  <div class="bp-hero">
+    <div class="bp-eyebrow">🎓 Goethe-Zertifikat B1 · Prüfungssimulation</div>
+    <h1>📝 B1 模拟考试</h1>
+    <p>B1 Modelltest — 完整还原歌德 B1 考试 · 听说读写四大模块 · 计时自测 · 实时判分</p>
+  </div>
+
+  <!-- ═══════════ 考试结构速览 ═══════════ -->
+  <div class="bp-box gold">
+    <span class="lbl">📋 考试构成 / Prüfungsformat:</span><br>
+    歌德 B1 考试共 <strong>四大模块</strong>，<strong>及格线 60 分（满分 100）</strong>。每个模块独立计分，可分开报考。<br>
+    🇩🇪 <strong>Lesen</strong> 阅读 65 分钟 · 5 部分 30 题 &nbsp;|&nbsp; <strong>Hören</strong> 听力 40 分钟 · 4 部分 &nbsp;|&nbsp; <strong>Schreiben</strong> 写作 60 分钟 · 3 题 &nbsp;|&nbsp; <strong>Sprechen</strong> 口语 15 分钟 · 3 部分
+  </div>
+
+  <!-- 模块导航 -->
+  <div class="bp-modnav">
+    <a href="#bp-lesen"><div class="m-icon">📖</div><div class="m-t">Lesen 阅读</div><div class="m-d">65min · 5 部分 30 题 · 可判分</div></a>
+    <a href="#bp-hoeren"><div class="m-icon">🎧</div><div class="m-t">Hören 听力</div><div class="m-d">40min · 4 部分 · 判断/选择</div></a>
+    <a href="#bp-schreiben"><div class="m-icon">✍️</div><div class="m-t">Schreiben 写作</div><div class="m-d">60min · 3 题 · 含范文</div></a>
+    <a href="#bp-sprechen"><div class="m-icon">🗣️</div><div class="m-t">Sprechen 口语</div><div class="m-d">15min · 3 部分 · 双人</div></a>
+  </div>
+
+  <!-- 使用说明 -->
+  <div class="bp-box blue">
+    <span class="lbl">💡 使用方法</span>
+    1. 建议按真实考试顺序：先 Reading 后 Hören，再写作、口语；每模块计时完成<br>
+    2. 选择题/判断题可<strong>点击判分</strong>；写作和口语提供题目+参考范文<br>
+    3. 对照及格线 60/100 自评；做完后查看解析，弄清错因<br>
+    4. 手机端建议横屏作答，沉浸模拟考试节奏
+  </div>
+
+  <!-- ═══════════════════════════ 📖 LESEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp-lesen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">📖</div><div><h2>Lesen · 阅读理解</h2><div class="sub">Goethe-Zertifikat B1 · 5 Teile · 30 Aufgaben · 65 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 阅读共 5 部分、30 题、65 分钟。及格需至少做对 <strong>18 题</strong>。词典和手机不允许使用。每部分先读题再读文。
+    </div>
+    <div class="bp-box blue">
+      <span class="lbl">🧭 实战策略 / Lesestrategien</span> 不同部分用不同读法，这是拿分关键：<br>
+      <table>
+        <tr><th>部分</th><th>文章</th><th>策略</th></tr>
+        <tr><td>Teil 1</td><td>博客/邮件/信件</td><td>先读 6 判断题，抓"人物+观点"，找出原文对应句</td></tr>
+        <tr><td>Teil 2</td><td>两篇报刊文</td><td>第1题看主旨(全文)，第2-3题定位细节，回文找同义句</td></tr>
+        <tr><td>Teil 3</td><td>10则广告</td><td>先读 7 个需求，用关键词(时间/地点/人群)快速扫广告</td></tr>
+        <tr><td>Teil 4</td><td>7篇读者来信</td><td>判断 Ja/Nein，警惕绝对的 immer/nie/alle</td></tr>
+        <tr><td>Teil 5</td><td>通知/说明</td><td>一题一坑，细读禁令词(verboten/nicht erlaubt)</td></tr>
+      </table>
+      <div class="bp-grad">→ 拿到卷子：先看题再有目的看文，别逐字通读</div>
+    </div>
+
+    <!-- ── Teil 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Richtig / Falsch</strong> — Sie lesen einen Bericht. Dazu lösen Sie sechs Aufgaben. Richtig ✓ oder Falsch ✗? 阅读一篇日常生活经历报告，完成 6 道判断题。</div>
+      <div class="bp-box"><strong>📄 Text:</strong> <em>Mein neuer Job im Hotel — ein Blogbericht von Max</em><br>
+        Seit drei Monaten arbeite ich zum ersten Mal in einem Hotel. Ich mache die Arbeit an der Rezeption. Vorher habe ich Pakete ausgetragen und in einem Café serviert.<br><br>
+        Was ich am liebsten mag? Der Kontakt mit den Gästen. Wenn jemand ein Problem hat, helfe ich gern. Das ist interessanter als das Liefern von Paketen — da spreche ich mit niemandem.<br><br>
+        Aber es gibt auch Nachteile: Die Arbeitszeiten sind unregelmäßig. Ich muss oft am Wochenende und an Feiertagen arbeiten, und deshalb kann ich nicht immer mit meinen Freunden ausgehen. Das finde ich manchmal schade.<br><br>
+        Um meine Zukunft aber zu verbessern, lerne ich Englisch und Spanisch. So kann ich später auch mit Gästen aus dem Ausland sprechen. Meine Kollegen sind übrigens alle jung und nett — nach der Arbeit essen wir oft zusammen.<br><br>
+        Mein Chef hat mir versprochen, mich in sechs Monaten zum Chef der Etage auszubilden. Das ist eine große Chance. Die Arbeit ist anstrengend, aber ich hoffe, sie führt zu einer guten Karriere im Hotel.</div>
+      <div class="mcq-list" id="bp-l1-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1.</strong> Max arbeitet zum ersten Mal in einem Hotel.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Max findet die Arbeit mit Gästen interessanter als das Liefern von Paketen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q2" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q2" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3.</strong> Max hat am Wochenende immer frei.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>4.</strong> Max lernt Fremdsprachen, um sie im Beruf zu benutzen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q4" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q4" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5.</strong> Max trifft sich selten mit den Kollegen nach der Arbeit.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>6.</strong> Max hat eine berufliche Perspektive im Hotel.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l1-q6" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q6" value="B"> B) Falsch</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l1-mcq','bp-l1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l1-mcq','bp-l1-score')">↺ 重做</button><span class="bp-score" id="bp-l1-score"></span></div>
+    </div>
+
+    <!-- ── Teil 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Multiple Choice (a/b/c)</strong> — Sie lesen zwei Texte. Zu jedem Text drei Aufgaben. 阅读两篇短文，每篇 3 道选择。</div>
+      <div class="bp-box"><strong>📄 Text A:</strong> <em>Die internationale Stadtbibliothek</em><br>Die Stadtbibliothek in Bielefeld ist seit einigen Jahren internationaler geworden. "Wir haben heute mehr als 40 % Kundinnen und Kunden mit Migrationsgeschichte", sagt Leiterin Frau Hopp. Deshalb bietet die Bibliothek nicht nur Bücher auf Deutsch, sondern auch auf vielen anderen Sprachen an — von Türkisch über Polnisch bis Arabisch. Besonders beliebt sind die "Sprachcafés", wo man sich einmal pro Woche mit Muttersprachlern unterhalten kann. Auch digitale Medien wie E-Books und Filme auf fremden Sprachen werden immer öfter ausgeliehen.</div>
+      <div class="mcq-list" id="bp-l2-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> Warum hat sich die Bibliothek verändert?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q1" value="A"> A) Sie hat das Gebäude renoviert</label><label><input type="radio" name="bp-l2-q1" value="B"> B) Viele Kundinnen kommen aus anderen Ländern</label><label><input type="radio" name="bp-l2-q1" value="C"> C) Die Leiterin ist neu</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Was kann man im "Sprachcafé" machen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q2" value="A"> A) Mit Deutschsprachigen sprechen</label><label><input type="radio" name="bp-l2-q2" value="B"> B) Fremdsprachen lernen</label><label><input type="radio" name="bp-l2-q2" value="C"> C) Bücher kaufen</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3.</strong> Welche Medien werden außerdem angeboten?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q3" value="A"> A) Nur deutsche Bücher</label><label><input type="radio" name="bp-l2-q3" value="B"> B) Digitale Medien in mehreren Sprachen</label><label><input type="radio" name="bp-l2-q3" value="C"> C) Zeitungen</label></div></div>
+      </div>
+
+      <div class="bp-box" style="margin-top:16px"><strong>📄 Text B:</strong> <em>Lärm am Arbeitsplatz</em><br>Immer mehr Menschen arbeiten in offenen Großraumbüros. Das hat Vorteile: Man kann leicht mit Kollegen sprechen und Wissen teilen. Aber es gibt auch große Nachteile — vor allem den Lärm. Viele finden es schwierig, sich zu konzentrieren. Einige Firmen testen deshalb "Zonen": einen ruhigen Bereich für konzentriertes Arbeiten und einen offenen Bereich für Gespräche. Andere nutzen Kopfhörer mit Geräuschunterdrückung. Wissenschaftler empfehlen, dass Arbeitnehmer regelmäßig Pausen machen, um dem Lärm zu entkommen.</div>
+      <div class="mcq-list" id="bp-l2b-mcq">
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>4.</strong> Was ist ein Vorteil des Großraumbüros?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q4" value="A"> A) Man arbeitet im Stillen</label><label><input type="radio" name="bp-l2-q4" value="B"> B) Man hat mehr Privatsphäre</label><label><input type="radio" name="bp-l2-q4" value="C"> C) Man kann leicht kommunizieren</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5.</strong> Wie lösen manche Firmen das Lärmproblem?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q5" value="A"> A) Sie teilen das Büro in verschiedene Zonen</label><label><input type="radio" name="bp-l2-q5" value="B"> B) Sie verbieten das Sprechen</label><label><input type="radio" name="bp-l2-q5" value="C"> C) Sie lassen alle nach Hause arbeiten</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Was empfehlen Wissenschaftler?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l2-q6" value="A"> A) Mehr Kollegen anstellen</label><label><input type="radio" name="bp-l2-q6" value="B"> B) Regelmäßig Pausen machen</label><label><input type="radio" name="bp-l2-q6" value="C"> C) Die Büros vergrößern</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2-mcq','bp-l2-score')">✓ 判分</button><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2b-mcq','bp-l2b-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l2-mcq','bp-l2-score');b2lResetMCQ('bp-l2b-mcq','bp-l2b-score')">↺ 重做</button><span class="bp-score" id="bp-l2-score"></span><span class="bp-score" id="bp-l2b-score"></span></div>
+    </div>
+
+
+    <!-- ── Teil 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Zuordnung (匹配题)</strong> — Sie lesen zehn Anzeigen und sieben Situationen. Ordnen Sie zu: Welche Anzeige passt zu welcher Person? 阅读 10 则广告，为 7 种需求找到匹配的广告。</div>
+      <div class="bp-box" style="font-size:.87rem;line-height:2">
+        <strong>🏷️ Inserate:</strong><br>
+        <em>(A) Tanzkurs Wien — alle Level, Anfänger willkommen</em> ·
+        <em>(B) Yoga am Morgen für Berufstätige</em> ·
+        <em>(C) Smartphone-Kurs der Volkshochschule</em> ·
+        <em>(D) Kieferorthopädie — Zahnspange leicht gemacht</em> ·
+        <em>(E) Reiseberichte in der Stadtbibliothek</em> ·
+        <em>(F) Nachhilfe Mathematik &amp; Deutsch (Abi)</em> ·
+        <em>(G) Meditations-Treffen, jeden Sonntag</em> ·
+        <em>(H) Sprachen-Tandem im Café</em> ·
+        <em>(I) Ehrenamt: Hörbücher für Blinde aufnehmen</em> ·
+        <em>(J) Internationale Kochkurse</em>
+      </div>
+      <div class="mcq-list" id="bp-l3-mcq">
+        <div class="mcq-item" data-ans="H"><div class="bp-q"><strong>1.</strong> Elena möchte Französisch üben und dabei neue Leute kennenlernen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q1" value="A"> A) C</label><label><input type="radio" name="bp-l3-q1" value="B"> B) G</label><label><input type="radio" name="bp-l3-q1" value="C"> C) H</label></div></div>
+        <div class="mcq-item" data-ans="F"><div class="bp-q"><strong>2.</strong> Tom bereitet sich auf sein Abitur in Mathe vor.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q2" value="A"> A) F</label><label><input type="radio" name="bp-l3-q2" value="B"> B) C</label><label><input type="radio" name="bp-l3-q2" value="C"> C) I</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Maria lernt gern tanzen und hat noch nie einen Kurs gemacht.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q3" value="A"> A) A</label><label><input type="radio" name="bp-l3-q3" value="B"> B) B</label><label><input type="radio" name="bp-l3-q3" value="C"> C) D</label></div></div>
+        <div class="mcq-item" data-ans="I"><div class="bp-q"><strong>4.</strong> Herr Weber möchte mit seiner Stimme etwas Gutes tun.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q4" value="A"> A) H</label><label><input type="radio" name="bp-l3-q4" value="B"> B) I</label><label><input type="radio" name="bp-l3-q4" value="C"> C) J</label></div></div>
+        <div class="mcq-item" data-ans="J"><div class="bp-q"><strong>5.</strong> Sandra möchte internationale Gerichte ausprobieren.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q5" value="A"> A) E</label><label><input type="radio" name="bp-l3-q5" value="B"> B) J</label><label><input type="radio" name="bp-l3-q5" value="C"> C) D</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Peter arbeitet viel und will morgens vor der Arbeit fit werden.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q6" value="A"> A) B</label><label><input type="radio" name="bp-l3-q6" value="B"> B) G</label><label><input type="radio" name="bp-l3-q6" value="C"> C) A</label></div></div>
+        <div class="mcq-item" data-ans="G"><div class="bp-q"><strong>7.</strong> Lisa möchte lernen, innerlich ruhiger zu werden.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l3-q7" value="A"> A) B</label><label><input type="radio" name="bp-l3-q7" value="B"> B) G</label><label><input type="radio" name="bp-l3-q7" value="C"> C) C</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMatch('bp-l3-mcq','bp-l3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l3-mcq','bp-l3-score')">↺ 重做</button><span class="bp-score" id="bp-l3-score"></span></div>
+    </div>
+
+    <!-- ── Teil 4 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Richtig / Falsch (Ja / Nein)</strong> — Sie lesen sieben Meinungen zu einem Thema. Entscheiden Sie: Ja (richtig) oder Nein (falsch)? 阅读 7 条对"德语学习中最重要的技能"的看法，判断对错。</div>
+      <div class="bp-box"><strong>📄 Texte:</strong> Lesen Sie die <em>sieben Meinungen</em> zum Thema <strong>"Was ist beim Deutschlernen am wichtigsten?"</strong> in einem Online-Forum. Entscheiden Sie dann bei jeder Aufgabe: <strong>Ja</strong> (die Aussage passt zur Meinung der Person) oder <strong>Nein</strong>. 阅读 7 位留言者的德语观点，判断每题是否符合该留言者的看法。</div>
+      <div class="mcq-list" id="bp-l4-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>① Julia (25):</strong> "Wörter sind am wichtigsten. Ohne ein großes Vokabular kann man sich nicht verständlich machen, auch wenn man die Grammatik gut kennt." — <em>Julia meint: Ohne viele Wörter kann man sich nicht richtig verständigen.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q1" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q1" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>② Karim (31):</strong> "Lernst du nur im Buch, lernst du langsam. Wer keine Angst hat, gleich am Anfang zu sprechen, ist schneller als andere." — <em>Karim sagt: Wer Angst hat zu sprechen, lernt langsamer.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q2" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q2" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>③ Anna (19):</strong> "Ich finde, die Grammatik ist das Fundament. Wer die Regeln nicht kann, schreibt später nur Fehler — also sollte man am Anfang viel Grammatik üben." — <em>Anna behauptet: Am Anfang sollte man auf Grammatik verzichten.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q3" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q3" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>④ Ben (38):</strong> "Ich habe gelernt: Fehler beim Sprechen sind ganz normal. Aus jedem Fehler lernt man etwas — ohne Fehler spricht man nie fließend." — <em>Ben erklärt: Fehler beim Sprechen sind normal und helfen.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q4" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q4" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>⑤ Nadja (44):</strong> "Am wichtigsten ist das Hören. Wer die gesprochene Sprache nicht versteht, kann im Alltag nicht mitmachen — im Beruf, in der Schule oder in der Stadt." — <em>Nadja findet: Hören ist im Alltag unwichtig.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q5" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q5" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>⑥ Oskar (52):</strong> "Lesen ist mein Trick. Wenn man viel liest, merkt man sich die Satzstruktur ganz von selbst, ohne Regeln zu lernen." — <em>Oskar sagt: Lesen hilft, den Satzbau unbewusst zu lernen.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q6" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q6" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>⑦ Mona (27):</strong> "Ich brauche ein Ziel, sonst gebe ich auf. Wer eine Prüfung oder einen Plan hat, bleibt motiviert und lernt jeden Tag." — <em>Mona meint: Wer ein Ziel hat, bleibt motivierter.</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l4-q7" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q7" value="B"> B) Nein</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l4-mcq','bp-l4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l4-mcq','bp-l4-score')">↺ 重做</button><span class="bp-score" id="bp-l4-score"></span></div>
+    </div>
+
+    <!-- ── Teil 5 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 5 · Multiple Choice (a/b/c)</strong> — Sie lesen eine Anleitung oder einen Aushang. Dazu vier Aufgaben. 阅读一份公告/说明，完成 4 道选择。</div>
+      <div class="bp-box"><strong>📄 Text:</strong> <em>Hinweise für Kursbesucher</em><br>Bitte kommen Sie 15 Minuten vor Kursbeginn. Die Kurse beginnen pünktlich; wer zu spät kommt, verliert den Anspruch auf einen Platz. Legen Sie bitte Mantel und Taschen in die Garderobe. Im Kursraum ist Essen und Trinken untersagt — ausgenommen Wasser. Handys bleiben während des Unterrichts ausgeschaltet oder stummgeschaltet. Krankmeldungen bitte bis spätestens 24 Stunden vor Kursbeginn per Telefon oder E-Mail; sonst müssen Sie trotzdem die Kursgebühr zahlen.</div>
+      <div class="mcq-list" id="bp-l5-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> Was müssen Sie vor Kursbeginn machen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l5-q1" value="A"> A) Essen bestellen</label><label><input type="radio" name="bp-l5-q1" value="B"> B) 15 Minuten früher da sein</label><label><input type="radio" name="bp-l5-q1" value="C"> C) Geld bezahlen</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>2.</strong> Was ist im Kursraum erlaubt?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l5-q2" value="A"> A) Kaffee trinken</label><label><input type="radio" name="bp-l5-q2" value="B"> B) Sandwich essen</label><label><input type="radio" name="bp-l5-q2" value="C"> C) Wasser trinken</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Wie sollen Handys im Kurs geschaltet werden? Wie schaltet man sie?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l5-q3" value="A"> A) Aus oder stumm</label><label><input type="radio" name="bp-l5-q3" value="B"> B) Laut</label><label><input type="radio" name="bp-l5-q3" value="C"> C) An mit Vibrieren</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> Was passiert, wenn Sie sich zu spät krankmelden?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-l5-q4" value="A"> A) Kein Problem</label><label><input type="radio" name="bp-l5-q4" value="B"> B) Sie müssen trotzdem zahlen</label><label><input type="radio" name="bp-l5-q4" value="C"> C) Sie bekommen einen Rabatt</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l5-mcq','bp-l5-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l5-mcq','bp-l5-score')">↺ 重做</button><span class="bp-score" id="bp-l5-score"></span></div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════ 🎧 HÖREN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp-hoeren" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🎧</div><div><h2>Hören · 听力理解</h2><div class="sub">Goethe-Zertifikat B1 · Hörverstehen · 4 Teile · 40 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 听力共 <strong>4 部分</strong>。你会听到短通知、广播报摘、访谈和专业人员讲话。部分音频播放一次、部分两次。每题可<strong>点击判分</strong>。<br>
+      <strong>🎯 模拟方式：</strong> 音频为 B1 语速朗读（略放慢），建议先读题干-再听-再对照原文，练耳感。
+    </div>
+
+    <!-- ── Hören Teil 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Hören</strong> — Sie hören <strong>fünf kurze Texte</strong>. Zu jedem Text zwei Aufgaben: (a) Richtig/Falsch, (b) a/b/c. 听 5 段短通知，每段做 2 道题。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 1 — <span style="font-weight:400;font-size:.82rem;opacity:.7">5 Ansagen · 念 1 遍</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr-h-t1.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp-h1-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1. (a)</strong> Der Text ist eine Durchsage am Flughafen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp-h1-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1. (b)</strong> Was erfahren wir über den Flug nach Wien?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q2" value="A"> A) Er fällt aus</label><label><input type="radio" name="bp-h1-q2" value="B"> B) Er hat 20 Minuten Verspätung</label><label><input type="radio" name="bp-h1-q2" value="C"> C) Er fliegt von einem anderen Gate</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2. (a)</strong> Der Kurs beginnt um 18 Uhr in Raum 204.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp-h1-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>2. (b)</strong> Was soll man am ersten Tag mitbringen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q4" value="A"> A) Ein Wörterbuch</label><label><input type="radio" name="bp-h1-q4" value="B"> B) Ein Foto</label><label><input type="radio" name="bp-h1-q4" value="C"> C) Den Pass</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3. (a)</strong> Thomas verspätet sich mit dem Zug.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp-h1-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3. (b)</strong> Wann können sie essen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q6" value="A"> A) Um halb sieben</label><label><input type="radio" name="bp-h1-q6" value="B"> B) Um acht</label><label><input type="radio" name="bp-h1-q6" value="C"> C) Jetzt sofort</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>4. (a)</strong> Die Straßenbahnlinie 5 ist wegen einer Baustelle unterbrochen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q7" value="A"> A) Richtig</label><label><input type="radio" name="bp-h1-q7" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4. (b)</strong> Was soll man stattdessen nutzen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q8" value="A"> A) Die U-Bahn</label><label><input type="radio" name="bp-h1-q8" value="B"> B) Den Bus 12</label><label><input type="radio" name="bp-h1-q8" value="C"> C) Das Fahrrad</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5. (a)</strong> Der Antrag auf Ermäßigung wurde genehmigt.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q9" value="A"> A) Richtig</label><label><input type="radio" name="bp-h1-q9" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>5. (b)</strong> Wie viel muss man für den nächsten Kurs zahlen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h1-q10" value="A"> A) Nichts</label><label><input type="radio" name="bp-h1-q10" value="B"> B) Den vollen Preis</label><label><input type="radio" name="bp-h1-q10" value="C"> C) Nur die Hälfte</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h1-mcq','bp-h1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h1-mcq','bp-h1-score')">↺ 重做</button><span class="bp-score" id="bp-h1-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-h1-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp-h1-trans"><h4>🎧 原文 (Transkript · Teil 1)</h4>
+        <div class="bp-mu-text">
+          <p><strong>Ansage 1:</strong> Guten Morgen, meine Damen und Herren. Hier ist eine Durchsage vom Flughafen München. Der Flug nach Wien, Nummer LH 2450, hat zwanzig Minuten Verspätung. Bitte gehen Sie zum Gate B 12.</p>
+          <p><strong>Ansage 2:</strong> Guten Tag, hier ist das Sprachzentrum. Ihre Anmeldung zum Deutschkurs ist eingegangen. Der Kurs beginnt am Montag um 18 Uhr im Raum 204. Bitte bringen Sie am ersten Tag Ihren Pass mit.</p>
+          <p><strong>Ansage 3:</strong> Hallo Anna, hier ist Thomas. Ich bin leider etwas später, der Zug hat Verspätung. Kannst du um halb sieben mit dem Essen anfangen?</p>
+          <p><strong>Ansage 4:</strong> Liebe Kundinnen und Kunden, die Straßenbahnlinie 5 ist wegen einer Baustelle im Stadtzentrum unterbrochen. Bitte benutzen Sie die Buslinie 12 als Ersatz.</p>
+          <p><strong>Ansage 5:</strong> Guten Morgen, hier ist das Sekretariat der Volkshochschule. Ihr Antrag auf eine Ermäßigung wurde genehmigt. Sie zahlen für den nächsten Kurs nur die Hälfte.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Hören (a/b/c)</strong> — Sie hören einen <strong>Radiobeitrag einmal</strong>. Dazu mehrere Aufgaben. 听一段广播报摘，完成选择。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 2 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Radiobeitrag · 1×</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr-h-t2.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp-h2-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> Was wurde am Sonntag eröffnet?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h2-q1" value="A"> A) Ein Park</label><label><input type="radio" name="bp-h2-q1" value="B"> B) Ein Stadtmuseum</label><label><input type="radio" name="bp-h2-q1" value="C"> C) Ein Kino</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>2.</strong> Für wen soll das Museum besonders interessant sein?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h2-q2" value="A"> A) Für Touristen</label><label><input type="radio" name="bp-h2-q2" value="B"> B) Für Kinder</label><label><input type="radio" name="bp-h2-q2" value="C"> C) Für junge Menschen</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Wie lange ist der Eintritt kostenlos?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h2-q3" value="A"> A) Drei Monate</label><label><input type="radio" name="bp-h2-q3" value="B"> B) Eine Woche</label><label><input type="radio" name="bp-h2-q3" value="C"> C) Ein Jahr</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h2-mcq','bp-h2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h2-mcq','bp-h2-score')">↺ 重做</button><span class="bp-score" id="bp-h2-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-h2-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp-h2-trans"><h4>🎧 原文 (Transkript · Teil 2)</h4>
+        <div class="bp-mu-text">
+          <p>Am Sonntag wurde in Berlin das neue Stadtmuseum eröffnet. Der Bürgermeister sagte, das Museum solle die Geschichte der Stadt lebendig machen und besonders junge Menschen ansprechen. Besucher können dort digital durch alte Straßen gehen und historische Bilder auf großen Bildschirmen sehen. Der Eintritt ist in den ersten drei Monaten kostenlos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Richtig / Falsch</strong> — Sie hören ein <strong>Gespräch einmal</strong>. Dazu sieben Aufgaben: richtig oder falsch? 听一段访谈，完成 7 道判断题。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 3 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Interview · 1× · Steffen</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr-h-t3.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp-h3-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1.</strong> Steffen war früher Krankenpfleger.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Die Arbeit als Krankenpfleger passte nicht gut zu seiner Familie.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q2" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q2" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3.</strong> Steffen studiert in Fulda für drei Jahre.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> Steffens Frau verdient nur wenig.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q4" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q4" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5.</strong> Seine früheren Kolleginnen mochten Steffen sehr.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Steffen hat jetzt mehr Stress als früher.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q6" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q6" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>7.</strong> Steffen bereut seine Entscheidung nicht.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h3-q7" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q7" value="B"> B) Falsch</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h3-mcq','bp-h3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h3-mcq','bp-h3-score')">↺ 重做</button><span class="bp-score" id="bp-h3-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-h3-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp-h3-trans"><h4>🎧 原文 (Transkript · Teil 3)</h4>
+        <div class="bp-mu-text">
+          <p><strong>Interviewer:</strong> Steffen, du bist jetzt in einer neuen Ausbildung. Erzähl uns kurz, was du früher gemacht hast.</p>
+          <p><strong>Steffen:</strong> Ja, ich war Krankenpfleger. Aber die Arbeitszeiten waren sehr unregelmäßig, mit Nacht- und Wochenenddiensten. Für meine Familie war das nicht gut. Deshalb habe ich mich entschieden, etwas Neues anzufangen.</p>
+          <p><strong>Interviewer:</strong> Und was machst du jetzt?</p>
+          <p><strong>Steffen:</strong> Ich studiere in Fulda. Aber eigentlich will ich nur zwei Jahre studieren, nicht drei. Meine Frau verdient gut, deshalb können wir das finanzieren.</p>
+          <p><strong>Interviewer:</strong> Deine früheren Kollegen vermissen dich sicher.</p>
+          <p><strong>Steffen:</strong> Ja, meine früheren Kolleginnen und meine Patienten mochten mich sehr. Aber der Weg war richtig für mich. Und meine Gesundheit ist heute besser.</p>
+          <p><strong>Interviewer:</strong> Und wie geht es dir jetzt?</p>
+          <p><strong>Steffen:</strong> Ich bin zufrieden. Ich habe früher viel Stress gehabt, heute habe ich mehr Zeit für meine Familie. Das war die richtige Entscheidung.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 4 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Hören (a/b/c)</strong> — Sie hören einen <strong>kurzen Vortrag zweimal</strong>. Dazu mehrere Aufgaben. 听一段专业人员讲话，完成选择。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 4 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Kurzvortrag · 2×</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr-h-t4.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp-h4-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> Worum geht es in dem Vortrag?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h4-q1" value="A"> A) Um Sport</label><label><input type="radio" name="bp-h4-q1" value="B"> B) Um ehrenamtliche Arbeit</label><label><input type="radio" name="bp-h4-q1" value="C"> C) Um den Krankenhausalltag</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>2.</strong> Was bekommt man für die Vereinsarbeit?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h4-q2" value="A"> A) Viel Geld</label><label><input type="radio" name="bp-h4-q2" value="B"> B) Ein Auto</label><label><input type="radio" name="bp-h4-q2" value="C"> C) Kein Geld, aber Kontakte</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Was machen junge Leute oft?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp-h4-q3" value="A"> A) Umweltprojekte</label><label><input type="radio" name="bp-h4-q3" value="B"> B) Krankenhausarbeit</label><label><input type="radio" name="bp-h4-q3" value="C"> C) Sportkurse</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h4-mcq','bp-h4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h4-mcq','bp-h4-score')">↺ 重做</button><span class="bp-score" id="bp-h4-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-h4-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp-h4-trans"><h4>🎧 原文 (Transkript · Teil 4)</h4>
+        <div class="bp-mu-text">
+          <p>Guten Abend, ich möchte heute über die Vereinsarbeit in Deutschland sprechen. Viele Menschen engagieren sich ehrenamtlich im Sportverein, in der Kirche oder in der Nachbarschaft. Dafür bekommen sie kein Geld, aber sie lernen nette Leute kennen und tun etwas für die Gemeinschaft. Junge Leute machen oft bei Umweltprojekten mit, und Senioren helfen im Krankenhaus. Wer keine Idee hat, kann im Internet viele Angebote finden. Ehrenamt macht nicht nur anderen Freude, sondern auch einem selbst.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 听力小结 -->
+    <div class="bp-box blue">
+      <span class="lbl">🎯 听力得分对照</span> 歌德 B1 听力共约 30 题，每部分难度递增。建议按 Teil 1→4 顺序练，先听一遍抓大意，再针对每题精听。错误集中处对照原文找差距（连读、nicht 否定、数字混淆是三大失分点）。
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════ ✍️ SCHREIBEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp-schreiben" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">✍️</div><div><h2>Schreiben · 写作</h2><div class="sub">Goethe-Zertifikat B1 · 3 Aufgaben · 60 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 写作共 3 题、60 分钟。要求语法准确、意思清楚、覆盖所有题目要点。注意格式（称呼、开头结尾）。每题约需写 40–80 词。下方提供参考范文与评分要点。
+    </div>
+
+    <!-- ── 题目 1：非正式邮件 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 1 · Informelle E-Mail (约 80 词)</strong> — Schreiben Sie eine E-Mail an eine Freundin / einen Freund. 请就以下情景给朋友写一封非正式邮件，覆盖全部要点。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Sie sind am Wochenende spontan in Berlin. Schreiben Sie Ihrer Freundin Lisa eine E-Mail und<br>
+        • erzählen Sie, was Sie in Berlin gemacht haben<br>
+        • fragen Sie, ob Sie sie besuchen können<br>
+        • schlagen Sie einen gemeinsamen Termin vor<br>
+        <div class="bp-grad">→ 德国文化常识：邮件开头用 Liebe Lisa / Hallo Lisa，结尾用 Liebe Grüße / Bis bald</div>
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s1-ans')">📄 显示参考范文</button>
+      <div class="bp-ans" id="bp-s1-ans">
+        <h4>📝 参考范文 (Musterlösung)</h4>
+        <div class="bp-mu-text">
+          <p>Liebe Lisa,</p>
+          <p>ich bin am Wochenende spontan zu Besuch in Berlin! Ich war gestern im Fernsehturm und heute am Mauerpark — das Wetter war super. Die Stadt ist so lebendig.</p>
+          <p>Hast du am Mittwoch Zeit? Ich würde dich gern besuchen. Wir könnten zusammen einen Café besuchen und uns unterhalten.</p>
+          <p>Bis bald und viele liebe Grüße,<br>Deine Anna</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 题目 2：论坛讨论 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 2 · Diskussionsbeitrag (约 80 词)</strong> — Sie schreiben einen Beitrag für ein Online-Forum. 为一个在线论坛写一篇讨论回复。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Ihr Sprachforum fragt: "Ist das Lernen mit einer App oder mit einem Kurs besser?" Nehmen Sie Stellung und<br>
+        • sagen Sie Ihre Meinung<br>
+        • nennen Sie einen Grund<br>
+        • geben Sie eine Empfehlung<br>
+        <div class="bp-grad">→ 常用表态词：Meiner Meinung nach / Ich bin der Ansicht, dass / Es kommt darauf an</div>
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s2-ans')">📄 显示参考范文</button>
+      <div class="bp-ans" id="bp-s2-ans">
+        <h4>📝 参考范文 (Musterlösung)</h4>
+        <div class="bp-mu-text">
+          <p>Meiner Meinung nach ist eine Mischung am besten: Apps sind praktisch und flexibel, weil man überall und jederzeit üben kann. Aber im Kurs hat man einen festen Rahmen und einen Lehrer, der Fehler korrigiert.</p>
+          <p>Ich empfehle deshalb, eine App zusätzlich zum Kurs zu nutzen — das Lernen wird so abwechslungsreich und man bleibt motivierter.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 题目 3：正式邮件 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 3 · Formelle E-Mail (约 40 词)</strong> — Schreiben Sie einen formellen Brief / eine E-Mail. 写一封正式邮件/信件。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Sie müssen einen Deutschkurs absagen. Schreiben Sie an die Sprachschule und<br>
+        • bedanken Sie sich<br>
+        • sagen Sie, warum Sie absagen<br>
+        • fragen Sie nach einer Möglichkeit<br>
+        <div class="bp-grad">→ 正式邮件：Sehr geehrte Damen und Herren, … Mit freundlichen Grüßen</div>
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s3-ans')">📄 显示参考范文</button>
+      <div class="bp-ans" id="bp-s3-ans">
+        <h4>📝 参考范文 (Musterlösung)</h4>
+        <div class="bp-mu-text">
+          <p>Sehr geehrte Damen und Herren,</p>
+          <p>vielen Dank für Ihre freundlichen Informationen. Ich muss leider meinen Deutschkurs absagen, weil mein Studium begonnen hat und ich keine Zeit mehr habe.</p>
+          <p>Gibt es die Möglichkeit, den Kurs auf das nächste Semester zu verschieben? Ich freue mich auf Ihre Antwort.</p>
+          <p>Mit freundlichen Grüßen<br>Sara Yilmaz</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 写作评分标准 -->
+    <div class="bp-box gold">
+      <span class="lbl">📐 评分标准 / Bewertungskriterien</span> 歌德 B1 写作每题满分，考官从 <strong>三个维度</strong>打分：<br>
+      <table>
+        <tr><th>维度</th><th>看什么</th><th>满分要点</th></tr>
+        <tr><td>📌 内容<br>Inhalt</td><td>是否覆盖全部题目要点</td><td>每一个提示点都说到，不跑题</td></tr>
+        <tr><td>🔡 语言<br>Sprache</td><td>词汇、语法是否准确丰富</td><td>能用连接词、从句、被动；常见错误少</td></tr>
+        <tr><td>📋 结构<br>Textaufbau</td><td>格式、连接、逻辑是否清楚</td><td>有称呼+结尾、段落清晰、逻辑连贯</td></tr>
+      </table>
+      <div class="bp-grad">→ 自评：写完对照三张维度表给自己打勾，差哪补哪</div>
+    </div>
+
+    <!-- 写作得分换算 -->
+    <div class="bp-box blue">
+      <span class="lbl">🎯 得分换算</span> 歌德 B1 写作及格约需拿到总分的 <strong>60%</strong>。若某题只写了要点、但错误太多或漏点，会直接扣到不及格。练习建议：<br>
+      1. 先花 5 分钟列提纲，确保 3 个要点各就各位<br>
+      2. 写完后数词数（非正式 80 词、正式 40 词左右即可）<br>
+      3. 检查格式：称呼、礼貌结尾、正确的大小写和标点
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════ 🗣️ SPRECHEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp-sprechen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🗣️</div><div><h2>Sprechen · 口语</h2><div class="sub">Goethe-Zertifikat B1 · 3 Teile · 15 Minuten (Prüfungsgespräch) · 准备 15 分钟</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 口语通常为<strong>双人考试</strong>，准备 15 分钟。共 3 部分：与同伴共同规划一件事、作短报告、讨论反馈。下方提供题目卡片与参考表达。
+    </div>
+
+    <!-- ── Teil 1：共同规划 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Etwas gemeinsam planen</strong> — Sprechen Sie mit Ihrem Partner über die 4 Punkte und planen Sie gemeinsam. 和同伴就 4 个要点共同规划。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende. Sprechen Sie über:<br>
+        <div class="bp-points">
+          <li>Was Sie zusammen machen möchten (Ausflug, Kino, Kochen?)</li>
+          <li>Wann Sie sich treffen wollen</li>
+          <li>Wo Sie etwas essen gehen können</li>
+          <li>Wer was mitbringt / organisiert</li>
+        </div>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 参考表达</span><br>
+        <div class="bp-chips">
+          <span class="bp-chip">Ich schlage vor, dass wir …</span><span class="bp-chip">Was hältst du davon, …?</span><span class="bp-chip">Wie wäre es mit …?</span>
+          <span class="bp-chip">Das passt mir gut.</span><span class="bp-chip">Da bin ich nicht so sicher.</span><span class="bp-chip">Einverstanden!</span>
+          <span class="bp-chip">Also, dann machen wir es so.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Teil 2：作短报告 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Kurzvortrag (短报告)</strong> — Sie präsentieren ein Alltagsthema. Die Zuhörer dürfen danach Fragen stellen. 做一个日常生活主题的短报告。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Wählen Sie ein Thema und sprechen Sie ca. 3 Minuten darüber. Thema: <strong>"Mein Weg zur Arbeit / zur Schule"</strong>. Gehen Sie auf diese Punkte ein:<br>
+        <div class="bp-points">
+          <li>Wie kommen Sie zur Arbeit / Schule? (öffentliche Verkehrsmittel, Auto, Fahrrad?)</li>
+          <li>Wie lange brauchen Sie?</li>
+          <li>Was ist gut, was ist schlecht auf dem Weg?</li>
+          <li>Welche Berufe / Tätigkeiten sind wichtig? (Wer macht die Stadt besser?)</li>
+        </div>
+        <div class="bp-grad">→ 报告结构：Einleitung → Inhalt überhaupt → Schluss + Meinung</div>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 报告红宝句</span><br>
+        <div class="bp-chips">
+          <span class="bp-chip">Ich möchte über … sprechen.</span><span class="bp-chip">Zum Thema: …</span><span class="bp-chip">Meiner Erfahrung nach …</span>
+          <span class="bp-chip">Meiner Meinung nach ist das wichtig, weil …</span><span class="bp-chip">Zusammenfassend kann ich sagen, dass …</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Teil 3：反馈与提问 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Feedback &amp; Nachfragen (反馈与提问)</strong> — Hören Sie dem Partner zu, geben Sie Feedback und stellen Sie Teilne Frage. 听同伴报告，给出反馈并提出一个问题。</div>
+      <div class="bp-box">
+        <strong>📌 Aufgabe:</strong> Stellen Sie Ihrem Partner 2 Fragen zu seinem Vortrag zum Thema "Wohnen". Mögliche Fragen:<br>
+        <div class="bp-points">
+          <li>Wo wohnst du am liebsten — in der Stadt oder auf dem Land? Warum?</li>
+          <li>Was ist dir bei einer Wohnung wichtig?</li>
+          <li>Möchtest du später eher in einer Wohnung oder in einem Haus leben?</li>
+        </div>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 反馈表达</span><br>
+        <div class="bp-chips">
+          <span class="bp-chip">Das war ein interessanter Vortrag.</span><span class="bp-chip">Ich fand gut, dass …</span>
+          <span class="bp-chip">Ich habe das nicht gewusst.</span><span class="bp-chip">Darf ich noch etwas fragen?</span>
+          <span class="bp-chip">Was meinst du zu …?</span><span class="bp-chip">Sehr spannend, danke!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 完整对话样例 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>🗣️ Beispiel-Prüfungsgespräch（完整考试对话样例 · Teil 1 规划）</strong> — 看两个考生如何把 4 个要点都谈完。这是得分的关键示范：你来我往、有提议有回应。</div>
+      <div class="bp-box">
+        <strong>🎬 情景：</strong> 两人计划一起过周末（Teil 1 的 4 个要点：做什么/何时/在哪吃/带什么）。<br><br>
+        <div class="bp-mu-text">
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Am Samstag hast du doch frei, oder? Wir könnten zusammen etwas unternehmen. Was hältst du von einem Ausflug in die Berge?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Das klingt super! Aber ich mag lieber etwas ohne Auto. Wie wäre es, wenn wir mit dem Zug fahren?</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Gute Idee, dann müssen wir keinen Parkplatz suchen. Wir sollten um acht Uhr am Bahnhof sein. Passt dir das?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Ja, um acht ist es zu früh für mich... Können wir nicht um neun fahren?</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Natürlich, lass uns um neun treffen. Und danach? Was essen wir unterwegs?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> In der Stadt gibt es einen Italiener. Da können wir mittags essen. Und ich bringe ein paar Obstmilch und Brote mit.</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Perfekt, dann bringe ich die Kamera mit, damit wir Fotos machen. Also: Bahnhof um neun, dann essen wir im Italiener. Alles klar?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Alles klar, ich freue mich schon!</p>
+        </div>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">✅ 这段为什么能拿高分</span><br>
+        1. 每个要点都谈到了（做什么→何时→去哪吃→带什么）<br>
+        2. 有提议有回应（"Was hältst du von…" → "Gute Idee, aber…"）<br>
+        3. 用连接词和让步（"Natürlich, lass uns…" "das klingt super, aber…"）<br>
+        4. 最后总结一遍计划（"Also: Bahnhof um neun…"），考官最喜欢
+      </div>
+    </div>
+
+    <!-- 口语评分标准 -->
+    <div class="bp-box gold">
+      <span class="lbl">📐 口语评分标准</span> 歌德 B1 口语评分四维度：<br>
+      <table>
+        <tr><th>维度</th><th>及格要点</th></tr>
+        <tr><td>🗣️ 流利度 Aussprache</td><td>语调基本清楚，句子之间不长时间卡壳</td></tr>
+        <tr><td>💬 互动 Interaktion</td><td>能回应对方、提问、追问，不只是自说自话</td></tr>
+        <tr><td>🔡 语言 Sprache</td><td>词汇够用，能表达观点，常见句法错误不影响理解</td></tr>
+        <tr><td>📋 结构 Aufbau</td><td>报告有开头、正文、结尾，顺序清楚</td></tr>
+      </table>
+      <div class="bp-grad">→ 拿分口诀：主动说、别冷场、懂回应、出错也继续</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 划重点 / 结尾导航 ═══════════ -->
+  <div class="bp-sec" id="bp-end">
+    <div class="bp-box gold">
+      <span class="lbl">🎯 划重点 / Fazit:</span> 歌德 B1 及格线 <strong>60 / 100</strong>。<br>
+      <strong>阅读 (65min, 30题)</strong>: 每部分先读题再读文，注意 Richtig/Falsch 的陷阱词（immer, nie, meistens）<br>
+      <strong>听力 (40min)</strong>: 录音只听一到两遍，提前预判答案方向，做笔记<br>
+      <strong>写作 (60min)</strong>: 一定覆盖所有要点 + 格式完整（称呼/结尾）<br>
+      <strong>口语 (15min)</strong>: 主动开口，多用连接词，哪怕小错误也要坚持表达
+    </div>
+    <div class="bp-checkrow" style="justify-content:center">
+      <a href="#b1pruefung-top" class="bp-btn reset" style="text-decoration:none;display:inline-block">⬆️ 回到顶部</a>
+      <a href="#" onclick="showPage('b1hub'); return false;" class="bp-btn" style="text-decoration:none;display:inline-block">🏠 返回 B1 学习站</a>
+    </div>
+  </div>
+
+</div><!-- /bp-wrap -->
+
+
+  <!-- ═══════════ 交互 JS 助手 ═══════════ -->
+  <script>
+    // 写作范文折叠开关
+    window.b1pfToggle = function(id){
+      var el = document.getElementById(id);
+      if(el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    };
+    // 匹配题专用判分：data-ans 存答案（如 'H'），选项 label 显示 "X) 广告字母"，比较 label 文本
+    window.b2lCheckMatch = function(mcqId, scoreId){
+      var list = document.getElementById(mcqId);
+      if(!list) return;
+      var items = list.querySelectorAll('.mcq-item');
+      var correct = 0, total = items.length;
+      items.forEach(function(item){
+        var ans = item.getAttribute('data-ans');
+        item.querySelectorAll('input[type=radio]').forEach(function(r){
+          r.disabled = true;
+          var label = r.parentElement;
+          // 提取 label 显示的广告字母：形如 "A) H"，取 ")" 后文本的首字母
+          var txt = label.textContent;
+          var m = txt.replace(/^[A-C]\)\s*/, '').trim();
+          var shown = m.charAt(0);
+          if(shown === ans){ label.classList.add('correct-ans'); }
+          else if(r.checked && shown !== ans){ label.classList.add('wrong-ans'); }
+          if(r.checked && shown === ans) correct++;
+        });
+      });
+      var scoreEl = document.getElementById(scoreId);
+      if(scoreEl){
+        var pct = Math.round(correct/total*100);
+        scoreEl.innerHTML = '✅ ' + correct + '/' + total + ' (' + pct + '%)';
+        scoreEl.className = 'bp-score ' + (pct >= 60 ? 'ok' : 'bad');
+      }
+    };
+    // 章节内二级锚点平滑滚动（懒加载实例化后定义，防止与旧逻辑冲突）
+    window.b1pfAddAnchors = function(){
+      document.querySelectorAll('#page-b1pruefung .bp-modnav a').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var href = a.getAttribute('href');
+          if(href && href.charAt(0) === '#'){
+            var t = document.getElementById(href.slice(1));
+            if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+          }
+        });
+      });
+      // 单选高亮：点 option label 时给选中项加 .selected（与 #page-lesen 一致）
+      document.querySelectorAll('#page-b1pruefung .mcq-options label').forEach(function(label){
+        label.addEventListener('click', function(){
+          var wrap = label.parentNode;
+          wrap.querySelectorAll('label').forEach(function(l){ l.classList.remove('selected'); });
+          label.classList.add('selected');
+        });
+      });
+    };
+  </script>
+
+</template>
+
+<div id="page-b1pruefung" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b1pruefung', 'tpl-page-b1pruefung', function(page){ if(window.b1pfAddAnchors){ try{ window.b1pfAddAnchors(); }catch(e){} } });</script>
 <!-- B2 学习站 -->
 <div id="page-b2hub" class="page hub-page" style="--hub:#f59e0b;--hub-soft:rgba(245,158,11,.13)">
 
