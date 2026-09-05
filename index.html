@@ -5239,6 +5239,24 @@ document.addEventListener('keydown', function(e) {
   #page-b1pruefung .bp-mu-text p{margin:0 0 .7rem}
   #page-b1pruefung .bp-toggle{background:rgba(246,211,101,.14);border:1px solid rgba(246,211,101,.35);color:#fde68a;padding:7px 18px;border-radius:18px;font-size:.86rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:12px}
   #page-b1pruefung .bp-toggle:hover{background:rgba(246,211,101,.24)}
+  /* ── 讲解型答案解析面板 ── */
+  #page-b1pruefung .bp-explain{background:rgba(255,255,255,.05);border:1px solid rgba(99,179,237,.2);border-radius:12px;padding:16px 18px;margin:12px 0;display:none}
+  #page-b1pruefung .bp-explain-h{display:flex;align-items:center;gap:8px;color:#9bd0f5;font-weight:700;font-size:.95rem;margin-bottom:12px;border-bottom:1px solid rgba(99,179,237,.2);padding-bottom:8px}
+  #page-b1pruefung .bx-item{background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;margin:10px 0;border-left:3px solid #63b3ed}
+  #page-b1pruefung .bx-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  #page-b1pruefung .bx-num{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+  #page-b1pruefung .bx-ans{font-weight:700;color:#4ade80;font-size:.88rem}
+  #page-b1pruefung .bx-vng{font-size:.82rem;color:#e2e8f0;font-weight:600}
+  #page-b1pruefung .bx-row{font-size:.87rem;line-height:1.75;margin:4px 0;color:#cbd5e1}
+  #page-b1pruefung .bx-row .lbl{font-weight:700;color:#fde68a;margin-right:5px}
+  #page-b1pruefung .bx-row .de{color:#9bd0f5;font-style:italic}
+  #page-b1pruefung .bx-row .zh{color:#e2e8f0}
+  #page-b1pruefung .bx-trap{font-size:.84rem;line-height:1.7;color:#f6b7b7;margin-top:4px;background:rgba(220,38,38,.08);border-left:3px solid #dc2626;border-radius:0 8px 8px 0;padding:6px 10px}
+  #page-b1pruefung .bx-trap .lbl{font-weight:700;color:#f87171;margin-right:5px}
+  #page-b1pruefung .bx-prov{font-size:.84rem;line-height:1.7;color:#9bd0f5;margin-top:4px;background:rgba(99,179,237,.08);border-left:3px solid #63b3ed;border-radius:0 8px 8px 0;padding:6px 10px}
+  #page-b1pruefung .bx-prov .lbl{font-weight:700;color:#63b3ed;margin-right:5px}
+  #page-b1pruefung .bx-explbtn{background:rgba(99,179,237,.14);border:1px solid rgba(99,179,237,.35);color:#9bd0f5;padding:7px 18px;border-radius:18px;font-size:.86rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:12px}
+  #page-b1pruefung .bx-explbtn:hover{background:rgba(99,179,237,.26)}
   /* 表格 */
   #page-b1pruefung table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
   #page-b1pruefung th{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
@@ -5338,7 +5356,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>6.</strong> Max hat eine berufliche Perspektive im Hotel.</div>
           <div class="mcq-options"><label><input type="radio" name="bp-l1-q6" value="A"> A) Richtig</label><label><input type="radio" name="bp-l1-q6" value="B"> B) Falsch</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l1-mcq','bp-l1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l1-mcq','bp-l1-score')">↺ 重做</button><span class="bp-score" id="bp-l1-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l1-mcq','bp-l1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l1-mcq','bp-l1-score')">↺ 重做</button><span class="bp-score" id="bp-l1-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-l1-explain')">📖 答案解析</button></div>
     </div>
 
     <!-- ── Teil 2 ── -->
@@ -5363,7 +5381,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Was empfehlen Wissenschaftler?</div>
           <div class="mcq-options"><label><input type="radio" name="bp-l2-q6" value="A"> A) Mehr Kollegen anstellen</label><label><input type="radio" name="bp-l2-q6" value="B"> B) Regelmäßig Pausen machen</label><label><input type="radio" name="bp-l2-q6" value="C"> C) Die Büros vergrößern</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2-mcq','bp-l2-score')">✓ 判分</button><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2b-mcq','bp-l2b-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l2-mcq','bp-l2-score');b2lResetMCQ('bp-l2b-mcq','bp-l2b-score')">↺ 重做</button><span class="bp-score" id="bp-l2-score"></span><span class="bp-score" id="bp-l2b-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2-mcq','bp-l2-score')">✓ 判分</button><button class="bp-btn" onclick="b2lCheckMCQ('bp-l2b-mcq','bp-l2b-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l2-mcq','bp-l2-score');b2lResetMCQ('bp-l2b-mcq','bp-l2b-score')">↺ 重做</button><span class="bp-score" id="bp-l2-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-l2-explain')">📖 答案解析</button><span class="bp-score" id="bp-l2b-score"></span></div>
     </div>
 
 
@@ -5399,7 +5417,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="G"><div class="bp-q"><strong>7.</strong> Lisa möchte lernen, innerlich ruhiger zu werden.</div>
           <div class="mcq-options"><label><input type="radio" name="bp-l3-q7" value="A"> A) B</label><label><input type="radio" name="bp-l3-q7" value="B"> B) G</label><label><input type="radio" name="bp-l3-q7" value="C"> C) C</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMatch('bp-l3-mcq','bp-l3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l3-mcq','bp-l3-score')">↺ 重做</button><span class="bp-score" id="bp-l3-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMatch('bp-l3-mcq','bp-l3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l3-mcq','bp-l3-score')">↺ 重做</button><span class="bp-score" id="bp-l3-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-l3-explain')">📖 答案解析</button></div>
     </div>
 
     <!-- ── Teil 4 ── -->
@@ -5422,7 +5440,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>⑦ Mona (27):</strong> "Ich brauche ein Ziel, sonst gebe ich auf. Wer eine Prüfung oder einen Plan hat, bleibt motiviert und lernt jeden Tag." — <em>Mona meint: Wer ein Ziel hat, bleibt motivierter.</em></div>
           <div class="mcq-options"><label><input type="radio" name="bp-l4-q7" value="A"> A) Ja</label><label><input type="radio" name="bp-l4-q7" value="B"> B) Nein</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l4-mcq','bp-l4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l4-mcq','bp-l4-score')">↺ 重做</button><span class="bp-score" id="bp-l4-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l4-mcq','bp-l4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l4-mcq','bp-l4-score')">↺ 重做</button><span class="bp-score" id="bp-l4-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-l4-explain')">📖 答案解析</button></div>
     </div>
 
     <!-- ── Teil 5 ── -->
@@ -5439,7 +5457,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> Was passiert, wenn Sie sich zu spät krankmelden?</div>
           <div class="mcq-options"><label><input type="radio" name="bp-l5-q4" value="A"> A) Kein Problem</label><label><input type="radio" name="bp-l5-q4" value="B"> B) Sie müssen trotzdem zahlen</label><label><input type="radio" name="bp-l5-q4" value="C"> C) Sie bekommen einen Rabatt</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l5-mcq','bp-l5-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l5-mcq','bp-l5-score')">↺ 重做</button><span class="bp-score" id="bp-l5-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-l5-mcq','bp-l5-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-l5-mcq','bp-l5-score')">↺ 重做</button><span class="bp-score" id="bp-l5-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-l5-explain')">📖 答案解析</button></div>
     </div>
   </div>
 
@@ -5482,7 +5500,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>5. (b)</strong> Wie viel muss man für den nächsten Kurs zahlen?</div>
           <div class="mcq-options"><label><input type="radio" name="bp-h1-q10" value="A"> A) Nichts</label><label><input type="radio" name="bp-h1-q10" value="B"> B) Den vollen Preis</label><label><input type="radio" name="bp-h1-q10" value="C"> C) Nur die Hälfte</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h1-mcq','bp-h1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h1-mcq','bp-h1-score')">↺ 重做</button><span class="bp-score" id="bp-h1-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h1-mcq','bp-h1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h1-mcq','bp-h1-score')">↺ 重做</button><span class="bp-score" id="bp-h1-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-h1-explain')">📖 答案解析</button></div>
       <button class="bp-toggle" onclick="b1pfToggle('bp-h1-trans')">📄 显示听力原文</button>
       <div class="bp-ans" id="bp-h1-trans"><h4>🎧 原文 (Transkript · Teil 1)</h4>
         <div class="bp-mu-text">
@@ -5510,7 +5528,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Wie lange ist der Eintritt kostenlos?</div>
           <div class="mcq-options"><label><input type="radio" name="bp-h2-q3" value="A"> A) Drei Monate</label><label><input type="radio" name="bp-h2-q3" value="B"> B) Eine Woche</label><label><input type="radio" name="bp-h2-q3" value="C"> C) Ein Jahr</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h2-mcq','bp-h2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h2-mcq','bp-h2-score')">↺ 重做</button><span class="bp-score" id="bp-h2-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h2-mcq','bp-h2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h2-mcq','bp-h2-score')">↺ 重做</button><span class="bp-score" id="bp-h2-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-h2-explain')">📖 答案解析</button></div>
       <button class="bp-toggle" onclick="b1pfToggle('bp-h2-trans')">📄 显示听力原文</button>
       <div class="bp-ans" id="bp-h2-trans"><h4>🎧 原文 (Transkript · Teil 2)</h4>
         <div class="bp-mu-text">
@@ -5542,7 +5560,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>7.</strong> Steffen bereut seine Entscheidung nicht.</div>
           <div class="mcq-options"><label><input type="radio" name="bp-h3-q7" value="A"> A) Richtig</label><label><input type="radio" name="bp-h3-q7" value="B"> B) Falsch</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h3-mcq','bp-h3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h3-mcq','bp-h3-score')">↺ 重做</button><span class="bp-score" id="bp-h3-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h3-mcq','bp-h3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h3-mcq','bp-h3-score')">↺ 重做</button><span class="bp-score" id="bp-h3-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-h3-explain')">📖 答案解析</button></div>
       <button class="bp-toggle" onclick="b1pfToggle('bp-h3-trans')">📄 显示听力原文</button>
       <div class="bp-ans" id="bp-h3-trans"><h4>🎧 原文 (Transkript · Teil 3)</h4>
         <div class="bp-mu-text">
@@ -5573,7 +5591,7 @@ document.addEventListener('keydown', function(e) {
         <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Was machen junge Leute oft?</div>
           <div class="mcq-options"><label><input type="radio" name="bp-h4-q3" value="A"> A) Umweltprojekte</label><label><input type="radio" name="bp-h4-q3" value="B"> B) Krankenhausarbeit</label><label><input type="radio" name="bp-h4-q3" value="C"> C) Sportkurse</label></div></div>
       </div>
-      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h4-mcq','bp-h4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h4-mcq','bp-h4-score')">↺ 重做</button><span class="bp-score" id="bp-h4-score"></span></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp-h4-mcq','bp-h4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp-h4-mcq','bp-h4-score')">↺ 重做</button><span class="bp-score" id="bp-h4-score"></span><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-h4-explain')">📖 答案解析</button></div>
       <button class="bp-toggle" onclick="b1pfToggle('bp-h4-trans')">📄 显示听力原文</button>
       <div class="bp-ans" id="bp-h4-trans"><h4>🎧 原文 (Transkript · Teil 4)</h4>
         <div class="bp-mu-text">
@@ -5607,7 +5625,7 @@ document.addEventListener('keydown', function(e) {
         • schlagen Sie einen gemeinsamen Termin vor<br>
         <div class="bp-grad">→ 德国文化常识：邮件开头用 Liebe Lisa / Hallo Lisa，结尾用 Liebe Grüße / Bis bald</div>
       </div>
-      <button class="bp-toggle" onclick="b1pfToggle('bp-s1-ans')">📄 显示参考范文</button>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s1-ans')">📄 显示参考范文</button> <button class="bx-explbtn" onclick="b1pfExplain(this,'bp-s1-explain')">📖 讲解</button>
       <div class="bp-ans" id="bp-s1-ans">
         <h4>📝 参考范文 (Musterlösung)</h4>
         <div class="bp-mu-text">
@@ -5629,7 +5647,7 @@ document.addEventListener('keydown', function(e) {
         • geben Sie eine Empfehlung<br>
         <div class="bp-grad">→ 常用表态词：Meiner Meinung nach / Ich bin der Ansicht, dass / Es kommt darauf an</div>
       </div>
-      <button class="bp-toggle" onclick="b1pfToggle('bp-s2-ans')">📄 显示参考范文</button>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s2-ans')">📄 显示参考范文</button> <button class="bx-explbtn" onclick="b1pfExplain(this,'bp-s2-explain')">📖 讲解</button>
       <div class="bp-ans" id="bp-s2-ans">
         <h4>📝 参考范文 (Musterlösung)</h4>
         <div class="bp-mu-text">
@@ -5649,7 +5667,7 @@ document.addEventListener('keydown', function(e) {
         • fragen Sie nach einer Möglichkeit<br>
         <div class="bp-grad">→ 正式邮件：Sehr geehrte Damen und Herren, … Mit freundlichen Grüßen</div>
       </div>
-      <button class="bp-toggle" onclick="b1pfToggle('bp-s3-ans')">📄 显示参考范文</button>
+      <button class="bp-toggle" onclick="b1pfToggle('bp-s3-ans')">📄 显示参考范文</button> <button class="bx-explbtn" onclick="b1pfExplain(this,'bp-s3-explain')">📖 讲解</button>
       <div class="bp-ans" id="bp-s3-ans">
         <h4>📝 参考范文 (Musterlösung)</h4>
         <div class="bp-mu-text">
@@ -5694,6 +5712,7 @@ document.addEventListener('keydown', function(e) {
     <!-- ── Teil 1：共同规划 ── -->
     <div class="bp-ex">
       <div class="bp-inst"><strong>Teil 1 · Etwas gemeinsam planen</strong> — Sprechen Sie mit Ihrem Partner über die 4 Punkte und planen Sie gemeinsam. 和同伴就 4 个要点共同规划。</div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp1-explain')">📖 讲解</button></div>
       <div class="bp-box">
         <strong>📌 Aufgabe:</strong> Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende. Sprechen Sie über:<br>
         <div class="bp-points">
@@ -5716,6 +5735,7 @@ document.addEventListener('keydown', function(e) {
     <!-- ── Teil 2：作短报告 ── -->
     <div class="bp-ex">
       <div class="bp-inst"><strong>Teil 2 · Kurzvortrag (短报告)</strong> — Sie präsentieren ein Alltagsthema. Die Zuhörer dürfen danach Fragen stellen. 做一个日常生活主题的短报告。</div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp2-explain')">📖 讲解</button></div>
       <div class="bp-box">
         <strong>📌 Aufgabe:</strong> Wählen Sie ein Thema und sprechen Sie ca. 3 Minuten darüber. Thema: <strong>"Mein Weg zur Arbeit / zur Schule"</strong>. Gehen Sie auf diese Punkte ein:<br>
         <div class="bp-points">
@@ -5738,6 +5758,7 @@ document.addEventListener('keydown', function(e) {
     <!-- ── Teil 3：反馈与提问 ── -->
     <div class="bp-ex">
       <div class="bp-inst"><strong>Teil 3 · Feedback &amp; Nachfragen (反馈与提问)</strong> — Hören Sie dem Partner zu, geben Sie Feedback und stellen Sie Teilne Frage. 听同伴报告，给出反馈并提出一个问题。</div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp3-explain')">📖 讲解</button></div>
       <div class="bp-box">
         <strong>📌 Aufgabe:</strong> Stellen Sie Ihrem Partner 2 Fragen zu seinem Vortrag zum Thema "Wohnen". Mögliche Fragen:<br>
         <div class="bp-points">
@@ -5813,6 +5834,380 @@ document.addEventListener('keydown', function(e) {
 </div><!-- /bp-wrap -->
 
 
+  <!-- ═════════════════════════════ 📖 阅读讲解 ═════════════════════════════ -->
+
+  <!-- ═══ Lesen Teil 1 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-l1-explain">
+    <div class="bp-explain-h">📖 题型导读 · Teil 1 (博客/邮件/信件 · Richtig/Falsch)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给你一篇德语博客/邮件/信件，6 道判断题（Richtig/Falsch）。这些题目都藏在文章的细节里，考你能不能从原文找到对应依据。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">⏱️ 时间分配：</span><span class="zh">65 分钟做 5 部分，Teil 1 建议控制在 8 分钟。先看 6 道题，再带着问题读文。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">判断题口诀——"去原文找那句"。题目用的词可能和原文不同（同义替换），所以要看意思而不是看词。看到 <strong>immer / nie / alle / meistens</strong> 这类绝对词要警惕，它们经常是陷阱。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Seit drei Monaten arbeite ich zum ersten Mal in einem Hotel."</span><span class="zh">（三个月来，我第一次在一家酒店工作）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目和原文完全吻合。Max 明确说自己"第一次"在酒店工作。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>别被下文"我干过快递、在咖啡店打过工"误导——那是酒店以外的经历，不影响"第一次干酒店"。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Das ist interessanter als das Liefern von Paketen — da spreche ich mit niemandem."</span><span class="zh">（这比送快递有意思——送快递时我不跟任何人交谈）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">原文直接对比：跟客人交谈比送快递有趣，正是题目"更喜欢和客人交流"的意思。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">Falsch ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Ich muss oft am Wochenende und an Feiertagen arbeiten."</span><span class="zh">（我经常周末和节假日要上班）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说"周末总有空"（immer frei）——错了。原文说周末要上班，所以根本不可能"总有空"。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"immer"（总是）是绝对词，是判断题最爱设的陷阱。只要原文有例外（"oft 经常"），就是错的。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Um meine Zukunft zu verbessern, lerne ich Englisch und Spanisch. So kann ich auch mit Gästen aus dem Ausland sprechen."</span><span class="zh">（为了更好前途我学英语和西班牙语，这样也能和外国客人交流）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"学外语是为了用在工作上"——原文两个点都对应：学外语、为了工作（跟外国客人说话）。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">Falsch ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Meine Kollegen sind alle jung und nett — nach der Arbeit essen wir oft zusammen."</span><span class="zh">（我的同事都年轻又友善——下班后我们经常一起吃饭）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说"Max 很少和同事聚会"——错了。原文说"经常（oft）一起吃饭"。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"selten"（很少）对"oft"（经常），又是一对反义陷阱。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Mein Chef hat mir versprochen, mich in sechs Monaten zum Chef der Etage auszubilden."</span><span class="zh">（经理承诺半年后把我培养成楼层主管）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"Max 在酒店有职业前景"——原文的晋升承诺就是明确体现。</span></div></div>
+  </div>
+
+  <!-- ═══ Lesen Teil 2 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-l2-explain">
+    <div class="bp-explain-h">📖 题型导读 · Teil 2 (报刊文章 · a/b/c 单选)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给你两篇报刊/杂志短文，每篇 3 道选择题。第 1 题通常问"主旨/整体"，第 2、3 题考细节。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">先读第 1 题的选项，快速抓文章大意（看首尾段）。再做细节题，<strong>回文定位</strong>——题目里的词或同义词在原文哪段，答案就在那附近。干扰项常是"文中提过但答非所问"或"过度推断"。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">B · Viele Kundinnen kommen aus anderen Ländern</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Wir haben heute mehr als 40 % Kundinnen und Kunden mit Migrationsgeschichte."</span><span class="zh">（我们现有超过 40% 的顾客有移民背景）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目问"为什么图书馆变了"——因为有大量异国背景顾客。A"翻修建筑"、C"换了新馆长"文中都没提。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>这是主旨+原因题，找"因为"部分，别被开头句迷惑。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">A · Mit Deutschsprachigen sprechen</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Im 'Sprachcafé' kann man sich einmal pro Woche mit Muttersprachlern unterhalten."</span><span class="zh">（在语言角每周一次可以跟母语者交谈）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目问"语言角能干嘛"——答案"和说德语的人交谈"。B"学外语"太泛，C"买书"完全没提。A 最精准。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">B · Digitale Medien in mehreren Sprachen</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Auch digitale Medien wie E-Books und Filme auf fremden Sprachen werden immer öfter ausgeliehen."</span><span class="zh">（多语言的电子书、电影等数字媒体也越来越常被借出）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目问"还提供哪些媒体"——答案是"多语言数字媒体"。A"只有德语书"错（文章先说有多种语言），C"报纸"未提。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">C · Man kann leicht kommunizieren</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Das hat Vorteile: Man kann leicht mit Kollegen sprechen und Wissen teilen."</span><span class="zh">（有好处：能轻松和同事说话、分享知识）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">大办公室的优点——"容易交流"（C）。A"安静工作"、B"更多隐私"其实是缺点，别反过来选。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>读题时看清"Vorteil（优点）"还是"Nachteil（缺点）"——很容易把优点和缺点搞反。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">A · Sie teilen das Büro in verschiedene Zonen</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Einige Firmen testen deshalb 'Zonen': einen ruhigen Bereich für konzentriertes Arbeiten und einen offenen Bereich für Gespräche."</span><span class="zh">（一些公司因此试验"分区"：一个安静区专心工作，一个开放区交谈）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目问"有的公司怎么解决噪音"——答案"把办公室分成不同区域"。B"禁止说话"、C"全部居家"文中无。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">B · Regelmäßig Pausen machen</span></div>
+      <div class="bx-row"><span class="lbl">📌 原文依据：</span><span class="de">"Wissenschaftler empfehlen, dass Arbeitnehmer regelmäßig Pausen machen, um dem Lärm zu entkommen."</span><span class="zh">（科学家建议员工定期休息，逃离噪音）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目问"科学家建议什么"——答案"定期休息"。A、C 都是原文没提的无关选项。</span></div></div>
+  </div>
+
+  <!-- ═══ Lesen Teil 3 · 详解（匹配题）═══ -->
+  <div class="bp-explain" id="bp-l3-explain">
+    <div class="bp-explain-h">📖 题型导读 · Teil 3 (广告匹配 · Zuordnung)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给 10 则广告（A-J）和 7 个生活需求，把需求配到对的广告，考快速识别关键词。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">先读 7 个需求圈核心词（做什么、人群、时间、地点），再去广告里扫同义词。扫读，别逐字。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">H · Sprachen-Tandem</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Elena 要练法语 + 认识新朋友。H 咖啡馆语言交换既能练外语又能社交，完美匹配。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>C 智能手机课、G 冥想是干扰项，跟练外语+认人无关。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">F · Nachhilfe Mathe &amp; Deutsch</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Tom 要准备数学高考（Abitur）。F 数学/德语高考补课，直接对应 Mathe + Abi。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">A · Tanzkurs</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Maria 爱跳舞、从没上过课。A 广告写各级别欢迎零基础，命中"从没上过课"。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">I · Hörbücher aufnehmen</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Weber 想用声音做好事。I 为盲人录有声书（公益），声音+助人双向匹配。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>考公益+用嗓子两点，只看一半容易错选到 H 或 J。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">J · Internationale Kochkurse</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Sandra 想尝各国菜。J 国际烹饪课，关键词 internationale + 菜肴直接对应。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">B · Yoga am Morgen</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Peter 工作忙、想上班前健身。B 早晨瑜伽为上班族设计，命中早上+上班族。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>G 冥想也涉及放松，但按周日，没有上班前健身的针对性。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">G · Meditations-Treffen</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Lisa 想内心更平静。G 冥想聚会，内心平静对冥想，最贴切。</span></div></div>
+  </div>
+
+  <!-- ═══ Lesen Teil 4 · 详解（读者来信 Ja/Nein）═══ -->
+  <div class="bp-explain" id="bp-l4-explain">
+    <div class="bp-explain-h">📖 题型导读 · Teil 4 (读者来信 · Ja/Nein)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">7 篇读者留言，判断题目陈述是否符合留言者观点，考读观点抓核心立场。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">先读留言者核心观点句（常在开头）再概括。题目常把观点反过来说（反义陷阱），要记住此人到底坚持什么。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">①</span><span class="bx-ans">Ja ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ohne ein großes Vokabular kann man sich nicht verständlich machen."</span><span class="zh">（没有大词汇量就表达不清）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"没很多词就不能真正交流"，与原文一致，Ja。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">②</span><span class="bx-ans">Ja ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wer keine Angst hat, gleich am Anfang zu sprechen, ist schneller als andere."</span><span class="zh">（不怕一开始就开口，就学得快）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"怕开口就学得慢"= 原文逆否。Karim 强调开口重要，Ja。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">③</span><span class="bx-ans">Nein ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ich finde, die Grammatik ist das Fundament... also sollte man am Anfang viel Grammatik üben."</span><span class="zh">（语法是基础，开始就该多练）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说初期放弃语法，Anna 却强调语法重要性，完全相反，Nein。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>反义陷阱：Anna 重视语法，题目说放弃，立场相反 → Nein。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">④</span><span class="bx-ans">Ja ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Fehler beim Sprechen sind ganz normal. Aus jedem Fehler lernt man etwas."</span><span class="zh">（口语出错正常，每个错误都学到东西）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"错误正常而且有帮助"，和 Ben 一致，Ja。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">⑤</span><span class="bx-ans">Nein ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Am wichtigsten ist das Hören. Wer die gesprochene Sprache nicht versteht, kann im Alltag nicht mitmachen."</span><span class="zh">（听力最重要，听不懂就没法参与日常）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说听力日常不重要，Nadja 把听力列为最重要，立场相反，Nein。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"最重要"对"不重要"，最大反差，直接 Nein。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">⑥</span><span class="bx-ans">Ja ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wenn man viel liest, merkt man sich die Satzstruktur ganz von selbst, ohne Regeln zu lernen."</span><span class="zh">（多读就能无意识记住句式，无需学规则）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"阅读能无意识学句式"，和 Oskar 一致，Ja。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">⑦</span><span class="bx-ans">Ja ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wer eine Prüfung oder einen Plan hat, bleibt motiviert und lernt jeden Tag."</span><span class="zh">（有考试或计划的人保持动力、天天学）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"有目标的人更有动力"，和 Mona 一致，Ja。</span></div></div>
+  </div>
+
+  <!-- ═══ Lesen Teil 5 · 详解（通知/说明 a/b/c）═══ -->
+  <div class="bp-explain" id="bp-l5-explain">
+    <div class="bp-explain-h">📖 题型导读 · Teil 5 (公告/说明 · a/b/c 单选)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一份通知/课程说明，4 道选择。这类文体信息密集，要抠细节。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">注意禁令词（verboten / untersagt / nicht erlaubt）和时间数字（15 Minuten / 24 Stunden）。一题找一句话，别答非所问。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">B · 15 分钟前到</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Bitte kommen Sie 15 Minuten vor Kursbeginn."</span><span class="zh">（请于开课前 15 分钟到）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">B"15 分钟前到"。A 点餐、C 交钱都是无关项。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">C · 喝水</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Essen und Trinken untersagt — ausgenommen Wasser."</span><span class="zh">（禁止饮食，但水除外）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">C 喝水。A 咖啡、B 三明治都被"禁止饮食"涵盖，唯独水例外。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"ausgenommen Wasser"（水除外）是易错点。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">A · 关机或静音</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Handys bleiben ausgeschaltet oder stummgeschaltet."</span><span class="zh">（手机关机或静音）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">A 关机或静音，和原文一致。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">B · 仍须付费</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Krankmeldungen bitte bis 24 Stunden vorher... sonst müssen Sie trotzdem die Kursgebühr zahlen."</span><span class="zh">（病假须提前 24 小时报，否则仍付课程费）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">B 仍须付费。A 没问题、C 打折都是反向干扰。</span></div></div>
+  </div>
+
+  <!-- ═════════════════════════════ 🎧 听力讲解 ═════════════════════════════ -->
+
+  <!-- ═══ Hören Teil 1 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-h1-explain">
+    <div class="bp-explain-h">🎧 题型导读 · Teil 1 (短通知 · 判断+选择)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">5 段短通知（机场/课程/私人/交通/机构），每段 2 题（1 判断 + 1 选择）。考抓"关键信息"能力——谁、何时、干嘛。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">先读题，明确每段要抓什么（时间？地点？原因？），带着目标听。<strong>数字最容易骗人</strong>（20 Minuten、um halb sieben），听清是"推迟"还是"取消"。听后立刻判断，别犹豫。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Hier ist eine Durchsage vom Flughafen München."</span><span class="zh">（这里是慕尼黑机场广播）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">首句即点明是机场通过播报，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1.(b)</span><span class="bx-ans">B · 晚点 20 分钟</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Der Flug nach Wien... hat zwanzig Minuten Verspätung."</span><span class="zh">（飞维也纳航班晚点 20 分钟）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">A"取消"错，文中是延期；C"换登机口"无关。故选 B。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"Verspätung（晚点）"≠"ausfallen（取消）"，必听清。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Der Kurs beginnt am Montag um 18 Uhr im Raum 204."</span><span class="zh">（课程周一 18 点 204 教室开始）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">时间、教室、开课日全部对上，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2.(b)</span><span class="bx-ans">C · 护照</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Bitte bringen Sie am ersten Tag Ihren Pass mit."</span><span class="zh">（第一天请带护照）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">关键词"Pass（护照）"，选 C。A 字典、B 照片都没提。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ich bin leider etwas später, der Zug hat Verspätung."</span><span class="zh">（我会晚点到，火车晚点了）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目"Thomas 因火车迟到"——原文他亲口说火车晚点、自己会晚到，说法正确，Richtig。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>考点在"verspäten（迟到）"这个动词：火车晚点 → 他迟到，因果成立。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3.(b)</span><span class="bx-ans">A · um halb sieben</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Kannst du um halb sieben mit dem Essen anfangen?"</span><span class="zh">（你 6 点半可以开始吃饭吗？）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">A"halb sieben"直接对。B 八点、C 立刻都是干扰。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Die Straßenbahnlinie 5 ist wegen einer Baustelle unterbrochen."</span><span class="zh">（5 路电车因施工中断）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">"因施工中断"，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4.(b)</span><span class="bx-ans">B · Bus 12</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Bitte benutzen Sie die Buslinie 12 als Ersatz."</span><span class="zh">（请改乘 12 路公交替代）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">B"Bus 12"对。A 地铁、C 单车都为干扰。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>听清"12"这个数字，别被"5 路"或"Ersatz"带偏。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ihr Antrag auf eine Ermäßigung wurde genehmigt."</span><span class="zh">（您的减免申请已批准）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">"genehmigt（批准）"对题"获得通过"，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5.(b)</span><span class="bx-ans">C · 只付一半</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Sie zahlen für den nächsten Kurs nur die Hälfte."</span><span class="zh">（下期课程只需付一半）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">C"一半"直接对应。A 全免、B 全价都错。</span></div></div>
+  </div>
+
+  <!-- ═══ Hören Teil 2 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-h2-explain">
+    <div class="bp-explain-h">🎧 题型导读 · Teil 2 (广播报摘 · a/b/c)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一段广播新闻/报摘，3 道选择，考事件主旨 + 细节（谁、何时、多久）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">广播只放一遍，提前扫题干抓"主题词"。首句常点明主题，直接记下来。数字（三个月/一周/一年）务必听清。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">B · 市博物馆</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Am Sonntag wurde in Berlin das neue Stadtmuseum eröffnet."</span><span class="zh">（周日柏林新城市博物馆开幕）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">主题词"Stadtmuseum（城市博物馆）"，B。A 公园、C 影院干扰。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">C · 年轻人</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"das Museum solle besonders junge Menschen ansprechen."</span><span class="zh">（博物馆应特别吸引年轻人）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">C"年轻人"。A 游客、B 儿童都是干扰，别凭常识猜。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">A · 三个月</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Der Eintritt ist in den ersten drei Monaten kostenlos."</span><span class="zh">（前三个月免费入场）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">A"三个月"。B 一周、C 一年都是数字干扰。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>听清"drei Monaten（三个月）"，别听成"eine Woche（一周）"。</div></div>
+  </div>
+
+  <!-- ═══ Hören Teil 3 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-h3-explain">
+    <div class="bp-explain-h">🎧 题型导读 · Teil 3 (访谈对话 · Richtig/Falsch)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一段访谈只播一遍，7 道判断。考你能不能顺着对话抓住人物"前后变化"（过去做什么 → 现在怎样 → 为什么）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">先读 7 题，预判要听的时间线。对话里有<strong>转折词</strong>（aber / deshalb / deshalb 不）会改变意思，最易设陷阱。<strong>关键词</strong>：之前/现在/为什么。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ja, ich war Krankenpfleger."</span><span class="zh">（是的，我当过护士）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">Steffen 亲口承认当过护士，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Die Arbeitszeiten waren unregelmäßig, mit Nacht- und Wochenenddiensten. Für meine Familie war das nicht gut."</span><span class="zh">（工作时间不规律，有夜班和周末班，对我家庭不好）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">明确"不适合家庭"，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">Falsch ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Actually will ich nur zwei Jahre studieren, nicht drei."</span><span class="zh">（其实我只想读两年，不是三年）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说"读三年"——原文明说"只两年，不是三年"，Falsch。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>数字陷阱：drei（三）是干扰，实际是 "zwei"（二）。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">Falsch ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Meine Frau verdient gut, deshalb können wir das finanzieren."</span><span class="zh">（我妻子挣得好，所以能负担)）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说"妻子挣得少"——原文是"verdient gut（挣得好）"、"finanzieren（能负担）"，正好相反，Falsch。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>"gut"（好）对"wenig"（少），反义词陷阱。</div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Meine früheren Kolleginnen und meine Patienten mochten mich sehr."</span><span class="zh">（我以前的同事和病人都很喜欢我）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">和题目"同事喜欢他"一致，Richtig。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">Falsch ✗</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ich habe früher viel Stress gehabt, heute habe ich mehr Zeit für meine Familie."</span><span class="zh">（以前压力大，现在有更多时间陪家人）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">题目说"现在压力更大"——原文明说以前压力大、现在更轻松，相反，Falsch。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">Richtig ✓</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das war die richtige Entscheidung."</span><span class="zh">（这是正确的决定）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">"不后悔"即"这是正确的决定"，Richtig。</span></div></div>
+  </div>
+
+  <!-- ═══ Hören Teil 4 · 详解 ═══ -->
+  <div class="bp-explain" id="bp-h4-explain">
+    <div class="bp-explain-h">🎧 题型导读 · Teil 4 (短报告 · a/b/c)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一段专业人员短报告播两遍，3 道选择。考主旨 + 关键概念 + 细节（谁做什么）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 答题技巧：</span><span class="zh">播放两遍是优势——第一遍抓主旨和结构，第二遍抠细节。听清"谁做什么"的人群分类（年轻人/老人），报告常按人群分段。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">B · 公益志愿</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ich möchte heute über die Vereinsarbeit in Deutschland sprechen."</span><span class="zh">（今天我想谈谈德国的协会/志愿工作）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">主旨词"Vereinsarbeit（志愿/协会工作）"，B。A 体育、C 医院都是细节不是主旨。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">C · 没钱但有接触</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Dafür bekommen sie kein Geld, aber sie lernen nette Leute kennen."</span><span class="zh">（为此不要钱，但能认识不少人）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">C"没钱但有接触"。A 很多钱、B 一辆车都违背原文。</span></div></div>
+
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">A · 环保项目</span></div>
+      <div class="bx-row"><span class="lbl">📌</span><span class="de">"Junge Leute machen oft bei Umweltprojekten mit."</span><span class="zh">（年轻人常参与环保项目）</span></div>
+      <div class="bx-row"><span class="lbl">💡</span><span class="zh">A"环保项目"直接对应。B 医院是老人做的，C 无。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>人群对应：年轻人→环保，老人→医院。别张冠李戴。</div></div>
+  </div>
+
+  <!-- ═════════════════════════════ ✍️ 写作讲解 ═════════════════════════════ -->
+
+  <!-- ═══ Aufgabe 1 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-s1-explain">
+    <div class="bp-explain-h">✍️ 讲解 · Aufgabe 1 (非正式邮件 · 给朋友)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 要求：</span><span class="zh">约 80 词的非正式邮件。必须覆盖 3 个要点（做了什么/能不能拜访/提议时间）。<strong>每个要点都要单独成句、写清楚</strong>，漏一要点直接扣分。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">📐 评分对应：</span><span class="zh">内容（3 要点全）+ 语言（用从属句/过去时）+ 结构（称呼+结尾）。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">✍️</span><span class="bx-ans">范文拆解</span></div>
+      <div class="bx-row"><span class="lbl">① 称呼：</span><span class="zh">"Liebe Lisa" —— 朋友间用 Liebe/Lieber，不用 Sehr geehrte。</span></div>
+      <div class="bx-row"><span class="lbl">② 要点1：</span><span class="zh">"Ich war gestern im Fernsehturm und heute am Mauerpark" —— 写做了什么，用过去时（war）。</span></div>
+      <div class="bx-row"><span class="lbl">③ 要点2：</span><span class="zh">"Ich würde dich gern besuchen" —— 用 würde（过去虚拟式）更礼貌，比 will 自然。</span></div>
+      <div class="bx-row"><span class="lbl">④ 要点3：</span><span class="zh">"Hast du am Mittwoch Zeit?" —— 直接提出具体时间，好回应。</span></div>
+      <div class="bx-row"><span class="lbl">⑤ 结尾：</span><span class="zh">"Bis bald / Viele Grüße" —— 非正式口语收尾。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>非正式邮件别用"Mit freundlichen Grüßen"（那是正式邮件才用），会被看成文体不符。</div></div>
+  </div>
+
+  <!-- ═══ Aufgabe 2 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-s2-explain">
+    <div class="bp-explain-h">✍️ 讲解 · Aufgabe 2 (论坛讨论 · 表态)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 要求：</span><span class="zh">约 80 词讨论帖，必须<strong>表达观点 + 给理由 + 提建议</strong>。这是"议论文"结构，考能不能讲清"我认为 + 为什么 + 怎么办"。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">📐 评分对应：</span><span class="zh">观点明确 + 理由充分 + 结构清楚（总-分）。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">✍️</span><span class="bx-ans">范文拆解</span></div>
+      <div class="bx-row"><span class="lbl">① 观点：</span><span class="zh">"Meiner Meinung nach ist eine Mischung am besten" —— 先表态，稳住立场。</span></div>
+      <div class="bx-row"><span class="lbl">② 理由：</span><span class="zh">"weil man überall und jederzeit üben kann" —— 用 weil 从句给原因。</span></div>
+      <div class="bx-row"><span class="lbl">③ 补充：</span><span class="zh">"Aber im Kurs hat man einen Lehrer" —— 让步转折，让论证更全面。</span></div>
+      <div class="bx-row"><span class="lbl">④ 建议：</span><span class="zh">"Ich empfehle deshalb..." —— 结尾给出明确建议。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>表态词经典句型："Meiner Meinung nach"、"Ich bin der Ansicht, dass..."；别只写一句"我同意"就完。</div></div>
+  </div>
+
+  <!-- ═══ Aufgabe 3 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-s3-explain">
+    <div class="bp-explain-h">✍️ 讲解 · Aufgabe 3 (正式邮件 · 道歉/说明)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 要求：</span><span class="zh">约 40 词正式邮件，必须<strong>感谢 + 说明原因 + 提出询问</strong>。正式文体有严格格式，称呼和结尾要格外标准。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">📐 评分对应：</span><span class="zh">格式（称呼/结尾）+ 内容三要点 + 语言得体（Sie 称谓）。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">✍️</span><span class="bx-ans">范文拆解</span></div>
+      <div class="bx-row"><span class="lbl">① 称呼：</span><span class="zh">"Sehr geehrte Damen und Herren" —— 正式信件的标准开头。</span></div>
+      <div class="bx-row"><span class="lbl">② 要点1 感谢：</span><span class="zh">"vielen Dank für Ihre freundlichen Informationen" —— 先客套致谢。</span></div>
+      <div class="bx-row"><span class="lbl">③ 要点2 原因：</span><span class="zh">"weil mein Studium begonnen hat" —— weil 从句给取消理由。</span></div>
+      <div class="bx-row"><span class="lbl">④ 要点3 询问：</span><span class="zh">"Gibt es die Möglichkeit, den Kurs zu verschieben?" —— 用问句提出诉求。</span></div>
+      <div class="bx-row"><span class="lbl">⑤ 结尾：</span><span class="zh">"Mit freundlichen Grüßen" —— 正式结尾。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>正式邮件用 Sie 敬称、别用 Du；称呼结尾必须成套（Sehr geehrte... ↔ Mit freundlichen Grüßen）。</div></div>
+  </div>
+
+  <!-- ═════════════════════════════ 🗣️ 口语讲解 ═════════════════════════════ -->
+
+  <!-- ═══ Sprechen Teil 1 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-sp1-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 1 (双人规划 · 互动)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">和你搭档围绕 4 个要点共同规划一件事。考<strong>互动</strong>——不是自说自话，而是"你一问我一提、有商有量"。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分关键：</span><span class="zh">① 每个要点都要谈；② 有提议就有回应（Was hältst du von...? → Gute Idee, aber...）；③ 最后总结一遍计划。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">对话为何高分</span></div>
+      <div class="bx-row"><span class="lbl">💡 亮点1</span><span class="zh">"Was hältst du von einem Ausflug in die Berge?" 主动提建议，开启讨论。</span></div>
+      <div class="bx-row"><span class="lbl">💡 亮点2</span><span class="zh">"Gute Idee, aber ich mag lieber..." 先肯定再提出偏好，不冷场不冲突。</span></div>
+      <div class="bx-row"><span class="lbl">💡 亮点3</span><span class="zh">"Natürlich, lass uns um neun treffen." 让步 + 敲定时间，推进对话。</span></div>
+      <div class="bx-row"><span class="lbl">💡 亮点4</span><span class="zh">"Also: Bahnhof um neun, dann essen wir..." 结尾总结计划，考官最爱。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>别变成"两个独白"——一定要回应对方、追问对方，才算互动。</div></div>
+  </div>
+
+  <!-- ═══ Sprechen Teil 2 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-sp2-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 2 (短报告 · 结构)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">就一个日常主题作约 3 分钟短报告。考<strong>结构</strong>——开头、内容、结尾三段完整，且覆盖给出的 4 个要点。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分框架：</span><span class="zh">Einleitung（点题）→ 讲 4 要点 → Schluss + 自己观点。用连接词把要点串起来。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">报告红宝句</span></div>
+      <div class="bx-row"><span class="lbl">开头</span><span class="zh">"Ich möchte heute über... sprechen." 明确主题。</span></div>
+      <div class="bx-row"><span class="lbl">主体</span><span class="zh">"Meiner Erfahrung nach..."（据我的经验）/ "Zum Thema..."（围绕主题）。</span></div>
+      <div class="bx-row"><span class="lbl">观点</span><span class="zh">"Meiner Meinung nach ist wichtig, weil..." 给个人立场+理由。</span></div>
+      <div class="bx-row"><span class="lbl">结束</span><span class="zh">"Zusammenfassend kann ich sagen, dass..." 总结收尾。</span></div></div>
+  </div>
+
+  <!-- ═══ Sprechen Teil 3 · 讲解 ═══ -->
+  <div class="bp-explain" id="bp-sp3-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 3 (反馈 + 提问 · 倾听)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">听搭档的报告，给出<strong>反馈</strong>并提出一个<strong>问题</strong>。考倾听、回应、追问能力。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分关键：</span><span class="zh">先真诚肯定（Ich fand gut, dass...），再提一个具体问题（Was meinst du zu...?）。让对话继续下去。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">反馈表达</span></div>
+      <div class="bx-row"><span class="lbl">肯定</span><span class="zh">"Das war ein interessanter Vortrag." / "Ich fand gut, dass..."</span></div>
+      <div class="bx-row"><span class="lbl">疑问</span><span class="zh">"Darf ich noch etwas fragen?" / "Was meinst du zu...?"</span></div>
+      <div class="bx-row"><span class="lbl">共鸣</span><span class="zh">"Sehr spannend, danke!" 收尾自然。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>别只夸不说话、也别只问不夸——反馈=肯定+问题，缺一不可。</div></div>
+  </div>
+
+
   <!-- ═══════════ 交互 JS 助手 ═══════════ -->
   <script>
     // 写作范文折叠开关
@@ -5846,6 +6241,14 @@ document.addEventListener('keydown', function(e) {
         scoreEl.innerHTML = '✅ ' + correct + '/' + total + ' (' + pct + '%)';
         scoreEl.className = 'bp-score ' + (pct >= 60 ? 'ok' : 'bad');
       }
+    };
+    // 讲解面板开合：btn 用 onclick=\"b1pfExplain(this,'targetId')，文本切换
+    window.b1pfExplain = function(btn, targetId){
+      var el = document.getElementById(targetId);
+      if(!el) return;
+      var open = el.style.display === 'block';
+      el.style.display = open ? 'none' : 'block';
+      if(btn) btn.textContent = open ? '📖 答案解析' : '📖 收起讲解';
     };
     // 章节内二级锚点平滑滚动（懒加载实例化后定义，防止与旧逻辑冲突）
     window.b1pfAddAnchors = function(){
