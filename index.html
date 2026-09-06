@@ -5278,6 +5278,13 @@ document.addEventListener('keydown', function(e) {
   #page-b1pruefung th{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
   #page-b1pruefung td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.1);color:#e2e8f0}
   #page-b1pruefung tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+  /* 长德语词自动换行，避免广告表格/讲解表格在窄屏撑破容器出现横向滚动条 */
+  #page-b1pruefung .bp-box table, #page-b1pruefung .bp-explain table,
+  #page-b1pruefung .bp-ex table{overflow-wrap:break-word;word-break:break-word}
+  #page-b1pruefung .bp-box table td, #page-b1pruefung .bp-explain table td,
+  #page-b1pruefung .bp-ex table td{overflow-wrap:break-word;word-break:break-word;white-space:normal}
+  /* 广告表格首列(广告字母)不再占用多余宽度 */
+  #page-b1pruefung .bp-box table td:first-child{width:24px;min-width:24px;white-space:nowrap}
   /* 口语/写作提示卡 */
   #page-b1pruefung .bp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
   #page-b1pruefung .bp-chip{background:rgba(99,179,237,.12);border:1px solid rgba(99,179,237,.3);color:#9bd0f5;padding:4px 13px;border-radius:16px;font-size:.83rem}
