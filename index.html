@@ -6394,7 +6394,8 @@ document.addEventListener('keydown', function(e) {
 @media(max-width:600px){#page-b2lesen .b2l-tbl-wrap table{font-size:.8rem;min-width:520px}}
 
 /* ── B2 词汇侧栏（桌面粘性 + 移动抽屉） ── */
-#page-b2lesen .b2l-vocab-fab{position:fixed;right:16px;bottom:82px;z-index:8800;width:54px;height:54px;border-radius:50%;border:none;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-size:26px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.4);cursor:pointer;display:none;align-items:center;justify-content:center}
+/* 桌面宽屏：按键朝居中正文（860px 列）右缘靠拢，窄屏时回退到视口右下角，避免被推到页面外 */
+#page-b2lesen .b2l-vocab-fab{position:fixed;right:max(16px,calc(50vw - 498px));bottom:82px;z-index:8800;width:54px;height:54px;border-radius:50%;border:none;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-size:26px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.4);cursor:pointer;display:none;align-items:center;justify-content:center}
 #page-b2lesen .b2l-vocab-fab:hover{transform:translateY(-1px)}
 #page-b2lesen .b2l-vocab-panel{position:fixed;top:0;right:0;height:100vh;width:min(90vw,420px);background:#12233f;color:#eef2f8;z-index:8900;transform:translateX(105%);transition:transform .32s ease;box-shadow:-6px 0 24px rgba(0,0,0,.5);display:flex;flex-direction:column;border-left:1px solid rgba(246,211,101,.2)}
 #page-b2lesen .b2l-vocab-panel.open{transform:translateX(0)}
@@ -6432,6 +6433,11 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern b{color:#92400e;font-weight:600}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern{word-break:break-word;overflow-wrap:anywhere}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-vp-sec{font-weight:800;color:#7a4a08;margin:8px 0 3px;border-top:1px dashed #e0cf9a;padding-top:5px;font-size:.86rem}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern table.b2l-vp-tbl td{vertical-align:top}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern table.b2l-vp-tbl td.b2l-vp-w{width:33%}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-vp-form{color:#8a5a12;font-size:.76rem}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-vp-def{color:#5f5340;font-size:.76rem;font-style:italic}
+#page-b2lesen .b2l-vocab-panel .b2l-vp-lern .b2l-vp-ex{color:#6b5440;font-size:.78rem;margin-top:3px;line-height:1.5;font-style:italic}
 /* 回退白卡里的表格也不横向滚 */
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card .b2l-tbl-wrap{overflow-x:visible}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card table{word-break:break-word;overflow-wrap:anywhere;table-layout:fixed;width:100%}
@@ -6444,12 +6450,14 @@ document.addEventListener('keydown', function(e) {
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card td,#page-b2lesen .b2l-vocab-panel .b2l-vp-card th{border:1px solid #e2e8f0;padding:5px 7px;vertical-align:top}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card th{background:#f1f5f9;font-weight:700;color:#374151}
 #page-b2lesen .b2l-vocab-panel .b2l-vp-card em{color:#5a6a7d}
-/* 桌面：正文右侧留白，侧栏粘性常驻 */
+/* 桌面：词汇面板按需展开，正文让位并排（不遮挡不变暗）；收起即全宽 */
 @media(min-width:1100px){
-  #page-b2lesen{padding-right:444px !important}
-  #page-b2lesen .b2l-vocab-panel{right:16px;top:14px;height:calc(100vh - 28px);width:400px;border-radius:14px;transform:none}
-  #page-b2lesen .b2l-vocab-fab{display:none}
+  #page-b2lesen{transition:padding-right .3s ease}
+  #page-b2lesen.b2l-vocab-expanded{padding-right:444px !important}
+  #page-b2lesen .b2l-vocab-fab{display:flex}
   #page-b2lesen .b2l-vocab-backdrop{display:none}
+  #page-b2lesen .b2l-vocab-panel{right:16px;top:14px;height:calc(100vh - 28px);width:400px;border-radius:14px}
+  #page-b2lesen.b2l-vocab-expanded .b2l-vocab-fab{display:none}
 }
 /* 移动：显示浮动按钮，面板为抽屉 */
 @media(max-width:1099.9px){
@@ -19529,12 +19537,16 @@ showB2LArticle('');
     if (p) p.classList.add('open');
     var b = document.getElementById('b2l-vocab-backdrop');
     if (b) b.classList.add('show');
+    var pg = document.getElementById('page-b2lesen');
+    if (pg) pg.classList.add('b2l-vocab-expanded');
   };
   window.b2lVocabClose = function(){
     var p = document.getElementById('b2l-vocab-panel');
     if (p) p.classList.remove('open');
     var b = document.getElementById('b2l-vocab-backdrop');
     if (b) b.classList.remove('show');
+    var pg = document.getElementById('page-b2lesen');
+    if (pg) pg.classList.remove('b2l-vocab-expanded');
   };
 
   /* 把词汇语法表格转成“预习笔记”同款圆点列表（词 · 中文 · 德文释义），一屏内无横向滚动 */
@@ -19575,6 +19587,52 @@ showB2LArticle('');
     return out;
   }
 
+  /* 桌面并排：词汇表格转成紧凑两列卡（词形 | 中文·释义·例句），400px 面板内无横向滚动 */
+  function vocabCards(vid, inner){
+    var tmp = document.createElement('div');
+    tmp.innerHTML = inner;
+    var rows = tmp.querySelectorAll('tr');
+    var out = '<table class="b2l-vp-tbl">';
+    for (var r=0;r<rows.length;r++){
+      if (rows[r].querySelector('th')) continue;
+      var tds = rows[r].querySelectorAll('td');
+      if (!tds.length) continue;
+      if (tds[0].getAttribute('colspan')){
+        out += '<tr><td class="b2l-vp-sec" colspan="2">' + tds[0].textContent.trim() + '</td></tr>';
+        continue;
+      }
+      if (vid === 'b2l-k10-wort-vocab'){
+        var fam = tds[0].textContent.trim();
+        var list = tds[1] ? tds[1].textContent.trim() : '';
+        var zhw = tds[2] ? tds[2].textContent.trim() : '';
+        out += '<tr><td class="b2l-vp-w"><b>' + fam + '</b></td><td>' + list + (zhw ? ' — <b>' + zhw + '</b>' : '') + '</td></tr>';
+        continue;
+      }
+      var wEl = tds[0].querySelector('strong');
+      var wText = wEl ? wEl.textContent.trim() : tds[0].textContent.replace(/\s+/g,' ').trim();
+      var fmEl = tds[0].querySelector('em');
+      var forms = fmEl ? fmEl.textContent.trim() : '';
+      if (forms && forms.charAt(0) !== '(') forms = '(' + forms + ')';
+      var zh = '', def = '';
+      var m1 = tds[1];
+      if (m1){
+        var ze = m1.querySelector('.b2l-zh');
+        var de = m1.querySelector('.b2l-def');
+        if (ze) zh = ze.textContent.trim();
+        if (de) def = de.textContent.trim();
+        if (!zh && !def) zh = m1.textContent.trim();
+      }
+      var ex = tds[2] ? tds[2].textContent.trim() : '';
+      var left = '<b>' + wText + '</b>' + (forms ? ' <span class="b2l-vp-form">' + forms + '</span>' : '');
+      var right = zh;
+      if (def) right += ' <span class="b2l-vp-def">(' + def + ')</span>';
+      if (ex) right += '<div class="b2l-vp-ex">' + ex + '</div>';
+      out += '<tr><td class="b2l-vp-w">' + left + '</td><td>' + right + '</td></tr>';
+    }
+    out += '</table>';
+    return out;
+  }
+
   window.b2lSyncVocab = function(forcedId){
     var panel = document.getElementById('b2l-vocab-panel');
     if (!panel) return;
@@ -19609,9 +19667,14 @@ showB2LArticle('');
     var html = '';
     if (lern) html += '<div class="b2l-vp-lern">' + lern.innerHTML + '</div>';
     if (vocabDivs.length){
-      var bullets = '';
-      for (var k=0;k<vocabDivs.length;k++) bullets += vocabBullets(vocabDivs[k].id, vocabDivs[k].innerHTML);
-      html += '<div class="b2l-vp-lern"><strong>📚 词汇语法 / Wortschatz：</strong><br>' + bullets + '</div>';
+      /* 桌面并排 → 两列卡；移动抽屉 → 圆点列表 */
+      var desktop = window.innerWidth >= 1100;
+      var made = '';
+      for (var k=0;k<vocabDivs.length;k++){
+        made += desktop ? vocabCards(vocabDivs[k].id, vocabDivs[k].innerHTML)
+                        : vocabBullets(vocabDivs[k].id, vocabDivs[k].innerHTML);
+      }
+      html += '<div class="b2l-vp-lern"><strong>📚 词汇语法 / Wortschatz：</strong><br>' + made + '</div>';
     } else {
       /* 无独立词汇块 → 回退显示卡片自身内容（gram 总结 / wort 词汇表等模块） */
       var cb = card.querySelector('.b2l-card-body');
