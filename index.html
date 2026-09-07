@@ -4347,8 +4347,8 @@ function createLoginPromptCard() {
 	    c1:"#0c4a6e", c2:"#0ea5e9", locked:false },
 
 	    { id:"b1pruefung", icon:"📝", navLabel:"B1模拟考试", cardTitleDe:"B1 Modelltest", cardSubDe:"Lesen · Hören · Schreiben · Sprechen — Goethe B1 Prüfungssimulation", cardTitle:"B1模拟考试", group:"b1",
-    hubStep:5, hubSkill:"Test", hubSkillZh:"模拟考试", hubAccent:"#a78bfa", hubTip:"考前冲刺：完整还原歌德 B1 听说读写 · 实时判分 · 含范文",
-    desc:"B1模拟考试 · 歌德 B1 完整还原 · 阅读可判分+听力+写作范文+口语表达",
+    hubStep:5, hubSkill:"Test", hubSkillZh:"模拟考试", hubAccent:"#a78bfa", hubTip:"考前冲刺：两套完整模考，一台页内切换 · 听说读写 · 实时判分 · 含范文",
+    desc:"B1模拟考试 · 两套官方模考(Tab切换) · 阅读可判分+听力+写作范文+口语表达",
     tags:"歌德B1 · 模拟考试 · 听说读写 · 实时判分",
     c1:"#6b21a8", c2:"#a78bfa", locked:false },
 // ── B2 中高级 ──
@@ -5310,7 +5310,13 @@ document.addEventListener('keydown', function(e) {
     #page-b1pruefung .mcq-options label{font-size:.8rem;padding:.35rem .7rem}
   }
 </style>
-
+<style>
+  #page-b1pruefung .bp-tabs{display:flex;gap:10px;margin:0 0 24px;justify-content:center;flex-wrap:wrap}
+  #page-b1pruefung .bp-tab{background:rgba(255,255,255,.06);border:1px solid rgba(246,211,101,.2);color:#cbd5e1;padding:10px 22px;border-radius:14px;font-size:.95rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+  #page-b1pruefung .bp-tab.active{background:linear-gradient(90deg,#2c5f8a,#63b3ed);color:#fff;border-color:rgba(246,211,101,.55);box-shadow:0 4px 14px rgba(44,95,138,.45)}
+  #page-b1pruefung .bp-tab:hover{background:rgba(246,211,101,.14)}
+  @media(max-width:600px){ #page-b1pruefung .bp-tab{font-size:.85rem;padding:8px 14px} }
+</style>
 <div class="bp-wrap" id="b1pruefung-top">
 
   <!-- ═══════════ 页头 ═══════════ -->
@@ -5320,7 +5326,14 @@ document.addEventListener('keydown', function(e) {
     <p>B1 Modelltest — 完整还原歌德 B1 考试 · 听说读写四大模块 · 计时自测 · 实时判分</p>
   </div>
 
-  <!-- ═══════════ 考试结构速览 ═══════════ -->
+  
+  <div class="bp-tabs" id="b1pr-tabs">
+    <button class="bp-tab active" data-set="1" type="button">📝 模考一 · Modellsatz 1</button>
+    <button class="bp-tab" data-set="2" type="button">📝 模考二 · Modellsatz 2</button>
+  </div>
+
+  <div id="bp-set1">
+<!-- ═══════════ 考试结构速览 ═══════════ -->
   <div class="bp-box gold">
     <span class="lbl">📋 考试构成 / Prüfungsformat:</span><br>
     歌德 B1 考试共 <strong>四大模块</strong>，<strong>及格线 60 分（满分 100）</strong>。每个模块独立计分，可分开报考。<br>
@@ -6236,63 +6249,773 @@ document.addEventListener('keydown', function(e) {
     </div>
   </div>
 
+
+  </div>
+
+  <div id="bp-set2" style="display:none">
+<!-- ═══════════ 考试结构速览 ═══════════ -->
+  <div class="bp-box gold">
+    <span class="lbl">📋 考试构成 / Prüfungsformat:</span><br>
+    歌德 B1 考试共 <strong>四大模块</strong>，<strong>及格线 60 分（满分 100）</strong>。每个模块独立计分，可分开报考。<br>
+    🇩🇪 <strong>Lesen</strong> 阅读 65 分钟 · 5 部分 30 题 &nbsp;|&nbsp; <strong>Hören</strong> 听力 40 分钟 · 4 部分 &nbsp;|&nbsp; <strong>Schreiben</strong> 写作 60 分钟 · 3 题 &nbsp;|&nbsp; <strong>Sprechen</strong> 口语 15 分钟 · 3 部分
+  </div>
+
+  <!-- 模块导航 -->
+  <div class="bp-modnav">
+    <a href="#bp2-lesen"><div class="m-icon">📖</div><div class="m-t">Lesen 阅读</div><div class="m-d">65min · 5 部分 30 题 · 可判分</div></a>
+    <a href="#bp2-hoeren"><div class="m-icon">🎧</div><div class="m-t">Hören 听力</div><div class="m-d">40min · 4 部分 · 判断/选择</div></a>
+    <a href="#bp2-schreiben"><div class="m-icon">✍️</div><div class="m-t">Schreiben 写作</div><div class="m-d">60min · 3 题 · 含范文</div></a>
+    <a href="#bp2-sprechen"><div class="m-icon">🗣️</div><div class="m-t">Sprechen 口语</div><div class="m-d">15min · 3 部分 · 双人</div></a>
+  </div>
+
+  <!-- 使用说明 -->
+  <div class="bp-box blue">
+    <span class="lbl">💡 使用方法</span>
+    1. 建议按真实考试顺序：先阅读理解，再听力，最后写作、口语；每模块计时完成<br>
+    2. 选择题/判断题可<strong>点击判分</strong>；写作和口语提供题目+参考范文<br>
+    3. 本套为歌德官方 <strong>Modellsatz Erwachsene</strong>，内容 1:1 复刻原题，适合考前限时自测<br>
+    4. 对完答案后点「📖 答案解析」看逐题精讲，弄清错因
+  </div>
+  <!-- ═══════════════════════════ 📖 LESEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp2-lesen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">📖</div><div><h2>Lesen · 阅读理解</h2><div class="sub">Goethe-Zertifikat B1 · 5 Teile · 30 Aufgaben · 65 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 阅读共 5 部分、30 题、65 分钟。及格需至少做对 <strong>18 题</strong>。词典和手机不允许使用。每部分先读题再读文。
+    </div>
+    <div class="bp-box blue">
+      <span class="lbl">🧭 实战策略 / Lesestrategien</span> 不同部分用不同读法，这是拿分关键：<br>
+      <table>
+        <tr><th>部分</th><th>文章</th><th>策略</th></tr>
+        <tr><td>Teil 1</td><td>博客/邮件/信件</td><td>先读 6 判断题，抓"人物+观点"，找出原文对应句</td></tr>
+        <tr><td>Teil 2</td><td>报刊短文 ×2</td><td>第 1 题抓主旨(首尾段)，第 2 题回文定位细节</td></tr>
+        <tr><td>Teil 3</td><td>广告 + 需求匹配</td><td>先圈 7 个需求的核心词，再扫 10 则广告找同义词</td></tr>
+        <tr><td>Teil 4</td><td>读者来信 ×7</td><td>读核心观点句(常开头)，警惕题目把观点反过来说</td></tr>
+        <tr><td>Teil 5</td><td>公告/说明</td><td>逐条按序号扫，答案几乎在每条里</td></tr>
+      </table>
+    </div>
+
+    <!-- ── Teil 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Richtig / Falsch</strong> — Sie lesen einen Bericht. Dazu lösen Sie sechs Aufgaben. Richtig ✓ oder Falsch ✗? 阅读一篇生活经历博客，完成 6 道判断题。</div>
+      <div class="bp-box"><strong>📄 Text:</strong> <em>Susannes Alltagsblog — Ein verlorener Geldbeutel</em><br>
+        Donnerstag, den 23. Juni. Was mir heute passiert ist, das glaubt mir keiner: Als ich zu Mittag nichts ahnend in der Küche beim Kochen stand, läutete mein Handy. Eine Frauenstimme erklärte mir, dass meine Brieftasche in der Bankfiliale abgegeben worden war und ich sie dort abholen könnte. Mir wurde ganz heiß – mir war noch gar nicht aufgefallen, dass sie fehlte. Und ich hatte ja auch noch relativ viel Bargeld eingesteckt!<br><br>
+        Schnell holte ich meine Handtasche hervor und suchte nach der Brieftasche. Es stimmte! Auch nach längerem Kramen in der Tasche konnte ich sie nicht finden. Mein Geld war tatsächlich verschwunden!<br><br>
+        Ich machte mich also auf den Weg zur Bank und überlegte, wo ich meine Brieftasche liegen gelassen hatte: Sicherlich im Supermarkt an der Kasse. Jedenfalls kam ich bei der Bank an und war schon gespannt darauf zu erfahren, wo meine Brieftasche gefunden worden war und natürlich, ob etwas fehlte. Die Bankangestellte teilte mir mit, dass ein junger Mann die Brieftasche abgegeben hatte. Er hatte sie auf dem Parkplatz vor dem Supermarkt gefunden und wollte sie eigentlich ins Fundbüro bringen – wie man es in so einem Fall eben macht. Der Weg dorthin war für ihn zu weit und so suchte er nach einer anderen Möglichkeit, mir die Brieftasche zurückzugeben.<br><br>
+        Das muss man sich einmal vorstellen: Er war so clever, dass er auf der Bankomatkarte nach meinem und dem Namen meiner Bank suchte… Die Bank würde ja die Kontaktdaten zu meinem Namen haben und könnte mich so anrufen. Er fuhr in die nächste Filiale meiner Bank und dank der Computervernetzung der Filialen konnte meine Telefonnummer schnell herausgefunden werden. Da stand ich nun mit meiner Brieftasche, die mir beim Verlassen des Supermarktes aus der Handtasche gerutscht sein muss. Zum Glück war alles noch da! Ich bin sooo froh, dass diese Episode so gut ausgegangen ist.<br><br>
+        Nun weiß ich leider gar nicht, wie ich dem ehrlichen Finder danken kann. Vielleicht liest er ja diesen Blogeintrag oder es liest ihn jemand, dem er die Geschichte erzählt hat: „Vielen, vielen Dank, lieber Finder!“&nbsp;&nbsp;Bis bald, eure Susanne&nbsp;&nbsp;·&nbsp;&nbsp;SusannesAlltagsBlog.at</div>
+      <div class="mcq-list" id="bp2-l1-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1.</strong> Erst durch den Anruf bemerkte Susanne das Fehlen ihrer Brieftasche.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Susanne glaubte, die Brieftasche beim Bezahlen vergessen zu haben.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q2" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q2" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3.</strong> Der Finder hatte die Brieftasche ins Fundbüro gebracht.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> Die Telefonnummer der Bank war in der Brieftasche.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q4" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q4" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5.</strong> In Susannes Brieftasche fehlte nichts.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Susanne konnte dem Finder persönlich für seine Ehrlichkeit danken.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l1-q6" value="A"> A) Richtig</label><label><input type="radio" name="bp2-l1-q6" value="B"> B) Falsch</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-l1-mcq','bp2-l1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-l1-mcq','bp2-l1-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-l1-explain')">📖 答案解析</button><span class="bp-score" id="bp2-l1-score"></span></div>
+      <div class="bp-explain" id="bp2-l1-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 1 (博客/信件 · Richtig/Falsch)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给你一篇德语博客自述，6 道判断题，考你能不能从原文找到对应依据。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">判断题口诀——"去原文找那句"。题目用的词可能和原文不同（同义替换）。看到 <strong>immer / nie / alle</strong> 这类绝对词要警惕。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"mir war noch gar nicht aufgefallen, dass sie fehlte."</span><span class="zh">（我根本没注意到钱包不见了）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她是接到电话才意识到钱包没了的，题目对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"ich überlegte, wo ich sie liegen gelassen hatte: Sicherlich im Supermarkt an der Kasse."</span><span class="zh">（我回想：肯定落在超市收银台）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"买单时(Waren bezahlen)"= 摆在收银台，她确实这么以为，对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Er wollte sie eigentlich ins Fundbüro bringen – der Weg war ihm zu weit."</span><span class="zh">（他本来想送失物招领处，但路太远）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他<strong>没</strong>送失物招领处，改送银行，故错。反义陷阱。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"er suchte auf der Bankomatkarte nach meinem Namen und dem Namen meiner Bank."</span><span class="zh">（他在银行卡上找到我的名字和 bank名）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">卡上有的是姓名和银行名，不是"银行的电话号码"，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Zum Glück war alles noch da!"</span><span class="zh">（幸好都还在！）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"什么都没丢"= alles noch da，对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Nun weiß ich leider gar nicht, wie ich dem Finder danken kann."</span><span class="zh">（我不知道怎么当面感谢他）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她只能凭博客隔空感谢，当面(persönlich)没法，故错。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Teil 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Multiple Choice (a/b/c)</strong> — Sie lesen zwei Texte. Zu jedem Text drei Aufgaben. 阅读两篇短文，每篇 3 道选择。</div>
+      <div class="bp-box"><strong>📄 Text A:</strong> <em>Ein Dorf für grüne Energie</em><br>
+        Das Dorf Feldheim in Brandenburg macht sich unabhängig von Öl und Kohle. Seit Kurzem deckt das Dorf seinen kompletten Strombedarf und drei Viertel des Wärmebedarfs durch moderne Energien. „Das funktioniert mithilfe einer modernen Anlage für Bio-Gas“, erklärt der Diplom-Physiker Eckhard Meier. „Da kommen Abfall von den Tieren, Getreide und Holz rein und werden erwärmt. Ein Motor verbrennt das Gas und erzeugt dabei Wärme. Der Motor treibt dann einen Generator an, der Strom produziert.“<br><br>
+        Entstanden ist die Idee des „Bio-Energiedorfs“ an der Universität Göttingen. Ziel der Wissenschaftler war es zu zeigen, dass es möglich ist, ein Dorf komplett mit erneuerbaren Energien zu versorgen und damit einen Beitrag zum Klimaschutz zu leisten. Tatsächlich: Die Bio-Gasanlage erzeugt jährlich doppelt so viel Strom wie die Gemeinde verbraucht. Der Rest wird in das Stromnetz abgegeben und kostenlos anderen Dörfern zur Verfügung gestellt.<br><br>
+        Passt das Konzept auch für andere Dörfer? „Im Prinzip schon“, meint Eckhard Meier. Die technischen Anlagen könnten an anderen Orten genauso aufgebaut werden – der Raumbedarf ist gering. Man benötigt allerdings vor allem eines: aktive und begeisterte Einwohner!</div>
+      <div class="mcq-list" id="bp2-l2-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> In diesem Text geht es um …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q1" value="A"> A) die neue Technologie von Eckhard Meier</label><label><input type="radio" name="bp2-l2-q1" value="B"> B) die umweltfreundliche Stromproduktion in Feldheim</label><label><input type="radio" name="bp2-l2-q1" value="C"> C) einen Studiengang an der Universität Göttingen</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Die Wissenschaftler wollten zeigen, dass …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q2" value="A"> A) ein ganzes Dorf von modernen Energien leben kann</label><label><input type="radio" name="bp2-l2-q2" value="B"> B) eine Bio-Gasanlage mehr Strom produziert, als ein Dorf braucht</label><label><input type="radio" name="bp2-l2-q2" value="C"> C) man größere Mengen Strom sparen kann</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>3.</strong> Damit die Idee auch in anderen Dörfern funktioniert, …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q3" value="A"> A) benötigt man viel Geld</label><label><input type="radio" name="bp2-l2-q3" value="B"> B) braucht man genug Platz für die Technik</label><label><input type="radio" name="bp2-l2-q3" value="C"> C) muss die Bevölkerung dafür sein</label></div></div>
+      </div>
+
+      <div class="bp-box" style="margin-top:16px"><strong>📄 Text B:</strong> <em>Tour durch Murtens Geschichte</em><br>
+        Mit der Rundfahrt „Zeitreise per Velo*“ können Touristen das Städtchen Murten und seine Geschichte sportlich neu entdecken. Die Tour startet am Bahnhof von Murten, wo die sportlichen Teilnehmer auf das eigene oder ein gemietetes Velo steigen. Die weniger sportlichen und jene, die es schon immer ausprobieren wollten, steigen aufs Elektro-Velo. Dieses kann ebenfalls am Bahnhof gemietet werden.<br><br>
+        Vom Bahnhof führt der Weg auf den historischen Hügel, wo Karl der Kühne sein Hauptquartier aufbaute, bevor sein Heer im Jahr 1476 besiegt wurde. Die Sportlichen kommen bei der Fahrt auf den Hügel ins Schwitzen, während die E-Biker ganz einfach den Elektromotor nutzen. Oben angekommen kann man die wunderbare Aussicht auf den Murtensee genießen. Nach einer kurzen Pause geht es weiter nach Merlach. Dort steht ein Denkmal für Soldaten, die in der Schlacht bei Murten 1476 umgekommen sind. Danach geht die Fahrt zum Hafen und in die Altstadt. Unterwegs erfahren die Velofahrer vieles über die Region.<br><br>
+        „Mit der Velorundfahrt für Gruppen wollen wir unser Angebot für aktive Radfahrer erweitern“, sagt der Geschäftsführer von Murten Tourismus. Damit soll sowohl das Gebiet für Velo-Touristen interessant gemacht als auch der Trend zum E-Bike unterstützt werden.<br>
+        <span class="bp-grad">*Velo = Schweizer Standard für „Fahrrad“</span></div>
+      <div class="mcq-list" id="bp2-l2b-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> In diesem Text geht es darum, dass …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q4" value="A"> A) die Geschichte von Murten neu erzählt wird</label><label><input type="radio" name="bp2-l2-q4" value="B"> B) es ein neues Tourismus-Angebot gibt</label><label><input type="radio" name="bp2-l2-q4" value="C"> C) man in Murten neue Velo-Wege bauen will</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5.</strong> Für die Rundfahrt …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q5" value="A"> A) braucht man ein eigenes Velo</label><label><input type="radio" name="bp2-l2-q5" value="B"> B) muss man nicht sportlich sein</label><label><input type="radio" name="bp2-l2-q5" value="C"> C) sollte man mit der Bahn anreisen</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>6.</strong> Der Geschäftsführer von Murten Tourismus will, dass …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l2-q6" value="A"> A) es in Murten mehr Stadtführungen für Gruppen gibt</label><label><input type="radio" name="bp2-l2-q6" value="B"> B) die Leute normale Velos statt Elektro-Velos benutzen</label><label><input type="radio" name="bp2-l2-q6" value="C"> C) mehr Velo-Touristen in die Region kommen</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-l2-mcq','bp2-l2-score')">✓ 判分</button><button class="bp-btn" onclick="b2lCheckMCQ('bp2-l2b-mcq','bp2-l2b-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-l2-mcq','bp2-l2-score');b2lResetMCQ('bp2-l2b-mcq','bp2-l2b-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-l2-explain')">📖 答案解析</button><span class="bp-score" id="bp2-l2-score"></span><span class="bp-score" id="bp2-l2b-score"></span></div>
+      <div class="bp-explain" id="bp2-l2-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 2 (报刊文章 · a/b/c 单选)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">两篇短文，每篇 3 题，第 1 题主旨、后 2 题细节。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">先读第 1 题抓主旨，细节题<strong>回文定位</strong>。干扰项常是"文中提过但答非所问"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">B · 绿色电力生产</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das Dorf Feldheim macht sich unabhängig von Öl und Kohle."</span><span class="zh">（村庄摆脱对油和煤的依赖）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">全文讲 Feldheim 用可再生能源发电，B 最准。A 是 Meier 的技术但太窄，C 是来源不是主题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">A · 村庄靠现代能源</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ziel war zu zeigen, dass es möglich ist, ein Dorf komplett mit erneuerbaren Energien zu versorgen."</span><span class="zh">（目标是证明一个村庄能完全靠再生能源运作）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">B 是事实不是"想证明的"，C"省电"没提，选 A。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">C · 需要居民配合</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Man benötigt vor allem eines: aktive und begeisterte Einwohner!"</span><span class="zh">（最需要的是积极热心的居民！）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"占地方少"(B错)、"要很多钱"(A错)，关键是居民(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">B · 新旅游项目</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Mit der Velorundfahrt wollen wir unser Angebot für aktive Radfahrer erweitern."</span><span class="zh">（自行车环游要给活跃骑手扩新项目）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">主旨是"新旅游体验"，B；A"重述历史"、C"修新路"都不对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">B · 不必须运动</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Die weniger sportlichen steigen aufs Elektro-Velo."</span><span class="zh">（不擅长运动的骑电动自行车）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">有电动自行车可选，所以不必很运动(B)。A"自己的车"可租，C 未提。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">C · 更多骑行游客</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Damit soll das Gebiet für Velo-Touristen interessant gemacht werden."</span><span class="zh">（想让这片区更吸引骑行游客）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">目的就是吸引更多 Velo 游客(C)。A、B 都与"目的"相反/无关。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Teil 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Zuordnung (匹配题)</strong> — Sie lesen zehn Anzeigen und sieben Situationen. Ordnen Sie zu: Welche Anzeige passt zu welcher Person? 阅读 10 则德语广告，为 7 个生活需求匹配正确的广告。</div>
+      <div class="bp-box" style="font-size:.87rem;line-height:1.85">
+        <strong>🏷️ Inserate (A–J):</strong> Diesmal suchen mehrere Deutschlernende nach passenden Angeboten. Lesen Sie zuerst die sieben Situationen, dann die Anzeigen. 阅读 10 则广告，
+        <div class="bp-ads-title">📌 Klicken &amp; Zuordnen — 阅读时注意每则广告的关键词</div>
+        <div class="bp-ads">
+          <div class="bp-ad"><div class="ad-l">A</div><div class="ad-b"><span class="ad-t">Neu im Verlagsprogramm: Schweizer Autoren, leicht gemacht</span>Nach 100 Lernstunden schon literarische Kurzgeschichten, Romane und Gedichte lesen? Kein Problem! Die Reihe „Schweizer Autoren, leicht gemacht" bietet Deutschlernern vereinfachte Originalversionen für uneingeschränktes Lesevergnügen. www.schweizer-leseverlag.ch</div></div>
+          <div class="bp-ad"><div class="ad-l">B</div><div class="ad-b"><span class="ad-t">Trainingsprogramm Deutsch</span>Sie wollen Ihre Sprachkenntnisse verbessern, haben aber keine Zeit für Kurse? Dann lernen Sie Deutsch im Internet! Unser Lernportal bietet Ihnen gratis: 10 Kurslektionen für Anfänger und Fortgeschrittene, Erklärungen zur Grammatik, alle Übungen online verfügbar. www.sprachenlernen.de</div></div>
+          <div class="bp-ad"><div class="ad-l">C</div><div class="ad-b"><span class="ad-t">DEUTSCH IN DER SCHWEIZ</span>Unser Angebot: Intensivkurse mit 20–30 Wochenstunden, Schreibkurse (auch als Fernstudium!), Sommerkurse für Jugendliche und Erwachsene (mit Freizeitprogramm), Kurs: Deutsch im Hotel. Wir bieten nur Tageskurse an! www.deutschinderschweiz.ch</div></div>
+          <div class="bp-ad"><div class="ad-l">D</div><div class="ad-b"><span class="ad-t">Job &amp; Sprache-Net</span>Wir bieten Jobs für Deutschlernende in Deutschland, Österreich und in der Schweiz. Perfektionieren Sie Ihre Sprachkenntnisse und sammeln Sie Erfahrungen in den Arbeitsbereichen Hotel und Restaurant. Dauer: bis zu 3 Monate (Juni–August). Kosten für Unterkunft und Verpflegung werden übernommen. Informationen: www.jobundsprache-net.com</div></div>
+          <div class="bp-ad"><div class="ad-l">E</div><div class="ad-b"><span class="ad-t">Sprachschule ORION</span>sucht engagierte Trainer und Trainerinnen (Vollzeit). Kurszeiten von 8:00–17:00 Uhr, Niveaus A1–C1, allgemeine und berufsbezogene Sprachkurse (z. B. Deutsch für den Tourismus). Bewerbungen an: office@deutschintensiv.de</div></div>
+          <div class="bp-ad"><div class="ad-l">F</div><div class="ad-b"><span class="ad-t">Deutsch erLesen</span>Das Magazin Deutsch erLesen richtet sich an Deutschinteressierte im In- und Ausland. Es erscheint einmal im Monat und enthält aktuelle Originalartikel aus der deutschen Presse. Deutschland erfahren &amp; Deutsch lernen! Bestellen Sie noch heute Ihr Probeexemplar: info@deutsch-erlesen.de</div></div>
+          <div class="bp-ad"><div class="ad-l">G</div><div class="ad-b"><span class="ad-t">Verlag für deutsche Literatur</span>sucht Lektor/Lektorin für die Auswahl und Korrektur von Werken junger deutscher Autoren. Unser Verlagsprogramm umfasst Romane, Gedichtbände und Hörbücher. Schicken Sie Ihre Bewerbung an: junge-literatur@berlin.de</div></div>
+          <div class="bp-ad"><div class="ad-l">H</div><div class="ad-b"><span class="ad-t">Deutsch in Linz</span>Deutsch-Intensivkurse. Mo bis Fr von 9:30–13 Uhr und von 14:00–17 Uhr. Kurse für Berufstätige: Für Berufstätige und Vielbeschäftigte bieten wir flexible Kurszeiten an (Termine nach Wunsch). Online-Einstufungstest auf www.deutschinlinz-schule.at</div></div>
+          <div class="bp-ad"><div class="ad-l">I</div><div class="ad-b"><span class="ad-t">Sprache und Kultur in Wien</span>Deutschkurse ganzjährig! Spezialangebote für den Sommer. Infos unter: www.sprache-kultur@aon.at</div></div>
+          <div class="bp-ad"><div class="ad-l">J</div><div class="ad-b"><span class="ad-t">Neues Computerprogramm von DIGITAL LEARNING</span>Für Büromanagement und Buchhaltung in englischer und deutscher Sprache. Ab sofort im Buchhandel erhältlich. Infos: software@digital-learning.net</div></div>
+        </div>
+      </div>
+      <div class="bp-box blue"><strong>👤 Situationen:</strong> Nach dem Ende Ihres gemeinsamen Deutschkurses möchten einige Ihrer Kolleginnen und Kollegen weiter Deutsch lernen und suchen dafür passende Möglichkeiten. 你的同学们想继续学德语，正在找合适的途径。</div>
+      <div class="mcq-list" id="bp2-l3-mcq">
+        <div class="mcq-item" data-ans="D"><div class="bp-q"><strong>1.</strong> Leon möchte im Sommer im Tourismus-Bereich arbeiten, um sein Deutsch zu verbessern.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q1" value="A"> A) F</label><label><input type="radio" name="bp2-l3-q1" value="B"> B) D</label><label><input type="radio" name="bp2-l3-q1" value="C"> C) B</label></div></div>
+        <div class="mcq-item" data-ans="0"><div class="bp-q"><strong>2.</strong> Giovanna sucht deutsche Hörbücher, damit sie unterwegs Deutsch lernen kann.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q2" value="A"> A) G</label><label><input type="radio" name="bp2-l3-q2" value="B"> B) 0 — keine passende</label><label><input type="radio" name="bp2-l3-q2" value="C"> C) I</label></div></div>
+        <div class="mcq-item" data-ans="F"><div class="bp-q"><strong>3.</strong> Mirjeta hat keine Zeit für einen Kurs, möchte sich aber regelmäßig über Neuigkeiten aus Deutschland informieren.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q3" value="A"> A) F</label><label><input type="radio" name="bp2-l3-q3" value="B"> B) C</label><label><input type="radio" name="bp2-l3-q3" value="C"> C) J</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4.</strong> Maria möchte am Computer Deutsch lernen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q4" value="A"> A) A</label><label><input type="radio" name="bp2-l3-q4" value="B"> B) B</label><label><input type="radio" name="bp2-l3-q4" value="C"> C) C</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5.</strong> Susan liest am liebsten Literatur, wenn die Texte nicht zu schwierig sind.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q5" value="A"> A) A</label><label><input type="radio" name="bp2-l3-q5" value="B"> B) G</label><label><input type="radio" name="bp2-l3-q5" value="C"> C) D</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>6.</strong> Miroslav will den schriftlichen Ausdruck verbessern, weil er im Studium viel schreiben muss.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q6" value="A"> A) E</label><label><input type="radio" name="bp2-l3-q6" value="B"> B) C</label><label><input type="radio" name="bp2-l3-q6" value="C"> C) F</label></div></div>
+        <div class="mcq-item" data-ans="H"><div class="bp-q"><strong>7.</strong> Juan kann nur am Abend einen Kurs besuchen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l3-q7" value="A"> A) I</label><label><input type="radio" name="bp2-l3-q7" value="B"> B) H</label><label><input type="radio" name="bp2-l3-q7" value="C"> C) A</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMatch('bp2-l3-mcq','bp2-l3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-l3-mcq','bp2-l3-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-l3-explain')">📖 答案解析</button><span class="bp-score" id="bp2-l3-score"></span></div>
+      <div class="bp-explain" id="bp2-l3-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 3 (广告匹配 · Zuordnung)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给 10 则广告（A-J）和 7 个生活需求，把需求配对正确广告。若没有匹配则选 <strong>0</strong>。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">先圈 7 个需求的核心（做什么、时间、人群），再扫广告找同义词。扫读，别逐字。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">D · Job &amp; Sprache-Net</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Leon 想暑假做旅游行业。D 广告给"酒店/餐厅"工作、6–8 月，命中 "Tourismus + Sommer"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">0 · 无匹配</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Giovanna 想买德语有声书。G 只是"出版社招编辑"顺带提到有 Hörbücher，不是卖书的地方；其余无 → <strong>0</strong>。</span></div>
+          <div class="bx-trap"><span class="lbl">⚠️</span>G 广告里出现 "Hörbücher" 是干扰——那是出版社的出版范围，不是给学习者买有声书的渠道。</div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">F · Deutsch erLesen</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Mirjeta 没时间上课、想定期看德国新闻。F 月刊"每月一期、德语报刊文章"，命中 " regelmäßig + Neuigkeiten"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">B · Trainingsprogramm Deutsch</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Maria 想用电脑学德语。B "Dann lernen Sie Deutsch im Internet"，网络学习即电脑，命中。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">A · Schweizer Autoren, leicht gemacht</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Susan 爱读文学、但不想要太难。A "简化版原文、轻松阅读"，命中 "Literatur + nicht schwierig"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">C · DEUTSCH IN DER SCHWEIZ</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Miroslav 想提高书面表达。C "Schreibkurse (auch als Fernstudium!)"，写作课直接对应"书面表达"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">H · Deutsch in Linz</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Juan 只有晚上能上课。H "für Berufstätige ... flexible Kurszeiten (Termine nach Wunsch)"，灵活时间可安排晚上。I 全天不写晚上。</span></div>
+          <div class="bx-trap"><span class="lbl">⚠️</span>I "Wien 暑期特价"是干扰，但没提晚上上课；H 明确"灵活时间"才对应"只能晚上"。</div></div>
+      </div>
+    </div>
+
+    <!-- ── Teil 4 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Richtig / Falsch (Ja / Nein)</strong> — Sie lesen sieben Meinungen. Entscheiden Sie: Ist die Person <strong>für</strong> oder <strong>gegen</strong> ein Verbot? 阅读 7 位读者来信，判断"该留言者是否支持禁止暴力游戏"。</div>
+      <div class="bp-box"><strong>📄 Texte:</strong> In einer Zeitschrift lesen Sie <em>Kommentare</em> zu einem Artikel über das <strong>Verbot von Videospielen</strong>, in denen viel Gewalt vorkommt (sogenannte „Killerspiele"). Entscheiden Sie bei jeder Aufgabe: <strong>Ja</strong> (die Person ist für ein Verbot) oder <strong>Nein</strong>. 阅读 7 篇读者来信，判断是否支持禁令。</div>
+      <div class="mcq-list" id="bp2-l4-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>① Stefan (19, Graz):</strong> "Ich könnte mir vorstellen, dass ein Verbot die gegenteilige Wirkung hätte, denn ein verbotenes Spiel ist doch noch interessanter als ein nicht verbotenes! Außerdem ist es gar nicht möglich, alle Killerspiele abzuschaffen, weil es davon schon viel zu viele gibt. Mein Fazit: Warum ‚Killerspiele' verbieten, wenn es im Endeffekt sowieso alle spielen und das Ganze gerade durch ein Verbot noch interessanter wird?" &nbsp;—&nbsp; <em>Ist Stefan für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q1" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q1" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>② Dagmar (23, Leipzig):</strong> "Wer entscheidet letztlich darüber, welche Spiele man nicht braucht? Dürfen diese Menschen dann auch darüber entscheiden, welche Bücher, Filme oder Musik wir nicht brauchen? Viel wichtiger ist es doch, dass Kinder und Jugendliche lernen, selbst zwischen virtueller und realer Gewalt zu unterscheiden!" &nbsp;—&nbsp; <em>Ist Dagmar für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q2" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q2" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>③ Kathleen (49, Cuxhaven):</strong> "‚Töten auf Probe' soll erlaubt sein? Das bedeutet: Mal schnell zu üben, wie man jemanden umbringt, ist eine Freizeitbeschäftigung. Wie zynisch kann man sein? Nicht jeder wird zum Glück zum Monster, der sich mit so viel Gewalt und Zerstörung beschäftigt. Die Einstellung dahinter ist aber Ausdruck einer unglaublichen Gleichgültigkeit. Das muss man stoppen, und zwar schnell." &nbsp;—&nbsp; <em>Ist Kathleen für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q3" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q3" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>④ Marius (34, St. Gallen):</strong> "Ich spiele sogenannte Killerspiele wie CaDu seit bald drei Jahren regelmässig. Ich habe eine kleine Tochter, eine Frau und einen Job und spiele für den Ausgleich. Nur weil es mal dazu kommt, dass einer auf dieser Welt das Spiel als Realität sieht und durchdreht, müssen dann all die anderen ein Verbot hinnehmen? Es wäre besser, die Altersbeschränkung auf 18 Jahre festzulegen und sie auch strikt einzuhalten." &nbsp;—&nbsp; <em>Ist Marius für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q4" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q4" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>⑤ Jonny (21, Berlin):</strong> "‚Killerspiele' machen schnell aggressiv und man wird davon abhängig. Außerdem besteht die Gefahr, dass jemand nicht mit solchen Spielen umgehen kann und zum Nachahmungstäter wird. Das sind nur zwei Gründe, warum man gegen diese Spiele endlich etwas tun sollte." &nbsp;—&nbsp; <em>Ist Jonny für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q5" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q5" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>⑥ Robert (18, Winterthur):</strong> "In dieser Diskussion fehlt immer die genaue Kenntnis! Meistens ist es bei sogenannten ‚Killerspielen' nämlich so, dass man in einem Team spielt. Ein solches Spiel stärkt also den Teamgeist. Außerdem steht die Taktik im Vordergrund und nicht eine bestimmte Methode, jemanden umzubringen. So wird das taktische bzw. logische Denken gefördert!" &nbsp;—&nbsp; <em>Ist Robert für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q6" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q6" value="B"> B) Nein</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>⑦ Marinette (38, Frankfurt):</strong> "Ich denke, dass gewisse Situationen oder Dinge einen Menschen dazu bringen können, etwas zu tun, das er sonst nicht tun würde. Das kann gerade bei sogenannten ‚Killerspielen' der Fall sein. Deshalb scheint mir ein Verbot sinnvoll zu sein, auch wenn so ein Verbot allein wahrscheinlich nicht viel nützt, denn Killerspiele sind ja nur eine ‚Inspirationsquelle' für Gewalt." &nbsp;—&nbsp; <em>Ist Marinette für ein Verbot?</em></div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l4-q7" value="A"> A) Ja</label><label><input type="radio" name="bp2-l4-q7" value="B"> B) Nein</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-l4-mcq','bp2-l4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-l4-mcq','bp2-l4-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-l4-explain')">📖 答案解析</button><span class="bp-score" id="bp2-l4-score"></span></div>
+      <div class="bp-explain" id="bp2-l4-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 4 (读者来信 · Ja/Nein)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">7 篇来信，判断"此人支持还是反对禁令"，考抓观点核心立场。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">先读留言者倾向句（常在开头或结尾），再概括其立场。有的以问句表达反对，注意语气。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">①</span><span class="bx-ans">Nein ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Stefan 反问"为何要禁？"认为禁令反而更吸引人，立场是<strong>反对</strong> → Nein。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">②</span><span class="bx-ans">Nein ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Dagmar 更主张教育孩子区分虚拟/现实，反对靠禁，观点是<strong>反对</strong> → Nein。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">③</span><span class="bx-ans">Ja ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das muss man stoppen, und zwar schnell."</span><span class="zh">（必须马上制止）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Kathleen 态度强烈，支持禁令 → Ja。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">④</span><span class="bx-ans">Nein ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Marius 反对"一刀切禁"，主张定 18 岁年龄限制，立场<strong>反对禁令</strong> → Nein。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">⑤</span><span class="bx-ans">Ja ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das sind nur zwei Gründe, warum man gegen diese Spiele endlich etwas tun sollte."</span><span class="zh">（这些就是该出手的原因）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Jonny 认定这类游戏有害，应行动 → 支持禁令 Ja。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">⑥</span><span class="bx-ans">Nein ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Robert 强调游戏有利于团队、思维，先否定"缺了解"，立场<strong>反对禁令</strong> → Nein。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">⑦</span><span class="bx-ans">Ja ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Deshalb scheint mir ein Verbot sinnvoll zu sein."</span><span class="zh">（所以禁令似乎有用）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">Marinette 认为禁令合理（尽管单独作用有限）→ 支持 Ja。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Teil 5 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 5 · Multiple Choice (a/b/c)</strong> — Sie lesen eine Anleitung. Dazu vier Aufgaben. 阅读一份学校规章公告，完成 4 道选择。</div>
+      <div class="bp-box"><strong>📄 Text:</strong> <em>HAUSORDNUNG — Dresdner Berufsbildungszentrum BZW</em><br>
+        <strong>Unterrichtszeiten:</strong> Die vereinbarten Unterrichtszeiten sind verbindlich. Ist die Lehrperson zehn Minuten nach Unterrichtsbeginn nicht da, informiert die Klassenvertretung das Sekretariat.<br>
+        <strong>Ordnung:</strong> In sämtlichen Räumen und Anlagen unserer Schule ist auf Ordnung und Sauberkeit zu achten. Schulräume, Einrichtungen und Anlagen sind sorgfältig zu benützen. Außerhalb der Unterrichtszeiten dürfen sich Lernende nicht in den Klassenräumen aufhalten. Es ist untersagt, in den Klassenräumen etwas an die Wände zu kleben oder zu schreiben und Schulmöbel in andere Räume zu bringen. Mitarbeitende und Lernende, die Schäden feststellen, melden diese dem Sekretariat.<br>
+        <strong>Störungen:</strong> Mitarbeitende und Lernende sorgen dafür, dass der Schulbetrieb nicht gestört wird.<br>
+        <strong>Alkohol- und Drogenkonsum:</strong> Der Konsum von Alkohol, illegalen Drogen sowie anderen psychoaktiven Substanzen ist auf dem gesamten Schulareal und während schulischer Veranstaltungen (einschließlich aller Pausen) verboten. In Ausnahmefällen kann die Schulleitung den Konsum von Alkohol erlauben.<br>
+        <strong>Rauchen:</strong> Rauchen ist nur im Freien beziehungsweise in den dafür vorgesehenen Zonen gestattet. Wir bitten darum, die aufgestellten Aschenbecher zu benutzen.<br>
+        <strong>Diebstahl:</strong> Es empfiehlt sich, Wertsachen und Bargeld sorgfältig aufzubewahren. Die Schule stellt den Lernenden und Mitarbeitenden kostenlos Schließfächer zur Verfügung. Für verlorene Schlüssel wird eine Gebühr von Euro 50,- erhoben. Die Schule übernimmt für Diebstähle keine Haftung.<br>
+        <strong>Fundgegenstände:</strong> Fundgegenstände bitte im Sekretariat abgeben.<br>
+        <strong>Parkplätze:</strong> Auf dem Schulareal stehen keine Gratis-Autoparkplätze zur Verfügung. Fahrräder müssen in den dafür vorgesehenen Fahrradkeller gebracht und abgeschlossen werden. Mopeds und Motorräder sind auf dem Schulareal nicht erlaubt.</div>
+      <div class="bp-box blue"><strong>📄 Kontext:</strong> Sie informieren sich über die Hausordnung des BZW, in dem Sie einen Kurs gebucht haben. 你在该中心报名课程，在看书校徽规。</div>
+      <div class="mcq-list" id="bp2-l5-mcq">
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>1.</strong> Schüler …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l5-q1" value="A"> A) dürfen keine Fahrräder mit zur Schule bringen</label><label><input type="radio" name="bp2-l5-q1" value="B"> B) dürfen ihre Fahrräder auf den Schulhof stellen</label><label><input type="radio" name="bp2-l5-q1" value="C"> C) müssen ihre Fahrräder in einen speziellen Raum stellen</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Für die Klassenräume des BZW gilt:</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l5-q2" value="A"> A) Schüler dürfen keine Poster aufhängen</label><label><input type="radio" name="bp2-l5-q2" value="B"> B) Schüler müssen dort selber aufräumen</label><label><input type="radio" name="bp2-l5-q2" value="C"> C) Schüler können dort nach dem Unterricht lernen</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>3.</strong> Um die verschließbaren Fächer benutzen zu können, muss man …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l5-q3" value="A"> A) einen Schlüssel im Sekretariat verlangen</label><label><input type="radio" name="bp2-l5-q3" value="B"> B) einmalig 50 Euro zahlen</label><label><input type="radio" name="bp2-l5-q3" value="C"> C) Schüler sein oder im BZW arbeiten</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>4.</strong> Das Trinken von Alkohol …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-l5-q4" value="A"> A) kann von der Schulleitung genehmigt werden</label><label><input type="radio" name="bp2-l5-q4" value="B"> B) muss der Lehrperson gemeldet werden</label><label><input type="radio" name="bp2-l5-q4" value="C"> C) ist ohne Ausnahme verboten</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-l5-mcq','bp2-l5-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-l5-mcq','bp2-l5-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-l5-explain')">📖 答案解析</button><span class="bp-score" id="bp2-l5-score"></span></div>
+      <div class="bp-explain" id="bp2-l5-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 5 (公告/规章制度 · a/b/c)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给你一份规章制度，4 道选择，考快速定位具体条款。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">按序号扫读各条，答案几乎原文就在对应条目里，注意同义替换。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">C · 放进专用车棚</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Fahrräder müssen in den Fahrradkeller gebracht und abgeschlossen werden."</span><span class="zh">（自行车须放进车棚并上锁）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">不是不许带(A)，也不是停操场(B)，而是要放专门的房间(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">A · 不准贴海报</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Es ist untersagt, in den Klassenräumen etwas an die Wände zu kleben."</span><span class="zh">（禁止在教室墙上贴东西）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"课外不得留在教室"(C错)，"不许贴"(A对)。B"自己打扫"未提。</span></div>
+          <div class="bx-trap"><span class="lbl">⚠️</span>C 是强干扰："课外不得在教室停留"——正好排除"课后能学"的 C。</div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">C · 是学生或在中心工作</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Die Schule stellt den Lernenden und Mitarbeitenden kostenlos Schließfächer zur Verfügung."</span><span class="zh">（学校免费向学员与员工提供储物柜）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">只有丢了钥匙才收 50 欧(B)不是"先用就交"；A 无关；使用者限于学员/员工(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">A · 校方可特批</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"In Ausnahmefällen kann die Schulleitung den Konsum von Alkohol erlauben."</span><span class="zh">（例外情况下校方可允许饮酒）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"并非一律禁止"(C错)，而是有例外可获批(A)。B 未提。</span></div></div>
+      </div>
+    </div>
+  </div><!-- /bp2-lesen -->
+
+
+
+  <!-- ═══════════════════════════ 🎧 HÖREN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp2-hoeren" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🎧</div><div><h2>Hören · 听力理解</h2><div class="sub">Goethe-Zertifikat B1 · 4 Teile · 40 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 听力共 <strong>4 部分</strong>，近 30 题。你会听到短通知、广播报摘、访谈和专业人员讲话。部分音频播一次、部分两次。
+    </div>
+    <div class="bp-box blue">
+      <span class="lbl">🧭 题型概览</span> Teil 1 (5 短通知×判断+选) · Teil 2 (广播导览×单选) · Teil 3 (双人对话×判断) · Teil 4 (圆桌讨论×匹配谁说的)。
+      <strong>🎯 模拟方式：</strong> 音频为 B1 语速朗读（略放慢），建议先读题干-再听-再对照原文，练耳感。
+    </div>
+
+    <!-- ── Hören Teil 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Hören</strong> — Sie hören <strong>fünf kurze Texte</strong>. Zu jedem Text zwei Aufgaben: (a) Richtig/Falsch, (b) a/b/c. 听 5 段短通知，每段做 2 道题。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 1 — <span style="font-weight:400;font-size:.82rem;opacity:.7">5 Ansagen · 念 2 遍</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr2-h-t1.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp2-h1-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1. (a)</strong> Der Termin von Frau Stein wird verschoben.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h1-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1. (b)</strong> Frau Stein soll …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q2" value="A"> A) die Chipkarte mitbringen</label><label><input type="radio" name="bp2-h1-q2" value="B"> B) zehn Euro bezahlen</label><label><input type="radio" name="bp2-h1-q2" value="C"> C) zurückrufen</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>2. (a)</strong> Herr Thomas informiert Frau Brahms über neue Versicherungstarife.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h1-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>2. (b)</strong> Herr Thomas …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q4" value="A"> A) möchte, dass Frau Brahms einen neuen Vertrag abschließt</label><label><input type="radio" name="bp2-h1-q4" value="B"> B) braucht Zeugnisse von Frau Brahms</label><label><input type="radio" name="bp2-h1-q4" value="C"> C) ruft später noch einmal an</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3. (a)</strong> Sie hören Veranstaltungstipps für München.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h1-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>3. (b)</strong> Auf der Autobahn gibt es Stau wegen …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q6" value="A"> A) einer Baustelle</label><label><input type="radio" name="bp2-h1-q6" value="B"> B) des Berufsverkehrs</label><label><input type="radio" name="bp2-h1-q6" value="C"> C) eines Unfalls</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4. (a)</strong> Sie hören eine Information für eine Reisegruppe.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q7" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h1-q7" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>4. (b)</strong> Welcher Zug fällt aus? Der Zug nach …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q8" value="A"> A) Bern</label><label><input type="radio" name="bp2-h1-q8" value="B"> B) Genf</label><label><input type="radio" name="bp2-h1-q8" value="C"> C) Lausanne</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5. (a)</strong> Das Wetter wird im Osten Deutschlands besser.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q9" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h1-q9" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>5. (b)</strong> Vorausgesagt werden …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h1-q10" value="A"> A) Gewitter an der Elbe</label><label><input type="radio" name="bp2-h1-q10" value="B"> B) Temperaturen unter 10 Grad</label><label><input type="radio" name="bp2-h1-q10" value="C"> C) starke Regenfälle im Westen</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-h1-mcq','bp2-h1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-h1-mcq','bp2-h1-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-h1-explain')">📖 答案解析</button><span class="bp-score" id="bp2-h1-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-h1-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp2-h1-trans"><h4>🎧 原文 (Transkript · Teil 1)</h4>
+        <div class="bp-mu-text">
+          <p><strong>Ansage 1 (Praxis Dr. Becker):</strong> „Hallo Frau Stein, hier ist die Praxis Dr. Becker. Es geht um Ihre Grippe-Impfung. Frau Dr. Becker muss zu einer Operation. Könnten Sie vielleicht auch am Freitag um 14 Uhr kommen? Das ist dann noch in diesem Quartal. Sie müssten also die zehn Euro Praxisgebühr nicht zahlen. Geben Sie mir bitte heute noch Bescheid, ob Sie Zeit haben? Ach, und noch etwas. Ihre Chipkarte ist bei uns, Sie haben sie letztes Mal bei uns vergessen. Danke und auf Wiederhören."</p>
+          <p><strong>Ansage 2 (HGB-Versicherung):</strong> „Hallo Frau Brahms, Ulf Thomas hier von der HGB-Versicherung. Sie haben sich bei uns als Verkaufsleiterin beworben, doch leider fehlen in Ihren Unterlagen zwei Zeugnisse, die für die Bewerbung sehr wichtig sind. Es geht um die Zertifikate für die besuchten Computer- und Englischkurse. Ich bitte Sie, diese Unterlagen so schnell wie möglich an uns zu schicken oder mich bei Rückfragen anzurufen. Vielen Dank!"</p>
+          <p><strong>Ansage 3 (Radio Liberty · Verkehr):</strong> „Achtung Autofahrer. Auf der Autobahn A8 Stuttgart Richtung München, zwischen Eschenried und Ausfahrt Dachau, hat sich ein Unfall ereignet. Momentan ist der rechte Fahrstreifen blockiert. Zwölf Kilometer Stau. Im Stadtgebiet München kommt es aufgrund des starken Berufsverkehrs zu Behinderungen. Stau auch am Richard-Strauss-Tunnel wegen einer Baustelle. Bitte umfahren Sie dieses Gebiet weiträumig."</p>
+          <p><strong>Ansage 4 (Bahnhof):</strong> „Gleis 13, Einfahrt des Interregios 114 nach Bern, Zofingen, Sursee, Luzern. Abfahrt um 8 Uhr 34, erste Klasse Sektoren A und B, zweite Klasse Sektoren B, C und D, Speisewagen im Sektor B. Eine wichtige Information für die Passagiere nach Genf: Der Intercity um 8:45 fällt wegen einer Weichenstörung aus. Die nächstmögliche Verbindung nach Genf ist über Lausanne um 9:45 von Gleis 11."</p>
+          <p><strong>Ansage 5 (Wetterbericht):</strong> „Und hier noch die aktuellen Wetteraussichten: In der Nacht zum Freitag ist es im Westen und Nordwesten Deutschlands gering bewölkt und meist trocken. Sonst ziehen bei zunehmender Bewölkung von Süddeutschland her mitunter kräftige Regengüsse und Gewitter von Thüringen bis an die Elbe im Osten. Dort kann es lokal sogar zu schweren Unwettern kommen, und die Temperaturen sinken auf 17 bis 12 Grad. Achtung: Sturmböen in Gewittergebieten im Osten des Landes."</p>
+        </div>
+      </div>
+      <div class="bp-explain" id="bp2-h1-explain">
+        <div class="bp-explain-h">🎧 题型导读 · Teil 1 (短通知 · 判断+选择)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">5 段短通知（诊所/保险/交通/车站/天气），每段 2 题，考抓关键信息。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">先读题定目标，带着"谁/何时/干嘛"听。<strong>数字最容易骗人</strong>，听清"推迟"还是"取消"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1.(a)</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Könnten Sie vielleicht auch am Freitag um 14 Uhr kommen?"</span><span class="zh">（能否周五 14 点来？）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">原约诊因故改到周五，即"时间被改动"，对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1.(b)</span><span class="bx-ans">C · 回电确认</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Geben Sie mir bitte heute noch Bescheid, ob Sie Zeit haben?"</span><span class="zh">（今天请告诉我你有没有时间）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">卡在她"今天回复"= 回电(C)。A 卡在诊所，无需带；B 不用付(本期不收费)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2.(a)</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"leider fehlen in Ihren Unterlagen zwei Zeugnisse."</span><span class="zh">（申请材料缺两份证书）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这电话是关于<strong>应聘缺材料</strong>，不是介绍新保险费率，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2.(b)</span><span class="bx-ans">B · 需要她的证</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"es fehlen zwei Zeugnisse ... Computer- und Englischkurse."</span><span class="zh">（缺计算机/英语课的证书）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他要的是证书(B)。A"签约"无关、C"再打来"无。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3.(a)</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Achtung Autofahrer ... hat sich ein Unfall ereignet."</span><span class="zh">（注意司机…发生了事故）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这是<strong>交通播报</strong>，不是"城市活动推荐"，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3.(b)</span><span class="bx-ans">C · 事故</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"zwischen Eschenried und Dachau hat sich ein Unfall ereignet ... 12 km Stau."</span><span class="zh">（A8 高速发生事故，12 公里堵车）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">高速<strong>A8 堵车因事故</strong>(C)。市区堵车因通勤、隧道因施工——别搞混哪段对应哪因。</span></div>
+          <div class="bx-trap"><span class="lbl">⚠️</span>题目特指"高速上"的堵车原因 = Unfall。把"市区路面施工"的 B/A 当答案会被干扰。</div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4.(a)</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这是一段<strong>火车站公共广播</strong>，面向全体旅客，不是"给旅游团"的专门通知，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4.(b)</span><span class="bx-ans">B · 去日内瓦的</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Der Intercity nach Genf ... fällt wegen einer Weichenstörung aus."</span><span class="zh">（去日内瓦的城际列车因道岔故障停运）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">停运的是<strong>去日内瓦(Genf)</strong>的车(B)。去伯尔尼的照常。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5.(a)</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">东部<strong>转坏</strong>（强降雨+雷暴、气温降到 12 度），不是"变好"，故错。反说陷阱。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5.(b)</span><span class="bx-ans">A · 易北河雷暴</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"kräftige Regengüsse und Gewitter von Thüringen bis an die Elbe."</span><span class="zh">（从图林根到易北河强降雨和雷暴）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"易北河雷暴"(A)。B"低于 10 度"错（最低 12 度）；C"西部强降雨"错（西部干燥）。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Hören</strong> — Sie hören <strong>einen Text</strong> (eine Führung durch das Münchner Stadtmuseum). Dazu fünf Aufgaben (a/b/c). 听一段博物馆导览，完成 5 道选择。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 2 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Stadtmuseum-Führung · 念 2 遍</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr2-h-t2.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp2-h2-mcq">
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>1.</strong> Das Museum ist …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h2-q1" value="A"> A) sehr voll</label><label><input type="radio" name="bp2-h2-q1" value="B"> B) teilweise geschlossen</label><label><input type="radio" name="bp2-h2-q1" value="C"> C) ziemlich leer</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>2.</strong> Was zeigt der Museumsführer den Touristen?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h2-q2" value="A"> A) alle Ausstellungen</label><label><input type="radio" name="bp2-h2-q2" value="B"> B) die Hauptausstellung</label><label><input type="radio" name="bp2-h2-q2" value="C"> C) die Sonderausstellungen</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Wo ist der Treffpunkt am Nachmittag?</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h2-q3" value="A"> A) am Eingang</label><label><input type="radio" name="bp2-h2-q3" value="B"> B) an der Garderobe</label><label><input type="radio" name="bp2-h2-q3" value="C"> C) im Café</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>4.</strong> Die Ausstellung beschäftigt sich mit …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h2-q4" value="A"> A) dem Oktoberfest</label><label><input type="radio" name="bp2-h2-q4" value="B"> B) der bayerischen Küche</label><label><input type="radio" name="bp2-h2-q4" value="C"> C) der Geschichte Münchens</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>5.</strong> Der Museumsführer empfiehlt den Teilnehmern einen …</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h2-q5" value="A"> A) Restaurantbesuch</label><label><input type="radio" name="bp2-h2-q5" value="B"> B) Cafébesuch</label><label><input type="radio" name="bp2-h2-q5" value="C"> C) Biergartenbesuch</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-h2-mcq','bp2-h2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-h2-mcq','bp2-h2-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-h2-explain')">📖 答案解析</button><span class="bp-score" id="bp2-h2-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-h2-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp2-h2-trans"><h4>🎧 原文 (Transkript · Teil 2)</h4>
+        <div class="bp-mu-text">
+          <p>„Ich freue mich, Sie heute hier zu dieser Führung begrüßen zu dürfen, und hoffe, Sie hatten bisher bereits einen schönen Aufenthalt hier bei uns in München. Mein Name ist Jan Kiefer, und ich möchte Sie heute ein wenig in die Geschichte und die Besonderheiten der bayerischen Landeshauptstadt einweihen. Wir haben Glück: Aufgrund des so wunderschönen Frühlingswetters sind die meisten Leute heute wohl eher im Biergarten zu finden, und wir haben das Museum fast ganz für uns. Genießen Sie es und sehen Sie sich in Ruhe um, so wie jetzt ist es hier wirklich selten. Normalerweise herrscht hier ein ziemliches Gedränge, besonders weil ein Teil des Gebäudes während der letzten drei Monate wegen Renovierung geschlossen war."</p>
+          <p>„Unser Rundgang durch das Museum dauert ungefähr zweieinhalb Stunden. Wir werden zunächst gemeinsam die Hauptausstellung besuchen, die für uns heute von besonderem Interesse ist. Danach haben Sie noch Gelegenheit, die Sonderausstellung im zweiten Stock zu besuchen, wenn Sie möchten. Um 16 Uhr treffen wir uns dann alle wieder hier im Eingangsbereich, direkt gegenüber dem Café. Ihre Taschen können Sie an der Garderobe dort drüben abgeben."</p>
+          <p>„Viele verbinden mit München vor allem das Oktoberfest und schöne Biergärten. Einige haben besonders die bayerische Küche im Blick. Aber München ist noch viel mehr. Doch wofür steht nun eigentlich München? Wir wollen dieser Frage heute hier im Museum vor allem historisch nachgehen und sehen, welche Ereignisse haben München zu dem gemacht, was es heute ist. Im Anschluss sollten Sie einen der schönen Biergärten besuchen, die es hier überall gibt. Wir haben zwar hier rund um das Stadtmuseum auch einige moderne Cafés und schicke Restaurants, aber die finden Sie ja in jeder Stadt. Doch jetzt erst einmal zu unserer Ausstellung, bitte folgen Sie mir hier entlang…"</p>
+        </div>
+      </div>
+      <div class="bp-explain" id="bp2-h2-explain">
+        <div class="bp-explain-h">🎧 题型导读 · Teil 2 (广播/导览 · a/b/c)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一段较长的独白导览，5 道选择，考抓顺序、地点、观点。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">按 5 题对应顺序听：状态→展览→集合点→主题→建议。每次听到关键词就定位。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">C · 相当空</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wir haben das Museum fast ganz für uns."</span><span class="zh">（博物馆几乎只有我们）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">因为好天气人都去啤酒花园了 → 很空(C)。B"部分关闭"是"平时"的状况，注意时态。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">B · 主展览</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wir werden zunächst gemeinsam die Hauptausstellung besuchen."</span><span class="zh">（我们首先一起参观主展览）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">重点看主展(B)。特展是"如果想可自行去看"，不是导游统一带。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">A · 入口</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"treffen wir uns wieder hier im Eingangsbereich, direkt gegenüber dem Café."</span><span class="zh">（在入口区，正对咖啡厅）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">集合点=大堂/入口(A)，不是寄存处(B)或咖啡厅(C)——"对着咖啡厅"所以不是里面。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">C · 慕尼黑历史</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wir wollen dieser Frage historisch nachgehen, welche Ereignisse haben München zu dem gemacht, was es ist."</span><span class="zh">（我们追溯历史，看什么事件塑造了慕尼黑）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">主题是"慕尼黑历史"(C)。A"啤酒节"、B"巴伐利亚菜"是联想但非主题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">C · 啤酒花园</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Im Anschluss sollten Sie einen der schönen Biergärten besuchen."</span><span class="zh">（之后应该去一个漂亮的啤酒花园）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他推荐啤酒花园(C)。咖啡厅/餐厅"哪都有"(B/A)，被他贬低。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Hören</strong> — Sie hören <strong>ein Gespräch</strong> (zwei Personen an einer Bushaltestelle über ein Fest). Dazu sieben Aufgaben: Richtig/Falsch. 听一场闲聊，完成 7 道判断。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 3 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Gespräch · 念 2 遍</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr2-h-t3.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="mcq-list" id="bp2-h3-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>1.</strong> Bei dem Fest wurde der Geburtstag von Annas Mann gefeiert.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q1" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Nadia ist vom Haus der Gastgeber begeistert.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q2" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q2" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>3.</strong> Nadia arbeitet beim Fernsehen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q3" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>4.</strong> Das Essen war ausgezeichnet.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q4" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q4" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5.</strong> Nadia hat zusammen mit dem Musiker gespielt.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q5" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Nadia hat auch Jazz gespielt.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q6" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q6" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>7.</strong> Das Fest dauerte bis nach 12 Uhr nachts.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h3-q7" value="A"> A) Richtig</label><label><input type="radio" name="bp2-h3-q7" value="B"> B) Falsch</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-h3-mcq','bp2-h3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-h3-mcq','bp2-h3-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-h3-explain')">📖 答案解析</button><span class="bp-score" id="bp2-h3-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-h3-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp2-h3-trans"><h4>🎧 原文 (Transkript · Teil 3)</h4>
+        <div class="bp-mu-text">
+          <p><strong>Florian:</strong> „Hallo Nadia!" <strong>Nadia:</strong> „Hallo Florian, wie geht's?" <strong>Florian:</strong> „Gut, danke, und dir?" <strong>Nadia:</strong> „Bei mir ist alles okay soweit. Ich hab ein ziemlich aufregendes Wochenende hinter mir." <strong>Florian:</strong> „Ach ja, du wolltest ja am Samstag zu einem Fest, oder?" <strong>Nadia:</strong> „Ja richtig, es war ein Geburtstagsfest. Anna, die Freundin meiner Mutter, wurde 50. Ihr Mann ist Diplomat, und die beiden haben ein großes Fest gemacht. Es waren an die 60 Leute eingeladen. – Schon sehr speziell, wie die wohnen."</p>
+          <p><strong>Florian:</strong> „Schön?" <strong>Nadia:</strong> „Ja, und wie, so ein richtiges Traumhaus: eine große Eingangshalle, wunderschöne alte Möbel überall, und dann eine riesige Terrasse. Also falls ich mal sehr viel verdienen sollte, so ein Haus, das wäre schon was."</p>
+          <p><strong>Florian:</strong> „Hm, und deine Mutter, war die auch da?" <strong>Nadia:</strong> „Ja, und sie musste mich natürlich allen Leuten vorstellen, ist ja klar … ‚Das ist meine Tochter, sie studiert an der Universität Wien Medienwissenschaft, sie will später nämlich mal zum Fernsehen und dann dort Reportagen machen.' Ganz schön peinlich…"</p>
+          <p><strong>Florian:</strong> „Und das Essen?" <strong>Nadia:</strong> „Das war natürlich auch vom Feinsten. Zuerst ein kaltes Buffet mit jeder Menge Spezialitäten, und danach noch drei, vier Hauptgerichte zur Auswahl. Nachspeisen gab es natürlich auch."</p>
+          <p><strong>Nadia:</strong> „Aber das Beste auf dem Fest war die Musik. Der Klavierspieler war genial, ein toller Typ und Vollblutmusiker, das hab ich sofort bemerkt … Ich hab mich jedenfalls gleich neben das Klavier gesetzt, um alles genau mitzukriegen. Und dann fragte mich der tatsächlich, ob ich auch Musik mache! ‚Ja', sage ich, ‚ich spiele Querflöte und Klavier, aber nur so ab und zu, als Hobby…'"</p>
+          <p><strong>Florian:</strong> „Und?" <strong>Nadia:</strong> „Nun, ich glaub, ich hätte besser nichts gesagt. Denn so nach circa zwei Stunden am Klavier brauchte der Pianist eine Pause. Und da er ja jetzt wusste, dass ich auch Klavier spiele, meinte er, ich solle mich doch während seiner Pause an seinen Platz setzen und ein bisschen was vorspielen…" <strong>Florian:</strong> „Oh nein…" <strong>Nadia:</strong> „Ja, das hab ich auch gedacht, aber irgendwie hat er mich überredet. Ich setz mich also ans Klavier, und da konnte ich gar nicht mehr anders, als was zu spielen." <strong>Florian:</strong> „Echt, vor allen Leuten?" <strong>Nadia:</strong> „Genau! Ich hab dann ein paar klassische Lieder gespielt, die ich ganz gut kann. Aber dann wollte einer der Gäste Jazz hören. Zum Glück kam genau in dem Moment der Pianist aus seiner Pause zurück!!"</p>
+          <p><strong>Florian:</strong> „Da hattest du ja richtiges Glück." <strong>Nadia:</strong> „Ja, ich war echt froh. Und als wir dann nach Mitternacht gingen, hat er immer noch Jazz gespielt…" <strong>Florian:</strong> „Und am Sonntag?" <strong>Nadia:</strong> „Ach, am Sonntag hab ich zuerst einmal lange geschlafen, und am Nachmittag hab ich dann mit ein paar Freunden einen Ausflug in die Berge gemacht. Und was uns da passiert ist, das ist eine andere Geschichte."</p>
+        </div>
+      </div>
+      <div class="bp-explain" id="bp2-h3-explain">
+        <div class="bp-explain-h">🎧 题型导读 · Teil 3 (双人对话 · Richtig/Falsch)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一段闲聊，7 道判断题，考听细节与因果（谁、做什么、事情经过）。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">注意人物关系与"想"vs"实际做了"。对话里有明显的转折（"但是/幸好"），是陷阱高发处。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Anna, die Freundin meiner Mutter, wurde 50."</span><span class="zh">（我妈的朋友安娜 50 岁）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">过生日的是<strong>安娜</strong>（女士），不是她丈夫，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"So ein richtiges Traumhaus: eine große Eingangshalle … riesige Terrasse."</span><span class="zh">（真是梦想之屋：大玄关…大露台）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她明显欣赏这个房子，很兴奋，对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"sie will später mal zum Fernsehen"（她将来才想进电视台）</span><span class="zh">（将来想去做报道）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她还在<strong>学传媒</strong>，尚未进电视台，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das war natürlich auch vom Feinsten."</span><span class="zh">（食物自然是一流的）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">"vom Feinsten"= 极好，对。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"ich solle mich doch während seiner Pause an seinen Platz setzen."</span><span class="zh">（让我在他休息时坐他的位子弹）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她是<strong>独自顶替</strong>弹，不是和朋友"一起"弹，故错。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">Falsch ✗</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ich hab dann klassische Lieder gespielt … Zum Glück kam der Pianist zurück."</span><span class="zh">（我弹了古典曲…幸好钢琴师回来了）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">她弹的是<strong>古典</strong>，爵士还没轮到她弹钢琴师就回来了，故错。</span></div>
+          <div class="bx-trap"><span class="lbl">⚠️</span>别被"客人要听爵士"带偏——听清"是她弹还是别人接着弹"。</div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">Richtig ✓</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"als wir dann nach Mitternacht gingen"</span><span class="zh">（我们过了午夜才走）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">过了午夜 = 12 点以后，对。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Hören Teil 4 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Hören</strong> — Sie hören <strong>eine Diskussion</strong> (Radiosendung über Kinderkrippen). Dazu acht Aufgaben: Ordnen Sie zu, wer sagt was? 听一场圆桌讨论，判断每句话谁说的。</div>
+      <div class="bp-audio">
+        <div class="a-h">🔊 Hören Teil 4 — <span style="font-weight:400;font-size:.82rem;opacity:.7">Diskussion · 念 2 遍</span></div>
+        <audio controls preload="metadata" style="width:100%"><source src="audio/b1pr2-h-t4.mp3" type="audio/mpeg">您的浏览器不支持音频播放。</audio>
+      </div>
+      <div class="bp-box blue"><strong>🎙️ Gäste:</strong> <span class="bp-chip">A) Moderator</span> <span class="bp-chip">B) Frau Schneider (Dana)</span> <span class="bp-chip">C) Herr Bader (Florian)</span><br>
+        Die Radiosendung „Diskussion am Abend" diskutiert zum Thema <strong>„Sollen kleine Kinder in die Kinderkrippe gehen?"</strong></div>
+      <div class="mcq-list" id="bp2-h4-mcq">
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>1.</strong> Kinder lernen soziales Verhalten erst ab einem bestimmten Alter.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q1" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q1" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q1" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>2.</strong> Für den Erfolg im Beruf ist es wichtig, immer zu arbeiten.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q2" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q2" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q2" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>3.</strong> Es ist möglich, Kinder zu haben und auch zu arbeiten.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q3" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q3" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q3" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>4.</strong> In der Krippe lernen Kinder andere Dinge als zu Hause.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q4" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q4" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q4" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5.</strong> In Krippen müssen Erzieherinnen viele Kinder gleichzeitig betreuen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q5" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q5" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q5" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>6.</strong> Kinder sollen lernen, sich auch mal alleine zu beschäftigen.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q6" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q6" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q6" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>7.</strong> Manche Kindertagesstätten haben zu wenig Geld.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q7" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q7" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q7" value="C"> C) Herr Bader</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>8.</strong> Auch Familien mit wenig Geld sollen Kinder haben können.</div>
+          <div class="mcq-options"><label><input type="radio" name="bp2-h4-q8" value="A"> A) Moderator</label><label><input type="radio" name="bp2-h4-q8" value="B"> B) Frau Schneider</label><label><input type="radio" name="bp2-h4-q8" value="C"> C) Herr Bader</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('bp2-h4-mcq','bp2-h4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('bp2-h4-mcq','bp2-h4-score')">↺ 重做</button><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-h4-explain')">📖 答案解析</button><span class="bp-score" id="bp2-h4-score"></span></div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-h4-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="bp2-h4-trans"><h4>🎧 原文 (Transkript · Teil 4)</h4>
+        <div class="bp-mu-text">
+          <p><strong>Moderator:</strong> „Liebe Hörerinnen und Hörer, hallo und willkommen bei der Diskussion am Abend. Das ist heute unser Thema: Sollten Kinder in die Kinderkrippe gehen oder nicht? Dazu haben wir Frau Dana Schneider eingeladen; sie hat zwei Kinder zu Hause, die zwei und fünf Jahre alt sind. Unser zweiter Studiogast ist Florian Bader, dessen dreijährige Zwillinge seit einem Jahr in die Kinderkrippe gehen. Frau Schneider, Sie wussten schon vor der Geburt Ihrer Kinder, dass Sie sie nicht in die Kinderkrippe schicken würden. Warum?"</p>
+          <p><strong>Frau Schneider:</strong> „Weil die ersten drei Jahre für ein Kind von großer Bedeutung sind. In diesen drei Jahren brauchen Kinder eine feste Bezugsperson, und ich würde nicht wollen, dass meine Kinder zur Erzieherin ‚Mama' sagen." <strong>Moderator:</strong> „Tun Ihre Kinder das denn, Herr Bader?" <strong>Herr Bader:</strong> „Nein, natürlich nicht. Unsere Kinder wissen genau, wer die Mama ist, nämlich meine Frau. Aber sie lernen, dass sie auch auf andere Leute hören müssen, und das ist für ihr soziales Verhalten bestimmt sinnvoll. Das soziale Miteinander lernen die Kinder sowieso später. Unter drei Jahren brauchen Kinder keine gleichaltrigen Kinder, sondern vor allem ihre Bezugsperson."</p>
+          <p><strong>Frau Schneider:</strong> „Hm, ja, unter drei Jahren beschäftigen sich Kinder ja meist auch gut mit sich selber. Aber: Ist es denn nicht eher eine finanzielle Frage, Kinder in die Kinderkrippe zu schicken, damit die Eltern arbeiten können? Herr Bader, wie ist denn das bei Ihnen?" <strong>Herr Bader:</strong> „Es ist weniger eine finanzielle Frage als einfach die Tatsache, dass weder meine Frau noch ich drei Jahre aus dem Beruf aussteigen können. Stellen Sie sich vor, Sie arbeiten drei Jahre nicht und wollen dann weiter Karriere machen. Dann verlieren Sie nicht nur die drei Jahre, sondern auch alles, was Sie sich zuvor erarbeitet haben."</p>
+          <p><strong>Frau Schneider:</strong> „Warum haben Sie überhaupt Kinder, wenn Ihnen Ihre Karriere so wichtig ist? Da kann man doch auf ein paar Jahre Karriere verzichten." <strong>Herr Bader:</strong> „Das mag sein. Aber muss man wirklich das eine für das andere aufgeben? Warum kann man nicht beides haben? Meine Frau war als Kind selber in der Kinderkrippe, und es hat ihr nicht geschadet. Unsere Kinder gehen gern in die Krippe, sie haben ihre Freunde dort und erzählen abends begeistert von den Spielen, die sie gemacht haben."</p>
+          <p><strong>Moderator:</strong> „Ein Vorteil einer Kindertagesstätte ist, dass die Kinder beschäftigt sind und Erfahrungen machen, die Eltern ihren Kindern zu Hause vielleicht nicht bieten können. Haben Sie dem etwas entgegenzusetzen, Frau Schneider?" <strong>Frau Schneider:</strong> „Nun ja, in einer idealen Kindertagesstätte wäre das vielleicht wirklich so. Aber ist es nicht eher so, dass die Erzieherinnen bei so vielen Kindern gar keine Zeit für das einzelne Kind haben? Mit ein wenig Recherche und Phantasie kann ich meinen Kindern deutlich mehr bieten als die drei Erzieherinnen den zwölf Kindern in ihrer Gruppe."</p>
+          <p><strong>Herr Bader:</strong> „Das ist bei unserer Kinderkrippe eigentlich kein Problem. Unsere Kinder sind in einer Gruppe mit acht Kindern und bekommen sicher genug Aufmerksamkeit. Sie sollen ja gerade lernen, alleine etwas zu machen und sich dann nur an die Erwachsenen zu wenden, wenn sie etwas brauchen." <strong>Moderator:</strong> „Es kommt also auch auf die Kinderkrippe an!" <strong>Herr Bader:</strong> „Ja, das denke ich auch. In einigen Krippen gibt es schon Probleme. Bei uns im Dorf ist das nicht so schlimm, aber in so mancher Kindertagesstätte fehlen inzwischen die finanziellen Mittel."</p>
+          <p><strong>Moderator:</strong> „Also sollten Kinderkrippen finanziell besser gefördert werden! Frau Schneider, wie stehen Sie dazu? Ist es sinnvoll, dass Kinderkrippen von unseren Steuern bezahlt werden? Sie haben ja nichts davon!" <strong>Frau Schneider:</strong> „Nun ja, das finanzielle Argument sehe ich schon ein. Wer nicht genug Geld hat, um zu Hause zu bleiben, soll ja trotzdem Kinder kriegen können. Daher würde ich den Bau und den Unterhalt von Kinderkrippen nicht ablehnen, denn das kommt der ganzen Gesellschaft zugute. Aber ich finde es nicht gut, wenn Kinder in die Krippe abgeschoben werden, damit die Eltern ihren persönlichen Zielen hinterherjagen können." <strong>Herr Bader:</strong> „Wir schieben sie ja nicht ab! Sie verbringen den Tag in einer kinderfreundlichen, warmen, qualifizierten Umgebung mit anderen Kindern."</p>
+        </div>
+      </div>
+      <div class="bp-explain" id="bp2-h4-explain">
+        <div class="bp-explain-h">🎧 题型导读 · Teil 4 (圆桌 · 谁说的)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">一场讨论，把 8 句话归到"主持人 / 女士 / 男士"，考区分不同说话者的立场。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 技巧：</span><span class="zh">主持人中立提问题；母亲偏"反对送托儿所"；父亲偏"支持送"。抓"这人到底主张什么"再归位。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">C · Herr Bader</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Das soziale Miteinander lernen die Kinder sowieso später."</span><span class="zh">（孩子的社会性反正以后才学）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">父亲说社会行为"到时候再学"，故是他说的(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">C · Herr Bader</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wenn man drei Jahre nicht arbeitet, verliert man alles, was man sich erarbeitet hat."</span><span class="zh">（三年不工作会失去积累的事业）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他强调"要持续工作才成事业"，是他的论点(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">C · Herr Bader</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Warum kann man nicht beides haben? … es hat ihr nicht geschadet."</span><span class="zh">（为什么不能兼顾？…被送托儿所对她没坏处）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他说可以兼顾孩子与工作(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">A · Moderator</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ein Vorteil der Kita ist, dass die Kinder Erfahrungen machen, die Eltern zu Hause nicht bieten können."</span><span class="zh">（托儿所的好处是小孩接触家里没有的经验）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这段话是主持人说的(A)，用来引出母亲的反驳。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">B · Frau Schneider</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Ist es nicht eher so, dass die Erzieherinnen bei so vielen Kindern keine Zeit für das einzelne Kind haben?"</span><span class="zh">（保育员面对那么多孩子哪有时间照顾每一个？）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这是母亲的质疑(B)，强调师生比问题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">C · Herr Bader</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Sie sollen ja gerade lernen, alleine etwas zu machen."</span><span class="zh">（他们正是该学自己做事）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">父亲说应学独立(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">C · Herr Bader</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"In so mancher Kindertagesstätte fehlen inzwischen die finanziellen Mittel."</span><span class="zh">（不少托儿所缺资金）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">他承认有些园缺钱(C)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">8</span><span class="bx-ans">B · Frau Schneider</span></div>
+          <div class="bx-row"><span class="lbl">📌</span><span class="de">"Wer nicht genug Geld hat, um zu Hause zu bleiben, soll ja trotzdem Kinder kriegen können."</span><span class="zh">（没钱留在家的也应有孩子）</span></div>
+          <div class="bx-row"><span class="lbl">💡</span><span class="zh">这是母亲的表态(B)，主张资助托儿所让穷人也能要孩子。</span></div></div>
+      </div>
+    </div>
+  </div><!-- /bp2-hoeren -->
+
+
+  <!-- ═══════════════════════════ ✍️ SCHREIBEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp2-schreiben" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">✍️</div><div><h2>Schreiben · 写作</h2><div class="sub">Goethe-Zertifikat B1 · 3 Aufgaben · 60 Minuten</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 写作共 <strong>3 题</strong>、60 分钟。Task 1 写邮件(约80词)、Task 2 写讨论稿(约80词)、Task 3 写邮件(约40词)。写清楚、别用铅笔，写到答题卡上。
+    </div>
+    <div class="bp-box blue">
+      <span class="lbl">🧭 评分标准 / Bewertung (B1)</span> 每题从四方面打分（及格 60/100）：<br>
+      <table>
+        <tr><th>维度</th><th>看什么</th><th>满分要点</th></tr>
+        <tr><td><strong>Erfüllung</strong> 完成度</td><td>是否覆盖题目要求的所有内容点</td><td>3 个点都写到</td></tr>
+        <tr><td><strong>Inhalt/Kohärenz</strong> 内容结构</td><td>逻辑、衔接、称呼结尾、段落</td><td>连贯、分点、合格式</td></tr>
+        <tr><td><strong>Wortschatz</strong> 词汇</td><td>词是否准确、丰富</td><td>日常词汇够用，偶有错</td></tr>
+        <tr><td><strong>Strukturen</strong> 语法</td><td>句子结构、变位、词序</td><td>句子可控，错不阻碍理解</td></tr>
+      </table>
+    </div>
+
+    <!-- ── Aufgabe 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 1 · E-Mail (ca. 80 Wörter)</strong> — Arbeitszeit: 20 Minuten. Schreiben Sie etwas zu allen drei Punkten. Achten Sie auf Textaufbau (Anrede, Einleitung, Reihenfolge, Schluss). 写一封约 80 词邮件。</div>
+      <div class="bp-box">
+        <strong>📧 Situation:</strong> Sie haben vor einer Woche Ihren Geburtstag gefeiert. Ein Freund / eine Freundin von Ihnen konnte nicht zu Ihrer Feier kommen, weil er/sie krank war.<br>
+        <span class="lbl">✍️ Schreiben Sie:</span>
+        <ul class="bp-points">
+          <li>Beschreiben Sie: Wie war die Feier?</li>
+          <li>Begründen Sie: Welches Geschenk finden Sie besonders toll und warum?</li>
+          <li>Machen Sie einen Vorschlag für ein Treffen.</li>
+        </ul>
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-s1-ans')">📄 显示参考范文 (Musterlösung)</button>
+      <div class="bp-ans" id="bp2-s1-ans"><h4>✍️ 参考范文 · Aufgabe 1 (约 79 词)</h4>
+        <div class="bp-mu-text">
+          <p>Liebe Sara,<br>
+          vielen Dank für deine Nachricht! Es tut mir leid, dass du krank warst und nicht kommen konntest. Ich hoffe, es geht dir inzwischen wieder besser.<br>
+          Meine Geburtstagsfeier war wirklich schön. Wir waren etwa zwölf Freunde und haben bei mir gegrillt und bis spät in die Nacht geredet. Das Wetter war auch super!<br>
+          Das schönste Geschenk war ein Gutschein für einen Sprachkurs, denn ich wollte schon lange wieder Englisch lernen. Das finde ich besonders toll, weil ich es wirklich nutzen kann.<br>
+          Möchtest du dich bald mal wieder treffen? Ich habe am Samstag Zeit und würde dich gern zu einem Kaffee einladen.<br>
+          Bis bald!<br>
+          Viele Grüße<br>
+          Alex</p>
+        </div>
+      </div>
+      <div class="bp-explain" id="bp2-s1-explain" style="display:none">
+        <div class="bp-explain-h">🎯 写作要点 · Aufgabe 1</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">💡</span><span class="zh">① 称呼+问候；② 表达同情(抱歉你病了)；③ 三个内容点各一段；④ 结尾提问/邀约+签名。</span></div></div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">⚠️</span><span class="zh">三个点必须<strong>都写到</strong>，缺一点会扣"完成度"分。语序注意：德语从句动词放句尾。</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── Aufgabe 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 2 · Diskussionsbeitrag (ca. 80 Wörter)</strong> — Arbeitszeit: 25 Minuten. Schreiben Sie Ihre Meinung zum Thema. 在留言板发表约 80 词评论。</div>
+      <div class="bp-box">
+        <strong>📝 Thema:</strong> Sie haben im Fernsehen eine Diskussionssendung zum Thema <strong>„Persönliche Kontakte und Internet"</strong> gesehen. Im Online-Gästebuch der Sendung finden Sie folgende Meinung:<br>
+        <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:10px 14px;margin:10px 0;border-left:3px solid #63b3ed">
+          <em>„Ich finde es schlimm, dass persönliche Treffen immer seltener werden. Freunde wohnen oft sehr weit auseinander. Und da ist man dann schon froh über das Internet. Aber Kontakte im Internet können doch persönliche Treffen nicht ersetzen!"</em><br>
+          <span class="bp-grad">— Tanja, 15.01.  16:55 Uhr · www.diskussion-aktuell.de</span>
+        </div>
+        <span class="lbl">✍️ Schreiben Sie Ihre Meinung:</span> 表达你对"网上交往能否代替面对面"的看法，给出理由和例子。
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-s2-ans')">📄 显示参考范文 (Musterlösung)</button>
+      <div class="bp-ans" id="bp2-s2-ans"><h4>✍️ 参考范文 · Aufgabe 2 (约 80 词)</h4>
+        <div class="bp-mu-text">
+          <p>Ich stimme Tanja zum Teil zu: Das Internet ist praktisch, wenn man Freunde weit weg hat. Es hilft, in Kontakt zu bleiben und schnell Nachrichten zu schicken. Zum Beispiel schreibe ich meiner besten Freundin im Ausland jede Woche.<br>
+          Trotzdem glaube ich, dass Internet-Kontakte echte Treffen nicht ersetzen können. Wenn man sich persönlich trifft, kann man lachen, sich umarmen und den anderen richtig erleben. Das geht online kaum.<br>
+          Deshalb finde ich: Man soll das Internet nutzen, aber trotzdem Zeit für echte Treffen finden. Beides zusammen ist am besten.<br>
+          Was denken Sie dazu?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Aufgabe 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 3 · E-Mail (ca. 40 Wörter)</strong> — Arbeitszeit: 15 Minuten. Entschuldigen Sie sich höflich und berichten Sie, warum Sie nicht kommen können. Vergessen Sie Anrede und Gruß. 写一封约 40 词短邮件。</div>
+      <div class="bp-box">
+        <strong>📧 Situation:</strong> Ihre Kursleiterin, Frau Müller, hat Sie zu einem Gespräch über Ihre persönlichen Lernziele eingeladen. Zu dem Termin können Sie aber nicht kommen. <em>Schreiben Sie an Frau Müller.</em> Entschuldigen Sie sich höflich und berichten Sie, warum Sie nicht kommen können.
+      </div>
+      <button class="bp-toggle" onclick="b1pfToggle('bp2-s3-ans')">📄 显示参考范文 (Musterlösung)</button>
+      <div class="bp-ans" id="bp2-s3-ans"><h4>✍️ 参考范文 · Aufgabe 3 (约 40 词)</h4>
+        <div class="bp-mu-text">
+          <p>Sehr geehrte Frau Müller,<br>
+          vielen Dank für Ihre Einladung zu dem Gespräch über meine Lernziele. Leider kann ich am Donnerstag nicht kommen, weil ich an dem Tag einen wichtigen Arzttermin habe.<br>
+          Können wir vielleicht einen anderen Termin finden?<br>
+          Viele Grüße<br>
+          Lena</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /bp2-schreiben -->
+
+  <!-- ═══════════════════════════ 🗣️ SPRECHEN ═══════════════════════════ -->
+  <div class="bp-sec" id="bp2-sprechen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🗣️</div><div><h2>Sprechen · 口语</h2><div class="sub">Goethe-Zertifikat B1 · 3 Teile · ca. 15 Minuten (zwei Teilnehmende)</div></div></div>
+
+    <div class="bp-box gold">
+      <span class="lbl">📌 考试说明</span> 口语共 <strong>3 部分</strong>、两人一组约 15 分钟，考前准备 15 分钟。① 两人一起策划一件事(约3分钟)；② 一人做一个主题展示(约3分钟)；③ 针对双方主题互相反馈提问(约2分钟)。自由发言，可看笔记但不能照读。
+    </div>
+    <div class="bp-box blue">
+      <span class="lbl">🧭 评分标准 / Bewertung (B1)</span> 考官按以下维度打分（A=优秀 → C=及格 → E=几乎不可评）：<br>
+      <table>
+        <tr><th>维度</th><th>看什么</th></tr>
+        <tr><td><strong>Erfüllung</strong> 完成度</td><td>是否按要求做了（内容点/篇幅/互动）</td></tr>
+        <tr><td><strong>Interaktion</strong> 互动</td><td>能否开启、维持、结束对话；对对方提议的反应</td></tr>
+        <tr><td><strong>Wortschatz</strong> 词汇</td><td>表达是否准确多样</td></tr>
+        <tr><td><strong>Strukturen</strong> 语法</td><td>句子结构、语序是否可控</td></tr>
+        <tr><td><strong>Aussprache</strong> 发音</td><td>语调、重音、单个音是否清楚</td></tr>
+      </table>
+    </div>
+
+    <!-- ── Teil 1 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Gemeinsam etwas planen (ca. 3 Min.)</strong> — 你和搭档一起策划一件事，提建议并回应对方。请围绕下面几点商量并决定。</div>
+      <div class="bp-box">
+        <span class="lbl">🎯 Aufgabe:</span> Ein Teilnehmer aus dem Deutschkurs hatte einen Unfall und liegt im Krankenhaus. Diese Woche möchten Sie ihn besuchen und ein Geschenk von der ganzen Gruppe mitbringen. Nächste Woche kann er das Krankenhaus verlassen. Da er allein lebt, wird er Hilfe brauchen. <strong>Überlegen Sie, wie Sie ihn unterstützen können.</strong> Planen und entscheiden Sie gemeinsam.<br>
+        <ul class="bp-points">
+          <li>Wann besuchen? (Tag, Uhrzeit?)</li>
+          <li>Wie hinkommen?</li>
+          <li>Was mitnehmen?</li>
+          <li>Wie kann man helfen? (vom Krankenhaus abholen, einkaufen, …)</li>
+        </ul>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 Nützliche Ausdrücke:</span>
+        <div class="bp-chips">
+          <span class="bp-chip">Wann hätten wir Zeit?</span><span class="bp-chip">Wie wär's mit Mittwochnachmittag?</span>
+          <span class="bp-chip">Ich schlage vor, …</span><span class="bp-chip">Was hältst du von …?</span>
+          <span class="bp-chip">Gute Idee!</span><span class="bp-chip">Das finde ich nicht so gut, weil …</span>
+          <span class="bp-chip">Wir könnten auch …</span><span class="bp-chip">Einverstanden.</span>
+          <span class="bp-chip">Übernehmen wir, dass …</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Teil 2 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 从两个主题里选一个，按 5 张"Folien"的结构做展示。展示时先介绍结构与内容，再结合自身经历、本国情况，讲优缺点和自己的看法，最后致谢。</div>
+      <div class="bp-box">
+        <span class="lbl">📌 Präsentationsstruktur (5 Folien):</span>
+        <table>
+          <tr><th>Folie</th><th>该说什么</th></tr>
+          <tr><td>① Einleitung</td><td>点题、介绍主题，说明展示结构</td></tr>
+          <tr><td>② Meine Erfahrungen</td><td>讲自己与主题相关的经历或见闻</td></tr>
+          <tr><td>③ Situation im Heimatland</td><td>讲本国情况并举例</td></tr>
+          <tr><td>④ Vor-/Nachteile &amp; Meinung</td><td>讲利弊，说个人看法，举例子</td></tr>
+          <tr><td>⑤ Abschluss &amp; Dank</td><td>收尾，感谢听众</td></tr>
+        </table>
+      </div>
+      <div class="bp-box">
+        <span class="lbl">🗣️ Thema 1:</span> <strong>„Papa, ich will ein Handy!" — Brauchen Kinder Mobiltelefone?</strong> <em>(孩子们需要手机吗？)</em><br>
+        <span class="lbl">🗣️ Thema 2:</span> <strong>„Mama, es ist gerade so lustig … noch 5 Minuten!" — Sehen Kinder zu viel fern?</strong> <em>(孩子电视看太多了吗？)</em>
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 Redemittel (展示用):</span>
+        <div class="bp-chips">
+          <span class="bp-chip">Mein Thema ist …</span><span class="bp-chip">Zuerst möchte ich …</span>
+          <span class="bp-chip">Ich möchte über … sprechen.</span><span class="bp-chip">In meinem Heimatland ist es so, dass …</span>
+          <span class="bp-chip">Auf der einen Seite … auf der anderen Seite …</span>
+          <span class="bp-chip">Ein Vorteil ist … / Ein Nachteil ist …</span>
+          <span class="bp-chip">Meiner Meinung nach …</span><span class="bp-chip">Ich finde, dass …</span>
+          <span class="bp-chip">Vielen Dank für Ihre Aufmerksamkeit.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Teil 3 ── -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Über ein Thema sprechen (ca. 2 Min.)</strong> — 听完对方的展示后，先给反馈（喜欢什么、什么让你觉得新/有趣），再问一个问题。对方也要回应你的展示。考生之间互动。</div>
+      <div class="bp-box">
+        <span class="lbl">a) Rückmeldung geben:</span> 反馈：怎么喜欢你/搭档的展示、有什么新鲜或有趣的地方。<br>
+        <span class="lbl">b) Frage stellen:</span> 针对对方的展示提一个问题。<br>
+        <span class="lbl">c) Antworten:</span> 也回答对方/考官的问题。
+      </div>
+      <div class="bp-box blue">
+        <span class="lbl">💬 Redemittel (反馈/提问):</span>
+        <div class="bp-chips">
+          <span class="bp-chip">Deine Präsentation hat mir gut gefallen, weil …</span>
+          <span class="bp-chip">Besonders interessant fand ich …</span>
+          <span class="bp-chip">Das war neu für mich.</span>
+          <span class="bp-chip">Ich hätte eine Frage: …</span>
+          <span class="bp-chip">Wieso …?</span><span class="bp-chip">Wie ist das bei dir …?</span>
+          <span class="bp-chip">Was machst du, wenn …?</span>
+        </div>
+      </div>
+    </div>
+  </div><!-- /bp2-sprechen -->
+
+  </div>
 </div><!-- /bp-wrap -->
-
-
-  <!-- ═════════════════════════════ 📖 阅读讲解 ═════════════════════════════ -->
-
-  <!-- ═══ Lesen Teil 1 · 详解 ═══ -->
-  
-
-  <!-- ═══ Lesen Teil 2 · 详解 ═══ -->
-  
-
-  <!-- ═══ Lesen Teil 3 · 详解（匹配题）═══ -->
-  
-
-  <!-- ═══ Lesen Teil 4 · 详解（读者来信 Ja/Nein）═══ -->
-  
-
-  <!-- ═══ Lesen Teil 5 · 详解（通知/说明 a/b/c）═══ -->
-  
-
-  <!-- ═════════════════════════════ 🎧 听力讲解 ═════════════════════════════ -->
-
-  <!-- ═══ Hören Teil 1 · 详解 ═══ -->
-  
-
-  <!-- ═══ Hören Teil 2 · 详解 ═══ -->
-  
-
-  <!-- ═══ Hören Teil 3 · 详解 ═══ -->
-  
-
-  <!-- ═══ Hören Teil 4 · 详解 ═══ -->
-    
-
-  <!-- ═════════════════════════════ ✍️ 写作讲解 ═════════════════════════════ -->
-
-  <!-- ═══ Aufgabe 1 · 讲解 ═══ -->
-  
-
-  <!-- ═══ Aufgabe 2 · 讲解 ═══ -->
-  
-
-  <!-- ═══ Aufgabe 3 · 讲解 ═══ -->
-  
-
-  <!-- ═════════════════════════════ 🗣️ 口语讲解 ═════════════════════════════ -->
-
-  <!-- ═══ Sprechen Teil 1 · 讲解 ═══ -->
-  
-
-  <!-- ═══ Sprechen Teil 2 · 讲解 ═══ -->
-  
-
-  <!-- ═══ Sprechen Teil 3 · 讲解 ═══ -->
-  
-
-
   <!-- ═══════════ 交互 JS 助手 ═══════════ -->
   <script>
     // 写作范文折叠开关
@@ -6355,6 +7078,21 @@ document.addEventListener('keydown', function(e) {
         });
       });
     };
+  </script>
+
+  <script>
+    window.b1prInitTabs = function(){
+      var tabs = document.querySelectorAll("#page-b1pruefung .bp-tab");
+      function show(which){
+        var a = document.getElementById("bp-set1"), b = document.getElementById("bp-set2");
+        if(a) a.style.display = (which === 1) ? "" : "none";
+        if(b) b.style.display = (which === 2) ? "" : "none";
+        tabs.forEach(function(t){ t.classList.toggle("active", +t.getAttribute("data-set") === which); });
+      }
+      tabs.forEach(function(t){ t.addEventListener("click", function(){ show(+t.getAttribute("data-set")); }); });
+      show(1);
+    };
+    if(document.getElementById("bp-set2")){ window.b1prInitTabs(); }
   </script>
 
 </template>
