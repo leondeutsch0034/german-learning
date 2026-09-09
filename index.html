@@ -4356,6 +4356,11 @@ function createLoginPromptCard() {
     desc:"B1口语 · 歌德 B1 口语全解析 · 流程+题型+技巧+表达 · 精选国内外视频",
     tags:"歌德B1 · 口语 · Sprechen · 视频精选",
     c1:"#b45309", c2:"#f59e0b", locked:false },
+  { id:"b2pruefung", icon:"📝", navLabel:"B2模拟考试", cardTitleDe:"B2 Modelltest", cardSubDe:"Goethe B2 mündliche/schriftliche Prüfung — 官方 Modellsatz Erwachsene", cardTitle:"B2模拟考试", group:"b2",
+    hubStep:4, hubSkill:"Test", hubSkillZh:"模拟考试", hubAccent:"#f59e0b", hubTip:"官方真题：Lesen·Hören·Schreiben·Sprechen 完整还原，可判分",
+    desc:"B2模拟考试 · 官方 Modellsatz Erwachsene · 1:1复刻",
+    tags:"歌德B2 · 模拟考试 · 听说读写 · 实时判分",
+    c1:"#b45309", c2:"#f59e0b", locked:false },
 // ── B2 中高级 ──
 	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — Modalverben', cardTitle:'B2语法', group:'b2',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'Modalverben · objektiver/subjektiver Gebrauch · Passiv',
@@ -7366,6 +7371,465 @@ document.addEventListener('keydown', function(e) {
 
 <div id="page-b1sprechen" class="page" data-lazy="true"></div>
 <script>registerLazyPage('b1sprechen', 'tpl-page-b1sprechen');</script>
+<template id="tpl-page-b2pruefung">
+<!-- B2 模拟考试 · B2 Modelltest · Goethe-Zertifikat B2 · 第一套（1:1 复刻 Modellsatz Erwachsene） -->
+<style>
+  #page-b2pruefung{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#e2e8f0;line-height:1.75;padding:20px}
+  #page-b2pruefung .bp-wrap{max-width:1000px;margin:0 auto}
+  #page-b2pruefung .bp-hero{text-align:center;background:linear-gradient(135deg,#1c2544,#35477d,#1e3a5f);color:#fff;padding:34px 24px 28px;border-radius:20px;margin-bottom:26px;border:1px solid rgba(246,211,101,.18);box-shadow:0 8px 24px rgba(30,58,95,.5)}
+  #page-b2pruefung .bp-hero h1{font-size:1.95rem;margin:0 0 8px;color:#fff}
+  #page-b2pruefung .bp-hero .ey{display:inline-block;background:rgba(246,211,101,.16);color:#fde68a;font-size:.82rem;font-weight:700;letter-spacing:.06em;padding:5px 16px;border-radius:20px;margin-bottom:14px;border:1px solid rgba(246,211,101,.28)}
+  #page-b2pruefung .bp-hero p{opacity:.92;font-size:.96rem;margin:6px 0 0}
+  #page-b2pruefung .bp-modnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:26px}
+  #page-b2pruefung .bp-modnav a{display:block;text-decoration:none;color:#fde68a;background:rgba(255,255,255,.06);border:1px solid rgba(246,211,101,.18);border-radius:14px;padding:16px 18px;transition:.2s}
+  #page-b2pruefung .bp-modnav a:hover{background:rgba(246,211,101,.12);transform:translateY(-3px)}
+  #page-b2pruefung .bp-modnav .m-icon{font-size:1.7rem;margin-bottom:6px}
+  #page-b2pruefung .bp-modnav .m-t{font-weight:700;font-size:.98rem}
+  #page-b2pruefung .bp-modnav .m-d{font-size:.78rem;color:rgba(255,245,230,.55);margin-top:3px}
+  #page-b2pruefung .bp-sec{background:rgba(255,255,255,.045);border:1px solid rgba(246,211,101,.13);border-radius:16px;padding:22px 24px;margin-bottom:22px}
+  #page-b2pruefung .bp-sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid rgba(246,211,101,.18)}
+  #page-b2pruefung .bp-sec-h .b{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#35477d,#63b3ed);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+  #page-b2pruefung .bp-sec-h h2{font-size:1.3rem;color:#fde68a;margin:0}
+  #page-b2pruefung .bp-sec-h .sub{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:2px}
+  #page-b2pruefung .bp-box{background:rgba(30,58,95,.35);border:1px solid rgba(246,211,101,.14);border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.8}
+  #page-b2pruefung .bp-box.gold{border-left:4px solid #b8860b;background:rgba(184,134,11,.08)}
+  #page-b2pruefung .bp-box.blue{border-left:4px solid #63b3ed;background:rgba(60,95,140,.12)}
+  #page-b2pruefung .bp-box .lbl{font-weight:800;color:#fde68a;margin-right:6px}
+  #page-b2pruefung table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
+  #page-b2pruefung th{background:linear-gradient(135deg,#35477d,#63b3ed);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+  #page-b2pruefung td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+  #page-b2pruefung tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+  #page-b2pruefung .bp-ex{background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:inset 0 0 0 1px rgba(246,211,101,.06)}
+  #page-b2pruefung .bp-inst{font-size:.86rem;color:rgba(255,245,230,.7);line-height:1.8;margin-bottom:12px}
+  #page-b2pruefung .bp-checkrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+  #page-b2pruefung .bp-btn{background:linear-gradient(90deg,#35477d,#63b3ed);color:#fff;border:none;padding:8px 22px;border-radius:18px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.2s}
+  #page-b2pruefung .bp-btn:hover{transform:scale(1.03)}
+  #page-b2pruefung .bp-btn.reset{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:#e2e8f0}
+  #page-b2pruefung .bp-score{font-size:1.05rem;font-weight:700;color:#fde68a;min-height:22px}
+  #page-b2pruefung .bp-score.ok{color:#4ade80}
+  #page-b2pruefung .bp-score.bad{color:#f87171}
+  #page-b2pruefung .mcq-list{list-style:none;padding:0;margin:0}
+  #page-b2pruefung .mcq-item{margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(246,211,101,.08)}
+  #page-b2pruefung .mcq-item:last-child{border-bottom:none}
+  #page-b2pruefung .mcq-item .bp-q{color:#e2e8f0;font-size:.92rem;line-height:1.7;margin-bottom:.5rem}
+  #page-b2pruefung .mcq-options{display:flex;flex-wrap:wrap;gap:.5rem}
+  #page-b2pruefung .mcq-options label{display:flex;align-items:center;gap:.35rem;padding:.4rem .9rem;border:1.5px solid rgba(255,255,255,.2);border-radius:2rem;cursor:pointer;font-size:.85rem;color:#cbd5e1;transition:all .2s;user-select:none}
+  #page-b2pruefung .mcq-options label:hover{border-color:#fde68a;background:rgba(246,211,101,.1)}
+  #page-b2pruefung .mcq-options input{display:none}
+  #page-b2pruefung .mcq-options label.selected{border-color:#fde68a;background:rgba(246,211,101,.15);color:#fde68a}
+  #page-b2pruefung .mcq-options label.correct-ans{border-color:#4ade80;background:rgba(74,222,128,.12);color:#4ade80;font-weight:700}
+  #page-b2pruefung .mcq-options label.wrong-ans{border-color:#f87171;background:rgba(248,113,113,.12);color:#f87171}
+  #page-b2pruefung .bp-audio{background:linear-gradient(135deg,rgba(30,58,95,.5),rgba(53,71,125,.4));border:1px solid rgba(246,211,101,.2);border-radius:12px;padding:14px 18px;margin:12px 0}
+  #page-b2pruefung .bp-audio .a-h{display:flex;align-items:center;gap:10px;margin-bottom:8px;color:#fde68a;font-weight:700;font-size:.92rem}
+  #page-b2pruefung .bp-ans{background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;margin:12px 0;display:none}
+  #page-b2pruefung .bp-ans h4{color:#fde68a;font-size:1rem;margin:0 0 8px}
+  #page-b2pruefung .bp-mu-text{font-size:.92rem;color:#e2e8f0;line-height:1.9}
+  #page-b2pruefung .bp-mu-text p{margin:0 0 .7rem}
+  #page-b2pruefung .bp-toggle{background:rgba(246,211,101,.14);border:1px solid rgba(246,211,101,.35);color:#fde68a;padding:7px 18px;border-radius:18px;font-size:.86rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:12px}
+  #page-b2pruefung .bp-toggle:hover{background:rgba(246,211,101,.24)}
+  #page-b2pruefung .bp-explain{background:rgba(255,255,255,.05);border:1px solid rgba(99,179,237,.2);border-radius:12px;padding:16px 18px;margin:12px 0;display:none}
+  #page-b2pruefung .bp-explain-h{display:flex;align-items:center;gap:8px;color:#9bd0f5;font-weight:700;font-size:.95rem;margin-bottom:12px;border-bottom:1px solid rgba(99,179,237,.2);padding-bottom:8px}
+  #page-b2pruefung .bx-item{background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;margin:10px 0;border-left:3px solid #63b3ed}
+  #page-b2pruefung .bx-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  #page-b2pruefung .bx-num{background:linear-gradient(135deg,#35477d,#63b3ed);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+  #page-b2pruefung .bx-ans{font-weight:700;color:#4ade80;font-size:.88rem}
+  #page-b2pruefung .bx-row{font-size:.87rem;line-height:1.75;margin:4px 0;color:#cbd5e1}
+  #page-b2pruefung .bx-row .lbl{font-weight:700;color:#fde68a;margin-right:5px}
+  #page-b2pruefung .bx-row .de{color:#9bd0f5;font-style:italic}
+  #page-b2pruefung .bx-row .zh{color:#e2e8f0}
+  #page-b2pruefung .bx-trap{font-size:.84rem;line-height:1.7;color:#f6b7b7;margin-top:4px;background:rgba(220,38,38,.08);border-left:3px solid #dc2626;border-radius:0 8px 8px 0;padding:6px 10px}
+  #page-b2pruefung .bx-trap .lbl{font-weight:700;color:#f87171;margin-right:5px}
+  #page-b2pruefung .bx-explbtn{background:rgba(99,179,237,.14);border:1px solid rgba(99,179,237,.35);color:#9bd0f5;padding:7px 18px;border-radius:18px;font-size:.86rem;font-weight:600;cursor:pointer;transition:.2s;margin-top:12px}
+  #page-b2pruefung .bx-explbtn:hover{background:rgba(99,179,237,.26)}
+  #page-b2pruefung .bp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  #page-b2pruefung .bp-chip{background:rgba(99,179,237,.12);border:1px solid rgba(99,179,237,.3);color:#9bd0f5;padding:4px 13px;border-radius:16px;font-size:.83rem}
+  #page-b2pruefung .bp-points{list-style:none;padding:0;margin:8px 0}
+  #page-b2pruefung .bp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:6px;padding-left:24px;position:relative}
+  #page-b2pruefung .bp-points li::before{content:"✦";position:absolute;left:0;color:#fde68a}
+  @media(max-width:600px){#page-b2pruefung{padding:6px}#page-b2pruefung .bp-hero{padding:24px 16px 20px}#page-b2pruefung .bp-hero h1{font-size:1.4rem}#page-b2pruefung .bp-sec{padding:16px 14px}#page-b2pruefung .mcq-options label{font-size:.8rem;padding:.35rem .7rem}}
+</style>
+<div class="bp-wrap" id="b2pruefung-top">
+  <div class="bp-hero">
+    <div class="ey">🎓 Goethe-Zertifikat B2 · Modellsatz Erwachsene · 官方真题</div>
+    <h1>📝 B2 模拟考试</h1>
+    <p>B2 Modelltest — 一本复刻歌德 B2 官方模拟题 · Lesen · Hören · Schreiben · Sprechen · 实时判分</p>
+  </div>
+  <div class="bp-box gold"><span class="lbl">📋 考试构成:</span> B2 四模块，及格 60/100。<strong>Lesen</strong> 65min·5部分→阅读 &nbsp;|&nbsp; <strong>Hören</strong> 40min·4部分 &nbsp;|&nbsp; <strong>Schreiben</strong> 75min·2题 &nbsp;|&nbsp; <strong>Sprechen</strong> 15min·2部分。</div>
+  <div class="bp-modnav">
+    <a href="#b2pr-lesen"><div class="m-icon">📖</div><div class="m-t">Lesen 阅读</div><div class="m-d">65min · 5 部分 · 可判分</div></a>
+    <a href="#b2pr-hoeren"><div class="m-icon">🎧</div><div class="m-t">Hören 听力</div><div class="m-d">40min · 4 部分 · 音频+原文</div></a>
+    <a href="#b2pr-schreiben"><div class="m-icon">✍️</div><div class="m-t">Schreiben 写作</div><div class="m-d">75min · 2 题 · 含范文</div></a>
+    <a href="#b2pr-sprechen"><div class="m-icon">🗣️</div><div class="m-t">Sprechen 口语</div><div class="m-d">15min · 2 部分 · 双人</div></a>
+  </div>
+  <div class="bp-box blue"><span class="lbl">💡 使用方法:</span> ① 按真实顺序做，选择题/判断题可点击判分 ② 写作口语给题目+参考范文 ③ 做完看「📖 答案解析」对照原文依判分 ④ 本套为歌德官方 Modellsatz Erwachsene，内容 1:1。<br>
+    部分题目为匹配/对号题，选项判分按所选字母与答案比较，无法 100% 自动判分的部分请对照解析确认。</div>
+
+  <!-- ── LESEN ── -->
+  <div class="bp-sec" id="b2pr-lesen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">📖</div><div><h2>Lesen · 阅读理解</h2><div class="sub">Goethe-Zertifikat B2 · 5 Teile · 30 Aufgaben · 65 Minuten</div></div></div>
+    <div class="bp-box blue"><span class="lbl">🧭 题型速览:</span> Teil1 对号入座(9题) · Teil2 选句填空(6题) · Teil3 单选(6题) · Teil4 标题匹配(6题) · Teil5 规章匹配(3题)。读到 B2 更侧重"同义替换 / 细节定位 / 立场判断"。</div>
+
+    <!-- Teil 1 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Zuordnung (对号入座)</strong> — 论坛里 4 位网友谈"极简主义"。判断题: 每条陈述对应哪个人? 人可多次选。阅读 4 段留言，判断 9 条陈述各属于谁。</div>
+      <div class="bp-box"><strong>👤 a Erik:</strong> "In der heutigen Gesellschaft wird leider nur noch konsumiert… Ich sehe das anders, denn ich habe nur Sachen, die ich wirklich brauche. Ein Autokauf käme mir nicht in den Sinn… Meine Einzimmerwohnung ist fast leer: Bett, Tisch, zwei Stühle, Garderobe. Einen Kühlschrank brauche ich nicht. Auch als Veganer kann man genussvoll essen… Wenn ich reise, dann mit Rucksack und Zelt, ohne Kamera und Schnickschnack… Das hat nichts mit Geiz zu tun – das einfache und entspannte Leben ist, was ich will."<br>
+      <strong>👤 b Katharina:</strong> "Die gesamte Debatte über die richtige Lebensweise nervt mich… Dinge können die schönste Nebensache der Welt sein! Am Abend kehre ich gern in meine Wohnung heim und am Wochenende lade ich lieber Freunde ein, um ihnen Bilder von meinem letzten Urlaub zu zeigen… ein bisschen Luxus im Hotel, interessante Ausstellungen und schick essen gehen… Zu einem guten Steak sage ich nie nein… Mein Auto, ein Cabriolet, nutze ich jeden Tag beruflich… Bescheidenheit ist doch nur etwas für die Leute, die sich nichts leisten können."<br>
+      <strong>👤 c Franzi:</strong> "Für mich ist es wichtig, sowohl gut zu mir als auch zu meiner Umwelt zu sein. Im Alltag versuche ich auf Fleisch zu verzichten und baue Kräuter am Fenster… Zur Arbeit nehme ich am liebsten das Rad… Mit Geld hat das alles aber nichts zu tun. Es besteht für mich ein großer Unterschied zwischen Urlaub und Reisen: Im Urlaub gönne ich mir gerne etwas: ein Sterne-Hotel oder einen Einkaufstrip. Auf Reisen jedoch will ich Neues entdecken… erkunde Länder am liebsten auf Wanderungen."<br>
+      <strong>👤 d Nils:</strong> "Ich halte das für eine ziemlich deutsche Debatte! Geld ist nicht alles, aber kann nicht schaden; z. B. für Bio-Produkte… Ich selbst kaufe Fleisch und Wurst auf dem Bauernhof ein… Das Thema ‚Auto' sehe ich eher nicht ideologisch: Für mich ist es in erster Linie ein Fortbewegungsmittel… Ich habe eine Zwei-Zimmer-Wohnung in der Innenstadt und zwar in Flussnähe, der Blick aufs Wasser ist mir wichtig. Für meine Reisen habe ich ein Wohnmobil mit allem Luxus."</div>
+      <div class="mcq-list" id="b2pr-l1-mcq">
+        <div class="mcq-item" data-ans="D"><div class="bp-q"><strong>1.</strong> Wer sieht im Auto einen Gebrauchsgegenstand?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-1" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-1" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-1" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-1" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Wer empfindet Besitz als unwichtig?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-2" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-2" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-2" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-2" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Wer verzichtet auf Fleisch?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-3" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-3" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-3" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-3" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="D"><div class="bp-q"><strong>4.</strong> Für wen spielt die Lage der Wohnung eine große Rolle?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-4" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-4" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-4" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-4" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>5.</strong> Für wen ist der Naturschutz bei Entscheidungen wichtig?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-5" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-5" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-5" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-5" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Wer denkt, einfach lebende Personen hätten zu wenig Geld?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-6" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-6" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-6" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-6" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>7.</strong> Wer nimmt auf Reisen nichts Überflüssiges mit?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-7" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-7" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-7" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-7" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>8.</strong> Für wen zählt beim Essen allein, etwas zu genießen?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-8" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-8" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-8" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-8" value="D"> D) d</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>9.</strong> Wer mag sowohl Luxus als auch das einfache Leben?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l1-9" value="A"> A) a</label><label><input type="radio" name="b2pr-l1-9" value="B"> B) b</label><label><input type="radio" name="b2pr-l1-9" value="C"> C) c</label><label><input type="radio" name="b2pr-l1-9" value="D"> D) d</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2prGrade('b2pr-l1-mcq','b2pr-l1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-l1-mcq','b2pr-l1-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-l1-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-l1-score"></span></div>
+      <div class="bp-explain" id="b2pr-l1-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 1 (论坛留言 · 对号入座)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🎯</span><span class="zh">4 篇观点留言，9 条陈述各归到某人。人可被多次选。考"抓核心立场+关键词"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">d · Nils</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"Für mich ist es in erster Linie ein Fortbewegungsmittel."</span><span class="zh">Nils 把车当交通工具=物体。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">a · Erik</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"Ich habe nur Sachen, die ich wirklich brauche."</span><span class="zh">Erik 物欲低，家几乎空。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">a · Erik</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">Erik 明说 "Als Veganer"；Franzi 只说"尝试少吃"。故选严格吃素的 Erik。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">d · Nils</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"Zwei-Zimmer-Wohnung in Flussnähe, der Blick aufs Wasser ist mir wichtig."</span><span class="zh">Nils 看重住房位置。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">c · Franzi</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"sowohl gut zu mir als auch zu meiner Umwelt zu sein."</span><span class="zh">Franzi 决断时考虑环保、骑自行车。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">b · Katharina</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"Bescheidenheit ist doch nur etwas für die Leute, die sich nichts leisten können."</span><span class="zh">她讽刺"简朴=没钱"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">a · Erik</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"mit Rucksack und Zelt, ohne Kamera und Schnickschnack."</span><span class="zh">Erik 出行不带多余物。b 是"为购物腾地方"，非本题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">8</span><span class="bx-ans">b · Katharina</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"schick essen gehen. Zu einem guten Steak sage ich nie nein. man lebt nur einmal."</span><span class="zh">她单独享受美食。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">9</span><span class="bx-ans">c · Franzi</span></div><div class="bx-row"><span class="lbl">💡</span><span class="de">"Urlaub: Sterne-Hotel… Auf Reisen: erkunde Länder auf Wanderungen."</span><span class="zh">Franzi 既爱奢华也爱简朴。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 2 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Lückentext (选句填空)</strong> — 一篇文章，6 个空填 8 个备选句(2 个不填)。判断每空来自哪个句子(a-h)。</div>
+      <div class="bp-box"><strong>📰 Reisefieber:</strong> Heute verreist fast jeder… Noch nie waren so viele Touristen unterwegs. Kaum ein Wirtschaftszweig wächst so schnell wie der Tourismus. […0…] Schon in der Antike gingen Menschen an andere Orte. Nur wenige konnten es sich leisten, in einer Kutsche zu reisen. Besonders schnell war die Kutsche allerdings auch nicht. […<strong>10</strong>…] Erst als die Eisenbahn und das Dampfschiff erfunden wurden, änderte sich das. Die Reisen verdanken wir vor allem dem Briten Thomas Cook. Er organisierte 1841 eine Zugfahrt… […<strong>11</strong>…] Damit erfand der Brite die erste Pauschalreise der Welt. Die meisten solcher Reisen blieben lange ein Luxus. An sechs Tagen der Woche und zehn Stunden zu arbeiten, war um 1900 normal. […<strong>12</strong>…] Dies änderte sich im Laufe des 20. Jahrhunderts. Am liebsten fahren die 15- bis 24-jährigen in die großen Städte wie Berlin oder München. […<strong>13</strong>…] Ein Grund dafür, dass Städtereisen beliebter werden. Der Tourismus hat das Aussehen vieler Orte verändert. […<strong>14</strong>…] So entstand das typische Bild. Cafés und Restaurants werden immer teurer. […<strong>15</strong>…] Vor allem Anwohner ärgern sich darüber.</div>
+      <div class="bp-box blue"><strong>📌 Sätze (a–h):</strong> a) Denn immer mehr Menschen können es sich leisten zu verreisen. · b) Dort gibt es neben den vielen Bars und Clubs auch viele gute Kulturangebote. · c) Dennoch fahren immer mehr Touristen aufs Land. · d) Noch Ende des 18. Jahrhunderts war man von München nach Frankfurt 74 Stunden unterwegs. · e) Alle Leistungen gab es zu einem geringen Gesamtpreis. · f) Hotels und Häuserblocks mit Urlaubswohnungen prägen heute vielerorts das Bild. · g) Es gab nur drei Tage Urlaub im Jahr. · h) Diese Veränderungen gefallen natürlich nicht jedem.</div>
+      <div class="mcq-list" id="b2pr-l2-mcq">
+        <div class="mcq-item" data-ans="D"><div class="bp-q"><strong>10.</strong> Lücke 10 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-10" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-10" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-10" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-10" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-10" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-10" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-10" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-10" value="H"> H) h</label></div></div>
+        <div class="mcq-item" data-ans="E"><div class="bp-q"><strong>11.</strong> Lücke 11 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-11" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-11" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-11" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-11" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-11" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-11" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-11" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-11" value="H"> H) h</label></div></div>
+        <div class="mcq-item" data-ans="G"><div class="bp-q"><strong>12.</strong> Lücke 12 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-12" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-12" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-12" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-12" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-12" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-12" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-12" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-12" value="H"> H) h</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>13.</strong> Lücke 13 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-13" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-13" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-13" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-13" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-13" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-13" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-13" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-13" value="H"> H) h</label></div></div>
+        <div class="mcq-item" data-ans="F"><div class="bp-q"><strong>14.</strong> Lücke 14 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-14" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-14" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-14" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-14" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-14" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-14" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-14" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-14" value="H"> H) h</label></div></div>
+        <div class="mcq-item" data-ans="H"><div class="bp-q"><strong>15.</strong> Lücke 15 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l2-15" value="A"> A) a</label><label><input type="radio" name="b2pr-l2-15" value="B"> B) b</label><label><input type="radio" name="b2pr-l2-15" value="C"> C) c</label><label><input type="radio" name="b2pr-l2-15" value="D"> D) d</label><label><input type="radio" name="b2pr-l2-15" value="E"> E) e</label><label><input type="radio" name="b2pr-l2-15" value="F"> F) f</label><label><input type="radio" name="b2pr-l2-15" value="G"> G) g</label><label><input type="radio" name="b2pr-l2-15" value="H"> H) h</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2prGrade('b2pr-l2-mcq','b2pr-l2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-l2-mcq','b2pr-l2-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-l2-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-l2-score"></span></div>
+      <div class="bp-explain" id="b2pr-l2-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 2 (选句填空)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭</span><span class="zh">看上下文逻辑与衔接词（因果关系、时间、指代）。先读空前后一句判断主题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">10</span><span class="bx-ans">d</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">讲走得太慢："18世纪末 74 小时"最贴合"马车不快"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">11</span><span class="bx-ans">e</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">套装便宜，接着"发明了首趟全包游"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">12</span><span class="bx-ans">g</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">1900 年工人每天 10 小时、一年仅 3 天假。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">13</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">说大城市有酒吧/俱乐部+文化，故城市游受欢迎。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">14</span><span class="bx-ans">f</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">旅游业改变面貌："酒店、度假屋楼群塑造了景观"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">15</span><span class="bx-ans">h</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">餐馆涨价→"这些变化不是每个人都高兴"→居民抱怨。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 3 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Multiple Choice (a/b/c)</strong> — 一篇报纸文章，6 道单选。阅读 "Doktor Google"（病人上网查病），完成 16-21。</div>
+      <div class="bp-box"><strong>📄 Doktor Google:</strong> Das Wartezimmer in Arztpraxen ist voll mit Menschen, Bakterien und verbrauchter Luft. Bevor sich jemand zusätzliche Viren ins Gesicht husten lässt, bleibt er lieber zu Hause und sucht Rat beim Doktor im Netz. Von den Deutschen suchen 38 Prozent bei Gesundheitsfragen Rat im Internet. In vielen Fällen ist die Qualität richtig schlecht: Es gibt oft lückenhafte Informationen und Widersprüche. Manchmal dienen die Texte vor allem dazu, für ein Medikament zu werben. Die organisierte Ärzteschaft ist keineswegs grundsätzlich dagegen, wenn sich Patienten online schlau machen. „Die Frage ist nur, wann sie es tun und wo sie suchen", sagt Claudia Becker vom Institut „Medizinisches Zentrum für therapeutische Qualität". Dort hält man es für falsch, Krankheitssymptome per Suchmaschine selbst zu diagnostizieren. „Wenn Patienten richtige und gute Informationen haben, vereinfacht das vieles. Patienten können Ärzte später informiert fragen – und genau darum geht es." Wer Informationen unkritisch aufnimmt, für den bringt das eher Gefahren: Nicht wenige Versprechen auf Heilung sind Betrug. Auch Foren sollten mit Vorsicht gelesen werden. "Andererseits wissen sie nie, mit wem sie sich da gerade über hochsensible Dinge unterhalten." Eine gewisse Gefahr bestehe vor allem, wenn in Foren persönliche Daten wie E-Mail-Adressen abgefragt würden: "Oft wird man danach pausenlos mit unerwünschter Werbung bombardiert."</div>
+      <div class="mcq-list" id="b2pr-l3-mcq">
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>16.</strong> Das Interesse richtet sich auf Krankheiten, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-16" value="A"> A) die auch Ärzte überfordern</label><label><input type="radio" name="b2pr-l3-16" value="B"> B) die besonders schmerzhaft sind</label><label><input type="radio" name="b2pr-l3-16" value="C"> C) für die sich die Betroffenen schämen</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>17.</strong> Viele Mediziner und Politiker zweifeln daran, dass …</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-17" value="A"> A) das Internet brauchbare Hilfe liefert</label><label><input type="radio" name="b2pr-l3-17" value="B"> B) die berichteten Beschwerden echt sind</label><label><input type="radio" name="b2pr-l3-17" value="C"> C) sich die Gesundheit der Kranken verbessert</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>18.</strong> Was ist am Internet-Angebot oft so schlecht?</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-18" value="A"> A) Das Angebot ist zu groß</label><label><input type="radio" name="b2pr-l3-18" value="B"> B) Es gibt falsche Informationen</label><label><input type="radio" name="b2pr-l3-18" value="C"> C) Viele Informationen sind unvollständig</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>19.</strong> Claudia Becker findet, Patienten sollten sich im Internet …</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-19" value="A"> A) auf das Arztgespräch vorbereiten</label><label><input type="radio" name="b2pr-l3-19" value="B"> B) detailliertes Fachwissen anlesen</label><label><input type="radio" name="b2pr-l3-19" value="C"> C) nach einem Arztgespräch informieren</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>20.</strong> Claudia Becker warnt Patienten vor …</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-20" value="A"> A) gefährlichen Versprechen im Internet</label><label><input type="radio" name="b2pr-l3-20" value="B"> B) Anleitungen zur Selbsttherapie</label><label><input type="radio" name="b2pr-l3-20" value="C"> C) Kontakt mit anonymen Ratsuchenden</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>21.</strong> Ratsuchende sollten vorsichtig sein, in Foren …</div><div class="mcq-options"><label><input type="radio" name="b2pr-l3-21" value="A"> A) ihre Krankheit zu beschreiben</label><label><input type="radio" name="b2pr-l3-21" value="B"> B) Informationen über sich weiterzugeben</label><label><input type="radio" name="b2pr-l3-21" value="C"> C) auf Werbung der Gesundheitsindustrie zu reagieren</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('b2pr-l3-mcq','b2pr-l3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-l3-mcq','b2pr-l3-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-l3-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-l3-score"></span></div>
+      <div class="bp-explain" id="b2pr-l3-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 3 (报纸文章 · 单选)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭</span><span class="zh">先读题，回文定位细节，注意同义替换与"答非所问"干扰项。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">16</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Leiden, über die viele nicht gerne sprechen" = 羞于启齿的病。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">17</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Kann sein, dass dort Hilfe wartet. Kann aber auch sein… Qualität ist richtig schlecht." → 怀疑网上有用帮助。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">18</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"lückenhafte Informationen und Widersprüche" = 信息不完整。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">19</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Patienten können Ärzte später informiert fragen" = 为看病做准备。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">20</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Nicht wenige Versprechen auf Heilung sind Betrug" = 危险的治愈承诺。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">21</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"wenn persönliche Daten abgefragt würden" = 泄漏个人信息。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 4 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Titelzuordnung (标题匹配)</strong> — 读者对"数字游民"的看法。8 条留言(a 是示例)，判断 22-27 各对应哪条。一条不用。阅读下面 8 条留言，每小题选对应字母。</div>
+      <div class="bp-box"><strong>👥 Aussagen (a–h):</strong><br>
+      <strong>a</strong> (Beispiel) · Amelie, Bonn: berufstätige Eltern… digitale Nomadentum Pluspunkte, Familie u. Beruf vereinbar.<br>
+      <strong>b</strong> · Eva, Berlin: Gefahr, dass Leistung absinkt; Arbeit braucht Struktur und Gespräch mit Experten; allein fehlt der Vergleich.<br>
+      <strong>c</strong> · Inga, Hannover: warum möchte keiner mehr fest an einem Ort verankert sein? Woher weiß man, wohin man gehört?<br>
+      <strong>d</strong> · Steven, Greifswald: kaum jemand will ständig allein am Computer arbeiten; flexible Büros für Austausch (fachlich u. menschlich), aber Freiheit behalten.<br>
+      <strong>e</strong> · Jan, Chemnitz: funktioniert nur ohne Familie u. Verantwortung; sobald Schulbildung wichtig, mehr Nachteile.<br>
+      <strong>f</strong> · Sarah, München: Berufsleben besteht aus mehr als Arbeit; mit wem Mittagspause? immer allein? alle paar Wochen neuer Freundeskreis?<br>
+      <strong>g</strong> · Janice, Magdeburg: zeit- u. raumflexibel arbeiten (Laptop, Smartphone, Tablet); einziges dem 21. Jh. angemessenes Arbeitsmodell.<br>
+      <strong>h</strong> · Katharina, Stuttgart: Angst, zu viel zu reisen u. zu wenig zu schaffen; eigener Chef zu sein verlangt Selbstorganisation u. Selbstdisziplin.</div>
+      <div class="mcq-list" id="b2pr-l4-mcq"><div class="mcq-item" data-ans="C"><div class="bp-q"><strong>22.</strong> Sich zu Hause zu fühlen, ist wichtig</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-22" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-22" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-22" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-22" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-22" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-22" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-22" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-22" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="G"><div class="bp-q"><strong>23.</strong> Moderne Arbeitsgeräte ermöglichen neue Arbeitsformen und Lebensweisen</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-23" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-23" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-23" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-23" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-23" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-23" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-23" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-23" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="H"><div class="bp-q"><strong>24.</strong> Arbeiten ohne einen Vorgesetzten bringt Herausforderungen</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-24" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-24" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-24" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-24" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-24" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-24" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-24" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-24" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="E"><div class="bp-q"><strong>25.</strong> Leben als digitaler Nomade eignet sich besonders für Singles</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-25" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-25" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-25" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-25" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-25" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-25" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-25" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-25" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="F"><div class="bp-q"><strong>26.</strong> Wichtig ist der Austausch mit Kollegen auch außerhalb der Arbeit</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-26" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-26" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-26" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-26" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-26" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-26" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-26" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-26" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>27.</strong> Qualitätssteigerung durch den Austausch unter Kollegen</div><div class="mcq-options"><label><input type="radio" name="b2pr-l4-27" value="A"> A) a</label><label><input type="radio" name="b2pr-l4-27" value="B"> B) b</label><label><input type="radio" name="b2pr-l4-27" value="C"> C) c</label><label><input type="radio" name="b2pr-l4-27" value="D"> D) d</label><label><input type="radio" name="b2pr-l4-27" value="E"> E) e</label><label><input type="radio" name="b2pr-l4-27" value="F"> F) f</label><label><input type="radio" name="b2pr-l4-27" value="G"> G) g</label><label><input type="radio" name="b2pr-l4-27" value="H"> H) h</label></div></div></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2prGrade('b2pr-l4-mcq','b2pr-l4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-l4-mcq','b2pr-l4-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-l4-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-l4-score"></span></div>
+      <div class="bp-explain" id="b2pr-l4-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 4 (标题匹配 · 一条不用)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭</span><span class="zh">读标题找关键词，再扫留言里同义表达。注意"一条无匹配"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">22</span><span class="bx-ans">c · Inga</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"wieso möchte keiner mehr fest an einem Ort verankert sein?" = 想回家/归属感。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">23</span><span class="bx-ans">g · Janice</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"vom Laptop, Smartphone oder Tablet aus" = 现代设备创造新工作方式。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">24</span><span class="bx-ans">h · Katharina</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Um sein eigener Chef zu sein… Selbstdisziplin" = 没有上级的挑战。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">25</span><span class="bx-ans">e · Jan</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"funktioniert nur ohne Familie und Verantwortung" = 适合单身。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">26</span><span class="bx-ans">f · Sarah</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"mit wem Mittagspause? alle paar Wochen neuer Freundeskreis" = 工作外的交流。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">27</span><span class="bx-ans">b · Eva</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Jede Arbeit braucht Struktur und das Gespräch mit Experten… fehlt der Vergleich" = 通过与同事交流提升质量。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 5 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 5 · Zuordnung (规章匹配)</strong> — 你想在 Bremen 大学读戏剧专业，读"学习条例"。判断 28-30 各对应哪条标题(示例 0 → c)。从下面标题 a-h 选字母。</div>
+      <div class="bp-box"><strong>📌 Überschriften (a–h):</strong> a) Abschluss des Bachelorstudiums · b) Aufbau und Inhalte des Studiums · c) Studienbeginn · d) Studiendauer und Studienvolumen · e) Vermittlungsformen · f) Zugangsvoraussetzungen · g) Studienziele · h) Auslandsaufenthalt.<br><br>
+      <strong>§ 28:</strong> Die allgemeine Qualifikation für das Studium wird durch ein Zeugnis der Hochschulzugangsberechtigung… nachgewiesen. Fachspezifisch: Nachweis von Kenntnissen in Englisch (B2) und einer weiteren modernen Fremdsprache (B1)…<br>
+      <strong>§ 29:</strong> Die Regelstudienzeit umfasst sechs Semester. Der Gesamtumfang beträgt 180 Leistungspunkte. Das Studium kann auch als Teilzeitstudium betrieben werden…<br>
+      <strong>§ 30:</strong> – Vorlesungen (V) – Übungen (Ü) – Tutorien (Tut)… – Seminare (S) – Praktika (P). Die Modulverantwortlichen können eine Lernplattform begleitend einsetzen.</div>
+      <div class="mcq-list" id="b2pr-l5-mcq"><div class="mcq-item" data-ans="F"><div class="bp-q"><strong>28.</strong> § 28 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l5-28" value="A"> A) a</label><label><input type="radio" name="b2pr-l5-28" value="B"> B) b</label><label><input type="radio" name="b2pr-l5-28" value="C"> C) c</label><label><input type="radio" name="b2pr-l5-28" value="D"> D) d</label><label><input type="radio" name="b2pr-l5-28" value="E"> E) e</label><label><input type="radio" name="b2pr-l5-28" value="F"> F) f</label><label><input type="radio" name="b2pr-l5-28" value="G"> G) g</label><label><input type="radio" name="b2pr-l5-28" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="D"><div class="bp-q"><strong>29.</strong> § 29 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l5-29" value="A"> A) a</label><label><input type="radio" name="b2pr-l5-29" value="B"> B) b</label><label><input type="radio" name="b2pr-l5-29" value="C"> C) c</label><label><input type="radio" name="b2pr-l5-29" value="D"> D) d</label><label><input type="radio" name="b2pr-l5-29" value="E"> E) e</label><label><input type="radio" name="b2pr-l5-29" value="F"> F) f</label><label><input type="radio" name="b2pr-l5-29" value="G"> G) g</label><label><input type="radio" name="b2pr-l5-29" value="H"> H) h</label></div></div>
+      <div class="mcq-item" data-ans="E"><div class="bp-q"><strong>30.</strong> § 30 →</div><div class="mcq-options"><label><input type="radio" name="b2pr-l5-30" value="A"> A) a</label><label><input type="radio" name="b2pr-l5-30" value="B"> B) b</label><label><input type="radio" name="b2pr-l5-30" value="C"> C) c</label><label><input type="radio" name="b2pr-l5-30" value="D"> D) d</label><label><input type="radio" name="b2pr-l5-30" value="E"> E) e</label><label><input type="radio" name="b2pr-l5-30" value="F"> F) f</label><label><input type="radio" name="b2pr-l5-30" value="G"> G) g</label><label><input type="radio" name="b2pr-l5-30" value="H"> H) h</label></div></div></div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2prGrade('b2pr-l5-mcq','b2pr-l5-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-l5-mcq','b2pr-l5-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-l5-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-l5-score"></span></div>
+      <div class="bp-explain" id="b2pr-l5-explain">
+        <div class="bp-explain-h">📖 题型导读 · Teil 5 (规章 · 匹配标题)</div>
+        <div class="bx-item"><div class="bx-row"><span class="lbl">🧭</span><span class="zh">按序号扫每条的要点词（入学资格/年限学分/课程形式）再对标题。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">28</span><span class="bx-ans">f · Zugangsvoraussetzungen</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">讲录取资格、学历、语言要求 = 入学条件。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">29</span><span class="bx-ans">d · Studiendauer und Studienvolumen</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"六学期 / 180 学分 / 可半工半读" = 学制与学习量。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">30</span><span class="bx-ans">e · Vermittlungsformen</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"讲课/练习/辅导/研讨/实习" = 授课形式。</span></div></div>
+      </div>
+    </div>
+  </div><!-- /b2pr-lesen -->
+
+
+
+
+  <!-- ── HÖREN ── -->
+  <div class="bp-sec" id="b2pr-hoeren" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🎧</div><div><h2>Hören · 听力理解</h2><div class="sub">Goethe-Zertifikat B2 · 4 Teile · ca. 40 Minuten</div></div></div>
+    <div class="bp-box blue"><span class="lbl">🎯 模拟方式:</span> 音频为 B2 语速（Katja 朗读，+25%）。Teil 1/3 听 1 遍，Teil 2/4 听 2 遍。先读题-再听-再对照原文。</div>
+
+    <!-- Teil 1 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Hören</strong> — 5 段对话/独白，每段 2 题（判断 + 选择）。听 1 遍。</div>
+      <div class="bp-audio"><div class="a-h">🔊 Teil 1 — 5 段短对话 · 听1遍</div><audio controls preload="metadata" style="width:100%"><source src="audio/b2pr-h-t1.mp3" type="audio/mpeg">不支持音频。</audio></div>
+      <div class="mcq-list" id="b2pr-h1-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>1.</strong> Die Frau spricht darüber, warum sie sich für Literatur interessiert.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-1" value="A"> A) Richtig</label><label><input type="radio" name="b2pr-h1-1" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>2.</strong> Welche Meinung hat die Frau über das Lesen?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-2" value="A"> A) Zum Romanlesen braucht sie ihre Fantasie</label><label><input type="radio" name="b2pr-h1-2" value="B"> B) Sie hat oft zu wenig Zeit für eigene Gedanken</label><label><input type="radio" name="b2pr-h1-2" value="C"> C) Was sie liest, bleibt nicht lang im Gedächtnis</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>3.</strong> Die Frau berichtet über die Zahlungsmoral in vielen Ländern.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-3" value="A"> A) Richtig</label><label><input type="radio" name="b2pr-h1-3" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>4.</strong> Was wird immer seltener gemacht?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-4" value="A"> A) Im Internet eingekauft</label><label><input type="radio" name="b2pr-h1-4" value="B"> B) Geld gewechselt</label><label><input type="radio" name="b2pr-h1-4" value="C"> C) Mit Bargeld bezahlt</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>5.</strong> Die Frau hat ein Praktikum bei einem Gericht gemacht.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-5" value="A"> A) Richtig</label><label><input type="radio" name="b2pr-h1-5" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>6.</strong> Die Frau fand ihre Aufgaben …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-6" value="A"> A) wie Kaffee kochen unangenehm</label><label><input type="radio" name="b2pr-h1-6" value="B"> B) nützlich für ihr Studium</label><label><input type="radio" name="b2pr-h1-6" value="C"> C) für ihre berufliche Tätigkeit sehr hilfreich</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>7.</strong> Der Mann berichtet über Sicherheit im Straßenverkehr.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-7" value="A"> A) Richtig</label><label><input type="radio" name="b2pr-h1-7" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>8.</strong> Nummernschilder bei Fahrrädern …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-8" value="A"> A) lehnen Experten ab</label><label><input type="radio" name="b2pr-h1-8" value="B"> B) halten Experten für eine gute Idee</label><label><input type="radio" name="b2pr-h1-8" value="C"> C) möchten Experten ausprobieren</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>9.</strong> Die beiden Freunde unterhalten sich über einen Professor.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-9" value="A"> A) Richtig</label><label><input type="radio" name="b2pr-h1-9" value="B"> B) Falsch</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>10.</strong> Die beiden Freunde brauchen noch ein Thema für …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h1-10" value="A"> A) eine Präsentation</label><label><input type="radio" name="b2pr-h1-10" value="B"> B) einen Aufsatz</label><label><input type="radio" name="b2pr-h1-10" value="C"> C) eine Seminararbeit</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('b2pr-h1-mcq','b2pr-h1-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-h1-mcq','b2pr-h1-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-h1-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-h1-score"></span></div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-h1-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="b2pr-h1-trans"><h4>🎧 原文 (Teil 1)</h4><div class="bp-mu-text"><p><strong>文本1(文学):</strong> "Warum liest du Romane? Dabei kann ich mich gut entspannen. Wenn ich lese, vergesse ich die Welt… Ich befinde mich in einer märchenhaften Welt… Filme mag ich nicht so sehr, das ist mir viel zu real…"</p><p><strong>文本2(支付):</strong> "In vielen Ländern gibt es schon keine 1-Cent-Münzen mehr… Die Leute zahlen lieber mit ihrer Bank- oder Kreditkarte… Vor allem im Internet oder auf Reisen… muss sein Geld nicht mehr umtauschen… Bald wird überall nur noch mit Karte bezahlt."</p><p><strong>文本3(实习):</strong> "Mein Praktikum? Das war echt toll! Ich war ja in der Anwaltskanzlei… Ich konnte sogar zu ein paar Terminen bei Gericht mitgehen… Natürlich musste ich auch mal Kaffee kochen oder Kopien machen, aber das war nicht schlimm. Ich konnte mich in Fälle einlesen, die für mein Seminar in Verfassungsrecht echt hilfreich sind."</p><p><strong>文本4(自行车牌):</strong> "Es gibt immer mehr Unfälle mit Radfahrern… Eine Idee ist, jedes Fahrrad wie ein Auto ein Nummernschild… Mit einem Nummernschild könnten die Polizisten das herausfinden. Schließlich fanden die Experten den Vorschlag aber doch zu unpraktisch."</p><p><strong>文本5(教授):</strong> "Ich find das Seminar bei Professor Köster echt gut… Hast du schon ein Thema für das Referat? … Ich würde gerne darüber referieren, wie Afrika in der neueren deutschen Literatur dargestellt wird…"</p></div></div>
+      <div class="bp-explain" id="b2pr-h1-explain"><div class="bp-explain-h">🎧 题型导读 · Teil 1 (5 短对话 · 判断+选择)</div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">1</span><span class="bx-ans">Richtig</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">她讲"为什么读小说"=谈文学兴趣的原因。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">2</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"märchenhafte Welt, mit Romanhelden fühlen" = 需要想象力。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">3</span><span class="bx-ans">Richtig</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">谈各国支付习惯（越来越少用硬币/现金）。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">4</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Münzen/Geldscheine immer seltener benutzt" = 用现金变少。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">5</span><span class="bx-ans">Falsch</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">她在<strong>律所</strong>实习（anwaltskanzlei），只是"跟去法院"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">6</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"einlesen… für mein Seminar in Verfassungsrecht hilfreich" = 对学业有用。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">7</span><span class="bx-ans">Richtig</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">讲骑自行车安全/事故。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">8</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"fanden den Vorschlag zu unpraktisch" = 专家否决。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">9</span><span class="bx-ans">Richtig</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">两人聊 Prof. Köster 的课和作业。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">10</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Thema für das Referat" = 报告 = 展示(Presentation)。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 2 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Hören</strong> — 电台访谈科学家 Frau Neuhaus（谈未来饮食与农业）。听 2 遍，6 道单选。</div>
+      <div class="bp-audio"><div class="a-h">🔊 Teil 2 — 电台访谈 · 听2遍</div><audio controls preload="metadata" style="width:100%"><source src="audio/b2pr-h-t2.mp3" type="audio/mpeg">不支持音频。</audio></div>
+      <div class="mcq-list" id="b2pr-h2-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>11.</strong> Frau Neuhaus findet es für unsere zukünftige Ernährung wichtig, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-11" value="A"> A) an die Konsequenzen unserer Entscheidung zu denken</label><label><input type="radio" name="b2pr-h2-11" value="B"> B) uns mit Fleisch und Fisch zu ernähren</label><label><input type="radio" name="b2pr-h2-11" value="C"> C) mehr Erbsen und Sojabohnen zu essen</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>12.</strong> Was ist die Ursache für wachsenden Fleischkonsum?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-12" value="A"> A) Die Fleischproduktion ist gestiegen</label><label><input type="radio" name="b2pr-h2-12" value="B"> B) Die Weltbevölkerung ist gewachsen</label><label><input type="radio" name="b2pr-h2-12" value="C"> C) Mehr Menschen haben genug Geld für Fleisch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>13.</strong> Warum sehen viele in Insekten eine Alternative zu Fleisch?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-13" value="A"> A) Sie lassen sich gut zu Schokolade verarbeiten</label><label><input type="radio" name="b2pr-h2-13" value="B"> B) Es gibt viele Zubereitungsarten</label><label><input type="radio" name="b2pr-h2-13" value="C"> C) Sie schmecken wie Hähnchenfleisch</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>14.</strong> In einigen Ländern isst man heutzutage Insekten, weil …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-14" value="A"> A) dort Viehbetriebe nicht rentabel sind</label><label><input type="radio" name="b2pr-h2-14" value="B"> B) es dort schon länger üblich ist</label><label><input type="radio" name="b2pr-h2-14" value="C"> C) es dort viele verschiedene Insekten gibt</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>15.</strong> Was ist der Vorteil einer Landwirtschaft in städtischen Gebieten?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-15" value="A"> A) Der Wasserverbrauch sinkt</label><label><input type="radio" name="b2pr-h2-15" value="B"> B) Man spart Strom</label><label><input type="radio" name="b2pr-h2-15" value="C"> C) Sie ist für alle Nutzpflanzen geeignet</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>16.</strong> Was bedeutet „individualisierte Landwirtschaft"?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h2-16" value="A"> A) Die Produktion passt sich an das einzelne Tier an</label><label><input type="radio" name="b2pr-h2-16" value="B"> B) Computer zeigen an, wie viel Milch eine Kuh gegeben hat</label><label><input type="radio" name="b2pr-h2-16" value="C"> C) Die Qualität der Milchprodukte steigt</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('b2pr-h2-mcq','b2pr-h2-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-h2-mcq','b2pr-h2-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-h2-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-h2-score"></span></div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-h2-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="b2pr-h2-trans"><h4>🎧 原文 (Teil 2)</h4><div class="bp-mu-text"><p>"Auf jeden Fall ist es gut, wenn wir uns über die Folgen unserer Ernährung bewusst werden. Was hat das für Konsequenzen, wenn ich Fisch oder Rindfleisch wähle…"</p><p>"Es gibt in vielen Ländern immer mehr Menschen, die sich Fleisch leisten können. So entsteht eine wachsende Nachfrage…"</p><p>"Insekten… frittiert schmecken sie ähnlich wie die Haut von Brathähnchen. Man kann Insekten auch karamellisieren oder in Schokolade tauchen… Die Zubereitung kennt keine Grenzen."</p><p>"In manchen Ländern war das Essen von Insekten schon immer weit verbreitet… mittlerweile gezüchtet."</p><p>"im Hochhaus oder in Gärten in der Stadt… da spart man vor allem Wasser, da spart man Dünger. Allerdings ist der Anbau sehr stromintensiv."</p><p>"Es geht darum, mehr Rücksicht auf die Lebensqualität der Tiere zu nehmen; dass zum Beispiel ein Computer erkennt, ob und wie viel Milch die Kuh gerade hat."</p></div></div>
+      <div class="bp-explain" id="b2pr-h2-explain"><div class="bp-explain-h">🎧 题型导读 · Teil 2 (访谈 · 单选)</div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">11</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"über die Folgen unserer Ernährung bewusst werden… Was hat das für Konsequenzen" = 想后果。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">12</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"mehr Menschen, die sich Fleisch leisten können" = 更多人买得起。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">13</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Die Zubereitung kennt keine Grenzen" = 做法多。c"像鸡肉"是具体一点。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">14</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"schon immer weit verbreitet"（传统习惯）。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">15</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"da spart man vor allem Wasser" = 省水；b"省电"是"缺点"。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">16</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"mehr Rücksicht auf die Lebensqualität der Tiere" = 依个体动物调整；b是具体例子。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 3 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Hören</strong> — 电台多人聊"合住/共同居住"。谁说的？(a=主持人 · b=Frau Gerster 学生 · c=Frau Lück 老人)。听 1 遍，6 题。</div>
+      <div class="bp-audio"><div class="a-h">🔊 Teil 3 — 多人讨论 · 听1遍</div><audio controls preload="metadata" style="width:100%"><source src="audio/b2pr-h-t3.mp3" type="audio/mpeg">不支持音频。</audio></div>
+      <div class="mcq-list" id="b2pr-h3-mcq">
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>17.</strong> Er/Sie lebt aus finanziellen Gründen mit anderen zusammen.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-17" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-17" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-17" value="C"> C) Frau Lück</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>18.</strong> Eine WG-Wohnung sollte auch Raum zum Alleinsein bieten.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-18" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-18" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-18" value="C"> C) Frau Lück</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>19.</strong> Es ist schön, Gesprächspartner in der Nähe zu haben.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-19" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-19" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-19" value="C"> C) Frau Lück</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>20.</strong> Wohngemeinschaften für Menschen verschiedenen Alters sind neu.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-20" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-20" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-20" value="C"> C) Frau Lück</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>21.</strong> Wohngemeinschaften können für die Bewohner nützlich sein.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-21" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-21" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-21" value="C"> C) Frau Lück</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>22.</strong> Wohngemeinschaften sind für Senioren passender als für Studenten.</div><div class="mcq-options"><label><input type="radio" name="b2pr-h3-22" value="A"> A) Moderator</label><label><input type="radio" name="b2pr-h3-22" value="B"> B) Frau Gerster</label><label><input type="radio" name="b2pr-h3-22" value="C"> C) Frau Lück</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('b2pr-h3-mcq','b2pr-h3-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-h3-mcq','b2pr-h3-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-h3-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-h3-score"></span></div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-h3-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="b2pr-h3-trans"><h4>🎧 原文 (Teil 3)</h4><div class="bp-mu-text"><p><strong>Lisa Gerster:</strong> "Als ich zum Studium nach Berlin kam, hatte ich nicht viel Geld und zog in eine WG…"</p><p><strong>Lisa Gerster:</strong> "Rückzugsräume sind wichtig. Wenn die Tür zu ist… Man braucht die Tür nur aufzumachen und schon hat man Mitbewohner und Vertraute für Gespräche."</p><p><strong>Moderator:</strong> "WGs sind ja nichts Neues; neu ist aber, dass selbst ältere Leute nicht mehr alleine leben wollen…"</p><p><strong>Frau Lück:</strong> "Manchmal hab ich Probleme mit den Knien, da geht dann eine von den jungen Müttern für mich einkaufen. Dafür passe ich auf ihre Kinder auf… Das ist schon sehr praktisch."</p><p><strong>Lisa Gerster:</strong> "Ich glaube, dass Gemeinschaften ganz besonders geeignet sind für Leute im Rentenalter, die manchmal Hilfe brauchen. Viele mit 25 leben lieber als Paar zusammen oder allein."</p></div></div>
+      <div class="bp-explain" id="b2pr-h3-explain"><div class="bp-explain-h">🎧 题型导读 · Teil 3 (谁说的)</div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">17</span><span class="bx-ans">B · 学生</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"hatte nicht viel Geld und zog in eine WG" = 因钱住合租。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">18</span><span class="bx-ans">B · 学生</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Rückzugsräume sind wichtig… Tür zu" = 需要独处空间。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">19</span><span class="bx-ans">B · 学生</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Mitbewohner und Vertraute für Gespräche" = 附近有聊天伙伴。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">20</span><span class="bx-ans">A · 主持人</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"WGs sind nichts Neues; neu ist aber…"（主持人陈述）。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">21</span><span class="bx-ans">C · 老人</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"ein Geben und Nehmen… sehr praktisch" = 对住户有用。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">22</span><span class="bx-ans">B · 学生</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"besonders geeignet für Leute im Rentenalter" 出自 Lisa。</span></div></div>
+      </div>
+    </div>
+
+    <!-- Teil 4 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 4 · Hören</strong> — 一场讲座"Bessere Arbeitstechniken"（Herr Kinigard）。听 2 遍，8 道单选。</div>
+      <div class="bp-audio"><div class="a-h">🔊 Teil 4 — 讲座 · 听2遍</div><audio controls preload="metadata" style="width:100%"><source src="audio/b2pr-h-t4.mp3" type="audio/mpeg">不支持音频。</audio></div>
+      <div class="mcq-list" id="b2pr-h4-mcq">
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>23.</strong> Es dauert mehr als 20 Minuten, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-23" value="A"> A) nach einer Störung umzuschalten</label><label><input type="radio" name="b2pr-h4-23" value="B"> B) eine Aufgabe zu erledigen</label><label><input type="radio" name="b2pr-h4-23" value="C"> C) sich in eine neue Aufgabe einzuarbeiten</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>24.</strong> Was meint Herr Kinigard mit „leeren Kalorien"?</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-24" value="A"> A) Inhaltslose Dinge</label><label><input type="radio" name="b2pr-h4-24" value="B"> B) Informationen, die nicht relevant sind</label><label><input type="radio" name="b2pr-h4-24" value="C"> C) Dinge, die sehr komplex sind</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>25.</strong> Der Versuch, konzentriert zu arbeiten, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-25" value="A"> A) ist erfolgversprechend</label><label><input type="radio" name="b2pr-h4-25" value="B"> B) macht glücklich</label><label><input type="radio" name="b2pr-h4-25" value="C"> C) strengt an</label></div></div>
+        <div class="mcq-item" data-ans="C"><div class="bp-q"><strong>26.</strong> Mehrere Dinge gleichzeitig zu tun, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-26" value="A"> A) ändert nichts am Ergebnis</label><label><input type="radio" name="b2pr-h4-26" value="B"> B) verbessert das Ergebnis</label><label><input type="radio" name="b2pr-h4-26" value="C"> C) verschlechtert das Ergebnis</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>27.</strong> Ein externes Gedächtnis wird geschaffen, indem man …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-27" value="A"> A) Dinge aufschreibt</label><label><input type="radio" name="b2pr-h4-27" value="B"> B) sich auf andere Dinge konzentriert</label><label><input type="radio" name="b2pr-h4-27" value="C"> C) den Kopf frei macht</label></div></div>
+        <div class="mcq-item" data-ans="B"><div class="bp-q"><strong>28.</strong> Laut Herrn Kinigard sind gesetzliche Ruhepausen …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-28" value="A"> A) unnötig</label><label><input type="radio" name="b2pr-h4-28" value="B"> B) wichtig</label><label><input type="radio" name="b2pr-h4-28" value="C"> C) zu stark reguliert</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>29.</strong> Wozu kann Zeitdruck führen? Zu …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-29" value="A"> A) hervorragenden Ergebnissen</label><label><input type="radio" name="b2pr-h4-29" value="B"> B) langen Blockaden</label><label><input type="radio" name="b2pr-h4-29" value="C"> C) negativem Stress</label></div></div>
+        <div class="mcq-item" data-ans="A"><div class="bp-q"><strong>30.</strong> Herr Kinigard rät dazu, …</div><div class="mcq-options"><label><input type="radio" name="b2pr-h4-30" value="A"> A) Ablenkungen zu vermeiden</label><label><input type="radio" name="b2pr-h4-30" value="B"> B) auf Einflüsse von außen nicht zu reagieren</label><label><input type="radio" name="b2pr-h4-30" value="C"> C) E-Mail-Korrespondenz zu reduzieren</label></div></div>
+      </div>
+      <div class="bp-checkrow"><button class="bp-btn" onclick="b2lCheckMCQ('b2pr-h4-mcq','b2pr-h4-score')">✓ 判分</button><button class="bp-btn reset" onclick="b2lResetMCQ('b2pr-h4-mcq','b2pr-h4-score')">↺ 重做</button><button class="bx-explbtn" onclick="b2prExplain(this,'b2pr-h4-explain')">📖 答案解析</button><span class="bp-score" id="b2pr-h4-score"></span></div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-h4-trans')">📄 显示听力原文</button>
+      <div class="bp-ans" id="b2pr-h4-trans"><h4>🎧 原文 (Teil 4)</h4><div class="bp-mu-text"><p>"Bis zu 23 Minuten kann es nach solchen Störungen dauern, bis wir wieder fokussiert arbeiten und im Flow sind. Um danach wirklich runterzukommen, im Kopf von Arbeit auf Freizeit umzuschalten, dauert es weit länger."</p><p>"Den gesamten Tag füttern wir unser Hirn mit leeren Kalorien, das heißt mit Dingen, die nicht zu der eigentlichen Aufgabe gehören."</p><p>"Es scheint unmöglich, voll konzentriert zu arbeiten. Es andauernd zu versuchen kostet Kraft… Aber das wirklich konzentrierte Arbeiten schafft das größte Hochgefühl."</p><p>"Mehrere Dinge gleichzeitig zu tun hilft nichts… jedoch leidet das Ergebnis stark darunter."</p><p>"Dinge ins externe Gedächtnis zu verschieben, indem man zum Beispiel Adressen aufschreibt oder Einkaufslisten."</p><p>"Ruhepausen sind per Gesetz vorgeschrieben… Fluglotsen machen alle 2 Stunden 30 Minuten Pause – das empfinde ich als richtig, sonst käme es zu Fehlern."</p><p>"Unter Zeitdruck kommen oft die besten und kreativsten Ideen… der zeitliche Druck wird nicht als stressig, sondern als motivierend empfunden."</p><p>"Es ist wichtig, Ablenkungen als solche zu erkennen und gar nicht erst entstehen zu lassen… reicht es, die E-Mails alle zwei bis drei Stunden anzusehen."</p></div></div>
+      <div class="bp-explain" id="b2pr-h4-explain"><div class="bp-explain-h">🎧 题型导读 · Teil 4 (讲座 · 单选)</div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">23</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"23 Minuten nach Störungen… wieder fokussiert" = 干扰后重新进入。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">24</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Dinge, die nicht zu der eigentlichen Aufgabe gehören" = 无关信息。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">25</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"kostet Kraft und ist wenig zielführend" = 消耗力气。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">26</span><span class="bx-ans">c</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"leidet das Ergebnis stark darunter" = 结果变差。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">27</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"indem man Adressen aufschreibt" = 写下来(外部记忆)。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">28</span><span class="bx-ans">b</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"das empfinde ich als richtig, sonst käme es zu Fehlern" = 重要。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">29</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"unter Zeitdruck die besten Ideen… motivierend" = 出色结果。</span></div></div>
+        <div class="bx-item"><div class="bx-head"><span class="bx-num">30</span><span class="bx-ans">a</span></div><div class="bx-row"><span class="lbl">💡</span><span class="zh">"Ablenkungen erkennen und gar nicht erst entstehen lassen" = 避免分心。</span></div></div>
+      </div>
+    </div>
+  </div><!-- /b2pr-hoeren -->
+
+
+  <!-- ── SCHREIBEN ── -->
+  <div class="bp-sec" id="b2pr-schreiben" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">✍️</div><div><h2>Schreiben · 写作</h2><div class="sub">Goethe-Zertifikat B2 · 2 Aufgaben · 75 Minuten</div></div></div>
+    <div class="bp-box blue"><span class="lbl">📌 评分:</span> 两项各按「内容点完成度 / 语法正确 / 句子与段落衔接」评分（B2 更看重结构与逻辑）。写清要点、控制字数、注意衔接词。</div>
+
+    <!-- Teil 1 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 1 · Forumsbeitrag (ca. 150 Wörter · 50 Min)</strong></div>
+      <div class="bp-box"><strong>📋 Aufgabe:</strong> Sie schreiben einen Forumsbeitrag zur <strong>Verschmutzung der Umwelt</strong>.<br>
+        <span class="lbl">✍️ Schreiben Sie:</span>
+        <ul class="bp-points">
+          <li>Äußern Sie Ihre Meinung zu Plastikverpackungen im Alltag. (你对日常塑料包装的看法)</li>
+          <li>Nennen Sie Gründe, warum Plastikverpackungen so verbreitet sind. (为何普及的原因)</li>
+          <li>Nennen Sie andere Möglichkeiten, Dinge im Alltag zu verpacken. (其他包装方式)</li>
+          <li>Nennen Sie Vorteile der anderen Verpackungen. (这些方式的好处)</li>
+        </ul>
+        Denken Sie an eine Einleitung und einen Schluss. Schreiben Sie circa 150 Wörter.</div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-s1')">📄 显示参考范文</button>
+      <div class="bp-ans" id="b2pr-s1"><h4>✍️ 范文 (约 150 词)</h4><div class="bp-mu-text"><p>Ich finde, dass wir im Alltag viel zu viel Plastik verbrauchen. Verpackungen landen nach wenigen Minuten im Müll und belasten die Umwelt. Trotzdem sind Plastikverpackungen so verbreitet, weil sie billig, leicht und praktisch sind. Sie halten Lebensmittel lange frisch und lassen sich leicht transportieren. Außerdem sind sie für viele Firmen die günstigste Lösung.</p><p>Es gibt aber gute Alternativen: Papier, Glas, Stoff oder wiederverwendbare Behälter. Zum Beispiel kann man Obst und Gemüse unverpackt kaufen oder Glas statt Plastikflaschen nutzen. Diese Alternativen haben Vorteile: Sie sind umweltfreundlicher und langlebiger. Papier lässt sich recyceln, und Glas kann man immer wieder benutzen.</p><p>Natürlich sind viele Alternativen teurer. Aber für die Umwelt lohnt es sich, darüber nachzudenken. Ich hoffe, dass wir insgesamt weniger Plastik verwenden. Was denkt ihr dazu?</p></div></div>
+    </div>
+
+    <!-- Teil 2 -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Aufgabe 2 · Nachricht (ca. 100 Wörter · 25 Min)</strong></div>
+      <div class="bp-box"><strong>📋 Aufgabe:</strong> Sie machen gerade ein Praktikum bei einer deutschen Firma. Sie haben derzeit so viel zu tun, dass Sie Ihre Arbeit nicht mehr schaffen. Schreiben Sie eine <strong>Nachricht an Ihren Vorgesetzten, Herrn Ebert</strong>. Überlegen Sie sich eine passende Reihenfolge für die Inhaltspunkte.<br>
+        <span class="lbl">✍️ Schreiben Sie:</span>
+        <ul class="bp-points">
+          <li>Beschreiben Sie, womit Sie beschäftigt sind. (你正忙于什么)</li>
+          <li>Bitten Sie um Verständnis für Ihre Situation. (请求理解)</li>
+          <li>Machen Sie einen Vorschlag für die kommenden Tage. (给接下来几天的建议)</li>
+          <li>Zeigen Sie Verständnis für die Arbeitssituation in der Firma. (对公司状况表示理解)</li>
+        </ul>
+        Vergessen Sie nicht Anrede und Gruß. Schreiben Sie circa 100 Wörter.</div>
+      <button class="bp-toggle" onclick="b2prToggle('b2pr-s2')">📄 显示参考范文</button>
+      <div class="bp-ans" id="b2pr-s2"><h4>✍️ 范文 (约 100 词)</h4><div class="bp-mu-text"><p>Sehr geehrter Herr Ebert,</p><p>zurzeit arbeite ich an mehreren Projekten gleichzeitig und habe noch einige Aufgaben zu erledigen. Leider schaffe ich meine Arbeit im Moment nicht rechtzeitig, obwohl ich mich sehr bemühe. Ich bitte um Verständnis für meine Situation.</p><p>Ich schlage vor, dass wir für die nächsten Tage meine Aufgaben neu verteilen, damit ich mich auf die wichtigsten konzentrieren kann. Ich verstehe, dass die Arbeit in der Firma gerade viel ist, und möchte das Team nicht zusätzlich belasten.</p><p>Mit freundlichen Grüßen<br>[Ihr Name]</p></div></div>
+    </div>
+  </div><!-- /b2pr-schreiben -->
+
+  <!-- ── SPRECHEN ── -->
+  <div class="bp-sec" id="b2pr-sprechen" style="scroll-margin-top:20px">
+    <div class="bp-sec-h"><div class="b">🗣️</div><div><h2>Sprechen · 口语</h2><div class="sub">Goethe-Zertifikat B2 · 2 Teile · ca. 15 Minuten (Paar)</div></div></div>
+    <div class="bp-box gold"><span class="lbl">📌 考试说明:</span> 口语 2 部分。Teil 1 <strong>短报告 (Vortrag)</strong> 约4分钟（从两主题选一）；Teil 2 <strong>辩论 (Diskussion)</strong> 约5分钟。准备 15 分钟，可做笔记，需脱稿。</div>
+
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 1 · Vortrag (短报告, ca. 4 Min)</strong> — 你参加研讨会，就选题做短报告。用"引言-主体-结尾"结构。两位考生各一册主题卡。</div>
+      <div class="bp-box"><strong>👤 Teilnehmende/-r A:</strong><br>
+        <span class="lbl">Thema 1 · Finanzierung des Studiums:</span>
+        <ul class="bp-points"><li>Beschreiben Sie mehrere Alternativen. (描述多种方式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li><li>Beschreiben Sie eine Möglichkeit genauer. (详细介绍一种方式)</li></ul>
+        <span class="lbl">Thema 2 · Gesund leben:</span>
+        <ul class="bp-points"><li>Beschreiben Sie mehrere Bereiche (z. B. Bewegung). (描述多个领域，如运动)</li><li>Beschreiben Sie einen Bereich genauer. (详细描述一个领域)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li></ul>
+      <strong>👤 Teilnehmende/-r B:</strong><br>
+        <span class="lbl">Thema 1 · Freundschaften pflegen:</span>
+        <ul class="bp-points"><li>Beschreiben Sie mehrere Formen (z. B. im Internet). (描述多种形式，如网上)</li><li>Beschreiben Sie eine Form genauer. (详细描述一种形式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li></ul>
+        <span class="lbl">Thema 2 · Ernährung am Arbeitsplatz:</span>
+        <ul class="bp-points"><li>Beschreiben Sie mehrere Alternativen. (描述多种方式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li><li>Beschreiben Sie eine Möglichkeit genauer. (详细介绍一种方式)</li></ul></div>
+      <div class="bp-box blue"><span class="lbl">💬 Redemittel:</span><div class="bp-chips"><span class="bp-chip">Mein Thema ist…</span><span class="bp-chip">Zuerst… dann…</span><span class="bp-chip">Einerseits… andererseits…</span><span class="bp-chip">Ein großer Vorteil ist…</span><span class="bp-chip">Ein Nachteil ist allerdings…</span><span class="bp-chip">Meiner Meinung nach…</span><span class="bp-chip">Zusammenfassend…</span><span class="bp-chip">Vielen Dank für Ihre Aufmerksamkeit.</span></div></div>
+    </div>
+
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 2 · Diskussion (辩论, ca. 5 Min)</strong> — 你是辩论社成员，讨论：<strong>大学生该给教授打分吗？</strong></div>
+      <div class="bp-box"><strong>📋 Aufgabe:</strong> Sie sind Teilnehmende eines Debattierclubs und diskutieren über die Frage.<br>
+        <strong>❓ Sollen Studierende ihre Professorinnen und Professoren beurteilen?</strong><br>
+        <ul class="bp-points"><li>Tauschen Sie Ihren Standpunkt und Ihre Argumente aus. (交换观点与论据)</li><li>Reagieren Sie auf die Argumente Ihrer Gesprächspartnerin/Ihres Gesprächspartners. (回应对方)</li><li>Fassen Sie am Ende zusammen: Sind Sie dafür oder dagegen? (总结赞成/反对)</li></ul>
+      <span class="lbl">💭 Stichpunkte:</span> Motivation nimmt zu/ab? · Unterricht wird besser/schlechter? · Fairness ist gegeben? · Beurteilung bleibt anonym?<div class="bp-chips"><span class="bp-chip">Ich bin der Meinung, dass…</span><span class="bp-chip">Das stimmt, aber…</span><span class="bp-chip">Da widerspreche ich, weil…</span><span class="bp-chip">Was ist mit…?</span><span class="bp-chip">Fassen wir zusammen…</span></div></div>
+      <div class="bp-box"><span class="lbl">🏆 评分 (B2):</span> 完成度 / 互动 / 词汇 / 语法 / 发音。强调结构清晰、敢于互动、观点明确。</div>
+    </div>
+  </div><!-- /b2pr-sprechen -->
+
+  <!-- 交互 JS -->
+  <script>
+    // b2prGrade: 匹配/对号类判分（选项标签 "X) 字母…"，data-ans 存字母，取标签 ") " 后首字符比较）
+    window.b2prGrade = function(mcqId, scoreId){
+      var list=document.getElementById(mcqId); if(!list) return;
+      var items=list.querySelectorAll('.mcq-item'), correct=0, total=items.length;
+      items.forEach(function(item){
+        var ans=item.getAttribute('data-ans');
+        item.querySelectorAll('input').forEach(function(r){
+          r.disabled=true; var label=r.parentElement;
+          var txt=label.textContent.trim();
+          var shown=txt.replace(/^[A-Z]\)\s*/,'').trim().charAt(0);
+          if(shown===ans){ label.classList.add('correct-ans'); }
+          else if(r.checked && shown!==ans){ label.classList.add('wrong-ans'); }
+          if(r.checked && shown===ans) correct++;
+        });
+      });
+      var se=document.getElementById(scoreId);
+      if(se){ var pct=Math.round(correct/total*100); se.innerHTML='✅ '+correct+'/'+total+' ('+pct+'%)'; se.className='bp-score '+(pct>=60?'ok':'bad'); }
+    };
+    window.b2prExplain=function(btn,targetId){ var el=document.getElementById(targetId); if(!el) return; var open=el.style.display==='block'; el.style.display=open?'none':'block'; if(btn) btn.textContent=open?'📖 答案解析':'📖 收起讲解'; };
+    window.b2prToggle=function(id){ var el=document.getElementById(id); if(el) el.style.display=(el.style.display==='block')?'none':'block'; };
+    window.b2prAddAnchors=function(){
+      document.querySelectorAll('#page-b2pruefung .bp-modnav a').forEach(function(a){ a.addEventListener('click',function(e){ var href=a.getAttribute('href'); if(href&&href.charAt(0)==='#'){ var t=document.getElementById(href.slice(1)); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } } }); });
+      document.querySelectorAll('#page-b2pruefung .mcq-options label').forEach(function(l){ l.addEventListener('click',function(){ var w=l.parentNode; w.querySelectorAll('label').forEach(function(x){x.classList.remove('selected');}); l.classList.add('selected'); }); });
+    };
+  </script>
+
+</div><!-- /b2pr-wrap -->
+
+</template>
+
+<div id="page-b2pruefung" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b2pruefung', 'tpl-page-b2pruefung', function(page){ if(window.b2prAddAnchors){ try{ window.b2prAddAnchors(); }catch(e){} } });</script>
 <!-- B2 学习站 -->
 <div id="page-b2hub" class="page hub-page" style="--hub:#f59e0b;--hub-soft:rgba(245,158,11,.13)">
 
