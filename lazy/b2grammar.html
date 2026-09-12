@@ -1,0 +1,664 @@
+
+<style>
+/* ═══ B2 语法 · 情态动词 Modalverben · 由易到难六层体系 ═══ */
+#page-b2grammar .b2g-wrap{max-width:920px;margin:0 auto;padding:0 16px}
+#page-b2grammar .b2g-hero{text-align:center;padding:40px 12px 22px}
+#page-b2grammar .b2g-flag{display:flex;height:5px;border-radius:3px;overflow:hidden;width:64px;margin:0 auto 16px}
+#page-b2grammar .b2g-flag span{flex:1}
+#page-b2grammar .b2g-flag span:nth-child(1){background:#000}
+#page-b2grammar .b2g-flag span:nth-child(2){background:#e63946}
+#page-b2grammar .b2g-flag span:nth-child(3){background:#ffd166}
+#page-b2grammar .b2g-hero h1{font-size:clamp(1.7rem,4.6vw,2.7rem);font-weight:800;margin:0 0 10px;background:linear-gradient(100deg,#ffd770,#fff3b8 30%,#fff 50%,#ffe088 70%,#ffc448);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:b2g-shimmer 4s linear infinite}
+@keyframes b2g-shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
+#page-b2grammar .b2g-hero p{color:rgba(255,245,230,.72);font-size:.92rem;line-height:1.7;margin:0}
+#page-b2grammar .b2g-hero .b2g-hero-sub{color:#f6d365;font-size:.8rem;margin-top:10px;letter-spacing:2px}
+
+/* ── 目录条 ── */
+#page-b2grammar .b2g-toc{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px 12px;position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(10,20,40,.97),rgba(15,30,58,.97));border:1px solid rgba(246,211,101,.18);border-radius:14px;margin:0 0 4px}
+#page-b2grammar .b2g-toc-btn{padding:7px 13px;border-radius:18px;border:1px solid rgba(246,211,101,.32);background:rgba(255,255,255,.06);color:#e2e8f0;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+#page-b2grammar .b2g-toc-btn:hover{background:rgba(246,211,101,.16);border-color:rgba(246,211,101,.55);transform:translateY(-1px)}
+#page-b2grammar .b2g-toc-btn.gold{background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428;border-color:transparent}
+
+/* ── 层卡片 ── */
+#page-b2grammar .b2g-sec{background:linear-gradient(160deg,#0f1e3a,#12233f);border:1px solid rgba(246,211,101,.16);border-radius:16px;padding:18px 18px 20px;margin:18px 0;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+#page-b2grammar .b2g-sec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+#page-b2grammar .b2g-sec-num{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+#page-b2grammar .b2g-sec-head h2{margin:0;color:#fde68a;font-size:1.22rem;font-weight:800;line-height:1.3}
+#page-b2grammar .b2g-sec-head .b2g-sec-de{display:block;color:rgba(255,245,230,.55);font-size:.72rem;font-weight:400;margin-top:2px;letter-spacing:.5px}
+#page-b2grammar .b2g-sec-lv{margin-left:auto;font-size:.72rem;color:#0a1428;background:linear-gradient(135deg,#f6d365,#fde68a);padding:4px 12px;border-radius:14px;font-weight:700;white-space:nowrap}
+#page-b2grammar .b2g-sec-lv.hard{background:linear-gradient(135deg,#e63946,#ff8fa3);color:#fff}
+
+/* ── 讲解块（白底可读） ── */
+#page-b2grammar .b2g-block{background:#fff;border-radius:12px;padding:16px 18px;margin:12px 0;color:#2d3748;font-size:.9rem;line-height:1.8;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+#page-b2grammar .b2g-block h3{color:#b8860b;font-size:1rem;margin:16px 0 8px;font-weight:800;border-bottom:2px solid #f6d365;padding-bottom:4px}
+#page-b2grammar .b2g-block h3:first-child{margin-top:0}
+#page-b2grammar .b2g-block p{margin:8px 0}
+#page-b2grammar .b2g-block strong{color:#0f1e3a}
+#page-b2grammar .b2g-de{color:#b8860b;font-weight:600}
+
+/* ── 表格 ── */
+#page-b2grammar .b2g-tbl-wrap{overflow-x:auto;margin:10px 0}
+#page-b2grammar .b2g-table{width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.55;min-width:520px}
+#page-b2grammar .b2g-table th{background:#1a3a5c;color:#fde68a;padding:8px 12px;text-align:left;font-weight:600;white-space:nowrap}
+#page-b2grammar .b2g-table td{padding:8px 12px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+#page-b2grammar .b2g-table tr:nth-child(even) td{background:#f6f8fb}
+#page-b2grammar .b2g-table tr:nth-child(odd) td{background:#fff}
+#page-b2grammar .b2g-table td:first-child{font-weight:700;color:#0f1e3a;white-space:nowrap}
+
+/* ── 例句 / 提示 / 警示框 ── */
+#page-b2grammar .b2g-beispiel{background:#fffbeb;border-left:4px solid #b8860b;border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:.87rem;line-height:1.75;color:#5d4037}
+#page-b2grammar .b2g-beispiel b{color:#b8860b}
+#page-b2grammar .b2g-beispiel .b2g-zh{color:#8d6e63}
+#page-b2grammar .b2g-tipp{background:#eef6ff;border-left:4px solid #1565c0;border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:.87rem;line-height:1.75;color:#1e3a5f}
+#page-b2grammar .b2g-warn{background:#fdeaea;border-left:4px solid #c62828;border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:.87rem;line-height:1.75;color:#7f1d1d}
+
+/* ── 练习 ── */
+#page-b2grammar .b2g-ex{background:#fff;border:2px solid #e6c989;border-radius:12px;padding:15px 17px;margin:14px 0}
+#page-b2grammar .b2g-ex-head{font-weight:800;color:#b8860b;font-size:.94rem;margin-bottom:10px}
+#page-b2grammar .b2g-q{margin:8px 0;font-size:.89rem;line-height:1.75;color:#2d3748}
+#page-b2grammar .b2g-q b{color:#0f1e3a}
+#page-b2grammar .b2g-ans-btn{display:inline-block;margin:10px 0 0;padding:8px 18px;border-radius:18px;border:none;background:linear-gradient(135deg,#b8860b,#f6d365);color:#0a1428;font-size:.84rem;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit}
+#page-b2grammar .b2g-ans-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(246,211,101,.35)}
+#page-b2grammar .b2g-ans{display:none;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px 15px;margin-top:12px;font-size:.87rem;line-height:1.8;color:#2d3748}
+#page-b2grammar .b2g-ans.show{display:block}
+#page-b2grammar .b2g-ans b{color:#b8860b}
+#page-b2grammar .b2g-ans .b2g-ans-i{color:#64748b;font-size:.8rem;display:block;margin-top:4px}
+
+/* ── 分隔符 / 底部 ── */
+#page-b2grammar .b2g-separator{height:2px;margin:26px 0;background:linear-gradient(90deg,transparent,rgba(246,211,101,.35),rgba(246,211,101,.12),transparent);border:none;position:relative}
+#page-b2grammar .b2g-separator::after{content:'\25C6  \25C6  \25C6';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f1e3a;padding:0 16px;color:rgba(246,211,101,.5);font-size:.55rem;letter-spacing:6px;white-space:nowrap}
+#page-b2grammar .b2g-top{margin:28px 0 10px;text-align:center}
+#page-b2grammar .b2g-top button{background:linear-gradient(135deg,#1e3a5f,#2e527c);color:#fde68a;border:1px solid rgba(246,211,101,.4);padding:9px 22px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+#page-b2grammar .b2g-top button:hover{background:linear-gradient(135deg,#2e527c,#3d6a9e)}
+#page-b2grammar .b2g-foot{text-align:center;color:rgba(255,245,230,.5);font-size:.78rem;padding:16px 0 4px;line-height:1.7}
+@media(max-width:600px){#page-b2grammar .b2g-hero{padding:26px 8px 14px}#page-b2grammar .b2g-sec{padding:14px 12px 16px;margin:14px 0}#page-b2grammar .b2g-toc{position:static}#page-b2grammar .b2g-block,#page-b2grammar .b2g-ex{padding:12px 13px}}
+</style>
+
+<div class="b2g-wrap">
+
+  <div class="b2g-hero">
+    <div class="b2g-flag"><span></span><span></span><span></span></div>
+    <h1>情态动词 · Modalverben</h1>
+    <p>由易到难 · 六层体系 · 从变位到主观推测<br>整合《新编德语语法》《德语语法重点与难点》《Grammatik aktiv》系统梳理</p>
+    <div class="b2g-hero-sub">B2 GRAMMATIK · DIE MODALVERBEN · EIN KOMPLETTES SYSTEM</div>
+  </div>
+
+  <!-- 目录条 -->
+  <div class="b2g-toc">
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l1').scrollIntoView({behavior:'smooth'})">① 认识情态动词</button>
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l2').scrollIntoView({behavior:'smooth'})">② 客观用法</button>
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l3').scrollIntoView({behavior:'smooth'})">③ 时态</button>
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l4').scrollIntoView({behavior:'smooth'})">④ 被动</button>
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l5').scrollIntoView({behavior:'smooth'})">⑤ 主观推测</button>
+    <button class="b2g-toc-btn" onclick="document.getElementById('b2g-l6').scrollIntoView({behavior:'smooth'})">⑥ 虚拟式·特殊</button>
+    <button class="b2g-toc-btn gold" onclick="document.getElementById('b2g-final').scrollIntoView({behavior:'smooth'})">🏆 综合测试</button>
+  </div>
+
+  <!-- ════════════════════ L1 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l1">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">1</div>
+      <h2>认识情态动词<span class="b2g-sec-de">Grundlagen — Was sind Modalverben?</span></h2>
+      <span class="b2g-sec-lv">⭐ 入门</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① 六个核心情态动词 + 两个常客</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>情态动词</th><th>基本含义</th><th>英文参考</th><th>一句话场景</th></tr>
+        <tr><td>dürfen</td><td>允许 / 禁止</td><td>may, be allowed to</td><td>Darf ich …? 我可以…吗</td></tr>
+        <tr><td>können</td><td>能够 / 可能</td><td>can</td><td>Ich kann schwimmen.</td></tr>
+        <tr><td>mögen</td><td>喜欢</td><td>to like</td><td>Ich mag Kaffee.</td></tr>
+        <tr><td>müssen</td><td>必须（义务）</td><td>must, have to</td><td>Ich muss arbeiten.</td></tr>
+        <tr><td>sollen</td><td>应该（他人要求）</td><td>should</td><td>Du sollst kommen.</td></tr>
+        <tr><td>wollen</td><td>想要</td><td>to want</td><td>Ich will lernen.</td></tr>
+        <tr><td>möchten</td><td>想要（礼貌）</td><td>would like</td><td>Ich möchte einen Kaffee.</td></tr>
+        <tr><td>brauchen</td><td>不必（只用于否定）</td><td>needn't</td><td>Du brauchst nicht zu kommen.</td></tr>
+      </table>
+      </div>
+      <p>情态动词本身不能单独表达完整动作，它总是<span class="b2g-de">配一个实义动词的不定式</span>，表达说话人对这个动作的态度：能力、义务、允许、意愿、推测。</p>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② 框架结构 Rahmenkonstruktion —— 德语最核心的句子框架</h3>
+      <div class="b2g-beispiel">
+        动词变位（情态动词）在<b>第二位</b>，实义动词以<b>不定式原形</b>沉到<b>句末</b>。<br>
+        <b>Ich kann gut Deutsch sprechen.</b><br>
+        <span class="b2g-zh">我能说好德语。 → 框架 = kann … sprechen</span>
+      </div>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>句型</th><th>情态动词位置</th><th>例句</th></tr>
+        <tr><td>陈述句</td><td>第二位</td><td>Wir <b>müssen</b> morgen früh aufstehen.<br><span class="b2g-zh">我们明早必须早起。</span></td></tr>
+        <tr><td>疑问句</td><td>第一位（提前）</td><td><b>Darf</b> ich das Fenster öffnen?</td></tr>
+        <tr><td>从句</td><td>句末</td><td>…, weil ich jetzt <b>gehen muss</b>.</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 判断框架：找到<b>变位的情态动词</b>，再跳到<b>句末的不定式</b>，两者之间的"括号"装的就是句子的全部内容。这是德国人说话、考试改错的第一抓手。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ 现在时变位 —— 单数第一、三人称无词尾</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>人称</th><th>dürfen</th><th>können</th><th>mögen</th><th>müssen</th><th>sollen</th><th>wollen</th></tr>
+        <tr><td>ich</td><td>darf</td><td>kann</td><td>mag</td><td>muss</td><td>soll</td><td>will</td></tr>
+        <tr><td>du</td><td>darfst</td><td>kannst</td><td>magst</td><td>musst</td><td>sollst</td><td>willst</td></tr>
+        <tr><td>er/sie/es</td><td>darf</td><td>kann</td><td>mag</td><td>muss</td><td>soll</td><td>will</td></tr>
+        <tr><td>wir</td><td>dürfen</td><td>können</td><td>mögen</td><td>müssen</td><td>sollen</td><td>wollen</td></tr>
+        <tr><td>ihr</td><td>dürft</td><td>könnt</td><td>mögt</td><td>müsst</td><td>sollt</td><td>wollt</td></tr>
+        <tr><td>sie/Sie</td><td>dürfen</td><td>können</td><td>mögen</td><td>müssen</td><td>sollen</td><td>wollen</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 <b>元音换音规律</b>（只发生在单数三人称）：<br>
+      o→a：können→kann · mögen→mag · dürfen→darf<br>
+      ü→u：müssen→muss<br>
+      e→i：wollen→will · sollen→soll（去 e）<br>
+      记住口诀：<b>a a u i</b>（darf / kann / muss / will）。</div>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>möchten 变位（= mögen 的第二虚拟式）</th><th></th></tr>
+        <tr><td>ich möchte</td><td>wir möchten</td></tr>
+        <tr><td>du möchtest</td><td>ihr möchtet</td></tr>
+        <tr><td>er/sie/es möchte</td><td>sie/Sie möchten</td></tr>
+      </table>
+      </div>
+      <div class="b2g-warn">⚠️ möchten <b>没有过去时</b>。想说"过去想要"时，用 <b>wollen 的过去时 wollte</b>：Ich wollte gestern kommen.</div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 1 · 变位填空（请写出正确形式）</div>
+      <p class="b2g-q">1. Ich ___ gut Deutsch sprechen. (können)</p>
+      <p class="b2g-q">2. ___ ich hereinkommen? (dürfen)</p>
+      <p class="b2g-q">3. Er ___ Arzt werden. (wollen)</p>
+      <p class="b2g-q">4. Wir ___ jetzt nach Hause gehen. (müssen)</p>
+      <p class="b2g-q">5. ___ Sie einen Kaffee? (möchten)</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a1')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a1">
+        1. <b>kann</b>　2. <b>Darf</b>　3. <b>will</b>　4. <b>müssen</b>　5. <b>Möchten</b>
+        <span class="b2g-ans-i">考点：单数三人称无词尾 + 元音换音（kann / darf / will / muss）。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ L2 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l2">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">2</div>
+      <h2>客观用法 —— 每个动词的多重含义<span class="b2g-sec-de">objektiver Gebrauch — die wichtigsten Bedeutungen</span></h2>
+      <span class="b2g-sec-lv">⭐⭐ 基础</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① dürfen —— 允许 / 禁止 / 礼貌请求</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>许可</td><td>Jeder <b>darf</b> die Bibliothek benutzen.<br><span class="b2g-zh">每个人都可以用图书馆。</span></td></tr>
+        <tr><td>禁止（否定）</td><td>Hier <b>darf man nicht</b> rauchen.<br><span class="b2g-zh">这里禁止吸烟。</span></td></tr>
+        <tr><td>礼貌请求</td><td><b>Darf ich</b> um etwas Zucker bitten?<br><span class="b2g-zh">我可以要一点糖吗？</span></td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② können —— 能力 / 可能 / 许可 / 请求</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>能力</td><td>Sie <b>kann</b> fließend Chinesisch sprechen.<br><span class="b2g-zh">她能流利地说中文。</span></td></tr>
+        <tr><td>可能</td><td>Das <b>kann</b> wahr sein.<br><span class="b2g-zh">这可能是真的。</span></td></tr>
+        <tr><td>许可（口语）</td><td><b>Kann</b> ich das Fenster öffnen?<br><span class="b2g-zh">我可以开窗吗？（口语代替 darf）</span></td></tr>
+        <tr><td>请求（更委婉）</td><td><b>Können Sie</b> mir bitte helfen?<br><span class="b2g-zh">您能帮我一下吗？</span></td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ mögen / möchten —— 喜欢 / 委婉愿望 / 允许 / 让步</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>喜欢</td><td>Ich <b>mag</b> Schokolade.<br><span class="b2g-zh">我喜欢巧克力。</span></td></tr>
+        <tr><td>委婉愿望（möchte）</td><td>Ich <b>möchte</b> nach Berlin fahren.<br><span class="b2g-zh">我想去柏林（礼貌）。</span></td></tr>
+        <tr><td>允许</td><td>Das <b>magst</b> du tun.<br><span class="b2g-zh">你可以这样做。</span></td></tr>
+        <tr><td>让步（"尽管…也"）</td><td><b>Mag</b> es auch kalt sein, er zieht keinen Mantel an.<br><span class="b2g-zh">尽管天冷，他也不穿大衣。</span></td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>④ müssen —— 义务 / 必然（客观推断）</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>义务 / 必须</td><td>Ich <b>muss</b> morgen früh aufstehen.<br><span class="b2g-zh">我明早必须早起。</span></td></tr>
+        <tr><td>必然（客观逻辑）</td><td>Er <b>muss</b> ihr Vater sein, die Ähnlichkeit ist groß.<br><span class="b2g-zh">他一定是她父亲，长得太像了。（客观推理）</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-warn">⚠️ <b>müssen 的否定 ≠ "不必"！</b><br>
+      „Ich muss nicht kommen" 意思是"我不必来"（没有义务），但德语更地道的"不必"用 <b>brauchen + nicht zu</b>：<br>
+      Du <b>brauchst</b> nicht <b>zu kommen</b>. = 你（现在）不用来。<br>
+      对 müssen 问句的否定回答：<b>Nein, das brauchst du nicht.</b>（不必）/ <b>Nein, das darfst du nicht.</b>（不行，禁止）</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>⑤ sollen —— 他人意志 / 任务规定 / 转述"据说"</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>别人要求我</td><td>Mein Chef <b>soll</b>, dass ich überstunden mache. → Ich <b>soll</b> Überstunden machen.<br><span class="b2g-zh">老板要我加班。（sollen 表示"别人的意志"）</span></td></tr>
+        <tr><td>任务 / 规定</td><td>Man <b>soll</b> im Unterricht nicht laut sprechen.<br><span class="b2g-zh">课堂上不应大声说话。</span></td></tr>
+        <tr><td>转述"据说"</td><td>Er <b>soll</b> krank sein.<br><span class="b2g-zh">据说他病了。</span></td></tr>
+        <tr><td>建议请求</td><td><b>Soll ich</b> das Fenster schließen?<br><span class="b2g-zh">要我关上窗吗？（建议）</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 wollen vs müssen vs sollen 的"意愿归属"：<br>
+      <b>wollen</b> = 主语自己想做（Ich will …）<br>
+      <b>sollen</b> = 别人要我做（Du sollst …）<br>
+      <b>müssen</b> = 客观情况逼我做（Ich muss …，没得选）</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>⑥ wollen —— 意愿 / 需求 / 声称"自称"</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>含义</th><th>例句</th></tr>
+        <tr><td>意愿</td><td>Ich <b>will</b> heute das Buch zu Ende lesen.<br><span class="b2g-zh">我今天一定要把书读完。</span></td></tr>
+        <tr><td>需求（物作主语）</td><td>Die Pflanze <b>will</b> Wasser.<br><span class="b2g-zh">这株植物需要水。</span></td></tr>
+        <tr><td>声称 / 自称</td><td>Er <b>will</b> krank gewesen sein, aber ich sah ihn im Kino.<br><span class="b2g-zh">他自称病过，可我在电影院看到他。</span></td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 2 · 选词填空（考虑含义与语境）</div>
+      <p class="b2g-q">1. Du ___ hier nicht rauchen. Hier ist Rauchverbot. (darfst / kannst)</p>
+      <p class="b2g-q">2. Ich ___ morgen früh aufstehen, denn der Zug fährt um 7 Uhr. (muss / will)</p>
+      <p class="b2g-q">3. ___ ich Ihnen helfen? (Soll / Darf)</p>
+      <p class="b2g-q">4. Er ___ gestern krank gewesen sein, aber ich habe ihn im Kino gesehen. (will / muss)</p>
+      <p class="b2g-q">5. Du ___ nicht zu kommen, es ist schon alles fertig. (brauchst / musst)</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a2')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a2">
+        1. <b>darfst</b>（禁止→darf nicht）<br>
+        2. <b>muss</b>（客观时间逼我→必须）<br>
+        3. <b>Soll</b>（"要我帮您吗"= 建议，不是征求许可）<br>
+        4. <b>will</b>（自称 + 说话人怀疑→用 wollen）<br>
+        5. <b>brauchst</b>（否定"不必"→brauchen + nicht zu，不用 muss）
+        <span class="b2g-ans-i">难点：müssen 否定 ≠ 不必；"据说/自称"属于主观用法，第 5 层再深化。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ L3 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l3">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">3</div>
+      <h2>时态 —— 过去时与完成时<span class="b2g-sec-de">Zeitformen — Präteritum &amp; Perfekt</span></h2>
+      <span class="b2g-sec-lv">⭐⭐ 基础</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① 过去时 Präteritum —— 全部规则加 -te</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>人称</th><th>dürfen</th><th>können</th><th>mögen</th><th>müssen</th><th>sollen</th><th>wollen</th></tr>
+        <tr><td>ich / er</td><td>durfte</td><td>konnte</td><td>mochte</td><td>musste</td><td>sollte</td><td>wollte</td></tr>
+        <tr><td>du</td><td>durftest</td><td>konntest</td><td>mochtest</td><td>musstest</td><td>solltest</td><td>wolltest</td></tr>
+        <tr><td>wir / sie</td><td>durften</td><td>konnten</td><td>mochten</td><td>mussten</td><td>sollten</td><td>wollten</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 情态动词的过去时<b>完全规则</b>：词干去掉尾音（含变音），加 <b>-te</b>。如 können → konn-te，müssen → muss-te。这是德语动词里最省心的过去时！</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② 完成时 Perfekt —— Ersatzinfinitiv 双不定式</h3>
+      <p>情态动词 <b>+ 实义动词不定式</b>时，完成时用<b>双不定式</b>（替代过去分词），情态动词以<b>不定式原形</b>沉到句末：</p>
+      <div class="b2g-beispiel">
+        结构：<b>haben + 实义动词不定式 + 情态动词不定式</b><br>
+        Ich muss das Buch kaufen. → 完成时：Ich <b>habe das Buch kaufen müssen</b>.<br>
+        <span class="b2g-zh">我必须买这本书 → 我当时必须买这本书。</span><br><br>
+        Sie kann nicht kommen. → 完成时：Sie <b>hat nicht kommen können</b>.<br>
+        <span class="b2g-zh">她没能来。</span>
+      </div>
+      <div class="b2g-warn">⚠️ 双括号嵌套！一句话里可能有两层"括号"：<br>
+      <b>完成时框架</b>（habe … müssen）套着<b>情态框架</b>（kaufen）→ <b>habe kaufen müssen</b>。考试改错的高频考点。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ 情态动词作独立动词 —— 才用正常过去分词</h3>
+      <p>当情态动词<b>不带实义动词</b>、自己当谓语时（后面直接跟名词/去往地/被省略），完成时用<b>真正的过去分词</b>：</p>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>情态动词</th><th>独立用法完成时</th><th>例句</th></tr>
+        <tr><td>können</td><td>gekonnt</td><td>Diese Übungen habe ich früher alle <b>gekonnt</b>.</td></tr>
+        <tr><td>müssen</td><td>gemusst</td><td>Das Auto hat zur Reparatur <b>gemusst</b>.</td></tr>
+        <tr><td>wollen</td><td>gewollt</td><td>Das habe ich nicht <b>gewollt</b>.</td></tr>
+        <tr><td>dürfen</td><td>gedurft</td><td>Das haben wir als Kinder nicht <b>gedurft</b>.</td></tr>
+        <tr><td>mögen</td><td>gemocht</td><td>Pilze hat er nie <b>gemocht</b>.</td></tr>
+        <tr><td>sollen</td><td>gesollt</td><td>Ich habe zu ihm <b>gesollt</b>.</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 判断口诀：<b>后面有动词不定式 → 双不定式；后面没有动词 → 正常分词（ge-…-t）</b>。</div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 3 · 时态改写</div>
+      <p class="b2g-q">1. Ich kann schwimmen. → 过去时：Ich ___ schwimmen.</p>
+      <p class="b2g-q">2. Er muss heute arbeiten. → 过去时：Er ___ heute arbeiten.</p>
+      <p class="b2g-q">3. Sie will nach Deutschland fahren. → 过去时：Sie ___ nach Deutschland fahren.</p>
+      <p class="b2g-q">4. Ich muss das Buch kaufen. → 完成时：Ich ___ das Buch kaufen ___.</p>
+      <p class="b2g-q">5. Das habe ich nicht ___. (wollen 独立用法)</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a3')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a3">
+        1. <b>konnte</b>　2. <b>musste</b>　3. <b>wollte</b><br>
+        4. <b>habe</b> das Buch kaufen <b>müssen</b>（双不定式，müssen 保持原形）<br>
+        5. <b>gewollt</b>（独立用法 → 正常过去分词）
+        <span class="b2g-ans-i">注意：möchte 无过去时 → 用 wollte 代替（Er wollte gestern kommen.）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ L4 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l4">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">4</div>
+      <h2>被动 —— 情态动词 × 被动态<span class="b2g-sec-de">Passiv mit Modalverb</span></h2>
+      <span class="b2g-sec-lv">⭐⭐ 进阶</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① 情态动词 + 第一被动不定式（禁止 / 命令 / 要求）</h3>
+      <div class="b2g-beispiel">
+        结构：<b>情态动词 + Partizip II + werden</b><br>
+        Die Rechnung <b>muss bezahlt werden</b>.<br>
+        <span class="b2g-zh">这笔账必须付。</span><br>
+        Hier <b>darf nicht geparkt werden</b>.<br>
+        <span class="b2g-zh">此处禁止停车。</span><br>
+        Die Maschine <b>will gut gepflegt werden</b>.<br>
+        <span class="b2g-zh">这台机器需要好好保养。</span>
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② 情态动词 + 第二被动不定式（推测"想必已被…"）</h3>
+      <div class="b2g-beispiel">
+        结构：<b>情态动词 + Partizip II + worden sein</b><br>
+        Die Rechnung <b>muss bezahlt worden sein</b>.<br>
+        <span class="b2g-zh">这笔账想必已经付清了。</span><br>
+        Das Buch <b>kann noch nicht zurückgegeben worden sein</b>.<br>
+        <span class="b2g-zh">这本书可能还没有归还。</span>
+      </div>
+      <div class="b2g-tipp">💡 区分核心：<b>第一被动不定式</b> = "必须被做"（义务）→ <b>werden</b>；<b>第二被动不定式</b> = "想必已经被做"（推测已发生）→ <b>worden sein</b>。看尾巴：werden vs worden sein。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ 三种代替被动态的手段</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>手段</th><th>≈ 意义</th><th>例句</th></tr>
+        <tr><td>sein + zu + 不定式</td><td>≈ müssen / können</td><td>Das <b>ist zu erledigen</b>.<br><span class="b2g-zh">这事必须处理。</span></td></tr>
+        <tr><td>sich lassen + 不定式</td><td>≈ können</td><td>Das Problem <b>lässt sich lösen</b>.<br><span class="b2g-zh">这个问题可以解决。</span></td></tr>
+        <tr><td>-bar / -lich 形容词</td><td>≈ können + werden</td><td>Diese Aufgabe <b>ist machbar</b>.<br><span class="b2g-zh">这任务可完成。</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-warn">⚠️ 当主句是<b>完成时 + 情态动词 + 被动</b>时，会同时出现双不定式：<br>
+      Das Haus <b>hat gebaut werden müssen</b>.（这房子当时必须被建）<br>
+      三个动词原形叠在一起——结构越复杂越要稳住框架。</div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 4 · 改写为被动</div>
+      <p class="b2g-q">1. Man muss die Rechnung bezahlen. → Die Rechnung ___ ___ ___.</p>
+      <p class="b2g-q">2. Hier darf man nicht parken. → Hier ___ nicht ___ ___.</p>
+      <p class="b2g-q">3. Man muss die Aufgabe machen. → 用 sein+zu：Die Aufgabe ___ ___ ___.</p>
+      <p class="b2g-q">4. Man kann das Problem lösen. → 用 sich lassen：Das Problem ___ ___ ___.</p>
+      <p class="b2g-q">5. 推测（已完成）：Man hat das Buch sicher zurückgegeben. → Das Buch ___ ___ ___ ___ ___.</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a4')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a4">
+        1. Die Rechnung <b>muss bezahlt werden</b>.<br>
+        2. Hier <b>darf nicht geparkt werden</b>.<br>
+        3. Die Aufgabe <b>ist zu machen</b>.<br>
+        4. Das Problem <b>lässt sich lösen</b>.<br>
+        5. Das Buch <b>muss zurückgegeben worden sein</b>（情态动词+第二被动不定式）。
+        <span class="b2g-ans-i">第 5 题同时是第 5 层"主观推测"的预告：must 猜测 + 已完成 → muss + Infinitiv II。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ L5 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l5">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">5</div>
+      <h2>主观用法 —— 推测与转述（本板块核心）<span class="b2g-sec-de">subjektiver Gebrauch — Vermutung &amp; Behauptung</span></h2>
+      <span class="b2g-sec-lv hard">⭐⭐⭐ 难点</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① 客观 vs 主观 —— 一句话看懂</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>用法</th><th>情态动词在说什么</th><th>例句</th></tr>
+        <tr><td>客观</td><td>义务 / 能力 / 意愿（描述现实）</td><td>Er <b>muss</b> das Buch kaufen.<br><span class="b2g-zh">他必须买这本书（有义务）。</span></td></tr>
+        <tr><td>主观</td><td>说话人的<b>推测 / 转述</b></td><td>Er <b>muss</b> das Buch gekauft <b>haben</b>.<br><span class="b2g-zh">他准是把书买好了（我的推断）。</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 <b>最快的识别标志：第二不定式（Infinitiv II）</b>。情态动词后面出现 <b>gekauft haben / gewesen sein</b>，几乎可以断定是主观用法。同一个 muss，改个尾巴，意思天差地别。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② 推测梯度表 —— 把握程度从 100% 到 40%</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>把握度</th><th>表达手段</th><th>同义表达（可互换）</th></tr>
+        <tr><td>100%</td><td>直接陈述</td><td>Das ist der Direktor.</td></tr>
+        <tr><td>90%</td><td><b>müssen</b></td><td>Er <b>muss</b> der Täter sein.<br><span class="b2g-zh">他必是凶手。（= bestimmt / sicher）</span></td></tr>
+        <tr><td>80%</td><td><b>müsste</b>（虚拟式）</td><td>Er <b>müsste</b> bald kommen.<br><span class="b2g-zh">他想必马上就到。</span></td></tr>
+        <tr><td>60%</td><td><b>dürfte</b>（只用虚拟式）</td><td>Es <b>dürfte</b> regnen.<br><span class="b2g-zh">大概会下雨。（= vermutlich / wahrscheinlich）</span></td></tr>
+        <tr><td>50%</td><td><b>können / mag / wird wohl</b></td><td>Es <b>kann</b> regnen. · Er <b>wird wohl</b> kommen.<br><span class="b2g-zh">可能 / 大概会来。</span></td></tr>
+        <tr><td>40%</td><td><b>könnte</b>（虚拟式）</td><td>Es <b>könnte</b> regnen.<br><span class="b2g-zh">也许（可能性较低）。</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-warn">⚠️ 注意三处陷阱：<br>
+      ① dürfte 表推测时<b>只用第二虚拟式 dürfte</b>，不能写"darf 表推测"（直陈 darf 只表许可）。<br>
+      ② mögen 表主观推测时 = "大概 / 可能"，与"喜欢"无关：Er <b>mag</b> 30 Jahre alt sein.（他大概 30 岁。）<br>
+      ③ "把握度"不是情态动词本身决定的，而是<b>说话人的信心</b>——语境因素（线索、证据、语气词）一起起作用。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ 转述两种：sollen"据说" vs wollen"自称"</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>动词</th><th>含义</th><th>信息来源</th><th>例句</th></tr>
+        <tr><td>sollen</td><td>据说 / 听说</td><td>第三者、传闻</td><td>Er <b>soll</b> nach Wien gefahren <b>sein</b>.<br><span class="b2g-zh">据说他去维也纳了。（我不负责）</span></td></tr>
+        <tr><td>wollen</td><td>自称 / 硬说</td><td>主语本人（说话人怀疑）</td><td>Er <b>will</b> das getan <b>haben</b>.<br><span class="b2g-zh">他自称做了这事。（我持保留）</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-beispiel">
+        对比训练：<br>
+        <b>Er soll</b> zwei Jahre in London gearbeitet haben. （转述，来源是别人）<br>
+        Er versteht kaum Englisch. <b>Er will</b> zwei Jahre in London gearbeitet haben. （自称，说话人根本不信）
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>④ 第二不定式 Infinitiv II —— 表达"推测的时间"</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>形式</th><th>表示时间</th><th>例句</th></tr>
+        <tr><td>情态动词 + Infinitiv I（动词原形）</td><td>现在 / 未来</td><td>Er <b>muss</b> krank <b>sein</b>.<br><span class="b2g-zh">他准是病了（现在）。</span></td></tr>
+        <tr><td>情态动词 + Infinitiv II（ge-… + haben/sein）</td><td>已发生（先时）</td><td>Er <b>muss</b> krank <b>gewesen sein</b>.<br><span class="b2g-zh">他准是病过（过去）。</span></td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 情态动词本身不区分时间（muss 没有"时态尾巴"），时间全靠<b>后面的不定式</b>判断。这是主观用法的"时间钥匙"。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>⑤ 三种表达手段自由互换</h3>
+      <div class="b2g-beispiel">
+        <b>① 情态动词</b>：Er <b>muss</b> krank sein.<br>
+        <b>② 情态词 / 副词</b>：Er ist <b>bestimmt</b> krank.<br>
+        <b>③ 主从句句型</b>：<b>Ich bin sicher, dass</b> er krank ist.<br>
+        <span class="b2g-zh">三者意思几乎相同——这就是德国人玩"推测"的三种武器。</span>
+      </div>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>情态动词</th><th>可换用的情态词</th></tr>
+        <tr><td>muss / müsste</td><td>gewiß · sicher · bestimmt · zweifellos</td></tr>
+        <tr><td>dürfte</td><td>wahrscheinlich · vermutlich · wohl</td></tr>
+        <tr><td>kann / mag / wird</td><td>möglicherweise · vielleicht · wohl</td></tr>
+        <tr><td>könnte</td><td>eventuell · unter Umständen</td></tr>
+        <tr><td>soll</td><td>angeblich · wie man sagt</td></tr>
+        <tr><td>will</td><td>angeblich · wie er behauptet</td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 5 · 主观用法（判断 + 改写）</div>
+      <p class="b2g-q">1. 判断客观/主观：Er muss die Rechnung bezahlen. → <b>___</b>；Er muss die Rechnung bezahlt haben. → <b>___</b>（填"客观/主观"）</p>
+      <p class="b2g-q">2. 乌云很黑，选把握最大的词：Es ___ (muss / dürfte / könnte) regnen.</p>
+      <p class="b2g-q">3. 改写同义（用情态动词）：Ich bin sicher, dass er der Täter ist. → Er ___ der Täter ___.</p>
+      <p class="b2g-q">4. 改写转述（用 sollen）：Man sagt, er ist nach Wien gefahren. → Er ___ nach Wien gefahren ___.</p>
+      <p class="b2g-q">5. 区分两句：a) Er will den Brief geschrieben haben.　b) Er soll den Brief geschrieben haben.<br>a 的含义是 ___；b 的含义是 ___。</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a5')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a5">
+        1. 第一句 <b>客观</b>（有义务付）；第二句 <b>主观</b>（推断已付清）。<br>
+        2. <b>muss</b>（黑云=强证据，把握 90%+）<br>
+        3. Er <b>muss</b> der Täter <b>sein</b>.<br>
+        4. Er <b>soll</b> nach Wien gefahren <b>sein</b>.<br>
+        5. a = <b>他自称</b>写了信（说话人怀疑）；b = <b>据说</b>他写了信（来源是别人）。
+        <span class="b2g-ans-i">记忆：sollen 归"传闻"，wollen 归"自称+怀疑"。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ L6 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-l6">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">6</div>
+      <h2>虚拟式与特殊用法<span class="b2g-sec-de">Konjunktiv &amp; besondere Konstruktionen</span></h2>
+      <span class="b2g-sec-lv hard">⭐⭐⭐ 高阶</span>
+    </div>
+
+    <div class="b2g-block">
+      <h3>① 情态动词的第二虚拟式 —— 礼貌 / 愿望 / 劝告 / 条件</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>用途</th><th>例句</th><th>说明</th></tr>
+        <tr><td>礼貌请求</td><td><b>Könnten</b> Sie mir helfen? / <b>Dürfte</b> ich …?</td><td>比直陈更客气</td></tr>
+        <tr><td>委婉愿望</td><td>Ich <b>möchte</b> …</td><td>möchte = möchte（本身已是 Konj II）</td></tr>
+        <tr><td>劝告建议</td><td>Du <b>solltest</b> weniger rauchen.</td><td>should = 温柔劝告</td></tr>
+        <tr><td>非现实愿望</td><td>Ich <b>wollte</b>, es wäre schon alles vorbei!</td><td>要是都结束了该多好！</td></tr>
+        <tr><td>条件句</td><td><b>Sollte</b> es regnen, bleiben wir zu Hause.</td><td>万一/如果（sollte 引导）</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 sollte 倒装条件句是 B2 高频：<b>Sollte es regnen, …</b> = Wenn es regnen sollte, …（万一）。情态动词提前到句首，构成"无连词条件句"。</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>② 第一虚拟式 —— 间接引语转述命令</h3>
+      <div class="b2g-beispiel">
+        直接引语：Der Polizist rief: „Stehen bleiben!"<br>
+        间接引语：Der Polizist rief, er <b>solle</b> stehen bleiben.<br>
+        <span class="b2g-zh">警察喊他站住。（转述命令 → sollen 的第一虚拟式 solle）</span>
+      </div>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>人称</th><th>dürfen</th><th>können</th><th>mögen</th><th>müssen</th><th>sollen</th><th>wollen</th></tr>
+        <tr><td>ich</td><td>dürfe</td><td>könne</td><td>möge</td><td>müsse</td><td>solle</td><td>wolle</td></tr>
+        <tr><td>er/sie/es</td><td>dürfe</td><td>könne</td><td>möge</td><td>müsse</td><td>solle</td><td>wolle</td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>③ 两个情态动词连用</h3>
+      <div class="b2g-beispiel">
+        <b>Man muss die Tiere mögen, wenn man sie dressieren will.</b><br>
+        <span class="b2g-zh">想训练动物，就得喜欢它们。（muss … mögen + will）</span><br><br>
+        Er <b>soll</b> in der Geschichte Deutschlands viel <b>können</b>.<br>
+        <span class="b2g-zh">据说他在德国历史方面很有造诣。</span>
+      </div>
+      <div class="b2g-tipp">💡 连用时，<b>第一个</b>情态动词变位站二位，<b>其余全部以不定式沉底</b>。完成时叠加更是如此：Er <b>hat</b> es <b>haben wollen</b>.（怪句，语法正确性考点）</div>
+    </div>
+
+    <div class="b2g-block">
+      <h3>④ 情态小品词 —— 语气词也是"主观"助手</h3>
+      <div class="b2g-tbl-wrap">
+      <table class="b2g-table">
+        <tr><th>小品词</th><th>作用</th><th>例句</th></tr>
+        <tr><td>wohl</td><td>猜测"大概"</td><td>Er wird <b>wohl</b> krank sein.</td></tr>
+        <tr><td>ja / doch</td><td>强调已知 / 反问</td><td>Das ist <b>ja</b> klar!</td></tr>
+        <tr><td>denn</td><td>好奇询问</td><td>Wo ist <b>denn</b> mein Handy?</td></tr>
+        <tr><td>mal</td><td>缓和语气</td><td>Komm <b>mal</b> her!</td></tr>
+      </table>
+      </div>
+      <div class="b2g-tipp">💡 wohl 常与 wird 一起表主观推测：<b>Er wird wohl bald kommen.</b>（他大概快来了）= Er dürfte bald kommen. 两种武器任选。</div>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 练习 6 · 虚拟式与特殊用法</div>
+      <p class="b2g-q">1. 选择更礼貌的说法：<b>__</b> (Können / Könnten) Sie mir bitte helfen?</p>
+      <p class="b2g-q">2. 用劝告改写：Du rauchst zu viel. → Du ___ weniger rauchen.</p>
+      <p class="b2g-q">3. 条件句改写（万一）：Wenn es regnet… → ___ es regnen, bleiben wir zu Hause.</p>
+      <p class="b2g-q">4. 间接引语：Der Lehrer sagte zu ihm: „Komm sofort!" → Der Lehrer sagte, er ___ sofort kommen.</p>
+      <p class="b2g-q">5. 分析结构：Man muss die Tiere mögen, wenn man sie dressieren will. 句中两个情态动词分别是 ___ 和 ___，各自作用？</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-a6')">✅ 显示答案</button>
+      <div class="b2g-ans" id="b2g-a6">
+        1. <b>Könnten</b>（第二虚拟式更委婉）<br>
+        2. Du <b>solltest</b> weniger rauchen.<br>
+        3. <b>Sollte</b> es regnen, bleiben wir zu Hause.<br>
+        4. er <b>solle</b> sofort kommen.（第一虚拟式转述命令）<br>
+        5. 主句 <b>muss</b>（必须=客观义务）、从句 <b>will</b>（想要=意愿）；两个都变位（主句二位、从句句末）。
+        <span class="b2g-ans-i">第 5 题注意：从句里情态动词也走"动词放句末"规则（… sie dressieren will）。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="b2g-separator"></div>
+
+  <!-- ════════════════════ 综合测试 ════════════════════ -->
+  <div class="b2g-sec" id="b2g-final">
+    <div class="b2g-sec-head">
+      <div class="b2g-sec-num">🏆</div>
+      <h2>综合测试 —— 六层混合大练兵<span class="b2g-sec-de">Abschlusstest — 8 Aufgaben</span></h2>
+      <span class="b2g-sec-lv hard">全部内容</span>
+    </div>
+
+    <div class="b2g-ex">
+      <div class="b2g-ex-head">✏️ 综合练习（1–8，覆盖六层）</div>
+      <p class="b2g-q">1. 变位：Sie ___ (müssen) heute nicht so früh kommen.</p>
+      <p class="b2g-q">2. 选词（许可）：___ (Dürfen / Wollen) wir hier fotografieren?</p>
+      <p class="b2g-q">3. 完成时（独立用法）：Er hat das nicht ___. (können)</p>
+      <p class="b2g-q">4. 被动改写：Man darf den Raum nicht betreten. → Der Raum ___ nicht ___ ___.</p>
+      <p class="b2g-q">5. 主观推测：电话响了，你很确定是李先生。Das ___ Herr Li sein.</p>
+      <p class="b2g-q">6. 转述（自称）：She claims she is an artist. → Er ___ Künstler ___.</p>
+      <p class="b2g-q">7. 虚拟式愿望：要是我能休假该多好！Kein Wunder! ___ (möchte) ich doch Urlaub machen!</p>
+      <p class="b2g-q">8. 综合判断：Das Telefon klingelt. 你根据铃声规律判断，说"这八成是李先生"。选：Das ___ Herr Li sein. (muss / könnte / mag)</p>
+      <button class="b2g-ans-btn" onclick="toggleHint('b2g-af')">✅ 显示全部答案</button>
+      <div class="b2g-ans" id="b2g-af">
+        1. <b>müssen</b>（Sie 变位 = müssen）<br>
+        2. <b>Dürfen</b>（征求许可）<br>
+        3. <b>gekonnt</b>（独立用法→正常分词）<br>
+        4. Der Raum <b>darf</b> nicht <b>betreten werden</b>.<br>
+        5. <b>muss</b>（把握 90%+）<br>
+        6. Er <b>will</b> Künstler <b>sein</b>.<br>
+        7. <b>Möchte</b>（Konj II 愿望）<br>
+        8. <b>muss</b>（规律性铃声→信心强）
+        <span class="b2g-ans-i">全对 = B2 情态动词通关！把五层关键词再看一遍：变位 a-a-u-i · brauchen 表不必 · 双不定式 · 第二被动不定式 · Infinitiv II 表先时。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="b2g-top">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆ 返回顶部</button>
+  </div>
+
+  <div class="b2g-foot">
+    B2 Grammatik · Modalverben · 情态动词六层体系<br>
+    Leons Deutschzentrum · 源自《新编德语语法》《德语语法重点与难点》《Grammatik aktiv》
+  </div>
+
+</div>
