@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://leonsdeutschzentrum.com/sitemap.xml
