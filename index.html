@@ -3302,6 +3302,9 @@
     #page-serie .se-xl-link.grammar { background:rgba(246,211,101,.06); border-color:rgba(246,211,101,.16); color:#fde68a; }
     #page-serie .se-xl-link.grammar:hover { background:rgba(246,211,101,.14); border-color:rgba(246,211,101,.35); color:#fff; }
     #page-serie .se-xl-link.echt { background:rgba(34,211,238,.07); border-color:rgba(34,211,238,.16); color:#bae6fd; }
+
+  .se-xl-link.theme { background: linear-gradient(135deg, rgba(246,211,101,.16), rgba(184,134,11,.1));
+                      border-color: rgba(246,211,101,.45); color: #fde68a; font-weight: 700; }
     #page-serie .se-xl-link.echt:hover { background:rgba(34,211,238,.15); border-color:rgba(34,211,238,.35); color:#e0f2fe; }
     #page-serie .se-xl-link.lesen { background:rgba(240,147,251,.06); border-color:rgba(240,147,251,.16); color:#f0abfc; }
     #page-serie .se-xl-link.lesen:hover { background:rgba(240,147,251,.14); border-color:rgba(240,147,251,.35); color:#f5d0fe; }
@@ -37175,7 +37178,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     9: { grammar:[{l:'情态动词 (müssen, dürfen, können)',a:'s5'},{l:'可分动词 (ver|längern, be|antragen)',a:'s6'},{l:'介词 (bei, für, seit)',a:'s16'},{l:'现在完成时',a:'s17'}], lesen:[], echt:['市民局办登记','拖延/再说','听懂确认'], vocab:'外管局词汇：die Ausländerbehörde 外管局 · der Aufenthaltstitel 居留许可 · verlängern 延长 · beantragen 申请 · die Frist 期限' },
     10: { grammar:[{l:'情态动词 (dürfen, müssen, können)',a:'s5'},{l:'现在完成时',a:'s17'},{l:'连词 (weil, dass, wenn)',a:'s14'},{l:'数字与时间',a:'s15'}], lesen:[9,10,16,17,18,19], echt:['Minijob发工资','约时间','表示没问题'], vocab:'打工词汇：der Minijob 迷你工 · die Steuerklasse 税级 · brutto/netto 税前/税后 · der Stundenlohn 时薪 · die Bewerbung 求职' },
     11: { grammar:[{l:'介词 (mit, nach, ab, bis)',a:'s16'},{l:'可分动词 (um|steigen, ein|steigen)',a:'s6'},{l:'情态动词 (müssen, können)',a:'s5'},{l:'疑问句 (Wann? Wo? Wie?)',a:'s12'}], lesen:[], echt:['买车票','坐车问路','吐槽德铁晚点','听不懂'], vocab:'交通词汇：die Verspätung 晚点 · der Zugausfall 取消 · umsteigen 换乘 · das Gleis 站台 · die Fahrkarte 车票 · hin und zurück 往返' },
-    12: { grammar:[{l:'形容词谓语用法',a:'s18'},{l:'介词 (auf, in, zu)',a:'s16'},{l:'连词 (und, aber, oder)',a:'s14'},{l:'数字与时间 (日期)',a:'s15'}], lesen:[], echt:['干杯','吃饭祝好','送礼','邀请做客'], vocab:'圣诞词汇：der Weihnachtsmarkt 圣诞市场 · der Glühwein 热红酒 · die Bratwurst 烤肠 · das Karussell 旋转木马 · der Christkindlmarkt 圣婴市场' },
+    12: { grammar:[{l:'形容词谓语用法',a:'s18'},{l:'介词 (auf, in, zu)',a:'s16'},{l:'连词 (und, aber, oder)',a:'s14'},{l:'数字与时间 (日期)',a:'s15'}], lesen:[], echt:['干杯','吃饭祝好','送礼','邀请做客'], vocab:'圣诞词汇：der Weihnachtsmarkt 圣诞市场 · der Glühwein 热红酒 · die Bratwurst 烤肠 · das Karussell 旋转木马 · der Christkindlmarkt 圣婴市场', theme:[{id:'pfand',l:'🍶 押金之国 · 故事+文化+语言对照'}]},
     13: { grammar:[{l:'可分动词 (aus|stechen, ein|laden)',a:'s6'},{l:'情态动词 (möchten, können)',a:'s5'},{l:'形容词定语变格',a:'s19'}], lesen:[25], echt:['邀请做客','分享食物','夸奖别人'], vocab:'烘焙词汇：ausstechen 压模 · der Teig 面团 · backen 烤焙 · das Plätzchen 饼干 · der Zimt 肉桂 · die Glasur 糖霜' },
     14: { grammar:[{l:'现在完成时 (回顾一年)',a:'s17'},{l:'连词 (dass, weil)',a:'s14'},{l:'数字与时间 (年份/钟点)',a:'s15'}], lesen:[], echt:['干杯','道别','表达开心','结束聊天'], vocab:'跨年词汇：Silvester 跨年夜 · der Vorsatz 新年决心 · das Feuerwerk 烟花 · anstoßen 碰杯 · Guten Rutsch! 滑进新年好' },
     15: { grammar:[{l:'形容词比较级 (billiger)',a:'s18'},{l:'物主冠词 (meine Größe)',a:'s10'},{l:'疑问句 (Haben Sie...?)',a:'s12'},{l:'数字与价格',a:'s15'}], lesen:[6], echt:['问价格','超市结账','网购/二手','表示赞同'], vocab:'购物词汇：der Winterschlussverkauf 冬季打折 · reduziert 降价 · die Größe 尺码 · anprobieren 试穿 · umtauschen 退换 · der Kassenzettel 小票' },
@@ -37211,7 +37214,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 
   /* ══════ 你不知道的德国 交叉链接数据 ══════ */
   window.KULTUR_CROSSLINKS = {
-    1: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'数字、价格与日期',a:'s15'}], lesen:[6,24,26], echt:['超市结账','超市','退瓶换押金','周日商店关门','垃圾分类'], vocab:'der Pfand 押金 · die Sonntagsruhe 周日休息 · die Einbauküche 整体厨房 · die Mülltrennung 垃圾分类 · das FKK 自由身体文化 · die Pfandflasche 押金瓶' },
+    1: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'数字、价格与日期',a:'s15'}], lesen:[6,24,26], echt:['超市结账','超市','退瓶换押金','周日商店关门','垃圾分类'], vocab:'der Pfand 押金 · die Sonntagsruhe 周日休息 · die Einbauküche 整体厨房 · die Mülltrennung 垃圾分类 · das FKK 自由身体文化 · die Pfandflasche 押金瓶', theme:[{id:'pfand',l:'🍶 押金之国 · 林夏在圣诞市场亲历过'}]},
     2: { grammar:[{l:'情态动词 (müssen, können)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'}], lesen:[8,14], echt:['约时间','吐槽德铁晚点','药房买药','Biergarten点酒'], vocab:'der Termin 预约 · die Pünktlichkeit 准时 · der Hausarzt 家庭医生 · das Reinheitsgebot 啤酒纯净法 · auf Kipp 内倒 · das Stoßlüften 冲击通风' },
     3: { grammar:[{l:'介词 (in, an, auf + Dativ)',a:'s16'},{l:'否定 (nicht, kein)',a:'s11'}], lesen:[7,11,13], echt:['租房看房','见房东','抱怨邻居噪音','搬家'], vocab:'die Kaltmiete 冷租 · die Nebenkosten 附加费 · die Ruhezeit 安静时间 · die SCHUFA 信用评分 · der Verein 协会 · die Schönheitsreparatur 美观修缮' },
     4: { grammar:[{l:'情态动词 (dürfen, sollen)',a:'s5'},{l:'现在完成时 (Perfekt)',a:'s17'}], lesen:[16,17,18], echt:['带病上班','Minijob发工资','表示累了','结束聊天'], vocab:'der Tarifvertrag 集体协议 · die Probezeit 试用期 · der Urlaubstag 年假 · die Krankmeldung 病假条 · der Feierabend 下班 · der Betriebsrat 员工议会' },
@@ -37220,7 +37223,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     7: { grammar:[{l:'冠词 (der, die, das)',a:'s7'},{l:'主格与宾格 (Akkusativ)',a:'s9'}], lesen:[3,6,24,25,26], echt:['点餐','干杯','分享食物','Biergarten点酒','吃饭祝好'], vocab:'der Stammtisch 常客桌 · die Kaffeetafel 咖啡蛋糕 · grillen 烧烤 · der Spargel 白芦笋 · das Bio-Siegel 有机认证 · das Trinkgeld 小费' },
     8: { grammar:[{l:'数字、日期与时间',a:'s15'},{l:'现在完成时 (Perfekt)',a:'s17'}], lesen:[15,21], echt:['周末愉快','祝愿/祝福','送礼','干杯','公共假期'], vocab:'das Silvester 新年夜 · die Weiberfastnacht 女人狂欢节 · das Ostern 复活节 · der Maibaum 五月柱 · das Volksfest 民间节日 · der Weihnachtsmarkt 圣诞市场 · der Glühwein 热红酒' },
     9: { grammar:[{l:'数字、年龄表达',a:'s15'},{l:'连词 (weil, dass)',a:'s14'}], lesen:[9,10], echt:['表示开心','祝愿/祝福','邀请做客'], vocab:'die Elternzeit 育儿假 · das Elterngeld 育儿津贴 · die Einschulung 入学典礼 · die Schultüte 入学锥筒 · die Halbtagsschule 半日制学校 · das Abitur 高中毕业考试' },
-    10: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (obwohl, trotzdem)',a:'s14'}], lesen:[], echt:['垃圾分类','天气抱怨','关门窗'], vocab:'die Energiewende 能源转型 · das Windrad 风力发电机 · das Tempolimit 限速 · das Mehrweg 可重复使用 · das Balkonkraftwerk 阳台太阳能 · der Ökostrom 绿色电力' },
+    10: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (obwohl, trotzdem)',a:'s14'}], lesen:[], echt:['垃圾分类','天气抱怨','关门窗'], vocab:'die Energiewende 能源转型 · das Windrad 风力发电机 · das Tempolimit 限速 · das Mehrweg 可重复使用 · das Balkonkraftwerk 阳台太阳能 · der Ökostrom 绿色电力', theme:[{id:'pfand',l:'🍶 押金之国 · 从超市瓶子讲起'}]},
     11: { grammar:[{l:'情态动词 (sollen, müssen)',a:'s5'},{l:'疑问句 (Fragen)',a:'s12'}], lesen:[8,28,30,31], echt:['药房买药','看牙医','带病上班','约时间'], vocab:'die Krankenversicherung 医保 · die Apotheke 药房 · der Notarzt 急诊医生 · der Heilpraktiker 自然疗法师 · die Reha 康复 · die Impfpflicht 疫苗强制' },
     12: { grammar:[{l:'否定 (nicht, kein)',a:'s11'},{l:'连词 (weil, obwohl)',a:'s14'}], lesen:[], echt:['手机合同','WiFi密码','分享账号'], vocab:'das Fax 传真 · der Datenschutz 数据保护 · der Breitbandausbau 宽带建设 · der Handyvertrag 手机合同 · bargeldlos 无现金 · die digitale Behörde 数字政府' },
     13: { grammar:[{l:'现在完成时 (Perfekt)',a:'s17'},{l:'句子语序',a:'s13'}], lesen:[4,15], echt:['公共假期','表达意见'], vocab:'die Stolpersteine 绊脚石 · der Mauerfall 柏林墙倒塌 · die DDR 东德 · die Vergangenheitsbewältigung 克服过去 · der Denkmalschutz 文物保护 · der Tag der Deutschen Einheit 统一日' },
@@ -37285,6 +37288,16 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
       html += '</div></div>';
     }
 
+    /* 主题闭环（《林夏在德国》×《你不知道的德国》+ 语言对照） */
+    if (data.theme && data.theme.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">🧵 主题闭环</div><div class="se-xl-links">';
+      for (var th = 0; th < data.theme.length; th++) {
+        var ti = data.theme[th];
+        html += '<a class="se-xl-link theme" href="' + location.origin + '/theme/' + ti.id + '.html">' + ti.l + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
     /* 词汇主题 */
     if (data.vocab) {
       html += '<div class="se-xl-vocab">📒 <b>词汇主题：</b>' + data.vocab + '</div>';
@@ -37339,6 +37352,16 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
       html += '<div class="se-xl-group"><div class="se-xl-group-title">💬 地道德语 Echt Deutsch</div><div class="se-xl-links">';
       for (var e = 0; e < data.echt.length; e++) {
         html += '<a class="se-xl-link echt" href="javascript:void(0)" onclick="navEcht(\'' + data.echt[e].replace(/'/g, "\\'") + '\')" title="跳转到地道德语对应分类">' + data.echt[e] + ' →</a>';
+      }
+      html += '</div></div>';
+    }
+
+    /* 主题闭环（《林夏在德国》×《你不知道的德国》+ 语言对照） */
+    if (data.theme && data.theme.length) {
+      html += '<div class="se-xl-group"><div class="se-xl-group-title">🧵 主题闭环</div><div class="se-xl-links">';
+      for (var th = 0; th < data.theme.length; th++) {
+        var ti = data.theme[th];
+        html += '<a class="se-xl-link theme" href="' + location.origin + '/theme/' + ti.id + '.html">' + ti.l + ' →</a>';
       }
       html += '</div></div>';
     }
