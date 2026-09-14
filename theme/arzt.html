@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>在德国看病：为什么不能直接去？ | Leon 德语</title>
+<meta name="description" content="林夏发烧了，Anna 告诉她：不能直接去诊所，得先打电话约 Termin。一通电话里，她把医保、候诊、病假条全套流程走了一遍。">
+<meta property="og:title" content="在德国看病：为什么不能直接去？">
+<meta property="og:description" content="预约、医保卡、病假条——在德国看病的完整流程。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-arzt.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/arzt.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Arzt · 看病</div>
+  <h1>🏥 在德国看病，先打电话</h1>
+  <p class="sub">Termin · Versichertenkarte · Krankschreibung</p>
+  <p class="lead">林夏发烧了，Anna 告诉她：不能直接去诊所，得先打电话约 Termin。一通电话里，她把医保、候诊、病假条全套流程走了一遍。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 第 3 集</span></div>
+  <p class="act-lead">林夏发烧了，直接冲到诊所门口——被拦住了。护士让她先打电话。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">📞 一通打给诊所的电话</div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Guten Tag, ich bin krank. Kann ich heute einen Termin bekommen?</div>
+      <div class="zh">您好，我生病了。今天能约到吗？</div>
+    </div>
+    <div class="line">
+      <div class="who">Praxis Dr. Weber</div>
+      <div class="de">Sind Sie schon Patientin bei uns? … Welche Krankenversicherung haben Sie?</div>
+      <div class="zh">您是我们这儿的病人吗？……您是哪家医保公司的？</div>
+    </div>
+    <div class="line">
+      <div class="who">Praxis Dr. Weber</div>
+      <div class="de">Kommen Sie heute um 15 Uhr. Bringen Sie bitte Ihre Versichertenkarte mit.</div>
+      <div class="zh">今天下午 3 点来吧。请带上您的医保卡。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">在德国，<b>Krankschreibung</b> 是什么？</div>
+      <button onclick="themeQuiz(this,true,'arzt-exp')">病假条——医生开的、要交给学校或雇主的证明</button>
+      <button onclick="themeQuiz(this,false,'arzt-exp')">医保账单</button>
+      <button onclick="themeQuiz(this,false,'arzt-exp')">体检报告</button>
+    <div class="exp" id="arzt-exp"><b>Krankschreibung</b>（正式叫 <b>AU</b> = Arbeitsunfähigkeitsbescheinigung）是医生开的病假证明。在德国，生病请假<b>必须有这张纸</b>——雇主或大学才认。而且它是<b>医生开的，不是你自己声明的</b>。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">德国的医疗流程和国内最大的差别是：这里没有「挂号」，只有「预约」。搞懂这套，看病就不慌了。</p>
+  <div class="fact">
+    <h3>📅 诊所不是想去就去</h3>
+    <p>德国诊所基本<b>只接预约</b>（Termin）。打电话要说明症状，前台给你排时间；急事可以说「<b>Ich brauche einen Termin dringend</b>」，走急诊时段。</p>
+    <div class="fun">☎️ 打电话是留学生第一道语言关。背熟三句就够：<b>Ich bin krank.</b> / <b>Kann ich heute einen Termin bekommen?</b> / <b>Welche Krankenversicherung haben Sie?</b></div>
+  </div>
+  <div class="fact">
+    <h3>💳 医保卡是通行证</h3>
+    <p>进诊所第一件事是递 <b>Versichertenkarte</b>（医保卡）。公保（GKV）覆基本医疗，看医生大多不用当场付钱；私保（PKV）则要自己先垫、再报销。</p>
+    <div class="fun">⚖️ 德国是世界上<b>第一个建立全民医保的国家</b>——1883 年俾斯麦推出的《工人医疗保险法》。140 多年过去，这套体系的骨架还在用。</div>
+  </div>
+  <div class="fact">
+    <h3>💊 药房只开一扇门</h3>
+    <p>街上看到红底白字的大「<b>A</b>」就是 Apotheke。药基本都<b>藏在柜台后面</b>，得跟药剂师面对面才能买到——连布洛芬这种常备药也一样。</p>
+    <div class="fun">🏪 背后是 <b>Apothekenpflicht</b>（药房义务）原则：药品只能由药房卖，超市和 dm 只能卖基础保健品。德国约 18000 家药房，每家必须由持牌药剂师<b>亲自经营</b>，一个人最多开 3 家。</div>
+  </div>
+  <div class="fact">
+    <h3>🩺 看完病还有一张纸要拿</h3>
+    <p>如果医生认为你需要休息，会给你开 <b>Krankschreibung</b>；再给你一张 <b>Rezept</b>（处方），拿着去隔壁药房取药。</p>
+    <div class="fun">📄 很多留学生第一次跷课没交病假条，结果被按旷课处理。德国的规则是：<b>病假不是理由，病假条才是</b>。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">看病全流程其实就那么几句话。故事里是口语版，书面/正式版长这样：</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Ich bin krank. Kann ich heute kommen?</td><td class="write">Ich benötige einen kurzfristigen Termin für eine akute Beschwerde.</td><td class="zh">我病了，今天能来吗？／我需要一个急性症状的短期预约。</td></tr>
+    <tr><td class="say">Ich bin bei der TK versichert.</td><td class="write">Ich bin gesetzlich krankenversichert (GKV).</td><td class="zh">我保的是 TK。／我是法定医保参保人。</td></tr>
+    <tr><td class="say">Brauche ich eine Krankschreibung?</td><td class="write">Benötigen Sie eine Arbeitsunfähigkeitsbescheinigung?</td><td class="zh">我需要病假条吗？／您需要开具无劳动能力证明（即病假条）吗？</td></tr>
+    <tr><td class="say">Was für Symptome haben Sie?</td><td class="write">Seit wann bestehen die Beschwerden?</td><td class="zh">您有什么症状？／这些不适从什么时候开始？</td></tr>
+    <tr><td class="say">Die Apotheke ist gleich nebenan.</td><td class="write">Verschreibungspflichtige Arzneimittel sind ausschließlich in der Apotheke erhältlich.</td><td class="zh">药房就在隔壁。／处方药只能在药房购买。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：礼貌请求怎么说</h3>
+    <p>林夏全程用的是最稳的一句：**<b>Kann ich …?</b>**。想更客气，把动词换成虚拟式二：<b>Könnte ich …?</b>。再正式一点：「<b>Wäre es möglich, … zu …?</b>」</p>
+    <div class="fun">✍️ 打电话模板：<b>Guten Tag, mein Name ist … . Ich würde gern einen Termin vereinbaren.</b>——这句在德国诊所、外管局、银行、理发店<b>通用</b>。</div>
+  </div>
+</div>
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/3.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 3 集</div>
+      <div class="t">🩺 看医生</div>
+      <div class="note">预约电话与诊所全程对话（含症状描述、病假条、处方）</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k11.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 11 期</div>
+      <div class="t">🏥 医疗与健康</div>
+      <div class="note">公保 vs 私保、药房哲学、急诊三层体系、Reha 康复</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/4.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 4 集</div>
+      <div class="t">💊 药房取药</div>
+      <div class="note">拿处方去 Apotheke 取药的实操</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>

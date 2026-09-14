@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>啤酒花园里的德国规矩：干杯要看着眼睛 | Leon 德语</title>
+<meta name="description" content="林夏第一次进 Biergarten，点了一杯 Radler，然后被隔壁桌的慕尼黑大叔上了一课——干杯要看着对方眼睛，而且在这里所有人都互称 du。">
+<meta property="og:title" content="啤酒花园里的德国规矩：干杯要看着眼睛">
+<meta property="og:description" content="Prost 时为什么要看着对方？Radler 到底是什么？">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-biergarten.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/biergarten.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Biergarten · 啤酒花园</div>
+  <h1>🍺 啤酒花园里的规矩</h1>
+  <p class="sub">Prost · Radler · „im Biergarten sind alle per du“</p>
+  <p class="lead">林夏第一次进 Biergarten，点了一杯 Radler，然后被隔壁桌的慕尼黑大叔上了一课——干杯要看着对方眼睛，而且在这里所有人都互称 du。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 第 22 集</span></div>
+  <p class="act-lead">Marta 拉林夏去自助柜台点单。隔壁长桌的慕尼黑大叔举起了杯子。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">🍻 中国塔下：Biergarten 的第一轮</div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Ähm… ein Helles? Aber was ist Radler?</div>
+      <div class="zh">嗯……一杯拉格？但 Radler 是什么？</div>
+    </div>
+    <div class="line">
+      <div class="who">Marta</div>
+      <div class="de">Bier mit Limonade — halb und halb. Perfekt, wenn du morgen noch was schaffen musst.</div>
+      <div class="zh">啤酒加柠檬汽水——一半一半。如果你明天还想做事的话，这个最合适。</div>
+    </div>
+    <div class="line">
+      <div class="who">Herr Gruber</div>
+      <div class="de">Und sag du zu mir — im Biergarten sind alle per du.</div>
+      <div class="zh">对我说 du 就行——在 Biergarten 大家都互称 du。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">德国人 <b>Prost</b>（干杯）时必须做什么？</div>
+      <button onclick="themeQuiz(this,true,'biergarten-exp')">看着对方的眼睛，碰杯后再喝</button>
+      <button onclick="themeQuiz(this,false,'biergarten-exp')">把杯子举到额头高度</button>
+      <button onclick="themeQuiz(this,false,'biergarten-exp')">先喝一口再碰杯</button>
+    <div class="exp" id="biergarten-exp">德国人干杯讲究 <b>die Augen mitanstoßen</b>——<b>眼睛也要一起碰杯</b>。看着对方眼睛碰杯，再喝。不看的话被认为失礼，有些地方的说法是「会换来七年糟糕的性生活」（<i>sieben Jahre schlechter Sex</i>）。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">Biergarten 是德国少有的「人人都放松」的场合。而这杯啤酒本身就是受法律管着的东西。</p>
+  <div class="fact">
+    <h3>📜 1516 年：啤酒只能有 4 种原料</h3>
+    <p>巴伐利亚的《<b>Reinheitsgebot</b>》（啤酒纯净法）规定：啤酒只能用<b>水、麦芽、啤酒花、酵母</b>。加米、加糖、加水果——都不行。</p>
+    <div class="fun">🍺 这是世界上最古老、至今仍在生效的食品法规。1987 年欧盟说它违反自由贸易，德国坚持保留，最后的妥协是：外国啤酒可以进来卖，<b>但不许叫「Bier」</b>。</div>
+  </div>
+  <div class="fact">
+    <h3>🍋 Radler 是「骑车人」的啤酒</h3>
+    <p><b>Radler</b> = 啤酒 + 柠檬汽水，一半一半。名字来自 <b>Radler</b>（骑自行车的人）——因为酒精被稀释了一半，喝完还能骑车回家。</p>
+    <div class="fun">🏷️ 但要注意：在德国，<b>「Bier」这个词是受法律保护的</b>。Radler 的正式分类不是 Bier，而是 <b>Biermischgetränk</b>（啤酒混合饮料）。希腊的 Mythos 啤酒 2005 年被欧盟法院裁定可以在德国卖，但不能标成「Bier」。</div>
+  </div>
+  <div class="fact">
+    <h3>👀 Prost 的规矩：眼睛要一起碰</h3>
+    <p>德国人干杯时不只碰杯子——<b>要看着对方的眼睛</b>，然后才喝。这条规矩在拜仁州尤其严格，被认为是对人的尊重。</p>
+    <div class="fun">😳 外国人最常犯的错就是边看杯子边说 Prost。德国人一般不会当场纠正你，但会记住——这跟「不打领带」一样，属于无声的社会信号。</div>
+  </div>
+  <div class="fact">
+    <h3>🗣️ 啤酒花园里人人都是 du</h3>
+    <p>德国人用 <b>Sie</b>（您）还是 <b>du</b>（你）看关系。但在 Biergarten、山间小屋这类地方，<b>规矩放松</b>——隔壁长桌的陌生人也可以直接 du。</p>
+    <div class="fun">🍻 有意思的是德国人对此很自觉：同一顿饭，服务员可能说 Sie，邻桌的啤酒大叔说 du。<b>距离感按场景切换</b>，不是按人。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">在啤酒花园里说话的德味，和写在纸上的德语完全是两回事。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Prost! / Zum Wohl!</td><td class="write">Auf das Wohl der Gäste.</td><td class="zh">干杯！／祝各位客人健康。</td></tr>
+    <tr><td class="say">Was ist Radler?</td><td class="write">Ein Biermischgetränk aus Bier und Limonade.</td><td class="zh">Radler 是什么？／一种啤酒与柠檬汽水混合的饮料。</td></tr>
+    <tr><td class="say">Sag du zu mir.</td><td class="write">In geselliger Runde wird üblicherweise geduzt.</td><td class="zh">对我说 du 就行。／在轻松场合通常用「你」相称。</td></tr>
+    <tr><td class="say">Ich nehm auch eins.</td><td class="write">Ich nehme ebenfalls ein Getränk.</td><td class="zh">我也来一杯。／我也要一杯饮料。</td></tr>
+    <tr><td class="say">Noch eine Maß, bitte!</td><td class="write">Ein weiterer Liter Bier, bitte.</td><td class="zh">再来一升！／请再来一升啤酒。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：形容词名词化（点单神器）</h3>
+    <p>对话里那句 <b>„ein Helles?“</b>——这里没有 Bier 这个词，但所有人都懂。形容词首字母大写就变成了名词：<b>ein Helles</b>（浅色拉格）、<b>ein Dunkles</b>（黑啤）、<b>ein Radler</b>（混啤）。</p>
+    <div class="fun">✍️ 同理还有 <b>eine Halbe</b>（半升）、<b>eine Maß</b>（一升，只在拜仁州）。在德国点啤酒，这么说最地道，也不用担心变格出错。</div>
+  </div>
+</div>
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/22.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 22 集</div>
+      <div class="t">🍺 Biergarten-夏天</div>
+      <div class="note">点单、Radler、Prost、du/Sie 的完整对话</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k26.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 26 期</div>
+      <div class="t">🍺 啤酒纯净法</div>
+      <div class="note">500 年前的法令、4 种原料、欧盟挑战、今天的啤酒文化</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/16.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 16 集</div>
+      <div class="t">🎭 Fasching-狂欢</div>
+      <div class="note">另一个「规矩临时失效」的德国场合</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>
