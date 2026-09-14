@@ -171,6 +171,20 @@
     }
     .footer .links { flex-direction:column; align-items:center; }
   }
+
+  .theme-ref {{ margin:32px 0; }}
+  .theme-ref a {{ display:block; text-decoration:none; border-radius:14px; padding:20px 22px;
+    background:linear-gradient(135deg,rgba(246,211,101,.1),rgba(184,134,11,.05));
+    border:1px solid rgba(246,211,101,.32); transition:.2s; }}
+  .theme-ref a:hover {{ border-color:rgba(246,211,101,.7); transform:translateY(-2px);
+    box-shadow:0 6px 24px rgba(0,0,0,.35); }}
+  .theme-ref .tr-badge {{ display:inline-block; background:var(--gold,#f6d365); color:#0a1428;
+    font-size:.68rem; font-weight:800; letter-spacing:.06em; padding:3px 10px;
+    border-radius:10px; margin-bottom:10px; }}
+  .theme-ref .tr-title {{ display:block; font-size:1.08rem; font-weight:800;
+    color:var(--gold,#f6d365); margin-bottom:6px; }}
+  .theme-ref .tr-note {{ display:block; font-size:.84rem; color:var(--dim,#94a3b8); line-height:1.7; }}
+  .theme-ref .tr-go {{ display:block; font-size:.82rem; color:#b8860b; margin-top:10px; font-weight:700; }}
 </style>
 <meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/k01.jpg"/>
 <meta property="og:image:width" content="1200"/>
@@ -328,7 +342,17 @@
   </div>
 
   <!-- ═══ 弱广告 ═══ -->
-  <div class="soft-cta">
+  
+<!-- ═══ 主题闭环（故事 × 文化 × 语言） ═══ -->
+<div class="theme-ref">
+  <a href="https://leonsdeutschzentrum.com/theme/pfand.html">
+    <span class="tr-badge">主题闭环</span>
+    <span class="tr-title">🍶 押金之国</span>
+    <span class="tr-note">这期讲的押金，林夏在圣诞市场也被它绊了一下——看完整的故事</span>
+    <span class="tr-go">打开主题页 →</span>
+  </a>
+</div>
+<div class="soft-cta">
     <h3>🇩🇪 想真正看懂德国？</h3>
     <p>语言是文化的钥匙。每一个德国生活冷知识背后，都藏着一个德语单词。<br>比如 Pfand、Feierabend、Gemütlichkeit——翻译不出来，但懂德语你就懂了。</p>
     <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">📚 开始学德语</a>
