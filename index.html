@@ -34357,6 +34357,8 @@ window.showKulturEp = function(ep) {
   if (prevBtn) { prevBtn.disabled = (epNum <= 1); prevBtn.style.opacity = (epNum <= 1) ? '.25' : ''; }
   if (nextBtn) { nextBtn.disabled = (epNum >= (window._kdTotal || 35)); nextBtn.style.opacity = (epNum >= (window._kdTotal || 35)) ? '.25' : ''; }
   if (navInfo) navInfo.textContent = epNum + ' / ' + (window._kdTotal || 35);
+  var subEl = document.getElementById('kdSubTitle');
+  if (subEl) subEl.textContent = (window._kdTotal || 35) + ' 期第一视角德国真相 · 下拉选择阅读';
   page.scrollIntoView({ block: 'start' });
   window.scrollTo(0, 0);
   window._currentKulturEp = ep;
