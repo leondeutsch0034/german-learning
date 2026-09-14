@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>押金之国：为什么德国什么都要押金？ | Leon 德语</title>
+<meta name="description" content="林夏在圣诞市场被 3 欧的杯子押金搞懵，嘟囔了一句「又是押金！」——这句吐槽背后，是一套覆盖全德国的 Pfand 系统。">
+<meta property="og:title" content="押金之国：为什么德国什么都要押金？">
+<meta property="og:description" content="从矿泉水瓶到热红酒杯——德国押金系统的来龙去脉。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-pfand.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/pfand.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Pfand · 押金</div>
+  <h1>🍶 押金之国</h1>
+  <p class="sub">从 0.25 € 的矿泉水瓶，到 3 € 的热红酒杯</p>
+  <p class="lead">林夏在圣诞市场被 3 欧的杯子押金搞懵，嘟囔了一句「又是押金！」——这句吐槽背后，是一套覆盖全德国的 Pfand 系统。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 第 12 集</span></div>
+  <p class="act-lead">四个人逛到 Marienplatz 的圣诞市场。Felix 请大家喝第一轮热红酒——林夏还没喝上，先被一个数字绊住了。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">🎄 慕尼黑圣诞市场，热红酒摊前</div>
+    <div class="line">
+      <div class="who">Lena</div>
+      <div class="de">Nimm den Klassiker — Glühwein mit Zimt und Nelken. Und pass auf: Die Tasse kostet Pfand, 3 Euro. Wenn du sie zurückgibst, bekommst du das Geld wieder.</div>
+      <div class="zh">试试经典款——肉桂丁香热红酒。注意：杯子有 3 欧押金，退回去钱就还给你。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Schon wieder Pfand! Genau wie die Flaschen im Supermarkt. Deutschland liebt Pfand, oder?</div>
+      <div class="zh">又是押金！跟超市的瓶子一样。德国真爱押金是吧？</div>
+    </div>
+    <div class="line">
+      <div class="who">Anna（笑）</div>
+      <div class="de">Willkommen im Pfand-Land! Aber die Tasse ist ein schönes Souvenir — jedes Jahr gibt es ein neues Motiv.</div>
+      <div class="zh">欢迎来到押金之国！不过杯子是很好的纪念品——每年都有新图案。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">林夏那句话里的 <b>Schon wieder</b> 是什么意思？</div>
+      <button onclick="themeQuiz(this,true,'pfand-exp')">「又来了」——带着一点无奈的口语说法</button>
+      <button onclick="themeQuiz(this,false,'pfand-exp')">「马上就好」</button>
+      <button onclick="themeQuiz(this,false,'pfand-exp')">「再次感谢」</button>
+    <div class="exp" id="pfand-exp"><b>schon wieder</b> = 又是、又来了。日常口语里表示「怎么又来一次」的轻微抱怨，比 <b>wieder</b> 多一层情绪。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">林夏的吐槽其实很准确：德国的押金确实是「无处不在」。它不是为了多收钱，而是一套让瓶子、杯子回到循环里的机制。</p>
+  <div class="fact">
+    <h3>🧾 瓶子比水还贵</h3>
+    <p>刚到德国的人几乎都会踩同一个坑：货架上写着 <b>0.19 €</b>，结账却是 <b>0.44 €</b>。多出来的 0.25 € 就是 <b>Pfand</b>——一次性的塑料瓶和易拉罐的押金。</p>
+    <div class="fun">💡 押金不是税，是「借」：把空瓶送回超市的退瓶机（Pfandautomat），钱会打回小票或账户。理论上你一欧元都没多花。</div>
+  </div>
+  <div class="fact">
+    <h3>♻️ Einweg 与 Mehrweg</h3>
+    <p>德国把包装分成两类：<b>Einweg</b>（一次性）押金 0.25 €，<b>Mehrweg</b>（可重复灌装）通常 0.08–0.15 €。玻璃啤酒瓶、多数矿泉水瓶都属于后者。</p>
+    <div class="fun">🍺 有意思的是：<b>啤酒瓶大多是 Mehrweg</b>，会真的被洗一遍再灌装——一个瓶子平均能循环几十次。</div>
+  </div>
+  <div class="fact">
+    <h3>🌡️ 杯子也要押金</h3>
+    <p>圣诞市场和大型活动的热饮杯通常押 <b>3 €</b>（有的 5 €），而且每年换新图案。所以摊位上常见两种人：退杯子换钱的，和把杯子当纪念品带走的。</p>
+    <div class="fun">🎨 押金杯子已经成了德国的「民间收藏品」——eBay 上能买到往年的款式。押金无意中变成了一种周边生意。</div>
+  </div>
+  <div class="fact">
+    <h3>🌍 为什么德国做得成</h3>
+    <p>这套系统能跑起来，靠的是三件事凑齐：<b>押金够高</b>（让人舍不得扔）、<b>回收点够密</b>（每个超市门口都有退瓶机）、<b>全国统一</b>（跨州跨店都能退）。</p>
+    <div class="fun">📊 德国的塑料瓶回收率常年在 <b>98% 上下</b>，是全球最高的之一。押金不是靠道德感动人，是靠「不退就亏钱」的算术。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">同一个意思，故事里用口语说，文化篇里用书面说。两栏一对照，你的表达就活起来了。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Schon wieder Pfand!</td><td class="write">Das Pfandsystem gilt flächendeckend.</td><td class="zh">又是押金！／押金制度覆盖全德国。</td></tr>
+    <tr><td class="say">Die Tasse kostet Pfand.</td><td class="write">Auf Mehrwegbecher wird ein Pfand erhoben.</td><td class="zh">杯子要收押金。／对可重复使用杯征收押金。</td></tr>
+    <tr><td class="say">die Flaschen im Supermarkt</td><td class="write">die Pfandflasche / die Einwegflasche</td><td class="zh">超市的瓶子／押金瓶 · 一次性瓶</td></tr>
+    <tr><td class="say">das Geld zurück</td><td class="write">Der Betrag wird bei der Rückgabe erstattet.</td><td class="zh">钱退回来／归还时退还该金额。</td></tr>
+    <tr><td class="say">Pfand-Land</td><td class="write">ein bundesweit einheitliches Pfandsystem</td><td class="zh">押金之国／全国统一的押金系统</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：被动语态</h3>
+    <p>文化篇那几句几乎都是<b>被动语态（Passiv）</b>：<i>wird … erhoben</i>、<i>wird … erstattet</i>。德国人写说明、写规定时几乎默认用被动——<b>谁做的不重要，规则本身才重要</b>。</p>
+    <div class="fun">✍️ 写作提示：写德语说明文时，「<b>被做的事 + werden + 过去分词</b>」是最稳的句式。口语里德国人反而更爱用 <b>man</b>：<i>Man bekommt das Geld zurück.</i></div>
+  </div>
+</div>
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/12.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 12 集</div>
+      <div class="t">🎄 慕尼黑圣诞市场</div>
+      <div class="note">押金这段对话的出处（含完整分幕、语法点、词表）</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k01.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 01 期</div>
+      <div class="t">🛒 超市与生活</div>
+      <div class="note">「瓶子比水还贵」——押金第一课</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k10.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 10 期</div>
+      <div class="t">♻️ 环保与能源</div>
+      <div class="note">德国押金与回收体系的全貌</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>
