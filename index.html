@@ -3527,6 +3527,13 @@ window.registerLazyPage = function(pageId, tplId, onInit) {
 /* 懒加载页「内容就绪后」的渲染钩子。
    内容外置后是异步到达的，依赖 DOM 的渲染必须等它。 */
 window._lazyRenderHooks = {
+  /* 德国文化栏目：内容就绪后，执行排队中的期数切换 */
+  'kultur-reader': function() {
+    if (window._pendingKulturEp && window.showKulturEp) {
+      window.showKulturEp(window._pendingKulturEp);
+      window._pendingKulturEp = null;
+    }
+  },
   wds:     function() { if (window.renderWDSGrid) window.renderWDSGrid(); },
   echt:    function() { if (window.renderEchtGrid) window.renderEchtGrid(); },
   'de-en': function() { if (window.renderDEENGrid) window.renderDEENGrid();
@@ -34287,12 +34294,14 @@ window._kdEpData = {26:{title:"啤酒纯净法",desc:"只许水/麦芽/啤酒花
 window.navKulturEp = function(dir) {
   var ep = parseInt(window._currentKulturEp || '1');
   var next = ep + dir;
-  if (next >= 1 && next <= 25) { showKulturEp(next); }
+  if (next >= 1 && next <= 30) { showKulturEp(next); }
 };
 window.showKulturEp = function(ep) {
   var page = document.getElementById('page-kultur-reader');
   if (!page) return;
   var eps = page.querySelectorAll('.kd-episode');
+  /* 懒加载内容还没注入时，先记下来，等内容就绪再切（否则会停在默认第 1 期） */
+  if (!eps.length) { window._pendingKulturEp = ep; return; }
   for (var i = 0; i < eps.length; i++) {
     eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? 'block' : 'none';
   }
@@ -34309,12 +34318,21 @@ window.showKulturEp = function(ep) {
   var navInfo = document.getElementById('kdNavInfo');
   var epNum = parseInt(ep);
   if (prevBtn) { prevBtn.disabled = (epNum <= 1); prevBtn.style.opacity = (epNum <= 1) ? '.25' : ''; }
-  if (nextBtn) { nextBtn.disabled = (epNum >= 25); nextBtn.style.opacity = (epNum >= 25) ? '.25' : ''; }
-  if (navInfo) navInfo.textContent = epNum + ' / 25';
+  if (nextBtn) { nextBtn.disabled = (epNum >= 30); nextBtn.style.opacity = (epNum >= 30) ? '.25' : ''; }
+  if (navInfo) navInfo.textContent = epNum + ' / 30';
   page.scrollIntoView({ block: 'start' });
   window.scrollTo(0, 0);
   window._currentKulturEp = ep;
-  try { history.replaceState(null, '', '/kd/' + ep + '.html'); } catch(e) {}
+  /* 地址栏同步为可分享的 URL（浏览器自带分享按钮取的就是它）：
+     有独立页 → /kNN.html（带 og 预览卡）；无独立页 → 主站锚点 */
+  try {
+    var _hp = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,
+               16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1};
+    var _u = _hp[parseInt(ep)]
+      ? ('/k' + ('0' + ep).slice(-2) + '.html')
+      : ('/#kultur-reader&ep=' + ep);
+    history.replaceState(null, '', _u);
+  } catch(e) {}
   try {
     var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:'25期第一视角德国真相'};
     var metaTitle = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
@@ -34345,7 +34363,15 @@ window.showKulturEp = function(ep) {
 };
 window.shareKulturLink = function() {
   var ep = window._currentKulturEp || '1';
-  var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
+  /* 分享链接：用当前域名（国内/国际自适应），指向有 og 预览卡的独立页；
+     1-19、26-30 有独立页；20-25 无独立页 → 用主站锚点兜底 */
+  var _origin = location.origin;
+  var _HAS_PAGE = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,
+                   16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1};
+  var _pad = ('0' + ep).slice(-2);
+  var url = _HAS_PAGE[parseInt(ep)]
+    ? (_origin + '/k' + _pad + '.html')
+    : (_origin + '/#kultur-reader&ep=' + ep);
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function() {
       var t = document.createElement('div');
@@ -34364,14 +34390,25 @@ window.shareKulturEpV2 = function() {
   try {
     var shareEpDiv = document.querySelector('.kd-episode[data-ep="' + ep + '"]');
     if (shareEpDiv) {
-      var shareImg = shareEpDiv.querySelector('.cover-img');
-      if (shareImg && shareImg.src && shareImg.src.indexOf('data:') !== 0) {
-        var ogI2 = document.querySelector('meta[property="og:image"]');
-        if (ogI2) ogI2.setAttribute('content', shareImg.src);
+      var ogI2 = document.querySelector('meta[property="og:image"]');
+      if (ogI2) {
+        var _hasPage2 = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,
+                         16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1};
+        if (_hasPage2[parseInt(ep)]) {
+          ogI2.setAttribute('content', location.origin + '/images/og/k' + ('0'+ep).slice(-2) + '.jpg');
+        }
       }
     }
   } catch(e) {}
-  var url = 'https://leonsdeutschzentrum.com/kd/' + ep + '.html';
+  /* 分享链接：用当前域名（国内/国际自适应），指向有 og 预览卡的独立页；
+     1-19、26-30 有独立页；20-25 无独立页 → 用主站锚点兜底 */
+  var _origin = location.origin;
+  var _HAS_PAGE = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,
+                   16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1};
+  var _pad = ('0' + ep).slice(-2);
+  var url = _HAS_PAGE[parseInt(ep)]
+    ? (_origin + '/k' + _pad + '.html')
+    : (_origin + '/#kultur-reader&ep=' + ep);
   var title = '你不知道的德国 · 第' + ep + '集 ' + info.title;
   var shareText = info.desc + ' —— Leon德语学习中心';
   
