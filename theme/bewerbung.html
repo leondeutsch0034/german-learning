@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>在德国找工作：一页简历，和一场不问「加班」的面试 | Leon 德语</title>
+<meta name="description" content="林夏的简历被 Felix 打回来重写——一页、别堆形容词、别拿自拍当求职照。后来在一场正式面试里，面试官问她：「为什么我们要雇你，而不是一个在这里长大的人？」">
+<meta property="og:title" content="在德国找工作：一页简历，和一场不问「加班」的面试">
+<meta property="og:description" content="一页纸的简历、工会替你谈好的工资、6 个月试用期——德国求职的三条规矩。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-bewerbung.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/bewerbung.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Bewerbung · 求职</div>
+  <h1>💼 在德国找工作</h1>
+  <p class="sub">Lebenslauf · Vorstellungsgespräch · Tarifvertrag</p>
+  <p class="lead">林夏的简历被 Felix 打回来重写——一页、别堆形容词、别拿自拍当求职照。后来在一场正式面试里，面试官问她：「为什么我们要雇你，而不是一个在这里长大的人？」</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 第 29 集</span></div>
+  <p class="act-lead">林夏第一次投德国公司，把自认为很漂亮的简历递给 Felix 看一眼。Felix 皱起眉头，从头划到尾。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">📄 WG 客厅：简历被打回来了</div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Hm… dein Lebenslauf ist zu voll. In Deutschland gilt: kurz und sachlich. Eine Seite, maximal zwei. Und du musst nicht schreiben „sehr fleißig und motiviert“ — das sagt jeder.</div>
+      <div class="zh">嗯……你的简历太满了。在德国讲究：简短、就事论事。一页，最多两页。而且你不用写「非常勤奋、有上进心」——人人都这么写。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Wie fange ich das Anschreiben an? „Sehr geehrte Damen und Herren“?</div>
+      <div class="zh">那求职信怎么开头？「尊敬的女士们先生们」？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Perfekt! Schick die Bewerbung als ein PDF — Anschreiben, Lebenslauf, Zeugnisse, alles zusammen. Und nicht vergessen: Korrekturlesen!</div>
+      <div class="zh">完美！申请材料合成一个 PDF 发出去——求职信、简历、证书，全部放一起。还有别忘了：校对一遍！</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">Felix 说的 <b>kurz und sachlich</b>，<b>sachlich</b> 是什么意思？</div>
+      <button onclick="themeQuiz(this,false,'bewerbung-exp')">情绪饱满、有感染力的</button>
+      <button onclick="themeQuiz(this,false,'bewerbung-exp')">口语的、随便的</button>
+      <button onclick="themeQuiz(this,true,'bewerbung-exp')">「就事论事、讲事实」——不掺形容词</button>
+    <div class="exp" id="bewerbung-exp"><b>sachlich</b> 来自 <b>die Sache</b>（事情、事务），意思是「只谈事实、不带情绪」。德国求职材料里最忌讳形容词堆砌——他们要看你<b>具体做过什么</b>，而不是你觉得自己多努力。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">林夏后来才明白：德国求职的每一条规矩，背后都站着一部法律或一份行业协议。而这些规矩，正是德国职场「铁饭碗」名声的来源。</p>
+  <div class="fact">
+    <h3>💼 工资不是「谈」出来的</h3>
+    <p>在德国，很多行业的工资压根不需要跟老板一对一谈——<b>Tarifvertrag</b>（集体工资协议）已经替整个行业谈好了。工会和雇主协会签一次，全行业照着执行。</p>
+    <div class="fun">📊 德国约 <b>43%</b> 的员工受 Tarifvertrag 覆盖。最大的工会 IG Metall 有 200 多万会员，它一开口整个制造业都得听——2024 年一次就为全行业谈出了 <b>8.5%</b> 的涨薪。</div>
+  </div>
+  <div class="fact">
+    <h3>⏳ 6 个月试用期：说走就走</h3>
+    <p>德国劳动法以「铁饭碗」著称——但铁饭碗的第一步是 <b>Probezeit</b>（试用期）：最长 6 个月。这期间雇主可以无理由解雇你，只需提前 2 周通知。</p>
+    <div class="fun">🔒 反过来，一旦过了试用期，公司想开你就难了——<b>Betriebsrat</b>（企业职工委员会）会拦住，劳动法院也会拦住。所以德国大公司里工龄 20 年以上的员工比比皆是。</div>
+  </div>
+  <div class="fact">
+    <h3>🌴 30 天年假：是「通知」不是「申请」</h3>
+    <p>法定最低年假是 20 天（每周 5 天工作制），但实际绝大多数公司给 <b>28–30 天</b>，再加上 9–13 天公共假期（各州不同）。一年实际工作日只有 215–220 天。</p>
+    <div class="fun">🗣️ 德国人休假不叫「申请」，叫「通知」：<i>Ich bin vom 15. bis 30. August im Urlaub.</i>——不是「我能不能休」，而是「我告诉你那两周我不在」。</div>
+  </div>
+  <div class="fact">
+    <h3>🛌 病 3 天以内，不用任何证明</h3>
+    <p>在中国请病假常要跑医院开证明、再拍照发 HR。在德国，病 <b>3 天以内</b>不需要任何证明，只要上班前给公司发一句：<i>Ich bin krank.</i>（我病了）。</p>
+    <div class="fun">☕ 德语里还有个词叫 <b>Feierabend</b>——「Feier」是庆祝、「Abend」是傍晚，下班就是「庆祝傍晚」。德国没有「下班后必须在线」的义务：老板晚上 9 点找你，你可以不回。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">求职是德语里「口语」和「书面」分得最开的场景之一——同一件事，嘴上说的和申请材料上写的，完全是两套词。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Ich schicke meine Bewerbung.</td><td class="write">Ich reiche meine Bewerbungsunterlagen ein.</td><td class="zh">我把申请发出去。／我提交我的申请材料。</td></tr>
+    <tr><td class="say">Ich hab einen Job gefunden!</td><td class="write">Ich habe eine Stelle gefunden.</td><td class="zh">我找到工作了！／我找到了一个职位。</td></tr>
+    <tr><td class="say">Wann kann ich anfangen?</td><td class="write">Ab wann wäre ein Eintritt möglich?</td><td class="zh">我什么时候能入职？／最早何时可以入职？</td></tr>
+    <tr><td class="say">Was kriege ich denn?</td><td class="write">Wie hoch ist das Bruttogehalt?</td><td class="zh">给多少钱啊？／毛工资是多少？</td></tr>
+    <tr><td class="say">Die Stelle ist unbefristet.</td><td class="write">Es handelt sich um ein unbefristetes Arbeitsverhältnis.</td><td class="zh">这岗位是长期的。／这是一份无固定期限的劳动关系。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：名词化（Nominalstil）</h3>
+    <p>文化篇和右栏那几句几乎全是<b>名词化</b>——德语书面语最爱把动词变成名词：<i>sich bewerben</i>（申请）→ <i>die Bewerbung</i>；<i>eintreten</i>（入职）→ <i>der Eintritt</i>；<i>ein|stellen</i>（雇用）→ <i>die Einstellung</i>。</p>
+    <div class="fun">✍️ 写作提示：写求职信、邮件、申请时，用名词化会立刻显得「正式」。但口语里德国人还是说动词。<b>名词化 = 书面，动词 = 口语</b>——这条几乎万能。</div>
+  </div>
+</div>
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/29.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 29 集</div>
+      <div class="t">📄 简历与求职信</div>
+      <div class="note">Lebenslauf 怎么压到一页、Anschreiben 开头怎么写</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/43.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 43 集</div>
+      <div class="t">💼 第一场德国正式面试</div>
+      <div class="note">面试官那句「为什么我们要雇你，而不是本地人」</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/21.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 21 集</div>
+      <div class="t">💰 第一张工资单</div>
+      <div class="note">Lohnsteuer / Soli / Rentenversicherung——钱去哪了</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k04.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 04 期</div>
+      <div class="t">💼 工资是「谈」出来的</div>
+      <div class="note">Tarifvertrag / Probezeit / 年假 / Feierabend 全貌</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>
