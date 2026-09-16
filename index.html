@@ -3514,6 +3514,11 @@
 @media(max-width:600px){
   .se-audio{flex-direction:column;align-items:stretch;gap:5px}
   .se-audio .se-audio-label{text-align:center}
+  /* ⚠️ 列方向下必须把 flex:1 换掉。flex:1 = flex-basis:0%，在竖向是主轴，
+     会盖过 height:34px；而容器高度是 auto（没有剩余空间可分配），
+     结果播放器控件被压成 0 高 —— 窄屏上整个消失，只剩「听这一节」那行字。
+     桌面端是横向排列，flex-basis 管宽度，所以完全看不出来。 */
+  .se-audio audio{flex:0 0 auto;width:100%}
 }
 </style>
 <!-- se-audio-css-v1 END -->
