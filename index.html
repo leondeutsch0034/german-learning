@@ -3502,6 +3502,39 @@
     #page-serie .se-tier-label{font-size:.72rem;color:#b8860b;font-weight:800;letter-spacing:.06em;grid-column:1 / -1;margin:10px 0 6px}
     #page-serie .se-tier-label:first-child{margin-top:0}
 </style>
+<!-- se-audio-css-v1 START -->
+<style>
+/* 林夏在德国 · 小节音频播放器（暗色，配 se-* 系列） */
+.se-audio{display:flex;align-items:center;gap:10px;margin:-4px 0 16px;
+  background:linear-gradient(135deg,rgba(246,211,101,.10),rgba(246,211,101,.03));
+  border:1px solid rgba(246,211,101,.22);border-radius:10px;padding:7px 12px}
+.se-audio .se-audio-label{font-size:.74rem;font-weight:700;color:#f6d365;
+  white-space:nowrap;letter-spacing:.02em}
+.se-audio audio{flex:1;min-width:0;height:34px;display:block;accent-color:#f6d365}
+@media(max-width:600px){
+  .se-audio{flex-direction:column;align-items:stretch;gap:5px}
+  .se-audio .se-audio-label{text-align:center}
+}
+</style>
+<!-- se-audio-css-v1 END -->
+<!-- kd-audio-css-v1 START -->
+<style>
+/* 你不知道的德国 · 每个故事一条音频（中文讲解 / 德语原文 可切） */
+.kd-saudio{display:flex;align-items:center;gap:8px;margin:10px 0 12px;
+  background:linear-gradient(135deg,rgba(246,211,101,.09),rgba(246,211,101,.03));
+  border:1px solid rgba(246,211,101,.2);border-radius:9px;padding:6px 10px}
+.kd-saudio .kd-lang{border:1px solid rgba(246,211,101,.35);background:transparent;
+  color:#cbd5e1;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px;
+  cursor:pointer;white-space:nowrap;transition:.15s;font-family:inherit}
+.kd-saudio .kd-lang.on{background:rgba(246,211,101,.2);color:#f6d365;
+  border-color:rgba(246,211,101,.6)}
+.kd-saudio audio{flex:1;min-width:0;height:32px;display:block;accent-color:#f6d365}
+@media(max-width:600px){
+  .kd-saudio{flex-wrap:wrap}
+  .kd-saudio audio{flex:1 1 100%}
+}
+</style>
+<!-- kd-audio-css-v1 END -->
 </head>
 <body>
 
@@ -38577,5 +38610,207 @@ function toggleAns(btn) {
   }
 }
 </script>
+<!-- se-audio-js-v1 START -->
+<script>
+/* 林夏在德国 · 按需给每个小节挂播放器
+   ① 拉一次音频索引，只给真有音频的小节挂——否则会出现点了没反应的控件
+   ② 幂等：挂过就跳过，重复调用安全                                   */
+window._seAudioIdx = null;
+window._seAudioDone = {};
+
+window.injectSerieAudio = function() {
+  var page = document.getElementById('page-serie');
+  if (!page) return;
+
+  var run = function(idx) {
+    var eps = page.querySelectorAll('.se-episode[data-ep]');
+    Array.prototype.forEach.call(eps, function(ep) {
+      var key = ep.getAttribute('data-ep');
+      var have = idx[key] || {};
+      var seen = 0;                       // 本集第几场对话：dlg / dlg2 / dlg3
+      Array.prototype.forEach.call(ep.querySelectorAll('.se-sec-title'), function(t) {
+        var s = t.textContent || '';
+        var part = null;
+        // 第 1-43 集叫「本集对话 / 对话一」，第 44-58 集改叫「场景一/二/三」
+        if (s.indexOf('对话') >= 0 || s.indexOf('场景') >= 0) {
+          part = (seen === 0) ? 'dlg' : 'dlg' + (seen + 1);
+          seen++;
+        } else if (s.indexOf('词汇') >= 0) {
+          part = 'vocab';
+        } else if (s.indexOf('文化') >= 0) {
+          part = 'kultur';
+        }
+        if (!part || !have[part]) return;
+        var nx = t.nextElementSibling;
+        if (nx && nx.classList && nx.classList.contains('se-audio')) return;
+        var box = document.createElement('div');
+        box.className = 'se-audio';
+        var lab = document.createElement('span');
+        lab.className = 'se-audio-label';
+        lab.textContent = '🔊 听这一节';
+        var au = document.createElement('audio');
+        au.controls = true;
+        au.preload = 'none';               // 不点不下载
+        au.src = 'audio/' + have[part];
+        box.appendChild(lab);
+        box.appendChild(au);
+        t.parentNode.insertBefore(box, t.nextSibling);
+      });
+    });
+  };
+
+  if (window._seAudioIdx) { run(window._seAudioIdx); return; }
+  fetch('audio/serie-audio-index.json')
+    .then(function(r) { return r.ok ? r.json() : {}; })
+    .then(function(idx) { window._seAudioIdx = idx; run(idx); })
+    .catch(function(e) { console.warn('[serie-audio] 索引拉取失败', e); });
+};
+
+/* 挂进懒加载渲染钩子：serie 页内容就绪后自动执行。
+   包一层而不是改原钩子——原钩子在懒加载框架里，改它容易被后续改动冲掉。 */
+(function() {
+  var h = window._lazyRenderHooks;
+  if (!h || !h.serie || h.serie._seAudioWrapped) return;
+  var orig = h.serie;
+  var wrapped = function() {
+    orig.apply(this, arguments);
+    if (window.injectSerieAudio) window.injectSerieAudio();
+  };
+  wrapped._seAudioWrapped = true;
+  h.serie = wrapped;
+})();
+
+/* 兜底：直接落到 #page-serie（刷新时停在剧集页、钩子没跑到的情况） */
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    if (window.injectSerieAudio) window.injectSerieAudio();
+  }, 600);
+});
+</script>
+<!-- se-audio-js-v1 END -->
+<!-- kd-audio-js-v1 START -->
+<script>
+/* 你不知道的德国 · 按需给每个故事挂播放器
+   索引值是**列表**（按故事序号），第 k 个挂到第 k 个故事块上。
+   一条故事一条音频：整期拼一条 7~15 分钟，想重听第 3 个故事只能拖进度条盲找。
+
+   ① 拉一次索引，只给真有音频的故事挂——否则会出现点了没反应的控件
+   ② 幂等：挂过就跳过
+   ③ 播放器插在故事标题 <h2> 之后                              */
+window._kdAudioIdx = null;
+
+window.injectKulturAudio = function() {
+  var page = document.getElementById('page-kultur-reader');
+  if (!page) return;
+
+  var LABEL = { zh: '中文讲解', de: '德语原文' };
+
+  var storyBlock = function(ep, k) {
+    var stories = ep.querySelectorAll('.story');
+    return stories[k] || null;
+  };
+
+  var run = function(idx) {
+    var eps = page.querySelectorAll('.kd-episode[data-ep]');
+    Array.prototype.forEach.call(eps, function(ep) {
+      var have = idx[ep.getAttribute('data-ep')];
+      if (!have) return;
+      var maxN = 0;
+      Object.keys(have).forEach(function(p) { maxN = Math.max(maxN, have[p].length); });
+      for (var k = 0; k < maxN; k++) {
+        var files = {};
+        ['zh', 'de'].forEach(function(p) {
+          var f = have[p] && have[p][k];
+          if (f) files[p] = 'audio/' + f;
+        });
+        if (!files.zh && !files.de) continue;
+        var st = storyBlock(ep, k);
+        if (!st) continue;
+        var h2 = st.querySelector('h2');
+        if (!h2) continue;
+        var nx = h2.nextElementSibling;
+        if (nx && nx.classList && nx.classList.contains('kd-saudio')) continue;
+
+        var box = document.createElement('div');
+        box.className = 'kd-saudio';
+        var au = document.createElement('audio');
+        au.controls = true;
+        au.preload = 'none';               // 不点不下载
+
+        var first = files.zh ? 'zh' : 'de';
+        var btns = [];
+        ['zh', 'de'].forEach(function(part) {
+          if (!files[part]) return;
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'kd-lang';
+          b.textContent = LABEL[part];     // 语言用图标/文字区分，别只靠颜色
+          b.dataset.part = part;
+          b.onclick = function() {
+            if (au.src.indexOf(files[part]) >= 0) return;   // 已经在这条上，别打断
+            var playing = !au.paused;
+            au.src = files[part];
+            btns.forEach(function(x) {
+              x.classList.toggle('on', x.dataset.part === part);
+            });
+            if (playing) au.play().catch(function() {});
+          };
+          btns.push(b);
+          box.appendChild(b);
+        });
+        au.src = files[first];
+        btns.forEach(function(x) {
+          x.classList.toggle('on', x.dataset.part === first);
+        });
+        box.appendChild(au);
+        h2.parentNode.insertBefore(box, h2.nextSibling);
+      }
+    });
+  };
+
+  if (window._kdAudioIdx) { run(window._kdAudioIdx); return; }
+  fetch('audio/kultur-audio-index.json')
+    .then(function(r) { return r.ok ? r.json() : {}; })
+    .then(function(idx) { window._kdAudioIdx = idx; run(idx); })
+    .catch(function(e) { console.warn('[kultur-audio] 索引拉取失败', e); });
+};
+
+/* 挂进懒加载渲染钩子：kultur 页内容就绪后自动执行。
+   包一层而不是改原钩子——原钩子里有排队中的期数切换，不能碰掉。 */
+(function() {
+  var h = window._lazyRenderHooks;
+  if (!h || !h['kultur-reader'] || h['kultur-reader']._kdAudioWrapped) return;
+  var orig = h['kultur-reader'];
+  var wrapped = function() {
+    orig.apply(this, arguments);
+    if (window.injectKulturAudio) window.injectKulturAudio();
+  };
+  wrapped._kdAudioWrapped = true;
+  h['kultur-reader'] = wrapped;
+})();
+
+/* 兜底：刷新时正好停在这一页、钩子没跑到的情况 */
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    if (window.injectKulturAudio) window.injectKulturAudio();
+  }, 700);
+});
+</script>
+<!-- kd-audio-js-v1 END -->
+<!-- audio-exclusive-v1 START -->
+<script>
+/* 全站同时只播一条音频：点开新的，自动停掉旧的 */
+(function () {
+  document.addEventListener('play', function (e) {
+    var a = e.target;
+    if (!a || a.tagName !== 'AUDIO') return;
+    var all = document.querySelectorAll('audio');
+    for (var i = 0; i < all.length; i++) {
+      if (all[i] !== a && !all[i].paused) all[i].pause();
+    }
+  }, true);   /* true = 捕获阶段。play 不冒泡，不加这个参数收不到 */
+})();
+</script>
+<!-- audio-exclusive-v1 END -->
 </body>
 </html>
