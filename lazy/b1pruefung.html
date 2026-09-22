@@ -123,32 +123,55 @@
   #page-b1pruefung .bp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:5px;padding-left:22px;position:relative}
   #page-b1pruefung .bp-points li::before{content:"✎";position:absolute;left:0;color:#fde68a}
   #page-b1pruefung .bp-grad{font-size:.8rem;color:rgba(255,245,230,.55);font-style:italic}
-  /* ══ 真题式试卷卡（口语 Aufgabenblatt）══ */
-  #page-b1pruefung .bp-paper{background:#fbfaf6;color:#1f2937;border-radius:12px;padding:20px 22px 16px;margin:14px 0 10px;box-shadow:0 8px 26px rgba(0,0,0,.38);border:1px solid rgba(15,44,77,.10)}
-  #page-b1pruefung .bp-paper *{color:inherit}
-  #page-b1pruefung .bp-paper-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid #0f2c4d;padding-bottom:7px}
-  #page-b1pruefung .bp-paper-head .t1{font-weight:800;font-size:.95rem;letter-spacing:.2px;color:#0f2c4d}
-  #page-b1pruefung .bp-paper-head .t2{font-size:.8rem;color:#475569}
-  #page-b1pruefung .bp-paper-sub{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.76rem;color:#64748b;margin:6px 0 12px}
-  #page-b1pruefung .bp-paper-topic{background:#0f2c4d;color:#fff;border-radius:8px;padding:10px 14px;font-weight:700;font-size:.94rem;line-height:1.55;margin:0 0 12px}
-  #page-b1pruefung .bp-paper-topic em{color:#fde68a;font-style:normal;font-size:.84rem;font-weight:500}
-  #page-b1pruefung .bp-paper-list{list-style:none;margin:8px 0 4px;padding:0}
-  #page-b1pruefung .bp-paper-list li{position:relative;padding-left:20px;margin:7px 0;font-size:.88rem;line-height:1.65;color:#334155}
-  #page-b1pruefung .bp-paper-list li::before{content:"•";position:absolute;left:5px;color:#0f2c4d;font-weight:700}
-  #page-b1pruefung .bp-paper-foot{font-size:.76rem;color:#64748b;border-top:1px solid #e2e8f0;padding-top:8px;margin-top:12px}
-  #page-b1pruefung .bp-fol2{display:flex;gap:12px;align-items:stretch;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:10px 12px;margin-bottom:9px}
-  #page-b1pruefung .bp-fol2 .n{flex:0 0 26px;width:26px;height:26px;border-radius:6px;background:#0f2c4d;color:#fff;font-weight:700;font-size:.86rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  #page-b1pruefung .bp-fol2 .q{flex:1 1 54%;min-width:0;font-size:.85rem;line-height:1.7;color:#334155}
-  #page-b1pruefung .bp-fol2 .q b{display:block;color:#0f2c4d;font-size:.88rem;margin-bottom:1px}
-  #page-b1pruefung .bp-fol2 .notes{flex:1 1 46%;min-width:0;border-left:1px dashed #cbd5e1;padding-left:12px}
-  #page-b1pruefung .bp-fol2 .notes span{display:block;font-size:.7rem;color:#94a3b8;margin-bottom:4px}
-  #page-b1pruefung .bp-fol2 .notes i{display:block;border-bottom:1px dotted #cbd5e1;height:19px}
+
+  /* ══ GOETHE-SHEET CSS（真题卷面 1:1）══ */
+  #page-b1pruefung .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b1pruefung .exp-sheet *{color:inherit}
+  #page-b1pruefung .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b1pruefung .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;letter-spacing:.06em}
+  #page-b1pruefung .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b1pruefung .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px} .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b1pruefung .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b1pruefung .exp-teil b{font-weight:800}
+  #page-b1pruefung .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b1pruefung .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b1pruefung .exp-sit{font-size:.85rem;font-style:italic;color:#222;margin:0 0 14px;line-height:1.7}
+  #page-b1pruefung .exp-h{font-size:.86rem;font-weight:700;margin:14px 0 4px}
+  #page-b1pruefung .exp-thema{text-align:center;font-weight:800;font-size:.95rem;margin:18px 0 14px}
+  #page-b1pruefung .exp-rows{display:flex;flex-direction:column;gap:16px}
+  #page-b1pruefung .exp-row{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:16px;align-items:start}
+  #page-b1pruefung .exp-ins{font-size:.82rem;color:#222;line-height:1.6}
+  #page-b1pruefung .exp-lines{padding-top:2px}
+  #page-b1pruefung .exp-lines i{display:block;border-bottom:1px solid #9a9a9a;height:21px}
+  #page-b1pruefung .exp-folie{position:relative;border:1px solid #cfcfcf;padding:8px 8px 26px;border-radius:2px;overflow:hidden;background:#fdf1e7;min-height:104px}
+  #page-b1pruefung .exp-folie.acc-blue{background:#eef4fb}
+  #page-b1pruefung .exp-folie::before{content:'';position:absolute;left:-34px;bottom:-40px;width:78px;height:66px;border-radius:50% 46% 40% 52%;background:#e8913f;transform:rotate(-16deg);opacity:.95}
+  #page-b1pruefung .exp-folie.acc-blue::before{background:#2f6fb0}
+  #page-b1pruefung .exp-folie::after{content:'';position:absolute;left:8px;bottom:13px;width:8px;height:8px;border-radius:50%;background:#e8913f;box-shadow:13px -5px 0 -2px #e8913f,24px 1px 0 -4px #e8913f;opacity:.85}
+  #page-b1pruefung .exp-folie.acc-blue::after{background:#2f6fb0;box-shadow:13px -5px 0 -2px #2f6fb0,24px 1px 0 -4px #2f6fb0}
+  #page-b1pruefung .exp-folie .exp-badge{position:absolute;left:7px;bottom:6px;font-size:.6rem;font-weight:700;color:#fff;background:#e8913f;border-radius:3px;padding:1px 6px;z-index:2}
+  #page-b1pruefung .exp-folie.acc-blue .exp-badge{background:#2f6fb0}
+  #page-b1pruefung .exp-folie .exp-quote{font-style:italic;font-size:.7rem;color:#c9531a;line-height:1.35;margin:2px 0 6px}
+  #page-b1pruefung .exp-folie.acc-blue .exp-quote{color:#1f4f86}
+  #page-b1pruefung .exp-folie .exp-bc{font-size:.66rem;font-weight:700;color:#c9531a;line-height:1.35;margin:2px 0 8px}
+  #page-b1pruefung .exp-folie.acc-blue .exp-bc{color:#1f4f86}
+  #page-b1pruefung .exp-folie .exp-stitle{font-family:Georgia,'Times New Roman',serif;font-weight:800;font-size:.84rem;color:#17365d;line-height:1.28}
+  #page-b1pruefung .exp-punkte{margin:26px 0 0 34px}
+  #page-b1pruefung .exp-pk-t{font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;font-weight:700;color:#111;margin:0 0 10px}
+  #page-b1pruefung .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b1pruefung .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;padding-left:16px;position:relative}
+  #page-b1pruefung .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b1pruefung .exp-pk li.sub{padding-left:34px}
+  #page-b1pruefung .exp-pk li.sub::before{content:''}
+  #page-b1pruefung .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
   @media(max-width:600px){
-    #page-b1pruefung .bp-paper{padding:16px 14px 12px}
-    #page-b1pruefung .bp-fol2{flex-direction:column;gap:8px}
-    #page-b1pruefung .bp-fol2 .q,#page-b1pruefung .bp-fol2 .notes{flex:1 1 auto}
-    #page-b1pruefung .bp-fol2 .notes{border-left:0;border-top:1px dashed #cbd5e1;padding-left:0;padding-top:8px}
+  #page-b1pruefung .exp-sheet{padding:16px 14px 18px}
+  #page-b1pruefung .exp-row{grid-template-columns:minmax(0,1fr);gap:9px}
+  #page-b1pruefung .exp-folie{min-height:0;padding:8px 8px 24px}
+  #page-b1pruefung .exp-lines i{height:19px}
+  #page-b1pruefung .exp-punkte{margin-left:12px}
   }
+  /* ══ /GOETHE-SHEET CSS ══ */
   @media(max-width:600px){
     #page-b1pruefung{padding:6px}
     #page-b1pruefung .bp-hero{padding:24px 16px 20px}
@@ -953,19 +976,26 @@
       <div class="bp-inst"><strong>Teil 1 · Etwas gemeinsam planen (ca. 3 Min.)</strong> — 和同伴一起策划一件事：提建议、回应对方、最后一起定下来。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp1-explain')">📖 讲解</button></div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 1 · Etwas gemeinsam planen</span></div>
-        <div class="bp-paper-sub"><span>Aufgabenblatt</span><span>ca. 3 Minuten · zwei Teilnehmende</span></div>
-        <div class="bp-paper-topic">Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende. <em>（朋友两周后来看你，两人一起安排一个周末）</em></div>
-        <ul class="bp-paper-list">
-          <li>Sprechen Sie über: Was Sie zusammen machen möchten (Ausflug, Kino, Kochen?)</li>
-          <li>Wann Sie sich treffen wollen</li>
-          <li>Wo Sie etwas essen gehen können</li>
-          <li>Wer was mitbringt / organisiert</li>
-        </ul>
-        <div class="bp-paper-foot">Entscheiden Sie gemeinsam. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
-      </div>
-
+    <div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Aufgabenblatt）——灰表头、左指令、中间 Folie 卡、右侧横线写关键词</div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 1</b> Gemeinsam etwas planen<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-sit">Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende.</p>
+        <p class="exp-note">Sprechen Sie über die Punkte unten, machen Sie Vorschläge und reagieren Sie auf die Vorschläge Ihres Gesprächspartners/Ihrer Gesprächspartnerin. Planen und entscheiden Sie gemeinsam, was Sie tun möchten.</p>
+        <div class="exp-punkte">
+          <div class="exp-pk-t">Programm für ein Wochenende planen</div>
+          <ul class="exp-pk">
+            <li>Was Sie zusammen machen möchten? (Ausflug, Kino, Kochen?)</li>
+            <li>Wann Sie sich treffen wollen?</li>
+            <li>Wo Sie etwas essen gehen können?</li>
+            <li>Wer was mitbringt / organisiert?</li>
+            <li>. . .</li>
+          </ul>
+        </div>
+    </div>
       <div class="bp-box blue">
         <span class="lbl">💬 参考表达</span>
         <div class="bp-chips">
@@ -1006,29 +1036,122 @@
       <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 考卷上有<strong>两个主题</strong>，选一个做约 3 分钟展示：按 5 张 Folie 讲。准备 15 分钟，可以写关键词，<strong>不能照读</strong>。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp2-explain')">📖 讲解</button></div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
-        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema A</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
-        <div class="bp-paper-topic">„Mein Weg zur Arbeit / zur Schule“ <em>（我上班 / 上学的路）</em></div>
-        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Situation im Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-paper-foot">Wählen Sie <b>ein</b> Thema (A oder B) und sprechen Sie über <b>alle fünf Folien</b>. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
-      </div>
+    <div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Aufgabenblatt）——灰表头、左指令、中间 Folie 卡、右侧横线写关键词</div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 2</b> Ein Thema präsentieren<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-note">Wählen Sie <b>ein</b> Thema (Thema 1 oder Thema 2) aus.</p>
+        <p class="exp-note">Sie sollen Ihren Zuhörern ein aktuelles Thema präsentieren. Dazu finden Sie hier fünf Folien. Folgen Sie den Anweisungen links und schreiben Sie Ihre Notizen und Ideen rechts daneben.</p>
+        <div class="exp-thema">Thema A</div>
+        <div class="exp-rows">
+          <div class="exp-row">
+            <div class="exp-ins">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-quote">„Mein Weg zur Arbeit / zur Schule“</div>
+            <div class="exp-stitle">Mein Weg zur Arbeit / zur Schule</div>
+            <span class="exp-badge">Folie 1</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Mein Weg zur Arbeit / zur Schule</div>
+            <div class="exp-stitle">Meine persönlichen Erfahrungen</div>
+            <span class="exp-badge">Folie 2</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Mein Weg zur Arbeit / zur Schule</div>
+            <div class="exp-stitle">Die Situation in meinem Heimatland</div>
+            <span class="exp-badge">Folie 3</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Mein Weg zur Arbeit / zur Schule</div>
+            <div class="exp-stitle">Vor- und Nachteile &amp; Meine Meinung</div>
+            <span class="exp-badge">Folie 4</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Mein Weg zur Arbeit / zur Schule</div>
+            <div class="exp-stitle">Abschluss &amp; Dank</div>
+            <span class="exp-badge">Folie 5</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+    </div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
-        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema B</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
-        <div class="bp-paper-topic">„Einkaufen im Internet“ <em>（网上购物）</em></div>
-        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Situation im Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-paper-foot">Wählen Sie <b>ein</b> Thema (A oder B) und sprechen Sie über <b>alle fünf Folien</b>. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
-      </div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 2</b> Ein Thema präsentieren<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-note">Wählen Sie <b>ein</b> Thema (Thema 1 oder Thema 2) aus.</p>
+        <p class="exp-note">Sie sollen Ihren Zuhörern ein aktuelles Thema präsentieren. Dazu finden Sie hier fünf Folien. Folgen Sie den Anweisungen links und schreiben Sie Ihre Notizen und Ideen rechts daneben.</p>
+        <div class="exp-thema">Thema B</div>
+        <div class="exp-rows">
+          <div class="exp-row">
+            <div class="exp-ins">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-quote">„Einkaufen im Internet“</div>
+            <div class="exp-stitle">Einkaufen im Internet</div>
+            <span class="exp-badge">Folie 1</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Einkaufen im Internet</div>
+            <div class="exp-stitle">Meine persönlichen Erfahrungen</div>
+            <span class="exp-badge">Folie 2</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Einkaufen im Internet</div>
+            <div class="exp-stitle">Die Situation in meinem Heimatland</div>
+            <span class="exp-badge">Folie 3</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Einkaufen im Internet</div>
+            <div class="exp-stitle">Vor- und Nachteile &amp; Meine Meinung</div>
+            <span class="exp-badge">Folie 4</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Einkaufen im Internet</div>
+            <div class="exp-stitle">Abschluss &amp; Dank</div>
+            <span class="exp-badge">Folie 5</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+    </div>
 
       <div class="bp-box blue">
         <span class="lbl">💬 每张 Folie 的开场句（背这五句，骨架就立住了）</span>
@@ -1072,19 +1195,20 @@
 
     <!-- ══════ Teil 3 ══════ -->
     <div class="bp-ex">
-      <div class="bp-inst"><strong>Teil 3 · Feedback geben &amp; Fragen stellen (ca. 2 Min.)</strong> — 听搭档的展示，给出<strong>反馈</strong>并提<strong>一个问题</strong>；同时也要回答对方对你展示的提问。<em>（这部分真题没有单独考卷，考官口头给指令。）</em></div>
+      <div class="bp-inst"><strong>Teil 3 · Feedback geben &amp; Fragen stellen (ca. 2 Min.)</strong> — 听搭档的展示，给出<strong>反馈</strong>并提<strong>一个问题</strong>；同时也要回答对方对你展示的提问。<em>（真题里这段指令印在 Teil 2 那张卷子的下半页，见下方卷面。）</em></div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp3-explain')">📖 讲解</button></div>
-      <div class="bp-box">
-        <strong>📌 Aufgabe:</strong> Hören Sie die Präsentation Ihres Partners / Ihrer Partnerin.<br>
-        a) Geben Sie eine <strong>Rückmeldung</strong>: Was hat Ihnen gefallen? Was war neu oder interessant für Sie?<br>
-        b) Stellen Sie <strong>eine Frage zum Thema Ihres Partners</strong>.<br>
-        c) Antworten Sie auch auf die Fragen zu <strong>Ihrer eigenen</strong> Präsentation.
-        <ul class="bp-points">
-          <li>💡 问的是<strong>对方的主题</strong>，不是你自己准备过的那个题</li>
-          <li>💡 问能展开的问题（Wie / Warum / Was meinst du …?），别只问 Ja/Nein 问题</li>
-          <li>💡 例：对方讲 „Einkaufen im Internet“ → „Du kaufst fast alles online. Hast du keine Angst, dass die Sachen nicht passen?“</li>
-        </ul>
-      </div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 3</b> Über ein Thema sprechen</div>
+        <div class="exp-h">Nach Ihrer Präsentation:</div>
+        <p class="exp-note">Reagieren Sie auf die Rückmeldung und auf Fragen der Prüfer/-innen und des Gesprächspartners/der Gesprächspartnerin.</p>
+        <div class="exp-h">Nach der Präsentation Ihres Partners/Ihrer Partnerin:</div>
+        <p class="exp-note">a) Geben Sie eine Rückmeldung zur Präsentation Ihres Partners/Ihrer Partnerin<br>(z. B. wie Ihnen die Präsentation gefallen hat, was für Sie neu oder besonders interessant war usw.).</p>
+        <p class="exp-note">b) Stellen Sie auch eine Frage zur Präsentation Ihres Partners/Ihrer Partnerin.</p>
+    </div>
       <div class="bp-box blue">
         <span class="lbl">💬 反馈表达</span>
         <div class="bp-chips">
@@ -1828,20 +1952,27 @@
       <div class="bp-inst"><strong>Teil 1 · Gemeinsam etwas planen (ca. 3 Min.)</strong> — 你和搭档一起策划一件事，提建议并回应对方。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp1-explain')">📖 讲解</button></div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 1 · Gemeinsam etwas planen</span></div>
-        <div class="bp-paper-sub"><span>Aufgabenblatt</span><span>ca. 3 Minuten</span></div>
-        <div class="bp-paper-topic">Ein Teilnehmer aus dem Deutschkurs hatte einen Unfall und liegt im Krankenhaus. Diese Woche möchten Sie ihn besuchen und ein Geschenk von der ganzen Gruppe mitbringen. Nächste Woche kann er das Krankenhaus verlassen. Da er allein lebt, wird er Hilfe brauchen. <em>（同学出事故住院，这周去探望并带全班礼物；他独居，下周出院后需要帮忙）</em></div>
-        <ul class="bp-paper-list">
-          <li><b>Überlegen Sie, wie Sie ihn unterstützen können.</b> Planen und entscheiden Sie gemeinsam.</li>
-          <li>Wann besuchen? (Tag, Uhrzeit?)</li>
-          <li>Wie hinkommen?</li>
-          <li>Was mitnehmen?</li>
-          <li>Wie kann man helfen? (vom Krankenhaus abholen, einkaufen, …)</li>
-        </ul>
-        <div class="bp-paper-foot">Notieren Sie nur Stichwörter.</div>
-      </div>
-
+    <div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Aufgabenblatt）——灰表头、左指令、中间 Folie 卡、右侧横线写关键词</div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 1</b> Gemeinsam etwas planen<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-sit">Ein Teilnehmer aus dem Deutschkurs hatte einen Unfall und liegt im Krankenhaus. Diese Woche möchten Sie ihn besuchen und ein Geschenk von der ganzen Gruppe mitbringen. Nächste Woche kann er das Krankenhaus verlassen. Da er allein lebt, wird er Hilfe brauchen. Überlegen Sie, wie Sie ihn unterstützen können.</p>
+        <p class="exp-note">Sprechen Sie über die Punkte unten, machen Sie Vorschläge und reagieren Sie auf die Vorschläge Ihres Gesprächspartners/Ihrer Gesprächspartnerin. Planen und entscheiden Sie gemeinsam, was Sie tun möchten.</p>
+        <div class="exp-punkte">
+          <div class="exp-pk-t">Besuch im Krankenhaus und Hilfe planen</div>
+          <ul class="exp-pk">
+            <li>Wann besuchen? (Tag, Uhrzeit?)</li>
+            <li>Wie hinkommen?</li>
+            <li>Was mitnehmen?</li>
+            <li>Wie kann man helfen?</li>
+            <li class="sub">(vom Krankenhaus abholen, einkaufen, …)</li>
+            <li>. . .</li>
+          </ul>
+        </div>
+    </div>
       <div class="bp-box blue">
         <span class="lbl">💬 Nützliche Ausdrücke:</span>
         <div class="bp-chips">
@@ -1865,29 +1996,121 @@
       <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 从两个主题里选一个，按 5 张 Folie 做展示：先介绍结构与内容，再讲自己的经历、本国情况、利弊和自己的看法，最后致谢。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp2-explain')">📖 讲解</button></div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
-        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema 1</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
-        <div class="bp-paper-topic">„Papa, ich will ein Handy!“ — Brauchen Kinder Mobiltelefone? <em>（孩子需要手机吗？）</em></div>
-        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Die Rolle von Handys in meinem Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; meine Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-paper-foot">Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
-      </div>
+    <div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Aufgabenblatt）——灰表头、左指令、中间 Folie 卡、右侧横线写关键词</div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 2</b> Ein Thema präsentieren<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-note">Wählen Sie <b>ein</b> Thema (Thema 1 oder Thema 2) aus.</p>
+        <p class="exp-note">Sie sollen Ihren Zuhörern ein aktuelles Thema präsentieren. Dazu finden Sie hier fünf Folien. Folgen Sie den Anweisungen links und schreiben Sie Ihre Notizen und Ideen rechts daneben.</p>
+        <div class="exp-thema">Thema 1</div>
+        <div class="exp-rows">
+          <div class="exp-row">
+            <div class="exp-ins">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-quote">„Papa, ich will ein Handy!“</div>
+            <div class="exp-stitle">Brauchen Kinder Mobiltelefone?</div>
+            <span class="exp-badge">Folie 1</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Brauchen Kinder Mobiltelefone?</div>
+            <div class="exp-stitle">Meine persönlichen Erfahrungen</div>
+            <span class="exp-badge">Folie 2</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Brauchen Kinder Mobiltelefone?</div>
+            <div class="exp-stitle">Die Rolle von Handys in meinem Heimatland</div>
+            <span class="exp-badge">Folie 3</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Brauchen Kinder Mobiltelefone?</div>
+            <div class="exp-stitle">Vor- und Nachteile &amp; Meine Meinung</div>
+            <span class="exp-badge">Folie 4</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div>
+          <div class="exp-folie acc-orange">
+            <div class="exp-bc">Brauchen Kinder Mobiltelefone?</div>
+            <div class="exp-stitle">Abschluss &amp; Dank</div>
+            <span class="exp-badge">Folie 5</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+    </div>
 
-      <div class="bp-paper">
-        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
-        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema 2</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
-        <div class="bp-paper-topic">„Mama, es ist gerade so lustig … noch 5 Minuten!“ — Sehen Kinder zu viel fern? <em>（孩子电视看太多了吗？）</em></div>
-        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Fernsehen und Kinder in meinem Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; meine Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
-        <div class="bp-paper-foot">Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
-      </div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 2</b> Ein Thema präsentieren<span class="dauer">Dauer: circa drei Minuten</span></div>
+        <p class="exp-note">Sie sollen Ihren Zuhörern ein aktuelles Thema präsentieren. Dazu finden Sie hier fünf Folien. Folgen Sie den Anweisungen links und schreiben Sie Ihre Notizen und Ideen rechts daneben.</p>
+        <div class="exp-thema">Thema 2</div>
+        <div class="exp-rows">
+          <div class="exp-row">
+            <div class="exp-ins">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-quote">„Mama, es ist gerade so lustig …<br>… nur noch 5 Minuten!“</div>
+            <div class="exp-stitle">Sehen Kinder zu viel fern?</div>
+            <span class="exp-badge">Folie 1</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Sehen Kinder zu viel fern?</div>
+            <div class="exp-stitle">Meine persönlichen Erfahrungen</div>
+            <span class="exp-badge">Folie 2</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Sehen Kinder zu viel fern?</div>
+            <div class="exp-stitle">Die Situation in meinem Heimatland</div>
+            <span class="exp-badge">Folie 3</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Sehen Kinder zu viel fern?</div>
+            <div class="exp-stitle">Vor- und Nachteile &amp; Meine Meinung</div>
+            <span class="exp-badge">Folie 4</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-ins">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div>
+          <div class="exp-folie acc-blue">
+            <div class="exp-bc">Sehen Kinder zu viel fern?</div>
+            <div class="exp-stitle">Abschluss &amp; Dank</div>
+            <span class="exp-badge">Folie 5</span>
+          </div>
+            <div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+    </div>
 
       <div class="bp-box blue">
         <span class="lbl">📝 参考：关键词笔记卡（考卷右边空白处，照这个密度写就够了）</span>
@@ -1938,13 +2161,20 @@
 
     <!-- ══════ Teil 3 ══════ -->
     <div class="bp-ex">
-      <div class="bp-inst"><strong>Teil 3 · Über ein Thema sprechen (ca. 2 Min.)</strong> — 听完对方的展示后，先给反馈（喜欢什么、什么让你觉得新/有趣），再问一个问题。对方也要回应你的展示。<em>（真题没有单独考卷。）</em></div>
+      <div class="bp-inst"><strong>Teil 3 · Über ein Thema sprechen (ca. 2 Min.)</strong> — 听完对方的展示后，先给反馈（喜欢什么、什么让你觉得新/有趣），再问一个问题。对方也要回应你的展示。<em>（真题里这段指令印在 Teil 2 那张卷子的下半页，见下方卷面。）</em></div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp3-explain')">📖 讲解</button></div>
-      <div class="bp-box">
-        <span class="lbl">a) Rückmeldung geben:</span> 反馈：怎么喜欢你/搭档的展示、有什么新鲜或有趣的地方。<br>
-        <span class="lbl">b) Frage stellen:</span> 针对对方的展示提一个问题。<br>
-        <span class="lbl">c) Antworten:</span> 也回答对方/考官的问题。
-      </div>
+    <div class="exp-sheet">
+        <div class="exp-masthead">
+          <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SPRECHEN</span></div>
+          <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+        </div>
+        <div class="exp-teil"><b>Teil 3</b> Über ein Thema sprechen</div>
+        <div class="exp-h">Nach Ihrer Präsentation:</div>
+        <p class="exp-note">Reagieren Sie auf die Rückmeldung und auf Fragen der Prüfer/-innen und des Gesprächspartners/der Gesprächspartnerin.</p>
+        <div class="exp-h">Nach der Präsentation Ihres Partners/Ihrer Partnerin:</div>
+        <p class="exp-note">a) Geben Sie eine Rückmeldung zur Präsentation Ihres Partners/Ihrer Partnerin<br>(z. B. wie Ihnen die Präsentation gefallen hat, was für Sie neu oder besonders interessant war usw.).</p>
+        <p class="exp-note">b) Stellen Sie auch eine Frage zur Präsentation Ihres Partners/Ihrer Partnerin.</p>
+    </div>
       <div class="bp-box blue">
         <span class="lbl">💬 Redemittel (反馈/提问):</span>
         <div class="bp-chips">
