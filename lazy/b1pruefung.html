@@ -123,14 +123,32 @@
   #page-b1pruefung .bp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:5px;padding-left:22px;position:relative}
   #page-b1pruefung .bp-points li::before{content:"✎";position:absolute;left:0;color:#fde68a}
   #page-b1pruefung .bp-grad{font-size:.8rem;color:rgba(255,245,230,.55);font-style:italic}
-  /* 口语 Teil 2 · 5 张 Folie 卡片式列表（手机端不被表格挤成竖线） */
-  #page-b1pruefung .bp-fol{display:flex;flex-direction:column;gap:9px;margin:12px 0 6px}
-  #page-b1pruefung .bp-fol-i{display:flex;gap:11px;align-items:flex-start}
-  #page-b1pruefung .bp-fol-n{flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:rgba(99,179,237,.18);border:1px solid rgba(99,179,237,.38);color:#fde68a;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;line-height:1}
-  #page-b1pruefung .bp-fol-b{flex:1 1 auto;min-width:0;font-size:.88rem;line-height:1.75;overflow-wrap:break-word;word-break:break-word}
-  #page-b1pruefung .bp-fol-b strong{color:#9bd0f5}
-  #page-b1pruefung .bp-fol-b .de{color:#e2e8f0}
-  #page-b1pruefung .bp-fol-b .zh{color:rgba(255,245,230,.62);font-size:.83rem}
+  /* ══ 真题式试卷卡（口语 Aufgabenblatt）══ */
+  #page-b1pruefung .bp-paper{background:#fbfaf6;color:#1f2937;border-radius:12px;padding:20px 22px 16px;margin:14px 0 10px;box-shadow:0 8px 26px rgba(0,0,0,.38);border:1px solid rgba(15,44,77,.10)}
+  #page-b1pruefung .bp-paper *{color:inherit}
+  #page-b1pruefung .bp-paper-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid #0f2c4d;padding-bottom:7px}
+  #page-b1pruefung .bp-paper-head .t1{font-weight:800;font-size:.95rem;letter-spacing:.2px;color:#0f2c4d}
+  #page-b1pruefung .bp-paper-head .t2{font-size:.8rem;color:#475569}
+  #page-b1pruefung .bp-paper-sub{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.76rem;color:#64748b;margin:6px 0 12px}
+  #page-b1pruefung .bp-paper-topic{background:#0f2c4d;color:#fff;border-radius:8px;padding:10px 14px;font-weight:700;font-size:.94rem;line-height:1.55;margin:0 0 12px}
+  #page-b1pruefung .bp-paper-topic em{color:#fde68a;font-style:normal;font-size:.84rem;font-weight:500}
+  #page-b1pruefung .bp-paper-list{list-style:none;margin:8px 0 4px;padding:0}
+  #page-b1pruefung .bp-paper-list li{position:relative;padding-left:20px;margin:7px 0;font-size:.88rem;line-height:1.65;color:#334155}
+  #page-b1pruefung .bp-paper-list li::before{content:"•";position:absolute;left:5px;color:#0f2c4d;font-weight:700}
+  #page-b1pruefung .bp-paper-foot{font-size:.76rem;color:#64748b;border-top:1px solid #e2e8f0;padding-top:8px;margin-top:12px}
+  #page-b1pruefung .bp-fol2{display:flex;gap:12px;align-items:stretch;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:10px 12px;margin-bottom:9px}
+  #page-b1pruefung .bp-fol2 .n{flex:0 0 26px;width:26px;height:26px;border-radius:6px;background:#0f2c4d;color:#fff;font-weight:700;font-size:.86rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  #page-b1pruefung .bp-fol2 .q{flex:1 1 54%;min-width:0;font-size:.85rem;line-height:1.7;color:#334155}
+  #page-b1pruefung .bp-fol2 .q b{display:block;color:#0f2c4d;font-size:.88rem;margin-bottom:1px}
+  #page-b1pruefung .bp-fol2 .notes{flex:1 1 46%;min-width:0;border-left:1px dashed #cbd5e1;padding-left:12px}
+  #page-b1pruefung .bp-fol2 .notes span{display:block;font-size:.7rem;color:#94a3b8;margin-bottom:4px}
+  #page-b1pruefung .bp-fol2 .notes i{display:block;border-bottom:1px dotted #cbd5e1;height:19px}
+  @media(max-width:600px){
+    #page-b1pruefung .bp-paper{padding:16px 14px 12px}
+    #page-b1pruefung .bp-fol2{flex-direction:column;gap:8px}
+    #page-b1pruefung .bp-fol2 .q,#page-b1pruefung .bp-fol2 .notes{flex:1 1 auto}
+    #page-b1pruefung .bp-fol2 .notes{border-left:0;border-top:1px dashed #cbd5e1;padding-left:0;padding-top:8px}
+  }
   @media(max-width:600px){
     #page-b1pruefung{padding:6px}
     #page-b1pruefung .bp-hero{padding:24px 16px 20px}
@@ -927,71 +945,89 @@
     <div class="bp-sec-h"><div class="b">🗣️</div><div><h2>Sprechen · 口语</h2><div class="sub">Goethe-Zertifikat B1 · 3 Teile · 15 Minuten (Prüfungsgespräch) · 准备 15 分钟</div></div></div>
 
     <div class="bp-box gold">
-      <span class="lbl">📌 考试说明</span> 口语通常为<strong>双人考试</strong>，考前准备 15 分钟。共 3 部分：① 与同伴共同规划一件事（约 3 分钟）② 一人做主题展示（约 3 分钟 · 5 张 Folie）③ 互相反馈提问（约 2 分钟）。下方提供<strong>完整题目卡（Aufgabenblatt）</strong>与参考表达。
+      <span class="lbl">📌 考试说明</span> 口语通常为<strong>双人考试</strong>，考前准备 15 分钟。共 3 部分：① 与同伴共同规划一件事（约 3 分钟）② 一人做主题展示（约 3 分钟 · 5 张 Folie）③ 互相反馈提问（约 2 分钟）。下面<strong>浅色纸卡 = 考卷原样</strong>（Aufgabenblatt，右边空白处就是给你写关键词的），每张考卷后面跟着「📖 讲解」。
     </div>
 
-    <!-- ── Teil 1：共同规划 ── -->
+    <!-- ══════ Teil 1 ══════ -->
     <div class="bp-ex">
-      <div class="bp-inst"><strong>Teil 1 · Etwas gemeinsam planen</strong> — Sprechen Sie mit Ihrem Partner über die 4 Punkte und planen Sie gemeinsam. 和同伴就 4 个要点共同规划。</div>
+      <div class="bp-inst"><strong>Teil 1 · Etwas gemeinsam planen (ca. 3 Min.)</strong> — 和同伴一起策划一件事：提建议、回应对方、最后一起定下来。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp1-explain')">📖 讲解</button></div>
-      <div class="bp-box">
-        <strong>📌 Aufgabe:</strong> Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende. Sprechen Sie über:<br>
-        <div class="bp-points">
-          <li>Was Sie zusammen machen möchten (Ausflug, Kino, Kochen?)</li>
+
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 1 · Etwas gemeinsam planen</span></div>
+        <div class="bp-paper-sub"><span>Aufgabenblatt</span><span>ca. 3 Minuten · zwei Teilnehmende</span></div>
+        <div class="bp-paper-topic">Ihr Freund möchte in zwei Wochen Sie besuchen. Planen Sie gemeinsam ein Programm für ein Wochenende. <em>（朋友两周后来看你，两人一起安排一个周末）</em></div>
+        <ul class="bp-paper-list">
+          <li>Sprechen Sie über: Was Sie zusammen machen möchten (Ausflug, Kino, Kochen?)</li>
           <li>Wann Sie sich treffen wollen</li>
           <li>Wo Sie etwas essen gehen können</li>
           <li>Wer was mitbringt / organisiert</li>
-        </div>
+        </ul>
+        <div class="bp-paper-foot">Entscheiden Sie gemeinsam. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
       </div>
+
       <div class="bp-box blue">
-        <span class="lbl">💬 参考表达</span><br>
+        <span class="lbl">💬 参考表达</span>
         <div class="bp-chips">
           <span class="bp-chip">Ich schlage vor, dass wir …</span><span class="bp-chip">Was hältst du davon, …?</span><span class="bp-chip">Wie wäre es mit …?</span>
           <span class="bp-chip">Das passt mir gut.</span><span class="bp-chip">Da bin ich nicht so sicher.</span><span class="bp-chip">Einverstanden!</span>
           <span class="bp-chip">Also, dann machen wir es so.</span>
         </div>
       </div>
+
+      <div class="bp-box">
+        <span class="lbl">🎬 完整对话样例（两人如何把 4 个要点都谈完）</span>
+        <div class="bp-mu-text">
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Am Samstag hast du doch frei, oder? Wir könnten zusammen etwas unternehmen. Was hältst du von einem Ausflug in die Berge?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Das klingt super! Aber ich mag lieber etwas ohne Auto. Wie wäre es, wenn wir mit dem Zug fahren?</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Gute Idee, dann müssen wir keinen Parkplatz suchen. Wir sollten um acht Uhr am Bahnhof sein. Passt dir das?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Ja, um acht ist es zu früh für mich … Können wir nicht um neun fahren?</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Natürlich, lass uns um neun treffen. Und danach? Was essen wir unterwegs?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> In der Stadt gibt es einen Italiener. Da können wir mittags essen. Und ich bringe Obst und Brote mit.</p>
+          <p style="color:#9bd0f5"><strong>Anna:</strong> Perfekt, dann bringe ich die Kamera mit. Also: Bahnhof um neun, dann essen wir im Italiener. Alles klar?</p>
+          <p style="color:#f6b7b7"><strong>Ben:</strong> Alles klar, ich freue mich schon!</p>
+        </div>
+        <div class="bp-grad">→ 这段为什么能拿高分：① 4 个要点全谈到 ② 有提议有回应（Was hältst du von… → Gute Idee, aber…）③ 用连接词和让步 ④ 最后总结一遍计划。</div>
+      </div>
     <div class="bp-explain" id="bp-sp1-explain">
     <div class="bp-explain-h">🗣️ 讲解 · Teil 1 (双人规划 · 互动)</div>
-    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">和你搭档围绕 4 个要点共同规划一件事。考<strong>互动</strong>——不是自说自话，而是"你一问我一提、有商有量"。</span></div></div>
-    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分关键：</span><span class="zh">① 每个要点都要谈；② 有提议就有回应（Was hältst du von...? → Gute Idee, aber...）；③ 最后总结一遍计划。</span></div></div>
-    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">对话为何高分</span></div>
-      <div class="bx-row"><span class="lbl">💡 亮点1</span><span class="zh">"Was hältst du von einem Ausflug in die Berge?" 主动提建议，开启讨论。</span></div>
-      <div class="bx-row"><span class="lbl">💡 亮点2</span><span class="zh">"Gute Idee, aber ich mag lieber..." 先肯定再提出偏好，不冷场不冲突。</span></div>
-      <div class="bx-row"><span class="lbl">💡 亮点3</span><span class="zh">"Natürlich, lass uns um neun treffen." 让步 + 敲定时间，推进对话。</span></div>
-      <div class="bx-row"><span class="lbl">💡 亮点4</span><span class="zh">"Also: Bahnhof um neun, dann essen wir..." 结尾总结计划，考官最爱。</span></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">和搭档围绕 4 个要点共同规划一件事。考<strong>互动</strong>——不是自说自话，而是"你一问我一提、有商有量"。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分关键：</span><span class="zh">① 每个要点都要谈；② 有提议就有回应（Was hältst du von…? → Gute Idee, aber…）；③ 最后总结一遍计划（"Also: Bahnhof um neun…"）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 常用套路：</span><span class="zh">提建议 → 对方犹豫 → 让步/折中 → 定下来 → 换下一个要点。"不够 4 个要点"和"两人各说各的"是两个最常见的失分点。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">对话里值得抄的句子</span></div>
+      <div class="bx-row"><span class="lbl">提议</span><span class="zh">"Was hältst du von einem Ausflug in die Berge?" / "Wie wäre es, wenn wir mit dem Zug fahren?"</span></div>
+      <div class="bx-row"><span class="lbl">回应</span><span class="zh">"Das klingt super! Aber ich mag lieber …" 先肯定再提出不同意见，不冷场也不冲突。</span></div>
+      <div class="bx-row"><span class="lbl">敲定</span><span class="zh">"Natürlich, lass uns um neun treffen." 让步 + 定时间，把对话往前推。</span></div>
       <div class="bx-trap"><span class="lbl">⚠️</span>别变成"两个独白"——一定要回应对方、追问对方，才算互动。</div></div>
   </div></div>
 
-    <!-- ── Teil 2：主题展示（完整 Aufgabenblatt · 5 Folien · v2） ── -->
-    <div class="bp-ex" data-fix="sp-t2-v2">
-      <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 从 <strong>两个主题 A / B 里选一个</strong>，按 5 张 Folie 做展示。准备 15 分钟，可写关键词笔记，<strong>但不能照读</strong>；5 张 Folie 都要讲到。</div>
+    <!-- ══════ Teil 2 ══════ -->
+    <div class="bp-ex" data-fix="sp-v3">
+      <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 考卷上有<strong>两个主题</strong>，选一个做约 3 分钟展示：按 5 张 Folie 讲。准备 15 分钟，可以写关键词，<strong>不能照读</strong>。</div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp2-explain')">📖 讲解</button></div>
-      <div class="bp-box">
-        <strong>📌 Aufgabe:</strong> Wählen Sie <strong>ein</strong> Thema (A oder B) und präsentieren Sie es ca. 3 Minuten. Gehen Sie auf <strong>alle fünf Folien</strong> ein. Vorbereitungszeit: 15 Minuten.<br>
-        <div class="bp-grad">→ 考卷左侧 = 考官给的指令；右侧空白 = 你自己写 Stichwörter。只写关键词，别写整句（写了整句就想照读，会被扣分）。两人一组时，你和搭档各选一个主题，别选同一个。</div>
+
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
+        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema A</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
+        <div class="bp-paper-topic">„Mein Weg zur Arbeit / zur Schule“ <em>（我上班 / 上学的路）</em></div>
+        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Situation im Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-paper-foot">Wählen Sie <b>ein</b> Thema (A oder B) und sprechen Sie über <b>alle fünf Folien</b>. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
       </div>
 
-      <div class="bp-box">
-        <span class="lbl">📌 Präsentationsstruktur（5 Folien · 考卷左上角就是这五条指令）</span>
-        <div class="bp-fol">
-          <div class="bp-fol-i"><span class="bp-fol-n">①</span><div class="bp-fol-b"><strong>Thema + Struktur</strong><br><span class="de">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">②</span><div class="bp-fol-b"><strong>Meine Erfahrungen</strong><br><span class="de">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">③</span><div class="bp-fol-b"><strong>Situation im Heimatland</strong><br><span class="de">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">④</span><div class="bp-fol-b"><strong>Vor-/Nachteile &amp; Meinung</strong><br><span class="de">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">⑤</span><div class="bp-fol-b"><strong>Abschluss &amp; Dank</strong><br><span class="de">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</span></div></div>
-        </div>
-        <div class="bp-grad">→ ①②⑤ 各 2–3 句就够；<strong>③④ 是拿分重点</strong>，要举例、要给自己的立场。时间分配：① 20 秒 · ② 40 秒 · ③ 50 秒 · ④ 50 秒 · ⑤ 20 秒。</div>
-      </div>
-
-      <div class="bp-box">
-        <span class="lbl">🗣️ Thema A:</span> <strong>Mein Weg zur Arbeit / zur Schule</strong> <em>（我上班 / 上学的路）</em>
-        <div class="bp-grad" style="margin-top:8px">→ 写笔记提示：② 你怎么去（Bus / U-Bahn / Fahrrad / zu Fuß）· 多久 · 路上做什么 · ③ 中国大城市：早高峰、地铁很挤、共享单车方便 · ④ 便宜、环保、能看书 ↔ 挤、堵、时间长 · ⑤ 我的看法 + 一点希望（比如希望多开两条地铁线）</div>
-      </div>
-
-      <div class="bp-box">
-        <span class="lbl">🗣️ Thema B:</span> <strong>Einkaufen im Internet</strong> <em>（网上购物）</em>
-        <div class="bp-grad" style="margin-top:8px">→ 写笔记提示：② 你网购吗？最近买了什么？ · ③ 中国几乎人人网购：淘宝、拼多多、双十一 · ④ 方便、便宜、选择多 ↔ 看不到实物、退货麻烦、容易乱花钱 · ⑤ 我的看法：买书和日用品很好，衣服还是想去店里试</div>
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
+        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema B</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
+        <div class="bp-paper-topic">„Einkaufen im Internet“ <em>（网上购物）</em></div>
+        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Situation im Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-paper-foot">Wählen Sie <b>ein</b> Thema (A oder B) und sprechen Sie über <b>alle fünf Folien</b>. Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
       </div>
 
       <div class="bp-box blue">
@@ -1015,7 +1051,7 @@
           <p><strong>④</strong> Ein Vorteil von öffentlichen Verkehrsmitteln ist, dass sie billig und umweltfreundlich sind — man kann unterwegs auch lesen oder arbeiten. Auf der anderen Seite gibt es auch Nachteile: Die Bahnen sind im Berufsverkehr oft überfüllt, und bei einem Stau kommt man zu spät.</p>
           <p><strong>⑤</strong> Meiner Meinung nach ist die U-Bahn trotzdem die beste Lösung. Zusammenfassend kann ich sagen, dass man mit öffentlichen Verkehrsmitteln billiger und entspannter unterwegs ist. Vielen Dank für Ihre Aufmerksamkeit!</p>
         </div>
-        <div class="bp-grad">→ 全文约 250 词 ≈ 2.5–3 分钟。三遍练法：① 照读一遍掐时间 → ② 只看关键词笔记卡讲 → ③ 换 Thema B 用同一套骨架再讲一遍。</div>
+        <div class="bp-grad">→ 全文约 250 词 ≈ 2.5–3 分钟。三遍练法：① 照读一遍掐时间 → ② 只看考卷上的关键词讲 → ③ 换 Thema B 用同一套骨架再讲一遍。</div>
       </div>
 
       <div class="bp-box gold">
@@ -1034,9 +1070,9 @@
       <div class="bx-trap"><span class="lbl">⚠️</span>三个常见失分：① 不到 2 分钟就讲完（完成度不够）② 漏掉某张 Folie（结构丢分）③ 低头照读笔记（考官直接扣分）。</div></div>
   </div></div>
 
-    <!-- ── Teil 3：反馈与提问 ── -->
-    <div class="bp-ex" data-fix="sp-t3-v2">
-      <div class="bp-inst"><strong>Teil 3 · Feedback geben &amp; Fragen stellen (ca. 2 Min.)</strong> — 听搭档的展示，给出<strong>反馈</strong>并提<strong>一个问题</strong>；同时也要回答对方对你展示的提问。</div>
+    <!-- ══════ Teil 3 ══════ -->
+    <div class="bp-ex">
+      <div class="bp-inst"><strong>Teil 3 · Feedback geben &amp; Fragen stellen (ca. 2 Min.)</strong> — 听搭档的展示，给出<strong>反馈</strong>并提<strong>一个问题</strong>；同时也要回答对方对你展示的提问。<em>（这部分真题没有单独考卷，考官口头给指令。）</em></div>
       <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp-sp3-explain')">📖 讲解</button></div>
       <div class="bp-box">
         <strong>📌 Aufgabe:</strong> Hören Sie die Präsentation Ihres Partners / Ihrer Partnerin.<br>
@@ -1068,31 +1104,6 @@
       <div class="bx-row"><span class="lbl">💡</span><span class="zh">搭档卡住时可以帮一句："Du hast doch gesagt, dass …?" —— 这也算互动加分。</span></div>
       <div class="bx-trap"><span class="lbl">⚠️</span>两个坑：① 只夸不提问（任务没完成）② 问自己的主题 / 直接问考官（对象错了）。</div></div>
   </div></div>
-
-    <!-- 完整对话样例 -->
-    <div class="bp-ex">
-      <div class="bp-inst"><strong>🗣️ Beispiel-Prüfungsgespräch（完整考试对话样例 · Teil 1 规划）</strong> — 看两个考生如何把 4 个要点都谈完。这是得分的关键示范：你来我往、有提议有回应。</div>
-      <div class="bp-box">
-        <strong>🎬 情景：</strong> 两人计划一起过周末（Teil 1 的 4 个要点：做什么/何时/在哪吃/带什么）。<br><br>
-        <div class="bp-mu-text">
-          <p style="color:#9bd0f5"><strong>Anna:</strong> Am Samstag hast du doch frei, oder? Wir könnten zusammen etwas unternehmen. Was hältst du von einem Ausflug in die Berge?</p>
-          <p style="color:#f6b7b7"><strong>Ben:</strong> Das klingt super! Aber ich mag lieber etwas ohne Auto. Wie wäre es, wenn wir mit dem Zug fahren?</p>
-          <p style="color:#9bd0f5"><strong>Anna:</strong> Gute Idee, dann müssen wir keinen Parkplatz suchen. Wir sollten um acht Uhr am Bahnhof sein. Passt dir das?</p>
-          <p style="color:#f6b7b7"><strong>Ben:</strong> Ja, um acht ist es zu früh für mich... Können wir nicht um neun fahren?</p>
-          <p style="color:#9bd0f5"><strong>Anna:</strong> Natürlich, lass uns um neun treffen. Und danach? Was essen wir unterwegs?</p>
-          <p style="color:#f6b7b7"><strong>Ben:</strong> In der Stadt gibt es einen Italiener. Da können wir mittags essen. Und ich bringe ein paar Obstmilch und Brote mit.</p>
-          <p style="color:#9bd0f5"><strong>Anna:</strong> Perfekt, dann bringe ich die Kamera mit, damit wir Fotos machen. Also: Bahnhof um neun, dann essen wir im Italiener. Alles klar?</p>
-          <p style="color:#f6b7b7"><strong>Ben:</strong> Alles klar, ich freue mich schon!</p>
-        </div>
-      </div>
-      <div class="bp-box blue">
-        <span class="lbl">✅ 这段为什么能拿高分</span><br>
-        1. 每个要点都谈到了（做什么→何时→去哪吃→带什么）<br>
-        2. 有提议有回应（"Was hältst du von…" → "Gute Idee, aber…"）<br>
-        3. 用连接词和让步（"Natürlich, lass uns…" "das klingt super, aber…"）<br>
-        4. 最后总结一遍计划（"Also: Bahnhof um neun…"），考官最喜欢
-      </div>
-    </div>
 
     <!-- 口语评分标准 -->
     <div class="bp-box gold">
@@ -1798,7 +1809,7 @@
     <div class="bp-sec-h"><div class="b">🗣️</div><div><h2>Sprechen · 口语</h2><div class="sub">Goethe-Zertifikat B1 · 3 Teile · ca. 15 Minuten (zwei Teilnehmende)</div></div></div>
 
     <div class="bp-box gold">
-      <span class="lbl">📌 考试说明</span> 口语共 <strong>3 部分</strong>、两人一组约 15 分钟，考前准备 15 分钟。① 两人一起策划一件事(约3分钟)；② 一人做一个主题展示(约3分钟)；③ 针对双方主题互相反馈提问(约2分钟)。自由发言，可看笔记但不能照读。
+      <span class="lbl">📌 考试说明</span> 口语共 <strong>3 部分</strong>、两人一组约 15 分钟，考前准备 15 分钟。① 两人一起策划一件事（约 3 分钟）② 一人做一个主题展示（约 3 分钟 · 5 张 Folie）③ 针对双方主题互相反馈提问（约 2 分钟）。<strong>浅色纸卡 = 考卷原样</strong>，右边空白处写关键词；可看笔记但不能照读。
     </div>
     <div class="bp-box blue">
       <span class="lbl">🧭 评分标准 / Bewertung (B1)</span> 考官按以下维度打分（A=优秀 → C=及格 → E=几乎不可评）：<br>
@@ -1812,18 +1823,25 @@
       </table>
     </div>
 
-    <!-- ── Teil 1 ── -->
+    <!-- ══════ Teil 1 ══════ -->
     <div class="bp-ex">
-      <div class="bp-inst"><strong>Teil 1 · Gemeinsam etwas planen (ca. 3 Min.)</strong> — 你和搭档一起策划一件事，提建议并回应对方。请围绕下面几点商量并决定。</div>
-      <div class="bp-box">
-        <span class="lbl">🎯 Aufgabe:</span> Ein Teilnehmer aus dem Deutschkurs hatte einen Unfall und liegt im Krankenhaus. Diese Woche möchten Sie ihn besuchen und ein Geschenk von der ganzen Gruppe mitbringen. Nächste Woche kann er das Krankenhaus verlassen. Da er allein lebt, wird er Hilfe brauchen. <strong>Überlegen Sie, wie Sie ihn unterstützen können.</strong> Planen und entscheiden Sie gemeinsam.<br>
-        <ul class="bp-points">
+      <div class="bp-inst"><strong>Teil 1 · Gemeinsam etwas planen (ca. 3 Min.)</strong> — 你和搭档一起策划一件事，提建议并回应对方。</div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp1-explain')">📖 讲解</button></div>
+
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 1 · Gemeinsam etwas planen</span></div>
+        <div class="bp-paper-sub"><span>Aufgabenblatt</span><span>ca. 3 Minuten</span></div>
+        <div class="bp-paper-topic">Ein Teilnehmer aus dem Deutschkurs hatte einen Unfall und liegt im Krankenhaus. Diese Woche möchten Sie ihn besuchen und ein Geschenk von der ganzen Gruppe mitbringen. Nächste Woche kann er das Krankenhaus verlassen. Da er allein lebt, wird er Hilfe brauchen. <em>（同学出事故住院，这周去探望并带全班礼物；他独居，下周出院后需要帮忙）</em></div>
+        <ul class="bp-paper-list">
+          <li><b>Überlegen Sie, wie Sie ihn unterstützen können.</b> Planen und entscheiden Sie gemeinsam.</li>
           <li>Wann besuchen? (Tag, Uhrzeit?)</li>
           <li>Wie hinkommen?</li>
           <li>Was mitnehmen?</li>
           <li>Wie kann man helfen? (vom Krankenhaus abholen, einkaufen, …)</li>
         </ul>
+        <div class="bp-paper-foot">Notieren Sie nur Stichwörter.</div>
       </div>
+
       <div class="bp-box blue">
         <span class="lbl">💬 Nützliche Ausdrücke:</span>
         <div class="bp-chips">
@@ -1834,41 +1852,55 @@
           <span class="bp-chip">Übernehmen wir, dass …</span>
         </div>
       </div>
-    </div>
+    <div class="bp-explain" id="bp2-sp1-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 1 (双人规划 · 互动)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">课本里的这位同学住院了，你俩要商量：<strong>什么时候去看、怎么去、带什么、能帮他做什么</strong>。考的是一起商量，不是一个人安排。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 高分关键：</span><span class="zh">① 5 个要点都要碰到了；② 有提议就有回应；③ 最后把结论复述一遍（"Also: Mittwoch um vier, wir bringen …"）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 别忘第 5 点：</span><span class="zh">"Wie kann man helfen?" 是最容易被漏的一点，也是能显得有生活温度的一点：abholen（出院接他）、einkaufen（帮买菜）、Hausaufgaben bringen（送笔记）。</span></div></div>
+    <div class="bx-item"><div class="bx-trap"><span class="lbl">⚠️</span>对方提建议时不要只说 "Ja" —— 至少给一个理由或补充（"Gute Idee, dann können wir auch gleich …"）。</div></div>
+  </div></div>
 
-    <!-- ── Teil 2 ── -->
-    <div class="bp-ex" data-fix="sp-t2-v2">
-      <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 从两个主题里选一个，按 5 张"Folien"的结构做展示。展示时先介绍结构与内容，再结合自身经历、本国情况，讲优缺点和自己的看法，最后致谢。准备 15 分钟，可写关键词，<strong>不能照读</strong>。</div>
-      <div class="bp-box">
-        <span class="lbl">📌 Präsentationsstruktur（5 Folien · 考卷左上角就是这五条指令）</span>
-        <div class="bp-fol">
-          <div class="bp-fol-i"><span class="bp-fol-n">①</span><div class="bp-fol-b"><strong>Thema + Struktur</strong><br><span class="de">Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">②</span><div class="bp-fol-b"><strong>Meine Erfahrungen</strong><br><span class="de">Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">③</span><div class="bp-fol-b"><strong>Situation im Heimatland</strong><br><span class="de">Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">④</span><div class="bp-fol-b"><strong>Vor-/Nachteile &amp; Meinung</strong><br><span class="de">Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</span></div></div>
-          <div class="bp-fol-i"><span class="bp-fol-n">⑤</span><div class="bp-fol-b"><strong>Abschluss &amp; Dank</strong><br><span class="de">Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</span></div></div>
-        </div>
-        <div class="bp-grad">→ 时间分配：① 20 秒 · ② 40 秒 · ③ 50 秒 · ④ 50 秒 · ⑤ 20 秒（③④ 是拿分重点）。两人一组时，你和搭档各选一个主题，别选同一个，Teil 3 才有内容可问。</div>
+    <!-- ══════ Teil 2 ══════ -->
+    <div class="bp-ex" data-fix="sp-v3">
+      <div class="bp-inst"><strong>Teil 2 · Ein Thema präsentieren (ca. 3 Min.)</strong> — 从两个主题里选一个，按 5 张 Folie 做展示：先介绍结构与内容，再讲自己的经历、本国情况、利弊和自己的看法，最后致谢。</div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp2-explain')">📖 讲解</button></div>
+
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
+        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema 1</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
+        <div class="bp-paper-topic">„Papa, ich will ein Handy!“ — Brauchen Kinder Mobiltelefone? <em>（孩子需要手机吗？）</em></div>
+        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Die Rolle von Handys in meinem Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; meine Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-paper-foot">Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
       </div>
 
-      <div class="bp-box">
-        <span class="lbl">🗣️ Thema 1:</span> <strong>„Papa, ich will ein Handy!“ — Brauchen Kinder Mobiltelefone?</strong> <em>(孩子们需要手机吗？)</em>
-        <div class="bp-grad" style="margin-top:8px">📝 关键词笔记卡示例（考试时写右边空白处，只写关键词）</div>
+      <div class="bp-paper">
+        <div class="bp-paper-head"><span class="t1">Goethe-Zertifikat B1</span><span class="t2">Sprechen · Teil 2 · Ein Thema präsentieren</span></div>
+        <div class="bp-paper-sub"><span>Kandidatenblatt · Thema 2</span><span>Vorbereitung: 15 Min. · Präsentation: ca. 3 Min.</span></div>
+        <div class="bp-paper-topic">„Mama, es ist gerade so lustig … noch 5 Minuten!“ — Sehen Kinder zu viel fern? <em>（孩子电视看太多了吗？）</em></div>
+        <div class="bp-fol2"><span class="n">①</span><div class="q"><b>Thema + Struktur</b>Stellen Sie Ihr Thema vor. Erklären Sie den Inhalt und die Struktur Ihrer Präsentation.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">②</span><div class="q"><b>Meine Erfahrungen</b>Berichten Sie von Ihrer Situation oder einem Erlebnis im Zusammenhang mit dem Thema.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">③</span><div class="q"><b>Fernsehen und Kinder in meinem Heimatland</b>Berichten Sie von der Situation in Ihrem Heimatland und geben Sie Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">④</span><div class="q"><b>Vor-/Nachteile &amp; meine Meinung</b>Nennen Sie die Vor- und Nachteile und sagen Sie dazu Ihre Meinung. Geben Sie auch Beispiele.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-fol2"><span class="n">⑤</span><div class="q"><b>Abschluss &amp; Dank</b>Beenden Sie Ihre Präsentation und bedanken Sie sich bei den Zuhörern.</div><div class="notes"><span>Notizen</span><i></i><i></i></div></div>
+        <div class="bp-paper-foot">Notieren Sie nur Stichwörter — lesen Sie nicht vor.</div>
+      </div>
+
+      <div class="bp-box blue">
+        <span class="lbl">📝 参考：关键词笔记卡（考卷右边空白处，照这个密度写就够了）</span>
         <table>
-          <tr><th style="width:56px">Folie</th><th>Stichwörter</th></tr>
+          <tr><th style="width:56px">Folie</th><th>Thema 1 · Brauchen Kinder Mobiltelefone?</th></tr>
           <tr><td><strong>①</strong></td><td>Handy für Kinder? · 5 Teile: Erfahrung → Land → Vor-/Nachteile → Fazit</td></tr>
           <tr><td><strong>②</strong></td><td>Nichte (8) will ein Handy · Schwester sagt Nein · ich selbst erst mit 16</td></tr>
           <tr><td><strong>③</strong></td><td>China: fast alle Kinder haben Handy/Tablet · WeChat, Lern-Apps · Eltern begrenzen Bildschirmzeit</td></tr>
-          <tr><td><strong>④</strong></td><td><strong>+</strong> erreichbar (Sicherheit), Notruf, Lern-Apps, Kontakt zu den Eltern &nbsp;·&nbsp; <strong>–</strong> Ablenkung in der Schule, weniger Bewegung, Augen, Cybermobbing, Kosten</td></tr>
+          <tr><td><strong>④</strong></td><td><strong>+</strong> erreichbar (Sicherheit), Notruf, Lern-Apps &nbsp;·&nbsp; <strong>–</strong> Ablenkung in der Schule, weniger Bewegung, Augen, Cybermobbing, Kosten</td></tr>
           <tr><td><strong>⑤</strong></td><td>Meinung: ab 10–12 mit klaren Regeln · in der Schule kein Handy · Dank</td></tr>
         </table>
-      </div>
-
-      <div class="bp-box">
-        <span class="lbl">🗣️ Thema 2:</span> <strong>„Mama, es ist gerade so lustig … noch 5 Minuten!“ — Sehen Kinder zu viel fern?</strong> <em>(孩子电视看太多了吗？)</em>
-        <div class="bp-grad" style="margin-top:8px">📝 关键词笔记卡示例</div>
-        <table>
-          <tr><th style="width:56px">Folie</th><th>Stichwörter</th></tr>
+        <table style="margin-top:14px">
+          <tr><th style="width:56px">Folie</th><th>Thema 2 · Sehen Kinder zu viel fern?</th></tr>
           <tr><td><strong>①</strong></td><td>Kinder + Fernsehen/Video? · 5 Teile: Erfahrung → Land → Vor-/Nachteile → Fazit</td></tr>
           <tr><td><strong>②</strong></td><td>als Kind 2–3 Stunden ferngesehen · heute in meiner Familie: max. 30 Minuten</td></tr>
           <tr><td><strong>③</strong></td><td>China: Kinder lieben Cartoons und kurze Videos (抖音, B站) · viele Eltern sorgen sich · Bildschirmzeit-Regeln</td></tr>
@@ -1893,11 +1925,21 @@
         <span class="lbl">🛟 换题了怎么办：5 张 Folie 是万能骨架</span> 不管抽到什么主题，都按 ① 点题+结构 → ② 我的经历 → ③ 我们国家的情况 → ④ 利弊+我的看法 → ⑤ 总结+致谢 走。套话背死，内容临场换成题目里的词。<br>
         <div class="bp-grad">→ 这两个主题的<strong>完整逐字稿 + 朗读脚本</strong>（5 张 Folie 逐句 + 语调标注 + 保底三句版）见 <a href="#" onclick="showPage('b1sprechen'); return false;" style="color:#9bd0f5;text-decoration:underline">B1口语 › Teil 2</a></div>
       </div>
-    </div>
+    <div class="bp-explain" id="bp2-sp2-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 2 (主题展示 · 5 Folien 结构)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">两个主题选一个，做约 3 分钟展示。考<strong>结构</strong>（5 张 Folie 顺序完整）+ <strong>内容</strong>（每张至少 3–4 句、能举例）+ <strong>自由表达</strong>（可看关键词笔记，不能照读）。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 时间分配：</span><span class="zh">3 分钟 ≈ 250–300 词：① 20 秒（点题+报结构）· ② 40 秒 · ③ 50 秒 · ④ 50 秒 · ⑤ 20 秒。<strong>③④ 是拿分重点</strong>，宁可 ①② 短一点。</span></div></div>
+    <div class="bx-item"><div class="bx-head"><span class="bx-num">🗣️</span><span class="bx-ans">两个主题各自的答题思路</span></div>
+      <div class="bx-row"><span class="lbl">Thema 1</span><span class="zh">别停在"手机好/不好"：给一个<strong>年龄线</strong>和<strong>使用规则</strong>（"ab 10–12 mit klaren Regeln"），考官立刻听到你有立场。</span></div>
+      <div class="bx-row"><span class="lbl">Thema 2</span><span class="zh">把问题拆成"多少时间"和"看什么内容"两问，说"Qualität wichtiger als Dauer"，比单纯说"少看"更有层次。</span></div>
+      <div class="bx-row"><span class="lbl">通用</span><span class="zh">③ 讲中国情况时给具体例子（抖音/B站/网课），④ 至少一正一反，⑤ 一句话总结 + 致谢。</span></div>
+      <div class="bx-trap"><span class="lbl">⚠️</span>两个常见失分：漏掉 ③ 或 ⑤（结构不全）；只讲自己怎么想、不给例子（内容不够）。</div></div>
+  </div></div>
 
-    <!-- ── Teil 3 ── -->
+    <!-- ══════ Teil 3 ══════ -->
     <div class="bp-ex">
-      <div class="bp-inst"><strong>Teil 3 · Über ein Thema sprechen (ca. 2 Min.)</strong> — 听完对方的展示后，先给反馈（喜欢什么、什么让你觉得新/有趣），再问一个问题。对方也要回应你的展示。考生之间互动。</div>
+      <div class="bp-inst"><strong>Teil 3 · Über ein Thema sprechen (ca. 2 Min.)</strong> — 听完对方的展示后，先给反馈（喜欢什么、什么让你觉得新/有趣），再问一个问题。对方也要回应你的展示。<em>（真题没有单独考卷。）</em></div>
+      <div style="margin:-4px 0 10px"><button class="bx-explbtn" onclick="b1pfExplain(this,'bp2-sp3-explain')">📖 讲解</button></div>
       <div class="bp-box">
         <span class="lbl">a) Rückmeldung geben:</span> 反馈：怎么喜欢你/搭档的展示、有什么新鲜或有趣的地方。<br>
         <span class="lbl">b) Frage stellen:</span> 针对对方的展示提一个问题。<br>
@@ -1914,8 +1956,15 @@
           <span class="bp-chip">Was machst du, wenn …?</span>
         </div>
       </div>
-    </div>
+    <div class="bp-explain" id="bp2-sp3-explain">
+    <div class="bp-explain-h">🗣️ 讲解 · Teil 3 (反馈 + 提问 · 互动)</div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🎯 考什么：</span><span class="zh">给搭档的展示一个<strong>具体反馈</strong> + 提<strong>一个针对他主题的问题</strong>，并回答对方的问题。考倾听与互动。</span></div></div>
+    <div class="bx-item"><div class="bx-row"><span class="lbl">🧭 三步走：</span><span class="zh">肯定（… hat mir gut gefallen, weil …）→ 追问（Ich hätte eine Frage: …）→ 被问时回答（Bei mir ist es so, dass …）。</span></div></div>
+    <div class="bx-trap"><span class="lbl">⚠️</span>两个坑：① 只夸不提问；② 问自己的主题 / 直接问考官（对象错了）。</div>
+  </div></div>
   </div><!-- /bp2-sprechen -->
+
+
 
   </div>
 </div><!-- /bp-wrap -->
