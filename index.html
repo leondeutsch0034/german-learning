@@ -33831,8 +33831,21 @@ document.addEventListener('click', function(e) {
 <!-- ═══ Section: 城市与地理 ═══ -->
 <div class="kultur-sec">
 <div class="kultur-sec-title">🗺️ 城市与地理 <span>Städte & Geografie</span></div>
-  <div class="kultur-cities">
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+  <div class="kultur-toc" id="kacity-toc">
+    <span class="kultur-toc-head">🏙️ 目录条 / Stadt wählen — 点击只看该城市：</span>
+    <select class="kultur-toc-select" id="kacity-select" onchange="if(this.value)showKulturCity(this.value)">
+      <option value="">— 请选择 —</option>
+      <option value="1">🏛️ Berlin · 柏林</option>
+      <option value="2">💰 Frankfurt · 法兰克福</option>
+      <option value="3">🍺 München · 慕尼黑</option>
+      <option value="4">⚓ Hamburg · 汉堡</option>
+      <option value="5">⛪ Köln · 科隆</option>
+      <option value="6">🌲 Schwarzwald · 黑森林</option>
+    </select>
+    <a class="kultur-toc-btn" href="#" onclick="showKulturCity(1);return false;">从第一座城市开始看 →</a>
+  </div>
+<div class="kultur-cities kacity-single" id="kacity-list">
+    <div class="ka-card kacity-item" id="kacity-1" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">🏛️</span><span class="ka-de">Berlin</span>
       <div class="ka-zh">柏林 · Hauptstadt</div>
       <div class="ka-desc">Hauptstadt Deutschlands, 3,6 Mio. Einwohner. Brandenburger Tor, Museumsinsel (UNESCO), Reichstag, East Side Gallery — ein Zentrum für Kunst, Musik und Start-ups. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-berlin');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
@@ -33841,7 +33854,7 @@ document.addEventListener('click', function(e) {
         🇨🇳 柏林是德国首都，约360万人口，全国最大城市。勃兰登堡门是最著名地标，分裂时期曾是冷战象征，今天代表统一。以博物馆岛（世界文化遗产）、玻璃穹顶国会大厦、柏林墙遗址（东边画廊）闻名。有三所大学，是艺术、音乐和创业中心。
       </div>
     </div>
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+    <div class="ka-card kacity-item" id="kacity-2" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">💰</span><span class="ka-de">Frankfurt</span>
       <div class="ka-zh">法兰克福 · Finanzmetropole</div>
       <div class="ka-desc">Finanzzentrum Deutschlands, Sitz der EZB. "Mainhattan"-Skyline, größter Flughafen, Frankfurter Buchmesse — und Geburtsort Goethes. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-frankfurt');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
@@ -33850,7 +33863,7 @@ document.addEventListener('click', function(e) {
         🇨🇳 美因河畔法兰克福是德国金融中心、欧洲央行所在地。以摩天大楼天际线著称（"美因哈顿"）。法兰克福机场是欧洲最大之一。全球最大书展。罗马广场老城区。歌德出生地。
       </div>
     </div>
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+    <div class="ka-card kacity-item" id="kacity-3" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">🍺</span><span class="ka-de">München</span>
       <div class="ka-zh">慕尼黑 · Bayern</div>
       <div class="ka-desc">Hauptstadt Bayerns, 1,5 Mio. Einwohner. Oktoberfest (6 Mio. Besucher), BMW, Englischer Garten, Alte & Neue Pinakothek — Forschungs- und Technologiezentrum.</div>
@@ -33859,7 +33872,7 @@ document.addEventListener('click', function(e) {
         🇨🇳 慕尼黑是巴伐利亚首府，德国第三大城市。啤酒节年吸引约600万游客。宝马总部。英国花园是世界最大城市公园之一，比纽约中央公园还大。老绘画馆和新绘画馆。两所精英大学。
       </div>
     </div>
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+    <div class="ka-card kacity-item" id="kacity-4" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">⚓</span><span class="ka-de">Hamburg</span>
       <div class="ka-zh">汉堡 · Tor zur Welt</div>
       <div class="ka-desc">Größter Hafen Deutschlands an der Elbe. Speicherstadt (UNESCO), Elbphilharmonie, Medienhauptstadt — die Beatles spielten hier ihre ersten Konzerte. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-hamburg');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
@@ -33868,7 +33881,7 @@ document.addEventListener('click', function(e) {
         🇨🇳 汉堡位于易北河畔，德国最大港口。仓库城（世界文化遗产）。易北爱乐厅建在旧港仓库上，是新地标。德国媒体之都。周日鱼市和绳索街夜生活传奇。披头士在此首演。
       </div>
     </div>
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+    <div class="ka-card kacity-item" id="kacity-5" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">⛪</span><span class="ka-de">Köln</span>
       <div class="ka-zh">科隆 · Rheinmetropole</div>
       <div class="ka-desc">Am Rhein, über 1 Mio. Einwohner. Kölner Dom (UNESCO, 600 Jahre Bauzeit), Karnevalshochburg, Kölsch-Bier — Medienstadt mit RTL und WDR.</div>
@@ -33877,7 +33890,7 @@ document.addEventListener('click', function(e) {
         🇨🇳 科隆位于莱茵河畔，德国第四大城市。科隆大教堂是世界最大哥特式教堂之一，建造600余年。德国狂欢节之都，玫瑰星期一游行年吸引超百万观众。以Kölsch啤酒和莱茵式惬意闻名。RTL、WDR等媒体重镇。
       </div>
     </div>
-    <div class="ka-card" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
+    <div class="ka-card kacity-item" id="kacity-6" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">🌲</span><span class="ka-de">Schwarzwald</span>
       <div class="ka-zh">黑森林 · Natur & Tradition</div>
       <div class="ka-desc">Größtes Mittelgebirge Deutschlands in Baden-Württemberg. Kuckucksuhren (seit 18. Jh.), Schwarzwälder Kirschtorte, Wandern, Titisee — die höchsten Wasserfälle Deutschlands.</div>
@@ -37742,6 +37755,14 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 }
 </style>
 <!-- kultur-toc-css-v1 END -->
+<!-- kacity-css-v1 START -->
+<style>
+/* 城市与地理：单显时让卡片铺满整行 + 目录条下留点间距 */
+#page-kultur .kultur-cities.kacity-single{grid-template-columns:1fr;max-width:900px;margin:0 auto}
+#page-kultur .ka-card.kacity-item{scroll-margin-top:80px}
+#page-kultur #kacity-toc{margin-bottom:16px}
+</style>
+<!-- kacity-css-v1 END -->
 </style>
 
 <a href="#gk-toc-top" class="gk-backtotoc" title="回到目录">📋</a>
@@ -38668,6 +38689,48 @@ window.jumpKulturEp = function(n) {
   if (typeof window.showPage === 'function') showPage('kultur-reader');
 };
 /* kultur-toc-js-v1 END */
+/* kacity-js-v1 START */
+/* 「城市与地理」目录条：选一座城市 → 只显示那一张卡，并自动展开详情 */
+window.showKulturCity = function(n, noScroll){
+  var list = document.getElementById('kacity-list');
+  if(!list) return;
+  var sel  = document.getElementById('kacity-select');
+  var items = list.querySelectorAll('.kacity-item');
+  for(var i=0;i<items.length;i++){ items[i].style.display='none'; }
+  if(n===''||n==null){ if(sel) sel.value=''; return; }
+  var card = document.getElementById('kacity-'+n);
+  if(!card) return;
+  card.style.display='';
+  var mores = card.querySelectorAll('.ka-more');
+  for(var k=0;k<mores.length;k++){ mores[k].style.display=''; }   // 详情直接展开
+  if(sel && String(sel.value)!==String(n)) sel.value=String(n);
+  if(noScroll) return;
+  var toc = document.getElementById('kacity-toc');
+  try{ (toc||card).scrollIntoView({behavior:'smooth',block:'start'}); }
+  catch(e){ (toc||card).scrollIntoView(); }
+};
+function initKulturCities(){
+  var list = document.getElementById('kacity-list');
+  if(!list) return;
+  if(list.className.indexOf('kacity-single')<0) list.className += ' kacity-single';
+  var sel = document.getElementById('kacity-select');
+  showKulturCity((sel && sel.value) ? sel.value : '1', true);   // 进来就有内容，别留空目录
+}
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initKulturCities); }
+else{ initKulturCities(); }
+if(typeof window.showPage==='function' && !window.showPage._kacityWrapped){
+  var _origKC = window.showPage;
+  window.showPage = function(p){
+    var r = _origKC.apply(this, arguments);
+    try{
+      var page = document.getElementById('page-kultur');
+      if(page && getComputedStyle(page).display!=='none'){ initKulturCities(); }
+    }catch(e){}
+    return r;
+  };
+  window.showPage._kacityWrapped = true;
+}
+/* kacity-js-v1 END */
 </script>
 <!-- audio-exclusive-v1 END -->
 </body>
