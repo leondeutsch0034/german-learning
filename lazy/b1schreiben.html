@@ -1,0 +1,716 @@
+<!-- ════════════════════════════════════════════════════════════
+     B1 写作 · B1 Schreiben · Goethe-Zertifikat B1 schriftlicher Ausdruck
+     讲解型板块：考试概览 · 写作流程 · 三个 Aufgabe 逐个拆解（官方卷面 1:1）
+                 · 高分范文 · 万能句式库 · 中式德语纠错 · 练习与自查
+     作用域 #page-b1schreiben
+     卷面原文依据：Desktop/软件开发/教学课件/德语资料/歌德考试/
+                   b1_modellsatz_erwachsene.pdf  p23 / p24 / p43–44
+     ════════════════════════════════════════════════════════════ -->
+<style>
+  #page-b1schreiben{
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);
+    color:#e2e8f0;line-height:1.75;padding:20px;
+  }
+  #page-b1schreiben .bsw-wrap{max-width:980px;margin:0 auto}
+
+  /* ── 页头 ── */
+  #page-b1schreiben .bsw-hero{text-align:center;background:linear-gradient(135deg,#3b2360,#5b3a8e,#1e3a5f);color:#fff;
+    padding:34px 24px 28px;border-radius:20px;margin-bottom:22px;box-shadow:0 8px 24px rgba(30,58,95,.5);
+    border:1px solid rgba(196,181,253,.22)}
+  #page-b1schreiben .bsw-hero h1{font-size:1.95rem;margin:0 0 8px;color:#fff}
+  #page-b1schreiben .bsw-hero .ey{display:inline-block;background:rgba(196,181,253,.16);color:#ddd6fe;font-size:.82rem;
+    font-weight:700;letter-spacing:.06em;padding:5px 16px;border-radius:20px;margin-bottom:14px;
+    border:1px solid rgba(196,181,253,.3)}
+  #page-b1schreiben .bsw-hero p{opacity:.92;font-size:.97rem;margin:6px 0 0}
+
+  /* ── 锚点导航条 ── */
+  #page-b1schreiben .bsw-anav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 24px}
+  #page-b1schreiben .bsw-anav a{background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.28);color:#ddd6fe;
+    text-decoration:none;font-size:.83rem;padding:6px 14px;border-radius:18px;transition:.15s;cursor:pointer}
+  #page-b1schreiben .bsw-anav a:hover{background:rgba(196,181,253,.2);border-color:rgba(196,181,253,.55)}
+
+  /* ── 区块 ── */
+  #page-b1schreiben .bsw-sec{background:rgba(255,255,255,.045);border:1px solid rgba(196,181,253,.14);
+    border-radius:16px;padding:22px 24px;margin-bottom:22px;scroll-margin-top:14px}
+  #page-b1schreiben .bsw-sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;
+    border-bottom:2px solid rgba(196,181,253,.2)}
+  #page-b1schreiben .bsw-sec-h .ic{width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,#5b3a8e,#a78bfa);display:flex;align-items:center;justify-content:center;
+    font-size:1.25rem;flex-shrink:0}
+  #page-b1schreiben .bsw-sec-h h2{font-size:1.32rem;color:#ddd6fe;margin:0}
+  #page-b1schreiben .bsw-sec-h .sub{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:2px}
+
+  /* ── 通用盒子 ── */
+  #page-b1schreiben .bsw-box{background:rgba(46,36,84,.34);border:1px solid rgba(196,181,253,.16);
+    border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.8}
+  #page-b1schreiben .bsw-box.gold{border-left:4px solid #b8860b;background:rgba(184,134,11,.09)}
+  #page-b1schreiben .bsw-box.violet{border-left:4px solid #a78bfa;background:rgba(91,58,142,.18)}
+  #page-b1schreiben .bsw-box.warn{border-left:4px solid #f87171;background:rgba(248,113,113,.09)}
+  #page-b1schreiben .bsw-box.ok{border-left:4px solid #34d399;background:rgba(52,211,153,.08)}
+  #page-b1schreiben .bsw-box .lbl{font-weight:800;color:#ddd6fe;margin-right:6px}
+  #page-b1schreiben .bsw-box.warn .lbl{color:#fca5a5}
+  #page-b1schreiben .bsw-box.ok .lbl{color:#6ee7b7}
+
+  /* ── 小标签 ── */
+  #page-b1schreiben .bsw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  #page-b1schreiben .bsw-chip{background:rgba(167,139,250,.13);border:1px solid rgba(167,139,250,.32);
+    color:#ddd6fe;padding:4px 13px;border-radius:16px;font-size:.83rem}
+  #page-b1schreiben .bsw-chip.dim{background:rgba(148,163,184,.1);border-color:rgba(148,163,184,.28);color:#cbd5e1}
+
+  /* ── 列表 ── */
+  #page-b1schreiben .bsw-points{list-style:none;padding:0;margin:8px 0}
+  #page-b1schreiben .bsw-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:7px;padding-left:24px;position:relative}
+  #page-b1schreiben .bsw-points li::before{content:"✦";position:absolute;left:0;color:#ddd6fe}
+  #page-b1schreiben .bsw-points li b{color:#fff}
+  #page-b1schreiben .bsw-points.ck li::before{content:"☐";color:#a78bfa;font-size:1rem}
+
+  /* ── 步骤条 ── */
+  #page-b1schreiben .bsw-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:11px;font-size:.92rem}
+  #page-b1schreiben .bsw-step .seq{background:linear-gradient(135deg,#5b3a8e,#a78bfa);color:#fff;width:26px;height:26px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;
+    flex-shrink:0;margin-top:2px}
+  #page-b1schreiben .bsw-step .tt{font-weight:800;color:#fff}
+  #page-b1schreiben .bsw-step .mm{color:#a78bfa;font-size:.8rem;font-weight:700;margin-left:6px}
+
+  /* ── 结构骨架卡 ── */
+  #page-b1schreiben .bsw-skel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+  #page-b1schreiben .bsw-skel .sk{background:rgba(91,58,142,.24);border:1px solid rgba(167,139,250,.22);
+    border-radius:12px;padding:12px 14px}
+  #page-b1schreiben .bsw-skel .sk .n{font-size:.72rem;font-weight:800;color:#a78bfa;letter-spacing:.06em}
+  #page-b1schreiben .bsw-skel .sk .t{font-weight:800;color:#fff;font-size:.92rem;margin:3px 0 5px}
+  #page-b1schreiben .bsw-skel .sk .d{font-size:.8rem;color:#cbd5e1;line-height:1.6}
+  #page-b1schreiben .bsw-skel .sk .d em{color:#ddd6fe;font-style:normal;font-weight:700}
+
+  /* ── 范文卡 ── */
+  #page-b1schreiben .bsw-muster{background:linear-gradient(180deg,rgba(30,58,95,.55),rgba(46,36,84,.45));
+    border:1px solid rgba(167,139,250,.3);border-radius:14px;padding:16px 18px;margin:14px 0}
+  #page-b1schreiben .bsw-muster-h{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    flex-wrap:wrap;margin-bottom:10px;padding-bottom:9px;border-bottom:1px dashed rgba(167,139,250,.3)}
+  #page-b1schreiben .bsw-muster-h .t{font-weight:800;color:#ddd6fe;font-size:.95rem}
+  #page-b1schreiben .bsw-muster-h .wc{font-size:.74rem;color:#a78bfa;background:rgba(167,139,250,.14);
+    padding:2px 10px;border-radius:12px;font-weight:700}
+  #page-b1schreiben .bsw-muster .de{font-family:Georgia,'Times New Roman',serif;font-size:.95rem;line-height:1.95;
+    color:#f1f5f9;white-space:pre-line;margin:0}
+  #page-b1schreiben .bsw-muster .de b{color:#fde68a;font-weight:700}
+
+  /* ── 逐句拆解 ── */
+  #page-b1schreiben .bsw-dec{list-style:none;padding:0;margin:12px 0 4px}
+  #page-b1schreiben .bsw-dec li{background:rgba(255,255,255,.04);border-left:3px solid #a78bfa;border-radius:0 10px 10px 0;
+    padding:9px 14px;margin-bottom:8px;font-size:.88rem;line-height:1.75}
+  #page-b1schreiben .bsw-dec li .k{font-weight:800;color:#ddd6fe;margin-right:6px}
+  #page-b1schreiben .bsw-dec li .q{font-family:Georgia,'Times New Roman',serif;color:#fde68a}
+
+  /* ── 表格 ── */
+  #page-b1schreiben .bsw-tblwrap{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
+  #page-b1schreiben table.bsw-tbl{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+  #page-b1schreiben table.bsw-tbl th{background:rgba(91,58,142,.5);color:#ddd6fe;font-weight:800;
+    padding:9px 12px;text-align:left;border:1px solid rgba(167,139,250,.22);white-space:nowrap}
+  #page-b1schreiben table.bsw-tbl td{padding:9px 12px;border:1px solid rgba(167,139,250,.14);
+    color:#e2e8f0;vertical-align:top;line-height:1.7}
+  #page-b1schreiben table.bsw-tbl tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+  #page-b1schreiben table.bsw-tbl td.de{font-family:Georgia,'Times New Roman',serif;color:#f1f5f9}
+  #page-b1schreiben table.bsw-tbl td.zh{color:#cbd5e1;font-size:.83rem}
+  #page-b1schreiben table.bsw-tbl td.no{color:#fca5a5;font-family:Georgia,'Times New Roman',serif}
+  #page-b1schreiben table.bsw-tbl td.yes{color:#6ee7b7;font-family:Georgia,'Times New Roman',serif}
+
+  /* ══ GOETHE-SHEET CSS（官方卷面 1:1）══ */
+  #page-b1schreiben .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;
+    padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);
+    font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b1schreiben .exp-sheet *{color:inherit}
+  #page-b1schreiben .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b1schreiben .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;
+    letter-spacing:.06em}
+  #page-b1schreiben .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b1schreiben .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px}
+  #page-b1schreiben .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b1schreiben .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b1schreiben .exp-teil b{font-weight:800}
+  #page-b1schreiben .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b1schreiben .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b1schreiben .exp-note b{font-weight:700}
+  #page-b1schreiben .exp-punkte{margin:18px 0 0 34px}
+  #page-b1schreiben .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b1schreiben .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;
+    padding-left:16px;position:relative}
+  #page-b1schreiben .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b1schreiben .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
+  /* 官方说明页 */
+  #page-b1schreiben .exp-mod{text-align:center;margin:6px 0 20px}
+  #page-b1schreiben .exp-mod .tt{font-size:1.35rem;font-weight:800;margin:0 0 2px}
+  #page-b1schreiben .exp-mod .ss{font-size:.85rem;color:#333}
+  #page-b1schreiben .exp-list{font-size:.85rem;color:#222;line-height:1.75;margin:0 0 0 6px}
+  #page-b1schreiben .exp-list p{margin:0 0 8px}
+  /* 论坛留言框（Gästebuch） */
+  #page-b1schreiben .exp-gb{border:1px solid #c9c9c9;border-radius:3px;padding:0;margin:12px 0 4px;max-width:560px}
+  #page-b1schreiben .exp-gb .hd{background:#efefef;border-bottom:1px solid #c9c9c9;padding:5px 11px;
+    font-size:.76rem;color:#333}
+  #page-b1schreiben .exp-gb .hd b{font-weight:700}
+  #page-b1schreiben .exp-gb .hd .url{float:right;color:#555}
+  #page-b1schreiben .exp-gb .bd{padding:10px 12px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+  #page-b1schreiben .exp-gb .meta{font-size:.72rem;color:#555;line-height:1.5}
+  #page-b1schreiben .exp-gb .meta .nm{font-style:italic;color:#222}
+  #page-b1schreiben .exp-gb .msg{font-size:.86rem;color:#111;line-height:1.6}
+  /* 答卷纸 */
+  #page-b1schreiben .exp-sol{background:#fbfbf8;border:1px solid #dcdcd4;border-left:4px solid #b9a35a;
+    border-radius:3px;padding:14px 16px;margin:12px 0}
+  #page-b1schreiben .exp-sol .sol-h{font-size:.76rem;font-weight:700;color:#6b5a1e;letter-spacing:.04em;
+    margin:0 0 8px;padding-bottom:6px;border-bottom:1px dashed #d8cfae}
+  #page-b1schreiben .exp-sol .sol-tx{font-family:Georgia,'Times New Roman',serif;font-size:.9rem;line-height:1.85;
+    color:#1a1a1a;white-space:pre-line;margin:0}
+  #page-b1schreiben .exp-sol .sol-note{font-size:.76rem;color:#6b5a1e;margin:10px 0 0;line-height:1.6}
+
+  @media(max-width:600px){
+    #page-b1schreiben{padding:12px}
+    #page-b1schreiben .bsw-sec{padding:16px 14px}
+    #page-b1schreiben .bsw-hero h1{font-size:1.6rem}
+    #page-b1schreiben .exp-sheet{padding:16px 14px 18px}
+    #page-b1schreiben .exp-punkte{margin-left:10px}
+    #page-b1schreiben .exp-gb .bd{grid-template-columns:minmax(0,1fr);gap:6px}
+    #page-b1schreiben .bsw-muster .de{font-size:.9rem;line-height:1.85}
+    /* 两列表格：手机上铺满，不再横向滚动 */
+    #page-b1schreiben table.bsw-tbl{min-width:0}
+    /* 三列表格：手机上改成堆叠卡片，否则最后一列会被藏进横向滚动里 */
+    #page-b1schreiben table.bsw-tbl.stack tr{display:block;border:1px solid rgba(167,139,250,.22);
+      border-radius:10px;margin:0 0 10px;background:rgba(255,255,255,.035);overflow:hidden}
+    #page-b1schreiben table.bsw-tbl.stack tr:first-child{display:none}
+    #page-b1schreiben table.bsw-tbl.stack tr:nth-child(even) td{background:transparent}
+    #page-b1schreiben table.bsw-tbl.stack td{display:block;border:0;
+      border-bottom:1px dashed rgba(167,139,250,.16);padding:8px 12px}
+    #page-b1schreiben table.bsw-tbl.stack td:last-child{border-bottom:0}
+    #page-b1schreiben table.bsw-tbl.stack td::before{display:block;font-size:.68rem;font-weight:800;
+      color:#a78bfa;letter-spacing:.05em;margin-bottom:3px}
+    #page-b1schreiben table.bsw-tbl.stack td:nth-child(1)::before{content:var(--l1)}
+    #page-b1schreiben table.bsw-tbl.stack td:nth-child(2)::before{content:var(--l2)}
+    #page-b1schreiben table.bsw-tbl.stack td:nth-child(3)::before{content:var(--l3)}
+  }
+</style>
+
+<div class="bsw-wrap" id="b1schreiben-top">
+
+  <!-- ═══════════ 页头 ═══════════ -->
+  <div class="bsw-hero">
+    <div class="ey">🎓 Goethe-Zertifikat B1 · Schreiben · 写作专项</div>
+    <h1>✍️ B1 写作</h1>
+    <p>三个任务逐个拆解 · 官方卷面 1:1 · 结构骨架 · 高分范文 · 万能句库 · 中式德语纠错</p>
+  </div>
+
+  <!-- ═══════════ 页内导航 ═══════════ -->
+  <div class="bsw-anav">
+    <a href="#bsw-s1">① 考试概览</a>
+    <a href="#bsw-s2">② 写作流程</a>
+    <a href="#bsw-s3">③ Aufgabe 1 私人邮件</a>
+    <a href="#bsw-s4">④ Aufgabe 2 论坛留言</a>
+    <a href="#bsw-s5">⑤ Aufgabe 3 正式邮件</a>
+    <a href="#bsw-s6">⑥ 评分标准</a>
+    <a href="#bsw-s7">⑦ 万能句库</a>
+    <a href="#bsw-s8">⑧ 中式德语纠错</a>
+    <a href="#bsw-s9">⑨ 练习与自查</a>
+  </div>
+
+  <!-- ═══════════ ① 考试概览 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s1">
+    <div class="bsw-sec-h"><div class="ic">📋</div><div><h2>考试概览 · Überblick</h2><div class="sub">Goethe B1 写作：考几个任务、写多少词、怎么分配时间</div></div></div>
+
+    <div class="bsw-box gold">
+      <span class="lbl">⏱️ 时间与分值:</span> 写作模块<strong>三个任务，共 60 分钟</strong>，占总分 <strong>25%</strong>（阅读 / 听力 / 口语各占 25%）。
+      <strong>可以从任一任务开始</strong>——先写最有把握的那个。
+    </div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🧩 三个任务 (Aufgaben):</span>
+      <div class="bsw-chips">
+        <span class="bsw-chip">Aufgabe 1 · Informelle E-Mail 私人邮件 · 约 80 词 · 20 分钟</span>
+        <span class="bsw-chip">Aufgabe 2 · Diskussionsbeitrag 论坛留言 · 约 80 词 · 25 分钟</span>
+        <span class="bsw-chip">Aufgabe 3 · Formelle E-Mail 正式邮件 · 约 40 词 · 15 分钟</span>
+      </div>
+    </div>
+
+    <div class="exp-caption">📌 下面是<strong>官方卷面原样</strong>（Modellsatz · Kandidatenblätter p23）——写作模块的总体说明</div>
+    <div class="exp-sheet">
+      <div class="exp-masthead">
+        <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SCHREIBEN</span></div>
+        <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+      </div>
+      <div class="exp-mod">
+        <div class="tt">Schreiben</div>
+        <div class="ss">60 Minuten</div>
+      </div>
+      <div class="exp-list">
+        <p>Das Modul Schreiben besteht aus drei Teilen.</p>
+        <p>In den Aufgaben 1 und 3 schreiben Sie E-Mails. In Aufgabe 2 schreiben Sie einen Diskussionsbeitrag.</p>
+        <p>Sie können mit jeder Aufgabe beginnen. Schreiben Sie Ihre Texte auf die Antwortbogen.</p>
+        <p>Bitte schreiben Sie deutlich und verwenden Sie keinen Bleistift.</p>
+        <p>Hilfsmittel wie z. B. Wörterbücher oder Mobiltelefone sind nicht erlaubt.</p>
+      </div>
+    </div>
+
+    <div class="bsw-box">
+      <span class="lbl">💡 一句话理解:</span> 写作考的不是「文采」，而是<strong>三件事办没办到</strong>——
+      <strong>要点写全</strong>（内容）、<strong>话说对了人</strong>（语域：朋友就随便，老师就正式）、<strong>句子读得顺</strong>（衔接）。
+      用你会写的 B1 句子把话说明白，比硬憋一个高级从句而写错时态得分高得多。
+    </div>
+  </div>
+
+  <!-- ═══════════ ② 写作流程 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s2">
+    <div class="bsw-sec-h"><div class="ic">🪜</div><div><h2>写作流程 · Vorgehen</h2><div class="sub">60 分钟怎么切：审题 → 提纲 → 动笔 → 检查</div></div></div>
+
+    <div class="bsw-step"><div class="seq">1</div><div><span class="tt">审题圈要点</span><span class="mm">约 3 分钟</span><br>
+      拿到题先把<strong>三个内容要点圈出来</strong>（Aufgabe 1 一定有三个「–」开头的要点；Aufgabe 3 通常两件事：道歉 + 说明原因）。
+      再确认<strong>写给谁</strong>——朋友？老师？论坛？这一步决定了全篇用 du 还是 Sie。</div></div>
+
+    <div class="bsw-step"><div class="seq">2</div><div><span class="tt">列提纲</span><span class="mm">约 2 分钟</span><br>
+      在草稿区写下每一段的关键词，<strong>不要写整句</strong>。Aufgabe 2 先想好：我的观点是什么 + 两个理由 + 一句建议。</div></div>
+
+    <div class="bsw-step"><div class="seq">3</div><div><span class="tt">动笔</span><span class="mm">约 12 分钟</span><br>
+      按提纲写，<strong>用有把握的句式</strong>。写不出来就换个说法，不要空着——漏要点比语法小错严重得多。
+      写完一条要点就在草稿上划掉一条。</div></div>
+
+    <div class="bsw-step"><div class="seq">4</div><div><span class="tt">检查</span><span class="mm">约 3 分钟</span><br>
+      通读一遍，专查四样：<strong>动词位置</strong>（从句尾 / 助动词与过去分词分开）、<strong>名词首字母大写</strong>、
+      <strong>称呼与结尾问候</strong>、<strong>词数够不够</strong>。抄到答题纸上时写清楚、不涂改。</div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">📏 词数怎么估:</span> 答题纸一行大约 <strong>8–10 个词</strong>。
+      所以 <strong>80 词 ≈ 8–10 行</strong>，<strong>40 词 ≈ 4–5 行</strong>。
+      写少了直接扣内容分；写太多（超出一倍）在 20/25 分钟里也不划算——<strong>「circa」允许上下浮动 10–20%</strong>，
+      80 词的题写到 70–95 词都算合适。
+    </div>
+  </div>
+
+  <!-- ═══════════ ③ Aufgabe 1 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s3">
+    <div class="bsw-sec-h"><div class="ic">💌</div><div><h2>Aufgabe 1 · Informelle E-Mail</h2><div class="sub">私人邮件 · 约 80 词 · 20 分钟 · 三个要点一个都不能少</div></div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🎯 考什么:</span> 给<strong>朋友</strong>写一封邮件，围绕一个情境（生日会、郊游、搬家、考试…）完成
+      <strong>三个指定的语言功能</strong>：一般是一条 <em>Beschreiben</em>（描述）、一条 <em>Begründen</em>（给理由）、
+      一条 <em>Vorschlag / Bitte</em>（提议或请求）。三个点<strong>各占内容分</strong>——漏一个，内容维度直接掉档。
+    </div>
+
+    <div class="exp-caption">📌 下面是<strong>官方考卷原样</strong>（Aufgabenblatt）——左列是任务说明，斜体是三个要点</div>
+    <div class="exp-sheet">
+      <div class="exp-masthead">
+        <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SCHREIBEN</span></div>
+        <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+      </div>
+      <div class="exp-teil"><b>Aufgabe 1</b> Informelle E-Mail<span class="dauer">Arbeitszeit: 20 Minuten</span></div>
+      <p class="exp-note">Sie haben vor einer Woche Ihren Geburtstag gefeiert. Ein Freund/Eine Freundin von Ihnen konnte nicht zu Ihrer Feier kommen, weil er/sie krank war.</p>
+      <div class="exp-punkte">
+        <ul class="exp-pk">
+          <li>Beschreiben Sie: Wie war die Feier?</li>
+          <li>Begründen Sie: Welches Geschenk finden Sie besonders toll und warum?</li>
+          <li>Machen Sie einen Vorschlag für ein Treffen.</li>
+        </ul>
+      </div>
+      <p class="exp-note" style="margin-top:18px">Schreiben Sie eine E-Mail (circa 80 Wörter). Schreiben Sie etwas zu <b>allen drei Punkten</b>. Achten Sie auf den Textaufbau (Anrede, Einleitung, Reihenfolge der Inhaltspunkte, Schluss).</p>
+    </div>
+
+    <div class="bsw-skel">
+      <div class="sk"><div class="n">段落 1</div><div class="t">Anrede + Einleitung</div><div class="d"><em>Liebe Nina,</em><br>寒暄一句 + 回应情境（你病好了吗 / 可惜你没来）</div></div>
+      <div class="sk"><div class="n">段落 2</div><div class="t">要点 ① 描述</div><div class="d"><em>Die Feier war …</em><br>用 Perfekt 说过去：我们做了什么</div></div>
+      <div class="sk"><div class="n">段落 3</div><div class="t">要点 ② 理由</div><div class="d"><em>… finde ich toll, weil …</em><br>点名一个礼物 + weil 从句说明为什么</div></div>
+      <div class="sk"><div class="n">段落 4</div><div class="t">要点 ③ 提议 + Schluss</div><div class="d"><em>Hast du am … Zeit? / Wir könnten …</em><br>给具体时间 + <em>Viele Grüße</em></div></div>
+    </div>
+
+    <div class="bsw-muster">
+      <div class="bsw-muster-h"><span class="t">📝 参考范文 · Musterlösung</span><span class="wc">85 词 · 20 分钟能写完</span></div>
+      <p class="de">Liebe Nina,
+
+wie geht es dir? Ich hoffe, du bist wieder gesund. <b>Es war sehr schade, dass du bei meiner Geburtstagsfeier nicht dabei sein konntest.</b>
+
+Die Feier war wirklich schön. Wir haben im Garten gegrillt und bis spät in die Nacht getanzt. Von meinen Freunden habe ich ein Fahrrad bekommen. <b>Dieses Geschenk finde ich besonders toll, weil ich damit jeden Tag zur Arbeit fahren kann.</b>
+
+<b>Hast du am Samstag Zeit?</b> Wir könnten uns in der Stadt treffen und einen Kaffee trinken.
+
+Viele Grüße
+deine Sara</p>
+    </div>
+
+    <ul class="bsw-dec">
+      <li><span class="k">① Anrede + Einleitung:</span> <span class="q">„wie geht es dir? Ich hoffe, du bist wieder gesund."</span> —— 先接住题目给的「朋友生病」这个情境，比上来就写派对自然得多。<strong>Anrede 和 Einleitung 是明确的评分项</strong>。</li>
+      <li><span class="k">② 要点 ① 描述:</span> <span class="q">„Die Feier war wirklich schön. Wir haben … gegrillt und … getanzt."</span> —— 描述过去用 <strong>Perfekt</strong>（haben + 过去分词）；先一句总评「很漂亮」，再给细节，句子就有层次。</li>
+      <li><span class="k">③ 要点 ② 理由:</span> <span class="q">„Dieses Geschenk finde ich besonders toll, weil ich damit jeden Tag zur Arbeit fahren kann."</span> —— 用 <strong>weil 从句给理由</strong>是这道题的核心得分点：既完成了「Begründen」，又展示了从句语序（动词在最后）。</li>
+      <li><span class="k">④ 要点 ③ 提议:</span> <span class="q">„Hast du am Samstag Zeit? Wir könnten uns in der Stadt treffen."</span> —— <strong>一定要给出具体的时间</strong>（Samstag），再给一个可执行的方案；<em>könnten</em> 让语气更委婉，是 B1 该会的用法。</li>
+      <li><span class="k">⑤ Schluss:</span> <span class="q">„Viele Grüße / deine Sara"</span> —— 朋友之间用 <em>Viele / Liebe Grüße</em>，署名用 <em>deine/dein + 名字</em>（小写 d，因为是"你的"）。<strong>不要用 Mit freundlichen Grüßen</strong>——那是正式结尾。</li>
+    </ul>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🧰 这道题的万能句:</span>
+      <div class="bsw-tblwrap">
+        <table class="bsw-tbl">
+          <tr><th>功能</th><th>可以直接套用的句子</th></tr>
+          <tr><td>开头寒暄</td><td class="de">Wie geht es dir? · Ich hoffe, es geht dir gut. · Lange nichts von dir gehört!</td></tr>
+          <tr><td>表达遗憾</td><td class="de">Es war sehr schade, dass … · Schade, dass du nicht dabei sein konntest.</td></tr>
+          <tr><td>描述过去</td><td class="de">Es war wirklich schön / toll / langweilig. · Wir haben … gemacht. · Ich habe … bekommen.</td></tr>
+          <tr><td>给理由</td><td class="de">…, weil … · Deshalb … · Der Grund ist, dass …</td></tr>
+          <tr><td>提议见面</td><td class="de">Hast du am … Zeit? · Wir könnten … · Wollen wir …? · Wie wäre es, wenn wir …?</td></tr>
+          <tr><td>结尾</td><td class="de">Viele Grüße · Liebe Grüße · Bis bald! · Melde dich! · Ich freue mich auf deine Antwort.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="exp-caption">📌 官方附的<strong>考生真实答卷</strong>（Leistungsbeispiele，未改错）——看看"过关的卷子"长什么样</div>
+    <div class="exp-sol">
+      <div class="sol-h">LEISTUNGSBEISPIEL · Aufgabe 1 · Geburtstag</div>
+      <p class="sol-tx">Liebe Anna,
+wie geht es dir? Bist du wieder gesund?
+Ohne dich war meine Feier nicht so lustig! Ich lud nicht viele Freunde ein. Wir feierten meinen Geburtstag an Bord des Schiffes. Es war sehr spannend, in hohe See zu stechen und dort zu schwimmen. Mit dem Schiff konnten wir durch das sogenannten „Goldes Tor" aus Felsen durchgehen. Ich habe auch viele Geschenke bekommen, aber ein Geschenk war besonders toll. Das ist ein Lied von meinem Freund Nikolay. Er hat es selbst geschrieben! Die Musik ist auch wunderbar. Ich finde es original.
+Sei nicht traurig, dass du nicht gekommen bist. Möchtest du vielleicht am Wochenende mit mir ins Kino gehen? Ich würde dich gern sehen.
+Bis bald!
+Mit freundlichen Grüßen
+Polina Müller</p>
+      <p class="sol-note">👀 <b>三个要点都在</b>（派对怎么样 / 哪个礼物为什么好 / 提议周末看电影），读起来完全顺畅——这就是能过关的答卷。
+      它其实有不少毛病：<em>in hohe See</em>（应为 auf hoher See）、<em>das sogenannten „Goldes Tor"</em>、
+      <em>Ich finde es original</em>（德国人听不懂）、朋友信却用了正式的 <em>Mit freundlichen Grüßen</em>。
+      <b>结论：小错不致命，把要点写全 + 读得顺才是王道。</b>别因为怕出错就不敢下笔。</p>
+    </div>
+  </div>
+
+  <!-- ═══════════ ④ Aufgabe 2 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s4">
+    <div class="bsw-sec-h"><div class="ic">💬</div><div><h2>Aufgabe 2 · Diskussionsbeitrag</h2><div class="sub">论坛留言 · 约 80 词 · 25 分钟 · 表态 + 理由 + 建议</div></div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🎯 考什么:</span> 电视讨论节目 / 网站论坛里有一条<strong>别人的留言</strong>，你要写一条<strong>自己的留言</strong>回应它。
+      必须做到：<strong>接住对方的观点</strong> → <strong>表明自己的立场</strong> → <strong>给理由或举例</strong> → （最好）<strong>提一句建议或让步</strong>。
+      <br>这题<strong>不是书信</strong>，考的是「Meinungsäußerung 表达观点」这个语言功能。
+    </div>
+
+    <div class="exp-caption">📌 下面是<strong>官方考卷原样</strong>（Aufgabe 2）——灰框里是网友 Tanja 的原留言</div>
+    <div class="exp-sheet">
+      <div class="exp-masthead">
+        <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SCHREIBEN</span></div>
+        <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+      </div>
+      <div class="exp-teil"><b>Aufgabe 2</b> Diskussionsbeitrag<span class="dauer">Arbeitszeit: 25 Minuten</span></div>
+      <p class="exp-note">Sie haben im Fernsehen eine Diskussionssendung zum Thema „Persönliche Kontakte und Internet" gesehen. Im Online-Gästebuch der Sendung finden Sie folgende Meinung:</p>
+      <div class="exp-gb">
+        <div class="hd"><span class="url">www.diskussion-aktuell.de</span><b>Gästebuch</b></div>
+        <div class="bd">
+          <div class="meta">15.01. 16:55 Uhr<br><span class="nm">Tanja</span></div>
+          <div class="msg">Ich finde es schlimm, dass persönliche Treffen immer seltener werden. Freunde wohnen oft sehr weit auseinander. Und da ist man dann schon froh über das Internet. Aber Kontakte im Internet können doch persönliche Treffen nicht ersetzen!</div>
+        </div>
+      </div>
+      <p class="exp-note" style="margin-top:18px">Schreiben Sie nun <b>Ihre Meinung</b> zum Thema (circa 80 Wörter).</p>
+    </div>
+
+    <div class="bsw-skel">
+      <div class="sk"><div class="n">第 1 句</div><div class="t">接住对方</div><div class="d"><em>Ich stimme Tanja in einem Punkt zu: …</em><br>先引到她的观点上，不能自说自话</div></div>
+      <div class="sk"><div class="n">第 2 句</div><div class="t">亮立场</div><div class="d"><em>Trotzdem finde ich …</em><br>用转折词把你的观点推出来</div></div>
+      <div class="sk"><div class="n">第 3–4 句</div><div class="t">给理由 / 举例</div><div class="d"><em>Meine beste Freundin wohnt zum Beispiel in …</em><br>亲身经历最省事、最像人话</div></div>
+      <div class="sk"><div class="n">第 5 句</div><div class="t">让步（加分）</div><div class="d"><em>Allerdings merke ich auch, dass …</em><br>能看到两面，评卷时是加分项</div></div>
+      <div class="sk"><div class="n">最后一句</div><div class="t">建议收尾</div><div class="d"><em>Deshalb schlage ich vor, dass …</em><br>给一个具体可操作的做法</div></div>
+    </div>
+
+    <div class="bsw-muster">
+      <div class="bsw-muster-h"><span class="t">📝 参考范文 · Musterlösung</span><span class="wc">72 词 · 25 分钟很宽裕</span></div>
+      <p class="de"><b>Ich stimme Tanja in einem Punkt zu:</b> Persönliche Treffen sind durch nichts zu ersetzen. <b>Trotzdem finde ich das Internet sehr nützlich.</b> Meine beste Freundin wohnt zum Beispiel in München. Wir telefonieren jede Woche per Videoanruf, und ohne das Internet hätten wir kaum Kontakt. <b>Allerdings</b> merke ich auch, dass wir uns dadurch seltener sehen. <b>Deshalb schlage ich vor,</b> dass man beides verbindet: regelmäßig schreiben und sich trotzdem feste Termine für echte Treffen setzen.</p>
+    </div>
+
+    <ul class="bsw-dec">
+      <li><span class="k">① 接住对方:</span> <span class="q">„Ich stimme Tanja in einem Punkt zu: …"</span> —— 论坛留言的第一句几乎必须<strong>先回应上一条留言</strong>（Ich stimme … zu / Da bin ich anderer Meinung）。上来就讲自己的事，评卷时属于「没有完成交际任务」。</li>
+      <li><span class="k">② 亮立场:</span> <span class="q">„Trotzdem finde ich das Internet sehr nützlich."</span> —— 用 <strong>Trotzdem</strong> 把你和对方不一样的地方顶出来。观点句要短、要明确，别绕。</li>
+      <li><span class="k">③ 举例:</span> <span class="q">„Meine beste Freundin wohnt zum Beispiel in München."</span> —— <strong>Zum Beispiel + 亲身经历</strong>是这题最好用的组合：不需要背素材，写自己的事就行，而且天然真实。</li>
+      <li><span class="k">④ 让步:</span> <span class="q">„Allerdings merke ich auch, dass …"</span> —— 承认对方的合理之处。<strong>「能看两面」在 B1 评分里是实打实的加分项</strong>，也让 80 词很容易凑够。</li>
+      <li><span class="k">⑤ 建议收尾:</span> <span class="q">„Deshalb schlage ich vor, dass man beides verbindet: …"</span> —— 用 <em>Deshalb</em> 收束前文，再给出可执行的做法（定期写 + 定死见面时间）。要有「我建议……」这样明确的落点。</li>
+    </ul>
+
+    <div class="bsw-box warn">
+      <span class="lbl">⚠️ 这题最容易翻车的地方:</span> Aufgabe 2 <strong>是论坛留言，不是邮件</strong>——<strong>不要写「Liebe Tanja,」这样的称呼，也不要在结尾写「Viele Grüße」</strong>。
+      直接写正文，结尾停在你的建议/结论上（顶多再来一句 <em>So sehe ich das.</em>）。
+      另外注意：题目说的是「你的观点」，所以<strong>不能只复述 Tanja 的话</strong>——一定要有属于自己的立场。
+    </div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🧰 这道题的万能句:</span>
+      <div class="bsw-tblwrap">
+        <table class="bsw-tbl">
+          <tr><th>功能</th><th>可以直接套用的句子</th></tr>
+          <tr><td>接话</td><td class="de">Ich habe den Beitrag von … gelesen. · Ich stimme … völlig zu. · Da bin ich anderer Meinung.</td></tr>
+          <tr><td>表态</td><td class="de">Meiner Meinung nach … · Ich bin der Ansicht, dass … · Für mich ist wichtig, dass … · Ich finde es richtig/falsch, dass …</td></tr>
+          <tr><td>举例</td><td class="de">Zum Beispiel … · Bei mir ist es so, dass … · Ich habe die Erfahrung gemacht, dass …</td></tr>
+          <tr><td>让步 / 两面</td><td class="de">Zwar …, aber … · Einerseits …, andererseits … · Allerdings … · Trotzdem …</td></tr>
+          <tr><td>建议收尾</td><td class="de">Deshalb schlage ich vor, dass … · Ich finde, man sollte … · Am besten wäre es, wenn …</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ⑤ Aufgabe 3 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s5">
+    <div class="bsw-sec-h"><div class="ic">📧</div><div><h2>Aufgabe 3 · Formelle E-Mail</h2><div class="sub">正式邮件 · 约 40 词 · 15 分钟 · 语域比内容更关键</div></div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🎯 考什么:</span> 写给<strong>不熟的人 / 机构 / 老师</strong>（Kursleiterin、Sprachschule、Firma…），
+      通常是<strong>道歉 + 说明原因</strong>，或者<strong>请假 / 改约 / 询问</strong>。
+      只有 40 词，所以考的是<strong>能不能用最少的字把正式语气拿准</strong>——称呼、Sie、结尾问候，一个都不能缺。
+    </div>
+
+    <div class="exp-caption">📌 下面是<strong>官方考卷原样</strong>（Aufgabe 3）</div>
+    <div class="exp-sheet">
+      <div class="exp-masthead">
+        <div class="exp-bar"><span class="c1">ZERTIFIKAT B1</span><span class="c2">SCHREIBEN</span></div>
+        <div class="exp-bar"><span class="c1">MODELLSATZ</span><span class="c2">KANDIDATENBLÄTTER</span></div>
+      </div>
+      <div class="exp-teil"><b>Aufgabe 3</b> Formelle E-Mail<span class="dauer">Arbeitszeit: 15 Minuten</span></div>
+      <p class="exp-note">Ihre Kursleiterin, Frau Müller, hat Sie zu einem Gespräch über Ihre persönlichen Lernziele eingeladen. Zu dem Termin können Sie aber nicht kommen.</p>
+      <p class="exp-note">Schreiben Sie an Frau Müller. <b>Entschuldigen Sie sich höflich</b> und <b>berichten Sie, warum Sie nicht kommen können</b>.</p>
+      <p class="exp-note" style="margin-top:14px">Schreiben Sie eine E-Mail (circa 40 Wörter). <b>Vergessen Sie nicht die Anrede und den Gruß am Schluss.</b></p>
+    </div>
+
+    <div class="bsw-skel">
+      <div class="sk"><div class="n">第 1 行</div><div class="t">正式称呼</div><div class="d"><em>Sehr geehrte Frau Müller,</em><br>正式邮件固定开头（逗号后换行、下一行小写）</div></div>
+      <div class="sk"><div class="n">第 2 句</div><div class="t">道歉 + 原因</div><div class="d"><em>leider kann ich … nicht kommen, weil …</em><br>一句话同时完成两个任务</div></div>
+      <div class="sk"><div class="n">第 3 句</div><div class="t">补救 / 请求</div><div class="d"><em>Könnten wir einen neuen Termin vereinbaren?</em><br>主动给解决方案，明显加分</div></div>
+      <div class="sk"><div class="n">第 4 行</div><div class="t">正式结尾</div><div class="d"><em>Mit freundlichen Grüßen</em><br>+ 姓名，缺一不可</div></div>
+    </div>
+
+    <div class="bsw-muster">
+      <div class="bsw-muster-h"><span class="t">📝 参考范文 · Musterlösung</span><span class="wc">41 词 · 15 分钟绰绰有余</span></div>
+      <p class="de">Sehr geehrte Frau Müller,
+
+leider kann ich am Dienstag nicht zu dem Gespräch über meine Lernziele kommen, <b>weil ich an diesem Tag einen Arzttermin habe</b>. Das tut mir sehr leid. <b>Könnten wir einen neuen Termin vereinbaren?</b>
+
+Mit freundlichen Grüßen
+Li Wei</p>
+    </div>
+
+    <ul class="bsw-dec">
+      <li><span class="k">① Anrede:</span> <span class="q">„Sehr geehrte Frau Müller,"</span> —— 正式邮件<strong>必须</strong> Sehr geehrte(r) + 姓。逗号后换行，下一行<strong>小写</strong>开头（现代德语信件惯例）。这一行缺了，直接算语域失误。</li>
+      <li><span class="k">② 一句两用:</span> <span class="q">„leider kann ich … nicht kommen, weil ich … habe."</span> —— <em>leider</em> 承担道歉，<em>weil</em> 从句承担原因，40 词的任务不需要长篇解释。<strong>原因要具体</strong>（Arzttermin 比 "ich habe keine Zeit" 好得多）。</li>
+      <li><span class="k">③ 补救:</span> <span class="q">„Könnten wir einen neuen Termin vereinbaren?"</span> —— 只道歉是「完成一半」，<strong>主动提替代方案</strong>才是把交际任务做圆满。<em>Könnten wir…?</em> 是正式请求的标准句式。</li>
+      <li><span class="k">④ Gruß:</span> <span class="q">„Mit freundlichen Grüßen / Li Wei"</span> —— 正式固定结尾，<strong>不能写 Viele Grüße、Bis bald、Tschüss</strong>。署名要写全名。</li>
+    </ul>
+
+    <div class="bsw-box violet">
+      <span class="lbl">🎩 非正式 ↔ 正式 对照表:</span>
+      <div class="bsw-tblwrap">
+        <table class="bsw-tbl stack" style="--l1:'对比项';--l2:'非正式（朋友）';--l3:'正式（老师 / 机构）'">
+          <tr><th></th><th>非正式（朋友）</th><th>正式（老师 / 机构）</th></tr>
+          <tr><td>称呼</td><td class="no">Hallo Nina, / Liebe Nina,</td><td class="yes">Sehr geehrte Frau Müller, / Sehr geehrter Herr Berg,</td></tr>
+          <tr><td>人称</td><td class="no">du / dein</td><td class="yes">Sie / Ihr（全篇统一，不能混）</td></tr>
+          <tr><td>请求</td><td class="no">Kannst du …?</td><td class="yes">Könnten Sie …? / Ich möchte Sie bitten, …</td></tr>
+          <tr><td>简短形式</td><td class="no">ich hab' / gibt's / mal</td><td class="yes">ich habe / es gibt / einmal（正式邮件不缩写、不口语）</td></tr>
+          <tr><td>道歉</td><td class="no">Tut mir leid!</td><td class="yes">Es tut mir sehr leid. / Ich möchte mich dafür entschuldigen.</td></tr>
+          <tr><td>结尾</td><td class="no">Viele Grüße / Bis bald / Tschüss</td><td class="yes">Mit freundlichen Grüßen</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="bsw-box gold">
+      <span class="lbl">🤔 一个小细节:</span> 官方附的考生答卷里，这位考生写的是 <em>„Liebe Frau Müller,"</em> ——因为她把课程老师当熟人。
+      这在真实考场上通常也能接受（老师确实是"半熟人"），但<strong>没把握时一律用 Sehr geehrte Frau Müller</strong>：
+      题目说的是「Ihre Kursleiterin 您的课程负责人」，正式一点永远不会错。
+    </div>
+  </div>
+
+  <!-- ═══════════ ⑥ 评分标准 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s6">
+    <div class="bsw-sec-h"><div class="ic">📊</div><div><h2>评分标准 · Bewertung</h2><div class="sub">考官手里那张评分表，一共六个维度</div></div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">📐 六个维度:</span> 每个维度按 <strong>A（完全达到）→ E（基本达不到）</strong> 分档；A 最高，E 最低。
+      每个任务单独评，最后合成写作模块的 25 分。
+    </div>
+
+    <div class="bsw-tblwrap">
+      <table class="bsw-tbl stack" style="--l1:'维度';--l2:'官方名称';--l3:'评卷老师在看你什么'">
+        <tr><th>维度</th><th>官方名称</th><th>评卷老师在看你什么</th></tr>
+        <tr><td><b>① 内容</b></td><td class="de">Erfüllung · Inhalt, Umfang, Sprachfunktionen</td><td>要点是否<strong>全部</strong>写到、篇幅是否够、该做的语言功能（描述/给理由/提议/道歉）是否都做了。<strong>这是权重最大的一项。</strong></td></tr>
+        <tr><td><b>② 体裁与语域</b></td><td class="de">Textsorte · Register · Soziokulturelle Angemessenheit</td><td>写给朋友的邮件像不像朋友间说话？正式邮件有没有用 Sie、有没有正式称呼和结尾？<strong>把正式邮件写成 Hallo du 是重扣。</strong></td></tr>
+        <tr><td><b>③ 篇章结构</b></td><td class="de">Textaufbau</td><td>有没有 Anrede、Einleitung、Schluss？三个要点的顺序讲不讲道理？段落分不分得开？</td></tr>
+        <tr><td><b>④ 衔接</b></td><td class="de">Verknüpfung von Sätzen, Satzteilen</td><td>句子之间有没有连接词（weil, deshalb, trotzdem, außerdem, zum Beispiel）。<strong>一串没有连接的简单句会明显压低这一档。</strong></td></tr>
+        <tr><td><b>⑤ 词汇</b></td><td class="de">Wortschatz · Spektrum / Beherrschung</td><td>用词够不够多样（不能通篇 gut / schön / machen）、搭配对不对。B1 不要求难词，要求<strong>用对</strong>。</td></tr>
+        <tr><td><b>⑥ 语法</b></td><td class="de">Strukturen · Morphologie, Syntax, Orthografie</td><td>句型有没有变化、词形语序对不对、大小写和正字法有没有照规矩。<strong>不影响理解的笔误扣分很轻。</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="bsw-box ok">
+      <span class="lbl">✅ 按扣分从重到轻排:</span>
+      <strong>漏要点</strong> &gt; <strong>语域用错</strong>（正式写成随便）&gt; <strong>没有连接词</strong> &gt; 用词单一 &gt; 语法小错。
+      所以考场上最该做的三件事，按顺序是：<strong>把三个要点写全 → 确认写给谁、用 du 还是 Sie → 至少塞进三个连接词</strong>。
+    </div>
+  </div>
+
+  <!-- ═══════════ ⑦ 万能句库 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s7">
+    <div class="bsw-sec-h"><div class="ic">🧰</div><div><h2>万能句式库 · Redemittel</h2><div class="sub">按功能背，考场上直接取用</div></div></div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">💌 私人邮件 / 论坛留言:</span>
+      <div class="bsw-tblwrap">
+        <table class="bsw-tbl stack" style="--l1:'功能';--l2:'句式';--l3:'中文'">
+          <tr><th>功能</th><th>句式</th><th>中文</th></tr>
+          <tr><td>开头</td><td class="de">Wie geht es dir? Ich hoffe, es geht dir gut.</td><td class="zh">你好吗？希望你一切都好。</td></tr>
+          <tr><td>开头</td><td class="de">Lange nichts von dir gehört! Wie war dein …?</td><td class="zh">好久没你的消息了！你的…怎么样？</td></tr>
+          <tr><td>遗憾</td><td class="de">Es war sehr schade, dass du nicht dabei sein konntest.</td><td class="zh">可惜你没能来。</td></tr>
+          <tr><td>表达观点</td><td class="de">Meiner Meinung nach … / Ich bin der Ansicht, dass …</td><td class="zh">我认为…</td></tr>
+          <tr><td>赞同</td><td class="de">Ich stimme … völlig zu. / Da hast du recht.</td><td class="zh">我完全同意…／你说得对。</td></tr>
+          <tr><td>委婉反对</td><td class="de">Da bin ich anderer Meinung. / Ich sehe das etwas anders.</td><td class="zh">我看法不太一样。</td></tr>
+          <tr><td>举例</td><td class="de">Zum Beispiel … / Ich habe die Erfahrung gemacht, dass …</td><td class="zh">比如…／我的经验是…</td></tr>
+          <tr><td>让步</td><td class="de">Zwar …, aber … / Einerseits …, andererseits … / Allerdings …</td><td class="zh">虽然…但是…／一方面…另一方面…／不过…</td></tr>
+          <tr><td>提建议</td><td class="de">Wir könnten … / Wie wäre es, wenn wir …? / Wollen wir …?</td><td class="zh">我们可以…／要不我们…？</td></tr>
+          <tr><td>给建议</td><td class="de">Deshalb schlage ich vor, dass … / Ich finde, man sollte …</td><td class="zh">所以我建议…／我觉得应该…</td></tr>
+          <tr><td>结尾</td><td class="de">Viele Grüße · Liebe Grüße · Bis bald! · Melde dich!</td><td class="zh">祝好／亲爱的问候／回头见／联系我！</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="bsw-box violet">
+      <span class="lbl">📧 正式邮件:</span>
+      <div class="bsw-tblwrap">
+        <table class="bsw-tbl stack" style="--l1:'功能';--l2:'句式';--l3:'中文'">
+          <tr><th>功能</th><th>句式</th><th>中文</th></tr>
+          <tr><td>称呼</td><td class="de">Sehr geehrte Frau Müller, / Sehr geehrter Herr Berg, / Sehr geehrte Damen und Herren,</td><td class="zh">尊敬的…（不知道姓名时用最后一条）</td></tr>
+          <tr><td>开头</td><td class="de">ich schreibe Ihnen wegen … / ich wende mich an Sie, weil …</td><td class="zh">我写信是关于…／我联系您是因为…</td></tr>
+          <tr><td>道歉</td><td class="de">Ich möchte mich dafür entschuldigen, dass … / Es tut mir sehr leid, aber …</td><td class="zh">我为…道歉／非常抱歉，但是…</td></tr>
+          <tr><td>说明原因</td><td class="de">Leider kann ich nicht …, weil … / Der Grund dafür ist, dass …</td><td class="zh">可惜我不能…，因为…</td></tr>
+          <tr><td>请求</td><td class="de">Könnten Sie mir bitte …? / Ich möchte Sie bitten, … zu …</td><td class="zh">能否请您…？／想请您…</td></tr>
+          <tr><td>改约</td><td class="de">Könnten wir einen neuen Termin vereinbaren? / Wäre es möglich, den Termin zu verschieben?</td><td class="zh">我们能另约时间吗？／可以改期吗？</td></tr>
+          <tr><td>感谢</td><td class="de">Vielen Dank im Voraus. / Ich bedanke mich herzlich bei Ihnen.</td><td class="zh">先谢谢您。／衷心感谢您。</td></tr>
+          <tr><td>结尾</td><td class="de">Mit freundlichen Grüßen + 全名</td><td class="zh">此致敬礼（固定搭配，不可替换）</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="bsw-box gold">
+      <span class="lbl">🔗 高频连接词（塞三个进去，第四维度就有分）:</span>
+      <div class="bsw-chips">
+        <span class="bsw-chip">weil 因为</span>
+        <span class="bsw-chip">deshalb 所以</span>
+        <span class="bsw-chip">trotzdem 尽管如此</span>
+        <span class="bsw-chip">außerdem 此外</span>
+        <span class="bsw-chip">allerdings 不过</span>
+        <span class="bsw-chip">zum Beispiel 例如</span>
+        <span class="bsw-chip">zuerst / dann / danach 先/然后/之后</span>
+        <span class="bsw-chip">einerseits … andererseits 一方面…另一方面</span>
+        <span class="bsw-chip">denn 因为（并列）</span>
+        <span class="bsw-chip">obwohl 虽然</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ⑧ 中式德语纠错 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s8">
+    <div class="bsw-sec-h"><div class="ic">🔧</div><div><h2>典型错误 · 中式德语纠错</h2><div class="sub">中国学生写 B1 作文最常踩的 12 个坑</div></div></div>
+
+    <div class="bsw-tblwrap">
+      <table class="bsw-tbl stack" style="--l1:'❌ 常写错';--l2:'✅ 应该写';--l3:'为什么'">
+        <tr><th style="width:32%">❌ 常写错</th><th style="width:32%">✅ 应该写</th><th>为什么</th></tr>
+        <tr><td class="no">Ich habe gefeiert meinen Geburtstag.</td><td class="yes">Ich habe meinen Geburtstag gefeiert.</td><td>完成时是「框型结构」：助动词第二位，过去分词放<strong>句尾</strong>；Geburtstag 是第四格 → meinen</td></tr>
+        <tr><td class="no">Weil ich war krank, konnte ich nicht kommen.</td><td class="yes">Weil ich krank war, konnte ich nicht kommen.</td><td>weil 是从属连词，<strong>变位动词必须挪到从句末尾</strong></td></tr>
+        <tr><td class="no">Ich denke, dass ich kann kommen.</td><td class="yes">Ich denke, dass ich kommen kann.</td><td>dass 从句里情态动词同样在句尾（kommen <strong>kann</strong>）</td></tr>
+        <tr><td class="no">Ich habe ein Geschenk gekauft für mein Freund.</td><td class="yes">Ich habe ein Geschenk für meinen Freund gekauft.</td><td>介词短语放在过去分词<strong>前面</strong>；für + 第四格 → meinen</td></tr>
+        <tr><td class="no">Lieber Frau Müller,</td><td class="yes">Sehr geehrte Frau Müller,</td><td>Liebe/Lieber 只能用于熟人；正式邮件用 Sehr geehrte + 姓。<strong>Frau 是阴性 → geehrte</strong></td></tr>
+        <tr><td class="no">Ich habe ein Termin.</td><td class="yes">Ich habe einen Termin.</td><td>der Termin 是阳性 → 第四格 einen。这类"背了词却记错词性"的错最可惜</td></tr>
+        <tr><td class="no">Ich empfehle Ihnen, dass Sie sollen mehr üben.</td><td class="yes">Ich empfehle Ihnen, mehr zu üben.</td><td>empfehlen 后接 <strong>zu 不定式</strong>，不用 dass + sollen</td></tr>
+        <tr><td class="no">Es ist wichtig, persönliche Kontakte nicht verlieren.</td><td class="yes">Es ist wichtig, persönliche Kontakte nicht zu verlieren.</td><td>德语不定式要带 <strong>zu</strong>（可分动词则是 -zu- 插在中间：ein<strong>zu</strong>laden）</td></tr>
+        <tr><td class="no">Ich hoffe, du bist gut.</td><td class="yes">Ich hoffe, es geht dir gut.</td><td>「你好吗」德语是 Wie geht's dir?，不能直译成「你是好的」</td></tr>
+        <tr><td class="no">Ich bin einverstanden mit Ihr Meinung.</td><td class="yes">Ich bin mit Ihrer Meinung einverstanden.</td><td>介词短语放前面；mit + 第三格 → Ihrer</td></tr>
+        <tr><td class="no">Ich bin sehr glücklich für dich.</td><td class="yes">Ich freue mich sehr für dich. / Ich freue mich sehr über dein Geschenk.</td><td>德语不用「为你（感到）幸福的」这种说法：为<strong>人</strong>高兴用 <em>sich freuen für</em>，为<strong>事</strong>高兴用 <em>sich freuen über</em></td></tr>
+        <tr><td class="no">Mit freundliche Grüße</td><td class="yes">Mit freundlichen Grüßen</td><td>固定搭配：第三格复数 + Grüße 本身也变复数。写错这一条非常显眼</td></tr>
+      </table>
+    </div>
+
+    <div class="bsw-box warn">
+      <span class="lbl">✏️ 正字法也在评分项里:</span> 名词<strong>首字母一律大写</strong>（<em>der Termin / die Feier / das Geschenk</em>——包括句中的每一个名词）；
+      <em>ß</em> 与 <em>ss</em> 按规则写（<em>Grüße, heißen, Straße</em>）；<em>ä ö ü</em> 上的两点不能省（<em>schön</em> 不写 schon，两者意思完全不同）。
+      这些属于 Strukturen 里的 Orthografie，考官会看。
+    </div>
+  </div>
+
+  <!-- ═══════════ ⑨ 练习与自查 ═══════════ -->
+  <div class="bsw-sec" id="bsw-s9">
+    <div class="bsw-sec-h"><div class="ic">🏋️</div><div><h2>练习与自查 · Übung &amp; Checkliste</h2><div class="sub">三道换题练习（计时写）+ 交卷前的自查清单</div></div></div>
+
+    <div class="bsw-box gold">
+      <span class="lbl">⏱️ 怎么练:</span> 用手机计时，<strong>按考试时间写</strong>（20 / 25 / 15 分钟，含检查），写完对照片⑦的句式库和⑧的错题表自查。
+      同一道题隔一周再写一遍，效果比写十道新题好。
+    </div>
+
+    <div class="exp-caption">📝 练习 1 · Aufgabe 1 风格（约 80 词 · 20 分钟）</div>
+    <div class="exp-sheet">
+      <div class="exp-teil"><b>Aufgabe 1</b> Informelle E-Mail<span class="dauer">Arbeitszeit: 20 Minuten</span></div>
+      <p class="exp-note">Ihr Deutschkurs hat letzte Woche einen Ausflug nach Heidelberg gemacht. Ihr Freund/Ihre Freundin war krank und konnte nicht mitkommen.</p>
+      <div class="exp-punkte">
+        <ul class="exp-pk">
+          <li>Beschreiben Sie: Wie war der Ausflug?</li>
+          <li>Begründen Sie: Was hat Ihnen am besten gefallen und warum?</li>
+          <li>Machen Sie einen Vorschlag für ein gemeinsames Wochenende.</li>
+        </ul>
+      </div>
+      <p class="exp-note" style="margin-top:16px">Schreiben Sie eine E-Mail (circa 80 Wörter). Schreiben Sie etwas zu allen drei Punkten.</p>
+    </div>
+
+    <div class="exp-caption">📝 练习 2 · Aufgabe 2 风格（约 80 词 · 25 分钟）</div>
+    <div class="exp-sheet">
+      <div class="exp-teil"><b>Aufgabe 2</b> Diskussionsbeitrag<span class="dauer">Arbeitszeit: 25 Minuten</span></div>
+      <p class="exp-note">Sie haben eine Diskussionssendung zum Thema „Handys in der Schule" gesehen. Im Gästebuch finden Sie folgende Meinung:</p>
+      <div class="exp-gb">
+        <div class="hd"><span class="url">www.diskussion-aktuell.de</span><b>Gästebuch</b></div>
+        <div class="bd">
+          <div class="meta">03.02. 19:20 Uhr<br><span class="nm">Markus</span></div>
+          <div class="msg">Ich finde, Handys sollten in der Schule verboten werden. Die Schüler lernen dann besser und reden mehr miteinander. Aber im Unterricht braucht man das Handy manchmal für Recherchen.</div>
+        </div>
+      </div>
+      <p class="exp-note" style="margin-top:16px">Schreiben Sie nun Ihre Meinung zum Thema (circa 80 Wörter).</p>
+    </div>
+
+    <div class="exp-caption">📝 练习 3 · Aufgabe 3 风格（约 40 词 · 15 分钟）</div>
+    <div class="exp-sheet">
+      <div class="exp-teil"><b>Aufgabe 3</b> Formelle E-Mail<span class="dauer">Arbeitszeit: 15 Minuten</span></div>
+      <p class="exp-note">Ihre Kursleiterin, Frau Berg, hat Sie zu einem Elternabend in die Sprachschule eingeladen. Zu dem Termin können Sie aber nicht kommen.</p>
+      <p class="exp-note">Schreiben Sie an Frau Berg. Entschuldigen Sie sich höflich und berichten Sie, warum Sie nicht kommen können.</p>
+      <p class="exp-note" style="margin-top:14px">Schreiben Sie eine E-Mail (circa 40 Wörter). Vergessen Sie nicht die Anrede und den Gruß am Schluss.</p>
+    </div>
+
+    <div class="bsw-box ok">
+      <span class="lbl">✅ 交卷前自查清单:</span>
+      <ul class="bsw-points ck">
+        <li><b>要点都写到了吗？</b>把草稿上的三个要点逐条划掉，一个都不能漏</li>
+        <li><b>Aufgabe 3 有称呼和结尾吗？</b>Sehr geehrte … / Mit freundlichen Grüßen + 姓名</li>
+        <li><b>语域统一吗？</b>正式邮件全篇 Sie + Ihr，没有 du、Hallo、Tschüss、缩写</li>
+        <li><b>Aufgabe 2 没有写称呼和「Viele Grüße」吗？</b>那是留言，不是信</li>
+        <li><b>动词位置对吗？</b>从句动词在最后、完成时助动词与过去分词分开、情态动词在句尾</li>
+        <li><b>连接词至少三个？</b>weil / deshalb / trotzdem / außerdem / zum Beispiel</li>
+        <li><b>名词首字母都大写了吗？</b>逐个扫一遍名词和 Grüße 这类固定搭配</li>
+        <li><b>词数够吗？</b>80 词的题至少 70 词，40 词的题至少 35 词</li>
+        <li><b>抄写清楚吗？</b>不涂改、不用铅笔、字要认得出</li>
+      </ul>
+    </div>
+
+    <div class="bsw-box">
+      <span class="lbl">🎯 最后一句:</span> B1 写作是<strong>可以练出来的</strong>——它考的是「有没有把话交代清楚」，不是天赋。
+      把三个任务的结构骨架练到不用想就能写出来，把⑦的句式库背熟，考场上你只要往里填内容就行。
+      <strong>Viel Erfolg! 祝你考试顺利！</strong>
+    </div>
+  </div>
+
+  <footer style="text-align:center;font-size:.82rem;color:rgba(255,245,230,.45);padding:8px 0 6px">
+    ✍️ B1 Schreiben · Goethe-Zertifikat B1 · 卷面依据 Modellsatz Erwachsene（Kandidatenblätter / Leistungsbeispiele）<br>
+    Leons Deutschzentrum · 写作专题
+  </footer>
+
+</div>
+
+<script>
+  /* 页内锚点：SPA 里直接点 #hash 会触发路由，所以改成 preventDefault + 平滑滚动
+     幂等：脚本自身跑一次 + registerLazyPage 的 onInit 再调一次，用 flag 防止重复绑 */
+  window.b1swAddAnchors = function(){
+    if (window._bswAnchorsDone) return;
+    window._bswAnchorsDone = true;
+    document.querySelectorAll('#page-b1schreiben .bsw-anav a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href');
+        if (href && href.charAt(0) === '#'){
+          var t = document.getElementById(href.slice(1));
+          if (t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      });
+    });
+  };
+  if (window.b1swAddAnchors) { try { window.b1swAddAnchors(); } catch(e){} }
+</script>

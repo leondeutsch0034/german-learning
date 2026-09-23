@@ -4460,6 +4460,11 @@ function createLoginPromptCard() {
     desc:"B1口语 · 歌德 B1 口语全解析 · 流程+题型+技巧+表达 · 精选国内外视频",
     tags:"歌德B1 · 口语 · Sprechen · 视频精选",
     c1:"#b45309", c2:"#f59e0b", locked:false },
+  { id:"b1schreiben", icon:"✍️", navLabel:"B1写作", cardTitleDe:"B1 Schreiben", cardSubDe:"Goethe B1 schriftlicher Ausdruck — 私人邮件 · 论坛留言 · 正式邮件", cardTitle:"B1写作", group:"b1",
+    hubStep:7, hubSkill:"Schreiben", hubSkillZh:"写作", hubAccent:"#c4b5fd", hubTip:"练输出：三种题型 1:1 卷面 · 结构骨架 · 高分范文 · 万能句库",
+    desc:"B1写作专项 · 三个任务逐个拆解 · 真题卷面+高分范文+模板句+中式德语纠错",
+    tags:"歌德B1 · 写作 · 邮件 · 论坛留言 · 万能句",
+    c1:"#7c3aed", c2:"#c4b5fd", locked:false },
   { id:"b2pruefung", icon:"📝", navLabel:"B2模拟考试", cardTitleDe:"B2 Modelltest", cardSubDe:"Goethe B2 mündliche/schriftliche Prüfung — 官方 Modellsatz Erwachsene", cardTitle:"B2模拟考试", group:"b2",
     hubStep:4, hubSkill:"Test", hubSkillZh:"模拟考试", hubAccent:"#f59e0b", hubTip:"官方真题：Lesen·Hören·Schreiben·Sprechen 完整还原，可判分",
     desc:"B2模拟考试 · 官方 Modellsatz Erwachsene · 1:1复刻",
@@ -4717,7 +4722,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','klippklapp':'Klipp-Klapp城市导航',
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
   'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
   'resources':'全网资源推荐'
 };
@@ -5287,13 +5292,13 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-hero">
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B1</div>
     <h1>B1 学习站</h1>
-    <p class="a1hub-sub">语法 · 语法抄写 · 听力 · 阅读 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
+    <p class="a1hub-sub">语法 · 语法抄写 · 听力 · 阅读 · 写作 —— B1 进阶内容集中入口<br>按推荐顺序学，也可以挑任意板块单独练 · 内容陆续更新</p>
   </div>
 
   <div class="a1hub-path">
     <span class="a1hub-path-lbl">📈 建议学习路径</span>
     <div class="a1hub-path-flow">
-      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span><i>→</i><span>📝 模拟考试</span>
+      <span>📘 语法</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🎧 听力</span><i>→</i><span>📰 阅读</span><i>→</i><span>✍️ 写作</span><i>→</i><span>🗣️ 口语</span><i>→</i><span>📝 模拟考试</span>
     </div>
   </div>
 
@@ -5304,7 +5309,7 @@ document.addEventListener('keydown', function(e) {
 
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
-    Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 听力 · 阅读
+    Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 听力 · 阅读 · 写作
   </footer>
 
 </div>
@@ -5317,6 +5322,11 @@ document.addEventListener('keydown', function(e) {
 
 <div id="page-b1sprechen" class="page" data-lazy="true"></div>
 <script>registerLazyPage('b1sprechen', 'tpl-page-b1sprechen');</script>
+<template id="tpl-page-b1schreiben" data-src="lazy/b1schreiben.html"></template>
+
+<div id="page-b1schreiben" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b1schreiben', 'tpl-page-b1schreiben', function(page){ if(window.b1swAddAnchors){ try{ window.b1swAddAnchors(); }catch(e){} } });</script>
+
 <template id="tpl-page-b2pruefung" data-src="lazy/b2pruefung.html"></template>
 
 <div id="page-b2pruefung" class="page" data-lazy="true"></div>
