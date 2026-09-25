@@ -1,3 +1,33 @@
+<style>
+/* ═══ 拼读进阶 Phonetik Plus（由 _phonics_inject.py 注入，勿手改）═══ */
+.ph-sub{font-size:.86rem;color:#4a5568;line-height:1.75;margin:-4px 0 12px}
+.ph-src{font-size:.79rem;color:#94a3b8;font-weight:400}
+.ph-grp{font-size:.98rem;font-weight:700;color:#2b6cb0;margin:20px 0 8px;padding:4px 0 4px 10px;border-left:3px solid #63b3ed;background:#f7fafc;border-radius:0 8px 8px 0}
+.ph-tbl3 code,.ph-tbl4 code,.ph-sub code{font-family:'Courier New',Consolas,monospace;font-weight:700;color:#7c3aed;background:#f3e8ff;padding:1px 7px;border-radius:7px;font-size:.85rem;white-space:nowrap}
+.ph-tbl3 td,.ph-tbl4 td{vertical-align:top;line-height:1.75}
+.ph-tbl3 td:first-child,.ph-tbl4 td:first-child{white-space:nowrap}
+.ph-pair{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:7px;margin:6px 0 4px}
+.ph-pair div{background:#fff;border:1.5px solid #e2e8f0;border-radius:9px;padding:6px 11px;font-size:.88rem;font-weight:600;color:#2d3748}
+.ph-ans{float:right;font-weight:400;color:#94a3b8;font-size:.8rem}
+.ph-rules{margin:6px 0 0;padding-left:20px;line-height:1.85}
+.ph-rules li{margin-bottom:4px}
+.ph-down{color:#c53030;font-weight:700;white-space:nowrap}
+.ph-up{color:#276749;font-weight:700;white-space:nowrap}
+.ph-flat{color:#c05621;font-weight:700;white-space:nowrap}
+.ph-dialog{background:#f7fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px 18px;font-size:.9rem;line-height:1.95}
+.ph-dialog b{color:#2b6cb0}
+.ph-dialog em{color:#c05621;font-style:normal;font-weight:700}
+/* 手机端：拼读表堆叠成卡片，避免关键列被挤进横向滚动 */
+@media(max-width:600px){
+  .ph-stack table,.ph-stack tbody,.ph-stack tr,.ph-stack td{display:block;width:100%}
+  .ph-stack thead{display:none}
+  .ph-stack tr{border:1.5px solid #e2e8f0;border-radius:10px;margin-bottom:8px;overflow:hidden}
+  .ph-stack tr td{background:#fff;border-bottom:none;padding:7px 11px}
+  .ph-stack tr td:first-child{background:#eff6ff;font-weight:700}
+  .ph-tbl3 td:first-child,.ph-tbl4 td:first-child{white-space:normal}
+  .ph-pair{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 
 
 <header>
