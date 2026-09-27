@@ -183,6 +183,15 @@
 @media print{.phonetik{background:#fff}.phonetik .hero{background:#0f1e3a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.phonetik .blk,.phonetik .text,.phonetik .drill,.phonetik .check{box-shadow:none;break-inside:avoid}.phonetik .stage{break-before:page}.phonetik .road{display:none}.phonetik details .ans{display:block !important}.phonetik details{page-break-inside:avoid}}
 #page-phonetik .phonetik{max-width:1000px;margin:0 auto;padding:0 18px 30px}
 @media(max-width:640px){#page-phonetik .phonetik{padding:0 11px 24px}}
+.phonetik .pk-share{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 28px}
+.phonetik .pk-share button{
+  background:linear-gradient(135deg,#b8860b,#f6d365);color:#0f1e3a;border:none;
+  padding:9px 20px;border-radius:24px;font-size:.88rem;font-weight:800;cursor:pointer;
+  box-shadow:0 3px 12px rgba(184,134,11,.35);font-family:inherit
+}
+.phonetik .pk-share button:active{transform:translateY(1px)}
+.phonetik .pk-share span{font-size:.79rem;color:var(--ink3)}
+
 </style>
 <div class="phonetik">
 <header class="hero">
@@ -232,7 +241,12 @@
   <!-- ══════════════════════════════════
        STAGE 1 · 字母的发音
   ═══════════════════════════════════ -->
-  <section class="stage" id="ph1" style="--c:#2b6cb0;--c2:#63b3ed">
+  <div class="pk-share">
+  <button type="button" onclick="if(window.sharePhonetik){sharePhonetik();}">📤 复制分享链接</button>
+  <span>发到微信会带课程预览卡</span>
+</div>
+
+<section class="stage" id="ph1" style="--c:#2b6cb0;--c2:#63b3ed">
     <div class="stage-head">
       <div class="stage-num">1</div>
       <h2>字母的发音 <span class="de">Das deutsche Alphabet</span></h2>
