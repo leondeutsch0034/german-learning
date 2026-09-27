@@ -1,32 +1,162 @@
 <style>
-/* ═══ 拼读进阶 Phonetik Plus（由 _phonics_inject.py 注入，勿手改）═══ */
-.ph-sub{font-size:.86rem;color:#4a5568;line-height:1.75;margin:-4px 0 12px}
-.ph-src{font-size:.79rem;color:#94a3b8;font-weight:400}
-.ph-grp{font-size:.98rem;font-weight:700;color:#2b6cb0;margin:20px 0 8px;padding:4px 0 4px 10px;border-left:3px solid #63b3ed;background:#f7fafc;border-radius:0 8px 8px 0}
-.ph-tbl3 code,.ph-tbl4 code,.ph-sub code{font-family:'Courier New',Consolas,monospace;font-weight:700;color:#7c3aed;background:#f3e8ff;padding:1px 7px;border-radius:7px;font-size:.85rem;white-space:nowrap}
-.ph-tbl3 td,.ph-tbl4 td{vertical-align:top;line-height:1.75}
-.ph-tbl3 td:first-child,.ph-tbl4 td:first-child{white-space:nowrap}
-.ph-pair{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:7px;margin:6px 0 4px}
-.ph-pair div{background:#fff;border:1.5px solid #e2e8f0;border-radius:9px;padding:6px 11px;font-size:.88rem;font-weight:600;color:#2d3748}
-.ph-ans{float:right;font-weight:400;color:#94a3b8;font-size:.8rem}
-.ph-rules{margin:6px 0 0;padding-left:20px;line-height:1.85}
-.ph-rules li{margin-bottom:4px}
-.ph-down{color:#c53030;font-weight:700;white-space:nowrap}
-.ph-up{color:#276749;font-weight:700;white-space:nowrap}
-.ph-flat{color:#c05621;font-weight:700;white-space:nowrap}
-.ph-dialog{background:#f7fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px 18px;font-size:.9rem;line-height:1.95}
-.ph-dialog b{color:#2b6cb0}
-.ph-dialog em{color:#c05621;font-style:normal;font-weight:700}
-/* 手机端：拼读表堆叠成卡片，避免关键列被挤进横向滚动 */
-@media(max-width:600px){
-  .ph-stack table,.ph-stack tbody,.ph-stack tr,.ph-stack td{display:block;width:100%}
-  .ph-stack thead{display:none}
-  .ph-stack tr{border:1.5px solid #e2e8f0;border-radius:10px;margin-bottom:8px;overflow:hidden}
-  .ph-stack tr td{background:#fff;border-bottom:none;padding:7px 11px}
-  .ph-stack tr td:first-child{background:#eff6ff;font-weight:700}
-  .ph-tbl3 td:first-child,.ph-tbl4 td:first-child{white-space:normal}
-  .ph-pair{grid-template-columns:repeat(2,1fr)}
+/* ═══ 字母拼读 Phonetik（由 _phonetik_build.py 生成，勿手改）═══ */
+.phonetik{
+  --navy:#0f1e3a; --blue:#1e3a5f; --blue2:#2b6cb0; --blue3:#63b3ed;
+  --gold:#b8860b; --gold2:#f6d365; --gold3:#fde68a;
+  --ink:#1f2937; --ink2:#475569; --ink3:#94a3b8;
+  --line:#e2e8f0; --bg:#f1f5f9; --card:#fff;
+  --green:#276749; --greenbg:#f0fff4;
+  --orange:#c05621; --orangebg:#fffaf0;
+  --red:#c53030; --redbg:#fff5f5;
+  --purple:#7c3aed; --purplebg:#f3e8ff;
+  --teal:#0d7c76; --tealbg:#e6fffa;
 }
+.phonetik *{box-sizing:border-box;margin:0;padding:0}
+.phonetik{
+  font-family:'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;
+  color:var(--ink);line-height:1.75;-webkit-text-size-adjust:100%;
+}
+.phonetik .road{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  gap:11px;margin:-26px 0 34px;position:relative;z-index:2
+}
+.phonetik .road a{
+  display:block;text-decoration:none;background:var(--card);border-radius:14px;
+  padding:14px 15px;border:1.5px solid var(--line);border-top:4px solid var(--c,#2b6cb0);
+  box-shadow:0 3px 12px rgba(15,30,58,.07);transition:.2s
+}
+.phonetik .road a:hover{transform:translateY(-3px);box-shadow:0 9px 22px rgba(15,30,58,.14)}
+.phonetik .road .n{
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--c,#2b6cb0);
+  display:block;margin-bottom:5px
+}
+.phonetik .road .t{font-size:.98rem;font-weight:800;color:var(--navy);display:block;line-height:1.4}
+.phonetik .road .d{font-size:.76rem;color:var(--ink3);display:block;margin-top:3px}
+.phonetik .stage{margin-bottom:46px;scroll-margin-top:72px}
+.phonetik .stage-head{
+  display:flex;align-items:center;gap:14px;margin-bottom:6px;
+  padding-bottom:13px;border-bottom:2.5px solid var(--c,#2b6cb0)
+}
+.phonetik .stage-num{
+  width:44px;height:44px;flex-shrink:0;border-radius:13px;
+  background:linear-gradient(135deg,var(--c,#2b6cb0),var(--c2,#63b3ed));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;font-weight:800;box-shadow:0 4px 12px rgba(15,30,58,.2)
+}
+.phonetik .stage-head h2{font-size:1.42rem;color:var(--navy);line-height:1.35;font-weight:800}
+.phonetik .stage-head h2 .de{display:block;font-size:.8rem;font-weight:600;color:var(--ink3);letter-spacing:.04em;margin-top:2px}
+.phonetik .stage-goal{
+  background:#fff;border-left:4px solid var(--c,#2b6cb0);border-radius:0 12px 12px 0;
+  padding:11px 16px;margin:14px 0 22px;font-size:.88rem;color:var(--ink2);
+  box-shadow:0 1px 6px rgba(15,30,58,.05)
+}
+.phonetik .stage-goal b{color:var(--navy)}
+.phonetik .blk{background:var(--card);border-radius:16px;padding:22px 24px;margin-bottom:18px;box-shadow:0 1px 8px rgba(15,30,58,.06)}
+.phonetik .blk>h3{
+  font-size:1.06rem;font-weight:800;color:var(--blue2);margin-bottom:12px;
+  padding-left:11px;border-left:4px solid var(--blue3);line-height:1.5
+}
+.phonetik .blk>h3 .de{font-size:.8rem;font-weight:600;color:var(--ink3);margin-left:6px}
+.phonetik h4.sub{
+  font-size:.95rem;font-weight:800;color:var(--navy);margin:20px 0 9px;
+  padding:4px 0 4px 10px;background:#f7fafc;border-left:3px solid var(--blue3);border-radius:0 8px 8px 0
+}
+.phonetik p.lead{font-size:.9rem;color:var(--ink2);margin-bottom:14px;line-height:1.85}
+.phonetik .tip{background:var(--greenbg);border-left:4px solid #48bb78;border-radius:0 12px 12px 0;padding:12px 16px;margin:12px 0;font-size:.88rem;line-height:1.8}
+.phonetik .tip strong{color:var(--green)}
+.phonetik .warn{background:var(--redbg);border-left:4px solid #fc8181;border-radius:0 12px 12px 0;padding:12px 16px;margin:12px 0;font-size:.88rem;line-height:1.8}
+.phonetik .warn strong{color:var(--red)}
+.phonetik .info{background:var(--purplebg);border-left:4px solid #a78bfa;border-radius:0 12px 12px 0;padding:12px 16px;margin:12px 0;font-size:.88rem;line-height:1.8}
+.phonetik .info strong{color:var(--purple)}
+.phonetik code,.phonetik .ipa{
+  font-family:'Courier New',Consolas,monospace;font-weight:700;color:var(--purple);
+  background:var(--purplebg);padding:1.5px 7px;border-radius:7px;font-size:.86rem;white-space:nowrap
+}
+.phonetik .srcline{font-size:.78rem;color:var(--ink3)}
+.phonetik table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.88rem}
+.phonetik th{background:var(--blue2);color:#fff;padding:9px 13px;text-align:left;font-weight:700;font-size:.85rem}
+.phonetik td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+.phonetik tbody tr:nth-child(even) td{background:#f8fafc}
+.phonetik tbody tr:hover td{background:#ebf4ff}
+.phonetik td.ipa-col{white-space:nowrap;font-weight:700}
+.phonetik td.ital{white-space:nowrap;font-weight:700;color:var(--navy)}
+.phonetik .long{color:var(--green);font-weight:700}
+.phonetik .short{color:var(--orange);font-weight:700}
+.phonetik .es{color:var(--ink2)}
+.phonetik .abc{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(97px,1fr));gap:8px;margin:12px 0
+}
+.phonetik .abc div{
+  background:#f8fafc;border:1.5px solid var(--line);border-radius:11px;
+  padding:9px 6px;text-align:center
+}
+.phonetik .abc .l{font-size:1.28rem;font-weight:800;color:var(--blue);letter-spacing:.02em}
+.phonetik .abc .p{font-size:.79rem;font-family:'Courier New',monospace;color:var(--purple);font-weight:700;margin-top:2px}
+.phonetik .abc .sp{background:#fffbeb;border-color:var(--gold2)}
+.phonetik .abc .sp .l{color:var(--gold)}
+.phonetik .map{display:grid;gap:8px;margin:12px 0}
+.phonetik .map .row{
+  display:grid;grid-template-columns:84px 148px 1fr;gap:11px;align-items:baseline;
+  background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px 13px
+}
+.phonetik .map .row .k{font-family:'Courier New',monospace;font-weight:800;color:var(--purple);font-size:.88rem}
+.phonetik .map .row .s{font-weight:700;color:var(--blue);font-size:.87rem}
+.phonetik .map .row .e{font-size:.85rem;color:var(--ink2);line-height:1.7}
+.phonetik .map .hi{background:#fffdf5;border-color:var(--gold2)}
+.phonetik .words{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:7px;margin:10px 0}
+.phonetik .words span{
+  background:#f8fafc;border:1.5px solid var(--line);border-radius:9px;
+  padding:6px 10px;font-size:.87rem;font-weight:600;text-align:center;color:var(--ink)
+}
+.phonetik .pairs{display:grid;gap:7px;margin:12px 0}
+.phonetik .pairs .pr{
+  display:grid;grid-template-columns:100px 1fr;gap:11px;align-items:baseline;
+  background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:8px 13px
+}
+.phonetik .pairs .pr .k{font-family:'Courier New',monospace;font-weight:800;color:var(--purple);font-size:.83rem}
+.phonetik .pairs .pr .w{font-size:.87rem;color:var(--ink);line-height:1.75}
+.phonetik .drill{background:linear-gradient(180deg,#f8fbff,#fff);border:1.5px solid #bee3f8;border-radius:14px;padding:18px 20px;margin:18px 0 0}
+.phonetik .drill>h4{color:var(--blue2);font-size:1rem;font-weight:800;margin-bottom:5px}
+.phonetik .drill>p{font-size:.82rem;color:var(--ink3);margin-bottom:11px}
+.phonetik details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-top:9px;overflow:hidden}
+.phonetik details summary{
+  cursor:pointer;padding:9px 14px;font-size:.86rem;font-weight:700;color:var(--blue2);
+  list-style:none;user-select:none;background:#f7fafc
+}
+.phonetik details summary::-webkit-details-marker{display:none}
+.phonetik details summary::before{content:'▶ ';font-size:.7rem;color:var(--ink3)}
+.phonetik details[open] summary::before{content:'▼ '}
+.phonetik details .ans{padding:11px 14px;font-size:.86rem;color:var(--ink2);line-height:1.9;border-top:1px solid var(--line)}
+.phonetik .qlist{margin:0;padding-left:22px;font-size:.88rem;line-height:2.05;color:var(--ink)}
+.phonetik .qlist li{margin-bottom:2px}
+.phonetik .text{
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px
+}
+.phonetik .text-h{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.phonetik .text-h .n{
+  width:27px;height:27px;border-radius:8px;background:var(--blue2);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;flex-shrink:0
+}
+.phonetik .text-h h4{font-size:1rem;font-weight:800;color:var(--navy)}
+.phonetik .text-h .lv{font-size:.72rem;font-weight:700;color:var(--teal);background:var(--tealbg);padding:2px 9px;border-radius:20px;margin-left:auto;white-space:nowrap}
+.phonetik .text .body{font-size:1.02rem;line-height:2.3;color:var(--ink);margin-top:11px}
+.phonetik .text .body b{color:var(--blue2);font-weight:800}
+.phonetik .text .body i{color:var(--orange);font-style:normal;font-weight:800}
+.phonetik .text .cn{font-size:.82rem;color:var(--ink3);line-height:1.85;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
+.phonetik .text .focus{font-size:.79rem;color:var(--teal);margin-top:9px;background:var(--tealbg);display:inline-block;padding:3px 11px;border-radius:20px}
+.phonetik .dlg div{font-size:.95rem;line-height:2.15}
+.phonetik .dlg b{color:var(--blue2)}
+.phonetik .dlg i{color:var(--orange);font-style:normal;font-weight:800}
+.phonetik .check{background:linear-gradient(135deg,#fffbeb,#fff);border:1.5px solid var(--gold2);border-radius:14px;padding:17px 20px;margin-top:16px}
+.phonetik .check h4{font-size:.95rem;font-weight:800;color:var(--gold);margin-bottom:9px}
+.phonetik .check ul{list-style:none;font-size:.87rem;color:var(--ink2);line-height:2}
+.phonetik .check li::before{content:'☐ ';color:var(--gold);font-weight:700}
+@media(max-width:640px){.phonetik .road{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:-20px}.phonetik .road a{padding:11px 12px}.phonetik .road .t{font-size:.88rem}.phonetik .blk{padding:16px 14px;border-radius:13px}.phonetik .stage-head{gap:10px}.phonetik .stage-num{width:37px;height:37px;font-size:1.05rem;border-radius:11px}.phonetik .stage-head h2{font-size:1.13rem}.phonetik .abc{grid-template-columns:repeat(3,1fr)}.phonetik .words{grid-template-columns:repeat(3,1fr)}.phonetik table,.phonetik thead,.phonetik tbody,.phonetik tr,.phonetik td,.phonetik th{display:block;width:100%}.phonetik thead{display:none}.phonetik tr{border:1.5px solid var(--line);border-radius:11px;margin-bottom:9px;overflow:hidden;background:#fff}.phonetik td{border-bottom:none;padding:7px 12px}.phonetik tbody tr td:first-child{background:#eff6ff;font-weight:800;color:var(--blue)}.phonetik tbody tr:nth-child(even) td{background:#fff}.phonetik tbody tr:nth-child(even) td:first-child{background:#eff6ff}.phonetik tbody tr:hover td{background:#fff}.phonetik tbody tr:hover td:first-child{background:#eff6ff}.phonetik td.ipa-col,.phonetik td.ital{white-space:normal}.phonetik .map .row{grid-template-columns:1fr 1fr;gap:4px 10px}.phonetik .map .row .e{grid-column:1/-1;padding-top:3px;border-top:1px dashed var(--line);margin-top:3px}.phonetik .pairs .pr{grid-template-columns:1fr;gap:3px}.phonetik .text .body{font-size:.96rem;line-height:2.15}.phonetik .dlg div{font-size:.9rem}}
+@media print{.phonetik{background:#fff}.phonetik .blk,.phonetik .text,.phonetik .drill,.phonetik .check{box-shadow:none;break-inside:avoid}.phonetik .stage{break-before:page}.phonetik .road{display:none}.phonetik details .ans{display:block !important}.phonetik details{page-break-inside:avoid}}
+.phonetik{padding:0}
+.phonetik .road{margin:0 0 26px}
+.phonetik .pk-intro{background:#fff;border-left:4px solid #2b6cb0;border-radius:0 12px 12px 0;padding:12px 16px;margin:0 0 22px;font-size:.9rem;color:var(--ink2);line-height:1.85;box-shadow:0 1px 6px rgba(15,30,58,.05)}
+.phonetik .pk-intro b{color:var(--navy)}
 </style>
 
 
@@ -39,7 +169,7 @@
 <div class="toc" id="top">
   <h2>📋 目录 Inhaltsverzeichnis</h2>
   <div class="toc-grid">
-    <a class="toc-item" href="#s1">1. 字母与发音（含拼读）</a>
+    <a class="toc-item" href="#s1">1. 字母 · 拼读 · 朗读</a>
     <a class="toc-item" href="#s2">2. 人称代词</a>
     <a class="toc-item" href="#s3">3. 动词现在时</a>
     <a class="toc-item" href="#s4">4. sein / haben</a>
@@ -61,661 +191,648 @@
   </div>
 </div>
 
-<!-- ① 字母与发音 -->
-<div class="section" id="s1">
-  <div class="section-header">
-    <div class="section-num">1</div>
-    <h2>字母与发音 Alphabet und Aussprache</h2>
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>字母 · 拼读 · 朗读 Alphabet, Phonetik und Lesen</h2>
+    </div>
+    <div class="phonetik">
+      <p class="pk-intro">从字母的读音，到拼读规则、词重音、句重音，最后落在一篇能读出来的短文上。<b>五步走完，见到生词就能读。</b></p>
+<!-- 路线图 -->
+  <div class="road">
+    <a href="#ph1" style="--c:#2b6cb0">
+      <span class="n">SCHRITT 1</span>
+      <span class="t">字母的发音</span>
+      <span class="d">26 + 3 + ß 的名称与音标</span>
+    </a>
+    <a href="#ph2" style="--c:#0d7c76">
+      <span class="n">SCHRITT 2</span>
+      <span class="t">拼读</span>
+      <span class="d">一个音，几种写法</span>
+    </a>
+    <a href="#ph3" style="--c:#7c3aed">
+      <span class="n">SCHRITT 3</span>
+      <span class="t">词重音</span>
+      <span class="d">音节在哪，重音在哪</span>
+    </a>
+    <a href="#ph4" style="--c:#b8860b">
+      <span class="n">SCHRITT 4</span>
+      <span class="t">句重音</span>
+      <span class="d">升调降调与停顿</span>
+    </a>
+    <a href="#ph5" style="--c:#c05621">
+      <span class="n">SCHRITT 5</span>
+      <span class="t">读短文</span>
+      <span class="d">把规则用起来</span>
+    </a>
   </div>
 
-  <!-- 字母表总览 -->
-  <div class="ph-alpha-bar">
-    <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span>
-    <span>F</span><span>G</span><span>H</span><span>I</span><span>J</span>
-    <span>K</span><span>L</span><span>M</span><span>N</span><span>O</span>
-    <span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span>
-    <span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
-    <span class="ph-special">Ä</span><span class="ph-special">Ö</span>
-    <span class="ph-special">Ü</span><span class="ph-special">ß</span>
-  </div>
-  <p style="font-size:.82rem;color:#475569;margin:0 0 22px;text-align:center">26个基本字母 ＋ 3个变元音（Umlaute）ä ö ü ＋ 1个特殊字母 ß</p>
-  <!-- 字母名称读音 -->
-  <h3 class="ph-cat-title">🔤 字母名称读音 Die Namen der Buchstaben</h3>
-  <p class="ph-sub">德语字母的<b>名称</b>和英语差别很大：<b>J</b> 读 <code>[jɔt]</code>（不是"杰"）、<b>V</b> 读 <code>[faʊ]</code>（不是"维"）、<b>Z</b> 读 <code>[tsɛt]</code>（不是"贼"）。读准字母名称，才能拼读单词、报出姓名和邮箱里的拼写。</p>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th>字母</th><th>名称</th><th>字母</th><th>名称</th><th>字母</th><th>名称</th></tr></thead>
-    <tbody>
-      <tr><td><b>A a</b></td><td><code>[aː]</code></td><td><b>B b</b></td><td><code>[beː]</code></td><td><b>C c</b></td><td><code>[tseː]</code></td></tr>
-      <tr><td><b>D d</b></td><td><code>[deː]</code></td><td><b>E e</b></td><td><code>[eː]</code></td><td><b>F f</b></td><td><code>[ɛf]</code></td></tr>
-      <tr><td><b>G g</b></td><td><code>[geː]</code></td><td><b>H h</b></td><td><code>[haː]</code></td><td><b>I i</b></td><td><code>[iː]</code></td></tr>
-      <tr><td><b>J j</b></td><td><code>[jɔt]</code></td><td><b>K k</b></td><td><code>[kaː]</code></td><td><b>L l</b></td><td><code>[ɛl]</code></td></tr>
-      <tr><td><b>M m</b></td><td><code>[ɛm]</code></td><td><b>N n</b></td><td><code>[ɛn]</code></td><td><b>O o</b></td><td><code>[oː]</code></td></tr>
-      <tr><td><b>P p</b></td><td><code>[peː]</code></td><td><b>Q q</b></td><td><code>[kuː]</code></td><td><b>R r</b></td><td><code>[ɛr]</code></td></tr>
-      <tr><td><b>S s</b></td><td><code>[ɛs]</code></td><td><b>T t</b></td><td><code>[teː]</code></td><td><b>U u</b></td><td><code>[uː]</code></td></tr>
-      <tr><td><b>V v</b></td><td><code>[faʊ]</code></td><td><b>W w</b></td><td><code>[veː]</code></td><td><b>X x</b></td><td><code>[ɪks]</code></td></tr>
-      <tr><td><b>Y y</b></td><td><code>[ʏpsilɔn]</code></td><td><b>Z z</b></td><td><code>[tsɛt]</code></td><td><b>ß</b></td><td><code>[ɛsˈtsɛt]</code></td></tr>
-      <tr><td><b>Ä ä</b></td><td><code>[ɛː]</code></td><td><b>Ö ö</b></td><td><code>[øː]</code></td><td><b>Ü ü</b></td><td><code>[yː]</code></td></tr>
-    </tbody>
-  </table>
-  </div>
 
-  <div class="rule-box" style="margin-top:14px">
-    <span class="label">🎵 Das Abc-Lied（字母歌）</span><br>
-    <span style="font-family:'Courier New',monospace;font-size:.95rem;line-height:2">
-      A b c d e f g,&nbsp;&nbsp;h i j k l m n o p,&nbsp;&nbsp;q r s t u v w,&nbsp;&nbsp;q r s t u v w,<br>
-      x y — — z: juch he!&nbsp;&nbsp;Das ist hier das A b c.
-    </span>
-  </div>
+  <!-- ══════════════════════════════════
+       STAGE 1 · 字母的发音
+  ═══════════════════════════════════ -->
+  <section class="stage" id="ph1" style="--c:#2b6cb0;--c2:#63b3ed">
+    <div class="stage-head">
+      <div class="stage-num">1</div>
+      <h2>字母的发音 <span class="de">Das deutsche Alphabet</span></h2>
+    </div>
+    <div class="stage-goal">
+      <b>这一步要拿到什么：</b>能一口气念出全部字母的德语名字；听到别人拼写姓名、邮箱、地址时能写下来。德语字母的<b>名字</b>和英语不是一回事——这是中国学生第一个坑。
+    </div>
 
-  <!-- ① 元音 -->
-  <h3 class="ph-cat-title">① 元音 Vokale — A E I O U</h3>
-  <div class="note" style="margin-bottom:14px">
-    <strong>长短元音判断规则：</strong>
-    双写辅音前（如 -mm- / -tt-）→ <span class="hl-o">短元音</span>；
-    单辅音前、词尾、双写元音（aa / ee / oo）、元音＋h → <span class="hl-g">长元音</span>
-  </div>
-  <div class="ph-grid">
-    <div class="ph-card">
-      <div class="ph-letter">A / a</div>
-      <div class="ph-ipa">[aː] 长 · [a] 短</div>
-      <div class="ph-desc">口大张，发"啊"<br>长音拖长，短音干脆</div>
-      <div class="ph-ex">
-        <span class="ph-long">V<u>a</u>ter · S<u>aa</u>l</span>（长）<br>
-        <span class="ph-short">M<u>a</u>nn · K<u>a</u>sse</span>（短）
+    <div class="blk">
+      <h3>26 个基本字母 <span class="de">Grundalphabet</span></h3>
+      <p class="lead">每个字母下面写的是它的<b>名称读音</b>（不是它在单词里的读音）。</p>
+      <div class="abc">
+        <div><div class="l">A a</div><div class="p">[aː]</div></div>
+        <div><div class="l">B b</div><div class="p">[beː]</div></div>
+        <div><div class="l">C c</div><div class="p">[tseː]</div></div>
+        <div><div class="l">D d</div><div class="p">[deː]</div></div>
+        <div><div class="l">E e</div><div class="p">[eː]</div></div>
+        <div><div class="l">F f</div><div class="p">[ɛf]</div></div>
+        <div><div class="l">G g</div><div class="p">[geː]</div></div>
+        <div><div class="l">H h</div><div class="p">[haː]</div></div>
+        <div><div class="l">I i</div><div class="p">[iː]</div></div>
+        <div><div class="l">J j</div><div class="p">[jɔt]</div></div>
+        <div><div class="l">K k</div><div class="p">[kaː]</div></div>
+        <div><div class="l">L l</div><div class="p">[ɛl]</div></div>
+        <div><div class="l">M m</div><div class="p">[ɛm]</div></div>
+        <div><div class="l">N n</div><div class="p">[ɛn]</div></div>
+        <div><div class="l">O o</div><div class="p">[oː]</div></div>
+        <div><div class="l">P p</div><div class="p">[peː]</div></div>
+        <div><div class="l">Q q</div><div class="p">[kuː]</div></div>
+        <div><div class="l">R r</div><div class="p">[ɛr]</div></div>
+        <div><div class="l">S s</div><div class="p">[ɛs]</div></div>
+        <div><div class="l">T t</div><div class="p">[teː]</div></div>
+        <div><div class="l">U u</div><div class="p">[uː]</div></div>
+        <div><div class="l">V v</div><div class="p">[faʊ]</div></div>
+        <div><div class="l">W w</div><div class="p">[veː]</div></div>
+        <div><div class="l">X x</div><div class="p">[ɪks]</div></div>
+        <div><div class="l">Y y</div><div class="p">[ʏpsilɔn]</div></div>
+        <div><div class="l">Z z</div><div class="p">[tsɛt]</div></div>
+      </div>
+
+      <h4 class="sub">三个变元音 + 一个特殊字母</h4>
+      <div class="abc">
+        <div class="sp"><div class="l">Ä ä</div><div class="p">[ɛː]</div></div>
+        <div class="sp"><div class="l">Ö ö</div><div class="p">[øː]</div></div>
+        <div class="sp"><div class="l">Ü ü</div><div class="p">[yː]</div></div>
+        <div class="sp"><div class="l">ß</div><div class="p">[ɛsˈtsɛt]</div></div>
+      </div>
+      <p class="srcline">Ä Ö Ü 叫 Umlaute（变元音）；ß 叫 Eszett 或 scharfes S，永远读清音 [s]。</p>
+    </div>
+
+    <div class="blk">
+      <h3>最容易读错的 10 个字母 <span class="de">Typische Fehler</span></h3>
+      <p class="lead">下面这些字母，德语和英语的名字完全不同，一旦按英语念，德国人听不懂。</p>
+      <table>
+        <thead><tr><th style="width:76px">字母</th><th style="width:104px">德语念</th><th style="width:104px">别念成英语</th><th>怎么记</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">A</td><td><code>[aː]</code></td><td class="es">"诶"</td><td>直接拉长的"啊"，德语里没有英语那个滑音</td></tr>
+          <tr><td class="ital">E</td><td><code>[eː]</code></td><td class="es">"衣"</td><td>是"诶"，不是"衣"</td></tr>
+          <tr><td class="ital">G</td><td><code>[geː]</code></td><td class="es">"记"</td><td>g 一律发硬音 [g]</td></tr>
+          <tr><td class="ital">I</td><td><code>[iː]</code></td><td class="es">"爱"</td><td>就是长"衣"</td></tr>
+          <tr><td class="ital">J</td><td><code>[jɔt]</code></td><td class="es">"杰"</td><td>最有代表性：不是"杰"，是"约特"</td></tr>
+          <tr><td class="ital">R</td><td><code>[ɛr]</code></td><td class="es">"啊"</td><td>"埃-尔"，小舌颤音</td></tr>
+          <tr><td class="ital">V</td><td><code>[faʊ]</code></td><td class="es">"维"</td><td><b>读 [f] 开头</b>："发-乌"</td></tr>
+          <tr><td class="ital">W</td><td><code>[veː]</code></td><td class="es">"double u"</td><td>读 [v]，"维"</td></tr>
+          <tr><td class="ital">Y</td><td><code>[ʏpsilɔn]</code></td><td class="es">"歪"</td><td>"于普西龙"</td></tr>
+          <tr><td class="ital">Z</td><td><code>[tsɛt]</code></td><td class="es">"贼"</td><td>是 [ts]："采特"</td></tr>
+        </tbody>
+      </table>
+      <div class="info">
+        <strong>一个规律看穿一半字母：</strong>德语字母名称里的元音<strong>几乎都读长音</strong>——A [aː]、E [eː]、I [iː]、O [oː]、U [uː]。所以"读长音"这件事，你从学字母那天就开始练了。
       </div>
     </div>
-    <div class="ph-card">
-      <div class="ph-letter">E / e</div>
-      <div class="ph-ipa">[eː]·[ɛ]·[ə]</div>
-      <div class="ph-desc">长音"诶"；短音"埃"（开口大）；词尾非重读-e轻读"讷"</div>
-      <div class="ph-ex">
-        <span class="ph-long">S<u>ee</u> · l<u>e</u>ben</span>（长）<br>
-        <span class="ph-short">B<u>e</u>tt · H<u>e</u>ft</span>（短）<br>
-        <span class="ph-weak">bitt<u>e</u> · komm<u>e</u></span>（轻）
+
+    <div class="blk">
+      <h3>字母歌 <span class="de">Das Abc-Lied</span></h3>
+      <p class="lead">跟着节奏唱一遍，比死记快十倍。旋律用《小星星》。</p>
+      <div class="tip">
+        <strong>🎵</strong>&nbsp;
+        A b c d e f g, &nbsp;/&nbsp; h i j k l m n o p,<br>
+        q r s t u v w, &nbsp;/&nbsp; q r s t u v w,<br>
+        x y — — z: &nbsp;juch he! &nbsp;/&nbsp; Das ist hier das A b c.
       </div>
     </div>
-    <div class="ph-card">
-      <div class="ph-letter">I / i</div>
-      <div class="ph-ipa">[iː] 长 · [ɪ] 短</div>
-      <div class="ph-desc">长音"衣"（拉长）；短音"衣"（短促）</div>
-      <div class="ph-ex">
-        <span class="ph-long">L<u>i</u>ter · w<u>ie</u></span>（长）<br>
-        <span class="ph-short">T<u>i</u>sch · K<u>i</u>nd</span>（短）
+
+    <div class="drill">
+      <h4>🎯 练习一：拼读姓名</h4>
+      <p>不看上面，把下面这些名字一个字母一个字母念出来，再连起来读。</p>
+      <ul class="qlist">
+        <li>M-A-I &nbsp;→&nbsp; Mai</li>
+        <li>B-A-U-E-R &nbsp;→&nbsp; Bauer</li>
+        <li>K-A-N-T &nbsp;→&nbsp; Kant</li>
+        <li>S-C-H-M-I-D-T &nbsp;→&nbsp; Schmidt</li>
+        <li>E-U-L-E-R &nbsp;→&nbsp; Euler</li>
+      </ul>
+      <details><summary>看答案与要点</summary><div class="ans">
+        <b>Mai</b> [maɪ] · <b>Bauer</b> [ˈbaʊɐ] · <b>Kant</b> [kant] · <b>Schmidt</b> [ʃmɪt] · <b>Euler</b> [ˈɔʏlɐ]<br>
+        要点：<code>sch</code> 是一个音 [ʃ]，不要拆成 s + c + h；<code>dt</code> 只读 [t]，d 和 t 不分开念；<code>eu</code> 读 [ɔʏ]。
+      </div></details>
+    </div>
+
+    <div class="check">
+      <h4>✅ 第 1 步自查</h4>
+      <ul>
+        <li>能不看表念出全部 26 个字母的名字</li>
+        <li>J、V、W、Z 四个不会念成英语</li>
+        <li>知道 ä ö ü ß 叫什么、怎么念</li>
+        <li>能把一个姓名按字母念出来让别人听懂</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       STAGE 2 · 拼读
+  ═══════════════════════════════════ -->
+  <section class="stage" id="ph2" style="--c:#0d7c76;--c2:#4fd1c5">
+    <div class="stage-head">
+      <div class="stage-num">2</div>
+      <h2>拼读 <span class="de">Vom Buchstaben zum Laut</span></h2>
+    </div>
+    <div class="stage-goal">
+      <b>这一步要拿到什么：</b>看到一个没学过的德语词，能按规则读出个八九不离十。<b>拼读的核心只有一句话：同一个音可以由不同的字母写出，同一个字母也可能读不同的音。</b>
+    </div>
+
+    <!-- 规则一 -->
+    <div class="blk">
+      <h3>规则一 · 元音的长与短 <span class="de">Länge und Kürze</span></h3>
+      <p class="lead">德语里元音的长短<b>能区分词义</b>，这是中国学生最容易含糊过去、也最影响听力的一环。遇到生词，按这 7 条依次判断。</p>
+      <table>
+        <thead><tr><th style="width:46px">#</th><th style="width:37%">规则</th><th>例词</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">①</td><td>元音字母<b>自成一个音节</b> → <span class="long">长音</span></td><td>A-bend · U-ta · <b>O</b>-per · <b>Ü</b>-bung</td></tr>
+          <tr><td class="ital">②</td><td>在<b>开音节</b>（后面没辅音，只有一个辅音）→ <span class="long">长音</span></td><td>Na-me · Ta-ge · Wa-gen · Bo-den</td></tr>
+          <tr><td class="ital">③</td><td>词干元音后<b>只有一个辅音字母</b> → 一般 <span class="long">长音</span></td><td>Tag · Hof · gut · Mut · Plan</td></tr>
+          <tr><td class="ital">④</td><td>元音字母<b>重叠</b> aa / ee / oo → <span class="long">长音</span></td><td>Maat · Naab · Beet · Meer · Boot · Moos</td></tr>
+          <tr><td class="ital">⑤</td><td>元音在 <b>h</b> 前 → <span class="long">长音</span>，<b>这个 h 不发音</b></td><td>Fahne · Bahn · nahe · Uhr · Sohn · gehen</td></tr>
+          <tr><td class="ital">⑥</td><td><b>双写辅音</b>前 → <span class="short">短音</span>；<b>两个以上辅音</b>前 → 大多 <span class="short">短音</span></td><td>Kamm · Mann · Tante · Mitte · muss · Stadt · Wurst</td></tr>
+          <tr><td class="ital">⑦</td><td>少数词里，只有一个辅音也读 <span class="short">短音</span>（单独记）</td><td>an · das · ab · im · in · bis · hat · was</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>一句话记住：</strong>见了<b>双辅音</b>就<b>短</b>；见了 <b>aa / ee / oo</b> 和<b>元音 + h</b> 就<b>长</b>；只剩一个辅音时，默认<b>长</b>。
+      </div>
+      <div class="warn">
+        <strong>⚠ 一个词听错就全错：</strong>Staat（国家，长 a）／ Stadt（城市，短 a）；bieten（提供，长 i）／ bitten（请求，短 i）；Ofen（烤箱，长 o）／ offen（开着的，短 o）。长短不只是"好不好听"，是<b>词义</b>。
       </div>
     </div>
-    <div class="ph-card">
-      <div class="ph-letter">O / o</div>
-      <div class="ph-ipa">[oː] 长 · [ɔ] 短</div>
-      <div class="ph-desc">嘴唇稍圆；长音"哦"（拉长）；短音"哦"（短促）</div>
-      <div class="ph-ex">
-        <span class="ph-long">Br<u>o</u>t · M<u>o</u>nat</span>（长）<br>
-        <span class="ph-short">G<u>o</u>tt · K<u>o</u>ch</span>（短）
+
+    <!-- 规则二 -->
+    <div class="blk">
+      <h3>规则二 · 音标 → 拼写总表 <span class="de">Laut → Buchstabe</span></h3>
+      <p class="lead">这张表是整份教程的核心。左边是<b>音</b>，中间是能写出这个音的<b>拼写</b>，右边是例词。读生词时，从表的左列往回找。</p>
+
+      <h4 class="sub">🔵 单元音 · 长音 Vokale (lang)</h4>
+      <div class="map">
+        <div class="row"><span class="k">[aː]</span><span class="s">a · aa · ah</span><span class="e">Abend · Name · Tag · da ｜ Maat · Naab ｜ Fahne · Bahn · nahe · Kahn</span></div>
+        <div class="row"><span class="k">[eː]</span><span class="s">e · ee · eh</span><span class="e">eben · geben · lesen · Meter ｜ Tee · Beet · See · Kaffee · Meer ｜ Reh · Mehl · gehen</span></div>
+        <div class="row"><span class="k">[iː]</span><span class="s">i · ie · ih · ieh</span><span class="e">Tiger · Krise · Mine ｜ die · nie · Miete · Dieb ｜ ihn · ihm · ihr · ihnen ｜ Vieh</span></div>
+        <div class="row"><span class="k">[oː]</span><span class="s">o · oo · oh</span><span class="e">oben · Oper · Obst · Hof · Tor ｜ Boot · Moor · Moos ｜ ohne · Kohl · wohnen</span></div>
+        <div class="row"><span class="k">[uː]</span><span class="s">u · uh</span><span class="e">gut · Mut · du · Nu · nun · tut ｜ Kuh · Uhr · Huhn · Ruhe</span></div>
+        <div class="row"><span class="k">[ɛː]</span><span class="s">ä · äh</span><span class="e">Bär · Läden · Täler · Häfen · Käfer ｜ Fähre · Ähre · nähen</span></div>
+        <div class="row"><span class="k">[øː]</span><span class="s">ö · öh · oe</span><span class="e">Löwe · Öfen · Öde · böse · lösen ｜ Söhne · Höhle · Höhe ｜ Goethe</span></div>
+        <div class="row"><span class="k">[yː]</span><span class="s">ü · üh · y</span><span class="e">Tür · übel · Düse · süß · Schüler ｜ fühlen · Frühling · kühl ｜ Typ · Analyse</span></div>
+      </div>
+
+      <h4 class="sub">🟠 单元音 · 短音 Vokale (kurz)</h4>
+      <div class="map">
+        <div class="row"><span class="k">[a]</span><span class="s">a</span><span class="e">Kamm · dann · Damm · Mann · Anna · Tante · Mappen · an · das</span></div>
+        <div class="row"><span class="k">[ɛ]</span><span class="s">e · ä</span><span class="e">Teller · Ecke · essen · Bett · Heft · elf ｜ Kälte · Männer · Hände · Bälle</span></div>
+        <div class="row"><span class="k">[ɪ]</span><span class="s">i</span><span class="e">Kind · Kinn · Tinte · bitten · dick · Mitte · nimmt · immer · im</span></div>
+        <div class="row"><span class="k">[ɔ]</span><span class="s">o</span><span class="e">Sonne · Tonne · Koffer · kommen · Gott · oft · offen · Dorf · Ort</span></div>
+        <div class="row"><span class="k">[ʊ]</span><span class="s">u</span><span class="e">Mund · bunt · dumm · Kuppe · Gummi · Kunde</span></div>
+        <div class="row"><span class="k">[œ]</span><span class="s">ö</span><span class="e">Löffel · öffnen · können · zwölf · möchten · Köln · Wölfe</span></div>
+        <div class="row"><span class="k">[ʏ]</span><span class="s">ü · y</span><span class="e">Füller · fünf · dünn · Mütter · Glück · Küste ｜ Ypsilon · Symbol · System</span></div>
+        <div class="row"><span class="k">[ə]</span><span class="s">e（词尾 / 非重读）</span><span class="e">Katze · Name · Dame · Tage · nehmen · gefallen</span></div>
+      </div>
+
+      <h4 class="sub">🟢 双元音 Diphthonge</h4>
+      <div class="map">
+        <div class="row"><span class="k">[aɪ]</span><span class="s">ei · ai · ey</span><span class="e">Eimer · Ei · ein · mein · Bein · dein · nein ｜ Mai · Mais · Kai ｜ Meyer</span></div>
+        <div class="row"><span class="k">[aʊ]</span><span class="s">au</span><span class="e">Baum · laut · Haus · Auto · Traum · faul · Mauer · Faust</span></div>
+        <div class="row"><span class="k">[ɔʏ]</span><span class="s">eu · äu</span><span class="e">Eule · euer · neu · teuer · neun · Europa ｜ Häuser · Mäuse · Bäume · Räume</span></div>
+      </div>
+
+      <h4 class="sub">🔴 辅音 Konsonanten</h4>
+      <div class="map">
+        <div class="row"><span class="k">[p]</span><span class="s">p · pp · b（词尾）</span><span class="e">Panda · Punkt · Pumpe · Kap ｜ Puppe · Pappe · Mappe ｜ Dieb · ab · gab · gibst</span></div>
+        <div class="row"><span class="k">[b]</span><span class="s">b · bb</span><span class="e">Biene · Bad · Bund · Abend · Gabe ｜ Ebbe · hibbeln</span></div>
+        <div class="row"><span class="k">[t]</span><span class="s">t · tt · th · dt · d（词尾）</span><span class="e">Tat · Tag · Tante · gut · mit ｜ Bett · Mitte · bitte · Latte ｜ Theater · Thema ｜ Stadt · Schmidt ｜ Mund · Kind · und</span></div>
+        <div class="row"><span class="k">[d]</span><span class="s">d · dd</span><span class="e">baden · Binde · du · Dame · Daten · dein · Damm ｜ Pudding</span></div>
+        <div class="row"><span class="k">[k]</span><span class="s">k · ck · g（词尾）</span><span class="e">Kanne · Kuh · Kind · kein ｜ dick · backen · packen ｜ Tag · Teig · mag · biegt</span></div>
+        <div class="row"><span class="k">[g]</span><span class="s">g · gg</span><span class="e">Geige · Gitter · gut · gab · Gummi · Magen ｜ Bagger · Flagge</span></div>
+        <div class="row"><span class="k">[m]</span><span class="s">m · mm</span><span class="e">Arm · Mund · Mutter · Matte ｜ immer · Nummer · dumm · Damm</span></div>
+        <div class="row"><span class="k">[n]</span><span class="s">n · nn</span><span class="e">Nase · nein · nur · Mund · baden ｜ Kanne · innen · dann · kann</span></div>
+        <div class="row"><span class="k">[ŋ]</span><span class="s">ng</span><span class="e">Zeitung · Enge · Angel · singen · Hunger · lang · Ring</span></div>
+        <div class="row"><span class="k">[ŋk]</span><span class="s">nk</span><span class="e">Bank · Schrank · danken · Enkel · Onkel · dunkel · winken</span></div>
+        <div class="row"><span class="k">[f]</span><span class="s">f · ff · ph · v（德语词）</span><span class="e">Film · faul · Tafel · Kauf ｜ Koffer · offen · Affe ｜ Phase · Phonetik ｜ vier · Vater · Volk · aktiv · Motiv</span></div>
+        <div class="row"><span class="k">[v]</span><span class="s">w · v（外来词）</span><span class="e">wo · wer · Wagen · warm · Welt · zwei · Zwiebel ｜ Vase · Villa · Visum · Klavier</span></div>
+        <div class="row"><span class="k">[s]</span><span class="s">s（词尾）· ss · ß</span><span class="e">Westen · Moskau · Haus · Eis ｜ Tasse · essen · dass · muss · Fluss ｜ Maße · Fuß · heißen · Straße · groß</span></div>
+        <div class="row"><span class="k">[z]</span><span class="s">s（元音前）</span><span class="e">sie · Säge · See · Sonntag · Soße · Hose · Musik · Rose · lesen</span></div>
+        <div class="row"><span class="k">[ʃ]</span><span class="s">sch</span><span class="e">Tisch · schade · schön · Schule · schwer · Asche · Tasche · Wäsche · Fisch</span></div>
+        <div class="row"><span class="k">[ʃt]</span><span class="s">st（词干开头）</span><span class="e">Stuhl · Student · Straße · Stern · stehen · verstehen · bestellen</span></div>
+        <div class="row"><span class="k">[ʃp]</span><span class="s">sp（词干开头）</span><span class="e">Spiegel · Sprache · Sport · spät · Spaß · sprechen · versprechen</span></div>
+        <div class="row"><span class="k">[st] · [sp]</span><span class="s">st · sp（不在词干开头）</span><span class="e">Fenster · ist · Wurst · Post · Obst · Gast ｜ Wespe · Knospe · Aspekt · Prospekt</span></div>
+        <div class="row"><span class="k">[ts]</span><span class="s">z · tz · ts · ds · t(ion)</span><span class="e">Zug · Zucker · Zoo · Herz · Tanz ｜ Katze · putzen · Platz ｜ Rätsel · nichts · rechts ｜ abends ｜ Nation · Lektion · Aktion</span></div>
+        <div class="row"><span class="k">[ks]</span><span class="s">chs · x · (c)ks</span><span class="e">sechs · wachsen · Achse · wechseln ｜ Taxi · Text · Axt · Max ｜ links · Keks · Knicks</span></div>
+        <div class="row"><span class="k">[pf]</span><span class="s">pf</span><span class="e">Apfel · Pfennig · Pferd · Pfad · Pfund · Pfeil · Pfau · Kupfer · Kopf · Kampf</span></div>
+        <div class="row"><span class="k">[kv]</span><span class="s">qu</span><span class="e">Quadrat · Quelle · quer · Quarz · Qualm · Quittung · Quote</span></div>
+        <div class="row"><span class="k">[ç]</span><span class="s">ch（e i ä ö ü ei 后）· -ig</span><span class="e">China · nicht · Bücher · leicht · recht · Kirche · Mädchen ｜ richtig · fertig · wenig · Essig · wichtig · fleißig</span></div>
+        <div class="row"><span class="k">[x]</span><span class="s">ch（a o u au 后）</span><span class="e">Buch · acht · Sprache · suchen · Tochter · rauchen · auch · doch · hoch</span></div>
+        <div class="row"><span class="k">[j]</span><span class="s">j · y（少数）</span><span class="e">Jacke · ja · jetzt · Japan · Jugend · Juni · jeder · Sojabohne ｜ Yoga</span></div>
+        <div class="row"><span class="k">[l]</span><span class="s">l · ll</span><span class="e">Lampe · loben · Luft · Blei · Plan · Saal · Mantel · Bild · Geld · Film · Salz ｜ Ball · hell · Null · alle · Welle</span></div>
+        <div class="row"><span class="k">[ʁ] / [r]</span><span class="s">r · rr</span><span class="e">Rad · rot · Radio · raten · rufen · Frau · Probe ｜ Barren · Herren · Herr · wird · Bart · kurz · Art</span></div>
+        <div class="row"><span class="k">[ɐ]</span><span class="s">-er · -em · er- ver- zer- · 词尾 r</span><span class="e">Vater · Kinder · Sommer · Peter · sauber · erleben · verkaufen ｜ Ohr · leer · Tier · wer · mehr · Uhr</span></div>
+        <div class="row"><span class="k">[h]</span><span class="s">h（词首 / 重读音节首）</span><span class="e">Haus · haben · hell · heißen · hoffen · Hose · Hut</span></div>
+        <div class="row hi"><span class="k">—</span><span class="s">h（元音后 · <b>不发音</b>）</span><span class="e">gehen · sehen · ziehen · Uhr · Sohn · Kahn · Fahne · ruhen · ihnen</span></div>
       </div>
     </div>
-    <div class="ph-card">
-      <div class="ph-letter">U / u</div>
-      <div class="ph-ipa">[uː] 长 · [ʊ] 短</div>
-      <div class="ph-desc">嘴唇圆成小圆；长音"乌"（拉长）；短音"乌"（短促）</div>
-      <div class="ph-ex">
-        <span class="ph-long">B<u>u</u>ch · Sch<u>u</u>le</span>（长）<br>
-        <span class="ph-short">M<u>u</u>tter · H<u>u</u>nd</span>（短）
+
+    <!-- 规则三 -->
+    <div class="blk">
+      <h3>规则三 · 九条高频细则 <span class="de">Sonderregeln</span></h3>
+      <table>
+        <thead><tr><th style="width:148px">规则</th><th>说明与例词</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">b d g 词尾清化</td><td>在词尾、音节尾、或后面没有元音时：<b>b→[p]、d→[t]、g→[k]</b>。<br><span class="es">Dieb [diːp] · Kind [kɪnt] · Tag [taːk]；加词尾又变回浊音：Diebe [b] · Kinder [d] · Tage [g]</span></td></tr>
+          <tr><td class="ital">-ig 词尾</td><td>读 <code>[ɪç]</code>；但 -ig 后面还有元音时，g 读回 <code>[g]</code>。<br><span class="es">richtig [ˈʁɪçtɪç] → richtige [ˈʁɪçtɪɡə]；König [ˈkøːnɪç] → Königin [ˈkøːnɪɡɪn]</span></td></tr>
+          <tr><td class="ital">ch 两种读音</td><td>a / o / u / au 之后 → <code>[x]</code>（喉音）；其他元音和辅音之后 → <code>[ç]</code>（软音）；外来词词首 → <code>[k]</code>。<br><span class="es">Buch [x] · Nacht [x] ｜ ich [ç] · nicht [ç] · Mädchen [ç] ｜ Charakter [k]</span></td></tr>
+          <tr><td class="ital">st- / sp-</td><td>在<b>词干开头</b>读 <code>[ʃt]</code> / <code>[ʃp]</code>；不在词干开头仍读 <code>[st]</code> / <code>[sp]</code>。<br><span class="es">Stadt [ʃt] · bestellen [ʃt] ｜ Fenster [st] · ist [st] ｜ Sport [ʃp] · versprechen [ʃp] ｜ Wespe [sp]</span></td></tr>
+          <tr><td class="ital">v</td><td>德语词和外来词的<b>词尾</b>读清音 <code>[f]</code>；外来词<b>音节之首</b>读浊音 <code>[v]</code>。<br><span class="es">Vater [f] · vier [f] · Motiv [f] ｜ Vase [v] · Villa [v] · Klavier [v]</span></td></tr>
+          <tr><td class="ital">s</td><td>元音前读浊音 <code>[z]</code>；辅音前、词或音节末尾读清音 <code>[s]</code>。<b>ss / ß 一律读清音。</b><br><span class="es">sagen [z] · lesen [z] ｜ Haus [s] · Westen [s] ｜ Tasse [s] · Fuß [s]</span></td></tr>
+          <tr><td class="ital">ß 还是 ss</td><td>长元音或双元音之后写 <b>ß</b>；短元音之后写 <b>ss</b>。读音完全一样，都是 [s]。<br><span class="es">Straße（长 a）· heißen（双元音）｜ Wasser（短 a）· müssen（短 ü）</span></td></tr>
+          <tr><td class="ital">h</td><td>词首或重读音节首读 <code>[h]</code>（轻呼气）；在<b>元音之后不发音</b>，只把前面的元音拉长。<br><span class="es">Haus [h] · haben [h] ｜ gehen · Uhr · Sohn · Fahne（h 全都不发音）</span></td></tr>
+          <tr><td class="ital">r</td><td>① 辅音位置发小舌颤音 <code>[ʁ]</code>，舌尖颤音 <code>[r]</code> 也可以；② 短元音后仍有 [ʁ] 音，但倾向元音化；③ 非重读后缀 -er / -em / -ent 及前缀 er- / ver- / zer- 中<b>元音化为 [ɐ]</b>（近似汉语"啊"）；④ 词尾在长元音之后也元音化。<br><span class="es">Rad [ʁ] · rot [ʁ] ｜ Vater [ɐ] · Kinder [ɐ] · erleben [ɐ] ｜ Uhr [ɐ] · Tier [ɐ] · Tor [ɐ]</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 辨音 -->
+    <div class="blk">
+      <h3>辨音对比练习 <span class="de">Minimalpaare</span></h3>
+      <p class="lead">每行是<b>只差一个音</b>的一对词。成对朗读——先把每个音读准，再体会区别。这是德语听力和口语的基本功，也是中国学生进步最快的一项练习。</p>
+      <div class="pairs">
+        <div class="pr"><span class="k">[a] – [aɪ]</span><span class="w">Bann – Bein · dann – dein · Panne – Pein · Mann – Main · kann – kein · Kamm – Keim</span></div>
+        <div class="pr"><span class="k">[p] – [b]</span><span class="w">Puppe – Bube · packen – backen · Pein – Bein · Lippe – Liebe</span></div>
+        <div class="pr"><span class="k">[p] → [b]</span><span class="w">Dieb – Diebe · taub – Taube · knapp – Knabe · Laib – Laibe</span></div>
+        <div class="pr"><span class="k">[t] – [d]</span><span class="w">Tick – dick · Taten – Daten · Tipp – Dip · tun – dumm · Tanne – dann · Tuten – Duden</span></div>
+        <div class="pr"><span class="k">[t] → [d]</span><span class="w">Kind – Kinder · Bad – baden · Neid – neiden · Band – Bande</span></div>
+        <div class="pr"><span class="k">[k] – [g]</span><span class="w">Kuh – gut · Knabe – Gnade · Kap – gab · Kante – Gabe</span></div>
+        <div class="pr"><span class="k">[k] → [g]</span><span class="w">Tag – Tage · bieg – biege · Bug – Buge · mag – Magen</span></div>
+        <div class="pr"><span class="k">[m] – [n]</span><span class="w">im – in · Kamm – kann · Seim – sein · ihm – ihn · Damm – dann · mein – nein</span></div>
+        <div class="pr"><span class="k">[l] – [n]</span><span class="w">leiden – neiden · lasen – Nasen</span></div>
+        <div class="pr"><span class="k">[iː] – [eː]</span><span class="w">Bier – Beere · liebt – lebt · Kiele – Kehle · liegt – legt · mir – mehr · bieten – beten</span></div>
+        <div class="pr"><span class="k">[ɪ] – [ɛ]</span><span class="w">dick – Deck · bitten – Betten · Kitt – Kette · Binder – Bänder · Pille – Pelle · nicken – necken</span></div>
+        <div class="pr"><span class="k">[oː] – [ɔ]</span><span class="w">Ton – Tonne · Rogen – Roggen · Ofen – offen · wohnen – Wonne</span></div>
+        <div class="pr"><span class="k">[ɔ] – [aʊ]</span><span class="w">voll – faul · hoffen – Haufen · Most – Maus · Koffer – kaufen · komm – kaum · sollen – Sauna</span></div>
+        <div class="pr"><span class="k">[f] – [v]</span><span class="w">fein – Wein · Feder – weder · Fall – Wall · Vetter – Wetter · Vieh – wie · Phase – Vase</span></div>
+        <div class="pr"><span class="k">[s] – [z]</span><span class="w">Reis – Reise · wissen – Wiesen · besser – Besen · hassen – Hasen · Risse – Riese · reißen – reisen</span></div>
+        <div class="pr"><span class="k">[s] – [ts]</span><span class="w">Kasse – Katze · Hals – Salz · Kurs – kurz · weiß – Weizen · Pils – Pilz · essen – ätzen</span></div>
+        <div class="pr"><span class="k">[z] – [ts]</span><span class="w">Saal – Zahl · Sand – Zank · seit – Zeit · Sinn – Zinn · soll – Zoll · sehen – Zehen</span></div>
+        <div class="pr"><span class="k">[s] – [ʃ]</span><span class="w">Bus – Busch · hassen – haschen · Masse – Masche · Wasser – waschen · Tasse – Tasche · wissen – wischen</span></div>
+        <div class="pr"><span class="k">[ç] – [ʃ]</span><span class="w">dich – Tisch · Löcher – Löscher · Kirche – Kirsche · Gewicht – gewischt · schlecht – Schicht</span></div>
+        <div class="pr"><span class="k">[z] – [ʃ]</span><span class="w">sein – Schein · Sohn – schon · sollen – Schollen · Söhne – schön</span></div>
+        <div class="pr"><span class="k">[ç] – [x]</span><span class="w">nicht – Nacht · Dolch – doch · Licht – lacht · schlecht – Schlacht</span></div>
+        <div class="pr"><span class="k">[x] → [ç]</span><span class="w">Nacht – Nächte · Strauch – Sträucher · Dach – Dächer · Tochter – Töchter · Buch – Bücher</span></div>
+        <div class="pr"><span class="k">[øː] – [œ]</span><span class="w">Öfen – öffnen · Hörer – Hörner · mögen – möchten · lösen – löschen</span></div>
+        <div class="pr"><span class="k">[eː] – [øː]</span><span class="w">Tee – Töne · Lehne – Löhne · Besen – böse · Meere – Möhre · Hefe – Höfe · lesen – lösen</span></div>
+        <div class="pr"><span class="k">[oː] – [øː]</span><span class="w">Ton – Töne · holen – hören · rot – Röte · hohl – Höhle · Sohn – Söhne · schon – schön</span></div>
+        <div class="pr"><span class="k">[ɛ] – [œ]</span><span class="w">Helle – Hölle · fällig – völlig · kennen – können · Kellner – Kölner · Zelle – Zölle</span></div>
+        <div class="pr"><span class="k">[yː] – [ʏ]</span><span class="w">Lüge – Lücke · Tür – Türme · Hüte – Hütte · fühlen – füllen · Füße – Flüsse · Bühne – Bünde</span></div>
+        <div class="pr"><span class="k">[uː] – [yː]</span><span class="w">gut – Güte · Buch – Bücher · Hut – Hüte · Flug – Flüge · Zug – Züge · bluten – Blüten</span></div>
+        <div class="pr"><span class="k">[iː] – [yː]</span><span class="w">Tier – Tür · liegen – lügen · Biene – Bühne · sieden – Süden · Miete – müde · spielen – spülen</span></div>
+        <div class="pr"><span class="k">[ʊ] – [ʏ]</span><span class="w">Nuss – Nüsse · Kuss – Küsse · Duft – Düfte · muss – müssen · Luft – Lüfte · Grund – Gründe</span></div>
+        <div class="pr"><span class="k">[ɪ] – [ʏ]</span><span class="w">Kiste – Küste · wissen – wüsste · Mitte – Mütter · missen – müssen · Binde – Bünde</span></div>
+        <div class="pr"><span class="k">[ŋ] – [ŋə]</span><span class="w">jung – Junge · eng – Enge · Ring – Ringe · Ding – Dinge</span></div>
+        <div class="pr"><span class="k">[ŋ] – [ŋən]</span><span class="w">Zeitung – Zeitungen · Leitung – Leitungen · Meinung – Meinungen · Übung – Übungen</span></div>
+        <div class="pr"><span class="k">[ŋ] – [ŋk]</span><span class="w">bang – Bank · Engel – Enkel · fing – Fink · Klinge – Klinke</span></div>
+        <div class="pr"><span class="k">[f] – [pf]</span><span class="w"><b>[pf]</b>：Apfel · Pfennig · Pferd · Pfad · Pfund · Pfeil · Pfau · Kopf · Kampf ｜ <b>[f]</b>：Film · faul · Tafel · Kauf · Koffer · offen · Affe</span></div>
       </div>
     </div>
-  </div>
 
-  <!-- ② 变元音 -->
-  <h3 class="ph-cat-title">② 变元音 Umlaute — Ä Ö Ü</h3>
-  <div class="ph-grid">
-    <div class="ph-card ph-umlaut">
-      <div class="ph-letter">Ä / ä</div>
-      <div class="ph-ipa">[ɛː] 长 · [ɛ] 短</div>
-      <div class="ph-desc">类似"爱"中的元音；嘴角向两侧拉开，比e开口更大</div>
-      <div class="ph-ex">
-        <span class="ph-long">K<u>ä</u>se · M<u>ä</u>dchen</span>（长）<br>
-        <span class="ph-short">H<u>ä</u>nde · <u>ä</u>ndern</span>（短）
+    <div class="drill">
+      <h4>🎯 练习二：先判断长短，再读出来</h4>
+      <p>下面每个词，先说出元音是长还是短，再读。读不准就回去查规则一。</p>
+      <ul class="qlist">
+        <li>Bahn &nbsp;·&nbsp; Mann &nbsp;·&nbsp; Stadt &nbsp;·&nbsp; Staat &nbsp;·&nbsp; Kamm &nbsp;·&nbsp; Name</li>
+        <li>Boot &nbsp;·&nbsp; Gott &nbsp;·&nbsp; Sohn &nbsp;·&nbsp; Sonne &nbsp;·&nbsp; Hof &nbsp;·&nbsp; offen</li>
+        <li>Bier &nbsp;·&nbsp; bitten &nbsp;·&nbsp; ihn &nbsp;·&nbsp; Kind &nbsp;·&nbsp; Miete &nbsp;·&nbsp; Mitte</li>
+      </ul>
+      <details><summary>看答案</summary><div class="ans">
+        <span class="long">长音</span>：Bahn · Staat · Name · Boot · Sohn · Hof · Bier · ihn · Miete<br>
+        <span class="short">短音</span>：Mann · Stadt · Kamm · Gott · Sonne · offen · bitten · Kind · Mitte<br>
+        判断依据：aa / ah / oo / oh / ie / ih 和"元音 + h"→ 长；双写辅音或两个以上辅音 → 短。
+      </div></details>
+    </div>
+
+    <div class="check">
+      <h4>✅ 第 2 步自查</h4>
+      <ul>
+        <li>能用 7 条规则判断一个生词元音的长短</li>
+        <li>看到 <code>[ʃt]</code> <code>[ç]</code> <code>[ts]</code> <code>[ɐ]</code> 知道是哪些字母写出来的</li>
+        <li>知道 b / d / g 在词尾变成 p / t / k</li>
+        <li>能读出 <b>[ç]</b> 和 <b>[x]</b> 的区别（ich / Buch）</li>
+        <li>把 35 组辨音对比过了一遍，能听出差异</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       STAGE 3 · 词重音
+  ═══════════════════════════════════ -->
+  <section class="stage" id="ph3" style="--c:#7c3aed;--c2:#a78bfa">
+    <div class="stage-head">
+      <div class="stage-num">3</div>
+      <h2>词重音 <span class="de">Silben und Wortakzent</span></h2>
+    </div>
+    <div class="stage-goal">
+      <b>这一步要拿到什么：</b>读一个多音节词，知道<b>哪个音节该重</b>。重音错了，德国人虽然能听懂，但会觉得别扭；重音对了，你的德语立刻"像德语"。
+    </div>
+
+    <div class="blk">
+      <h3>先分音节 <span class="de">Silben</span></h3>
+      <table>
+        <thead><tr><th style="width:184px">类型</th><th>例词</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">单音节词<br><span class="srcline">einsilbige Wörter</span></td><td>Tag · Uhr · Kamm · Dieb</td></tr>
+          <tr><td class="ital">多音节词<br><span class="srcline">mehrsilbige Wörter</span></td><td>A-bend · U-ta · Na-me · An-na · Kitt-mann · Holz-mann · Ar-bei-ter · Hei-del-berg · Wie-der-se-hen</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>总原则：</strong>多音节词里<b>只有一个音节重读</b>，其余都不重读。德语本族词的词重音<b>绝大多数落在第一个音节</b>上。
       </div>
     </div>
-    <div class="ph-card ph-umlaut">
-      <div class="ph-letter">Ö / ö</div>
-      <div class="ph-ipa">[øː] 长 · [œ] 短</div>
-      <div class="ph-desc">嘴唇圆成"哦"形，舌位发"鄂"；像"喔"但嘴更圆、舌位靠前</div>
-      <div class="ph-ex">
-        <span class="ph-long">sch<u>ö</u>n · S<u>öh</u>ne</span>（长）<br>
-        <span class="ph-short">L<u>ö</u>ffel · zw<u>ö</u>lf</span>（短）
+
+    <div class="blk">
+      <h3>重音落在哪：五类推 <span class="de">Wortakzent I · II · III</span></h3>
+      <table>
+        <thead><tr><th style="width:132px">类型</th><th style="width:31%">例词（粗体为重读音节）</th><th>规律</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">德语本族词</td><td><b>hei</b>ßen · <b>Leh</b>rer · <b>Zim</b>mer · <b>Tho</b>mas · <b>Lam</b>pe · <b>Ar</b>beiter</td><td>重音在<b>第一个音节</b></td></tr>
+          <tr><td class="ital">带非重读前缀</td><td>Ver<b>zei</b>hung · Ent<b>schul</b>digung · be<b>kom</b>men · ge<b>fäl</b>lt · er<b>zäh</b>len</td><td>前缀 <b>be- ge- er- ver- zer- ent- emp-</b> 不重读，重音落到词干</td></tr>
+          <tr><td class="ital">外来词</td><td>Stu<b>dent</b> · Pa<b>pier</b> · Kla<b>vier</b> · Universi<b>tät</b> · stu<b>die</b>ren · Ma<b>schi</b>ne</td><td>重音在<b>倒数第一或第二个音节</b></td></tr>
+          <tr><td class="ital">复合词</td><td><b>Land</b>karte · <b>Haus</b>frau · <b>Tele</b>fonnummer · <b>Klassen</b>zimmer</td><td>Land + Karte → 重音在<b>第一个词</b>上</td></tr>
+          <tr><td class="ital">字母缩写</td><td>das A-B-<b>C</b> · die U-S-<b>A</b> · die C-D-<b>U</b> · die S-P-<b>D</b></td><td>重音在<b>最后一个字母</b>上</td></tr>
+          <tr><td class="ital">「字母 + 词」</td><td>die <b>E</b>-Mail · die <b>U</b>-Bahn · die <b>S</b>-Bahn</td><td>重音在<b>那个字母</b>上</td></tr>
+        </tbody>
+      </table>
+      <div class="info">
+        <strong>复合词是最好用的规律：</strong>德语超长词几乎都是拼出来的，只要找到<b>连接处</b>，重音就在前半截。<br>
+        <span class="es">Haus + Tür = <b>Haus</b>tür ｜ Kranken + Haus = <b>Kranken</b>haus ｜ Kinder + Garten = <b>Kinder</b>garten</span>
       </div>
     </div>
-    <div class="ph-card ph-umlaut">
-      <div class="ph-letter">Ü / ü</div>
-      <div class="ph-ipa">[yː] 长 · [ʏ] 短</div>
-      <div class="ph-desc">嘴唇圆成"乌"形，舌位发"于"；像汉语"鱼"字的韵母</div>
-      <div class="ph-ex">
-        <span class="ph-long"><u>ü</u>ber · T<u>ü</u>r</span>（长）<br>
-        <span class="ph-short">M<u>ü</u>tter · f<u>ü</u>nf</span>（短）
+
+    <div class="drill">
+      <h4>🎯 练习三：几个音节？第几个重读？</h4>
+      <p>读出下面每个词，说出音节数和重读音节的位置。记法：(音节数 / 第几个重读)，例：heißen → (2 / 1)。</p>
+      <div class="words">
+        <span>heißen</span><span>Arbeiter</span><span>Fahne</span><span>Peter</span>
+        <span>Kinder</span><span>Abende</span><span>danke</span><span>Lampe</span>
+        <span>Kittmann</span><span>Bamberg</span><span>Bielefeld</span><span>Computer</span>
+        <span>Chinesisch</span><span>Berlin</span><span>Papier</span>
+      </div>
+      <details><summary>看答案</summary><div class="ans">
+        heißen (2/1) · Arbeiter (3/1) · Fahne (2/1) · Peter (2/1) · Kinder (2/1) · Abende (3/1) · danke (2/1) · Lampe (2/1) · Kittmann (2/1) · Bamberg (2/1) · Bielefeld (3/1) · Computer (3/2) · Chinesisch (3/2) · Berlin (2/2) · Papier (2/2)<br>
+        <b>看出规律了吗：</b>前面一串本族词和地名都是第 1 个音节重读；最后四个是外来词，重音滑到了后面。
+      </div></details>
+    </div>
+
+    <div class="check">
+      <h4>✅ 第 3 步自查</h4>
+      <ul>
+        <li>能把一个多音节词切分成音节（A-bend、Ar-bei-ter）</li>
+        <li>知道德语本族词重音基本在第 1 个音节</li>
+        <li>记得住 be- ge- er- ver- zer- ent- 这些前缀不重读</li>
+        <li>遇到外来词会自动往后找重音（Student、Papier）</li>
+        <li>看到长复合词会先找连接处（Haus-tür）</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       STAGE 4 · 句重音
+  ═══════════════════════════════════ -->
+  <section class="stage" id="ph4" style="--c:#b8860b;--c2:#f6d365">
+    <div class="stage-head">
+      <div class="stage-num">4</div>
+      <h2>句重音与语调 <span class="de">Satzakzent, Sprechmelodie, Pause</span></h2>
+    </div>
+    <div class="stage-goal">
+      <b>这一步要拿到什么：</b>单词读对了，还要让<b>整句</b>听起来对。这一层管三件事：句子里哪个词该重、句尾是升还是降、哪里该停一下。
+    </div>
+
+    <div class="blk">
+      <h3>① 句重音：句子里的"重点词" <span class="de">Satzakzent</span></h3>
+      <table>
+        <thead><tr><th style="width:132px">句型</th><th style="width:33%">例句（粗体为重读词）</th><th>规律</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">陈述句<br><span class="srcline">Aussagesatz</span></td><td>Ich heiße <b>Tho</b>mas. ／ Das ist Frau <b>Bau</b>er. ／ Mein Name ist Yang <b>Fang</b>.</td><td>短句通常<b>只有一个句重音</b>；陈述句的重音一般落在<b>最后一个词</b>上</td></tr>
+          <tr><td class="ital">补充疑问句<br><span class="srcline">W-Frage</span></td><td>Wer <b>ist</b> das? ／ Wie <b>heißt</b> das?</td><td>补充疑问句的重音常常落在<b>动词</b>上</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="blk">
+      <h3>② 语调：句尾往上还是往下 <span class="de">Sprechmelodie</span></h3>
+      <p class="lead">德语语调比汉语简单，记住七种句型就够用了。</p>
+      <table>
+        <thead><tr><th style="width:124px">语调</th><th style="width:35%">例句</th><th>句子类型</th></tr></thead>
+        <tbody>
+          <tr><td class="ital" style="color:#c53030">↓ 降调</td><td>Ich komme aus Berlin. ↓</td><td>陈述句 Aussagesatz</td></tr>
+          <tr><td class="ital" style="color:#c53030">↓ 降调</td><td>Nehmen Sie Platz! ↓</td><td>命令句 Imperativ</td></tr>
+          <tr><td class="ital" style="color:#c53030">↓ 大多降调</td><td>Woher kommen Sie? ↓ ／ Wer ist das? ↓ ／ Wie geht es Ihnen? ↓</td><td>补充疑问句 W-Frage</td></tr>
+          <tr><td class="ital" style="color:#276749">↑ 升调</td><td>Wohnen Sie in Beijing? ↑ ／ Sind Sie Herr Holzmann? ↑ ／ Heißt das auf Deutsch Tafel? ↑</td><td>判断疑问句 Ja-Nein-Frage</td></tr>
+          <tr><td class="ital" style="color:#c05621">→ 平调</td><td>Ja, → in Haidian. ／ Guten Tag, → ich heiße Hans Mai.</td><td>句中逗号之前（话没说完）</td></tr>
+          <tr><td class="ital" style="color:#276749">↑ 升调</td><td>Und (wo wohnen) Sie? ↑ ／ Und (wie geht es) Ihnen? ↑</td><td>回问 / 反问 Nachfrage</td></tr>
+          <tr><td class="ital" style="color:#c53030">↓ 降调</td><td>Ist er Schüler oder Student? ↓</td><td>选择疑问句（句中有 oder）</td></tr>
+        </tbody>
+      </table>
+      <div class="info">
+        <strong>补充疑问句也能升调：</strong>W-Frage 本来是降调，但说话人<b>重复问、反问</b>，或想表示<b>关切和友好的兴趣</b>时，也可以用升调。<br>
+        ● Wie heißen Sie? ■ Ich heiße Hans Mai. Und <b>Sie</b>? ↑ &nbsp;／&nbsp; ● Wie geht es Ihnen? ■ Danke, gut. Und <b>Ihnen</b>? ↑
+      </div>
+      <div class="warn">
+        <strong>⚠ 判断疑问句千万别用降调：</strong>「Wohnen Sie in Beijing?」如果结尾往下掉，德国人会听成一个<b>陈述</b>（"你住北京"），而不是在问你。升调是这一类句子的身份证。
       </div>
     </div>
-  </div>
 
-  <!-- ③ ß -->
-  <h3 class="ph-cat-title">③ 特殊字母 ß（Eszett / scharfes S）</h3>
-  <div class="rule-box">
-    <span class="label">发音：</span>[s]，发音与 ss 完全相同，读清晰的"s"<br>
-    <span class="label">使用规则：</span>
-    <b>长元音</b>或<b>双元音</b>后 → 用 <b class="hl-r">ß</b>；
-    <b>短元音</b>后 → 用 <b class="hl-b">ss</b><br>
-    <span class="label">例：</span>
-    Stra<b class="hl-r">ß</b>e（长 a 后）、hei<b class="hl-r">ß</b>en（双元音 ei 后）；
-    Wa<b class="hl-b">ss</b>er（短 a 后）、mü<b class="hl-b">ss</b>en（短 ü 后）
-  </div>
-
-  <!-- ④ 双元音 -->
-  <h3 class="ph-cat-title">④ 双元音 Diphthonge</h3>
-  <div class="ph-grid">
-    <div class="ph-card ph-diph">
-      <div class="ph-letter">ei / ai</div>
-      <div class="ph-ipa">[aɪ]</div>
-      <div class="ph-desc">发"艾"，由"啊"快速滑向"衣"</div>
-      <div class="ph-ex">
-        <span class="ph-long">W<u>ei</u>n · dr<u>ei</u> · M<u>ai</u></span>
+    <div class="blk">
+      <h3>③ 停顿：哪里该停一下 <span class="de">Sprechpause</span></h3>
+      <table>
+        <thead><tr><th style="width:39%">例句</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>Das ist Thomas. ／ Heißen Sie Yang Fang?</td><td>短句<b>不停顿</b>，尤其语速较快时</td></tr>
+          <tr><td>Guten Tag, <b>/</b> ich heiße Hans Mai.</td><td>句子之间、长句中间要停；一般在<b>逗号之后</b>作短暂停顿，记作 ( / )</td></tr>
+          <tr><td>Danke gut, <b>/</b> und Ihnen?</td><td>停顿是<b>断句</b>——既帮对方听懂，也是说好德语的关键</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>停顿不是随便加的：</strong>它跟着<b>语法结构</b>走。德语动词常被"甩"到句尾，停顿正好帮你把句子分成"谁 + 做什么 + 什么"几块，听众才跟得上。
       </div>
     </div>
-    <div class="ph-card ph-diph">
-      <div class="ph-letter">eu / äu</div>
-      <div class="ph-ipa">[ɔɪ]</div>
-      <div class="ph-desc">发"哦衣"，由"哦"快速滑向"衣"</div>
-      <div class="ph-ex">
-        <span class="ph-long">n<u>eu</u> · F<u>eu</u>er · H<u>äu</u>ser</span>
+
+    <div class="drill">
+      <h4>🎯 练习四：标出重音词和语调</h4>
+      <p>先自己在心里读一遍，判断每句该标 ↓ 还是 ↑，重音词在哪。</p>
+      <ul class="qlist">
+        <li>Wie heißen Sie?</li>
+        <li>Kommen Sie aus Deutschland?</li>
+        <li>Ich wohne in Beijing.</li>
+        <li>Ist das ein Buch oder ein Heft?</li>
+        <li>Danke, gut. Und Ihnen?</li>
+      </ul>
+      <details><summary>看答案</summary><div class="ans">
+        <b>Wie <u>heißt</u> Sie?</b> ↓ —— W-Frage，重音在动词，降调<br>
+        <b>Kommen Sie aus <u>Deutsch</u>land?</b> ↑ —— 判断疑问句，升调<br>
+        <b>Ich wohne in <u>Bei</u>jing.</b> ↓ —— 陈述句，重音落在最后一个词，降调<br>
+        <b>Ist das ein <u>Buch</u> oder ein <u>Heft</u>?</b> ↓ —— 选择疑问句，降调<br>
+        <b>Danke, gut. Und <u>Ihnen</u>?</b> ↑ —— 回问，升调
+      </div></details>
+    </div>
+
+    <div class="check">
+      <h4>✅ 第 4 步自查</h4>
+      <ul>
+        <li>知道陈述句的重音落在最后一个词</li>
+        <li>W-Frage 降调、Ja-Nein-Frage 升调，分得清</li>
+        <li>会说带 oder 的选择疑问句，结尾降调</li>
+        <li>知道逗号后要停一下，短句不用停</li>
+        <li>能用"回问 + 升调"表达友好的兴趣（Und Ihnen? ↑）</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       STAGE 5 · 读短文
+  ═══════════════════════════════════ -->
+  <section class="stage" id="ph5" style="--c:#c05621;--c2:#f6ad55">
+    <div class="stage-head">
+      <div class="stage-num">5</div>
+      <h2>读短文 <span class="de">Lesen und sprechen</span></h2>
+    </div>
+    <div class="stage-goal">
+      <b>这一步要拿到什么：</b>把前四步的规则<b>落进真实句子</b>。短文里的<b>粗体</b>是重读音节，<b>/</b> 是停顿。<b>先慢读，再正常读，最后不看标注读。</b>
+    </div>
+
+    <!-- 短文 1 -->
+    <div class="text">
+      <div class="text-h">
+        <span class="n">A</span>
+        <h4>一次初次见面</h4>
+        <span class="lv">对话 · 停顿跟读</span>
+      </div>
+      <div class="cn" style="border-top:none;padding-top:0;margin-top:0">标注：粗体 = 重读音节 ｜ / = 短暂停顿</div>
+      <div class="body dlg">
+        <div><b>Frau Euler:</b> Ver<b>zei</b>hung. <i>/</i> Sind Sie Herr <b>Ma</b>?</div>
+        <div><b>Herr Ma:</b> Ja, <i>/</i> mein <b>Na</b>me ist Ma Bo<b>lin</b>.</div>
+        <div><b>Frau Euler:</b> <b>Gu</b>ten <b>Mor</b>gen, <i>/</i> ich bin <b>Mo</b>nika <b>Eu</b>ler.</div>
+        <div><b>Herr Ma:</b> <b>Gu</b>ten <b>Tag</b>. <i>/</i> Wie geht es <b>Ih</b>nen?</div>
+        <div><b>Frau Euler:</b> <b>Dan</b>ke, <i>/</i> gut.</div>
+        <div><b>Herr Ma:</b> Sind Sie hier Studen<b>tin</b>?</div>
+        <div><b>Frau Euler:</b> Nein, <i>/</i> ich bin nicht Studen<b>tin</b>, <i>/</i> ich bin <b>Leh</b>rerin.</div>
+        <div><b>Herr Ma:</b> Oh, Ent<b>schul</b>digung! <i>/</i> <b>Kom</b>men Sie aus <b>Deutsch</b>land?</div>
+        <div><b>Frau Euler:</b> Ja, <i>/</i> aus <b>Frank</b>furt. <i>/</i> Und <b>Sie</b>?</div>
+        <div><b>Herr Ma:</b> Ich bin aus <b>Bei</b>jing. <i>/—</i> <b>Al</b>les <b>Gu</b>te, <i>/</i> Frau <b>Eu</b>ler.</div>
+        <div><b>Frau Euler:</b> <b>Dan</b>ke. <i>/</i> Auf <b>Wie</b>der<b>se</b>hen, <i>/</i> Herr <b>Ma</b>.</div>
+        <div><b>Herr Ma:</b> Auf <b>Wie</b>der<b>se</b>hen.</div>
+      </div>
+      <div class="cn">
+        参考译文：<br>
+        欧拉女士：抱歉。/ 您是马先生吗？<br>
+        马先生：是的，/ 我叫马柏林。<br>
+        欧拉女士：早上好，/ 我是莫妮卡·欧拉。……
+      </div>
+      <div class="focus">拼读点：Verzeihung / Entschuldigung 的重音在词干不在前缀 · Deutschland 的 [ʃ] · 结尾 -er 读 [ɐ] 不卷舌</div>
+    </div>
+
+    <!-- 短文 2 -->
+    <div class="text">
+      <div class="text-h">
+        <span class="n">B</span>
+        <h4>自我介绍</h4>
+        <span class="lv">短文 · 入门</span>
+      </div>
+      <div class="body">
+        <b>Gu</b>ten <b>Tag</b>! Ich <b>hei</b>ße <b>An</b>na <b>Kant</b>. <i>/</i>
+        Ich <b>kom</b>me aus Ber<b>lin</b> <i>/</i> und <b>woh</b>ne jetzt in <b>Bei</b>jing. <i>/</i>
+        Ich bin <b>Leh</b>rerin.<br>
+        Das ist Herr <b>Ma</b>. <i>/</i> Er <b>kom</b>mt aus <b>Chi</b>na <i>/</i> und ist Stu<b>dent</b>. <i>/</i>
+        Er <b>lernt</b> <b>Deutsch</b>.<br>
+        <b>Deutsch</b> ist nicht <b>schwer</b>. <i>/</i> Wir <b>ler</b>nen <b>je</b>den <b>Tag</b> <i>/</i> <b>zwei</b> Stun<b>den</b>.
+      </div>
+      <div class="cn">参考译文：你好！我叫安娜·康德。我来自柏林，现在住在北京。我是老师。这位是马先生。他来自中国，是学生。他在学德语。德语不难。我们每天学两个小时。</div>
+      <div class="focus">拼读点：heißen 的 ei [aɪ] · Berlin 重音在第 2 音节 · Deutsch 的 eu [ɔʏ] · schwer 的 sch [ʃ] · Student 重音在后</div>
+    </div>
+
+    <!-- 短文 3 -->
+    <div class="text">
+      <div class="text-h">
+        <span class="n">C</span>
+        <h4>我的一天</h4>
+        <span class="lv">短文 · 进阶</span>
+      </div>
+      <div class="body">
+        Mein <b>Na</b>me ist <b>Pe</b>ter <b>Bau</b>er. <i>/</i> Ich <b>woh</b>ne in <b>Köln</b>.<br>
+        Am <b>Mor</b>gen <b>trin</b>ke ich <b>Kaf</b>fee <i>/</i> und <b>le</b>se die <b>Zei</b>tung. <i>/</i>
+        Um <b>acht</b> <b>ge</b>he ich zur <b>Ar</b>beit.<br>
+        Am <b>A</b>bend <b>ko</b>che ich mit <b>mei</b>ner <b>Frau</b>. <i>/</i>
+        Wir <b>es</b>sen <b>Brot</b> <i>/</i> und <b>Kä</b>se. <i>/</i>
+        Dann <b>ge</b>hen wir spa<b>zie</b>ren. <i>/</i>
+        Das ist <b>schön</b>.
+      </div>
+      <div class="cn">参考译文：我叫彼得·鲍尔。我住在科隆。早上我喝咖啡，看报纸。八点去上班。晚上我和妻子一起做饭。我们吃面包和奶酪。然后去散步。这很好。</div>
+      <div class="focus">拼读点：Köln 的 ö [œ] · Zeitung 的 ei [aɪ] + ng [ŋ] · Abend 长 a（自成一音节）· Käse 的 ä [ɛː] · essen 短 e（双写辅音）· schön 的 ö [øː]</div>
+    </div>
+
+    <!-- 朗读法 -->
+    <div class="blk">
+      <h3>怎么练：四遍朗读法 <span class="de">Vier Schritte</span></h3>
+      <table>
+        <thead><tr><th style="width:96px">第几遍</th><th style="width:150px">做什么</th><th>要求</th></tr></thead>
+        <tbody>
+          <tr><td class="ital">第 1 遍</td><td>只看音，不赶速度</td><td>遇到生词停下来，用第 2 步的总表判断长短音和特殊拼写，<b>宁可慢，不要错</b></td></tr>
+          <tr><td class="ital">第 2 遍</td><td>只读重音</td><td>先不管其他音节，把每个词的重读音节念出来，感受节奏</td></tr>
+          <tr><td class="ital">第 3 遍</td><td>加停顿和语调</td><td>逗号处停一下；陈述句结尾降下去，判断疑问句升上去</td></tr>
+          <tr><td class="ital">第 4 遍</td><td>录音对比</td><td>录下来自己听。听三件事：<b>长短音有没有混</b>、<b>重音位置对不对</b>、<b>句尾调子了没有</b></td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>录音是性价比最高的一步。</strong>德语的长短音、[ç]/[x]、清浊辅音，自己读的时候感觉不到问题，一听录音立刻现形。
       </div>
     </div>
-    <div class="ph-card ph-diph">
-      <div class="ph-letter">au</div>
-      <div class="ph-ipa">[aʊ]</div>
-      <div class="ph-desc">发"奥"，由"啊"快速滑向"乌"</div>
-      <div class="ph-ex">
-        <span class="ph-long">H<u>au</u>s · Fr<u>au</u> · <u>au</u>ch</span>
-      </div>
+
+    <div class="check">
+      <h4>✅ 第 5 步自查</h4>
+      <ul>
+        <li>能把三篇短文从头到尾读下来，不卡壳</li>
+        <li>短文里的长元音都拖够了、短元音都收住了</li>
+        <li>重读音节读对了（尤其 Berlin、Student、Computer 这些外来词）</li>
+        <li>逗号后停了、句尾调子对了</li>
+        <li>录过音，并且听出了自己至少一个问题</li>
+      </ul>
     </div>
-    <div class="ph-card ph-diph">
-      <div class="ph-letter">ie</div>
-      <div class="ph-ipa">[iː]</div>
-      <div class="ph-desc">长"衣"音（非双元音），ie 永远读长音</div>
-      <div class="ph-ex">
-        <span class="ph-long">l<u>ie</u>ben · T<u>ie</u>r · w<u>ie</u></span>
-      </div>
+  </section>
     </div>
   </div>
-
-  <!-- ⑤ 辅音字母组合 -->
-  <h3 class="ph-cat-title">⑤ 辅音字母组合 Konsonantenkombinationen</h3>
-  <table>
-    <thead><tr><th>组合</th><th>音标</th><th>规则 / 说明</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><b>ch</b></td><td><code>[x] / [ç]</code></td>
-        <td>a·o·u·au 后 → <b>[x]</b> 喉音（像"哈"用力）；<br>e·i·ä·ö·ü·ei 后或词首 → <b>[ç]</b> 软音（像轻声"嘻"）；<br>外来词词首（Charakter）→ [k]</td>
-        <td>Bu<b>ch</b> [x]、Na<b>ch</b>t [x]<br>i<b>ch</b> [ç]、ni<b>ch</b>t [ç]</td>
-      </tr>
-      <tr>
-        <td><b>sch</b></td><td><code>[ʃ]</code></td>
-        <td>类似汉语"书"的声母；类似英文 sh</td>
-        <td><b>Sch</b>ule · <b>sch</b>ön · Ta<b>sch</b>e</td>
-      </tr>
-      <tr>
-        <td><b>sp-</b>（词首）</td><td><code>[ʃp]</code></td>
-        <td>词首 sp- 读 [ʃp]；词中·词尾读 [sp]</td>
-        <td><b>sp</b>ielen · <b>Sp</b>rache · <b>Sp</b>ort</td>
-      </tr>
-      <tr>
-        <td><b>st-</b>（词首）</td><td><code>[ʃt]</code></td>
-        <td>词首 st- 读 [ʃt]；词中·词尾读 [st]</td>
-        <td><b>St</b>adt · <b>St</b>ein · <b>st</b>ehen</td>
-      </tr>
-      <tr>
-        <td><b>pf</b></td><td><code>[pf]</code></td>
-        <td>p 和 f 连读（爆破＋摩擦），词首词尾均发全音</td>
-        <td><b>Pf</b>erd · A<b>pf</b>el · Kop<b>f</b></td>
-      </tr>
-      <tr>
-        <td><b>qu</b></td><td><code>[kv]</code></td>
-        <td>读 [kv]，类似英文 qu，但 u 也要发音</td>
-        <td><b>Qu</b>alität · <b>Qu</b>elle</td>
-      </tr>
-      <tr>
-        <td><b>ng</b></td><td><code>[ŋ]</code></td>
-        <td>类似"英"末尾的鼻音；n 和 g 融合，g 不单独发</td>
-        <td>la<b>ng</b> · si<b>ng</b>en · Ju<b>ng</b>e</td>
-      </tr>
-      <tr>
-        <td><b>nk</b></td><td><code>[ŋk]</code></td>
-        <td>[ŋ]＋[k]，k 要清晰发出</td>
-        <td>da<b>nk</b>e · Ba<b>nk</b> · tri<b>nk</b>en</td>
-      </tr>
-      <tr>
-        <td><b>tsch</b></td><td><code>[tʃ]</code></td>
-        <td>类似英文 ch（church）；类似汉语"吃"的声母</td>
-        <td><b>Tsch</b>üss · Deu<b>tsch</b> · kla<b>tsch</b>en</td>
-      </tr>
-      <tr>
-        <td><b>chs</b></td><td><code>[ks]</code></td>
-        <td>读 [ks]，类似英文字母 x</td>
-        <td>se<b>chs</b> · wa<b>chs</b>en · Fuch<b>s</b></td>
-      </tr>
-      <tr>
-        <td><b>th</b></td><td><code>[t]</code></td>
-        <td>只读 [t]，h 不发音（来自希腊语的外来词）</td>
-        <td><b>Th</b>eater · <b>Th</b>ema · Ma<b>th</b>e</td>
-      </tr>
-      <tr>
-        <td><b>ph</b></td><td><code>[f]</code></td>
-        <td>读 [f]，来自希腊语外来词（同英文 ph）</td>
-        <td><b>Ph</b>ysik · <b>Ph</b>oto · Tele<b>ph</b>on</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- ⑥ 特殊辅音 -->
-  <h3 class="ph-cat-title">⑥ 特殊辅音规则</h3>
-  <table>
-    <thead><tr><th>字母</th><th>音标</th><th>规则</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><b>w</b></td><td><code>[v]</code></td>
-        <td>永远读 [v]，如英文的 v（上齿咬下唇摩擦）</td>
-        <td>wohnen · Wort · Wasser</td>
-      </tr>
-      <tr>
-        <td><b>v</b></td><td><code>[f] / [v]</code></td>
-        <td>德语本土词 → [f]；外来词 → [v]</td>
-        <td>Vater [f] · Vogel [f] · Verb [v]</td>
-      </tr>
-      <tr>
-        <td><b>z</b></td><td><code>[ts]</code></td>
-        <td>永远读 [ts]，类似汉语"兹"或"子"（爆破＋摩擦）</td>
-        <td>Zeit · zehn · Zug · tanzen</td>
-      </tr>
-      <tr>
-        <td><b>s</b></td><td><code>[z] / [s]</code></td>
-        <td>词首在元音前 / 两元音之间 → [z]（浊音）；其余 → [s]（清音）</td>
-        <td>sagen [z] · das [s] · Hause [z]</td>
-      </tr>
-      <tr>
-        <td><b>j</b></td><td><code>[j]</code></td>
-        <td>类似英文 y，如汉语"呀"的声母，为半元音</td>
-        <td>ja · jung · Jahr · jetzt</td>
-      </tr>
-      <tr>
-        <td><b>h</b></td><td><code>[h] / 静音</code></td>
-        <td>词首或重读音节首 → [h]（轻呼气）；元音后 → 不发音，只拉长前面的元音</td>
-        <td>Haus [h] · gehen（h静）· Uhr（h静）</td>
-      </tr>
-      <tr>
-        <td><b>r</b></td><td><code>[ʁ] / [ɐ]</code></td>
-        <td>词首·元音前 → 小舌颤音 [ʁ]（或舌尖 [r]）；非重读词尾（-er）→ 弱化为 [ɐ]</td>
-        <td>Regen · richtig · aber [ɐ] · Mutter [ɐ]</td>
-      </tr>
-      <tr>
-        <td><b>x</b></td><td><code>[ks]</code></td>
-        <td>读 [ks]，与 chs 读音相同</td>
-        <td>Extra · Taxi · Text</td>
-      </tr>
-      <tr>
-        <td><b>y</b></td><td><code>[yː] / [j]</code></td>
-        <td>外来词中读 [yː]（类似 ü）；某些词中读 [j]</td>
-        <td>Typ [yː] · Yoga [j]</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- ⑦ 词尾辅音清化 -->
-  <h3 class="ph-cat-title">⑦ 词尾辅音清化 Auslautverhärtung</h3>
-  <div class="alert">
-    <strong>规则：</strong>浊辅音 <b>b、d、g</b> 位于词尾或音节末尾时，分别变为对应的清辅音 <b>p、t、k</b>！<br>
-    书写不变，只是发音改变。复数或加词尾后恢复浊音。
-  </div>
-  <table>
-    <thead><tr><th>变化</th><th>单数（词尾清化）</th><th>复数（恢复浊音）</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><span class="hl-r">b → [p]</span></td>
-        <td>halb [halp] · Dieb [diːp]</td>
-        <td>halbe [b] · Diebe [b]</td>
-      </tr>
-      <tr>
-        <td><span class="hl-r">d → [t]</span></td>
-        <td>Hund [hʊnt] · Kind [kɪnt]</td>
-        <td>Hunde [d] · Kinder [d]</td>
-      </tr>
-      <tr>
-        <td><span class="hl-r">g → [k]</span></td>
-        <td>Tag [taːk] · Berg [bɛrk]</td>
-        <td>Tage [g] · Berge [g]</td>
-      </tr>
-      <tr>
-        <td><span class="hl-r">-ig → [ɪç]</span></td>
-        <td>ruhig [ruːɪç] · fertig [fɛrtɪç]</td>
-        <td>ruhige [g] · fertige [g]</td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- ══════════ 拼读进阶（Phonetik 系统补全）══════════ -->
-
-  <!-- ⑧ 元音长短 -->
-  <h3 class="ph-cat-title">⑧ 元音长短：7 条判断规则 Länge und Kürze der Vokale</h3>
-  <p class="ph-sub">德语元音的长短<b>能区分词义</b>（<i>Staat</i> 长音「国家」／ <i>Stadt</i> 短音「城市」），是中国学生最容易读错的地方。遇到生词，按下面 7 条依次判断即可。</p>
-  <div class="ph-stack">
-  <table class="ph-tbl4">
-    <thead><tr><th style="width:56px">序号</th><th style="width:38%">规则</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><b>①</b></td><td>元音字母<b>自成一个音节</b>时读长音</td><td>A-bend · U-ta · <b>O</b>-per · <b>I</b>-dee · <b>Ü</b>-bung</td></tr>
-      <tr><td><b>②</b></td><td>在<b>开音节</b>中（元音后没有辅音，或只有一个辅音）读长音</td><td>Na-me · Ta-ge · Wa-gen · Bo-den · le-sen</td></tr>
-      <tr><td><b>③</b></td><td>词干元音后<b>只有一个辅音字母</b>时，该元音一般读长音</td><td>Tag · Hof · gut · Mut · Plan</td></tr>
-      <tr><td><b>④</b></td><td>元音字母<b>重叠</b>（aa / ee / oo）读长音</td><td>Maat · Naab · Beet · Meer · Tee · Boot · Moor · Moos</td></tr>
-      <tr><td><b>⑤</b></td><td>元音在 <b>h</b> 前读长音，这个 <b>h 不发音</b>（长音标记 Dehnungs-h）</td><td>Fahne · Bahn · nahe · Kahn · Naht · Uhr · Sohn · gehen · ruhen</td></tr>
-      <tr><td><b>⑥</b></td><td>元音在<b>双写辅音</b>前读短音；在两个或两个以上辅音前<b>大多</b>读短音</td><td>Kamm · Mann · Tante · Mitte · muss · Stadt · Wurst · Herbst</td></tr>
-      <tr><td><b>⑦</b></td><td>少数词中，元音后<b>只有一个辅音</b>时也读短音（需单独记）</td><td>an · das · ab · im · in · bis · hat · was · um</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="note"><strong>一句话记住：</strong>见了<b>双辅音</b>就短；见了 <b>aa / ee / oo</b> 和 <b>元音 + h</b> 就长；只剩一个辅音时，默认读<b>长</b>。</div>
-
-  <!-- ⑨ 拼读总表 -->
-  <h3 class="ph-cat-title">⑨ 拼读总表：一个音，几种写法 Laut → Buchstabe</h3>
-  <p class="ph-sub">这张表是德语拼读的核心：<b>同一个音</b>可以由不同的字母／字母组合写出，<b>同一个字母</b>也可能读不同的音。左列是音标，中列是可能的拼写，右列是例词。</p>
-
-  <div class="ph-grp">🔵 ① 单元音 · 长音 Vokale (lang)</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:82px">音标</th><th style="width:118px">拼写</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><code>[aː]</code></td><td><b>a</b> · <b>aa</b> · <b>ah</b></td><td>Abend · Name · Tag · da｜Maat · Naab｜Fahne · Bahn · nahe · Kahn · Naht</td></tr>
-      <tr><td><code>[eː]</code></td><td><b>e</b> · <b>ee</b> · <b>eh</b></td><td>eben · geben · lesen · Meter · den｜Tee · Beet · See · Fee · Kaffee · Meer｜Reh · Mehl · fehlen · gehen</td></tr>
-      <tr><td><code>[iː]</code></td><td><b>i</b> · <b>ie</b> · <b>ih</b> · <b>ieh</b></td><td>Tiger · Krise · Mine · Niger｜die · nie · Miete · Dieter · Dieb｜ihn · ihm · ihr · ihnen｜Vieh · zieht</td></tr>
-      <tr><td><code>[oː]</code></td><td><b>o</b> · <b>oo</b> · <b>oh</b></td><td>oben · Oper · Obst · Hof · Tor｜Boot · Moor · Moos｜ohne · Kohl · wohnen · Bohnen</td></tr>
-      <tr><td><code>[uː]</code></td><td><b>u</b> · <b>uh</b></td><td>gut · Mut · du · Nu · nun · tut｜Kuh · Uhr · Huhn · Ruhe</td></tr>
-      <tr><td><code>[ɛː]</code></td><td><b>ä</b> · <b>äh</b></td><td>Bär · Läden · Täler · Häfen · Käfer｜Fähre · Ähre · Mähre · nähen</td></tr>
-      <tr><td><code>[øː]</code></td><td><b>ö</b> · <b>öh</b> · <b>oe</b></td><td>Löwe · Öfen · Öde · böse · lösen｜Söhne · Höhle · Höhe｜Goethe</td></tr>
-      <tr><td><code>[yː]</code></td><td><b>ü</b> · <b>üh</b> · <b>y</b></td><td>Tür · übel · Düse · süß · Schüler｜fühlen · Frühling · kühl · Hühner｜Typ · Analyse · anonym</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="ph-grp">🟠 ② 单元音 · 短音 Vokale (kurz)</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:82px">音标</th><th style="width:118px">拼写</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><code>[a]</code></td><td><b>a</b></td><td>Kamm · dann · Damm · Mann · Anna · Tante · Mappen · an · das</td></tr>
-      <tr><td><code>[ɛ]</code></td><td><b>e</b> · <b>ä</b></td><td>Teller · Ecke · essen · Bett · Heft · elf · Eltern｜Kälte · Männer · Hände · Bälle · älter · ändern</td></tr>
-      <tr><td><code>[ɪ]</code></td><td><b>i</b> · <b>ü</b>(少数)</td><td>Kind · Kinn · Tinte · bitten · dick · Mitte · nimmt · immer · im</td></tr>
-      <tr><td><code>[ɔ]</code></td><td><b>o</b></td><td>Sonne · Tonne · Koffer · kommen · Gott · oft · offen · Osten · Dorf · Ort</td></tr>
-      <tr><td><code>[ʊ]</code></td><td><b>u</b></td><td>Mund · bunt · dumm · Kuppe · Gummi · Kunde</td></tr>
-      <tr><td><code>[œ]</code></td><td><b>ö</b></td><td>Löffel · öffnen · können · zwölf · möchten · Köln · Wölfe</td></tr>
-      <tr><td><code>[ʏ]</code></td><td><b>ü</b> · <b>y</b></td><td>Füller · fünf · dünn · Mütter · Glück · Küste｜Ypsilon · Symbol · Ägypten · System</td></tr>
-      <tr><td><code>[ə]</code></td><td><b>e</b>（词尾／非重读）</td><td>Katze · Name · Dame · Tage · nehmen · gefallen · Bedenken</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="ph-grp">🟢 ③ 双元音 Diphthonge</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:82px">音标</th><th style="width:118px">拼写</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><code>[aɪ]</code></td><td><b>ei</b> · <b>ai</b> · <b>ey</b></td><td>Eimer · Ei · ein · mein · Bein · dein · nein｜Mai · Mais · Kai｜Meyer</td></tr>
-      <tr><td><code>[aʊ]</code></td><td><b>au</b></td><td>Baum · laut · Haus · Auto · Traum · faul · Mauer · Faust</td></tr>
-      <tr><td><code>[ɔʏ]</code></td><td><b>eu</b> · <b>äu</b></td><td>Eule · euer · neu · teuer · neun · Europa｜Häuser · Mäuse · Bäume · Räume</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="ph-grp">🔴 ④ 辅音 Konsonanten</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:82px">音标</th><th style="width:150px">拼写</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><code>[p]</code></td><td><b>p</b> · <b>pp</b> · <b>b</b>（词尾清化）</td><td>Panda · Punkt · Pumpe · Kap｜Puppe · Pappe · Mappe｜Dieb · ab · gab · gabt · gibst</td></tr>
-      <tr><td><code>[b]</code></td><td><b>b</b> · <b>bb</b></td><td>Biene · Bad · Bund · Abend · Gabe｜Ebbe · hibbeln</td></tr>
-      <tr><td><code>[t]</code></td><td><b>t</b> · <b>tt</b> · <b>th</b> · <b>dt</b> · <b>d</b>（词尾清化）</td><td>Tat · Tag · Tante · gut · mit｜Bett · Mitte · bitte · Fett · Latte｜Theater · Thema · Theke｜Stadt · Schmidt｜Mund · Kind · und · Bund</td></tr>
-      <tr><td><code>[d]</code></td><td><b>d</b> · <b>dd</b></td><td>baden · Binde · du · Dame · Daten · dein · Damm · da · Kader｜Pudding</td></tr>
-      <tr><td><code>[k]</code></td><td><b>k</b> · <b>ck</b> · <b>g</b>（词尾清化）</td><td>Kanne · Kuh · Kind · kein｜dick · backen · packen · gucken｜Tag · Teig · mag · biegt</td></tr>
-      <tr><td><code>[g]</code></td><td><b>g</b> · <b>gg</b></td><td>Geige · Gitter · gut · gab · Gummi · Magen｜Bagger · Flagge</td></tr>
-      <tr><td><code>[m]</code></td><td><b>m</b> · <b>mm</b></td><td>Arm · Mund · Mutter · Matte｜immer · Nummer · dumm · Damm</td></tr>
-      <tr><td><code>[n]</code></td><td><b>n</b> · <b>nn</b></td><td>Nase · nein · nur · Mund · baden｜Kanne · innen · dann · kann</td></tr>
-      <tr><td><code>[ŋ]</code></td><td><b>ng</b></td><td>Zeitung · Enge · Angel · singen · Hunger · Mangel · lang · Ring</td></tr>
-      <tr><td><code>[ŋk]</code></td><td><b>nk</b></td><td>Bank · Schrank · danken · Enkel · Onkel · dunkel · schenken · winken</td></tr>
-      <tr><td><code>[f]</code></td><td><b>f</b> · <b>ff</b> · <b>ph</b> · <b>v</b>（德语词）</td><td>Film · faul · Tafel · Kauf｜Koffer · offen · hoffen · Affe｜Phase · Phänomen · Phrase · Phonetik｜vier · Vater · viel · Volk · von · aktiv · Dativ · Motiv</td></tr>
-      <tr><td><code>[v]</code></td><td><b>w</b> · <b>v</b>（外来词）</td><td>wo · wer · Wagen · warm · Welt · Uwe · Antwort · zwei · Zwiebel｜Vase · Villa · Visum · Klavier</td></tr>
-      <tr><td><code>[s]</code></td><td><b>s</b>（词尾）· <b>ss</b> · <b>ß</b></td><td>Westen · Moskau · Haus · Eis｜Tasse · essen · dass · muss · Fass · Fluss｜Maße · Fuß · heißen · Straße · groß</td></tr>
-      <tr><td><code>[z]</code></td><td><b>s</b>（元音前）</td><td>sie · Säge · See · Sonntag · Soße · Hose · Musik · Rose · lesen</td></tr>
-      <tr><td><code>[ʃ]</code></td><td><b>sch</b></td><td>Tisch · schade · schön · Schule · schwer · schwimmen · Asche · Tasche · Wäsche · Hirsch · Fisch</td></tr>
-      <tr><td><code>[ʃt]</code></td><td><b>st</b>（词干开头）</td><td>Stuhl · Student · Straße · Stern · stehen · stellen · verstehen · bestellen</td></tr>
-      <tr><td><code>[ʃp]</code></td><td><b>sp</b>（词干开头）</td><td>Spiegel · Sprache · Sport · spät · Spaß · springen · sprechen · versprechen</td></tr>
-      <tr><td><code>[st]</code> · <code>[sp]</code></td><td><b>st</b> · <b>sp</b>（不在词干开头）</td><td>Fenster · ist · Wurst · Post · Obst · Test · Gast｜Wespe · Vesper · Knospe · Aspekt · Prospekt</td></tr>
-      <tr><td><code>[ts]</code></td><td><b>z</b> · <b>tz</b> · <b>ts</b> · <b>ds</b> · <b>t(ion)</b></td><td>Zug · Zucker · Zoo · Herz · Tanz｜Katze · putzen · Netz · Platz｜Rätsel · nichts · rechts｜abends · Landsmann｜Nation · Lektion · Aktion</td></tr>
-      <tr><td><code>[ks]</code></td><td><b>chs</b> · <b>x</b> · <b>(c)ks</b></td><td>sechs · wachsen · Achse · wechseln｜Taxi · Text · Axt · Max · Marx｜links · Koks · Keks · Knicks</td></tr>
-      <tr><td><code>[pf]</code></td><td><b>pf</b></td><td>Apfel · Pfennig · Pferd · Pfad · Pfund · Pfeil · Pfau · Kupfer · Kopf · Kampf</td></tr>
-      <tr><td><code>[kv]</code></td><td><b>qu</b></td><td>Quadrat · Quelle · quer · Quarz · Qualm · Quittung · Quote</td></tr>
-      <tr><td><code>[ç]</code></td><td><b>ch</b>（e·i·ä·ö·ü·ei 后）· <b>-ig</b></td><td>China · nicht · Bücher · leicht · recht · Kirche · welche · Mädchen｜richtig · fertig · zeitig · wenig · Essig · Honig · wichtig · fleißig</td></tr>
-      <tr><td><code>[x]</code></td><td><b>ch</b>（a·o·u·au 后）</td><td>Buch · acht · Sprache · suchen · Tochter · rauchen · auch · doch · hoch</td></tr>
-      <tr><td><code>[j]</code></td><td><b>j</b> · <b>y</b>（少数）</td><td>Jacke · ja · jetzt · Japan · Jugend · Juni · jeder · Jammer · Sojabohne｜Yoga</td></tr>
-      <tr><td><code>[l]</code></td><td><b>l</b> · <b>ll</b></td><td>Lampe · loben · Luft · Blei · Plan · faul · Saal · Maul · Mantel · Tafeln · Gabeln · Bild · Geld · Film · Feld · Balg · Salz｜Ball · hell · Null · alle · Halle · Welle</td></tr>
-      <tr><td><code>[ʁ]</code> · <code>[r]</code></td><td><b>r</b> · <b>rr</b></td><td>Rad · rot · Radio · raten · rufen · Frau · Probe｜Barren · Herren · Herr · wird · Bart · Bord · kurz · Art</td></tr>
-      <tr><td><code>[ɐ]</code></td><td><b>-er</b> · <b>-em</b> · <b>-ent</b> · <b>er-</b> · <b>ver-</b> · <b>zer-</b> · 词尾 r</td><td>Vater · Kinder · Sommer · Peter · sauber · erleben · verkaufen｜Ohr · leer · Tier · wer · mehr · Tor · Uhr</td></tr>
-      <tr><td><code>[h]</code></td><td><b>h</b>（词首／重读音节首）</td><td>Haus · haben · hell · heißen · hoffen · Hose · Hut</td></tr>
-      <tr><td><code>—</code></td><td><b>h</b>（元音后 · <b>不发音</b>，只作长音标记）</td><td>gehen · sehen · ziehen · Uhr · Sohn · Kahn · Fahne · ruhen · mahlen · ihnen</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <!-- 规则速查 -->
-  <div class="rule-box">
-    <span class="label">🔑 发音·拼写规则速查（课本脚注汇总）</span>
-    <ul class="ph-rules">
-      <li><b>b / d / g 词尾清化：</b>b→[p]、d→[t]、g→[k]（位于词尾、音节尾，或其后没有元音时）。<span class="ph-src">Dieb [diːp] · Kind [kɪnt] · Tag [taːk]</span></li>
-      <li><b>-ig 词尾：</b>读 [ɪç]；但 -ig 后面还有元音时，g 仍读 [g]。<span class="ph-src">richtig [ˈʁɪçtɪç] → richtige [ˈʁɪçtɪɡə]</span></li>
-      <li><b>ch：</b>在 a / o / u / au 之后读 [x]；在其他元音和辅音之后读 [ç]；外来词词首读 [k]。<span class="ph-src">Buch [x] · nicht [ç] · Charakter [k]</span></li>
-      <li><b>st- / sp-：</b>在<b>词干开头</b>读 [ʃt] / [ʃp]；不在词干开头仍读 [st] / [sp]。<span class="ph-src">Stadt [ʃt] · Fenster [st] · Sport [ʃp] · Wespe [sp]</span></li>
-      <li><b>v：</b>德语词和外来词的<b>词尾</b>读清音 [f]；外来词<b>音节之首</b>读浊音 [v]。<span class="ph-src">Vater [f] · Motiv [f] · Vase [v] · Klavier [v]</span></li>
-      <li><b>s：</b>在元音前读浊音 [z]；在辅音前、以及词或音节末尾读清音 [s]；<b>ss / ß</b> 一律读清音 [s]。<span class="ph-src">sagen [z] · Haus [s] · Tasse [s] · Fuß [s]</span></li>
-      <li><b>ß 还是 ss：</b>长元音或双元音后写 <b>ß</b>，短元音后写 <b>ss</b>，两者读音相同，都是 [s]。</li>
-      <li><b>h：</b>词首或重读音节首读 [h]（轻呼气）；在元音后不发音，只把前面的元音拉长。</li>
-      <li><b>r 的四条：</b>① 辅音位置发小舌颤音 [ʁ]，舌尖颤音 [r] 也可以；② 短元音后仍有 [ʁ] 音，但倾向于元音化；③ 非重读后缀 -er / -em / -ent 及前缀 er- / ver- / zer- 中元音化为 [ɐ]（近似汉语"啊"）；④ 词尾在长元音之后也元音化。<span class="ph-src">Rad [ʁ] · Vater [ɐ] · Uhr [ɐ]</span></li>
-    </ul>
-  </div>
-
-  <!-- ⑩ 音节与词重音 -->
-  <h3 class="ph-cat-title">⑩ 音节与词重音 Silben und Wortakzent</h3>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:180px">音节 Silben</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><b>单音节词</b><br><span class="ph-src">einsilbige Wörter</span></td><td>Tag · Uhr · Kamm · Dieb</td></tr>
-      <tr><td><b>多音节词</b><br><span class="ph-src">mehrsilbige Wörter</span></td><td>A-bend · U-ta · Na-me · An-na · Kitt-mann · Holz-mann · Ar-bei-ter · Hei-del-berg · Wie-der-se-hen</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="note"><strong>总原则：</strong>多音节词里<b>只有一个音节重读</b>，其余音节都不重读。德语本族词的词重音<b>多在第一个音节</b>上。</div>
-
-  <div class="ph-grp">词重音 I · II · III Wortakzent</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:150px">类型</th><th style="width:32%">例词</th><th>规律</th></tr></thead>
-    <tbody>
-      <tr><td>德语本族词</td><td><b>hei</b>ßen · <b>Leh</b>rer · <b>Zim</b>mer · <b>Tho</b>mas · <b>Lam</b>pe · <b>Ar</b>beiter</td><td>重音一般在<b>第一个音节</b>上。</td></tr>
-      <tr><td>例外：非重读前缀</td><td>Ver<b>zei</b>hung · Ent<b>schul</b>digung · be<b>kom</b>men · ge<b>fäl</b>lt · er<b>zäh</b>len</td><td>前缀 <b>be- ge- er- ver- zer- ent- emp-</b> 不重读，重音落在词干上。</td></tr>
-      <tr><td>外来词</td><td>Stu<b>dent</b> · Pa<b>pier</b> · Kla<b>vier</b> · Universi<b>tät</b> · stu<b>die</b>ren · Comp<b>u</b>ter · Ma<b>schi</b>ne</td><td>重音一般在<b>倒数第一或第二个音节</b>上。</td></tr>
-      <tr><td>复合词</td><td><b>Land</b>karte · <b>Haus</b>frau · <b>Tele</b>fonnummer · <b>Klassen</b>zimmer</td><td>Land + Karte = Landkarte → 重音落在<b>第一个词</b>（限定词）上。</td></tr>
-      <tr><td>字母缩写</td><td>das A-B-<b>C</b> · die U-S-<b>A</b> · die C-D-<b>U</b> · die S-P-<b>D</b></td><td>由字母组成的缩写，重音落在<b>最后一个字母</b>上。</td></tr>
-      <tr><td>「字母 + 词」缩写</td><td>die <b>E</b>-Mail · die <b>U</b>-Bahn · die <b>S</b>-Bahn</td><td>重音落在<b>那个字母</b>上。</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="inline-ex" style="margin-top:20px">
-    <h4>🎯 练习：读出下列词，说出各有几个音节，第几个音节重读</h4>
-    <p class="ph-sub">例：<b>heißen</b> → 2 个音节，第 1 个音节重读，记作 <span class="ph-src">(2 / 1)</span>。先自己说，再看右边的答案。</p>
-    <div class="ph-pair">
-      <div>heißen <span class="ph-ans">2 / 1</span></div>
-      <div>Arbeiter <span class="ph-ans">3 / 1</span></div>
-      <div>Fahne <span class="ph-ans">2 / 1</span></div>
-      <div>Peter <span class="ph-ans">2 / 1</span></div>
-      <div>Kinder <span class="ph-ans">2 / 1</span></div>
-      <div>Abende <span class="ph-ans">3 / 1</span></div>
-      <div>danke <span class="ph-ans">2 / 1</span></div>
-      <div>Lampe <span class="ph-ans">2 / 1</span></div>
-      <div>Kittmann <span class="ph-ans">2 / 1</span></div>
-      <div>Bamberg <span class="ph-ans">2 / 1</span></div>
-      <div>Bielefeld <span class="ph-ans">3 / 1</span></div>
-      <div>Computer <span class="ph-ans">3 / 2</span></div>
-      <div>Chinesisch <span class="ph-ans">3 / 2</span></div>
-      <div>Berlin <span class="ph-ans">2 / 2</span></div>
-      <div>Papier <span class="ph-ans">2 / 2</span></div>
-    </div>
-  </div>
-
-  <!-- ⑪ 句重音 · 语调 · 停顿 -->
-  <h3 class="ph-cat-title">⑪ 句重音 · 语调 · 停顿 Satzakzent, Sprechmelodie und Pause</h3>
-
-  <div class="ph-grp">① 句重音 Satzakzent</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:150px">句型</th><th style="width:34%">例句</th><th>规律</th></tr></thead>
-    <tbody>
-      <tr><td>陈述句<br><span class="ph-src">Aussagesatz</span></td><td>Ich heiße <b>Tho</b>mas. ／ Das ist Frau <b>Bau</b>er. ／ Mein Name ist Yang <b>Fang</b>.</td><td>短句通常<b>只有一个句重音</b>；陈述句的句重音一般落在<b>最后一个词</b>上。</td></tr>
-      <tr><td>补充疑问句<br><span class="ph-src">W-Frage</span></td><td>Wer <b>ist</b> das? ／ Wie <b>heißt</b> das?</td><td>补充疑问句的句重音常常落在<b>动词</b>上。</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="ph-grp">② 语调 Sprechmelodie</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:130px">语调</th><th style="width:36%">例句</th><th>句子类型</th></tr></thead>
-    <tbody>
-      <tr><td><span class="ph-down">↓ 降调</span></td><td>Ich komme aus Berlin. ↓</td><td>陈述句 Aussagesatz</td></tr>
-      <tr><td><span class="ph-down">↓ 降调</span></td><td>Nehmen Sie Platz! ↓</td><td>命令句 Imperativ</td></tr>
-      <tr><td><span class="ph-down">↓ 大多为降调</span></td><td>Woher kommen Sie? ↓ ／ Wer ist das? ↓ ／ Wie geht es Ihnen? ↓</td><td>补充疑问句 W-Frage</td></tr>
-      <tr><td><span class="ph-up">↑ 升调</span></td><td>Wohnen Sie in Beijing? ↑ ／ Sind Sie Herr Holzmann? ↑ ／ Heißt das auf Deutsch Tafel? ↑</td><td>判断疑问句 Ja-Nein-Frage</td></tr>
-      <tr><td><span class="ph-flat">→ 平调</span></td><td>Ja, → in Haidian. ／ Guten Tag, → ich heiße Hans Mai.</td><td>句中逗号之前（未说完）</td></tr>
-      <tr><td><span class="ph-up">↑ 升调</span></td><td>Und (wo wohnen) Sie? ↑ ／ Und (wie geht es) Ihnen? ↑</td><td>回问／反问 Nachfrage</td></tr>
-      <tr><td><span class="ph-down">↓ 降调</span></td><td>Ist er Schüler oder Student? ↓</td><td>选择疑问句（句中有 oder）</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="note"><strong>补充疑问句也能升调：</strong>W-Frage 本来读降调，但如果说话人<b>重复问、反问</b>，或想表示<b>关切和友好的兴趣</b>，也可以用升调。<br>● Wie heißen Sie? ■ Ich heiße Hans Mai. Und <b>Sie</b>? ↑ ／ ● Wie geht es Ihnen? ■ Danke, gut. Und <b>Ihnen</b>? ↑</div>
-
-  <div class="ph-grp">③ 停顿 Sprechpause</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:38%">例句</th><th>说明</th></tr></thead>
-    <tbody>
-      <tr><td>Das ist Thomas. ／ Heißen Sie Yang Fang?</td><td>短句<b>不停顿</b>，尤其在语速较快时。</td></tr>
-      <tr><td>Guten Tag, <b>/</b> ich heiße Hans Mai.</td><td>句子之间、长句中间要停顿；一般在<b>逗号之后</b>作短暂停顿，用 ( / ) 表示。</td></tr>
-      <tr><td>Danke gut, <b>/</b> und Ihnen?</td><td>停顿是<b>断句</b>：既帮对方听懂，也是说好德语的关键。</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <!-- ⑫ 辨音对比练习 -->
-  <h3 class="ph-cat-title">⑫ 辨音对比练习 Minimalpaare</h3>
-  <p class="ph-sub">每一行是<b>一对只差一个音</b>的词。成对朗读，先把每个音读准，再体会两个音的区别——这是德语听力和口语的基本功。</p>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:110px">对比</th><th>词对</th></tr></thead>
-    <tbody>
-      <tr><td><code>[a] – [aɪ]</code></td><td>Bann – Bein · dann – dein · Panne – Pein · Mann – Main · kann – kein · Kamm – Keim</td></tr>
-      <tr><td><code>[p] – [b]</code></td><td>Puppe – Bube · packen – backen · Pein – Bein · Lippe – Liebe</td></tr>
-      <tr><td><code>[p] → [b]</code></td><td>Dieb – Diebe · taub – Taube · knapp – Knabe · Laib – Laibe</td></tr>
-      <tr><td><code>[t] – [d]</code></td><td>Tick – dick · Taten – Daten · Tipp – Dip · tun – dumm · Tanne – dann · Tuten – Duden</td></tr>
-      <tr><td><code>[t] → [d]</code></td><td>Kind – Kinder · Bad – baden · Neid – neiden · Band – Bande</td></tr>
-      <tr><td><code>[k] – [g]</code></td><td>Kuh – gut · Knabe – Gnade · Kap – gab · Kante – Gabe</td></tr>
-      <tr><td><code>[k] → [g]</code></td><td>Tag – Tage · bieg – biege · Bug – Buge · mag – Magen</td></tr>
-      <tr><td><code>[m] – [n]</code></td><td>im – in · Kamm – kann · Seim – sein · ihm – ihn · Damm – dann · mein – nein</td></tr>
-      <tr><td><code>[l] – [n]</code></td><td>leiden – neiden · lasen – Nasen</td></tr>
-      <tr><td><code>[iː] – [eː]</code></td><td>Bier – Beere · liebt – lebt · Kiele – Kehle · liegt – legt · mir – mehr · bieten – beten</td></tr>
-      <tr><td><code>[ɪ] – [ɛ]</code></td><td>dick – Deck · bitten – Betten · Kitt – Kette · Binder – Bänder · Pille – Pelle · nicken – necken</td></tr>
-      <tr><td><code>[oː] – [ɔ]</code></td><td>Ton – Tonne · Rogen – Roggen · Ofen – offen · wohnen – Wonne</td></tr>
-      <tr><td><code>[ɔ] – [aʊ]</code></td><td>voll – faul · hoffen – Haufen · Most – Maus · Koffer – kaufen · komm – kaum · sollen – Sauna</td></tr>
-      <tr><td><code>[f] – [v]</code></td><td>fein – Wein · Feder – weder · Fall – Wall · Vetter – Wetter · Vieh – wie · Phase – Vase</td></tr>
-      <tr><td><code>[s] – [z]</code></td><td>Reis – Reise · wissen – Wiesen · besser – Besen · hassen – Hasen · Risse – Riese · reißen – reisen</td></tr>
-      <tr><td><code>[s] – [ts]</code></td><td>Kasse – Katze · Hals – Salz · Kurs – kurz · weiß – Weizen · Pils – Pilz · essen – ätzen</td></tr>
-      <tr><td><code>[z] – [ts]</code></td><td>Saal – Zahl · Sand – Zank · seit – Zeit · Sinn – Zinn · soll – Zoll · sehen – Zehen</td></tr>
-      <tr><td><code>[s] – [ʃ]</code></td><td>Bus – Busch · hassen – haschen · Masse – Masche · Wasser – waschen · Tasse – Tasche · wissen – wischen</td></tr>
-      <tr><td><code>[ç] – [ʃ]</code></td><td>dich – Tisch · Löcher – Löscher · Kirche – Kirsche · Gewicht – gewischt · schlecht – Schicht</td></tr>
-      <tr><td><code>[z] – [ʃ]</code></td><td>sein – Schein · Sohn – schon · sollen – Schollen · Söhne – schön</td></tr>
-      <tr><td><code>[øː] – [œ]</code></td><td>Öfen – öffnen · Hörer – Hörner · mögen – möchten · lösen – löschen</td></tr>
-      <tr><td><code>[eː] – [øː]</code></td><td>Tee – Töne · Lehne – Löhne · Besen – böse · Meere – Möhre · Hefe – Höfe · lesen – lösen</td></tr>
-      <tr><td><code>[oː] – [øː]</code></td><td>Ton – Töne · holen – hören · rot – Röte · hohl – Höhle · Sohn – Söhne · schon – schön</td></tr>
-      <tr><td><code>[ɛ] – [œ]</code></td><td>Helle – Hölle · fällig – völlig · kennen – können · Kellner – Kölner · Zelle – Zölle · Mächte – möchte</td></tr>
-      <tr><td><code>[yː] – [ʏ]</code></td><td>Lüge – Lücke · Tür – Türme · Hüte – Hütte · fühlen – füllen · Füße – Flüsse · Bühne – Bünde</td></tr>
-      <tr><td><code>[uː] – [yː]</code></td><td>gut – Güte · Buch – Bücher · Hut – Hüte · Flug – Flüge · Zug – Züge · bluten – Blüten</td></tr>
-      <tr><td><code>[iː] – [yː]</code></td><td>Tier – Tür · liegen – lügen · Biene – Bühne · sieden – Süden · Miete – müde · spielen – spülen</td></tr>
-      <tr><td><code>[ʊ] – [ʏ]</code></td><td>Nuss – Nüsse · Kuss – Küsse · Duft – Düfte · muss – müssen · Luft – Lüfte · Grund – Gründe</td></tr>
-      <tr><td><code>[ɪ] – [ʏ]</code></td><td>Kiste – Küste · wissen – wüsste · Mitte – Mütter · missen – müssen · Binde – Bünde · First – Fürst</td></tr>
-      <tr><td><code>[ç] – [x]</code></td><td>nicht – Nacht · Dolch – doch · Licht – lacht · schlecht – Schlacht</td></tr>
-      <tr><td><code>[x] → [ç]</code></td><td>Nacht – Nächte · Strauch – Sträucher · Dach – Dächer · Tochter – Töchter · Buch – Bücher · Bruch – Brüche</td></tr>
-      <tr><td><code>[ŋ] – [ŋə]</code></td><td>jung – Junge · eng – Enge · Ring – Ringe · Ding – Dinge</td></tr>
-      <tr><td><code>[ŋ] – [ŋən]</code></td><td>Zeitung – Zeitungen · Leitung – Leitungen · Meinung – Meinungen · Übung – Übungen</td></tr>
-      <tr><td><code>[ŋ] – [ŋk]</code></td><td>bang – Bank · Engel – Enkel · fing – Fink · Klinge – Klinke</td></tr>
-      <tr><td><code>[f] – [pf]</code></td><td><span class="ph-src">听辨：[f] 还是 [pf]？</span><br><b>[pf]</b> Apfel · Pfennig · Pferd · Pfad · Pfund · Pfeil · Pfau · Kopf · Kampf ｜ <b>[f]</b> Film · faul · Tafel · Kauf · Koffer · offen · hoffen · Affe</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <!-- ⑬ 拼读综合练习 -->
-  <h3 class="ph-cat-title">⑬ 拼读综合练习 Lesen und sprechen</h3>
-
-  <div class="ph-grp">① 拼读练习句（黑体为重读音节）</div>
-  <div class="rule-box">
-    <b>1.</b> ● <b>Gu</b>ten <b>Tag</b>, ich <b>hei</b>ße Hans <b>Mai</b>.　■ Ich <b>hei</b>ße <b>An</b>na <b>Kant</b>. <b>Gu</b>ten <b>Tag</b>.<br>
-    <b>2.</b> ● <b>Gu</b>ten <b>Mor</b>gen.　■ <b>Gu</b>ten <b>Mor</b>gen, mein <b>Na</b>me ist <b>Hol</b>ger <b>Bo</b>de.　● Und ich bin <b>Die</b>ter <b>Bämm</b>.
-  </div>
-
-  <div class="ph-grp">② r 的拼读：[r] + 各种元音</div>
-  <div class="ph-stack">
-  <table class="ph-tbl3">
-    <thead><tr><th style="width:120px">组合</th><th>例词</th></tr></thead>
-    <tbody>
-      <tr><td><code>[r] + [aː]</code></td><td>Rabe · Rat · ragen · Rahmen · raten</td></tr>
-      <tr><td><code>[r] + [oː]</code></td><td>rot · Rohr · roh · rosa · Rose</td></tr>
-      <tr><td><code>[r] + [uː]</code></td><td>Ruhe · Ruf · Ruhm · Ruder · rufen</td></tr>
-      <tr><td><code>[r] + [eː]</code></td><td>Reh · Rebe · Rede · Regen · Reede</td></tr>
-      <tr><td><code>[r] + [iː]</code></td><td>Rita · Riese · Riegel · Riemen · Ries</td></tr>
-      <tr><td><code>[r] + [aɪ]</code></td><td>Reibe · Reise · reisen · Reife · reiten</td></tr>
-      <tr><td><code>[r] + [aʊ]</code></td><td>Raum · rau · Raub · rauben · raus</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="ph-grp">③ 词尾 -er 弱化为 [ɐ]</div>
-  <p class="ph-sub">读下面的词：结尾的 <b>-er</b> 不卷舌、不发 [ɛr]，而是轻轻带出 [ɐ]（近似汉语"啊"的轻声）。</p>
-  <div class="ph-pair">
-    <div>Mutter</div><div>Maler</div><div>Lehrer</div><div>Feder</div><div>mager</div><div>keiner</div>
-    <div>meiner</div><div>hinter</div><div>unter</div><div>Reiter</div><div>Geber</div><div>Bruder</div>
-    <div>Arbeiter</div><div>Vater</div><div>Kinder</div><div>Sommer</div>
-  </div>
-
-  <div class="ph-grp">④ 停顿跟读：一段完整的对话</div>
-  <p class="ph-sub">标 ( / ) 的地方作短暂停顿，逗号后停一下，句号后停久一点。先慢读，再逐渐加速。</p>
-  <div class="ph-dialog">
-    <div><b>Frau Euler:</b> Verzeihung. <em>/</em> Sind Sie Herr Ma?</div>
-    <div><b>Herr Ma:</b> Ja, <em>/</em> mein Name ist Ma Bolin.</div>
-    <div><b>Frau Euler:</b> Guten Morgen, <em>/</em> ich bin Monika Euler.</div>
-    <div><b>Herr Ma:</b> Guten Tag. <em>/</em> Wie geht es Ihnen?</div>
-    <div><b>Frau Euler:</b> Danke, <em>/</em> gut.</div>
-    <div><b>Herr Ma:</b> Sind Sie hier Studentin?</div>
-    <div><b>Frau Euler:</b> Nein, <em>/</em> ich bin nicht Studentin, <em>/</em> ich bin Lehrerin.</div>
-    <div><b>Herr Ma:</b> Oh, Entschuldigung! <em>/</em> Kommen Sie aus Deutschland?</div>
-    <div><b>Frau Euler:</b> Ja, <em>/</em> aus Frankfurt. <em>/</em> Und Sie?</div>
-    <div><b>Herr Ma:</b> Ich bin aus Beijing. <em>/—</em> Alles Gute, <em>/</em> Frau Euler.</div>
-    <div><b>Frau Euler:</b> Danke. <em>/</em> Auf Wiedersehen, <em>/</em> Herr Ma.</div>
-    <div><b>Herr Ma:</b> Auf Wiedersehen.</div>
-  </div>
-
-  <p class="ph-src" style="margin-top:18px">📖 本模块依据德语语音教程 Vorkurs 1–5 的 Phonetik 部分整理：字母与字母名称 · 元音长短 · 辅音拼写 · 最小对立体 · 音节与词重音 · 句重音 · 语调与停顿。</p>
-
-  <!-- PHONETIK-PLUS v1 -->
-</div>
+<script>
+/* 打印时自动展开全部答案；两个页面都用得上，重复注册也无害 */
+(function(){
+  function openAll(){ document.querySelectorAll('.phonetik details').forEach(function(d){ d.open = true; }); }
+  window.addEventListener('beforeprint', openAll);
+  if (window.matchMedia){
+    var mq = window.matchMedia('print');
+    (mq.addEventListener ? mq.addEventListener.bind(mq) : mq.addListener.bind(mq))
+      ('change', function(e){ if (e.matches) openAll(); });
+  }
+})();
+</script>
+<!-- PHONETIK-SECTION v2 -->
 
 <!-- ② 人称代词 -->
 <div class="section" id="s2">

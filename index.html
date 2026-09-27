@@ -4365,6 +4365,11 @@ function createLoginPromptCard() {
 // 15张卡片看作一个整体，沿大标题渐变色依次过渡：金→橘→粉→金
 	var MODULES = [
 	  // ── 发音先行：发音是语言学习的入口，零基础最先接触 ──
+	  { id:'phonetik', icon:'🔤', navLabel:'字母拼读', cardTitleDe:'Alphabet & Phonetik', cardSubDe:'Vom Buchstaben zum Laut — 从字母到短文，五步走完', cardTitle:'字母拼读', group:'pronunciation',
+	    hubSec:'basis', hubStep:1, hubSkill:'Phonetik', hubSkillZh:'字母拼读', hubAccent:'#fbbf24', hubTip:'打底：字母名称 → 拼读规则 → 词重音 → 句重音 → 读短文',
+	    desc:'字母发音 · 拼读规则 · 词重音与句重音 · 短文朗读，循序渐进五步',
+	    tags:'字母 · 拼读 · 重音语调 · 朗读',
+	    c1:'#b45309', c2:'#fbbf24', locked:false },
 	  { id:'pronunciation', icon:'🎤', navLabel:'德语发音器', cardTitleDe:'Deutsche Aussprache', cardSubDe:'KI-Spracherkennung — Phonem-für-Phonem-Bewertung', cardTitle:'德语发音器', group:'pronunciation',
 	    hubStep:1, hubSkill:'Deutsch', hubSkillZh:'德语发音', hubAccent:'#f6d365', hubTip:'AI语音评分 · 音素级纠音 · A1-B1 分级文本',
 	    desc:'语音识别 · 原文对比 · 精准纠音 · 实时评分',
@@ -4633,10 +4638,13 @@ function renderCards() {
 }
 
 // 学习站二级页：列出某分组的全部栏目，按推荐学习顺序排序，富样式卡片各自直达
-function renderHubCards(groupKey) {
+// secKey 可选：只取某一个小板块（hubSec，默认 'tool'），用于把同一分组拆成多个板块显示
+function renderHubCards(groupKey, secKey) {
   var items = [];
   for (var i = 0; i < MODULES.length; i++) {
-    if (MODULES[i].group === groupKey) items.push(MODULES[i]);
+    if (MODULES[i].group !== groupKey) continue;
+    if (secKey && (MODULES[i].hubSec || 'tool') !== secKey) continue;
+    items.push(MODULES[i]);
   }
   items.sort(function(a, b){ return (a.hubStep || 99) - (b.hubStep || 99); });
   var h = '';
@@ -4722,7 +4730,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
   'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
   'resources':'全网资源推荐'
 };
@@ -18897,24 +18905,29 @@ showB2LArticle('');
   <div class="a1hub-hero">
     <div class="a1hub-eyebrow">🎙️ AI 发音训练</div>
     <h1>发音训练</h1>
-    <p class="a1hub-sub">德语发音器 · 英语发音器 · 德英混淆对照<br>AI 语音识别 · 音素级评分 · 精准纠音 · 假朋友对比</p>
+    <p class="a1hub-sub">字母拼读 · 德语发音器 · 英语发音器 · 德英混淆对照<br>先会读，再纠音：拼读规则打底 + AI 语音识别 · 音素级评分</p>
   </div>
 
   <div class="a1hub-path">
-    <span class="a1hub-path-lbl">🎯 选择语种</span>
+    <span class="a1hub-path-lbl">🎯 学习路径</span>
     <div class="a1hub-path-flow">
-      <span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span><i>·</i><span>🔄 德英混淆</span>
+      <span>🔤 字母拼读</span><i>→</i><span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span><i>·</i><span>🔄 德英混淆</span>
     </div>
+  </div>
+
+  <div class="a1hub-sec">🔤 字母拼读 · 发音基础</div>
+  <div class="a1hub-grid">
+    <script>renderHubCards('pronunciation','basis');</script>
   </div>
 
   <div class="a1hub-sec">🎙️ 发音工具</div>
   <div class="a1hub-grid" id="prhub-grid">
-    <script>renderHubCards('pronunciation');</script>
+    <script>renderHubCards('pronunciation','tool');</script>
   </div>
 
   <footer>
-    🎙️ AI 语音识别 · 音素级评分 · 精准纠音 · 德英混淆对照<br>
-    Leons Deutschzentrum · 德语发音器 · 英语发音器 · 假朋友对比
+    🔤 字母拼读 · 五步走完见到生词就能读<br>
+    Leons Deutschzentrum · 字母拼读 · 德语发音器 · 英语发音器 · 假朋友对比
   </footer>
 
 </div>
@@ -18922,6 +18935,10 @@ showB2LArticle('');
 <!-- Grammar page -->
 <div id="page-grammar" class="page" data-lazy="true"></div>
 <script>registerLazyPage("grammar","tpl-page-grammar")</script>
+
+<!-- 字母拼读页（发音训练 › 字母拼读） -->
+<div id="page-phonetik" class="page" data-lazy="true" style="background:#f1f5f9;min-height:100vh;padding:0 0 60px"></div>
+<script>registerLazyPage("phonetik","tpl-page-phonetik")</script>
 
 <!-- B1 Grammar page -->
 <div id="page-b1grammar" class="page">
@@ -36325,17 +36342,17 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <script>
 (function(){
   window.ECHT_FACTS = [
-    {cat:'打招呼', book:'Guten Tag! Wie geht es Ihnen?', real:'Hallo! Alles gut?', note:'课本里的 <b>Wie geht es Ihnen?</b> 太正式，朋友间几乎没人这么说。日常一句 <b>Alles gut?</b>（一切都好吧？）或 <b>Na?</b> 就够了，对方回 <b>Ja, und dir?</b>。'},
-    {cat:'告别', book:'Auf Wiedersehen!', real:'Tschüss! / Ciao!', note:'<b>Auf Wiedersehen</b> 用在很正式的场合（医生、政府）。日常告别德国人说 <b>Tschüss</b>，南德爱说 <b>Ciao</b>，还有 <b>Bis dann!</b>（回头见）。'},
+    {cat:'打招呼', book:'Guten Tag! Wie geht es Ihnen?', real:'Hallo! Alles gut?', note:'课本里的 <b>Wie geht es Ihnen?</b> 是正式的 Sie 形式——对陌生人、长辈、店员用完全没问题，但对朋友要换成 du：Wie geht's dir?。日常一句 <b>Alles gut?</b>（一切都好吧？）或 <b>Na?</b>（偏北德口语）就够了，对方回 <b>Ja, und dir?</b>。'},
+    {cat:'告别', book:'Auf Wiedersehen!', real:'Tschüss! / Ciao!', note:'<b>Auf Wiedersehen</b> 完全没错，只是更客气、更正式——对陌生人、店员、长辈都用。日常告别德国人说 <b>Tschüss</b>，南德爱说 <b>Ciao</b>，还有 <b>Bis dann!</b>（回头见）。'},
     {cat:'点餐', book:'Ich möchte einen Kaffee, bitte.', real:'Ich hätt’ gern einen Kaffee.', note:'<b>Ich möchte</b> 没错，但德国人点单更爱用 <b>Ich hätte gern …</b>（我想要……），听起来更礼貌自然。口语里 hätte 常缩成 <b>hätt’</b>。'},
-    {cat:'道谢', book:'Danke schön. — Bitte schön.', real:'Danke! — Klar! / Kein Ding!', note:'回应"谢谢"，课本教 <b>Bitte schön</b>，但年轻人更常说 <b>Klar!</b>（应该的）、<b>Kein Ding!</b>（小事一桩）或 <b>Gerne!</b>。'},
+    {cat:'道谢', book:'Danke schön. — Bitte schön.', real:'Danke! — Klar! / Kein Ding!', note:'回应"谢谢"，课本教 <b>Bitte schön</b>（至今完全标准，放心用），口语里还常听到 <b>Klar!</b>（应该的）、<b>Kein Ding!</b>（小事一桩，偏北德年轻人）或 <b>Gerne!</b>。'},
     {cat:'听不懂', book:'Können Sie das bitte wiederholen?', real:'Wie bitte? / Häh?', note:'没听清，课本整句很长。德国人就一句 <b>Wie bitte?</b>（您说什么？）。非常随意的场合年轻人会说 <b>Häh?</b>——但对长辈别用，显得没礼貌。'},
     {cat:'表示赞同', book:'Das ist eine sehr gute Idee.', real:'Klingt gut! / Passt!', note:'同意别人时不用每次都说整句。<b>Klingt gut!</b>（听着不错）、<b>Passt!</b>（行！南德超常用）、<b>Auf jeden Fall!</b>（必须的）都很地道。'},
     {cat:'口头禅', book:'（课本没有）', real:'Genau. / Ach so! / Na ja …', note:'这三个是德国人嘴边的高频词：<b>Genau</b>（没错，附和万能词）、<b>Ach so!</b>（哦原来如此）、<b>Na ja …</b>（这个嘛……，委婉表示不太认同）。学会立刻像本地人。'},
-    {cat:'很好/很棒', book:'Das ist sehr gut.', real:'Super! / Geil! / Mega!', note:'夸东西好，口语很少说 sehr gut。年轻人爱用 <b>Super</b>、<b>Mega</b>、<b>Geil</b>（原意不雅，现在纯指"超赞"）、<b>Hammer!</b>。'},
-    {cat:'询问近况', book:'Was machen Sie beruflich?', real:'Und was machst du so?', note:'闲聊问"你是做什么的"，加个小词 <b>so</b> 立刻变随意：<b>Was machst du so?</b>。德国口语里 <b>so</b>、<b>halt</b>、<b>eben</b> 这类填充词到处都是。'},
+    {cat:'很好/很棒', book:'Das ist sehr gut.', real:'Super! / Geil! / Mega!', note:'夸东西好，sehr gut 是对的，只是偏平；口语里更常听到 年轻人爱用 <b>Super</b>、<b>Mega</b>、<b>Geil</b>（原意不雅，现在纯指"超赞"）、<b>Hammer!</b>。'},
+    {cat:'询问近况', book:'Was machen Sie beruflich?', real:'Und was machst du so?', note:'闲聊问"你是做什么的"；朋友间换成 du 再加个小词 <b>so</b> 就随意了：<b>Was machst du so?</b>。德国口语里 <b>so</b>、<b>halt</b>、<b>eben</b> 这类填充词到处都是。'},
     {cat:'表示惊讶', book:'Das ist unglaublich!', real:'Echt? / Wirklich? / Krass!', note:'吃惊时，<b>Echt?</b>（真的假的？）使用频率最高，<b>Krass!</b> 表示"太夸张了/绝了"，好坏都能用。'},
-    {cat:'拒绝/算了', book:'Nein, danke. Ich möchte nicht.', real:'Nee, lass mal. / Passt schon.', note:'婉拒别人，<b>Nee</b> 是 nein 的口语版，<b>Lass mal</b>（算了吧）、<b>Passt schon</b>（不用了，够了）都很自然，不会显得生硬。'},
+    {cat:'拒绝/算了', book:'Nein, danke. Ich möchte nicht.', real:'Nee, lass mal. / Passt schon.', note:'婉拒别人，<b>Nee</b> 是 nein 的口语版，<b>Lass mal</b>（算了吧）、<b>Passt schon</b>（不用了，够了，偏南德）都很自然，不会显得生硬。'},
     {cat:'打电话', book:'Hallo, hier spricht Lin Xia.', real:'Hallo, Lin Xia hier.', note:'接打电话报名字，课本的 <b>hier spricht …</b> 偏书面。日常直接 <b>… hier</b> 或 <b>Hier ist …</b> 更常见。'},
     {cat:'周末愉快', book:'Ich wünsche Ihnen ein schönes Wochenende.', real:'Schönes Wochenende!', note:'德国人超爱互道祝福，但都用短句：<b>Schönes Wochenende!</b>、<b>Schönen Feierabend!</b>（下班愉快）、<b>Schön’ Tag noch!</b>（今天愉快）。整句 Ich wünsche Ihnen 只在正式书信里用。'},
     {cat:'超市结账', book:'Möchten Sie mit Karte bezahlen?', real:'Zahlen Sie bar oder mit Karte?', note:'超市收银最高频的一句就是 <b>Bar oder Karte?</b>（现金还是刷卡？）。结账后还常被问 <b>Brauchen Sie eine Tüte?</b>（需要袋子吗？）——袋子要另花钱，记得自带。'},
@@ -36350,21 +36367,21 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'表示没问题', book:'Das ist kein Problem.', real:'Kein Stress. / Passt schon.', note:'安慰别人"没事的"，口语爱说 <b>Kein Stress</b>、<b>Passt schon</b>、<b>Halb so wild</b>（没那么严重啦）。'},
     {cat:'干杯', book:'Auf Ihre Gesundheit!', real:'Prost! / Zum Wohl!', note:'喝酒干杯就一个词 <b>Prost!</b>（啤酒常用）或 <b>Zum Wohl!</b>（葡萄酒更搭）。注意：碰杯时一定要看着对方的眼睛，不然据说会"七年厄运"。'},
     {cat:'吃饭祝好', book:'Ich wünsche Ihnen einen guten Appetit.', real:'Guten Appetit! / Mahlzeit!', note:'开饭前说 <b>Guten Appetit!</b>。在公司食堂或同事间，中午一句 <b>Mahlzeit!</b> 既是"开动"也是"中午好"，万能。'},
-    {cat:'表示累了', book:'Ich bin sehr müde.', real:'Ich bin fix und fertig. / Ich bin platt.', note:'累瘫了别只会 müde。<b>Ich bin fix und fertig</b>（我彻底不行了）、<b>Ich bin platt</b>（我累趴了）更生动地道。'},
+    {cat:'表示累了', book:'Ich bin sehr müde.', real:'Ich bin fix und fertig. / Ich bin platt.', note:'müde 是标准说法；口语里更生动的是 <b>Ich bin fix und fertig</b>（我彻底不行了）、<b>Ich bin platt</b>（我累趴了）更生动地道。'},
     {cat:'听懂确认', book:'Habe ich Sie richtig verstanden?', real:'Alles klar! / Verstanden.', note:'表示"懂了"，口语 <b>Alles klar!</b> 使用率极高，既表示明白也表示"没问题，搞定"。简短点就 <b>Klar</b> 或 <b>Passt</b>。'},
-    {cat:'随口附和', book:'Das stimmt.', real:'Stimmt. / Ja, genau. / Eben.', note:'附和别人说得对，<b>Genau</b> 和 <b>Eben</b>（正是如此）是德国人挂嘴边的词，比完整句 Das stimmt 更自然。'},
-    {cat:'感谢', book:'Vielen Dank für Ihre Hilfe.', real:'Danke dir! / Tausend Dank!', note:'日常道谢 <b>Danke dir!</b>（谢谢侬）就够了，<b>Tausend Dank!</b>（一千个感谢）比 Vielen Dank 更有温度。正式场合才用 Vielen Dank für Ihre Hilfe。'},
-    {cat:'道歉', book:'Entschuldigung, das tut mir leid.', real:'Sorry! / Tut mir leid, mein Fehler.', note:'德国年轻人道歉直接说 <b>Sorry</b>（英语借词），<b>Mein Fehler</b>（我的锅）承认错误干脆利落。正式场合才用 Entschuldigung。'},
-    {cat:'道别', book:'Auf Wiedersehen!', real:'Mach\'s gut! / Bis bald! / Hau rein!', note:'德国人告别超多样：<b>Mach\'s gut!</b>（保重）、<b>Bis bald!</b>（回头见）、年轻人还说 <b>Hau rein!</b>（加油干）。Tschüss 反而最保险。'},
-    {cat:'祝愿/祝福', book:'Viel Glück!', real:'Toi toi toi! / Ich drück\' dir die Daumen!', note:'德国人祝好运有独特仪式：说 <b>Toi toi toi!</b>（呸呸呸，驱霉运）或 <b>Ich drück\' dir die Daumen!</b>（我为你按大拇指=给你加油）。说 Viel Glück 反而太书生气。'},
-    {cat:'安慰朋友', book:'Es tut mir leid, dass du traurig bist.', real:'Kopf hoch! / Das wird schon wieder.', note:'安慰人别说书面长句。<b>Kopf hoch!</b>（抬起头！）、<b>Das wird schon wieder</b>（会好起来的）最暖心。德语里 <b>schon</b> 这个小词带了"放心"的语气，翻译不出来。'},
+    {cat:'随口附和', book:'Das stimmt.', real:'Stimmt. / Ja, genau. / Eben.', note:'附和别人说得对，<b>Genau</b> 和 <b>Eben</b>（正是如此，偏南德 / 奥地利）是高频小词；Das stimmt 也完全对，只是更完整、更中性。'},
+    {cat:'感谢', book:'Vielen Dank für Ihre Hilfe.', real:'Danke dir! / Tausend Dank!', note:'日常道谢 <b>Danke dir!</b>（谢谢侬）就够了，<b>Tausend Dank!</b>（一千个感谢）比 Vielen Dank 更有温度。Vielen Dank für Ihre Hilfe 是正式、完整的版本（对长辈、写邮件都合适）。'},
+    {cat:'道歉', book:'Entschuldigung, das tut mir leid.', real:'Sorry! / Tut mir leid, mein Fehler.', note:'德国年轻人道歉直接说 <b>Sorry</b>（英语借词），<b>Mein Fehler</b>（我的锅）承认错误干脆利落。Entschuldigung 依然常用（对陌生人、正式场合都合适）；德国年轻人之间道歉更直接。'},
+    {cat:'道别', book:'Auf Wiedersehen!', real:'Mach\'s gut! / Bis bald! / Hau rein!', note:'德国人告别超多样：<b>Mach\'s gut!</b>（保重）、<b>Bis bald!</b>（回头见）、年轻人还说 <b>Hau rein!</b>（加油干）。日常最保险的是 Tschüss；Auf Wiedersehen 也没错，只是更客气正式。'},
+    {cat:'祝愿/祝福', book:'Viel Glück!', real:'Toi toi toi! / Ich drück\' dir die Daumen!', note:'德国人祝好运有独特仪式：说 <b>Toi toi toi!</b>（呸呸呸，驱霉运）或 <b>Ich drück\' dir die Daumen!</b>（我为你按大拇指=给你加油）。Viel Glück 也完全常用，只是 Toi toi toi 更口语、更有仪式感。'},
+    {cat:'安慰朋友', book:'Es tut mir leid, dass du traurig bist.', real:'Kopf hoch! / Das wird schon wieder.', note:'书面长句 Es tut mir leid, dass du traurig bist 语法没错，只是偏重。<b>Kopf hoch!</b>（抬起头！）、<b>Das wird schon wieder</b>（会好起来的）最暖心。德语里 <b>schon</b> 这个小词带了"放心"的语气，翻译不出来。'},
     {cat:'关门窗', book:'Machen Sie bitte das Fenster zu.', real:'Kannst du mal das Fenster zumachen?', note:'德国人怕穿堂风（Durchzug），关窗这件事天天说。<b>zumachen</b>（关上）比 schließen 顺口一万倍。注意：开窗德国人爱说 <b>aufmachen</b> 而非 öffnen。'},
     {cat:'表达意见', book:'Meiner Meinung nach ist das richtig.', real:'Ich finde, das passt. / Also ich seh\' das so: …', note:'表达观点不要总是 Meiner Meinung nach。<b>Ich finde, …</b>（我觉得……）最日常，<b>Also ich seh\' das so</b>（我是这么看的）开头有停顿感，很德式。'},
     {cat:'问价格', book:'Wie viel kostet das?', real:'Was kostet das? / Was soll das kosten?', note:'问价格超简单：<b>Was kostet das?</b> 就三个词。<b>Was soll das kosten?</b>（这应该多少钱？）带一点试探，适合砍价前用。口语常省掉 das —— <b>Was kostet\' n?</b>。'},
     {cat:'不认识对方', book:'Wie heißen Sie?', real:'Sorry, wir kennen uns noch gar nicht, oder? Ich bin …', note:'德国人社交场合不直接问 Wie heißen Sie，太生硬。标准流程是先说 <b>Wir kennen uns noch gar nicht, oder?</b>（我们还不认识对吧？），然后自报名字，对方自然跟着介绍。'},
     {cat:'夸奖别人', book:'Sie sehen schön aus.', real:'Du siehst toll aus! / Steht dir!', note:'夸人好看，<b>Du siehst toll aus!</b> 最顺口。夸衣服发型说 <b>Steht dir!</b>（很适合你！）或 <b>Tolles Outfit!</b>。别用 schön aussehen，那像是说"你长得好看"，跟刚认识的人有点过。'},
-    {cat:'表达开心', book:'Ich bin sehr glücklich.', real:'Ich freu\' mich total! / Geil, das ist ja super!', note:'开心别只说 glücklich。<b>Ich freu\' mich total!</b>（我超开心的！）、<b>Das ist ja super!</b>（这也太棒了吧！）才自然。<b>ja</b> 在这里是语气词，不是"是的"。'},
-    {cat:'表达生气', book:'Ich bin sehr wütend.', real:'Ich bin total sauer. / Jetzt reicht\'s! / So ein Mist!', note:'生气了别说 wütend。<b>Ich bin total sauer</b>（我气炸了）、<b>Jetzt reicht\'s!</b>（够了！）、<b>So ein Mist!</b>（真见鬼）三句轮流用。sauer 原意是"酸的"，引申"气鼓鼓的"。'},
+    {cat:'表达开心', book:'Ich bin sehr glücklich.', real:'Ich freu\' mich total! / Geil, das ist ja super!', note:'glücklich 是标准说法；口语里更自然的是 <b>Ich freu\' mich total!</b>（我超开心的！）、<b>Das ist ja super!</b>（这也太棒了吧！）才自然。<b>ja</b> 在这里是语气词，不是"是的"。'},
+    {cat:'表达生气', book:'Ich bin sehr wütend.', real:'Ich bin total sauer. / Jetzt reicht\'s! / So ein Mist!', note:'wütend（愤怒）是标准说法，书面口语都能用；日常口语里更常听到的是 sauer（气鼓鼓的，更随意）。<b>Ich bin total sauer</b>（我气炸了）、<b>Jetzt reicht\'s!</b>（够了！）、<b>So ein Mist!</b>（真见鬼）三句轮流用。sauer 原意是"酸的"，引申"气鼓鼓的"。'},
     {cat:'让人重复', book:'Können Sie das bitte wiederholen?', real:'Noch mal bitte? / Wie war das?', note:'没听清时课本句子太长。<b>Noch mal bitte?</b>（再来一次？）最省力，<b>Wie war das?</b>（刚才你说啥？）也很常用。点头微笑加一句 <b>Noch mal</b> 对方就懂了。'},
     {cat:'结账付钱', book:'Ich möchte bezahlen, bitte.', real:'Zahlen, bitte. / Kann ich zahlen? / Zusammen oder getrennt?', note:'餐厅结账只说 <b>Zahlen, bitte!</b> 或举手说 <b>Kann ich zahlen?</b>。服务员必问 <b>Zusammen oder getrennt?</b>（一起付还是分开付？），这是德国AA文化的灵魂问题。'},
     {cat:'送礼', book:'Hier ist ein Geschenk für Sie.', real:'Ich hab\' dir was Kleines mitgebracht.', note:'送礼物不能说 Hier ist ein Geschenk，太直接像"给，你的礼物"。德国人说 <b>Ich hab\' dir was Kleines mitgebracht</b>（我给你带了点小东西），东西再贵也说是"小东西"。'},
@@ -36377,23 +36394,23 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'时间安排', book:'Wann treffen wir uns?', real:'Wann passt\'s dir? / Wie sieht\'s bei dir aus?', note:'约时间别只说 Wann treffen wir uns。<b>Wann passt\'s dir?</b>（你啥时候方便）、<b>Wie sieht\'s bei dir aus?</b>（你那边咋样）更贴心。德国人特别看重对对方时间安排的尊重。'},
     {cat:'分享食物', book:'Möchten Sie etwas essen?', real:'Greif zu! / Bedien dich! / Willst du mal probieren?', note:'分享食物时 <b>Greif zu!</b>（动手啊！）最热情，<b>Bedien dich!</b>（自己来）常见于自助场合。<b>Willst du mal probieren?</b>（想尝一口吗）最温和。德国人不会拒绝前两次，但如果第三次还说不吃那就是真不吃。'},
     {cat:'结束聊天', book:'Es war schön, mit Ihnen zu sprechen.', real:'War schön! / Hat mich gefreut. / Wir schreiben!', note:'德国人结束聊天有几个固定收尾：<b>War schön!</b>（聊得开心）、<b>Hat mich gefreut!</b>（很高兴认识）、<b>Wir schreiben!</b>（我们再联系啊）。最后那个不一定是假客气——德国人真的会发消息。'},
-    {cat:'带病上班', book:'Ich bin krank, aber ich kann arbeiten.', real:'Ich fühl\' mich nicht gut. / Ich meld\' mich krank.', note:'不舒服要请假，别逞强说"病了但能工作"。<b>Ich meld\' mich krank</b>（我报病了）一句话搞定。德国公司理解生病就休息，硬撑反而显得不会管理自己。口语还说 <b>Ich hab\' mich krankgemeldet</b>。'},
+    {cat:'带病上班', book:'Ich bin krank, aber ich kann arbeiten.', real:'Ich fühl\' mich nicht gut. / Ich meld\' mich krank.', note:'不舒服要请假，别逞强说"病了但能工作"。<b>Ich meld\' mich krank</b>（我报病了）一句话搞定。德国公司普遍认为生病就该在家休息。口语还说 <b>Ich hab\' mich krankgemeldet</b>。'},
     {cat:'开玩笑', book:'Das war ein Witz.', real:'War nur Spaß. / Nicht ernst gemeint. / Kleiner Scherz am Rande.', note:'开了个玩笑但怕对方当真，<b>War nur Spaß!</b>（开玩笑的）、<b>Nicht ernst gemeint!</b>（不是认真的）、<b>Kleiner Scherz am Rande</b>（随口一个小玩笑）都可以。德国人比刻板印象更爱笑。'},
     {cat:'表示困惑', book:'Ich verstehe das nicht.', real:'Ich blick\'s nicht. / Ich steh\' auf dem Schlauch. / Hä?', note:'听不懂/搞不明白，<b>Ich blick\'s nicht</b>（我咋看不明白呢）、<b>Ich steh\' auf dem Schlauch</b>（我脑子卡壳了——站在软管上）是德国特有比喻。<b>Hä?</b> 只限非常随意场合。'},
     {cat:'天气抱怨', book:'Das Wetter ist heute nicht gut.', real:'So ein Mistwetter! / Schon wieder Regen… / Es zieht wie Hechtsuppe.', note:'德国人热爱抱怨天气——<b>So ein Mistwetter!</b>（什么破天！）、<b>Schon wieder Regen…</b>（又下雨了…）是日常。<b>Es zieht wie Hechtsuppe</b>（穿堂风刮得像梭子鱼汤）是经典德式比喻——德国人对 Durchzug（穿堂风）有文化级的执念。'},
     {cat:'垃圾分类', book:'Wo kann ich den Müll entsorgen?', real:'In welche Tonne kommt das? / Ist das Gelber Sack oder Restmüll?', note:'德国垃圾分类是生活必修课：<b>Gelber Sack</b>（黄袋，包装垃圾）、<b>Restmüll</b>（剩余垃圾，黑桶）、<b>Biomüll</b>（厨余）、<b>Altpapier</b>（废纸，蓝桶）、<b>Pfand</b>（押金瓶，退瓶机）。室友会纠正你——"Das gehört in den Gelben Sack!"'},
     {cat:'取快递', book:'Ich habe ein Paket erwartet. Wo kann ich es abholen?', real:'Bei mir wurde was zugestellt? / Ist ein Paket für mich da? / Lag das beim Nachbarn?', note:'德国快递极少送到手上——DHL 小哥按了门铃三秒后就跑，包裹大概率在 <b>beim Nachbarn</b>（邻居家）、<b>in der Packstation</b>（快递柜）、或 <b>im Paketshop</b>（代收点）。门上贴着黄色 Benachrichtigungskarte 就是"你不在家"的罪证。'},
     {cat:'约运动', book:'Möchten Sie mit mir Sport machen?', real:'Hast du Bock auf \'ne Runde joggen? / Kommst du mit zum Fußball? / Lass uns schwimmen gehen!', note:'约人运动用 <b>Hast du Bock auf…?</b>（有兴致……吗？）最自然。<b>Bock</b> 是口语万能词，表示"兴致"——Bock auf Kino?（想看电影？）、Kein Bock（没劲/不想）。注意：<b>Kein Bock</b> 完全是中性表达，不是粗鲁。'},
-    {cat:'看牙医', book:'Ich habe Zahnschmerzen und möchte einen Termin.', real:'Ich hab\' Zahnweh. / Mein Zahn bringt mich um. / Kriegen Sie mich heute noch dazwischen?', note:'牙疼别说 Zahnschmerzen，口语 <b>Zahnweh</b>（牙痛）或 <b>Mein Zahn bringt mich um</b>（我的牙要杀了我）更生动。<b>Kriegen Sie mich heute noch dazwischen?</b>（今天还能把我塞进去吗？）是没预约时求插队的实用句。德国牙医分 <b>Zahnarzt</b>（普通）和 <b>Kieferorthopäde</b>（正畸），洗牙叫 <b>Zahnreinigung</b>。'},
+    {cat:'看牙医', book:'Ich habe Zahnschmerzen und möchte einen Termin.', real:'Ich hab\' Zahnweh. / Mein Zahn bringt mich um. / Kriegen Sie mich heute noch dazwischen?', note:'Zahnschmerzen 是标准说法；口语里（尤其南德）说 <b>Zahnweh</b>（牙痛）或 <b>Mein Zahn bringt mich um</b>（我的牙要杀了我）更生动。<b>Kriegen Sie mich heute noch dazwischen?</b>（今天还能把我塞进去吗？）是没预约时求插队的实用句。德国牙医分 <b>Zahnarzt</b>（普通）和 <b>Kieferorthopäde</b>（正畸），洗牙叫 <b>Zahnreinigung</b>。'},
     {cat:'收到GEZ信', book:'Ich habe einen Brief vom Beitragsservice bekommen.', real:'Ich hab\' Post vom GEZ gekriegt. / Die wollen Geld von mir — ich hab nicht mal \'n Fernseher!', note:'全德留学生收到第一封 ARD ZDF 信时的统一反应：以为被骗了。<b>Post vom GEZ kriegen</b> 是德语里的迷你创伤叙事——每个人都会跟你分享他们的 GEZ 故事。室友交了可以 <b>sich befreien lassen</b>（申请豁免），千万别不理——催款→催债→Schufa 信用黑掉。'},
-    {cat:'考试挂科', book:'Ich habe die Prüfung nicht bestanden.', real:'Ich bin durchgefallen. / Naja, nächstes Semester nochmal. / War halt \'ne harte Klausur.', note:'挂了别说 nicht bestanden，<b>durchgefallen</b> 才是口语。德国人谈挂科有一个典型的淡定三部曲——<b>Naja, nächstes Semester nochmal</b>（没事，下个学期再来）、<b>War halt \'ne harte Klausur</b>（确实是场硬仗）、<b>Hauptsache bestanden</b>（过了就行，不求高分）。'},
-    {cat:'约教授', book:'Können wir einen Termin vereinbaren?', real:'Haben Sie diese Woche noch \'nen freien Slot? / Wann haben Sie Sprechstunde? / Kann ich kurz reinschauen?', note:'约教授别说 Termin vereinbaren，太正式。<b>Sprechstunde</b> 是教授的开放答疑时间，直接那个时间去。<b>Haben Sie noch \'nen Slot?</b>（您还有空位吗？）是德国学生的标准说法。敲门探头问 <b>Kann ich kurz reinschauen?</b>（我能进来一下吗？）最自然。'},
+    {cat:'考试挂科', book:'Ich habe die Prüfung nicht bestanden.', real:'Ich bin durchgefallen. / Naja, nächstes Semester nochmal. / War halt \'ne harte Klausur.', note:'两句都对：nicht bestanden 中性、偏正式；<b>durchgefallen</b> 更口语、情绪更重。德国人谈挂科有一个典型的淡定三部曲——<b>Naja, nächstes Semester nochmal</b>（没事，下个学期再来）、<b>War halt \'ne harte Klausur</b>（确实是场硬仗）、<b>Hauptsache bestanden</b>（过了就行，不求高分）。'},
+    {cat:'约教授', book:'Können wir einen Termin vereinbaren?', real:'Haben Sie diese Woche noch \'nen freien Slot? / Wann haben Sie Sprechstunde? / Kann ich kurz reinschauen?', note:'跟教授说话用正式语体是对的，Termin vereinbaren 并不算错。不过德国大学更省事的入口——<b>Sprechstunde</b> 是教授的开放答疑时间，直接那个时间去。<b>Haben Sie noch \'nen Slot?</b>（您还有空位吗？）是德国学生的标准说法。敲门探头问 <b>Kann ich kurz reinschauen?</b>（我能进来一下吗？）最自然。'},
     {cat:'被纠正德语', book:'Entschuldigung, ich lerne noch Deutsch.', real:'Ja, ich weiß — ich arbeite dran. / Danke, gut zu wissen! / Oh, sagt man das so?', note:'德国人爱纠正语法是出了名的，但通常不是恶意。被纠时别道歉——轻松接住：<b>Danke, gut zu wissen!</b>（谢谢，学到了！）、<b>Ich arbeite dran</b>（我正努力呢）、<b>Oh, sagt man das so?</b>（哦，原来这么说？）。道歉反而让气氛变尴尬。'},
-    {cat:'Biergarten点酒', book:'Ich möchte ein Bier, bitte.', real:'Ein Helles, bitte. / Noch \'ne Maß! / Was gibt\'s vom Fass?', note:'Biergarten 是德国夏天的心脏。点啤酒别说 Ich möchte ein Bier——太游客。<b>Ein Helles, bitte</b>（一杯拉格）、<b>Noch \'ne Maß!</b>（再来一升！）、<b>Was gibt\'s vom Fass?</b>（桶装生啤有什么？）。巴伐利亚 Biergarten 允许自带食物（只买酒就能坐一天），这是传统 Brotzeitrecht。'},
-    {cat:'Minijob发工资', book:'Wann bekomme ich mein Gehalt?', real:'Wann kommt das Geld? / Krieg ich \'ne Lohnabrechnung? / Ist das schon brutto oder netto?', note:'德国 Minijob（450 欧/月）是学生打工首选——免税但要知道 <b>Steuerklasse</b>（税级）、<b>Sozialversicherung</b>（社保）、<b>Lohnsteuer</b>（工资税）。发工资被扣钱别慌——学生可以年底报税退回。<b>Ist das brutto oder netto?</b>（这是税前还是税后？）是最实用的一句话。'},
+    {cat:'Biergarten点酒', book:'Ich möchte ein Bier, bitte.', real:'Ein Helles, bitte. / Noch \'ne Maß! / Was gibt\'s vom Fass?', note:'Biergarten 是德国夏天的心脏。点啤酒说 Ich möchte ein Bier 也没问题，只是有点游客感；更地道的是：<b>Ein Helles, bitte</b>（一杯拉格）、<b>Noch \'ne Maß!</b>（再来一升！）、<b>Was gibt\'s vom Fass?</b>（桶装生啤有什么？）。巴伐利亚 Biergarten 允许自带食物（只买酒就能坐一天），这是传统 Brotzeitrecht。'},
+    {cat:'Minijob发工资', book:'Wann bekomme ich mein Gehalt?', real:'Wann kommt das Geld? / Krieg ich \'ne Lohnabrechnung? / Ist das schon brutto oder netto?', note:'德国 Minijob（2026 年起 603 欧/月，随最低工资每年上调）是学生打工首选——免税但要知道 <b>Steuerklasse</b>（税级）、<b>Sozialversicherung</b>（社保）、<b>Lohnsteuer</b>（工资税）。发工资被扣钱别慌——学生可以年底报税退回。<b>Ist das brutto oder netto?</b>（这是税前还是税后？）是最实用的一句话。'},
     {cat:'吐槽德铁晚点', book:'Der Zug hat Verspätung.', real:'Schon wieder Verspätung! / Die Bahn hat\'s mal wieder geschafft. / Heute kommt eh nichts pünktlich.', note:'德国人对德铁晚点的吐槽是一门艺术：<b>Die Bahn hat\'s mal wieder geschafft</b>（德铁又搞成了——反讽"又出幺蛾子"）、<b>Heute kommt eh nichts pünktlich</b>（今天反正没什么能准时到）。<b>Zugausfall</b>（列车取消）、<b>Schienenersatzverkehr</b>（铁轨替代巴士）是每个德国人的 PTSD 单词。'},
     {cat:'市民局办登记', book:'Ich möchte mich anmelden.', real:'Ich muss meine Wohnung anmelden. / Haben Sie einen Termin? / Welche Unterlagen brauche ich?', note:'德国搬到新城市两周内必须去 <b>Bürgeramt</b> 办 <b>Anmeldung</b>（居住登记），这是法律义务。预约档期堪比抢演唱会票——凌晨刷网页抢 Slot 是留学生共同记忆。带好 <b>Wohnungsgeberbestätigung</b>（房东入住确认）、护照和 <b>Meldebescheinigung</b> 表格。'},
-    {cat:'银行开户', book:'Ich möchte ein Bankkonto eröffnen.', real:'Ich brauch\' ein Girokonto. / Welche Bank kannst du empfehlen? / Gibt\'s das auch ohne Kontoführungsgebühren?', note:'德国银行开户别说 eröffnen，<b>ein Girokonto eröffnen</b>（开一个活期账户）更准。学生首选 <b>Direktbank</b>（网上银行，如 N26/DKB/Comdirect），没有 <b>Kontoführungsgebühren</b>（账户管理费）。传统银行如 Sparkasse、Deutsche Bank 网点多但月费贵。'},
+    {cat:'银行开户', book:'Ich möchte ein Bankkonto eröffnen.', real:'Ich brauch\' ein Girokonto. / Welche Bank kannst du empfehlen? / Gibt\'s das auch ohne Kontoführungsgebühren?', note:'开户就说 <b>ein Girokonto eröffnen</b>（开一个活期账户）——德国人日常说的账户几乎都是 Girokonto。学生首选 <b>Direktbank</b>（网上银行，如 N26/DKB/Comdirect），没有 <b>Kontoführungsgebühren</b>（账户管理费）。传统银行如 Sparkasse、Deutsche Bank 网点多但月费贵。'},
     {cat:'药房买药', book:'Ich brauche Medikamente.', real:'Ich hab\' \'ne Erkältung — was können Sie empfehlen? / Ist das rezeptfrei? / Haben Sie was gegen Halsschmerzen?', note:'德国医药分离：<b>Apotheke</b>（药房）卖药，<b>Drogerie</b>（日化店如 dm/Rossmann）只卖化妆品保健品不卖药。处方药叫 <b>rezeptpflichtig</b>，非处方叫 <b>rezeptfrei</b>。红大A标志就是 Apotheke。<b>Halsschmerzen</b>（喉咙痛）是留学生看医生第一高频词。'},
     {cat:'周日商店关门', book:'Die Geschäfte sind am Sonntag geschlossen.', real:'Ach ja, morgen ist Sonntag — ich hab\' nix zu essen daheim! / Mist, ich muss noch einkaufen, aber es ist schon zu.', note:'德国周日几乎一切关门，这是文化冲击第一名。<b>Ladenschlussgesetz</b>（商店关门法）保护休息日。加油站小超市、火车站商店、机场是仅有的周日可购物之地。周六下午超市里人山人海——德国人称 <b>Samstags im Supermarkt ist die Hölle los</b>。'},
     {cat:'洗衣房', book:'Wo kann ich meine Kleidung waschen?', real:'Ist der Waschkeller frei? / Wie viel kostet \'ne Maschine? / Darf ich bei dir mitwaschen?', note:'德国学生宿舍 <b>Waschkeller</b>（地下洗衣房）是社交场所。问 <b>Ist die Waschmaschine frei?</b>（洗衣机空着吗？）避免白跑一趟。投币洗衣 <b>Münzwaschmaschine</b>，洗衣粉叫 <b>Waschmittel</b>（别跟 Weichspüler 柔顺剂搞混）。记住 <b>Unter 40 Grad überlebt nichts</b>——德国人坚信40度以下洗不干净。'},
@@ -36409,18 +36426,18 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'图书馆学习', book:'Ich möchte einen ruhigen Platz zum Lernen.', real:'Ist hier noch frei? / Wie lange hast du den Platz? / Komm, wir holen uns \'n Kaffee und dann weitermachen.', note:'德国大学图书馆在考试季一座难求。问空位 <b>Ist hier noch frei?</b>；帮看位子 <b>Kannst du auf meinen Platz aufpassen?</b>。<b>Lernpause</b>（学习休息）几乎等于去 <b>Cafete</b>（图书馆咖啡角）。<b>die Bib</b> 是 Bibliothek 的口语叫法。'},
     {cat:'申请居留', book:'Ich möchte eine Aufenthaltserlaubnis beantragen.', real:'Ich muss zur Ausländerbehörde. / Mein Visum läuft bald ab. / Brauch\' ich \'n neuen Termin?', note:'德国 <b>Ausländerbehörde</b>（外管局）是每个非欧盟留学生定期去的地方。<b>Aufenthaltserlaubnis</b>（居留许可）、<b>Fiktionsbescheinigung</b>（临时居留证明，处理期过渡用）、<b>Sperrkonto</b>（冻结账户）是续签三大高频词。外管局邮件回复慢到让人怀疑人生——直接去排队有时更快。'},
     {cat:'生日派对', book:'Herzlichen Glückwunsch zum Geburtstag!', real:'Alles Gute! / Lass dich feiern! / Ich hab\' dir was Kleines mitgebracht.', note:'德国人过生日习惯自己操办派对，别人不主动给庆生。生日当天对寿星说 <b>Alles Gute!</b> 或 <b>Herzlichen Glückwunsch!</b>。<b>In den Geburtstag reinfeiern</b>（在前一晚午夜开始庆祝）是经典习俗。德国人忌讳提前祝生日快乐——认为会带来厄运，绝对不能 <b>vor dem Geburtstag gratulieren</b>。'},
-    {cat:'退税报税', book:'Ich möchte eine Steuererklärung machen.', real:'Kannst du mir mit der Steuererklärung helfen? / Soll ich Elster oder Steuer-App nehmen? / Bekomme ich was zurück?', note:'德国学生打工可以报税把钱退回来。<b>Steuererklärung</b>（报税）用 <b>Elster</b>（官方免费报税系统）或 <b>WISO Steuer</b> / <b>Taxfix</b> 等 App。<b>Steuerfreibetrag</b>（免税额度，2026年约12096欧）以内的收入全退。学生打工退税平均能拿回好几百欧——不报就亏了。'},
+    {cat:'退税报税', book:'Ich möchte eine Steuererklärung machen.', real:'Kannst du mir mit der Steuererklärung helfen? / Soll ich Elster oder Steuer-App nehmen? / Bekomme ich was zurück?', note:'德国学生打工可以报税把钱退回来。<b>Steuererklärung</b>（报税）用 <b>Elster</b>（官方免费报税系统）或 <b>WISO Steuer</b> / <b>Taxfix</b> 等 App。<b>Grundfreibetrag</b>（基本免税额度，2026 年为 12348 欧）以内的收入不用缴税，被预扣的可以退回来。学生打工退税平均能拿回好几百欧——不报就亏了。'},
     {cat:'理发店', book:'Ich möchte einen Haarschnitt.', real:'Nur die Spitzen schneiden, bitte. / Nicht zu kurz! / Was kostet \'n Haarschnitt?', note:'德国理发店 <b>Friseur</b> 价格不便宜（男发15-30欧，女发40-80欧）。<b>Nur die Spitzen</b>（只修发梢）、<b>Mit Waschen?</b>（含洗头吗？）、<b>Termin oder spontan?</b>（预约还是 walk-in）。德国发型师说 <b>So wie immer?</b>（跟以前一样吗？）是忠实客户专属待遇。'},
     {cat:'咖啡馆自习', book:'Darf ich hier lernen?', real:'Kann ich hier ein bisschen am Laptop arbeiten? / Braucht ihr jede Stunde \'ne Bestellung? / Gibt\'s hier Steckdosen?', note:'德国咖啡馆允许带电脑坐一阵子但最好意思意思点一杯——<b>Kann ich hier ein bisschen arbeiten?</b>（我能在这儿工作一会儿吗？）先问一句礼貌。<b>Steckdosen</b>（插座）在德国老咖啡馆是稀缺资源。<b>Ab einer bestimmten Zeit muss man neu bestellen</b>——坐太久可能被提醒再点单。'},
     {cat:'分享账号', book:'Können wir uns ein Konto teilen?', real:'Hast du Netflix? / Sollen wir uns das teilen? / Wer hat das Passwort?', note:'德国人也爱共享流媒体账号——<b>Teilen wir uns den Account!</b>（我们合用一个账号吧）、<b>Ich schmeiß\' dich raus</b>（我要把你踢出账号了——开玩笑）。但注意 Netflix 等平台2023年起打击密码共享，不同住址需额外付费。<b>Geht\'s noch bei dir?</b>（你那边还能看吗？）是发现被踢的委婉问法。'},
     {cat:'街头问时间', book:'Entschuldigung, wie spät ist es?', real:'Entschuldigung, wie viel Uhr haben wir? / Wissen Sie, wie spät es ist? / Danke, ich hab\'s eilig!', note:'街上问时间最简单：<b>Wie viel Uhr ist es?</b> 或 <b>Haben Sie \'ne Uhr?</b>。德国人回时间用12小时制加一句 <b>kurz vor</b>（差几分）或 <b>kurz nach</b>（过几分）。被问者通常自觉抬手腕——戴手表在德国比国内普遍得多。'},
-    {cat:'火车票查票', book:'Hier ist meine Fahrkarte.', real:'Fahrkarte, bitte. / Hab\' ich aufm Handy. / Ich hab\' das Deutschlandticket.', note:'德国查票员（<b>Schaffner</b> / <b>Kontrolleur</b>）上来一句 <b>Die Fahrkarten, bitte!</b>。出示 <b>Deutschlandticket</b>（49欧全国通票）说 <b>Hier, das Deutschlandticket</b> 就行。<b>Schwarzfahren</b>（逃票）罚款60欧起步，ICE 上是犯罪。忘带学生票的别说"忘带了"——<b>Ich hab\' mein Semesterticket vergessen</b> 可以事后凭票根减免罚款。'},
+    {cat:'火车票查票', book:'Hier ist meine Fahrkarte.', real:'Fahrkarte, bitte. / Hab\' ich aufm Handy. / Ich hab\' das Deutschlandticket.', note:'德国查票员（<b>Schaffner</b> / <b>Kontrolleur</b>）上来一句 <b>Die Fahrkarten, bitte!</b>。出示 <b>Deutschlandticket</b>（2026 年起 63 欧/月，全国通票）说 <b>Hier, das Deutschlandticket</b> 就行。<b>Schwarzfahren</b>（逃票）罚款 60 欧起步。忘带学生票的别说"忘带了"——<b>Ich hab\' mein Semesterticket vergessen</b> 可以事后凭票根减免罚款。'},
     {cat:'买二手家具', book:'Ich möchte gebrauchte Möbel kaufen.', real:'Ist das noch zu haben? / Was letzte Preis? / Kann man das mit dem Fahrrad transportieren?', note:'德国学生买家具首选 <b>eBay Kleinanzeigen</b>。<b>Was letzte Preis?</b>（最低多少钱？语法不对但人人这么发）是砍价标配。<b>Nur zur Abholung</b>（仅限自提）意味着你需要搬。<b>Zu verschenken</b>（免费送）的好东西要秒抢。宜家叫 <b>IKEA</b>，但 Kleinanzeigen 上的旧宜家比新宜家便宜一截。'},
     {cat:'延误错过', book:'Ich habe den Zug verpasst.', real:'Verpasst — super. / Wie komm\' ich jetzt nach Hause? / Wann fährt der nächste?', note:'错过车了别只会 verpasst。<b>Verpasst — super</b>（错过了——太棒了，经典德式 sarcasm）、<b>Wie komm\' ich jetzt nach Hause?</b>（我现在怎么回家？）是发自灵魂的拷问。<b>Nächster Zug</b>（下一班）和 <b>Schienenersatzverkehr</b>（轨道替代公交，夜间/维修时的噩梦）是 DB Navigator App 常用搜索。'},
     {cat:'送修电子', book:'Mein Laptop funktioniert nicht.', real:'Mein Laptop spinnt. / Der Bildschirm bleibt schwarz. / Kannst du mal draufgucken?', note:'电子产品坏了别用 funktioniert nicht。<b>Mein Laptop spinnt</b>（我的笔记本发神经了）超日常。<b>Kannst du mal draufgucken?</b>（你能帮我看一眼吗？）是找朋友帮忙的万能起手式。<b>Garantie</b>（保修）还在不？<b>Hast du noch Garantie drauf?</b> 是第一反应。'},
     {cat:'加油站', book:'Wo ist die nächste Tankstelle?', real:'Ich muss tanken. / Super E10 oder Diesel? / Was kostet der Sprit gerade?', note:'德国油价波动频繁——<b>Spritpreise</b> 一天涨跌好几次，App 比价是驾驶者的日常。加油枪自己拿，加完去小店报油枪号 <b>Nummer 3, bitte</b> 付款。<b>Super E10</b>（95号含10%乙醇）、<b>Super E5</b>（95号标准）、<b>Diesel</b>（柴油）三大类，别加错了。'},
     {cat:'室友会议', book:'Wir müssen über die Hausarbeit sprechen.', real:'Lass uns \'n WG-Plenum machen. / Wer hat den Müll noch nicht runtergebracht? / Schreib dich in die Putzliste ein!', note:'德国 WG（合租，<b>Wohngemeinschaft</b>）文化发达。<b>Putzplan</b>（值日表）是和平共处的基本法——<b>Ich mach\' diese Woche das Bad</b>（我这周打扫浴室）。<b>WG-Plenum</b>（室友大会）定期讨论采购、值日、访客规则。<b>Putzkasten</b>（清洁用品柜）和 <b>Mülltrennung</b>（垃圾分类）是争吵最多的话题。'},
-    {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）基本全国；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'},
+    {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）只在 9 个州放假——勃兰登堡、不来梅、汉堡、梅前、下萨克森、萨克森、萨安、石荷、图林根；拜仁/巴符/柏林/黑森/北威/莱普/萨尔都不放；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'},
     {cat:'走大运', book:'Das ist ein großer Glücksfall.', real:'Das ist \'n Sechser im Lotto! / Einfach ein Sechser im Lotto! / So ein Glück muss man erst mal haben!', note:'德国人表达"走大运/撞大运"的经典说法——<b>ein Sechser im Lotto</b>（字面：六合彩中六个号=中头奖），用来形容运气爆棚。<b>So ein Glück muss man erst mal haben!</b>（这种运气得先有才行！）也表示难以置信的好运。反着说也可以：<b>Das ist aber auch kein Sechser im Lotto</b>——这事不是什么中彩票（没那么难/没那么稀奇）。'},
     {cat:'抱怨天热', book:'Es ist sehr heiß heute.', real:'Es ist so heiß, ich schmelze! / Diese Hitze ist nicht auszuhalten! / Gefühlt sind es 40 Grad! / Ich komm\' bei der Hitze zu gar nichts!', note:'德国夏天30°C以上就全民喊热——<b>Ich schmelze!</b>（我要化了！）是最常见的抱怨。<b>nicht auszuhalten</b>（受不了）表达极限感。<b>Gefühlt</b>（体感）是德国人聊天气的万能词：体感温度永远比实际高。注意德国老旧住宅普遍<b>没有空调</b>（keine Klimaanlage）——所以热浪天是真的难熬，抱怨也格外真情实感。'},
     {cat:'羡慕有空调', book:'Es ist sehr heiß. Haben Sie eine Klimaanlage?', real:'Boah, ihr habt \'ne Klimaanlage? Echt jetzt? / Bei euch ist\'s ja angenehm kühl! / Darf ich bei euch einziehen? / Klimaanlage ist schon was Feines!', note:'在德国夏天走进有空调的房间简直像进了天堂——<b>ihr habt \'ne Klimaanlage?</b> 带着羡慕嫉妒的语气。<b>Bei euch ist\'s ja angenehm kühl!</b>（你们这儿真凉快啊！）是最高赞美。<b>Darf ich bei euch einziehen?</b>（我能搬进来住吗？）是开玩笑但一半真心。<b>Klimaanlage ist schon was Feines!</b>（空调真是好东西啊！）表达由衷的向往。毕竟德国大多数民宅没有空调，有空调的商铺/办公室就是避暑圣地。'},
@@ -38443,6 +38460,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 
 
 <template id="tpl-page-grammar" data-src="lazy/grammar.html"></template>
+<template id="tpl-page-phonetik" data-src="lazy/phonetik.html"></template>
 <template id="tpl-page-a2lesen" data-src="lazy/a2lesen.html"></template>
 
 <!-- 全局"显示答案"切换函数：A1-B1 / B2-C1 语法抄写等页面共用。
