@@ -74,6 +74,87 @@
   #page-b2pruefung .bp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:6px;padding-left:24px;position:relative}
   #page-b2pruefung .bp-points li::before{content:"✦";position:absolute;left:0;color:#fde68a}
   @media(max-width:600px){#page-b2pruefung{padding:6px}#page-b2pruefung .bp-hero{padding:24px 16px 20px}#page-b2pruefung .bp-hero h1{font-size:1.4rem}#page-b2pruefung .bp-sec{padding:16px 14px}#page-b2pruefung .mcq-options label{font-size:.8rem;padding:.35rem .7rem}}
+
+  /* ══ GOETHE-SHEET CSS（真题卷面 1:1）══ */
+  #page-b2pruefung .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b2pruefung .exp-sheet *{color:inherit}
+  #page-b2pruefung .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b2pruefung .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;letter-spacing:.06em}
+  #page-b2pruefung .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b2pruefung .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px} .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b2pruefung .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b2pruefung .exp-teil b{font-weight:800}
+  #page-b2pruefung .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b2pruefung .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b2pruefung .exp-sit{font-size:.85rem;font-style:italic;color:#222;margin:0 0 14px;line-height:1.7}
+  #page-b2pruefung .exp-h{font-size:.86rem;font-weight:700;margin:14px 0 4px}
+  #page-b2pruefung .exp-thema{text-align:center;font-weight:800;font-size:.95rem;margin:18px 0 14px}
+  #page-b2pruefung .exp-rows{display:flex;flex-direction:column;gap:16px}
+  #page-b2pruefung .exp-row{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:16px;align-items:start}
+  #page-b2pruefung .exp-ins{font-size:.82rem;color:#222;line-height:1.6}
+  #page-b2pruefung .exp-lines{padding-top:2px}
+  #page-b2pruefung .exp-lines i{display:block;border-bottom:1px solid #9a9a9a;height:21px}
+  #page-b2pruefung .exp-folie{position:relative;border:1px solid #cfcfcf;padding:8px 8px 26px;border-radius:2px;overflow:hidden;background:#fdf1e7;min-height:104px}
+  #page-b2pruefung .exp-folie.acc-blue{background:#eef4fb}
+  #page-b2pruefung .exp-folie::before{content:'';position:absolute;left:-34px;bottom:-40px;width:78px;height:66px;border-radius:50% 46% 40% 52%;background:#e8913f;transform:rotate(-16deg);opacity:.95}
+  #page-b2pruefung .exp-folie.acc-blue::before{background:#2f6fb0}
+  #page-b2pruefung .exp-folie::after{content:'';position:absolute;left:8px;bottom:13px;width:8px;height:8px;border-radius:50%;background:#e8913f;box-shadow:13px -5px 0 -2px #e8913f,24px 1px 0 -4px #e8913f;opacity:.85}
+  #page-b2pruefung .exp-folie.acc-blue::after{background:#2f6fb0;box-shadow:13px -5px 0 -2px #2f6fb0,24px 1px 0 -4px #2f6fb0}
+  #page-b2pruefung .exp-folie .exp-badge{position:absolute;left:7px;bottom:6px;font-size:.6rem;font-weight:700;color:#fff;background:#e8913f;border-radius:3px;padding:1px 6px;z-index:2}
+  #page-b2pruefung .exp-folie.acc-blue .exp-badge{background:#2f6fb0}
+  #page-b2pruefung .exp-folie .exp-quote{font-style:italic;font-size:.7rem;color:#c9531a;line-height:1.35;margin:2px 0 6px}
+  #page-b2pruefung .exp-folie.acc-blue .exp-quote{color:#1f4f86}
+  #page-b2pruefung .exp-folie .exp-bc{font-size:.66rem;font-weight:700;color:#c9531a;line-height:1.35;margin:2px 0 8px}
+  #page-b2pruefung .exp-folie.acc-blue .exp-bc{color:#1f4f86}
+  #page-b2pruefung .exp-folie .exp-stitle{font-family:Georgia,'Times New Roman',serif;font-weight:800;font-size:.84rem;color:#17365d;line-height:1.28}
+  #page-b2pruefung .exp-punkte{margin:26px 0 0 34px}
+  #page-b2pruefung .exp-pk-t{font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;font-weight:700;color:#111;margin:0 0 10px}
+  #page-b2pruefung .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b2pruefung .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;padding-left:16px;position:relative}
+  #page-b2pruefung .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b2pruefung .exp-pk li.sub{padding-left:34px}
+  #page-b2pruefung .exp-pk li.sub::before{content:''}
+  #page-b2pruefung .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
+  #page-b2pruefung .exp-tstrip{margin:12px 0 4px}
+  #page-b2pruefung .exp-tstrip .ts{display:block;border-left:4px solid #e8913f;background:#f6f7f9;padding:9px 13px;margin:9px 0}
+  #page-b2pruefung .exp-tstrip .ts b{display:block;color:#17365d;font-size:.9rem;line-height:1.5;font-family:Georgia,'Times New Roman',serif}
+  #page-b2pruefung .exp-tstrip .ts i{display:block;color:#5b6b7d;font-size:.79rem;font-style:normal;margin-top:3px;line-height:1.6}
+  @media(max-width:600px){
+  #page-b2pruefung .exp-sheet{padding:16px 14px 18px}
+  #page-b2pruefung .exp-row{grid-template-columns:minmax(0,1fr);gap:9px}
+  #page-b2pruefung .exp-folie{min-height:0;padding:8px 8px 24px}
+  #page-b2pruefung .exp-lines i{height:19px}
+  #page-b2pruefung .exp-punkte{margin-left:12px}
+  }
+  /* ══ /GOETHE-SHEET CSS ══ */
+
+  /* ══ B2 卷面补充（主题卡 + 两栏题位行）══ */
+  #page-b2pruefung .exp-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start;margin:0 0 26px}
+  #page-b2pruefung .exp-tcard{border:1px solid #b9b9b9;background:#fff;padding:15px 17px 19px}
+  #page-b2pruefung .exp-tcard .exp-tct{font-weight:800;font-size:.98rem;color:#111;margin:0 0 14px;line-height:1.35}
+  #page-b2pruefung .exp-tcard ul{margin:0;padding-left:19px}
+  #page-b2pruefung .exp-tcard li{font-size:.92rem;color:#222;line-height:1.6;margin:0 0 11px}
+  #page-b2pruefung .exp-tcard li:last-child{margin-bottom:0}
+  #page-b2pruefung .exp-thema-h{font-weight:800;font-size:1rem;color:#111;margin:0 0 9px}
+  #page-b2pruefung .exp-wer{font-size:.85rem;color:#222;margin:0 0 14px}
+  #page-b2pruefung .exp-question{text-align:center;font-weight:800;font-size:1.12rem;color:#111;
+    margin:26px 0 22px;line-height:1.5}
+  #page-b2pruefung .exp-stich{margin:8px 0 0;padding-left:0;list-style:none}
+  #page-b2pruefung .exp-stich li{font-size:.92rem;color:#222;line-height:1.95}
+  #page-b2pruefung .exp-cover-h{font-weight:800;font-size:1.12rem;color:#111;margin:0 0 3px}
+  #page-b2pruefung .exp-cover-sub{font-size:.86rem;color:#555;margin:0 0 18px}
+  #page-b2pruefung .exp-bul{margin:0 0 4px;padding-left:20px;list-style:disc}
+  #page-b2pruefung .exp-bul li{font-size:.92rem;color:#222;line-height:1.8}
+  @media(max-width:600px){
+    #page-b2pruefung .exp-row2{grid-template-columns:minmax(0,1fr);gap:12px}
+    #page-b2pruefung .exp-question{font-size:1rem;margin:18px 0 16px}
+    /* B2 的表头文字比 B1 长得多（GOETHE-ZERTIFIKAT B2 / MODELLSATZ ERWACHSENE /
+       KANDIDATENBLÄTTER），沿用 B1 的字号会在手机上右侧被裁掉 */
+    #page-b2pruefung .exp-masthead .exp-bar{width:100%;font-size:.58rem}
+    #page-b2pruefung .exp-masthead .c1{flex:0 0 58%;padding:3px 6px}
+    #page-b2pruefung .exp-masthead .c2{padding:3px 6px}
+  }
+
 </style>
 <div class="bp-wrap" id="b2pruefung-top">
   <div class="bp-hero">
@@ -400,27 +481,27 @@
 
     <div class="bp-ex">
       <div class="bp-inst"><strong>Teil 1 · Vortrag (短报告, ca. 4 Min)</strong> — 你参加研讨会，就选题做短报告。用"引言-主体-结尾"结构。两位考生各一册主题卡。</div>
-      <div class="bp-box"><strong>👤 Teilnehmende/-r A:</strong><br>
-        <span class="lbl">Thema 1 · Finanzierung des Studiums:</span>
-        <ul class="bp-points"><li>Beschreiben Sie mehrere Alternativen. (描述多种方式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li><li>Beschreiben Sie eine Möglichkeit genauer. (详细介绍一种方式)</li></ul>
-        <span class="lbl">Thema 2 · Gesund leben:</span>
-        <ul class="bp-points"><li>Beschreiben Sie mehrere Bereiche (z. B. Bewegung). (描述多个领域，如运动)</li><li>Beschreiben Sie einen Bereich genauer. (详细描述一个领域)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li></ul>
-      <strong>👤 Teilnehmende/-r B:</strong><br>
-        <span class="lbl">Thema 1 · Freundschaften pflegen:</span>
-        <ul class="bp-points"><li>Beschreiben Sie mehrere Formen (z. B. im Internet). (描述多种形式，如网上)</li><li>Beschreiben Sie eine Form genauer. (详细描述一种形式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li></ul>
-        <span class="lbl">Thema 2 · Ernährung am Arbeitsplatz:</span>
-        <ul class="bp-points"><li>Beschreiben Sie mehrere Alternativen. (描述多种方式)</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese. (讲优缺点并评价)</li><li>Beschreiben Sie eine Möglichkeit genauer. (详细介绍一种方式)</li></ul></div>
+<div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Kandidatenblätter，官方 PDF 1:1）—— 灰表头、官方德语指令、主题卡 + 右侧横线写关键词</div>
+      <div class="exp-caption">📌 考卷原样 · 封面（A / B 共用）</div>
+<div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-cover-h">Kandidatenblätter</div><div class="exp-cover-sub">Sprechen · circa 15 Minuten</div><p class="exp-note">Das Modul Sprechen hat zwei Teile.<br>In Teil 1 halten Sie einen kurzen Vortrag und sprechen mit Ihrer Gesprächspartnerin/Ihrem Gesprächspartner darüber. Wählen Sie dafür ein Thema (1 oder 2) aus (circa 4 Minuten).<br>In Teil 2 tauschen Sie in einer Diskussion Standpunkte aus (circa 5 Minuten).</p><p class="exp-note">Ihre Vorbereitungszeit beträgt 15 Minuten (Paarprüfung und Einzelprüfung). Sie bereiten sich allein vor. Sie dürfen sich Notizen machen. In der Prüfung sollen Sie frei sprechen.<br>Hilfsmittel (z. B. Wörterbücher, Handys/mobile Endgeräte) sind nicht erlaubt.</p></div>
+      <div class="exp-caption">📌 考卷原样 · <strong>Teilnehmende/-r A</strong>（Thema 1 / Thema 2 二选一，另一位考生拿 B 卷）</div>
+<div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 1</b> Vortrag halten<span class="dauer">Dauer für beide Teilnehmende: circa 8 Minuten</span></div><p class="exp-note">Sie nehmen an einem Seminar teil und sollen dort einen kurzen Vortrag halten.<br>Wählen Sie ein Thema (Thema 1 oder 2) aus. Ihre Gesprächspartnerinnen/Ihre Gesprächspartner hören zu und stellen Ihnen anschließend Fragen.</p><p class="exp-note">Strukturieren Sie Ihren Vortrag mit einer Einleitung, einem Hauptteil und einem Schluss.<br>Ihre Notizen und Ideen schreiben Sie bitte in der Vorbereitungszeit auf.<br>Sprechen Sie circa 4 Minuten.</p><div class="exp-wer">Teilnehmende/-r A</div><div class="exp-thema-h">Thema 1</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Finanzierung des Studiums</div><ul><li>Beschreiben Sie mehrere Alternativen.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li><li>Beschreiben Sie eine Möglichkeit genauer.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div><div class="exp-thema-h">Thema 2</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Gesund leben</div><ul><li>Beschreiben Sie mehrere Bereiche (z. B. Bewegung).</li><li>Beschreiben Sie einen Bereich genauer.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      <div class="exp-caption">📌 考卷原样 · <strong>Teilnehmende/-r B</strong></div>
+<div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 1</b> Vortrag halten<span class="dauer">Dauer für beide Teilnehmende: circa 8 Minuten</span></div><p class="exp-note">Sie nehmen an einem Seminar teil und sollen dort einen kurzen Vortrag halten.<br>Wählen Sie ein Thema (Thema 1 oder 2) aus. Ihre Gesprächspartnerinnen/Ihre Gesprächspartner hören zu und stellen Ihnen anschließend Fragen.</p><p class="exp-note">Strukturieren Sie Ihren Vortrag mit einer Einleitung, einem Hauptteil und einem Schluss.<br>Ihre Notizen und Ideen schreiben Sie bitte in der Vorbereitungszeit auf.<br>Sprechen Sie circa 4 Minuten.</p><div class="exp-wer">Teilnehmende/-r B</div><div class="exp-thema-h">Thema 1</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Freundschaften pflegen</div><ul><li>Beschreiben Sie mehrere Formen (z. B. im Internet).</li><li>Beschreiben Sie eine Form genauer.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div><div class="exp-thema-h">Thema 2</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Ernährung am Arbeitsplatz</div><ul><li>Beschreiben Sie mehrere Alternativen.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li><li>Beschreiben Sie eine Möglichkeit genauer.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+
       <div class="bp-box blue"><span class="lbl">💬 Redemittel:</span><div class="bp-chips"><span class="bp-chip">Mein Thema ist…</span><span class="bp-chip">Zuerst… dann…</span><span class="bp-chip">Einerseits… andererseits…</span><span class="bp-chip">Ein großer Vorteil ist…</span><span class="bp-chip">Ein Nachteil ist allerdings…</span><span class="bp-chip">Meiner Meinung nach…</span><span class="bp-chip">Zusammenfassend…</span><span class="bp-chip">Vielen Dank für Ihre Aufmerksamkeit.</span></div></div>
     </div>
 
     <div class="bp-ex">
       <div class="bp-inst"><strong>Teil 2 · Diskussion (辩论, ca. 5 Min)</strong> — 你是辩论社成员，讨论：<strong>大学生该给教授打分吗？</strong></div>
-      <div class="bp-box"><strong>📋 Aufgabe:</strong> Sie sind Teilnehmende eines Debattierclubs und diskutieren über die Frage.<br>
-        <strong>❓ Sollen Studierende ihre Professorinnen und Professoren beurteilen?</strong><br>
-        <ul class="bp-points"><li>Tauschen Sie Ihren Standpunkt und Ihre Argumente aus. (交换观点与论据)</li><li>Reagieren Sie auf die Argumente Ihrer Gesprächspartnerin/Ihres Gesprächspartners. (回应对方)</li><li>Fassen Sie am Ende zusammen: Sind Sie dafür oder dagegen? (总结赞成/反对)</li></ul>
-      <span class="lbl">💭 Stichpunkte:</span> Motivation nimmt zu/ab? · Unterricht wird besser/schlechter? · Fairness ist gegeben? · Beurteilung bleibt anonym?<div class="bp-chips"><span class="bp-chip">Ich bin der Meinung, dass…</span><span class="bp-chip">Das stimmt, aber…</span><span class="bp-chip">Da widerspreche ich, weil…</span><span class="bp-chip">Was ist mit…?</span><span class="bp-chip">Fassen wir zusammen…</span></div></div>
+<div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Kandidatenblätter，官方 PDF 1:1）—— 灰表头、官方德语指令、主题卡 + 右侧横线写关键词</div>
+<div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 2</b> Diskussion führen<span class="dauer">Dauer für beide Teilnehmende: circa 5 Minuten</span></div><p class="exp-note">Sie sind Teilnehmende eines Debattierclubs und diskutieren über die Frage.</p><div class="exp-question">Sollen Studierende ihre Professorinnen und Professoren beurteilen?</div><ul class="exp-bul"><li>Tauschen Sie Ihren Standpunkt und Ihre Argumente aus.</li><li>Reagieren Sie auf die Argumente Ihrer Gesprächspartnerin/Ihres Gesprächspartners.</li><li>Fassen Sie am Ende zusammen: Sind Sie dafür oder dagegen?</li></ul><p class="exp-note" style="margin-top:22px">Sie können diese Stichpunkte zu Hilfe nehmen.</p><ul class="exp-stich"><li>Motivation nimmt zu/ab?</li><li>Unterricht wird besser/schlechter?</li><li>Fairness ist gegeben?</li><li>Beurteilung bleibt anonym?</li><li>...</li></ul></div>
+      <div class="exp-caption" style="margin-top:-6px">A 卷与 B 卷的 Teil 2 <strong>内容完全相同</strong>（官方只在辩题位置上略有差别），所以这里只放一张。</div>
+      <div class="bp-box blue"><span class="lbl">💬 Redemittel (辩论常用句):</span><div class="bp-chips"><span class="bp-chip">Ich bin der Meinung, dass…</span><span class="bp-chip">Das stimmt, aber…</span><span class="bp-chip">Da widerspreche ich, weil…</span><span class="bp-chip">Was ist mit…?</span><span class="bp-chip">Fassen wir zusammen…</span></div></div>
+
       <div class="bp-box"><span class="lbl">🏆 评分 (B2):</span> 完成度 / 互动 / 词汇 / 语法 / 发音。强调结构清晰、敢于互动、观点明确。</div>
     </div>
+  <!-- B2SP-SHEETS v1 -->
   </div><!-- /b2pr-sprechen -->
 
   <!-- 交互 JS -->
