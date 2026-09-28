@@ -1,0 +1,368 @@
+<!-- B2SW-PAGE v1 -->
+<style>
+/* ═══ B2 写作（由 _b2sw_build.py 生成，勿手改）═══ */
+
+  #page-b2schreiben{
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);
+    color:#e2e8f0;line-height:1.75;padding:20px;
+  }
+  #page-b2schreiben .bsw-wrap{max-width:980px;margin:0 auto}
+
+  /* ── 页头 ── */
+  #page-b2schreiben .bsw-hero{text-align:center;background:linear-gradient(135deg,#3b2360,#5b3a8e,#1e3a5f);color:#fff;
+    padding:34px 24px 28px;border-radius:20px;margin-bottom:22px;box-shadow:0 8px 24px rgba(30,58,95,.5);
+    border:1px solid rgba(196,181,253,.22)}
+  #page-b2schreiben .bsw-hero h1{font-size:1.95rem;margin:0 0 8px;color:#fff}
+  #page-b2schreiben .bsw-hero .ey{display:inline-block;background:rgba(196,181,253,.16);color:#ddd6fe;font-size:.82rem;
+    font-weight:700;letter-spacing:.06em;padding:5px 16px;border-radius:20px;margin-bottom:14px;
+    border:1px solid rgba(196,181,253,.3)}
+  #page-b2schreiben .bsw-hero p{opacity:.92;font-size:.97rem;margin:6px 0 0}
+
+  /* ── 锚点导航条 ── */
+  #page-b2schreiben .bsw-anav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 24px}
+  #page-b2schreiben .bsw-anav a{background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.28);color:#ddd6fe;
+    text-decoration:none;font-size:.83rem;padding:6px 14px;border-radius:18px;transition:.15s;cursor:pointer}
+  #page-b2schreiben .bsw-anav a:hover{background:rgba(196,181,253,.2);border-color:rgba(196,181,253,.55)}
+
+  /* ── 区块 ── */
+  #page-b2schreiben .bsw-sec{background:rgba(255,255,255,.045);border:1px solid rgba(196,181,253,.14);
+    border-radius:16px;padding:22px 24px;margin-bottom:22px;scroll-margin-top:14px}
+  #page-b2schreiben .bsw-sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;
+    border-bottom:2px solid rgba(196,181,253,.2)}
+  #page-b2schreiben .bsw-sec-h .ic{width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,#5b3a8e,#a78bfa);display:flex;align-items:center;justify-content:center;
+    font-size:1.25rem;flex-shrink:0}
+  #page-b2schreiben .bsw-sec-h h2{font-size:1.32rem;color:#ddd6fe;margin:0}
+  #page-b2schreiben .bsw-sec-h .sub{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:2px}
+
+  /* ── 通用盒子 ── */
+  #page-b2schreiben .bsw-box{background:rgba(46,36,84,.34);border:1px solid rgba(196,181,253,.16);
+    border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.8}
+  #page-b2schreiben .bsw-box.gold{border-left:4px solid #b8860b;background:rgba(184,134,11,.09)}
+  #page-b2schreiben .bsw-box.violet{border-left:4px solid #a78bfa;background:rgba(91,58,142,.18)}
+  #page-b2schreiben .bsw-box.warn{border-left:4px solid #f87171;background:rgba(248,113,113,.09)}
+  #page-b2schreiben .bsw-box.ok{border-left:4px solid #34d399;background:rgba(52,211,153,.08)}
+  #page-b2schreiben .bsw-box .lbl{font-weight:800;color:#ddd6fe;margin-right:6px}
+  #page-b2schreiben .bsw-box.warn .lbl{color:#fca5a5}
+  #page-b2schreiben .bsw-box.ok .lbl{color:#6ee7b7}
+
+  /* ── 小标签 ── */
+  #page-b2schreiben .bsw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  #page-b2schreiben .bsw-chip{background:rgba(167,139,250,.13);border:1px solid rgba(167,139,250,.32);
+    color:#ddd6fe;padding:4px 13px;border-radius:16px;font-size:.83rem}
+  #page-b2schreiben .bsw-chip.dim{background:rgba(148,163,184,.1);border-color:rgba(148,163,184,.28);color:#cbd5e1}
+
+  /* ── 列表 ── */
+  #page-b2schreiben .bsw-points{list-style:none;padding:0;margin:8px 0}
+  #page-b2schreiben .bsw-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:7px;padding-left:24px;position:relative}
+  #page-b2schreiben .bsw-points li::before{content:"✦";position:absolute;left:0;color:#ddd6fe}
+  #page-b2schreiben .bsw-points li b{color:#fff}
+  #page-b2schreiben .bsw-points.ck li::before{content:"☐";color:#a78bfa;font-size:1rem}
+
+  /* ── 步骤条 ── */
+  #page-b2schreiben .bsw-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:11px;font-size:.92rem}
+  #page-b2schreiben .bsw-step .seq{background:linear-gradient(135deg,#5b3a8e,#a78bfa);color:#fff;width:26px;height:26px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;
+    flex-shrink:0;margin-top:2px}
+  #page-b2schreiben .bsw-step .tt{font-weight:800;color:#fff}
+  #page-b2schreiben .bsw-step .mm{color:#a78bfa;font-size:.8rem;font-weight:700;margin-left:6px}
+
+  /* ── 结构骨架卡 ── */
+  #page-b2schreiben .bsw-skel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+  #page-b2schreiben .bsw-skel .sk{background:rgba(91,58,142,.24);border:1px solid rgba(167,139,250,.22);
+    border-radius:12px;padding:12px 14px}
+  #page-b2schreiben .bsw-skel .sk .n{font-size:.72rem;font-weight:800;color:#a78bfa;letter-spacing:.06em}
+  #page-b2schreiben .bsw-skel .sk .t{font-weight:800;color:#fff;font-size:.92rem;margin:3px 0 5px}
+  #page-b2schreiben .bsw-skel .sk .d{font-size:.8rem;color:#cbd5e1;line-height:1.6}
+  #page-b2schreiben .bsw-skel .sk .d em{color:#ddd6fe;font-style:normal;font-weight:700}
+
+  /* ── 范文卡 ── */
+  #page-b2schreiben .bsw-muster{background:linear-gradient(180deg,rgba(30,58,95,.55),rgba(46,36,84,.45));
+    border:1px solid rgba(167,139,250,.3);border-radius:14px;padding:16px 18px;margin:14px 0}
+  #page-b2schreiben .bsw-muster-h{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    flex-wrap:wrap;margin-bottom:10px;padding-bottom:9px;border-bottom:1px dashed rgba(167,139,250,.3)}
+  #page-b2schreiben .bsw-muster-h .t{font-weight:800;color:#ddd6fe;font-size:.95rem}
+  #page-b2schreiben .bsw-muster-h .wc{font-size:.74rem;color:#a78bfa;background:rgba(167,139,250,.14);
+    padding:2px 10px;border-radius:12px;font-weight:700}
+  #page-b2schreiben .bsw-muster .de{font-family:Georgia,'Times New Roman',serif;font-size:.95rem;line-height:1.95;
+    color:#f1f5f9;white-space:pre-line;margin:0}
+  #page-b2schreiben .bsw-muster .de b{color:#fde68a;font-weight:700}
+
+  /* ── 逐句拆解 ── */
+  #page-b2schreiben .bsw-dec{list-style:none;padding:0;margin:12px 0 4px}
+  #page-b2schreiben .bsw-dec li{background:rgba(255,255,255,.04);border-left:3px solid #a78bfa;border-radius:0 10px 10px 0;
+    padding:9px 14px;margin-bottom:8px;font-size:.88rem;line-height:1.75}
+  #page-b2schreiben .bsw-dec li .k{font-weight:800;color:#ddd6fe;margin-right:6px}
+  #page-b2schreiben .bsw-dec li .q{font-family:Georgia,'Times New Roman',serif;color:#fde68a}
+
+  /* ── 表格 ── */
+  #page-b2schreiben .bsw-tblwrap{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
+  #page-b2schreiben table.bsw-tbl{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+  #page-b2schreiben table.bsw-tbl th{background:rgba(91,58,142,.5);color:#ddd6fe;font-weight:800;
+    padding:9px 12px;text-align:left;border:1px solid rgba(167,139,250,.22);white-space:nowrap}
+  #page-b2schreiben table.bsw-tbl td{padding:9px 12px;border:1px solid rgba(167,139,250,.14);
+    color:#e2e8f0;vertical-align:top;line-height:1.7}
+  #page-b2schreiben table.bsw-tbl tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+  #page-b2schreiben table.bsw-tbl td.de{font-family:Georgia,'Times New Roman',serif;color:#f1f5f9}
+  #page-b2schreiben table.bsw-tbl td.zh{color:#cbd5e1;font-size:.83rem}
+  #page-b2schreiben table.bsw-tbl td.no{color:#fca5a5;font-family:Georgia,'Times New Roman',serif}
+  #page-b2schreiben table.bsw-tbl td.yes{color:#6ee7b7;font-family:Georgia,'Times New Roman',serif}
+
+  /* ══ GOETHE-SHEET CSS（官方卷面 1:1）══ */
+  #page-b2schreiben .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;
+    padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);
+    font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b2schreiben .exp-sheet *{color:inherit}
+  #page-b2schreiben .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b2schreiben .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;
+    letter-spacing:.06em}
+  #page-b2schreiben .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b2schreiben .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px}
+  #page-b2schreiben .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b2schreiben .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b2schreiben .exp-teil b{font-weight:800}
+  #page-b2schreiben .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b2schreiben .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b2schreiben .exp-note b{font-weight:700}
+  #page-b2schreiben .exp-punkte{margin:18px 0 0 34px}
+  #page-b2schreiben .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b2schreiben .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;
+    padding-left:16px;position:relative}
+  #page-b2schreiben .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b2schreiben .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
+  /* 官方说明页 */
+  #page-b2schreiben .exp-mod{text-align:center;margin:6px 0 20px}
+  #page-b2schreiben .exp-mod .tt{font-size:1.35rem;font-weight:800;margin:0 0 2px}
+  #page-b2schreiben .exp-mod .ss{font-size:.85rem;color:#333}
+  #page-b2schreiben .exp-list{font-size:.85rem;color:#222;line-height:1.75;margin:0 0 0 6px}
+  #page-b2schreiben .exp-list p{margin:0 0 8px}
+  /* 论坛留言框（Gästebuch） */
+  #page-b2schreiben .exp-gb{border:1px solid #c9c9c9;border-radius:3px;padding:0;margin:12px 0 4px;max-width:560px}
+  #page-b2schreiben .exp-gb .hd{background:#efefef;border-bottom:1px solid #c9c9c9;padding:5px 11px;
+    font-size:.76rem;color:#333}
+  #page-b2schreiben .exp-gb .hd b{font-weight:700}
+  #page-b2schreiben .exp-gb .hd .url{float:right;color:#555}
+  #page-b2schreiben .exp-gb .bd{padding:10px 12px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+  #page-b2schreiben .exp-gb .meta{font-size:.72rem;color:#555;line-height:1.5}
+  #page-b2schreiben .exp-gb .meta .nm{font-style:italic;color:#222}
+  #page-b2schreiben .exp-gb .msg{font-size:.86rem;color:#111;line-height:1.6}
+  /* 答卷纸 */
+  #page-b2schreiben .exp-sol{background:#fbfbf8;border:1px solid #dcdcd4;border-left:4px solid #b9a35a;
+    border-radius:3px;padding:14px 16px;margin:12px 0}
+  #page-b2schreiben .exp-sol .sol-h{font-size:.76rem;font-weight:700;color:#6b5a1e;letter-spacing:.04em;
+    margin:0 0 8px;padding-bottom:6px;border-bottom:1px dashed #d8cfae}
+  #page-b2schreiben .exp-sol .sol-tx{font-family:Georgia,'Times New Roman',serif;font-size:.9rem;line-height:1.85;
+    color:#1a1a1a;white-space:pre-line;margin:0}
+  #page-b2schreiben .exp-sol .sol-note{font-size:.76rem;color:#6b5a1e;margin:10px 0 0;line-height:1.6}
+
+  @media(max-width:600px){
+    #page-b2schreiben{padding:12px}
+    #page-b2schreiben .bsw-sec{padding:16px 14px}
+    #page-b2schreiben .bsw-hero h1{font-size:1.6rem}
+    #page-b2schreiben .exp-sheet{padding:16px 14px 18px}
+    #page-b2schreiben .exp-punkte{margin-left:10px}
+    #page-b2schreiben .exp-gb .bd{grid-template-columns:minmax(0,1fr);gap:6px}
+    #page-b2schreiben .bsw-muster .de{font-size:.9rem;line-height:1.85}
+    /* 两列表格：手机上铺满，不再横向滚动 */
+    #page-b2schreiben table.bsw-tbl{min-width:0}
+    /* 三列表格：手机上改成堆叠卡片，否则最后一列会被藏进横向滚动里 */
+    #page-b2schreiben table.bsw-tbl.stack tr{display:block;border:1px solid rgba(167,139,250,.22);
+      border-radius:10px;margin:0 0 10px;background:rgba(255,255,255,.035);overflow:hidden}
+    #page-b2schreiben table.bsw-tbl.stack tr:first-child{display:none}
+    #page-b2schreiben table.bsw-tbl.stack tr:nth-child(even) td{background:transparent}
+    #page-b2schreiben table.bsw-tbl.stack td{display:block;border:0;
+      border-bottom:1px dashed rgba(167,139,250,.16);padding:8px 12px}
+    #page-b2schreiben table.bsw-tbl.stack td:last-child{border-bottom:0}
+    #page-b2schreiben table.bsw-tbl.stack td::before{display:block;font-size:.68rem;font-weight:800;
+      color:#a78bfa;letter-spacing:.05em;margin-bottom:3px}
+    #page-b2schreiben table.bsw-tbl.stack td:nth-child(1)::before{content:var(--l1)}
+    #page-b2schreiben table.bsw-tbl.stack td:nth-child(2)::before{content:var(--l2)}
+    #page-b2schreiben table.bsw-tbl.stack td:nth-child(3)::before{content:var(--l3)}
+  }
+  /* ── 套内 Aufgabe 小标题（第二 / 三套用）── */
+  #page-b2schreiben .bsw-sub-h{font-size:1.04rem;font-weight:800;color:#fff;margin:30px 0 12px;
+    padding-left:12px;border-left:4px solid #a78bfa;line-height:1.5}
+  #page-b2schreiben .bsw-sub-h .mm{color:#a78bfa;font-size:.78rem;font-weight:700;margin-left:8px;white-space:nowrap}
+
+  /* ══ GOETHE-SHEET CSS（真题卷面 1:1）══ */
+  #page-b2schreiben .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b2schreiben .exp-sheet *{color:inherit}
+  #page-b2schreiben .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b2schreiben .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;letter-spacing:.06em}
+  #page-b2schreiben .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b2schreiben .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px} .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b2schreiben .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b2schreiben .exp-teil b{font-weight:800}
+  #page-b2schreiben .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b2schreiben .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b2schreiben .exp-sit{font-size:.85rem;font-style:italic;color:#222;margin:0 0 14px;line-height:1.7}
+  #page-b2schreiben .exp-h{font-size:.86rem;font-weight:700;margin:14px 0 4px}
+  #page-b2schreiben .exp-thema{text-align:center;font-weight:800;font-size:.95rem;margin:18px 0 14px}
+  #page-b2schreiben .exp-rows{display:flex;flex-direction:column;gap:16px}
+  #page-b2schreiben .exp-row{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:16px;align-items:start}
+  #page-b2schreiben .exp-ins{font-size:.82rem;color:#222;line-height:1.6}
+  #page-b2schreiben .exp-lines{padding-top:2px}
+  #page-b2schreiben .exp-lines i{display:block;border-bottom:1px solid #9a9a9a;height:21px}
+  #page-b2schreiben .exp-folie{position:relative;border:1px solid #cfcfcf;padding:8px 8px 26px;border-radius:2px;overflow:hidden;background:#fdf1e7;min-height:104px}
+  #page-b2schreiben .exp-folie.acc-blue{background:#eef4fb}
+  #page-b2schreiben .exp-folie::before{content:'';position:absolute;left:-34px;bottom:-40px;width:78px;height:66px;border-radius:50% 46% 40% 52%;background:#e8913f;transform:rotate(-16deg);opacity:.95}
+  #page-b2schreiben .exp-folie.acc-blue::before{background:#2f6fb0}
+  #page-b2schreiben .exp-folie::after{content:'';position:absolute;left:8px;bottom:13px;width:8px;height:8px;border-radius:50%;background:#e8913f;box-shadow:13px -5px 0 -2px #e8913f,24px 1px 0 -4px #e8913f;opacity:.85}
+  #page-b2schreiben .exp-folie.acc-blue::after{background:#2f6fb0;box-shadow:13px -5px 0 -2px #2f6fb0,24px 1px 0 -4px #2f6fb0}
+  #page-b2schreiben .exp-folie .exp-badge{position:absolute;left:7px;bottom:6px;font-size:.6rem;font-weight:700;color:#fff;background:#e8913f;border-radius:3px;padding:1px 6px;z-index:2}
+  #page-b2schreiben .exp-folie.acc-blue .exp-badge{background:#2f6fb0}
+  #page-b2schreiben .exp-folie .exp-quote{font-style:italic;font-size:.7rem;color:#c9531a;line-height:1.35;margin:2px 0 6px}
+  #page-b2schreiben .exp-folie.acc-blue .exp-quote{color:#1f4f86}
+  #page-b2schreiben .exp-folie .exp-bc{font-size:.66rem;font-weight:700;color:#c9531a;line-height:1.35;margin:2px 0 8px}
+  #page-b2schreiben .exp-folie.acc-blue .exp-bc{color:#1f4f86}
+  #page-b2schreiben .exp-folie .exp-stitle{font-family:Georgia,'Times New Roman',serif;font-weight:800;font-size:.84rem;color:#17365d;line-height:1.28}
+  #page-b2schreiben .exp-punkte{margin:26px 0 0 34px}
+  #page-b2schreiben .exp-pk-t{font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;font-weight:700;color:#111;margin:0 0 10px}
+  #page-b2schreiben .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b2schreiben .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;padding-left:16px;position:relative}
+  #page-b2schreiben .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b2schreiben .exp-pk li.sub{padding-left:34px}
+  #page-b2schreiben .exp-pk li.sub::before{content:''}
+  #page-b2schreiben .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
+  #page-b2schreiben .exp-tstrip{margin:12px 0 4px}
+  #page-b2schreiben .exp-tstrip .ts{display:block;border-left:4px solid #e8913f;background:#f6f7f9;padding:9px 13px;margin:9px 0}
+  #page-b2schreiben .exp-tstrip .ts b{display:block;color:#17365d;font-size:.9rem;line-height:1.5;font-family:Georgia,'Times New Roman',serif}
+  #page-b2schreiben .exp-tstrip .ts i{display:block;color:#5b6b7d;font-size:.79rem;font-style:normal;margin-top:3px;line-height:1.6}
+  @media(max-width:600px){
+  #page-b2schreiben .exp-sheet{padding:16px 14px 18px}
+  #page-b2schreiben .exp-row{grid-template-columns:minmax(0,1fr);gap:9px}
+  #page-b2schreiben .exp-folie{min-height:0;padding:8px 8px 24px}
+  #page-b2schreiben .exp-lines i{height:19px}
+  #page-b2schreiben .exp-punkte{margin-left:12px}
+  }
+  /* ══ /GOETHE-SHEET CSS ══ */
+
+  /* ══ B2 卷面补充（主题卡 + 两栏题位行）══ */
+  #page-b2schreiben .exp-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start;margin:0 0 26px}
+  #page-b2schreiben .exp-tcard{border:1px solid #b9b9b9;background:#fff;padding:15px 17px 19px}
+  #page-b2schreiben .exp-tcard .exp-tct{font-weight:800;font-size:.98rem;color:#111;margin:0 0 14px;line-height:1.35}
+  #page-b2schreiben .exp-tcard ul{margin:0;padding-left:19px}
+  #page-b2schreiben .exp-tcard li{font-size:.92rem;color:#222;line-height:1.6;margin:0 0 11px}
+  #page-b2schreiben .exp-tcard li:last-child{margin-bottom:0}
+  #page-b2schreiben .exp-thema-h{font-weight:800;font-size:1rem;color:#111;margin:0 0 9px}
+  #page-b2schreiben .exp-wer{font-size:.85rem;color:#222;margin:0 0 14px}
+  #page-b2schreiben .exp-question{text-align:center;font-weight:800;font-size:1.12rem;color:#111;
+    margin:26px 0 22px;line-height:1.5}
+  #page-b2schreiben .exp-stich{margin:8px 0 0;padding-left:0;list-style:none}
+  #page-b2schreiben .exp-stich li{font-size:.92rem;color:#222;line-height:1.95}
+  #page-b2schreiben .exp-cover-h{font-weight:800;font-size:1.12rem;color:#111;margin:0 0 3px}
+  #page-b2schreiben .exp-cover-sub{font-size:.86rem;color:#555;margin:0 0 18px}
+  #page-b2schreiben .exp-bul{margin:0 0 4px;padding-left:20px;list-style:disc}
+  #page-b2schreiben .exp-bul li{font-size:.92rem;color:#222;line-height:1.8}
+  /* ── 以下 4 个类原本手写在 lazy/b1schreiben.html，不在任何 py 里；B2 写作也要用，搬进来 ── */
+  /* 官方说明页 */
+  #page-b2schreiben .exp-mod{text-align:center;margin:6px 0 20px}
+  #page-b2schreiben .exp-mod .tt{font-size:1.35rem;font-weight:800;margin:0 0 2px}
+  #page-b2schreiben .exp-mod .ss{font-size:.85rem;color:#333}
+  #page-b2schreiben .exp-list{font-size:.85rem;color:#222;line-height:1.75;margin:0 0 0 6px}
+  #page-b2schreiben .exp-list p{margin:0 0 8px}
+  /* 论坛留言框（Gästebuch） */
+  #page-b2schreiben .exp-gb{border:1px solid #c9c9c9;border-radius:3px;padding:0;margin:12px 0 4px;max-width:560px}
+  #page-b2schreiben .exp-gb .hd{background:#efefef;border-bottom:1px solid #c9c9c9;padding:5px 11px;font-size:.76rem;color:#333}
+  #page-b2schreiben .exp-gb .hd b{font-weight:700}
+  #page-b2schreiben .exp-gb .hd .url{float:right;color:#555}
+  #page-b2schreiben .exp-gb .bd{padding:10px 12px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+  #page-b2schreiben .exp-gb .meta{font-size:.72rem;color:#555;line-height:1.5}
+  #page-b2schreiben .exp-gb .meta .nm{font-style:italic;color:#222}
+  #page-b2schreiben .exp-gb .msg{font-size:.86rem;color:#111;line-height:1.6}
+  /* 答卷纸 */
+  #page-b2schreiben .exp-sol{background:#fbfbf8;border:1px solid #dcdcd4;border-left:4px solid #b9a35a;border-radius:3px;padding:14px 16px;margin:12px 0}
+  #page-b2schreiben .exp-sol .sol-h{font-size:.76rem;font-weight:700;color:#6b5a1e;letter-spacing:.04em;margin:0 0 8px;padding-bottom:6px;border-bottom:1px dashed #d8cfae}
+  #page-b2schreiben .exp-sol .sol-tx{font-family:Georgia,'Times New Roman',serif;font-size:.9rem;line-height:1.85;color:#1a1a1a;white-space:pre-line;margin:0}
+  #page-b2schreiben .exp-sol .sol-note{font-size:.76rem;color:#6b5a1e;margin:10px 0 0;line-height:1.6}
+  @media(max-width:600px){
+    #page-b2schreiben .exp-row2{grid-template-columns:minmax(0,1fr);gap:12px}
+    #page-b2schreiben .exp-question{font-size:1rem;margin:18px 0 16px}
+    /* B2 的表头文字比 B1 长得多（GOETHE-ZERTIFIKAT B2 / MODELLSATZ ERWACHSENE /
+       KANDIDATENBLÄTTER），沿用 B1 的字号会在手机上右侧被裁掉 */
+    #page-b2schreiben .exp-masthead .exp-bar{width:100%;font-size:.58rem}
+    #page-b2schreiben .exp-masthead .c1{flex:0 0 58%;padding:3px 6px}
+    #page-b2schreiben .exp-masthead .c2{padding:3px 6px}
+  }
+
+</style>
+<div class="bsw-wrap" id="b2schreiben-top">
+<div class="bsw-hero">
+  <div class="ey">Goethe-Zertifikat B2 · Schreiben</div>
+  <h1>✍️ B2 写作</h1>
+  <p>75 分钟两篇：一篇论坛帖（约 150 词）+ 一条给上司的正式消息（约 100 词）。<br>
+     这一页把官方卷面、四个内容要点怎么逐条落实、骨架、范文、评分标准、考生真实答卷，全部摊开讲。</p>
+</div>
+
+<div class="bsw-anav">
+  <a href="#b2sw-s1">考试概览</a>
+  <a href="#b2sw-s2">写作流程</a>
+  <a href="#b2sw-s3">Teil 1 论坛帖</a>
+  <a href="#b2sw-s4">Teil 2 正式消息</a>
+  <a href="#b2sw-s5">评分标准</a>
+  <a href="#b2sw-s6">考生答卷点评</a>
+  <a href="#b2sw-s7">万能句式库</a>
+  <a href="#b2sw-s8">典型错误</a>
+  <a href="#b2sw-s9">练习与自查</a>
+</div>
+
+<div class="bsw-sec" id="b2sw-s1">
+  <div class="bsw-sec-h"><div class="ic">📋</div><div><h2>考试概览 · Überblick</h2>
+    <div class="sub">75 分钟、两篇、满分 100 及格 60 —— 时间怎么分是这一节最重要的事</div></div></div>
+
+  <div class="bsw-box gold">
+    <span class="lbl">⏱️ 时间与分值:</span> 一共 <strong>75 分钟</strong>写两篇。官方给的建议用时是
+    <strong>Teil 1 用 50 分钟、Teil 2 用 25 分钟</strong>。满分 100，<strong>及格 60</strong>。
+  </div>
+
+  <div class="bsw-box violet">
+    <span class="lbl">🧩 两个部分 (Teile):</span>
+    <div class="bsw-chips">
+      <span class="bsw-chip">Teil 1 · Forumsbeitrag 论坛帖（约 150 词 · 表态 + 论证 + 提建议 + 讲优缺点）</span>
+      <span class="bsw-chip">Teil 2 · Nachricht 正式消息（约 100 词 · 说明 + 请求 + 建议 + 表理解）</span>
+    </div>
+  </div>
+
+  <div class="exp-caption">📌 下面是<strong>官方卷面原样</strong>（Kandidatenblätter p23）—— 写作模块的总体说明</div>
+  <div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SCHREIBEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-mod"><div class="tt">Schreiben</div><div class="ss">75 Minuten</div></div><div class="exp-list"><p>Das Modul Schreiben hat zwei Teile.<br>In Teil 1 schreiben Sie einen <b>Forumsbeitrag</b>.<br>In Teil 2 schreiben Sie eine <b>Nachricht</b>.</p><p>Sie können mit jeder Aufgabe beginnen.<br>Es werden nur die Lösungen und Texte auf dem Antwortbogen bewertet.<br>Bitte schreiben Sie mit einem blauen oder schwarzen Stift.<br>Hilfsmittel (z. B. Wörterbücher, Handys/mobile Endgeräte) sind nicht erlaubt.</p></div></div>
+
+  <div class="bsw-box">
+    <span class="lbl">💡 一句话理解:</span>
+    B2 写作考的不是文采，是<b>三件事</b>：① 卷面上那<b>四个内容要点一条都不能漏</b>
+    ② 有<b>引入段和结尾段</b>（官方明确要求 Einleitung und Schluss）③ 句子之间<b>有连接词</b>。
+    这三条做到，语法有点小错照样及格。
+  </div>
+</div>
+<div class="bsw-sec" id="b2sw-s2"><div class="bsw-sec-h"><div class="ic">🧭</div><div><h2>写作流程 · Vorgehen</h2><div class="sub">75 分钟不是「一直写」，而是「审题 → 列要点 → 写 → 检查」四段</div></div></div><div class="bsw-step"><div class="seq">1</div><div class="tt">审题</div><div class="mm">约 5 分钟</div><div style="margin-top:6px;color:#cbd5e1">先看清是哪一种：<b>Forumsbeitrag</b>（可以 du、语气随意）还是 <b>Nachricht an den Vorgesetzten</b>（必须 Sie、正式）。然后把卷面上的 <b>Inhaltspunkte 圈出来数一遍 —— 各是 4 条</b>，漏一条就掉一档。</div></div><div class="bsw-step"><div class="seq">2</div><div class="tt">列要点</div><div class="mm">约 5–8 分钟</div><div style="margin-top:6px;color:#cbd5e1">每条要点写 <b>2–3 个德语关键词</b>（不要写整句），再想好<b>连接词</b>（erstens / außerdem / allerdings / deshalb）。这一步决定你后面写不写得动。</div></div><div class="bsw-step"><div class="seq">3</div><div class="tt">动笔写</div><div class="mm">约 40 分钟</div><div style="margin-top:6px;color:#cbd5e1">按骨架一段一段写。<b>边写边在心里数词</b>：Teil 1 写到 6–8 句差不多就到 150 词，不要写成 250 词的短文。</div></div><div class="bsw-step"><div class="seq">4</div><div class="tt">检查</div><div class="mm">约 8–10 分钟</div><div style="margin-top:6px;color:#cbd5e1">按固定顺序过四遍：<b>① 动词位置</b>（主句第二位、从句末位）<b>② 名词大写</b><b>③ 冠词/形容词变格</b> <b>④ 连接词</b>。这四类占德语写作扣分的大头。</div></div>
+  <div class="bsw-box violet">
+    <span class="lbl">⚠️ 最常见的错误分配:</span>
+    很多人前 10 分钟就动笔，写到最后 5 分钟发现少写了一个要点，只能硬塞一句 ——
+    <b>句子塞得再漂亮，要点是补不回来的</b>。宁可少写 20 个词，也要把 4 个要点写全。
+  </div>
+</div>
+<div class="bsw-sec" id="b2sw-set1" data-set="1"><div class="bsw-sec-h"><div class="ic">📦</div><div><h2>题目 · Modellsatz（官方第一套）</h2><div class="sub">下面两个 Aufgabe 都是官方 Modellsatz 原题</div></div></div><div class="bsw-box gold"><span class="lbl">📦 关于题量:</span> 歌德官方公开的 B2 完整卷只有这一套 Modellsatz，所以写作就这两道题。B1 那边我们凑了三套（自编 + Modellsatz + Übungssatz），<b>B2 目前只有这一套官方题</b>。想多练就把题目里的情境换掉重写 —— 骨架、句式、评分标准都是通用的。</div></div><div class="bsw-sec" id="b2sw-s3"><div class="bsw-sec-h"><div class="ic">📝</div><div><h2>Teil 1 · Forumsbeitrag（论坛帖 · 约 150 词）</h2><div class="sub">四要点 + 引入 + 结尾 —— 占 50 分钟，是两篇里的重头</div></div></div><div class="bsw-box violet"><span class="lbl">🎯 考什么:</span> 在一个论坛里就「环境污染」发帖，谈塑料包装。<b>文体是论坛帖（Forumsbeitrag）</b> —— 可以用 du、语气可以随意，但<b>四个内容要点一条都不能少</b>，而且必须有引入和结尾。</div><div class="exp-caption">📌 下面是<strong>官方考卷原样</strong>（Aufgabenblatt）—— 左边是任务说明，四条 Inhaltspunkte 在下面</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SCHREIBEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 1</b><span class="dauer">vorgeschlagene Arbeitszeit: 50 Minuten</span></div><p class="exp-note">Sie schreiben einen Forumsbeitrag zur Verschmutzung der Umwelt.</p><ul class="exp-bul"><li>Äußern Sie Ihre Meinung zu Plastikverpackungen im Alltag.</li><li>Nennen Sie Gründe, warum Plastikverpackungen so verbreitet sind.</li><li>Nennen Sie andere Möglichkeiten, Dinge im Alltag zu verpacken.</li><li>Nennen Sie Vorteile der anderen Verpackungen.</li></ul><p class="exp-note" style="margin-top:14px">Denken Sie an eine Einleitung und einen Schluss. Bei der Bewertung wird darauf geachtet, wie genau die Inhaltspunkte bearbeitet sind, wie korrekt der Text ist und wie gut die Sätze und Abschnitte sprachlich miteinander verknüpft sind.<br><b>Schreiben Sie circa 150 Wörter.</b></p></div><div class="bsw-box"><span class="lbl">🧩 四个要点怎么逐条落实:</span><div class="bsw-tblwrap"><table class="bsw-tbl stack" style="--l1:'要点';--l2:'怎么落实'"><tr><th style="width:150px">要点</th><th>怎么落实</th></tr><tr><td class="de"><b>① 对塑料包装表态</b></td><td>这是<b>开场段</b>：一句话亮明立场（<em>Meiner Meinung nach ist das ein großes Problem.</em>），再补一句理由。别写成「有人说 A 有人说 B」的骑墙句 —— 官方要的是<b>你的</b>观点。</td></tr><tr><td class="de"><b>② 为什么这么普及</b></td><td>给 <b>2 个理由</b>就够，用 <em>Erstens … Zweitens …</em> 串起来。常见理由：便宜、轻便、保鲜、好运输。</td></tr><tr><td class="de"><b>③ 别的方式</b></td><td>至少要给<b>两种以上</b>：Papier / Glas / Stoff / unverpackt kaufen。注意题干是 <b>Möglichkeiten（方式）</b>，别答成「少买东西」这种<b>行为</b>。</td></tr><tr><td class="de"><b>④ 那些方式的优点</b></td><td>每条优点配一句解释：<em>Papier lässt sich recyceln.</em> / <em>Glas kann man immer wieder benutzen.</em> 最后用 <b>转折</b>收一句（<em>Zwar teurer, aber umweltfreundlicher.</em>）—— 有对比句立刻像 B2。</td></tr></table></div></div><div class="bsw-box"><span class="lbl">🏗️ 五段骨架（背死这个顺序）:</span><div class="bsw-skel"><div class="sk"><div class="n">段落 1</div><div class="t">Einleitung · 引出话题 + 表态</div><div class="d"><em>Jeden Tag landen Berge von Plastikverpackungen im Müll. Für mich ist das eines der größten Umweltprobleme unserer Zeit.</em><br>把题目关键词抄一遍 + 一句你的立场，2–3 句即可。</div></div><div class="sk"><div class="n">段落 2</div><div class="t">要点 ② · 为什么普及</div><div class="d"><em>Warum sind sie trotzdem so verbreitet? Meiner Meinung nach gibt es zwei Hauptgründe. Erstens … Zweitens …</em><br>先给一个设问句，再 Erstens/Zweitens，结构感立刻出来。</div></div><div class="sk"><div class="n">段落 3</div><div class="t">要点 ③ · 别的可能</div><div class="d"><em>Es gibt aber gute Alternativen. Man kann … oder …</em><br>列举至少两种，用 oder / außerdem 连接。</div></div><div class="sk"><div class="n">段落 4</div><div class="t">要点 ④ · 那些方式的优点</div><div class="d"><em>Die Vorteile liegen auf der Hand: Sie sind umweltfreundlicher … Zwar teurer, aber …</em><br>讲优点 + 用 zwar…aber 做一次让步，这是 B2 的加分句式。</div></div><div class="sk"><div class="n">段落 5</div><div class="t">Schluss · 收尾</div><div class="d"><em>Ich hoffe, dass wir insgesamt weniger Plastik verwenden. Was denkt ihr dazu?</em><br>论坛帖的结尾可以抛问题给对方 —— 既自然又表明你知道这是论坛文体（Register）。</div></div></div></div><div class="bsw-muster"><div class="bsw-muster-h"><span class="t">📝 参考范文 · Forumsbeitrag</span><span class="wc">约 160 词 · 40 分钟能写完</span></div><p class="de">Jeden Tag landen Berge von Plastikverpackungen im Müll – im Supermarkt, im Restaurant, sogar beim Gemüsekauf. Für mich ist das eines der größten Umweltprobleme unserer Zeit, denn Plastik braucht Jahrhunderte, bis es verrottet.<br><br>Warum sind Plastikverpackungen trotzdem so verbreitet? Meiner Meinung nach gibt es zwei Hauptgründe. Erstens sind sie sehr billig in der Produktion. Zweitens halten sie Lebensmittel lange frisch und lassen sich leicht transportieren. Für die Firmen ist das die einfachste Lösung.<br><br>Es gibt aber gute Alternativen. Man kann Obst und Gemüse unverpackt kaufen, Papier- oder Stofftaschen mitnehmen oder Glas statt Plastikflaschen benutzen. In vielen Bäckereien bekommt man das Brot schon in einer Papiertüte.<br><br>Die Vorteile dieser Verpackungen liegen auf der Hand: Sie sind umweltfreundlicher und oft langlebiger. Papier lässt sich recyceln, und Glas kann man immer wieder verwenden. Zwar sind sie manchmal teurer, aber für die Umwelt lohnt sich das.<br><br>Ich hoffe, dass wir insgesamt weniger Plastik verwenden. Was denkt ihr dazu?</p></div><div class="bsw-box violet"><span class="lbl">🔍 逐句拆解（这几处是得分点）:</span><div class="bsw-dec"><div><span class="q">denn Plastik braucht Jahrhunderte, bis es verrottet.</span><span class="k">用 denn 引出原因 —— denn 后面是<b>正常语序</b>（主语 + 动词），别倒装。这是中国学生最常错的连接词之一。</span></div><div><span class="q">Warum sind sie trotzdem so verbreitet?</span><span class="k">在段落中间放一个<b>设问句</b>，是 B2 拉「连贯」分的便宜手法：结构立刻清楚，考官一眼看到你在分段推进。</span></div><div><span class="q">Erstens … Zweitens …</span><span class="k">列举用序数词，比 <em>und, und, und</em> 高一档。同类的还有 <em>zum einen … zum anderen …</em>。</span></div><div><span class="q">Zwar sind sie manchmal teurer, aber …</span><span class="k"><b>zwar … aber …</b> 是可复制的让步句式，几乎每篇都能用一次。注意 zwar 后面倒装（动词提前）。</span></div><div><span class="q">Was denkt ihr dazu?</span><span class="k">论坛帖特有的收尾方式，顺带把 <b>Register</b>（文体得体）那一项也拿到 —— 说明你知道自己在写论坛帖不是写报告。</span></div></div></div></div><div class="bsw-sec" id="b2sw-s4"><div class="bsw-sec-h"><div class="ic">✉️</div><div><h2>Teil 2 · Formelle Nachricht（正式消息 · 约 100 词）</h2><div class="sub">给上司写 —— Anrede 和 Gruß 是硬要求，全程 Sie</div></div></div><div class="bsw-box violet"><span class="lbl">🎯 考什么:</span> 你在德国公司实习、活干不完，要给你的上司 <b>Herrn Ebert</b> 写一条消息。这一篇考的是<b>「得体」</b>：格式对不对（称呼 + 落款）、称呼用不用 Sie、提要求之前有没有先体谅对方。</div><div class="exp-caption">📌 下面是<strong>官方考卷原样</strong>（Aufgabe 2）—— 四条要点要自己排一个合理顺序</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SCHREIBEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 2</b><span class="dauer">vorgeschlagene Arbeitszeit: 25 Minuten</span></div><p class="exp-note">Sie machen gerade ein Praktikum bei einer deutschen Firma. Sie haben derzeit so viel zu tun, dass Sie Ihre Arbeit nicht mehr schaffen. Schreiben Sie eine Nachricht an Ihren Vorgesetzten, Herrn Ebert.</p><ul class="exp-bul"><li>Beschreiben Sie, womit Sie beschäftigt sind.</li><li>Bitten Sie um Verständnis für Ihre Situation.</li><li>Machen Sie einen Vorschlag für die kommenden Tage.</li><li>Zeigen Sie Verständnis für die Arbeitssituation in der Firma.</li></ul><p class="exp-note" style="margin-top:14px">Überlegen Sie sich eine passende Reihenfolge für die Inhaltspunkte. Bei der Bewertung wird darauf geachtet, wie genau die Inhaltspunkte bearbeitet sind, wie korrekt der Text ist und wie gut die Sätze und Abschnitte sprachlich miteinander verknüpft sind. <b>Vergessen Sie nicht Anrede und Gruß.</b> Schreiben Sie circa 100 Wörter.</p></div><div class="bsw-box"><span class="lbl">🧩 四个要点怎么逐条落实:</span><div class="bsw-tblwrap"><table class="bsw-tbl stack" style="--l1:'要点';--l2:'怎么落实'"><tr><th style="width:150px">要点</th><th>怎么落实</th></tr><tr><td class="de"><b>① 说明你在忙什么</b></td><td>给<b>具体</b>工作量：drei Projekte / Kundenkorrespondenz / jeden Tag länger bleiben。只说 <em>Ich habe viel zu tun</em> 太空，等于没写。</td></tr><tr><td class="de"><b>② 请求理解</b></td><td>正式请求用 <em>Ich möchte Sie um Verständnis bitten.</em> 或 <em>Ich bitte Sie um Verständnis.</em> —— 不要用 <em>Bitte verstehen Sie mich</em>（太口语、也不够客气）。</td></tr><tr><td class="de"><b>③ 给未来几天提建议</b></td><td>用 <em>Ich würde vorschlagen, dass …</em> 或 <em>Wie wäre es, wenn …?</em>，并给一个<b>可执行的</b>方案（Aufgaben neu verteilen）。</td></tr><tr><td class="de"><b>④ 对公司处境表理解</b></td><td>这一条最容易漏 —— 但它是<b>得体性（Register）</b>的关键：先体谅对方，再提要求，德语职场书信的固定逻辑。</td></tr></table></div></div><div class="bsw-box warn"><span class="lbl">⚠️ 注意卷面这句:</span> <em>Überlegen Sie sich eine passende Reihenfolge für die Inhaltspunkte.</em> —— 官方<b>明说了要你自己排序</b>，而最合理的顺序就是下面这个：说情况 → 求理解 → 提建议 → 体谅公司。<b>把「体谅公司」放最后</b>是德语职场书信的固定逻辑：先讲自己的难处会显得自私。</div><div class="bsw-box"><span class="lbl">🏗️ 六段骨架:</span><div class="bsw-skel"><div class="sk"><div class="n">Anrede</div><div class="t">称呼</div><div class="d"><em>Sehr geehrter Herr Ebert,</em><br>正式书信固定用 Sehr geehrte/r + 姓。结尾必须配 <em>Mit freundlichen Grüßen</em>。这两处漏一个，Register 直接掉档。</div></div><div class="sk"><div class="n">段落 1</div><div class="t">说明情况（要点 ①）</div><div class="d"><em>ich schreibe Ihnen, weil ich im Moment ein Problem habe. Zurzeit arbeite ich an … und übernehme zusätzlich …</em></div></div><div class="sk"><div class="n">段落 2</div><div class="t">请求理解（要点 ②）</div><div class="d"><em>Ich möchte Sie deshalb um Verständnis bitten: In dieser Woche ist es für mich zeitlich kaum zu schaffen.</em></div></div><div class="sk"><div class="n">段落 3</div><div class="t">提出建议（要点 ③）</div><div class="d"><em>Für die kommenden Tage würde ich vorschlagen, dass wir …</em></div></div><div class="sk"><div class="n">段落 4</div><div class="t">体谅公司（要点 ④）+ 收尾</div><div class="d"><em>Ich verstehe natürlich, dass in der Firma gerade viel zu tun ist, und möchte das Team nicht zusätzlich belasten. Vielen Dank für Ihr Verständnis.</em></div></div><div class="sk"><div class="n">Gruß</div><div class="t">落款</div><div class="d"><em>Mit freundlichen Grüßen</em><br>[Ihr Name]</div></div></div></div><div class="bsw-muster"><div class="bsw-muster-h"><span class="t">📝 参考范文 · Nachricht an Herrn Ebert</span><span class="wc">约 105 词 · 20 分钟能写完</span></div><p class="de">Sehr geehrter Herr Ebert,<br><br>ich schreibe Ihnen, weil ich im Moment ein Problem habe. Zurzeit arbeite ich an drei Projekten gleichzeitig und übernehme zusätzlich die Kundenkorrespondenz. Leider schaffe ich diese Aufgaben nicht mehr rechtzeitig, obwohl ich jeden Tag länger bleibe.<br><br>Ich möchte Sie deshalb um Verständnis bitten: In dieser Woche ist es für mich zeitlich kaum zu schaffen.<br><br>Für die kommenden Tage würde ich vorschlagen, dass wir meine Aufgaben neu verteilen – zum Beispiel könnte Frau Meier die Kundenkorrespondenz übernehmen.<br><br>Ich verstehe natürlich, dass in der Firma gerade viel zu tun ist, und möchte das Team nicht zusätzlich belasten.<br><br>Vielen Dank für Ihr Verständnis.<br><br>Mit freundlichen Grüßen<br>[Ihr Name]</p></div><div class="bsw-box violet"><span class="lbl">🔍 逐句拆解（这几处是得分点）:</span><div class="bsw-dec"><div><span class="q">ich schreibe Ihnen, weil ich im Moment ein Problem habe.</span><span class="k">开头用 <em>ich schreibe Ihnen, weil …</em> 直接说明来意 —— 正式书信不要寒暄铺垫。Sie 全程到底。</span></div><div><span class="q">Leider schaffe ich diese Aufgaben nicht mehr rechtzeitig, obwohl ich jeden Tag länger bleibe.</span><span class="k"><b>obwohl</b> 引导让步从句，动词放句末（… länger bleibe）。这一句同时展示了从句能力和「我很努力」的态度。</span></div><div><span class="q">Ich möchte Sie deshalb um Verständnis bitten:</span><span class="k"><b>um etwas bitten</b> 是固定搭配（第四格）。冒号后面用一句从句解释 —— 比分成两句更紧凑。</span></div><div><span class="q">Für die kommenden Tage würde ich vorschlagen, dass …</span><span class="k"><b>würde + vorschlagen + dass 从句</b> 是提建议的标准礼貌式。换成 <em>Ich will …</em> 会显得强硬。</span></div><div><span class="q">Ich verstehe natürlich, dass in der Firma gerade viel zu tun ist, und möchte das Team nicht zusätzlich belasten.</span><span class="k">先<b>体谅对方</b>再收尾 —— 这一条对应卷面第 4 个要点，也是职场书信最加分的一句。</span></div></div></div></div><div class="bsw-sec" id="b2sw-s5"><div class="bsw-sec-h"><div class="ic">🏆</div><div><h2>评分标准 · Bewertung</h2><div class="sub">官方四个维度（依据 PDF p46）—— 看懂考官在打什么分</div></div></div><div class="bsw-box"><div class="bsw-tblwrap"><table class="bsw-tbl stack" style="--l1:'维度';--l2:'考官在看什么'"><tr><th style="width:180px">维度</th><th>考官在看什么</th></tr><tr><td class="de"><b>Aufgabenerfüllung<br>完成任务</b></td><td>内容、篇幅、语言功能是否都做到；<b>文体和称呼是否得体</b>（Register, soziokulturelle Angemessenheit）。</td></tr><tr><td class="de"><b>Kohärenz<br>连贯</b></td><td>文章结构（有没有引入和结尾）+ 逻辑 + 句子之间有没有用连接词。</td></tr><tr><td class="de"><b>Wortschatz<br>词汇</b></td><td>词汇量与准确度。不需要生僻词，但<b>同一个词别反复用</b>。</td></tr><tr><td class="de"><b>Strukturen<br>语法结构</b></td><td>句式是否多样 + 形态学、句法、正字法是否正确。</td></tr></table></div></div><div class="bsw-box warn"><span class="lbl">⛔ 一条硬规则:</span> <b>Aufgabenerfüllung 评到 E（0 分）⇒ 这一题总分直接 0。</b>也就是说：<b>内容点没写全 / 跑题 / 字数不到要求的一半</b> —— 这几种情况下面，语言写得再好也没用。先把内容写全，再谈语言。</div><div class="bsw-box gold"><span class="lbl">🎯 一句话策略:</span> 四个要点写全 + 有引入有结尾 + 连接词用对 —— 这三件事做到，语法有小错照样及格。反过来，语言再漂亮、要点漏一个，分数也上不去。</div></div><div class="bsw-sec" id="b2sw-s6"><div class="bsw-sec-h"><div class="ic">📄</div><div><h2>考生真实答卷点评</h2><div class="sub">歌德官方公开的真实考生作文（错误未改）—— 看看「错了但及格」长什么样</div></div></div>
+<div class="bsw-box warn">
+  <span class="lbl">⚠️ 先说清楚:</span>
+  下面两篇是<b>歌德官方公开的真实考生答卷</b>（Modellsatz PDF p48），<b>错误没有被修改</b>。
+  登在这里不是为了挑错，而是让你看到一件很重要的事：<b>这个人写错了很多，但他过了。</b>
+  原因就是四个要点都写到了、有引入有结尾、能看懂。
+</div>
+<div class="bsw-box violet"><span class="lbl">📝 Teil 1 真实答卷（原文，未改错）:</span><div class="exp-sol"><div class="sol-h">Kandidatentext · Forumsbeitrag · 约 220 词</div><div class="sol-tx">Plastikverpackungen werden heutzutage weltweit verwendet, nicht nur im Supermarkt, sondern auch in der Restaurants. Man kann mit Plastiktüte viele Sachen zusammen tragen, die unseres Leben viel einfacher und leichter machen.
+
+Meiner Meinung nach gibt es nicht nur einzige Grund der Verbreitung der Plastikverpackungen. Eine der Gründe ist die niedrige Koste der Produktion der Plastikverpackungen. Die Lebensmittelfirmen packen sowohl Fleisch, Chips, Keks, Brot, Gemüse, die Flüssigkeiten, zum Beispiel Milch, Jogurt, Seife, Reinigungsmittel ein. Ich bin der Ansicht, dass die Plastikverpackungen sehr lang halten kann, entweder unter sehr warme oder kalte Temperatur. Aus meiner persönlichen Erfahrung benutze ich meinstens meine Einkaufstüte, mit der ich viel Waren einfüllen kann, wie Plastiktüte. Wenn ich die Einkaufstüte zu Haus vergesse, nehme ich einfach ein Papierverpackung, die man immer beim Supermarkt finden kann.
+
+Heutzutage verwenden viele Bäckerei Papiertüte stattdessen Plastiktüte, um das Brot zu verpacke. meiner Auffassung nach sind die viel umweltfreundlicher als Plastiktüte. Viele Menschen betönen, dass wir mehr an unsere zukunftige Umwelt denken sollten. Die andere Verpackungen, die aus Papier oder Cotton produziert werden, sind nicht nur viel umweltfreundlicher, sondern auch werden viel schöner und eleganter ausgesehen. Sie sind leicht trägbar und die Einkauftüte sind sehr lang hältbar.
+
+Ich hoffe, dass mehr Menschen die Plastikverpackungen aufhören zu verwenden. Wir kümmern um unsere Welt.</div></div></div><div class="bsw-box"><span class="lbl">🔍 逐条点评:</span><div class="bsw-dec"><div><span class="q">对了什么（占大头）</span><span class="k">四个 Inhaltspunkte <b>全部写到</b>：表态、普及原因、别的包装、优点。有引入有结尾。能看出作者在<b>努力用连接词</b>（nicht nur … sondern auch / entweder … oder / deswegen）。</span></div><div><span class="q">错的但<b>不致命</b></span><span class="k">in der Restaurants（应为 im Restaurant）· unseres Leben（应为 unser Leben）· mit Plastiktüte（缺冠词）· niedrige Koste（应为 niedrige Kosten）· meinstens（应为 meistens）· zu Haus（应为 zu Hause）· ein Papierverpackung（应为 eine Verpackung aus Papier）。—— 这些是<b>形态学小错</b>，语法项会扣，但不会让考官看不懂。</span></div><div><span class="q">真正扣分的</span><span class="k">① <b>段落太长、句子堆叠</b>（第二段一口气八句），Kohärenz 会掉；② 有几处<b>语序错了</b>（… sondern auch werden viel schöner ausgesehen）导致句子读不通；③ <b>meiner Auffassung nach</b> 前面忘了大写、句号也缺 —— 正字法扣分。</span></div><div><span class="q">从这篇学到的</span><span class="k"><b>先保内容完整，再管语法。</b>这篇的要点完整度和结构意识，就是它及格的本钱。你要是能在这个基础上把句子写短、把连接词用对，分数会明显高于它。</span></div></div></div><div class="bsw-box violet"><span class="lbl">📝 Teil 2 真实答卷（原文，未改错）:</span><div class="exp-sol"><div class="sol-h">Kandidatentext · Nachricht · 约 130 词</div><div class="sol-tx">Sehr geehrter Herr Ebert,
+
+ich schreibe Ihnen, weil ich ein Problem mit meinen Kollegin habe. Er ist sehr nett aber gibt mir zu viel Aufgaben, die ich nicht allen schaffen kann.
+
+Wie Sie auch wissen ich habe 2 Kinder und meine kleine Tochter ist krank. Sie wird diese Woche operiert lassen, deswegen bitte ich Ihnen, dass Sie auch meine Situation verstehen können. Ich muss mich um meine Tochter kümmern aber, wenn ich zu viel für die Firma zu Tun habe schaffe ich es nicht.
+
+Ich kann schön die Arbeitssituation in der Firma verstehen. Wir haben viel zu Tun und wenig Zeit. Um diese Problem zu lösen, schlage ich vor, dass mein Kollegen und ich die Aufgaben zusammen machen (oder Teilen) können.
+
+Ich danke Ihnen für Ihre Verständnis.
+
+Mit freundlichen Grüße
+Mergime xx</div></div></div><div class="bsw-box"><span class="lbl">🔍 逐条点评:</span><div class="bsw-dec"><div><span class="q">对了什么（占大头）</span><span class="k">格式完整：<b>Anrede + Gruß 都在</b>，全程用了 Sie。四个要点也都写了（说明在忙什么 / 请理解 / 提建议 / 体谅公司）。这正是 B2 写作要求的「得体」。</span></div><div><span class="q">错的但<b>不致命</b></span><span class="k">ein Problem mit meinen Kollegin（应为 meiner Kollegin）· <b>Er ist sehr nett</b>（Kollegin 是阴性，应为 Sie）· zu viel Aufgaben（应为 viele Aufgaben）· bitte ich Ihnen（应为 bitte ich Sie）· Ich danke Ihnen für Ihre Verständnis（应为 Ihr Verständnis）。—— 格（Kasus）几乎全错，但句子意思都能看懂。</span></div><div><span class="q">真正扣分的</span><span class="k">① <b>Wie Sie auch wissen ich habe 2 Kinder</b> —— 语序完全错了，应该是 <em>Wie Sie wissen, habe ich zwei Kinder</em>；这类错误多了会拖累 Strukturen；② <b>数字和缩写写全称</b>：正式信里写 <em>zwei Kinder</em>，不写 <em>2 Kinder</em>；③ <b>Mit freundlichen Grüße</b> 应为 <b>Grüßen</b> —— 固定搭配写错，很扎眼。</span></div><div><span class="q">从这篇学到的</span><span class="k">这篇的<b>逻辑顺序处理得很好</b>：先说明 → 再请求 → 再建议 → 最后体谅公司，完全贴合卷面给的要点顺序提示（Überlegen Sie sich eine passende Reihenfolge）。<b>格错了会扣分，顺序乱了才要命。</b></span></div></div></div></div><div class="bsw-sec" id="b2sw-s7"><div class="bsw-sec-h"><div class="ic">💬</div><div><h2>万能句式库 · Redemittel</h2><div class="sub">背这些就够用了 —— 按功能分组，写作时对着抄</div></div></div><div class="bsw-box violet"><span class="lbl">表态（Teil 1）:</span><div class="bsw-chips"><span class="bsw-chip">Meiner Meinung nach …</span><span class="bsw-chip">Ich bin der Ansicht, dass …</span><span class="bsw-chip">Für mich ist das eines der größten Probleme …</span><span class="bsw-chip">Ich halte das für sinnvoll / problematisch.</span></div></div><div class="bsw-box violet"><span class="lbl">列举:</span><div class="bsw-chips"><span class="bsw-chip">Erstens … Zweitens … Drittens …</span><span class="bsw-chip">Zum einen … zum anderen …</span><span class="bsw-chip">Ein weiterer Grund ist …</span><span class="bsw-chip">Ein Beispiel dafür ist …</span></div></div><div class="bsw-box violet"><span class="lbl">提建议（Teil 1）:</span><div class="bsw-chips"><span class="bsw-chip">Es gibt aber gute Alternativen.</span><span class="bsw-chip">Man kann … oder … benutzen.</span><span class="bsw-chip">Ich würde vorschlagen, … zu …</span></div></div><div class="bsw-box violet"><span class="lbl">让步与转折:</span><div class="bsw-chips"><span class="bsw-chip">Zwar … , aber …</span><span class="bsw-chip">Einerseits … andererseits …</span><span class="bsw-chip">Allerdings sollte man bedenken, dass …</span><span class="bsw-chip">Obwohl … , …</span></div></div><div class="bsw-box violet"><span class="lbl">正式信（Teil 2）:</span><div class="bsw-chips"><span class="bsw-chip">Sehr geehrter Herr … , / Sehr geehrte Frau … ,</span><span class="bsw-chip">ich schreibe Ihnen, weil …</span><span class="bsw-chip">Ich möchte Sie um Verständnis bitten.</span><span class="bsw-chip">Ich würde vorschlagen, dass …</span><span class="bsw-chip">Vielen Dank für Ihr Verständnis.</span><span class="bsw-chip">Mit freundlichen Grüßen</span></div></div><div class="bsw-box violet"><span class="lbl">收尾（Teil 1 论坛帖）:</span><div class="bsw-chips"><span class="bsw-chip">Ich hoffe, dass …</span><span class="bsw-chip">Was denkt ihr dazu?</span><span class="bsw-chip">Wie seht ihr das?</span></div></div><div class="bsw-box gold"><span class="lbl">📌 用法提醒:</span> 这些句式<b>不是越多越好</b>。每篇挑 5–6 个用熟，比背 50 个用错 3 个强。尤其 <b>zwar…aber</b> 和 <b>einerseits…andererseits</b>，几乎每篇都能塞一次。</div></div><div class="bsw-sec" id="b2sw-s8"><div class="bsw-sec-h"><div class="ic">🚫</div><div><h2>典型错误 · 中式德语纠错</h2><div class="sub">这 12 条是中国学生 B2 写作里最高频的错误</div></div></div><div class="bsw-box"><div class="bsw-tblwrap"><table class="bsw-tbl stack" style="--l1:'❌ 常写错';--l2:'✅ 应该写';--l3:'为什么'"><tr><th style="width:32%">❌ 常写错</th><th style="width:32%">✅ 应该写</th><th>为什么</th></tr><tr><td class="no">Ich habe gefeiert meinen Geburtstag.</td><td class="yes">Ich habe meinen Geburtstag gefeiert.</td><td>完成时是「框型结构」：haben + 宾语 + <b>过去分词放句末</b>。</td></tr><tr><td class="no">Ich schreibe Ihnen, weil ich habe ein Problem.</td><td class="yes">… weil ich ein Problem habe.</td><td><b>weil 从句动词放句末</b>。中文语序直译过来必错。</td></tr><tr><td class="no">Wie Sie wissen, ich habe zwei Kinder.</td><td class="yes">Wie Sie wissen, habe ich zwei Kinder.</td><td>从句结束后主句继续 → 主句<b>动词第二位</b>，主语后移。</td></tr><tr><td class="no">Ich bitte ich Sie um Verständnis.</td><td class="yes">Ich bitte Sie um Verständnis.</td><td><b>um etwas bitten</b> 的宾语是第四格，不用反身代词。</td></tr><tr><td class="no">Für Ihre Verständnis danke ich.</td><td class="yes">Für Ihr Verständnis danke ich.</td><td>Verständnis 是<b>中性</b>名词：das Verständnis → Ihr Verständnis。</td></tr><tr><td class="no">Mit freundlichen Grüße</td><td class="yes">Mit freundlichen Grüßen</td><td>固定搭配，复数第三格，<b>必须有 n</b>。写错非常扎眼。</td></tr><tr><td class="no">Er ist sehr nett. (指 die Kollegin)</td><td class="yes">Sie ist sehr nett.</td><td>代词必须跟名词<b>语法性别</b>，不跟自然性别。Kollegin 是阴性。</td></tr><tr><td class="no">die ich nicht schaffen kann allen</td><td class="yes">die ich nicht alle schaffen kann</td><td>alle 是限定词，紧跟名词；副词位置别乱放。</td></tr><tr><td class="no">deswegen ich bleibe länger</td><td class="yes">deswegen bleibe ich länger</td><td>deswegen / deshalb 占第一位 → <b>动词第二位，主语后移</b>。</td></tr><tr><td class="no">Ich hoffe, dass ich schaffe die Arbeit.</td><td class="yes">Ich hoffe, dass ich die Arbeit schaffe.</td><td>dass 从句里动词同样放句末，宾语在动词前。</td></tr><tr><td class="no">Ich bin einverstanden mit dir. (正式信)</td><td class="yes">Ich bin damit einverstanden. / Ich stimme Ihnen zu.</td><td>正式信里避免 <em>mit dir</em>；用代副词或直接说 zustimmen。</td></tr><tr><td class="no">Ich möchte Sie fragen, können Sie mir helfen?</td><td class="yes">Ich möchte Sie fragen, ob Sie mir helfen können.</td><td>间接问句必须用 <b>ob</b> 引导，动词句末，不能保留直接问句语序。</td></tr></table></div></div><div class="bsw-box warn"><span class="lbl">⚠️ 有一条要特别记住:</span> <b>德语从句里的动词在最后。</b>上面 12 条里有 5 条都是同一个原因 —— 中文「我因为有个问题所以写信给你」是顺着说的，德语 weil 一出现，动词就得挪到句尾。写完每篇检查一遍 weil / dass / obwohl / wenn 后面的动词位置，能救回不少分。</div></div><div class="bsw-sec" id="b2sw-s9"><div class="bsw-sec-h"><div class="ic">✅</div><div><h2>练习与自查</h2><div class="sub">练三道 + 考前过一遍清单</div></div></div><div class="bsw-box gold"><span class="lbl">📝 练习建议:</span> ① 用上面两篇官方题<b>掐表写一次</b>（Teil 1 给 50 分钟、Teil 2 给 25 分钟），写完对照范文找差距；② 把范文<b>盖住</b>，只看骨架卡重写一遍；③ 拿下面这份清单逐条勾。</div><div class="exp-caption">📌 官方卷面 · 概览页（考前再看一眼硬规定）</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SCHREIBEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-mod"><div class="tt">Schreiben</div><div class="ss">75 Minuten</div></div><div class="exp-list"><p>Das Modul Schreiben hat zwei Teile.<br>In Teil 1 schreiben Sie einen <b>Forumsbeitrag</b>.<br>In Teil 2 schreiben Sie eine <b>Nachricht</b>.</p><p>Sie können mit jeder Aufgabe beginnen.<br>Es werden nur die Lösungen und Texte auf dem Antwortbogen bewertet.<br>Bitte schreiben Sie mit einem blauen oder schwarzen Stift.<br>Hilfsmittel (z. B. Wörterbücher, Handys/mobile Endgeräte) sind nicht erlaubt.</p></div></div><div class="bsw-box"><span class="lbl">✅ 交卷前自查清单:</span><div class="bsw-tblwrap"><table class="bsw-tbl stack" style="--l1:'❌ 常见问题';--l2:'✅ 应该怎样';--l3:'为什么'"><tr><th style="width:32%">❌ 常见问题</th><th style="width:32%">✅ 应该怎样</th><th>为什么</th></tr><tr><td class="no">只写三个要点，漏一个</td><td class="yes">动笔前把 4 个要点圈出来数一遍</td><td>Aufgabenerfüllung 直接掉档；这条的影响远大于任何语法错</td></tr><tr><td class="no">没有引入段和结尾段</td><td class="yes">开头一句引入、结尾一句收</td><td>官方卷面明确写了 Denken Sie an eine Einleitung und einen Schluss.</td></tr><tr><td class="no">整篇只用 und 连接</td><td class="yes">erstens / außerdem / allerdings / deshalb 换着用</td><td>Kohärenz 看的就是句子之间的连接</td></tr><tr><td class="no">正式信里用了 du</td><td class="yes">给上司、机构一律 Sie，称呼用 Sehr geehrte/r</td><td>Register（得体性）是 Aufgabenerfüllung 的一部分</td></tr><tr><td class="no">忘了 Anrede 或 Gruß</td><td class="yes">Sehr geehrter Herr … 开头、Mit freundlichen Grüßen 结尾</td><td>卷面明确写了 Vergessen Sie nicht Anrede und Gruß.</td></tr><tr><td class="no">写太长（250 词以上）</td><td class="yes">Teil 1 控制在 150、Teil 2 控制在 100 左右</td><td>写多了不会加分，只会多出语法错；时间也不够</td></tr></table></div></div><div class="bsw-box ok"><span class="lbl">🎯 最后一句:</span> B2 写作不是「德语好的人赢」，是<b>「把要求做到的人赢」</b>。要点写全、格式对、连接词用上 —— 这三点你现在就能做到。</div><div class="bsw-note">📌 本页卷面、评分标准与考生答卷均出自歌德学院官方 <b>Goethe-Zertifikat B2 Modellsatz Erwachsene</b>（Kandidatenblätter p23–24、Bewertungskriterien p46、Leistungsbeispiele p48）。范文与讲解为本站编写。考生答卷为官方原文，错误未作修改。</div></div></div>

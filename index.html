@@ -4475,6 +4475,17 @@ function createLoginPromptCard() {
     desc:"B2模拟考试 · 官方 Modellsatz Erwachsene · 1:1复刻",
     tags:"歌德B2 · 模拟考试 · 听说读写 · 实时判分",
     c1:"#b45309", c2:"#f59e0b", locked:false },
+// ── B2 口语 / 写作（B2SP-B2SW v1）──
+	  { id:'b2sprechen', icon:'🗣️', navLabel:'B2口语', cardTitleDe:'B2 Sprechen', cardSubDe:'Vortrag halten · Diskussion führen — 官方卷面 1:1', cardTitle:'B2口语', group:'b2',
+	    hubStep:5, hubSkill:'Sprechen', hubSkillZh:'口语', hubAccent:'#f59e0b', hubTip:'两个部分：4 分钟短报告 + 5 分钟讨论 · 官方卷面 + 逐字稿 + 评分标准',
+	    desc:'B2口语专题 · 官方 Modellsatz 卷面 1:1 · 四道主题逐字稿 · 官方七项评分标准',
+	    tags:'歌德B2 · 口语 · Vortrag · Diskussion · 逐字稿',
+	    c1:'#d97706', c2:'#f59e0b', locked:false },
+	  { id:'b2schreiben', icon:'✍️', navLabel:'B2写作', cardTitleDe:'B2 Schreiben', cardSubDe:'Forumsbeitrag · Formelle Nachricht — 官方卷面 1:1', cardTitle:'B2写作', group:'b2',
+	    hubStep:6, hubSkill:'Schreiben', hubSkillZh:'写作', hubAccent:'#f59e0b', hubTip:'两篇 75 分钟 · 四要点逐条落实 + 骨架 + 范文 + 考生真实答卷点评',
+	    desc:'B2写作专题 · 官方 Modellsatz 卷面 1:1 · 骨架/范文/逐句拆解 · 官方评分标准 + 考生真实答卷',
+	    tags:'歌德B2 · 写作 · Forumsbeitrag · Nachricht · 范文',
+	    c1:'#d97706', c2:'#f59e0b', locked:false },
 // ── B2 中高级 ──
 	  { id:'b2grammar', icon:'📘', navLabel:'B2语法', cardTitleDe:'B2 Grammatik', cardSubDe:'Mittelstufe — Modalverben', cardTitle:'B2语法', group:'b2',
 	    hubStep:1, hubSkill:'Grammatik', hubSkillZh:'语法深化', hubAccent:'#f59e0b', hubTip:'Modalverben · objektiver/subjektiver Gebrauch · Passiv',
@@ -4556,9 +4567,9 @@ var HUBS = {
   b1: { id:'b1hub', icon:'🎓', navLabel:'B1 学习站', cardTitleDe:'B1 Lernstation', cardSubDe:'Grammatik · Hören · Lesen — B1 Niveau', cardTitle:'B1 学习站',
         desc:'语法 · 语法抄写 · 听力 · 阅读 — B1 进阶内容集中入口，内容陆续更新',
         tags:'歌德B1 · 进阶 · 一站直达' },
-  b2: { id:'b2hub', icon:'🎓', navLabel:'B2 学习站', cardTitleDe:'B2 Lernstation', cardSubDe:'Grammatik · Lesen — Kapitel 1–6', cardTitle:'B2 学习站',
-        desc:'B2 中高级内容 · 语法深化 · 阅读：走进德国B2 全6章 · 沟通职场考试备战',
-        tags:'歌德B2 · 中高级 · 走进德国B2 · 全章节' },
+  b2: { id:'b2hub', icon:'🎓', navLabel:'B2 学习站', cardTitleDe:'B2 Lernstation', cardSubDe:'Grammatik · Lesen · Sprechen · Schreiben — B2 Niveau', cardTitle:'B2 学习站',
+        desc:'B2 中高级内容 · 语法深化 · 走进德国B2 全10章阅读 · 口语与写作专题 · 歌德模考',
+        tags:'歌德B2 · 中高级 · 阅读 · 口语 · 写作 · 模拟考试' },
   c1: { id:'c1hub', icon:'🎓', navLabel:'C1 学习站', cardTitleDe:'C1 Lernstation', cardSubDe:'Fortgeschritten — demnächst verfügbar', cardTitle:'C1 学习站',
         desc:'C1 高级内容 · 学术德语 · 专业写作 · 文化深读 — 内容筹备中，敬请期待',
         tags:'歌德C1 · 高级 · 即将上线' },
@@ -4732,6 +4743,7 @@ var PAGE_NAMES = {
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
   'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
   'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
+  'b2sprechen':'B2口语','b2schreiben':'B2写作',
   'resources':'全网资源推荐'
 };
 
@@ -5339,13 +5351,29 @@ document.addEventListener('keydown', function(e) {
 
 <div id="page-b2pruefung" class="page" data-lazy="true"></div>
 <script>registerLazyPage('b2pruefung', 'tpl-page-b2pruefung', function(page){ if(window.b2prAddAnchors){ try{ window.b2prAddAnchors(); }catch(e){} } });</script>
+
+<!-- B2 口语 / 写作 -->
+<template id="tpl-page-b2sprechen" data-src="lazy/b2sprechen.html"></template>
+<div id="page-b2sprechen" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b2sprechen', 'tpl-page-b2sprechen');</script>
+
+<template id="tpl-page-b2schreiben" data-src="lazy/b2schreiben.html"></template>
+<div id="page-b2schreiben" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b2schreiben', 'tpl-page-b2schreiben');</script>
 <!-- B2 学习站 -->
 <div id="page-b2hub" class="page hub-page" style="--hub:#f59e0b;--hub-soft:rgba(245,158,11,.13)">
 
   <div class="a1hub-hero">
     <div class="a1hub-eyebrow">🎓 Goethe-Zertifikat B2</div>
     <h1>B2 学习站</h1>
-    <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 走进德国B2 · 阅读精讲 · 听力进阶 · 写作训练</p>
+    <p class="a1hub-sub">B2 中高级内容 · 语法深化 · 走进德国B2 · 阅读精讲 · 口语训练 · 写作训练</p>
+  </div>
+
+  <div class="a1hub-path">
+    <span class="a1hub-path-lbl">📈 建议学习路径</span>
+    <div class="a1hub-path-flow">
+      <span>📘 语法</span><i>→</i><span>📰 阅读</span><i>→</i><span>✍️ 语法抄写</span><i>→</i><span>🗣️ 口语</span><i>→</i><span>✍️ 写作</span><i>→</i><span>📝 模拟考试</span>
+    </div>
   </div>
 
   <div class="a1hub-sec">📚 B2 板块</div>
@@ -36413,7 +36441,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'带病上班', book:'Ich bin krank, aber ich kann arbeiten.', real:'Ich fühl\' mich nicht gut. / Ich meld\' mich krank.', note:'不舒服要请假，别逞强说"病了但能工作"。<b>Ich meld\' mich krank</b>（我报病了）一句话搞定。德国公司普遍认为生病就该在家休息。口语还说 <b>Ich hab\' mich krankgemeldet</b>。'},
     {cat:'开玩笑', book:'Das war ein Witz.', real:'War nur Spaß. / Nicht ernst gemeint. / Kleiner Scherz am Rande.', note:'开了个玩笑但怕对方当真，<b>War nur Spaß!</b>（开玩笑的）、<b>Nicht ernst gemeint!</b>（不是认真的）、<b>Kleiner Scherz am Rande</b>（随口一个小玩笑）都可以。德国人比刻板印象更爱笑。'},
     {cat:'表示困惑', book:'Ich verstehe das nicht.', real:'Ich blick\'s nicht. / Ich steh\' auf dem Schlauch. / Hä?', note:'听不懂/搞不明白，<b>Ich blick\'s nicht</b>（我咋看不明白呢）、<b>Ich steh\' auf dem Schlauch</b>（我脑子卡壳了——站在软管上）是德国特有比喻。<b>Hä?</b> 只限非常随意场合。'},
-    {cat:'天气抱怨', book:'Das Wetter ist heute nicht gut.', real:'So ein Mistwetter! / Schon wieder Regen… / Es zieht wie Hechtsuppe.', note:'德国人热爱抱怨天气——<b>So ein Mistwetter!</b>（什么破天！）、<b>Schon wieder Regen…</b>（又下雨了…）是日常。<b>Es zieht wie Hechtsuppe</b>（穿堂风刮得像梭子鱼汤）是经典德式比喻——德国人对 Durchzug（穿堂风）有文化级的执念。'},
+    {cat:'天气抱怨', book:'Das Wetter ist heute nicht gut.', real:'So ein Mistwetter! / Schon wieder Regen… / Es zieht wie Hechtsuppe.', note:'德国人热爱抱怨天气——<b>So ein Mistwetter!</b>（什么破天！）、<b>Schon wieder Regen…</b>（又下雨了…）是日常。<b>Es zieht wie Hechtsuppe</b>（穿堂风刮得像狗鱼汤，Hecht = 狗鱼，不是梭子鱼）是经典德式比喻——德国人对 Durchzug（穿堂风）有文化级的执念。（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）'},
     {cat:'垃圾分类', book:'Wo kann ich den Müll entsorgen?', real:'In welche Tonne kommt das? / Ist das Gelber Sack oder Restmüll?', note:'德国垃圾分类是生活必修课：<b>Gelber Sack</b>（黄袋，包装垃圾）、<b>Restmüll</b>（剩余垃圾，黑桶）、<b>Biomüll</b>（厨余）、<b>Altpapier</b>（废纸，蓝桶）、<b>Pfand</b>（押金瓶，退瓶机）。室友会纠正你——"Das gehört in den Gelben Sack!"'},
     {cat:'取快递', book:'Ich habe ein Paket erwartet. Wo kann ich es abholen?', real:'Bei mir wurde was zugestellt? / Ist ein Paket für mich da? / Lag das beim Nachbarn?', note:'德国快递极少送到手上——DHL 小哥按了门铃三秒后就跑，包裹大概率在 <b>beim Nachbarn</b>（邻居家）、<b>in der Packstation</b>（快递柜）、或 <b>im Paketshop</b>（代收点）。门上贴着黄色 Benachrichtigungskarte 就是"你不在家"的罪证。'},
     {cat:'约运动', book:'Möchten Sie mit mir Sport machen?', real:'Hast du Bock auf \'ne Runde joggen? / Kommst du mit zum Fußball? / Lass uns schwimmen gehen!', note:'约人运动用 <b>Hast du Bock auf…?</b>（有兴致……吗？）最自然。<b>Bock</b> 是口语万能词，表示"兴致"——Bock auf Kino?（想看电影？）、Kein Bock（没劲/不想）。注意：<b>Kein Bock</b> 完全是中性表达，不是粗鲁。'},
@@ -36450,7 +36478,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'火车票查票', book:'Hier ist meine Fahrkarte.', real:'Fahrkarte, bitte. / Hab\' ich aufm Handy. / Ich hab\' das Deutschlandticket.', note:'德国查票员（<b>Schaffner</b> / <b>Kontrolleur</b>）上来一句 <b>Die Fahrkarten, bitte!</b>。出示 <b>Deutschlandticket</b>（2026 年起 63 欧/月，全国通票）说 <b>Hier, das Deutschlandticket</b> 就行。<b>Schwarzfahren</b>（逃票）罚款 60 欧起步。忘带学生票的别说"忘带了"——<b>Ich hab\' mein Semesterticket vergessen</b> 可以事后凭票根减免罚款。'},
     {cat:'买二手家具', book:'Ich möchte gebrauchte Möbel kaufen.', real:'Ist das noch zu haben? / Was letzte Preis? / Kann man das mit dem Fahrrad transportieren?', note:'德国学生买家具首选 <b>eBay Kleinanzeigen</b>。<b>Was letzte Preis?</b>（最低多少钱？语法不对但人人这么发）是砍价标配。<b>Nur zur Abholung</b>（仅限自提）意味着你需要搬。<b>Zu verschenken</b>（免费送）的好东西要秒抢。宜家叫 <b>IKEA</b>，但 Kleinanzeigen 上的旧宜家比新宜家便宜一截。'},
     {cat:'延误错过', book:'Ich habe den Zug verpasst.', real:'Verpasst — super. / Wie komm\' ich jetzt nach Hause? / Wann fährt der nächste?', note:'错过车了别只会 verpasst。<b>Verpasst — super</b>（错过了——太棒了，经典德式 sarcasm）、<b>Wie komm\' ich jetzt nach Hause?</b>（我现在怎么回家？）是发自灵魂的拷问。<b>Nächster Zug</b>（下一班）和 <b>Schienenersatzverkehr</b>（轨道替代公交，夜间/维修时的噩梦）是 DB Navigator App 常用搜索。'},
-    {cat:'送修电子', book:'Mein Laptop funktioniert nicht.', real:'Mein Laptop spinnt. / Der Bildschirm bleibt schwarz. / Kannst du mal draufgucken?', note:'电子产品坏了别用 funktioniert nicht。<b>Mein Laptop spinnt</b>（我的笔记本发神经了）超日常。<b>Kannst du mal draufgucken?</b>（你能帮我看一眼吗？）是找朋友帮忙的万能起手式。<b>Garantie</b>（保修）还在不？<b>Hast du noch Garantie drauf?</b> 是第一反应。'},
+    {cat:'送修电子', book:'Mein Laptop funktioniert nicht.', real:'Mein Laptop spinnt. / Der Bildschirm bleibt schwarz. / Kannst du mal draufgucken?', note:'funktioniert nicht 完全能用，只是偏中性；口语里更生动的是 <b>Mein Laptop spinnt</b>（我的笔记本发神经了）。<b>Kannst du mal draufgucken?</b>（你能帮我看一眼吗？）是找朋友帮忙的万能起手式。<b>Garantie</b>（保修）还在不？<b>Hast du noch Garantie drauf?</b> 是第一反应。'},
     {cat:'加油站', book:'Wo ist die nächste Tankstelle?', real:'Ich muss tanken. / Super E10 oder Diesel? / Was kostet der Sprit gerade?', note:'德国油价波动频繁——<b>Spritpreise</b> 一天涨跌好几次，App 比价是驾驶者的日常。加油枪自己拿，加完去小店报油枪号 <b>Nummer 3, bitte</b> 付款。<b>Super E10</b>（95号含10%乙醇）、<b>Super E5</b>（95号标准）、<b>Diesel</b>（柴油）三大类，别加错了。'},
     {cat:'室友会议', book:'Wir müssen über die Hausarbeit sprechen.', real:'Lass uns \'n WG-Plenum machen. / Wer hat den Müll noch nicht runtergebracht? / Schreib dich in die Putzliste ein!', note:'德国 WG（合租，<b>Wohngemeinschaft</b>）文化发达。<b>Putzplan</b>（值日表）是和平共处的基本法——<b>Ich mach\' diese Woche das Bad</b>（我这周打扫浴室）。<b>WG-Plenum</b>（室友大会）定期讨论采购、值日、访客规则。<b>Putzkasten</b>（清洁用品柜）和 <b>Mülltrennung</b>（垃圾分类）是争吵最多的话题。'},
     {cat:'公共假期', book:'Morgen ist ein Feiertag.', real:'Morgen ist Feiertag — alles dicht. / Ist das nur in Bayern oder bundesweit? / Endlich mal ausschlafen!', note:'德国公共假期（<b>Feiertag</b>）注意——各州不同！<b>Reformationstag</b>（10月31日）只在 9 个州放假——勃兰登堡、不来梅、汉堡、梅前、下萨克森、萨克森、萨安、石荷、图林根；拜仁/巴符/柏林/黑森/北威/莱普/萨尔都不放；<b>Heilige Drei Könige</b>（1月6日）巴符/巴伐利亚/萨安专属；<b>Mariä Himmelfahrt</b>（8月15日）萨尔/巴伐利亚部分专属。假期前一天超市爆满——<b>vor dem Feiertag ist der Supermarkt die Hölle</b>。'},

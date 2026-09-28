@@ -1,0 +1,456 @@
+<!-- B2SP-PAGE v1 -->
+<style>
+/* ═══ B2 口语（由 _b2sp_build.py 生成，勿手改）═══ */
+
+  #page-b2sprechen{
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);
+    color:#e2e8f0;line-height:1.75;padding:20px;
+  }
+  #page-b2sprechen .sp-wrap{max-width:980px;margin:0 auto}
+  #page-b2sprechen .sp-hero{text-align:center;background:linear-gradient(135deg,#1a3a5c,#2c5f8a,#1e3a5f);color:#fff;
+    padding:34px 24px 28px;border-radius:20px;margin-bottom:26px;box-shadow:0 8px 24px rgba(30,58,95,.5);border:1px solid rgba(246,211,101,.18)}
+  #page-b2sprechen .sp-hero h1{font-size:1.95rem;margin:0 0 8px;color:#fff}
+  #page-b2sprechen .sp-hero .ey{display:inline-block;background:rgba(246,211,101,.16);color:#fde68a;font-size:.82rem;font-weight:700;
+    letter-spacing:.06em;padding:5px 16px;border-radius:20px;margin-bottom:14px;border:1px solid rgba(246,211,101,.28)}
+  #page-b2sprechen .sp-hero p{opacity:.92;font-size:.97rem;margin:6px 0 0}
+  #page-b2sprechen .sp-sec{background:rgba(255,255,255,.045);border:1px solid rgba(246,211,101,.13);border-radius:16px;padding:22px 24px;margin-bottom:22px}
+  #page-b2sprechen .sp-sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid rgba(246,211,101,.18)}
+  #page-b2sprechen .sp-sec-h .ic{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2c5f8a,#63b3ed);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+  #page-b2sprechen .sp-sec-h h2{font-size:1.32rem;color:#fde68a;margin:0}
+  #page-b2sprechen .sp-sec-h .sub{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:2px}
+  #page-b2sprechen .sp-box{background:rgba(30,58,95,.35);border:1px solid rgba(246,211,101,.14);border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.93rem;line-height:1.8}
+  #page-b2sprechen .sp-box.gold{border-left:4px solid #b8860b;background:rgba(184,134,11,.08)}
+  #page-b2sprechen .sp-box.blue{border-left:4px solid #63b3ed;background:rgba(60,95,140,.12)}
+  #page-b2sprechen .sp-box .lbl{font-weight:800;color:#fde68a;margin-right:6px}
+  #page-b2sprechen .sp-part{background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:inset 0 0 0 1px rgba(246,211,101,.06)}
+  #page-b2sprechen .sp-part-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  #page-b2sprechen .sp-part-h .n{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0}
+  #page-b2sprechen .sp-part-h .hl{color:#fff;font-weight:800;font-size:1.02rem}
+  #page-b2sprechen .sp-part-h .de{color:#9bd0f5;font-size:.85rem;font-weight:400}
+  #page-b2sprechen .sp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  #page-b2sprechen .sp-chip{background:rgba(99,179,237,.12);border:1px solid rgba(99,179,237,.3);color:#9bd0f5;padding:4px 13px;border-radius:16px;font-size:.83rem}
+  #page-b2sprechen .sp-points{list-style:none;padding:0;margin:8px 0}
+  #page-b2sprechen .sp-points li{color:#e2e8f0;font-size:.9rem;margin-bottom:6px;padding-left:24px;position:relative}
+  #page-b2sprechen .sp-points li::before{content:"✦";position:absolute;left:0;color:#fde68a}
+  #page-b2sprechen .sp-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;font-size:.92rem}
+  #page-b2sprechen .sp-step .seq{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  #page-b2sprechen table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
+  #page-b2sprechen th{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+  #page-b2sprechen td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+  #page-b2sprechen tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+  /* 视频预览卡 */
+  #page-b2sprechen .sp-vgroup-h{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:#fde68a;font-weight:800;font-size:1.05rem}
+  #page-b2sprechen .sp-vcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  #page-b2sprechen .sp-vcard{display:flex;flex-direction:column;background:rgba(255,255,255,.05);border:1px solid rgba(246,211,101,.16);border-radius:16px;overflow:hidden;text-decoration:none;transition:.22s}
+  #page-b2sprechen .sp-vcard:hover{transform:translateY(-4px);border-color:rgba(246,211,101,.55);box-shadow:0 12px 24px rgba(0,0,0,.35)}
+  #page-b2sprechen .sp-vcard .vid{height:118px;position:relative;display:flex;align-items:center;justify-content:center}
+  #page-b2sprechen .sp-vcard .vid.cn{background:linear-gradient(135deg,#fb7299,#23ade5)}
+  #page-b2sprechen .sp-vcard .vid.int{background:linear-gradient(135deg,#e52d27,#b31217)}
+  #page-b2sprechen .sp-vcard .vid .play{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+  #page-b2sprechen .sp-vcard .vid .badge{position:absolute;top:10px;left:10px;font-size:.7rem;font-weight:800;background:rgba(0,0,0,.45);color:#fff;padding:3px 10px;border-radius:12px}
+  #page-b2sprechen .sp-vcard .vid .dur{position:absolute;bottom:10px;right:10px;font-size:.72rem;background:rgba(0,0,0,.6);color:#fff;padding:2px 9px;border-radius:10px}
+  #page-b2sprechen .sp-vcard .bd{padding:12px 15px 15px}
+  #page-b2sprechen .sp-vcard .bd .t{font-weight:700;color:#fff;font-size:.94rem;line-height:1.4;margin-bottom:6px}
+  #page-b2sprechen .sp-vcard .bd .src{font-size:.78rem;color:#9bd0f5;margin-bottom:6px}
+  #page-b2sprechen .sp-vcard .bd .ds{font-size:.82rem;color:#cbd5e1;line-height:1.6}
+  #page-b2sprechen .sp-vcard .bd .go{display:inline-block;margin-top:10px;color:#fde68a;font-size:.8rem;font-weight:800}
+  #page-b2sprechen .sp-note{font-size:.78rem;color:rgba(255,245,230,.5);margin-top:14px}
+  @media(max-width:600px){
+    #page-b2sprechen{padding:6px}
+    #page-b2sprechen .sp-hero{padding:24px 16px 20px}
+    #page-b2sprechen .sp-hero h1{font-size:1.4rem}
+    #page-b2sprechen .sp-sec{padding:16px 14px}
+    #page-b2sprechen .sp-sec-h h2{font-size:1.12rem}
+    #page-b2sprechen .sp-vcards{grid-template-columns:1fr 1fr}
+  }
+/* ── B1SP-TEILE CSS ── */
+  #page-b2sprechen .sp-topic{background:linear-gradient(135deg,rgba(184,134,11,.22),rgba(246,211,101,.08));
+    border:1px solid rgba(246,211,101,.35);border-radius:12px;padding:12px 18px;margin:12px 0;text-align:center}
+  #page-b2sprechen .sp-topic .tt{font-size:1.12rem;font-weight:800;color:#fde68a;letter-spacing:.01em}
+  #page-b2sprechen .sp-topic .tz{font-size:.85rem;color:#cbd5e1;margin-top:3px}
+
+  #page-b2sprechen .sp-script{background:rgba(255,255,255,.05);border:1px solid rgba(246,211,101,.18);
+    border-radius:14px;padding:16px 18px;margin:18px 0;box-shadow:inset 0 0 0 1px rgba(99,179,237,.06)}
+  #page-b2sprechen .sp-script-h{display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    padding-bottom:10px;border-bottom:1px dashed rgba(246,211,101,.25)}
+  #page-b2sprechen .sp-script-h .fn{flex-shrink:0;width:36px;height:36px;border-radius:10px;
+    background:linear-gradient(135deg,#b8860b,#f6d365);color:#1a2740;font-weight:800;font-size:1.15rem;
+    display:flex;align-items:center;justify-content:center}
+  #page-b2sprechen .sp-script-h .ft{color:#fff;font-weight:800;font-size:1.05rem}
+  #page-b2sprechen .sp-script-h .ft span{color:#9bd0f5;font-weight:400;font-size:.86rem;margin-left:6px}
+  #page-b2sprechen .sp-script-h .fd{color:rgba(255,245,230,.55);font-size:.78rem;margin-top:2px}
+
+  #page-b2sprechen .sp-said{background:rgba(10,20,40,.45);border:1px solid rgba(255,255,255,.09);
+    border-radius:12px;padding:12px 16px;margin:12px 0}
+  #page-b2sprechen .sp-said .sh{font-size:.8rem;font-weight:800;color:#9bd0f5;letter-spacing:.05em;margin-bottom:8px}
+  #page-b2sprechen .sp-pair{padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+  #page-b2sprechen .sp-pair:last-child{border-bottom:none}
+  #page-b2sprechen .sp-pair .de{display:block;color:#f0f6ff;font-size:.95rem;line-height:1.65}
+  #page-b2sprechen .sp-pair .de b{color:#fde68a;font-weight:800;font-style:normal;background:rgba(246,211,101,.09);
+    padding:0 3px;border-radius:4px}
+  #page-b2sprechen .sp-pair .zh{display:block;color:#93a7bd;font-size:.82rem;line-height:1.55;margin-top:2px}
+
+  #page-b2sprechen .sp-alts{display:grid;gap:6px;margin-top:8px}
+  #page-b2sprechen .sp-alts span{display:block;background:rgba(255,255,255,.05);
+    border-left:3px solid rgba(99,179,237,.55);padding:6px 12px;border-radius:0 8px 8px 0;
+    font-size:.88rem;color:#dbeafe;line-height:1.55}
+
+  #page-b2sprechen .sp-full{margin:18px 0;border:1px solid rgba(246,211,101,.28);border-radius:12px;
+    background:rgba(184,134,11,.08);overflow:hidden}
+  #page-b2sprechen .sp-full summary{cursor:pointer;padding:12px 18px;color:#fde68a;font-weight:800;font-size:.95rem;
+    list-style:none;user-select:none}
+  #page-b2sprechen .sp-full summary::-webkit-details-marker{display:none}
+  #page-b2sprechen .sp-full summary:hover{background:rgba(246,211,101,.08)}
+  #page-b2sprechen .sp-full-bd{padding:4px 18px 16px;border-top:1px dashed rgba(246,211,101,.2)}
+  #page-b2sprechen .sp-full-bd p{color:#e8eefc;font-size:.93rem;line-height:1.85;margin:12px 0;text-align:justify}
+
+  #page-b2sprechen .sp-note-card{background:linear-gradient(135deg,rgba(246,211,101,.13),rgba(30,58,95,.5));
+    border:1px solid rgba(246,211,101,.35);border-radius:14px;padding:16px 18px;margin:18px 0}
+  #page-b2sprechen .sp-note-card .nc-h{font-weight:800;color:#fde68a;font-size:1rem;margin-bottom:10px}
+  #page-b2sprechen .sp-note-card .nc-body{background:rgba(8,16,32,.5);border-radius:10px;padding:12px 14px;
+    border-left:3px solid #b8860b}
+  #page-b2sprechen .sp-note-card .nc-line{font-size:.88rem;color:#dbe7f5;line-height:1.85;
+    font-family:'JetBrains Mono','Consolas',monospace;word-break:break-word}
+  #page-b2sprechen .sp-note-card .nc-line b{color:#fde68a}
+  #page-b2sprechen .sp-note-card .nc-line i{color:#9bd0f5;font-style:normal}
+  #page-b2sprechen .sp-note-card .nc-hl{background:rgba(246,211,101,.12);border-radius:6px;padding:2px 8px;margin-top:4px}
+  #page-b2sprechen .sp-note-card .nc-tip{font-size:.8rem;color:rgba(255,245,230,.65);margin-top:10px;line-height:1.7}
+
+  #page-b2sprechen .sp-qa{margin:14px 0;padding:12px 16px;background:rgba(10,20,40,.4);
+    border-radius:10px;border-left:3px solid #63b3ed}
+  #page-b2sprechen .sp-qa .q{color:#9bd0f5;font-weight:800;font-size:.9rem;margin-bottom:6px}
+  #page-b2sprechen .sp-qa .a{color:#e8eefc;font-size:.9rem;line-height:1.75;padding-left:12px;
+    border-left:2px solid rgba(246,211,101,.4);margin-bottom:6px}
+  #page-b2sprechen .sp-qa .t{font-size:.8rem;color:rgba(255,245,230,.68);line-height:1.65}
+
+  /* ── 对话逐字稿（Teil 1）── */
+  #page-b2sprechen .sp-dlg{background:rgba(10,20,40,.45);border:1px solid rgba(255,255,255,.09);
+    border-radius:12px;padding:14px 16px;margin:14px 0}
+  #page-b2sprechen .sp-turn{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+  #page-b2sprechen .sp-turn:last-child{border-bottom:none}
+  #page-b2sprechen .sp-turn .who{flex-shrink:0;width:26px;height:26px;border-radius:50%;font-size:.78rem;
+    font-weight:800;display:flex;align-items:center;justify-content:center}
+  #page-b2sprechen .sp-turn.a .who{background:linear-gradient(135deg,#b8860b,#f6d365);color:#1a2740}
+  #page-b2sprechen .sp-turn.b .who{background:linear-gradient(135deg,#2c5f8a,#63b3ed);color:#fff}
+  #page-b2sprechen .sp-turn .bd{flex:1;min-width:0}
+  #page-b2sprechen .sp-turn .de{display:block;color:#f0f6ff;font-size:.94rem;line-height:1.65}
+  #page-b2sprechen .sp-turn .de b{color:#fde68a;font-weight:800;background:rgba(246,211,101,.09);padding:0 3px;border-radius:4px}
+  #page-b2sprechen .sp-turn .zh{display:block;color:#93a7bd;font-size:.81rem;line-height:1.5;margin-top:2px}
+  #page-b2sprechen .sp-turn .fn{display:inline-block;margin-top:4px;font-size:.73rem;color:#9bd0f5;
+    background:rgba(99,179,237,.12);border-radius:10px;padding:1px 9px}
+
+  /* ── 保底版（讲不动了的三句话）── */
+  #page-b2sprechen .sp-mini{background:rgba(94,234,212,.07);border:1px solid rgba(94,234,212,.28);
+    border-left:4px solid #5eead4;border-radius:12px;padding:14px 18px;margin:16px 0;font-size:.9rem;line-height:1.8}
+  #page-b2sprechen .sp-mini .lbl{font-weight:800;color:#5eead4;margin-right:6px}
+  #page-b2sprechen .sp-mini b{color:#e8fffb}
+
+  /* ── 朗读脚本（停顿 / 语调）── */
+  #page-b2sprechen .sp-read{background:rgba(10,20,40,.5);border:1px solid rgba(246,211,101,.22);
+    border-radius:12px;padding:14px 18px;margin:14px 0}
+  #page-b2sprechen .sp-read p{color:#e8eefc;font-size:.95rem;line-height:2.05;margin:14px 0;text-align:justify}
+  #page-b2sprechen .sp-read .mk{color:#fde68a;font-weight:800;padding:0 1px}
+  #page-b2sprechen .sp-read .legend{font-size:.79rem;color:rgba(255,245,230,.66);line-height:1.9;
+    border-bottom:1px dashed rgba(255,255,255,.12);padding-bottom:10px;margin-bottom:4px}
+  #page-b2sprechen .sp-read .legend b{color:#fde68a}
+
+  /* ── 中式德语纠错表 ── */
+  #page-b2sprechen .sp-err .no{color:#fca5a5}
+  #page-b2sprechen .sp-err .yes{color:#86efac}
+  #page-b2sprechen .sp-err td{font-size:.87rem;vertical-align:top}
+
+  /* ── 视频卡「用途标签」（右上角金色小标）── */
+  #page-b2sprechen .sp-vcard .vid .use{position:absolute;top:10px;right:10px;font-size:.68rem;font-weight:800;
+    background:rgba(184,134,11,.9);color:#fff;padding:3px 9px;border-radius:10px;letter-spacing:.02em}
+
+  @media(max-width:600px){
+    #page-b2sprechen .sp-script{padding:12px 12px}
+    #page-b2sprechen .sp-said{padding:10px 11px}
+    #page-b2sprechen .sp-pair .de{font-size:.89rem}
+    #page-b2sprechen .sp-pair .zh{font-size:.78rem}
+    #page-b2sprechen .sp-turn .de{font-size:.88rem}
+    #page-b2sprechen .sp-turn .zh{font-size:.77rem}
+    #page-b2sprechen .sp-note-card .nc-line{font-size:.8rem}
+    #page-b2sprechen .sp-full-bd p{font-size:.87rem;text-align:left}
+    #page-b2sprechen .sp-read p{font-size:.89rem;text-align:left;line-height:1.95}
+    #page-b2sprechen .sp-err td{font-size:.81rem}
+  }
+
+
+  
+/* ── /B1SP-TEILE CSS ── */
+
+  /* ══ GOETHE-SHEET CSS（真题卷面 1:1）══ */
+  #page-b2sprechen .exp-sheet{background:#fff;color:#111;border:1px solid #d6d6d6;border-radius:4px;padding:22px 26px 26px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:Arial,Helvetica,'Helvetica Neue',sans-serif;line-height:1.55}
+  #page-b2sprechen .exp-sheet *{color:inherit}
+  #page-b2sprechen .exp-masthead{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 26px}
+  #page-b2sprechen .exp-masthead .exp-bar{display:flex;width:min(100%,460px);font-size:.72rem;font-weight:700;letter-spacing:.06em}
+  #page-b2sprechen .exp-masthead .c1{flex:0 0 56%;background:#b9b9b9;color:#111;padding:4px 10px;text-align:right}
+  #page-b2sprechen .exp-masthead .c2{flex:1 1 auto;background:#4a4a4a;color:#fff;padding:4px 10px} .exp-masthead .exp-bar:last-child .c2{background:#d5d5d5;color:#3a3a3a}
+  #page-b2sprechen .exp-teil{font-size:1rem;margin:0 0 14px}
+  #page-b2sprechen .exp-teil b{font-weight:800}
+  #page-b2sprechen .exp-teil .dauer{font-size:.82rem;color:#555;margin-left:14px}
+  #page-b2sprechen .exp-note{font-size:.85rem;color:#222;margin:0 0 9px;line-height:1.65}
+  #page-b2sprechen .exp-sit{font-size:.85rem;font-style:italic;color:#222;margin:0 0 14px;line-height:1.7}
+  #page-b2sprechen .exp-h{font-size:.86rem;font-weight:700;margin:14px 0 4px}
+  #page-b2sprechen .exp-thema{text-align:center;font-weight:800;font-size:.95rem;margin:18px 0 14px}
+  #page-b2sprechen .exp-rows{display:flex;flex-direction:column;gap:16px}
+  #page-b2sprechen .exp-row{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:16px;align-items:start}
+  #page-b2sprechen .exp-ins{font-size:.82rem;color:#222;line-height:1.6}
+  #page-b2sprechen .exp-lines{padding-top:2px}
+  #page-b2sprechen .exp-lines i{display:block;border-bottom:1px solid #9a9a9a;height:21px}
+  #page-b2sprechen .exp-folie{position:relative;border:1px solid #cfcfcf;padding:8px 8px 26px;border-radius:2px;overflow:hidden;background:#fdf1e7;min-height:104px}
+  #page-b2sprechen .exp-folie.acc-blue{background:#eef4fb}
+  #page-b2sprechen .exp-folie::before{content:'';position:absolute;left:-34px;bottom:-40px;width:78px;height:66px;border-radius:50% 46% 40% 52%;background:#e8913f;transform:rotate(-16deg);opacity:.95}
+  #page-b2sprechen .exp-folie.acc-blue::before{background:#2f6fb0}
+  #page-b2sprechen .exp-folie::after{content:'';position:absolute;left:8px;bottom:13px;width:8px;height:8px;border-radius:50%;background:#e8913f;box-shadow:13px -5px 0 -2px #e8913f,24px 1px 0 -4px #e8913f;opacity:.85}
+  #page-b2sprechen .exp-folie.acc-blue::after{background:#2f6fb0;box-shadow:13px -5px 0 -2px #2f6fb0,24px 1px 0 -4px #2f6fb0}
+  #page-b2sprechen .exp-folie .exp-badge{position:absolute;left:7px;bottom:6px;font-size:.6rem;font-weight:700;color:#fff;background:#e8913f;border-radius:3px;padding:1px 6px;z-index:2}
+  #page-b2sprechen .exp-folie.acc-blue .exp-badge{background:#2f6fb0}
+  #page-b2sprechen .exp-folie .exp-quote{font-style:italic;font-size:.7rem;color:#c9531a;line-height:1.35;margin:2px 0 6px}
+  #page-b2sprechen .exp-folie.acc-blue .exp-quote{color:#1f4f86}
+  #page-b2sprechen .exp-folie .exp-bc{font-size:.66rem;font-weight:700;color:#c9531a;line-height:1.35;margin:2px 0 8px}
+  #page-b2sprechen .exp-folie.acc-blue .exp-bc{color:#1f4f86}
+  #page-b2sprechen .exp-folie .exp-stitle{font-family:Georgia,'Times New Roman',serif;font-weight:800;font-size:.84rem;color:#17365d;line-height:1.28}
+  #page-b2sprechen .exp-punkte{margin:26px 0 0 34px}
+  #page-b2sprechen .exp-pk-t{font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;font-weight:700;color:#111;margin:0 0 10px}
+  #page-b2sprechen .exp-pk{list-style:none;margin:0;padding:0}
+  #page-b2sprechen .exp-pk li{font-style:italic;font-size:.92rem;color:#222;margin:0 0 6px;line-height:1.6;padding-left:16px;position:relative}
+  #page-b2sprechen .exp-pk li::before{content:'–';position:absolute;left:0;font-style:normal}
+  #page-b2sprechen .exp-pk li.sub{padding-left:34px}
+  #page-b2sprechen .exp-pk li.sub::before{content:''}
+  #page-b2sprechen .exp-caption{font-size:.76rem;color:rgba(255,245,230,.6);margin:-8px 0 14px}
+  #page-b2sprechen .exp-tstrip{margin:12px 0 4px}
+  #page-b2sprechen .exp-tstrip .ts{display:block;border-left:4px solid #e8913f;background:#f6f7f9;padding:9px 13px;margin:9px 0}
+  #page-b2sprechen .exp-tstrip .ts b{display:block;color:#17365d;font-size:.9rem;line-height:1.5;font-family:Georgia,'Times New Roman',serif}
+  #page-b2sprechen .exp-tstrip .ts i{display:block;color:#5b6b7d;font-size:.79rem;font-style:normal;margin-top:3px;line-height:1.6}
+  @media(max-width:600px){
+  #page-b2sprechen .exp-sheet{padding:16px 14px 18px}
+  #page-b2sprechen .exp-row{grid-template-columns:minmax(0,1fr);gap:9px}
+  #page-b2sprechen .exp-folie{min-height:0;padding:8px 8px 24px}
+  #page-b2sprechen .exp-lines i{height:19px}
+  #page-b2sprechen .exp-punkte{margin-left:12px}
+  }
+  /* ══ /GOETHE-SHEET CSS ══ */
+
+  /* ══ B2 卷面补充（主题卡 + 两栏题位行）══ */
+  #page-b2sprechen .exp-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start;margin:0 0 26px}
+  #page-b2sprechen .exp-tcard{border:1px solid #b9b9b9;background:#fff;padding:15px 17px 19px}
+  #page-b2sprechen .exp-tcard .exp-tct{font-weight:800;font-size:.98rem;color:#111;margin:0 0 14px;line-height:1.35}
+  #page-b2sprechen .exp-tcard ul{margin:0;padding-left:19px}
+  #page-b2sprechen .exp-tcard li{font-size:.92rem;color:#222;line-height:1.6;margin:0 0 11px}
+  #page-b2sprechen .exp-tcard li:last-child{margin-bottom:0}
+  #page-b2sprechen .exp-thema-h{font-weight:800;font-size:1rem;color:#111;margin:0 0 9px}
+  #page-b2sprechen .exp-wer{font-size:.85rem;color:#222;margin:0 0 14px}
+  #page-b2sprechen .exp-question{text-align:center;font-weight:800;font-size:1.12rem;color:#111;
+    margin:26px 0 22px;line-height:1.5}
+  #page-b2sprechen .exp-stich{margin:8px 0 0;padding-left:0;list-style:none}
+  #page-b2sprechen .exp-stich li{font-size:.92rem;color:#222;line-height:1.95}
+  #page-b2sprechen .exp-cover-h{font-weight:800;font-size:1.12rem;color:#111;margin:0 0 3px}
+  #page-b2sprechen .exp-cover-sub{font-size:.86rem;color:#555;margin:0 0 18px}
+  #page-b2sprechen .exp-bul{margin:0 0 4px;padding-left:20px;list-style:disc}
+  #page-b2sprechen .exp-bul li{font-size:.92rem;color:#222;line-height:1.8}
+  /* ── 以下 4 个类原本手写在 lazy/b1schreiben.html，不在任何 py 里；B2 写作也要用，搬进来 ── */
+  /* 官方说明页 */
+  #page-b2sprechen .exp-mod{text-align:center;margin:6px 0 20px}
+  #page-b2sprechen .exp-mod .tt{font-size:1.35rem;font-weight:800;margin:0 0 2px}
+  #page-b2sprechen .exp-mod .ss{font-size:.85rem;color:#333}
+  #page-b2sprechen .exp-list{font-size:.85rem;color:#222;line-height:1.75;margin:0 0 0 6px}
+  #page-b2sprechen .exp-list p{margin:0 0 8px}
+  /* 论坛留言框（Gästebuch） */
+  #page-b2sprechen .exp-gb{border:1px solid #c9c9c9;border-radius:3px;padding:0;margin:12px 0 4px;max-width:560px}
+  #page-b2sprechen .exp-gb .hd{background:#efefef;border-bottom:1px solid #c9c9c9;padding:5px 11px;font-size:.76rem;color:#333}
+  #page-b2sprechen .exp-gb .hd b{font-weight:700}
+  #page-b2sprechen .exp-gb .hd .url{float:right;color:#555}
+  #page-b2sprechen .exp-gb .bd{padding:10px 12px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+  #page-b2sprechen .exp-gb .meta{font-size:.72rem;color:#555;line-height:1.5}
+  #page-b2sprechen .exp-gb .meta .nm{font-style:italic;color:#222}
+  #page-b2sprechen .exp-gb .msg{font-size:.86rem;color:#111;line-height:1.6}
+  /* 答卷纸 */
+  #page-b2sprechen .exp-sol{background:#fbfbf8;border:1px solid #dcdcd4;border-left:4px solid #b9a35a;border-radius:3px;padding:14px 16px;margin:12px 0}
+  #page-b2sprechen .exp-sol .sol-h{font-size:.76rem;font-weight:700;color:#6b5a1e;letter-spacing:.04em;margin:0 0 8px;padding-bottom:6px;border-bottom:1px dashed #d8cfae}
+  #page-b2sprechen .exp-sol .sol-tx{font-family:Georgia,'Times New Roman',serif;font-size:.9rem;line-height:1.85;color:#1a1a1a;white-space:pre-line;margin:0}
+  #page-b2sprechen .exp-sol .sol-note{font-size:.76rem;color:#6b5a1e;margin:10px 0 0;line-height:1.6}
+  @media(max-width:600px){
+    #page-b2sprechen .exp-row2{grid-template-columns:minmax(0,1fr);gap:12px}
+    #page-b2sprechen .exp-question{font-size:1rem;margin:18px 0 16px}
+    /* B2 的表头文字比 B1 长得多（GOETHE-ZERTIFIKAT B2 / MODELLSATZ ERWACHSENE /
+       KANDIDATENBLÄTTER），沿用 B1 的字号会在手机上右侧被裁掉 */
+    #page-b2sprechen .exp-masthead .exp-bar{width:100%;font-size:.58rem}
+    #page-b2sprechen .exp-masthead .c1{flex:0 0 58%;padding:3px 6px}
+    #page-b2sprechen .exp-masthead .c2{padding:3px 6px}
+  }
+
+  /* ── 表格（B2 口语）：桌面正常，手机堆叠成卡片 ── */
+  #page-b2sprechen .sp-tblwrap{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
+  #page-b2sprechen .sp-tbl{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+  #page-b2sprechen .sp-tbl th{background:rgba(184,134,11,.26);color:#fde68a;font-weight:800;padding:9px 12px;
+    text-align:left;border:1px solid rgba(246,211,101,.22);white-space:nowrap}
+  #page-b2sprechen .sp-tbl td{padding:9px 12px;border:1px solid rgba(246,211,101,.14);color:#e2e8f0;
+    vertical-align:top;line-height:1.7}
+  #page-b2sprechen .sp-tbl tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+  #page-b2sprechen .sp-tbl td.de{font-family:Georgia,'Times New Roman',serif;color:#f1f5f9}
+  #page-b2sprechen .sp-tbl td.no{color:#fca5a5;font-family:Georgia,'Times New Roman',serif}
+  #page-b2sprechen .sp-tbl td.yes{color:#6ee7b7;font-family:Georgia,'Times New Roman',serif}
+  @media(max-width:600px){
+    #page-b2sprechen .sp-tbl{min-width:0}
+    #page-b2sprechen .sp-tbl.stack tr{display:block;border:1px solid rgba(246,211,101,.22);border-radius:10px;
+      margin-bottom:9px;overflow:hidden}
+    #page-b2sprechen .sp-tbl.stack tr:first-child{display:none}
+    #page-b2sprechen .sp-tbl.stack tr:nth-child(even) td{background:transparent}
+    #page-b2sprechen .sp-tbl.stack td{display:block;border:0;padding:8px 12px}
+    #page-b2sprechen .sp-tbl.stack td:last-child{border-bottom:0}
+    #page-b2sprechen .sp-tbl.stack td::before{display:block;font-size:.68rem;font-weight:800;color:#f6d365;
+      letter-spacing:.04em;margin-bottom:3px}
+    #page-b2sprechen .sp-tbl.stack td:nth-child(1)::before{content:var(--l1)}
+    #page-b2sprechen .sp-tbl.stack td:nth-child(2)::before{content:var(--l2)}
+    #page-b2sprechen .sp-tbl.stack td:nth-child(3)::before{content:var(--l3)}
+  }
+
+</style>
+<div class="sp-wrap" id="b2sprechen-top">
+<div class="sp-hero">
+  <div class="ey">Goethe-Zertifikat B2 · Sprechen</div>
+  <h1>🗣️ B2 口语</h1>
+  <p>两个部分、约 15 分钟：先就一个主题做 4 分钟短报告，再和搭档就一个争议话题辩 5 分钟。<br>
+     这一页把官方考卷原样、时间怎么切、每张主题卡怎么讲、评分标准，全部摊开讲。</p>
+</div>
+
+<div class="sp-sec" id="b2sp-ueberblick">
+  <div class="sp-sec-h"><div class="ic">📋</div><div><h2>考试概览 · Überblick</h2>
+    <div class="sub">先把「考什么、考多久、怎么算分」弄对，再练</div></div></div>
+
+  <div class="sp-box gold">
+    <span class="lbl">⏱️ 时间与人数:</span> <strong>两人一组</strong>（Paarprüfung），考试约 <strong>15 分钟</strong>；
+    考前有 <strong>15 分钟独立准备</strong>（可以写笔记，但考试时<strong>不能照读</strong>）。满分 100，<strong>及格 60</strong>。
+  </div>
+
+  <div class="sp-box blue">
+    <span class="lbl">🧩 两个部分 (Teile):</span>
+    <div class="sp-chips">
+      <span class="sp-chip">Teil 1 · Vortrag halten 短报告（每人约 4 分钟，两个主题选一个）</span>
+      <span class="sp-chip">Teil 2 · Diskussion führen 讨论（合计约 5 分钟，就一个争议问题各持立场）</span>
+    </div>
+  </div>
+
+  <div class="sp-box">
+    <span class="lbl">💡 一句话理解:</span>
+    B2 口语考的不是「发音准不准」，而是<strong>能不能就一个抽象话题有条理地讲满 4 分钟</strong>，
+    再<strong>跟一个真人来回辩 5 分钟</strong>。所以「背一段稿子」在这里基本没用 ——
+    你要练的是<b>结构</b>（Einleitung–Hauptteil–Schluss）和<b>接话</b>（对方说完你怎么接）。
+  </div>
+
+  <div class="sp-box blue">
+    <span class="lbl">📊 官方评分七项:</span>
+    Aufgabenerfüllung（完成任务）· Kohärenz（连贯，Teil 1）· Interaktion（互动，Teil 2）·
+    Wortschatz（词汇）· Strukturen（语法结构）· Aussprache（发音）· Fragen/Antworten（问答，Teil 1）。
+    <br>详细档位见本页 <b>评分标准</b> 一节。
+  </div>
+</div>
+
+<div class="sp-sec" id="b2sp-ablauf">
+  <div class="sp-sec-h"><div class="ic">🚶</div><div><h2>考试流程 · Ablauf</h2>
+    <div class="sub">从进候考室到离场，每一步会发生什么</div></div></div>
+
+  <div class="sp-step"><div class="seq">1</div><div>
+    <strong>候考 · 分组</strong><br>按准考证叫号，和另一位考生组成一组（Paarprüfung）。
+    如果当天人不够可能安排 Einzelprüfung（单独考），流程一样，只是没有搭档，考官会扮演对话方。
+  </div></div>
+
+  <div class="sp-step"><div class="seq">2</div><div>
+    <strong>准备室 · 15 分钟（最关键的一步）</strong><br>
+    你会拿到<b>两张考卷</b>：Teil 1 的主题卡（A 卷或 B 卷，上面有两个主题）+ Teil 2 的讨论题。
+    这 15 分钟要做的：① 从两个主题里<b>挑一个</b>（挑你有话说、有具体例子的那个）
+    ② 按 Einleitung / Hauptteil / Schluss 结构写<b>关键词笔记</b>（<b>不要写整句</b>，写整句考试时会忍不住照读）
+    ③ 把几条 Stichpunkte 想一遍，每条配一个自己的论据或例子。
+  </div></div>
+
+  <div class="sp-step"><div class="seq">3</div><div>
+    <strong>进场 · 打招呼</strong><br>考官会先跟你确认身份、说明流程。用
+    <em>Guten Tag! / Guten Morgen!</em> 自然回应即可。坐下后考官会说
+    <em>»Sie können mit Teil 1 beginnen.«</em>
+  </div></div>
+
+  <div class="sp-step"><div class="seq">4</div><div>
+    <strong>Teil 1 · 每人约 4 分钟</strong><br>
+    你先讲 4 分钟（搭档听），然后搭档讲，你听。<b>讲完对方或考官会就你的主题提 1–2 个问题</b>
+    —— 所以别讲完就以为结束了，要预留回答的余地。
+  </div></div>
+
+  <div class="sp-step"><div class="seq">5</div><div>
+    <strong>Teil 2 · 合计约 5 分钟</strong><br>
+    两人就同一个争议问题讨论。没有「正方反方」的硬性分配，关键是<b>一来一回</b>：
+    表态 → 给理由 → 回应对方 → 最后各自总结立场。
+  </div></div>
+
+  <div class="sp-step"><div class="seq">6</div><div>
+    <strong>离场</strong><br>考官说结束就结束，不用自己收尾。
+    出考场后<b>不要跟还在候考的人说题目</b>。
+  </div></div>
+
+  <div class="sp-box gold">
+    <span class="lbl">⚠️ 三条硬规定:</span>
+    ① 准备时间可以写笔记，<b>考试时必须 frei sprechen（脱稿）</b>；
+    ② <b>词典、手机等工具一律不许带</b>（Hilfsmittel sind nicht erlaubt）；
+    ③ 只有<b>真实考试表现</b>算分，考卷上的笔记不算。
+  </div>
+</div>
+<div class="sp-sec" id="b2sp-set1" data-set="1"><div class="sp-sec-h"><div class="ic">📄</div><div><h2>题目 · Modellsatz（官方第一套）</h2><div class="sub">官方 Modellsatz Erwachsene 原题 —— 歌德公开的 B2 官方卷只有这一套</div></div></div><div class="sp-box gold"><span class="lbl">📦 关于题量:</span> 歌德官方公开的 B2 完整卷只有这一套 Modellsatz。B1 那边凑了三套（自编 + Modellsatz + Übungssatz），<b>B2 目前只有这一套官方题</b>。想多练就用下面「高频主题」里的主题库自己换题 —— 换题练习的效果其实比多刷一套原题更好。</div></div><div class="sp-sec" id="b2sp-teil1"><div class="sp-sec-h"><div class="ic">🎤</div><div><h2>Teil 1 · Vortrag halten</h2><div class="sub">短报告 · 每人约 4 分钟 · 两个主题选一个，讲完还要答问</div></div></div><div class="sp-box blue"><span class="lbl">🎯 考什么:</span> 你参加一个研讨会，要做个短报告。<b>结构清楚</b>（Einleitung–Hauptteil–Schluss）比词汇高级更重要；三个要点里最容易被忽略的是 <b>bewerten</b>（给出你自己的评价）—— 只罗列优缺点会扣分。</div><div class="sp-box"><span class="lbl">📄 你会拿到的考卷:</span> A、B 两位考生拿的是<b>不同的卷</b>，每张卷上有 <b>Thema 1 / Thema 2</b>，<b>挑一个</b>讲。卷面右侧的横线就是给你写关键词的地方。</div><div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Kandidatenblätter，官方 PDF 1:1）—— 灰表头、官方德语指令、主题卡 + 右侧横线写笔记</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-cover-h">Kandidatenblätter</div><div class="exp-cover-sub">Sprechen · circa 15 Minuten</div><p class="exp-note">Das Modul Sprechen hat zwei Teile.<br>In Teil 1 halten Sie einen kurzen Vortrag und sprechen mit Ihrer Gesprächspartnerin/Ihrem Gesprächspartner darüber. Wählen Sie dafür ein Thema (1 oder 2) aus (circa 4 Minuten).<br>In Teil 2 tauschen Sie in einer Diskussion Standpunkte aus (circa 5 Minuten).</p><p class="exp-note">Ihre Vorbereitungszeit beträgt 15 Minuten (Paarprüfung und Einzelprüfung). Sie bereiten sich allein vor. Sie dürfen sich Notizen machen. In der Prüfung sollen Sie frei sprechen.<br>Hilfsmittel (z. B. Wörterbücher, Handys/mobile Endgeräte) sind nicht erlaubt.</p></div><div class="exp-caption">📌 考卷原样 · <strong>Teilnehmende/-r A</strong>（Thema 1 / Thema 2 二选一）</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 1</b> Vortrag halten<span class="dauer">Dauer für beide Teilnehmende: circa 8 Minuten</span></div><p class="exp-note">Sie nehmen an einem Seminar teil und sollen dort einen kurzen Vortrag halten.<br>Wählen Sie ein Thema (Thema 1 oder 2) aus. Ihre Gesprächspartnerinnen/Ihre Gesprächspartner hören zu und stellen Ihnen anschließend Fragen.</p><p class="exp-note">Strukturieren Sie Ihren Vortrag mit einer Einleitung, einem Hauptteil und einem Schluss.<br>Ihre Notizen und Ideen schreiben Sie bitte in der Vorbereitungszeit auf.<br>Sprechen Sie circa 4 Minuten.</p><div class="exp-wer">Teilnehmende/-r A</div><div class="exp-thema-h">Thema 1</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Finanzierung des Studiums</div><ul><li>Beschreiben Sie mehrere Alternativen.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li><li>Beschreiben Sie eine Möglichkeit genauer.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div><div class="exp-thema-h">Thema 2</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Gesund leben</div><ul><li>Beschreiben Sie mehrere Bereiche (z. B. Bewegung).</li><li>Beschreiben Sie einen Bereich genauer.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="exp-caption">📌 考卷原样 · <strong>Teilnehmende/-r B</strong></div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 1</b> Vortrag halten<span class="dauer">Dauer für beide Teilnehmende: circa 8 Minuten</span></div><p class="exp-note">Sie nehmen an einem Seminar teil und sollen dort einen kurzen Vortrag halten.<br>Wählen Sie ein Thema (Thema 1 oder 2) aus. Ihre Gesprächspartnerinnen/Ihre Gesprächspartner hören zu und stellen Ihnen anschließend Fragen.</p><p class="exp-note">Strukturieren Sie Ihren Vortrag mit einer Einleitung, einem Hauptteil und einem Schluss.<br>Ihre Notizen und Ideen schreiben Sie bitte in der Vorbereitungszeit auf.<br>Sprechen Sie circa 4 Minuten.</p><div class="exp-wer">Teilnehmende/-r B</div><div class="exp-thema-h">Thema 1</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Freundschaften pflegen</div><ul><li>Beschreiben Sie mehrere Formen (z. B. im Internet).</li><li>Beschreiben Sie eine Form genauer.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div><div class="exp-thema-h">Thema 2</div><div class="exp-row2"><div class="exp-tcard"><div class="exp-tct">Ernährung am Arbeitsplatz</div><ul><li>Beschreiben Sie mehrere Alternativen.</li><li>Nennen Sie Vor- und Nachteile und bewerten Sie diese.</li><li>Beschreiben Sie eine Möglichkeit genauer.</li></ul></div><div class="exp-lines"><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="sp-box"><span class="lbl">⏱️ 4 分钟怎么切:</span><div class="sp-tblwrap"><table class="sp-tbl stack" style="--l1:'段落';--l2:'用时';--l3:'写什么'"><tr><th style="width:auto">段落</th><th style="width:110px">用时</th><th>写什么</th></tr><tr><td class="de"><b>Einleitung</b></td><td>约 20–30 秒</td><td>报题 + 说清你要讲什么结构。<br><em>„Ich möchte heute über das Thema … sprechen. Zuerst … dann … und am Ende …“</em></td></tr><tr><td class="de"><b>Hauptteil ①</b></td><td>约 50 秒</td><td>对应卷面第 1 个要点。<b>先讲面上有几种</b>（Alternativen / Bereiche / Formen）。</td></tr><tr><td class="de"><b>Hauptteil ② + ③</b></td><td>约 90 秒</td><td>详讲其中一种 + 讲优缺点<b>并给出你的评价</b>（bewerten！只列优缺点不给评价会掉分）。</td></tr><tr><td class="de"><b>Schluss</b></td><td>约 20 秒</td><td>收一句 + 谢谢听众。<em>„Zusammenfassend würde ich sagen … Vielen Dank für Ihre Aufmerksamkeit.“</em></td></tr></table></div><div class="sp-note">练的时候用手机掐表。最常见的失误是<b>前两分钟都在铺垫</b>，结果第三个要点草草带过 —— 要点没讲完，Aufgabenerfüllung 直接掉档。</div></div><div class="sp-box blue"><span class="lbl">💬 报告常用句 Redemittel:</span><div style="margin:10px 0 2px"><b>开场</b></div><div class="sp-chips"><span class="sp-chip">Ich möchte heute über das Thema … sprechen.</span><span class="sp-chip">Ich habe mich für das Thema … entschieden, weil …</span><span class="sp-chip">Mein Vortrag ist in drei Teile gegliedert.</span></div><div style="margin:10px 0 2px"><b>列举</b></div><div class="sp-chips"><span class="sp-chip">Es gibt mehrere Möglichkeiten: Erstens … Zweitens … Drittens …</span><span class="sp-chip">Man kann hier vor allem drei Bereiche unterscheiden.</span><span class="sp-chip">Ein Beispiel dafür ist …</span></div><div style="margin:10px 0 2px"><b>讲优缺点</b></div><div class="sp-chips"><span class="sp-chip">Ein großer Vorteil ist, dass …</span><span class="sp-chip">Ein Nachteil ist allerdings, dass …</span><span class="sp-chip">Das sehe ich eher positiv / kritisch, weil …</span></div><div style="margin:10px 0 2px"><b>评价与收尾</b></div><div class="sp-chips"><span class="sp-chip">Meiner Meinung nach überwiegen die Vorteile.</span><span class="sp-chip">Zusammenfassend kann man sagen, dass …</span><span class="sp-chip">Vielen Dank für Ihre Aufmerksamkeit.</span></div></div></div><div class="sp-sec" id="b2sp-scripts"><div class="sp-sec-h"><div class="ic">📝</div><div><h2>四道主题 · 逐字稿示范</h2><div class="sub">A 卷两个 + B 卷两个，各一段完整示范（中德对照）—— 照骨架换内容就是你的稿子</div></div></div><div class="sp-box gold"><span class="lbl">⚠️ 怎么用这些稿子:</span> <b>不要背。</b>背稿在考场上一紧张就断，而且考官听得出来。正确用法是记住<b>骨架句</b>（每段第一句和最后一句），中间的论据换成<b>你自己的例子</b> —— 用真实经历讲出来的内容，分数永远比背来的高。</div><div class="sp-script"><div class="sp-script-h"><span class="fn">💰</span><span class="ft">A · Thema 1 · Finanzierung des Studiums</span><span class="fd">约 4 分钟 · 这是骨架，实际讲的时候把例子换成你自己的</span></div><div class="sp-said"><div class="sh">🎤 逐字稿（照说就行）</div><div class="sp-pair"><span class="de">Ich möchte heute über das Thema <b>„Finanzierung des Studiums“</b> sprechen. Zuerst zeige ich, welche Möglichkeiten es gibt, dann nenne ich Vor- und Nachteile und am Ende sage ich, was ich persönlich für sinnvoll halte.</span><span class="zh">我今天想讲「大学学费怎么解决」。先说有哪些方式，再讲优缺点，最后说我个人觉得哪种合理。</span></div><div class="sp-pair"><span class="de">Es gibt mehrere Wege, das Studium zu finanzieren. <b>Erstens</b> können die Eltern unterstützen, <b>zweitens</b> gibt es staatliche Hilfe wie BAföG, <b>drittens</b> arbeiten viele Studierende nebenbei, und <b>viertens</b> gibt es Stipendien.</span><span class="zh">解决学费有好几条路：第一父母支持，第二国家助学金（BAföG），第三很多学生打工，第四奖学金。</span></div><div class="sp-pair"><span class="de">Ich möchte den <b>Nebenjob</b> genauer beschreiben. Viele Studierende arbeiten zum Beispiel in einem Café oder geben Nachhilfe, ungefähr zehn bis fünfzehn Stunden pro Woche.</span><span class="zh">我详细说说<b>打工</b>。很多学生在咖啡馆做工或做家教，每周大概 10 到 15 小时。</span></div><div class="sp-pair"><span class="de">Der große <b>Vorteil</b> ist, dass man eigenes Geld verdient und unabhängiger wird. Man lernt außerdem Deutsch im Alltag. Ein <b>Nachteil</b> ist aber, dass man weniger Zeit zum Lernen hat und am Ende vielleicht länger studiert. Meiner Meinung nach ist ein kleiner Nebenjob sinnvoll, aber nur, wenn das Studium nicht darunter leidet.</span><span class="zh"><b>优点</b>是能自己挣钱、更独立，还能在日常里练德语。<b>缺点</b>是学习时间变少，可能拖长毕业时间。我觉得打一点工是合理的，但不能影响学业。</span></div><div class="sp-pair"><span class="de">Zusammenfassend würde ich sagen: Es gibt nicht den einen richtigen Weg. Wichtig ist, dass man eine Lösung findet, die zum eigenen Leben passt. Vielen Dank für Ihre Aufmerksamkeit.</span><span class="zh">总结一下：没有唯一正确的路，重要的是找到适合自己的方案。谢谢大家。</span></div></div></div><div class="sp-script"><div class="sp-script-h"><span class="fn">🥗</span><span class="ft">A · Thema 2 · Gesund leben</span><span class="fd">注意：这个主题的要点顺序和 Thema 1 不一样（先讲多个领域，再详讲一个，最后优缺点）</span></div><div class="sp-said"><div class="sh">🎤 逐字稿（照说就行）</div><div class="sp-pair"><span class="de">Mein Thema heute ist <b>„Gesund leben“</b>. Ich spreche zuerst über verschiedene Bereiche, dann gehe ich auf einen Bereich genauer ein, und am Ende nenne ich Vor- und Nachteile.</span><span class="zh">今天我讲「健康生活」。先说几个方面，然后详细讲一个，最后讲优缺点。</span></div><div class="sp-pair"><span class="de">Gesundheit hat viele Seiten. <b>Erstens</b> die Bewegung – also Sport oder einfach zu Fuß gehen. <b>Zweitens</b> die Ernährung, <b>drittens</b> der Schlaf und <b>viertens</b> die psychische Gesundheit, zum Beispiel Stress abbauen.</span><span class="zh">健康有很多面：第一是运动，第二是饮食，第三是睡眠，第四是心理健康，比如减压。</span></div><div class="sp-pair"><span class="de">Ich möchte die <b>Bewegung</b> genauer beschreiben. In meinem Alltag fahre ich mit dem Rad zur Arbeit und gehe am Wochenende schwimmen. Das kostet nicht viel Zeit, aber es hilft mir sehr.</span><span class="zh">我详细说<b>运动</b>。我平时骑车上班，周末去游泳。花不了多少时间，但对我帮助很大。</span></div><div class="sp-pair"><span class="de">Der <b>Vorteil</b> ist klar: Man fühlt sich besser und wird seltener krank. Ein <b>Nachteil</b> ist, dass man dafür regelmäßig Zeit einplanen muss – und im stressigen Alltag fällt das oft weg. Ich finde trotzdem, dass sich Bewegung immer lohnt.</span><span class="zh"><b>优点</b>很明显：身体更好、少生病。<b>缺点</b>是必须规律地留出时间，忙碌时常常做不到。但我还是觉得运动永远值得。</span></div><div class="sp-pair"><span class="de">Zusammenfassend: Gesund leben heißt nicht, alles perfekt zu machen. Kleine Veränderungen im Alltag bringen schon viel. Danke für Ihre Aufmerksamkeit!</span><span class="zh">总结：健康生活不是要做到满分，日常里的小改变就已经很有用。谢谢！</span></div></div></div><div class="sp-script"><div class="sp-script-h"><span class="fn">🤝</span><span class="ft">B · Thema 1 · Freundschaften pflegen</span><span class="fd">这个主题容易讲得空 —— 一定要给具体的个人例子，不然内容分会低</span></div><div class="sp-said"><div class="sh">🎤 逐字稿（照说就行）</div><div class="sp-pair"><span class="de">Ich möchte heute über <b>„Freundschaften pflegen“</b> sprechen. Ich zeige zuerst verschiedene Formen, beschreibe dann eine genauer und bewerte am Ende Vor- und Nachteile.</span><span class="zh">今天我讲「怎么维系友谊」。先说几种形式，再详细讲一种，最后评价优缺点。</span></div><div class="sp-pair"><span class="de">Freundschaften kann man auf verschiedene Weise pflegen. <b>Erstens</b> persönlich, also sich treffen. <b>Zweitens</b> über das Internet, zum Beispiel per Videoanruf oder Chat. <b>Drittens</b> über gemeinsame Aktivitäten wie Sport oder Reisen. <b>Viertens</b> einfach durch regelmäßige kleine Nachrichten.</span><span class="zh">维系友谊有好几种方式：第一见面，第二通过网络（视频通话、聊天），第三一起活动，第四常发消息。</span></div><div class="sp-pair"><span class="de">Ich möchte die <b>Pflege über das Internet</b> genauer beschreiben. Eine meiner besten Freundinnen lebt in einer anderen Stadt. Wir schreiben fast jeden Tag und telefonieren einmal pro Woche. Ohne das Internet hätten wir wahrscheinlich keinen Kontakt mehr.</span><span class="zh">我详细说<b>通过网络维系</b>。我最好的一个朋友住在别的城市，我们几乎每天发消息，每周通一次电话。没有网络，我们可能早就失联了。</span></div><div class="sp-pair"><span class="de">Der <b>Vorteil</b> ist, dass Entfernung keine große Rolle mehr spielt. Ein <b>Nachteil</b> ist, dass geschriebene Nachrichten oft missverstanden werden – Emotionen fehlen. Außerdem kann man sich leichter aus den Augen verlieren. Meiner Meinung nach ist das Internet eine gute Ergänzung, aber persönliche Treffen kann es nicht ersetzen.</span><span class="zh"><b>优点</b>是距离不再是问题。<b>缺点</b>是文字消息容易误解，因为缺少语气，而且更容易渐渐疏远。我觉得网络是很好的补充，但替代不了见面。</span></div><div class="sp-pair"><span class="de">Zusammenfassend: Freundschaft braucht Zeit und regelmäßigen Kontakt – ob persönlich oder digital. Danke für Ihre Aufmerksamkeit.</span><span class="zh">总结：友谊需要时间和规律的联络，不管线上还是线下。谢谢。</span></div></div></div><div class="sp-script"><div class="sp-script-h"><span class="fn">🍱</span><span class="ft">B · Thema 2 · Ernährung am Arbeitsplatz</span><span class="fd">要点顺序同 A·Thema 1（多个方式 → 优缺点 → 详讲一种）</span></div><div class="sp-said"><div class="sh">🎤 逐字稿（照说就行）</div><div class="sp-pair"><span class="de">Mein Thema ist <b>„Ernährung am Arbeitsplatz“</b>. Ich nenne zuerst mehrere Alternativen, bewerte dann Vor- und Nachteile und beschreibe am Ende eine Möglichkeit genauer.</span><span class="zh">我的主题是「职场饮食」。先说几种做法，再评价优缺点，最后详细讲一种。</span></div><div class="sp-pair"><span class="de">Am Arbeitsplatz gibt es mehrere Möglichkeiten zu essen. <b>Erstens</b> die Kantine, <b>zweitens</b> etwas mitbringen von zu Hause, <b>drittens</b> in der Nähe etwas kaufen, und <b>viertens</b> gar nichts essen – was natürlich keine gute Idee ist.</span><span class="zh">在单位吃饭有几种方式：第一食堂，第二自己带饭，第三就近买，第四干脆不吃 —— 当然这不算好主意。</span></div><div class="sp-pair"><span class="de">Der <b>Vorteil</b> der Kantine ist, dass es schnell geht und man sich mit Kollegen unterhalten kann. Der <b>Nachteil</b> ist häufig die Qualität und dass es auf Dauer teuer wird. Selbst mitgebrachtes Essen ist gesünder und billiger, kostet aber Zeit am Abend vorher. Meiner Meinung nach ist Essen von zu Hause die beste Lösung, wenn man es zeitlich schafft.</span><span class="zh">食堂<b>优点</b>是快、能跟同事聊天；<b>缺点</b>常是质量一般，长期也贵。自己带<b>更健康更省</b>，代价是前一晚要花时间。我觉得只要时间允许，带饭最好。</span></div><div class="sp-pair"><span class="de">Ich möchte das <b>Essen von zu Hause</b> genauer beschreiben. Man kocht am Abend etwas mehr und nimmt die Reste mit. Man braucht eine gute Dose, und wenn es einen Kühlschrank am Arbeitsplatz gibt, ist es noch einfacher.</span><span class="zh">我详细讲<b>自己带饭</b>：晚上多做一些，第二天带剩下的。需要一个好的饭盒；如果单位有冰箱就更省事了。</span></div><div class="sp-pair"><span class="de">Zusammenfassend: Am wichtigsten ist, dass man überhaupt regelmäßig isst. Danke für Ihre Aufmerksamkeit!</span><span class="zh">总结：最重要的是要规律吃饭。谢谢！</span></div></div></div></div><div class="sp-sec" id="b2sp-fragen"><div class="sp-sec-h"><div class="ic">❓</div><div><h2>讲完还要答问 · Fragen beantworten</h2><div class="sub">这一步单独算分（官方评分里有 Fragen/Antworten 一项）</div></div></div><div class="sp-box blue"><span class="lbl">🎯 为什么单独练:</span> 官方评分表里 Teil 1 有一项 <b>Fragen/Antworten</b>。很多人报告讲得很顺，一问就卡 —— 因为报告是<b>准备过</b>的，答问是<b>没准备</b>的。其实答问有固定套路：<b>先接住 → 换角度展开 → 给个例子</b>。</div><div class="sp-qa"><div class="q">Q: Könnten Sie das noch einmal genauer erklären?</div><div class="t">考官或搭档在你讲完之后追问，通常是想让你展开某个点。<b>不要慌，也不要重复原话</b> —— 换一个角度补例子。</div><div class="a"><em>Gerne. Ich habe vorhin die Kosten erwähnt – dazu ein konkretes Beispiel: …</em></div></div><div class="sp-qa"><div class="q">Q: Was würden Sie jemandem empfehlen, der in Ihrer Situation ist?</div><div class="t">让你从「陈述」转到「建议」。用 <em>Ich würde … empfehlen, weil …</em> 开头。</div><div class="a"><em>Ich würde empfehlen, erst mit einer kleinen Lösung anzufangen, weil …</em></div></div><div class="sp-qa"><div class="q">Q: Sie haben die Nachteile genannt – finden Sie das Thema trotzdem positiv?</div><div class="t">典型的「逼你表态」问题。一定要<b>给出明确立场</b>，不要两边都不得罪。</div><div class="a"><em>Ja, insgesamt schon. Der wichtigste Vorteil wiegt für mich schwerer, weil …</em></div></div><div class="sp-qa"><div class="q">Q: 没听懂问题时</div><div class="t">允许反问，而且反问本身是加分项（说明你在互动）。</div><div class="a"><em>Entschuldigung, könnten Sie die Frage bitte wiederholen? / Meinen Sie …?</em></div></div></div><div class="sp-sec" id="b2sp-teil2"><div class="sp-sec-h"><div class="ic">💬</div><div><h2>Teil 2 · Diskussion führen</h2><div class="sub">讨论 · 合计约 5 分钟 · 考的是「能不能真的聊起来」</div></div></div><div class="sp-box blue"><span class="lbl">🎯 考什么:</span> 两人就一个争议问题讨论，各自表态并论证。评分表里这一部分叫 <b>Interaktion</b> —— 考的是<b>对话能力</b>：能不能开场、能不能接住对方、能不能在最后收口。只顾自己说、不回应对方，这一项会很低。</div><div class="exp-caption">📌 下面是<strong>考卷原样</strong>（Teil 2 · A 卷与 B 卷内容相同）</div><div class="exp-sheet"><div class="exp-masthead"><div class="exp-bar"><span class="c1">GOETHE-ZERTIFIKAT B2</span><span class="c2">SPRECHEN</span></div><div class="exp-bar"><span class="c1">MODELLSATZ ERWACHSENE</span><span class="c2">KANDIDATENBLÄTTER</span></div></div><div class="exp-teil"><b>Teil 2</b> Diskussion führen<span class="dauer">Dauer für beide Teilnehmende: circa 5 Minuten</span></div><p class="exp-note">Sie sind Teilnehmende eines Debattierclubs und diskutieren über die Frage.</p><div class="exp-question">Sollen Studierende ihre Professorinnen und Professoren beurteilen?</div><ul class="exp-bul"><li>Tauschen Sie Ihren Standpunkt und Ihre Argumente aus.</li><li>Reagieren Sie auf die Argumente Ihrer Gesprächspartnerin/Ihres Gesprächspartners.</li><li>Fassen Sie am Ende zusammen: Sind Sie dafür oder dagegen?</li></ul><p class="exp-note" style="margin-top:22px">Sie können diese Stichpunkte zu Hilfe nehmen.</p><ul class="exp-stich"><li>Motivation nimmt zu/ab?</li><li>Unterricht wird besser/schlechter?</li><li>Fairness ist gegeben?</li><li>Beurteilung bleibt anonym?</li><li>...</li></ul></div><div class="sp-box"><span class="lbl">🔄 四步走完这 5 分钟:</span><div class="sp-step"><div class="seq">1</div><div><strong>开场</strong> —— 先把话题框架摆出来，别一上来就抛论点。<br><em>Unser Thema heute ist die Frage, ob … Ich sehe das eher so: … Und wie ist Ihre Meinung?</em></div></div><div class="sp-step"><div class="seq">2</div><div><strong>推进</strong> —— 每说一个论点，接一个理由或例子。<b>一句话论点 = 没有分</b>。<br><em>Ein wichtiger Punkt ist für mich … Weil … Zum Beispiel …</em></div></div><div class="sp-step"><div class="seq">3</div><div><strong>接话</strong> —— 对方说完，先<b>回应</b>再讲自己的。这是 Teil 2 拿分的核心动作。<br><em>Das stimmt, aber … / Da stimme ich Ihnen teilweise zu, allerdings … / Das sehe ich anders, weil …</em></div></div><div class="sp-step"><div class="seq">4</div><div><strong>收尾</strong> —— 时间快到的时候，各自把立场收成一句。<br><em>Fassen wir zusammen: Sie sind eher dafür, ich bin eher dagegen, weil …</em></div></div></div><div class="sp-box gold"><span class="lbl">💡 Stichpunkte 怎么用:</span> 考卷上那几条 Stichpunkte（Motivation / Unterricht / Fairness / Anonymität）<b>不是必须全讲</b>，而是给你「没话说的时候往上靠」的抓手。真正拿分的是<b>你来我往</b>，不是把四条挨个念一遍。</div><div class="sp-box blue"><span class="lbl">💬 辩论常用句 Redemittel:</span><div style="margin:10px 0 2px"><b>表态</b></div><div class="sp-chips"><span class="sp-chip">Ich bin der Meinung, dass …</span><span class="sp-chip">Ich sehe das eher kritisch / positiv.</span><span class="sp-chip">Für mich überwiegen die Vorteile.</span></div><div style="margin:10px 0 2px"><b>同意 / 部分同意</b></div><div class="sp-chips"><span class="sp-chip">Da stimme ich Ihnen völlig zu.</span><span class="sp-chip">Das stimmt, aber …</span><span class="sp-chip">Da haben Sie recht, allerdings sollte man auch bedenken, dass …</span></div><div style="margin:10px 0 2px"><b>反对</b></div><div class="sp-chips"><span class="sp-chip">Da widerspreche ich Ihnen.</span><span class="sp-chip">Das sehe ich anders, und zwar weil …</span><span class="sp-chip">Ich verstehe Ihren Punkt, aber …</span></div><div style="margin:10px 0 2px"><b>追问 / 争取时间</b></div><div class="sp-chips"><span class="sp-chip">Was meinen Sie mit …?</span><span class="sp-chip">Könnten Sie das genauer erklären?</span><span class="sp-chip">Das ist ein interessanter Punkt. Ich würde noch ergänzen, dass …</span></div><div style="margin:10px 0 2px"><b>收尾</b></div><div class="sp-chips"><span class="sp-chip">Fassen wir zusammen …</span><span class="sp-chip">Wir sind uns also nicht einig, aber ich verstehe Ihre Position.</span><span class="sp-chip">Zum Schluss würde ich sagen …</span></div></div><div class="sp-script"><div class="sp-script-h"><span class="fn">🎬</span><span class="ft">完整对话示范 · 5 分钟怎么聊满</span><span class="fd">辩题：Sollen Studierende ihre Professorinnen und Professoren beurteilen?</span></div><div class="sp-dlg"><div class="sp-turn a"><div class="who">考官</div><div class="de">Wir kommen zu Teil 2. Sie sind Teilnehmende eines Debattierclubs. Die Frage lautet: Sollen Studierende ihre Professorinnen und Professoren beurteilen? Tauschen Sie bitte Ihre Standpunkte aus.</div><div class="zh">现在进入第二部分。你们是辩论社成员。问题是：大学生该给教授打分吗？请交换你们的观点。</div></div><div class="sp-turn b"><div class="who">考生 A</div><div class="de">Ich fange gern an. Ich bin grundsätzlich <b>dafür</b>, dass Studierende Lehrende bewerten. Denn dadurch wird der Unterricht besser, und die Lehrenden bekommen ehrliches Feedback. Und wie sehen Sie das?</div><div class="zh">我先来。我基本<b>赞成</b>学生评价老师，因为这能让课变得更好，老师也能得到真实反馈。您怎么看？</div></div><div class="sp-turn a"><div class="who">考生 B</div><div class="de">Das stimmt, aber ich sehe ein großes Problem: <b>Die Bewertung ist nicht anonym.</b> Wenn die Lehrenden wissen, wer was geschrieben hat, trauen sich viele nicht, ehrlich zu sein. Ein weiterer Punkt: Studierende haben wenig Einblick in die fachlichen Anforderungen.</div><div class="zh">这个说法有道理，但我看到一个很大的问题：<b>评价不是匿名的。</b>如果老师知道谁写了什么，很多人就不敢说实话。还有一点：学生对专业上的要求其实了解有限。</div></div><div class="sp-turn b"><div class="who">考生 A</div><div class="de">Das ist ein berechtigter Einwand. Man müsste die Bewertung also unbedingt anonym machen und nur bestimmte Bereiche abfragen, zum Beispiel Verständlichkeit und Organisation. Dann wäre die Fairness gegeben.</div><div class="zh">这个反对意见很有道理。那就必须做到匿名，而且只问特定方面，比如讲解是否清楚、组织是否合理。这样公平性就有了。</div></div><div class="sp-turn a"><div class="who">考生 B</div><div class="de">Einverstanden, anonym wäre es besser. Ich frage mich trotzdem, ob die Motivation der Lehrenden dadurch nicht sinkt. Ein negatives Ergebnis vor allen Kollegen – das kann sehr demotivierend sein.</div><div class="zh">同意，匿名会好一些。但我还是担心老师的积极性会不会因此下降。结果在同事面前公开、又不好，这很打击人。</div></div><div class="sp-turn b"><div class="who">考生 A</div><div class="de">Da haben Sie recht, das sollte man bedenken. Vielleicht wäre eine <b>interne Auswertung</b> die Lösung – die Ergebnisse sieht nur die Hochschule, nicht die Öffentlichkeit.</div><div class="zh">您说得对，这个要考虑。也许<b>内部评估</b>是个办法 —— 只有学校能看到结果，不对外公开。</div></div><div class="sp-turn a"><div class="who">考生 B</div><div class="de">Das klingt vernünftig. Also <b>fassen wir zusammen</b>: Sie sind eher dafür, ich bin eher skeptisch. Einig sind wir uns, dass die Bewertung anonym sein müsste.</div><div class="zh">这听起来合理。那<b>我们总结一下</b>：您偏向支持，我偏向怀疑。我们的共识是：评价必须是匿名的。</div></div></div><div class="sp-box blue"><span class="lbl">🔍 这段为什么能拿高分:</span><div class="sp-points"><div>① <b>有来有回</b>：每一轮都先接对方（Das stimmt, aber… / Da haben Sie recht…）再讲自己</div><div>② <b>有让步</b>：不是一味反对，会承认对方说得对的部分 —— 这是 B2 和 B1 的分水岭</div><div>③ <b>有具体化</b>：把「匿名」这种抽象词落成具体方案（interne Auswertung）</div><div>④ <b>有收尾</b>：最后一句把双方立场总结清楚，而不是时间到了硬停</div></div></div></div><div class="sp-box"><span class="lbl">🧩 那几条 Stichpunkte 怎么展开:</span><div class="sp-tblwrap"><table class="sp-tbl stack" style="--l1:'Stichpunkt';--l2:'中文';--l3:'可以怎么说'"><tr><th style="width:auto">Stichpunkt</th><th style="width:150px">中文</th><th>可以怎么说</th></tr><tr><td class="de"><b>Motivation nimmt zu/ab?</b></td><td>老师的积极性会升还是降？</td><td>两面都能说：<em>Feedback kann motivieren, aber öffentliche Kritik kann demotivieren.</em></td></tr><tr><td class="de"><b>Unterricht wird besser/schlechter?</b></td><td>课会变好还是变差？</td><td>最容易展开的一条：<em>bessere Vorbereitung</em> ↔ <em>Anpassung an Erwartungen statt an Inhalte</em>。</td></tr><tr><td class="de"><b>Fairness ist gegeben?</b></td><td>公平吗？</td><td>关键在匿名性：<em>Nur wenn die Bewertung anonym ist, ist sie fair.</em></td></tr><tr><td class="de"><b>Beurteilung bleibt anonym?</b></td><td>评价会匿名吗？</td><td>现实里常常不匿名 —— 这条很适合当「反方」的突破口。</td></tr></table></div></div></div><div class="sp-sec" id="b2sp-bewertung"><div class="sp-sec-h"><div class="ic">🏆</div><div><h2>评分标准 · Bewertung</h2><div class="sub">官方七项，逐项看懂考官在打什么分（依据 PDF p49）</div></div></div><div class="sp-box"><div class="sp-tblwrap"><table class="sp-tbl stack" style="--l1:'评分项';--l2:'用在哪';--l3:'考官在看什么'"><tr><th style="width:auto">评分项</th><th style="width:110px">用在哪</th><th>考官在看什么</th></tr><tr><td class="de">Aufgabenerfüllung<br><span style="color:#94a3b8">完成任务</span></td><td>Teil 1 · 2</td><td>内容、篇幅、语言功能是否都做到：<b>描述备选、讲优缺点、交换观点、回应对方、总结立场</b>。<b>这项评到 E（0 分）⇒ 该部分总分 0。</b></td></tr><tr><td class="de">Kohärenz<br><span style="color:#94a3b8">连贯</span></td><td>Teil 1</td><td>句子之间有没有连接（Verknüpfung）+ 说话是否<b>流畅</b>。官方档位从 »natürliche Sprechweise«（自然）到 »stockende Sprechweise«（磕巴到影响理解）。</td></tr><tr><td class="de">Interaktion<br><span style="color:#94a3b8">互动</span></td><td>Teil 2</td><td>能不能<b>开启、维持、结束</b>对话；反应是否快；<b>称呼是否得体</b>（Du-/Sie-Form）。</td></tr><tr><td class="de">Wortschatz<br><span style="color:#94a3b8">词汇</span></td><td>Teil 1 · 2</td><td>词汇量与准确度，包括<b>固定搭配、书面语与口语的切换</b>。</td></tr><tr><td class="de">Strukturen<br><span style="color:#94a3b8">语法结构</span></td><td>Teil 1 · 2</td><td>句式是否多样、形态学与句法是否正确。</td></tr><tr><td class="de">Aussprache<br><span style="color:#94a3b8">发音</span></td><td>Teil 1 · 2</td><td><b>句调、词重音、单个音</b>。注意：<b>口音本身不扣分</b>，影响理解才扣 —— 但句调太平会让考官听得费劲。</td></tr><tr><td class="de">Fragen/Antworten<br><span style="color:#94a3b8">问答</span></td><td>Teil 1</td><td>报告后回答提问的表现，内容和语言两方面都看。</td></tr></table></div></div><div class="sp-box gold"><span class="lbl">🎯 一句话策略:</span> <b>先保 Aufgabenerfüllung，再谈其他。</b>内容点讲全、结构清楚、该表态时表态 —— 这三件事做到，及格线就稳了。语法小错、发音带点口音，都不致命；<b>要点漏讲才是致命的</b>。</div></div>
+<div class="sp-sec" id="b2sp-themen">
+  <div class="sp-sec-h"><div class="ic">🗂️</div><div><h2>高频主题 · Häufige Themen</h2>
+    <div class="sub">拿这些主题自己掐表练 —— 每道都按「多方式 → 优缺点 → 详讲一种」的结构走</div></div></div>
+
+  <div class="sp-box blue"><span class="lbl">🎤 Teil 1 · Vortrag 主题库（适合做短报告的）:</span>
+    <div class="sp-chips">
+      <span class="sp-chip">Finanzierung des Studiums 学费来源</span>
+      <span class="sp-chip">Gesund leben 健康生活</span>
+      <span class="sp-chip">Freundschaften pflegen 维系友谊</span>
+      <span class="sp-chip">Ernährung am Arbeitsplatz 职场饮食</span>
+      <span class="sp-chip">Ehrenamt / Freiwilligenarbeit 志愿服务</span>
+      <span class="sp-chip">Umweltschutz im Alltag 日常环保</span>
+      <span class="sp-chip">Homeoffice 居家办公</span>
+      <span class="sp-chip">Soziale Medien 社交媒体</span>
+      <span class="sp-chip">Reisen und Urlaub 旅行</span>
+      <span class="sp-chip">Weiterbildung 进修</span>
+      <span class="sp-chip">Sport und Freizeit 运动休闲</span>
+      <span class="sp-chip">Wohnen in der Stadt / auf dem Land 城乡居住</span>
+    </div>
+  </div>
+
+  <div class="sp-box blue"><span class="lbl">💬 Teil 2 · 争议话题库（适合辩论的）:</span>
+    <div class="sp-chips">
+      <span class="sp-chip">Sollen Studierende Lehrende beurteilen? 学生评教</span>
+      <span class="sp-chip">Handyverbot in der Schule? 校园禁手机</span>
+      <span class="sp-chip">Studium oder Ausbildung? 大学还是职业教育</span>
+      <span class="sp-chip">Homeoffice für alle? 全员居家办公</span>
+      <span class="sp-chip">Tempolimit auf Autobahnen? 高速限速</span>
+      <span class="sp-chip">Soziale Medien erst ab 16? 社媒年龄限制</span>
+      <span class="sp-chip">Autofreie Innenstädte? 城市无车化</span>
+      <span class="sp-chip">Weniger Fleisch essen? 减少吃肉</span>
+      <span class="sp-chip">Ehrenamt verpflichtend? 强制志愿服务</span>
+      <span class="sp-chip">Studiengebühren? 该收学费吗</span>
+    </div>
+  </div>
+
+  <div class="sp-box">
+    <span class="lbl">🔁 换题练习法:</span>
+    从上面各挑 3 个，<b>对着手机录 4 分钟</b>，然后回放只听两件事：
+    ① 三个要点是否都讲到了 ② 有没有「嗯……啊……」的长停顿。四周之后你会发现，
+    <b>换个主题也能用同一套骨架</b> —— 这就是 B2 口语真正要练的东西。
+  </div>
+</div>
+<div class="sp-sec" id="b2sp-check"><div class="sp-sec-h"><div class="ic">✅</div><div><h2>常见失分 · 自查</h2><div class="sub">这六条是 B2 口语最常踩的坑，考前过一遍</div></div></div><div class="sp-box"><div class="sp-tblwrap"><table class="sp-tbl stack" style="--l1:'❌ 常见问题';--l2:'✅ 应该怎样';--l3:'为什么'"><tr><th style="width:32%">❌ 常见问题</th><th style="width:32%">✅ 应该怎样</th><th>为什么</th></tr><tr><td class="no">把准备时写的整句念出来</td><td class="yes">只写关键词，考试时组织句子</td><td>官方明确要求 frei sprechen；照读会被听出来，Kohärenz 和 Aussprache 一起掉</td></tr><tr><td class="no">只列优缺点，不说自己的看法</td><td class="yes">每讲完优缺点加一句 bewerten</td><td>Aufgabenerfüllung 里明确有 bewerten Sie diese 这一项，漏了就是没完成</td></tr><tr><td class="no">Teil 2 只顾自己说</td><td class="yes">每轮先接对方再讲自己</td><td>Teil 2 评的是 Interaktion，不是独白</td></tr><tr><td class="no">时间分配前松后紧，要点没讲完</td><td class="yes">开场 30 秒内进入第一个要点</td><td>要点漏讲对 Aufgabenerfüllung 的打击远大于语法小错</td></tr><tr><td class="no">被问到时愣住或重复原话</td><td class="yes">换角度 + 给例子</td><td>Fragen/Antworten 是独立评分项</td></tr><tr><td class="no">全程一个语调念到底</td><td class="yes">句尾该降就降、该升就升</td><td>Aussprache 看的是句调和词重音，不只是「音准不准」</td></tr></table></div></div>
+  <div class="sp-box gold">
+    <span class="lbl">🎧 考前一周怎么练:</span>
+    ① 每天一道 Vortrag 主题，<b>掐表 4 分钟</b>录音；② 找一个人练 Teil 2，哪怕对手说中文也行，
+    重点是练「接话」这个动作；③ 把自己最熟的 3 个主题讲到自己觉得无聊 —— 那是熟练的标志。
+  </div>
+
+  <div class="sp-note">
+    📌 本页卷面与评分标准依据歌德学院官方 <b>Goethe-Zertifikat B2 Modellsatz Erwachsene</b>
+    （Kandidatenblätter p25–31、Bewertungskriterien p49）1:1 还原。
+    题目为官方 Modellsatz 原题；逐字稿为本站按官方结构编写的示范，不是官方标准答案。
+  </div>
+</div>
+</div>
