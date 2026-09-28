@@ -33821,6 +33821,7 @@ document.addEventListener('click', function(e) {
   </iframe>
 </div>
 
+<!-- KULTUR-UI v1 -->
 <div id="page-kultur" class="page" style="background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);min-height:100vh;padding:0 0 40px">
 
 <!-- ═══ Kultur Hero ═══ -->
@@ -33881,6 +33882,8 @@ document.addEventListener('click', function(e) {
       </select>
     <a class="kultur-toc-btn" href="#" onclick="jumpKulturEp(1);return false;">从第 1 期开始读 →</a>
   </div>
+<!-- 期数卡片网格：由 _kultur_ui.py 注入的脚本从 window._kdEpData 生成 -->
+  <div class="kep-grid" id="kep-grid"></div>
 </div>
 
 <!-- ═══ Section: 城市与地理 ═══ -->
@@ -33889,7 +33892,7 @@ document.addEventListener('click', function(e) {
   <div class="kultur-toc" id="kacity-toc">
     <span class="kultur-toc-head">🏙️ 目录条 / Stadt wählen — 点击只看该城市：</span>
     <select class="kultur-toc-select" id="kacity-select" onchange="if(this.value)showKulturCity(this.value)">
-      <option value="">— 请选择 —</option>
+      <option value="">🗺️ 全部城市（网格总览）</option>
       <option value="1">🏛️ Berlin · 柏林</option>
       <option value="2">💰 Frankfurt · 法兰克福</option>
       <option value="3">🍺 München · 慕尼黑</option>
@@ -33899,7 +33902,7 @@ document.addEventListener('click', function(e) {
     </select>
     <a class="kultur-toc-btn" href="#" onclick="showKulturCity(1);return false;">从第一座城市开始看 →</a>
   </div>
-<div class="kultur-cities kacity-single" id="kacity-list">
+<div class="kultur-cities" id="kacity-list">
     <div class="ka-card kacity-item" id="kacity-1" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
       <span class="ka-emoji">🏛️</span><span class="ka-de">Berlin</span>
       <div class="ka-zh">柏林 · Hauptstadt</div>
@@ -33965,6 +33968,27 @@ document.addEventListener('click', function(e) {
 #page-kultur .kultur-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,220,130,.15);border:1px solid rgba(255,220,130,.4);color:#ffe088;padding:5px 16px;border-radius:20px;font-size:.74rem;font-weight:700;letter-spacing:.08em;margin-bottom:14px}
 #page-kultur .kultur-hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:10px;background:linear-gradient(100deg,#ffd770,#fff3b8 30%,#fff 50%,#ffe088 70%,#ffc448);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 #page-kultur .kultur-sub{color:rgba(255,245,230,.78);font-size:.9rem;line-height:1.65;margin:0}
+/* ═══ 德国文化 · 界面优化（KULTUR-UI v1）═══ */
+    /* 你不知道的德国 · 期数卡片网格（数据来自 window._kdEpData） */
+    .kep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:10px;margin-top:16px}
+    .kep-card{display:block;text-decoration:none;background:linear-gradient(150deg,#13243f,#0f1c33);
+      border:1px solid rgba(246,211,101,.12);border-radius:12px;padding:12px 14px;
+      min-width:0;overflow-wrap:anywhere;
+      transition:transform .2s,border-color .2s,box-shadow .2s}
+    .kep-card:hover{transform:translateY(-2px);border-color:rgba(246,211,101,.42);
+      box-shadow:0 6px 20px rgba(8,16,40,.5)}
+    .kep-card .n{display:block;font-size:.68rem;font-weight:800;letter-spacing:.06em;
+      color:rgba(246,211,101,.72);margin-bottom:3px}
+    .kep-card .t{display:block;font-size:.9rem;font-weight:700;color:#fff8e8;line-height:1.35;margin-bottom:4px}
+    .kep-card .d{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+      font-size:.74rem;color:rgba(255,235,215,.5);line-height:1.5}
+    .kep-card .go{display:block;font-size:.7rem;color:#f6d365;margin-top:7px;opacity:.75}
+    .kep-card:hover .go{opacity:1}
+    @media(max-width:600px){
+      .kep-grid{grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px}
+      .kep-card{padding:10px 11px}
+      .kep-card .d{display:none}
+    }
 /* Section */
 #page-kultur .kultur-sec{max-width:1060px;margin:0 auto 28px;padding:0 16px}
 #page-kultur .kultur-sec-title{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:700;color:#f6d365;margin-bottom:14px}
@@ -38761,20 +38785,62 @@ window.jumpKulturEp = function(n) {
   if (typeof window.showPage === 'function') showPage('kultur-reader');
 };
 /* kultur-toc-js-v1 END */
+/* ═══ 德国文化 · 期数卡片网格（KULTUR-UI v1）═══
+   数据源只有 window._kdEpData 一份 —— 以后加期数只改那里，这里自动跟着变。
+   点击走 jumpKulturEp(n)，和下拉框同一条路径。 */
+(function(){
+  function build(){
+    var host = document.getElementById('kep-grid');
+    if(!host || host.getAttribute('data-built')==='1') return;
+    var data = window._kdEpData || {};
+    var total = window._kdTotal || 0;
+    if(!total) return;
+    var html = '', built = 0;
+    for(var i = 1; i <= total; i++){
+      var e = data[i];
+      if(!e) continue;
+      html += '<a class="kep-card" href="#" onclick="jumpKulturEp(' + i + ');return false;">'
+            +   '<span class="n">第 ' + i + ' 期</span>'
+            +   '<span class="t">' + e.title + '</span>'
+            +   (e.desc ? '<span class="d">' + e.desc + '</span>' : '')
+            +   '<span class="go">阅读 →</span>'
+            + '</a>';
+      built++;
+    }
+    if(!built) return;
+    host.innerHTML = html;
+    host.setAttribute('data-built', '1');
+  }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', build); }
+  else { build(); }
+})();
 /* kacity-js-v1 START */
 /* 「城市与地理」目录条：选一座城市 → 只显示那一张卡，并自动展开详情 */
 window.showKulturCity = function(n, noScroll){
   var list = document.getElementById('kacity-list');
   if(!list) return;
-  var sel  = document.getElementById('kacity-select');
+  var sel   = document.getElementById('kacity-select');
   var items = list.querySelectorAll('.kacity-item');
-  for(var i=0;i<items.length;i++){ items[i].style.display='none'; }
-  if(n===''||n==null){ if(sel) sel.value=''; return; }
+  var i, k, ms;
+  /* 全部城市 → 网格总览，详情收起（默认状态） */
+  if(n===''||n==null){
+    list.classList.remove('kacity-single');
+    for(i=0;i<items.length;i++){
+      items[i].style.display='';
+      ms = items[i].querySelectorAll('.ka-more');
+      for(k=0;k<ms.length;k++){ ms[k].style.display='none'; }
+    }
+    if(sel) sel.value='';
+    return;
+  }
+  /* 单座城市 → 单列 + 展开详情 */
+  list.classList.add('kacity-single');
+  for(i=0;i<items.length;i++){ items[i].style.display='none'; }
   var card = document.getElementById('kacity-'+n);
   if(!card) return;
   card.style.display='';
   var mores = card.querySelectorAll('.ka-more');
-  for(var k=0;k<mores.length;k++){ mores[k].style.display=''; }   // 详情直接展开
+  for(k=0;k<mores.length;k++){ mores[k].style.display=''; }
   if(sel && String(sel.value)!==String(n)) sel.value=String(n);
   if(noScroll) return;
   var toc = document.getElementById('kacity-toc');
@@ -38784,9 +38850,10 @@ window.showKulturCity = function(n, noScroll){
 function initKulturCities(){
   var list = document.getElementById('kacity-list');
   if(!list) return;
-  if(list.className.indexOf('kacity-single')<0) list.className += ' kacity-single';
-  var sel = document.getElementById('kacity-select');
-  showKulturCity((sel && sel.value) ? sel.value : '1', true);   // 进来就有内容，别留空目录
+  /* 默认展示全部城市（响应式网格）。旧版这里调 showKulturCity('1')，
+     把另外 5 座城市 display:none 掉、还加 kacity-single 压成一列 —— 6 座只露 1 座。
+     现在只有用户在下拉里主动选了具体城市，才进单列模式。 */
+  showKulturCity('', true);
 }
 if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initKulturCities); }
 else{ initKulturCities(); }
