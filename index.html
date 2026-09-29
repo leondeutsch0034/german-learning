@@ -3571,8 +3571,9 @@ window._lazyRenderHooks = {
   /* 德国文化栏目：内容就绪后，执行排队中的期数切换 */
   'kultur-reader': function() {
     if (window._pendingKulturEp && window.showKulturEp) {
-      window.showKulturEp(window._pendingKulturEp);
+      window.showKulturEp(window._pendingKulturEp, window._pendingKulturScroll !== false);
       window._pendingKulturEp = null;
+      window._pendingKulturScroll = null;
     }
   },
   wds:     function() { if (window.renderWDSGrid) window.renderWDSGrid(); },
@@ -33829,137 +33830,19 @@ document.addEventListener('click', function(e) {
   <div class="flag-stripes" style="display:flex;height:6px;border-radius:3px;overflow:hidden;width:72px;margin:0 auto 18px"><span style="flex:1;background:#000"></span><span style="flex:1;background:#d00"></span><span style="flex:1;background:#fc0"></span></div>
   <div class="kultur-eyebrow">Deutsche Kultur & Landeskunde</div>
   <h1>🏰 德国文化</h1>
-  <p class="kultur-sub">40期第一视角德国真相 · 城市地理 · 日常习惯 · 节日传统<br>从课本走进真实的德国生活</p>
+  <p class="kultur-sub">46期第一视角德国真相 · 城市地理 · 日常习惯 · 节日传统<br>从课本走进真实的德国生活</p>
 </div>
 
 <!-- ═══ Section: 你不知道的德国 ═══ -->
 <div class="kultur-sec">
-  <div class="kultur-sec-title">🇩🇪 你不知道的德国 <span>40 期深度专栏 · Deutschland aus erster Hand</span></div>
-  <div class="kultur-toc">
-    <div class="kultur-toc-head">📖 共 40 期 · 选一期读</div>
-    <select class="kultur-toc-select" onchange="if(this.value)jumpKulturEp(this.value)">
-        <option value="">— 请选择一期 —</option>
-        <option value="1">第 1 期 · 超市与生活</option>
-        <option value="2">第 2 期 · 规则与习惯</option>
-        <option value="3">第 3 期 · 住与行</option>
-        <option value="4">第 4 期 · 工作与职场</option>
-        <option value="5">第 5 期 · 交通与出行</option>
-        <option value="6">第 6 期 · 落地德国</option>
-        <option value="7">第 7 期 · 饮食与社交</option>
-        <option value="8">第 8 期 · 节日与庆祝</option>
-        <option value="9">第 9 期 · 育儿与教育</option>
-        <option value="10">第 10 期 · 环保与能源</option>
-        <option value="11">第 11 期 · 医疗与健康</option>
-        <option value="12">第 12 期 · 数字生活</option>
-        <option value="13">第 13 期 · 历史记忆</option>
-        <option value="14">第 14 期 · 理财与储蓄</option>
-        <option value="15">第 15 期 · 宠物与动物</option>
-        <option value="16">第 16 期 · 度假与休闲</option>
-        <option value="17">第 17 期 · 高考后留学德国</option>
-        <option value="18">第 18 期 · 社交密码</option>
-        <option value="19">第 19 期 · 德国空调为什么这么少？</option>
-        <option value="20">第 20 期 · 德国租房全攻略</option>
-        <option value="21">第 21 期 · 德国大学体系</option>
-        <option value="22">第 22 期 · 德国垃圾分类</option>
-        <option value="23">第 23 期 · 德国供暖与通风</option>
-        <option value="24">第 24 期 · 德国面包文化</option>
-        <option value="25">第 25 期 · 德国足球文化</option>
-        <option value="26">第 26 期 · 啤酒纯净法</option>
-        <option value="27">第 27 期 · 高速不限速</option>
-        <option value="28">第 28 期 · 冠词性别</option>
-        <option value="29">第 29 期 · 安静时间</option>
-        <option value="30">第 30 期 · 现金社会</option>
-        <option value="31">第 31 期 · 电视费</option>
-        <option value="32">第 32 期 · 超市为什么便宜</option>
-        <option value="33">第 33 期 · 小花园</option>
-        <option value="34">第 34 期 · 双元制</option>
-        <option value="35">第 35 期 · 德式幽默</option>
-        <option value="36">第 36 期 · 德语长词</option>
-        <option value="37">第 37 期 · 10岁分流</option>
-        <option value="38">第 38 期 · 德国警察</option>
-        <option value="39">第 39 期 · 柏林vs慕尼黑</option>
-        <option value="40">第 40 期 · 德国公务员</option>
-      </select>
-    <a class="kultur-toc-btn" href="#" onclick="jumpKulturEp(1);return false;">从第 1 期开始读 →</a>
-  </div>
-<!-- 期数卡片网格：由 _kultur_ui.py 注入的脚本从 window._kdEpData 生成 -->
-  <div class="kep-grid" id="kep-grid"></div>
+  <div class="kultur-sec-title">🇩🇪 你不知道的德国 <span id="kdSecSub">46 期深度专栏 · 含 🗺️ 城市与地理 · Deutschland aus erster Hand</span></div>
+  <!-- KULTUR-INLINE v1：滚动目录条（由 _kultur_inline.py 注入的脚本从 window._kdEpData 生成） -->
+  <div class="kd-rail" id="kdRail"></div>
+  <!-- KULTUR-INLINE v1：阅读器本体（懒加载挂载点，内容在 lazy/kultur-reader.html） -->
+  <div id="page-kultur-reader" data-lazy="true"></div>
 </div>
 
-<!-- ═══ Section: 城市与地理 ═══ -->
-<div class="kultur-sec">
-<div class="kultur-sec-title">🗺️ 城市与地理 <span>Städte & Geografie</span></div>
-  <div class="kultur-toc" id="kacity-toc">
-    <span class="kultur-toc-head">🏙️ 目录条 / Stadt wählen — 点击只看该城市：</span>
-    <select class="kultur-toc-select" id="kacity-select" onchange="if(this.value)showKulturCity(this.value)">
-      <option value="">🗺️ 全部城市（网格总览）</option>
-      <option value="1">🏛️ Berlin · 柏林</option>
-      <option value="2">💰 Frankfurt · 法兰克福</option>
-      <option value="3">🍺 München · 慕尼黑</option>
-      <option value="4">⚓ Hamburg · 汉堡</option>
-      <option value="5">⛪ Köln · 科隆</option>
-      <option value="6">🌲 Schwarzwald · 黑森林</option>
-    </select>
-    <a class="kultur-toc-btn" href="#" onclick="showKulturCity(1);return false;">从第一座城市开始看 →</a>
-  </div>
-<div class="kultur-cities" id="kacity-list">
-    <div class="ka-card kacity-item" id="kacity-1" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">🏛️</span><span class="ka-de">Berlin</span>
-      <div class="ka-zh">柏林 · Hauptstadt</div>
-      <div class="ka-desc">Hauptstadt Deutschlands, 3,6 Mio. Einwohner. Brandenburger Tor, Museumsinsel (UNESCO), Reichstag, East Side Gallery — ein Zentrum für Kunst, Musik und Start-ups. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-berlin');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 Berlin ist die Hauptstadt von Deutschland und mit rund <strong>3,6 Millionen Einwohnern</strong> die größte Stadt des Landes. Das <strong>Brandenburger Tor</strong> ist das bekannteste Wahrzeichen und war während der Teilung Deutschlands ein Symbol des Kalten Krieges — heute steht es für die Wiedervereinigung. Die Stadt ist bekannt für ihre <strong>Museumsinsel</strong> (UNESCO-Weltkulturerbe), den <strong>Reichstag</strong> mit seiner gläsernen Kuppel und die <strong>Berliner Mauer</strong>, von der heute noch Reste wie die East Side Gallery zu sehen sind. Berlin hat drei Universitäten und ist ein wichtiges Zentrum für <strong>Kunst, Musik und Start-ups</strong>.<br><br>
-        🇨🇳 柏林是德国首都，约360万人口，全国最大城市。勃兰登堡门是最著名地标，分裂时期曾是冷战象征，今天代表统一。以博物馆岛（世界文化遗产）、玻璃穹顶国会大厦、柏林墙遗址（东边画廊）闻名。有三所大学，是艺术、音乐和创业中心。
-      </div>
-    </div>
-    <div class="ka-card kacity-item" id="kacity-2" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">💰</span><span class="ka-de">Frankfurt</span>
-      <div class="ka-zh">法兰克福 · Finanzmetropole</div>
-      <div class="ka-desc">Finanzzentrum Deutschlands, Sitz der EZB. "Mainhattan"-Skyline, größter Flughafen, Frankfurter Buchmesse — und Geburtsort Goethes. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-frankfurt');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 Frankfurt am Main ist das <strong>Finanzzentrum Deutschlands</strong> und Sitz der <strong>Europäischen Zentralbank (EZB)</strong>. Die Stadt hat eine beeindruckende Skyline mit Wolkenkratzern — "Mainhattan". Der <strong>Frankfurter Flughafen</strong> ist einer der größten Europas. Die <strong>Frankfurter Buchmesse</strong> ist die größte der Welt. Historische Altstadt mit dem <strong>Römer</strong>. Geburtsort <strong>Goethes</strong>.<br><br>
-        🇨🇳 美因河畔法兰克福是德国金融中心、欧洲央行所在地。以摩天大楼天际线著称（"美因哈顿"）。法兰克福机场是欧洲最大之一。全球最大书展。罗马广场老城区。歌德出生地。
-      </div>
-    </div>
-    <div class="ka-card kacity-item" id="kacity-3" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">🍺</span><span class="ka-de">München</span>
-      <div class="ka-zh">慕尼黑 · Bayern</div>
-      <div class="ka-desc">Hauptstadt Bayerns, 1,5 Mio. Einwohner. Oktoberfest (6 Mio. Besucher), BMW, Englischer Garten, Alte & Neue Pinakothek — Forschungs- und Technologiezentrum.</div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 München ist die <strong>Hauptstadt Bayerns</strong>, drittgrößte Stadt Deutschlands. Das <strong>Oktoberfest</strong> zieht jährlich rund 6 Mio. Besucher an. Sitz von <strong>BMW</strong>. Der <strong>Englische Garten</strong> ist einer der größten Stadtparks der Welt — größer als der Central Park. Reiche Kunstszene: <strong>Alte und Neue Pinakothek</strong>. Zwei Elite-Universitäten.<br><br>
-        🇨🇳 慕尼黑是巴伐利亚首府，德国第三大城市。啤酒节年吸引约600万游客。宝马总部。英国花园是世界最大城市公园之一，比纽约中央公园还大。老绘画馆和新绘画馆。两所精英大学。
-      </div>
-    </div>
-    <div class="ka-card kacity-item" id="kacity-4" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">⚓</span><span class="ka-de">Hamburg</span>
-      <div class="ka-zh">汉堡 · Tor zur Welt</div>
-      <div class="ka-desc">Größter Hafen Deutschlands an der Elbe. Speicherstadt (UNESCO), Elbphilharmonie, Medienhauptstadt — die Beatles spielten hier ihre ersten Konzerte. <a href="#" onclick="event.stopPropagation();window.gotoSection('a2lesen-hamburg');return false" style="color:#f6d365;font-size:.72rem;white-space:nowrap;margin-left:4px">📖 A2 阅读 →</a></div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 Hamburg liegt an der <strong>Elbe</strong> und hat den <strong>größten Hafen Deutschlands</strong>. Die <strong>Speicherstadt</strong> gehört zum UNESCO-Weltkulturerbe. Die <strong>Elbphilharmonie</strong> auf einem alten Hafenspeicher ist neues Wahrzeichen. Hamburg ist Deutschlands <strong>Medienhauptstadt</strong>. Der Fischmarkt und die <strong>Reeperbahn</strong> sind legendär. Die <strong>Beatles</strong> spielten hier ihre ersten Konzerte.<br><br>
-        🇨🇳 汉堡位于易北河畔，德国最大港口。仓库城（世界文化遗产）。易北爱乐厅建在旧港仓库上，是新地标。德国媒体之都。周日鱼市和绳索街夜生活传奇。披头士在此首演。
-      </div>
-    </div>
-    <div class="ka-card kacity-item" id="kacity-5" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">⛪</span><span class="ka-de">Köln</span>
-      <div class="ka-zh">科隆 · Rheinmetropole</div>
-      <div class="ka-desc">Am Rhein, über 1 Mio. Einwohner. Kölner Dom (UNESCO, 600 Jahre Bauzeit), Karnevalshochburg, Kölsch-Bier — Medienstadt mit RTL und WDR.</div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 Köln liegt am <strong>Rhein</strong>, viertgrößte Stadt Deutschlands. Der <strong>Kölner Dom</strong> ist eine der größten gotischen Kathedralen der Welt — Bauzeit über 600 Jahre. Köln ist die <strong>Karnevalshochburg</strong>: Rosenmontagszug mit über 1 Mio. Zuschauern. Bekannt für <strong>Kölsch</strong> und rheinische <strong>Gemütlichkeit</strong>. Wichtige Medienstadt: RTL, WDR.<br><br>
-        🇨🇳 科隆位于莱茵河畔，德国第四大城市。科隆大教堂是世界最大哥特式教堂之一，建造600余年。德国狂欢节之都，玫瑰星期一游行年吸引超百万观众。以Kölsch啤酒和莱茵式惬意闻名。RTL、WDR等媒体重镇。
-      </div>
-    </div>
-    <div class="ka-card kacity-item" id="kacity-6" onclick="var ns=this.querySelectorAll('.ka-more');var h=ns[0].style.display==='none';ns.forEach(function(n){n.style.display=h?'':'none'})">
-      <span class="ka-emoji">🌲</span><span class="ka-de">Schwarzwald</span>
-      <div class="ka-zh">黑森林 · Natur & Tradition</div>
-      <div class="ka-desc">Größtes Mittelgebirge Deutschlands in Baden-Württemberg. Kuckucksuhren (seit 18. Jh.), Schwarzwälder Kirschtorte, Wandern, Titisee — die höchsten Wasserfälle Deutschlands.</div>
-      <div class="ka-more" style="display:none;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(246,211,101,.15);font-size:.82rem;color:rgba(255,245,230,.75);line-height:1.85">
-        🇩🇪 Der <strong>Schwarzwald</strong> liegt im Südwesten in <strong>Baden-Württemberg</strong>. Der Name kommt von den dichten, dunklen Tannenwäldern. Weltberühmt für <strong>Kuckucksuhren</strong> (seit dem 18. Jh. handgefertigt) und die <strong>Schwarzwälder Kirschtorte</strong>. Beliebtes Urlaubsziel zum Wandern, Mountainbiken und Skifahren. Typisch: <strong>Bollenhüte</strong> und <strong>Schwarzwaldhäuser</strong>. Der <strong>Titisee</strong> und <strong>Triberg</strong> (höchste Wasserfälle Deutschlands) sind beliebte Ausflugsziele.<br><br>
-        🇨🇳 黑森林位于德国西南巴登-符腾堡州，德国最大中等山脉。因密布深色冷杉林得名。以18世纪起手工制作的布谷鸟钟和黑森林蛋糕闻名。徒步、山地骑行和滑雪热门地。特色：红色绒球帽和深屋檐黑森林房屋。蒂蒂湖和德国最高瀑布所在地特里贝格是热门景点。
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- KULTUR-INLINE v1 -->
 <!-- ═══ CSS for page-kultur ═══ -->
 <style>
 #page-kultur{padding-bottom:40px;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
@@ -34264,27 +34147,69 @@ document.addEventListener('click', function(e) {
 @keyframes ktFadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 </style>
 
+<!-- KULTUR-INLINE v1 -->
+<style>
+/* ═══ 你不知道的德国 · 页内阅读器（KULTUR-INLINE v1）═══
+   阅读器搬进了 #page-kultur 内部：只去掉了 class="page"、只改了位置，
+   id 仍是 #page-kultur-reader，所以它那一整套 .kd-* 样式全部照旧生效。
+   这里只补「内嵌场景」才需要的几条覆盖。 */
+#page-kultur .kultur-sec #page-kultur-reader{background:transparent;min-height:0}
+/* 阅读器自己的顶栏（期数下拉）在页内是多余的——滚动目录条已经替代它。
+   ⚠️ 只隐藏、不删标记：sync_kultur_cards.py 以那个 <select> 为期数真源，
+   showKulturEp 也仍然要给它赋 .value（display:none 的元素照样能赋值）。 */
+#page-kultur .kultur-sec #page-kultur-reader .kd-topbar{display:none}
+/* 阅读器自带的标题跟板块标题重复，页内不显示 */
+#page-kultur .kultur-sec #page-kultur-reader .kd-header{display:none}
+/* 懒加载期间给个占位，别留一大片空白 */
+#page-kultur .kultur-sec #page-kultur-reader[data-lazy-loading]{min-height:280px}
+#page-kultur .kultur-sec #page-kultur-reader[data-lazy-loading]::after{
+  content:"… 正在加载第 1 期";display:block;text-align:center;padding:120px 0;
+  color:#94a3b8;font-size:.9rem;letter-spacing:.08em}
+
+/* ── 滚动目录条 ── */
+#page-kultur .kd-rail{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;position:sticky;top:0;z-index:60;
+  padding:10px 2px;margin:0 0 6px;
+  background:rgba(10,20,40,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(246,211,101,.16)}
+#page-kultur .kd-rail::-webkit-scrollbar{display:none}
+#page-kultur .kd-rail .kd-chip{flex:0 0 auto;white-space:nowrap;cursor:pointer;font-family:inherit;
+  border:1px solid rgba(246,211,101,.22);background:rgba(246,211,101,.06);
+  color:rgba(255,245,230,.75);border-radius:20px;padding:7px 14px;font-size:.8rem;
+  transition:background .2s,border-color .2s,color .2s}
+#page-kultur .kd-rail .kd-chip b{color:#f6d365;font-weight:800;margin-right:5px}
+#page-kultur .kd-rail .kd-chip.city{border-color:rgba(96,165,250,.32);background:rgba(96,165,250,.09)}
+#page-kultur .kd-rail .kd-chip.city b{color:#93c5fd}
+#page-kultur .kd-rail .kd-chip:hover{border-color:rgba(246,211,101,.6)}
+#page-kultur .kd-rail .kd-chip.active{background:linear-gradient(135deg,#b8860b,#f6d365);
+  color:#0a1428;border-color:#f6d365;font-weight:700}
+#page-kultur .kd-rail .kd-chip.active b{color:#0a1428}
+@media(max-width:600px){
+  #page-kultur .kd-rail{padding:8px 2px}
+  #page-kultur .kd-rail .kd-chip{font-size:.74rem;padding:6px 11px}
+}
+</style>
+
 <template id="tpl-page-kultur-reader" data-src="lazy/kultur-reader.html"></template>
-<div id="page-kultur-reader" class="page" data-lazy="true"></div>
 <script>registerLazyPage('kultur-reader', 'tpl-page-kultur-reader');</script>
 
 <script>
-window._kdEpData = {36:{title:"德语长词",desc:"拼词没有上限 — 曾经有个 63 个字母的法规词真写进了法律"},37:{title:"10岁分流",desc:"小学只有四年，10 岁左右就分到三种中学 — 德国教育争议最大的一步"},38:{title:"德国警察",desc:"16 个州各有一支警察，制服都不一样 — 权力边界在哪"},39:{title:"柏林vs慕尼黑",desc:"同一个国家两种德国：房租、方言、餐桌、政治全不一样"},40:{title:"德国公务员",desc:"终身雇佣、不能罢工 — 退休拿的是国家的钱而不是社保"},31:{title:"电视费",desc:"每户每月 18,36 欧 — 不看电视也要交，欠费会被强制执行"},32:{title:"超市为什么便宜",desc:"只卖 300 种商品、九成自有品牌 — 全欧洲最低价之一"},33:{title:"小花园",desc:"全德约 90 万座、500 万人参与 — 有法有规还得排队"},34:{title:"双元制",desc:"企业上班 + 职校上课，学徒期就有工资、结业证全国认可"},35:{title:"德式幽默",desc:"「德国人没有幽默感」是真的吗？Schadenfreude 从哪来"},26:{title:"啤酒纯净法",desc:"只许水/麦芽/啤酒花/酵母 — 500 年前的法规还在管德国啤酒"},27:{title:"高速不限速",desc:"70% 路段无限制、事故率却更低 — 德国高速的真相"},28:{title:"冠词性别",desc:"为什么「女孩」Mädchen 是中性？德语语法的最大困惑"},29:{title:"安静时间",desc:"周日不能钻墙、割草、洗车 — 邻居真的会报警"},30:{title:"现金社会",desc:"60% 交易用现金 — 德国人为什么抗拒刷卡"},1:{title:"超市与生活",desc:"一个矿泉水瓶多收25欧分？周日全城关门？6个德国超市真相"},2:{title:"规则与习惯",desc:"Kippfenster、Termin文化、DB晚点——6个德国人习以为常的规则"},3:{title:"住与行",desc:"Kaltmiete冷租、Bargeld现金、Ruhezeit安静时间——6个德国住行真相"},4:{title:"工作与职场",desc:"Tarifvertrag、30天Urlaub、Feierabend——德国职场6个秘密"},5:{title:"交通与出行",desc:"Führerschein驾照、Umweltzone环保区、Blitzer测速——德国交通6件事"},6:{title:"落地德国",desc:"Anmeldung落户、银行开户、医保——初到德国必办的6件事"},7:{title:"饮食与社交",desc:"Abendbrot冷晚餐、Kaffeetafel咖啡会、Verein协会——德国饮食社交6件事"},8:{title:"节日与庆祝",desc:"Weihnachtsmarkt圣诞市场、Karneval狂欢节、Oktoberfest——6大德国节日"},9:{title:"育儿与教育",desc:"Elternzeit育儿假、Kindergarten幼儿园、Schultüte入学筒——德国育儿6件事"},10:{title:"环保与能源",desc:"Energiewende能源转型、Balkonkraftwerk阳台电站、Bio-Tonne——德国环保6件事"},11:{title:"医疗与健康",desc:"Krankenkasse医保、Hausarzt家庭医生、Kur疗养——德国医疗6件事"},12:{title:"数字生活",desc:"Fax传真机、Bargeld现金、Datenschutz数据保护——德国数字化6个真相"},13:{title:"历史记忆",desc:"Mauerfall柏林墙、Stolpersteine绊脚石、Ost/West东西差异——6个德国历史记忆"},14:{title:"理财与储蓄",desc:"Sparbuch存折、Bausparvertrag建房储蓄、Riester养老金——德国理财6件事"},15:{title:"宠物与动物",desc:"Hundesteuer狗税、Wolf野狼回归、Tierheim动物收容所——德国宠物6件事"},16:{title:"度假与休闲",desc:"30天Urlaub、Camping露营、Schrebergarten小花园——德国度假6件事"},17:{title:"高考后留学德国",desc:"APS审核、Studienkolleg预科、TestDaF——高考后留学德国全攻略"},18:{title:"社交密码",desc:"Du vs Sie、直球沟通、生日禁忌、送礼清单——6个德国社交潜规则"},19:{title:"德国空调为什么这么少？",desc:"3%安装率、厚墙被动降温、Denkmalschutz——德国人不装空调的6个真相"},20:{title:"德国租房全攻略",desc:"WG合租、Kaltmiete/Warmmiete、Kaution押金、空壳租房——德国租房6个真相"},21:{title:"德国大学体系",desc:"Uni vs FH、Semesterticket学期票、BAföG助学金、Mensa——德国上大学6件事"},22:{title:"德国垃圾分类",desc:"Gelber Sack、Bio-Tonne、Glascontainer、Sperrmüll——德国垃圾6个秘密"},23:{title:"德国供暖与通风",desc:"Heizung暖气片、Stoßlüften开窗、Schimmel霉菌——德国房子6个秘密"},24:{title:"德国面包文化",desc:"300+种面包UNESCO遗产、Brötchen、Abendbrot——德国面包6件事"},25:{title:"德国足球文化",desc:"50+1规则、Stehplatz站席、Südkurve南看台——德国足球6个真相"}};
+window._kdEpData = {41:{title:"柏林",desc:"360 万人口的首都 — 从冷战前线到创业之都，四个地标认出柏林"},42:{title:"法兰克福",desc:"德国唯一有摩天楼天际线的城市 — 欧洲央行、全球最大书展、歌德的出生地"},43:{title:"慕尼黑",desc:"巴伐利亚首府、啤酒节年吸 600 万游客 — 比中央公园还大的英国花园"},44:{title:"汉堡",desc:"德国最大的港口与世界遗产仓库城 — 披头士成名前在这里练出来"},45:{title:"科隆",desc:"一座教堂盖了 632 年才封顶 — 还有百万人的狂欢节和 0,2 升的 Kölsch"},46:{title:"黑森林",desc:"德国最大的中等山脉 — 布谷鸟钟、黑森林蛋糕和德国人自己的度假地"},36:{title:"德语长词",desc:"拼词没有上限 — 曾经有个 63 个字母的法规词真写进了法律"},37:{title:"10岁分流",desc:"小学只有四年，10 岁左右就分到三种中学 — 德国教育争议最大的一步"},38:{title:"德国警察",desc:"16 个州各有一支警察，制服都不一样 — 权力边界在哪"},39:{title:"柏林vs慕尼黑",desc:"同一个国家两种德国：房租、方言、餐桌、政治全不一样"},40:{title:"德国公务员",desc:"终身雇佣、不能罢工 — 退休拿的是国家的钱而不是社保"},31:{title:"电视费",desc:"每户每月 18,36 欧 — 不看电视也要交，欠费会被强制执行"},32:{title:"超市为什么便宜",desc:"只卖 300 种商品、九成自有品牌 — 全欧洲最低价之一"},33:{title:"小花园",desc:"全德约 90 万座、500 万人参与 — 有法有规还得排队"},34:{title:"双元制",desc:"企业上班 + 职校上课，学徒期就有工资、结业证全国认可"},35:{title:"德式幽默",desc:"「德国人没有幽默感」是真的吗？Schadenfreude 从哪来"},26:{title:"啤酒纯净法",desc:"只许水/麦芽/啤酒花/酵母 — 500 年前的法规还在管德国啤酒"},27:{title:"高速不限速",desc:"70% 路段无限制、事故率却更低 — 德国高速的真相"},28:{title:"冠词性别",desc:"为什么「女孩」Mädchen 是中性？德语语法的最大困惑"},29:{title:"安静时间",desc:"周日不能钻墙、割草、洗车 — 邻居真的会报警"},30:{title:"现金社会",desc:"60% 交易用现金 — 德国人为什么抗拒刷卡"},1:{title:"超市与生活",desc:"一个矿泉水瓶多收25欧分？周日全城关门？6个德国超市真相"},2:{title:"规则与习惯",desc:"Kippfenster、Termin文化、DB晚点——6个德国人习以为常的规则"},3:{title:"住与行",desc:"Kaltmiete冷租、Bargeld现金、Ruhezeit安静时间——6个德国住行真相"},4:{title:"工作与职场",desc:"Tarifvertrag、30天Urlaub、Feierabend——德国职场6个秘密"},5:{title:"交通与出行",desc:"Führerschein驾照、Umweltzone环保区、Blitzer测速——德国交通6件事"},6:{title:"落地德国",desc:"Anmeldung落户、银行开户、医保——初到德国必办的6件事"},7:{title:"饮食与社交",desc:"Abendbrot冷晚餐、Kaffeetafel咖啡会、Verein协会——德国饮食社交6件事"},8:{title:"节日与庆祝",desc:"Weihnachtsmarkt圣诞市场、Karneval狂欢节、Oktoberfest——6大德国节日"},9:{title:"育儿与教育",desc:"Elternzeit育儿假、Kindergarten幼儿园、Schultüte入学筒——德国育儿6件事"},10:{title:"环保与能源",desc:"Energiewende能源转型、Balkonkraftwerk阳台电站、Bio-Tonne——德国环保6件事"},11:{title:"医疗与健康",desc:"Krankenkasse医保、Hausarzt家庭医生、Kur疗养——德国医疗6件事"},12:{title:"数字生活",desc:"Fax传真机、Bargeld现金、Datenschutz数据保护——德国数字化6个真相"},13:{title:"历史记忆",desc:"Mauerfall柏林墙、Stolpersteine绊脚石、Ost/West东西差异——6个德国历史记忆"},14:{title:"理财与储蓄",desc:"Sparbuch存折、Bausparvertrag建房储蓄、Riester养老金——德国理财6件事"},15:{title:"宠物与动物",desc:"Hundesteuer狗税、Wolf野狼回归、Tierheim动物收容所——德国宠物6件事"},16:{title:"度假与休闲",desc:"30天Urlaub、Camping露营、Schrebergarten小花园——德国度假6件事"},17:{title:"高考后留学德国",desc:"APS审核、Studienkolleg预科、TestDaF——高考后留学德国全攻略"},18:{title:"社交密码",desc:"Du vs Sie、直球沟通、生日禁忌、送礼清单——6个德国社交潜规则"},19:{title:"德国空调为什么这么少？",desc:"3%安装率、厚墙被动降温、Denkmalschutz——德国人不装空调的6个真相"},20:{title:"德国租房全攻略",desc:"WG合租、Kaltmiete/Warmmiete、Kaution押金、空壳租房——德国租房6个真相"},21:{title:"德国大学体系",desc:"Uni vs FH、Semesterticket学期票、BAföG助学金、Mensa——德国上大学6件事"},22:{title:"德国垃圾分类",desc:"Gelber Sack、Bio-Tonne、Glascontainer、Sperrmüll——德国垃圾6个秘密"},23:{title:"德国供暖与通风",desc:"Heizung暖气片、Stoßlüften开窗、Schimmel霉菌——德国房子6个秘密"},24:{title:"德国面包文化",desc:"300+种面包UNESCO遗产、Brötchen、Abendbrot——德国面包6件事"},25:{title:"德国足球文化",desc:"50+1规则、Stehplatz站席、Südkurve南看台——德国足球6个真相"}};
 /* 期数上限 / 有独立页的期数 —— 从 _kdEpData 实时算，别写死（写死过 25、30，每次加期都漏改） */
 window._kdTotal = (function(){var t=0;for(var k in window._kdEpData){var n=parseInt(k,10);if(n>t)t=n;}return t;})();
-window._kdHasPage = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1,31:1,32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1};
+window._kdHasPage = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,16:1,17:1,18:1,19:1,26:1,27:1,28:1,29:1,30:1,31:1,32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1,41:1,42:1,43:1,44:1,45:1,46:1};
 
 window.navKulturEp = function(dir) {
   var ep = parseInt(window._currentKulturEp || '1');
   var next = ep + dir;
-  if (next >= 1 && next <= (window._kdTotal || 40)) { showKulturEp(next); }
+  if (next >= 1 && next <= (window._kdTotal || 46)) { showKulturEp(next); }
 };
-window.showKulturEp = function(ep) {
+window.showKulturEp = function(ep, scroll) {
   var page = document.getElementById('page-kultur-reader');
   if (!page) return;
   var eps = page.querySelectorAll('.kd-episode');
   /* 懒加载内容还没注入时，先记下来，等内容就绪再切（否则会停在默认第 1 期） */
-  if (!eps.length) { window._pendingKulturEp = ep; return; }
+  if (!eps.length) { window._pendingKulturEp = ep; window._pendingKulturScroll = (scroll !== false); return; }
   for (var i = 0; i < eps.length; i++) {
     eps[i].style.display = (eps[i].getAttribute('data-ep') == ep) ? 'block' : 'none';
   }
@@ -34301,24 +34226,39 @@ window.showKulturEp = function(ep) {
   var navInfo = document.getElementById('kdNavInfo');
   var epNum = parseInt(ep);
   if (prevBtn) { prevBtn.disabled = (epNum <= 1); prevBtn.style.opacity = (epNum <= 1) ? '.25' : ''; }
-  if (nextBtn) { nextBtn.disabled = (epNum >= (window._kdTotal || 40)); nextBtn.style.opacity = (epNum >= (window._kdTotal || 40)) ? '.25' : ''; }
-  if (navInfo) navInfo.textContent = epNum + ' / ' + (window._kdTotal || 40);
+  if (nextBtn) { nextBtn.disabled = (epNum >= (window._kdTotal || 46)); nextBtn.style.opacity = (epNum >= (window._kdTotal || 46)) ? '.25' : ''; }
+  if (navInfo) navInfo.textContent = epNum + ' / ' + (window._kdTotal || 46);
   var subEl = document.getElementById('kdSubTitle');
-  if (subEl) subEl.textContent = (window._kdTotal || 40) + ' 期第一视角德国真相 · 下拉选择阅读';
-  page.scrollIntoView({ block: 'start' });
-  window.scrollTo(0, 0);
+  if (subEl) subEl.textContent = (window._kdTotal || 46) + ' 期第一视角德国真相 · 下拉选择阅读';
+  /* KULTUR-INLINE v1：不要再把整页顶到最上面——阅读器已经内嵌在「德国文化」页里了。
+     scroll === false 时完全不滚（页面刚打开时要停在 hero，别跳过标题）。 */
+  if (scroll !== false) {
+    var kdAnchor = document.getElementById('page-kultur-reader');
+    if (kdAnchor) {
+      var kdBar = document.getElementById('kdRail');
+      var kdOff = (kdBar ? kdBar.offsetHeight : 0) + 12;
+      var kdY = kdAnchor.getBoundingClientRect().top + window.pageYOffset - kdOff;
+      try { window.scrollTo({ top: kdY, behavior: 'smooth' }); }
+      catch(e) { window.scrollTo(0, kdY); }
+    }
+  }
   window._currentKulturEp = ep;
+  if (window._kdRailSync) window._kdRailSync(ep);
   /* 地址栏同步为可分享的 URL（浏览器自带分享按钮取的就是它）：
-     有独立页 → /kNN.html（带 og 预览卡）；无独立页 → 主站锚点 */
-  try {
+     有独立页 → /kNN.html（带 og 预览卡）；无独立页 → 主站锚点。
+     KULTUR-INLINE v1：只在「用户主动切期 / 深链接进来」时同步。
+     单纯打开「德国文化」页时（scroll === false）不动地址栏——否则刚进来
+     地址栏就变成 /k01.html?v=2，一刷新直接掉到独立分享页，回不到板块页。 */
+  if (scroll !== false) try {
     var _hp = window._kdHasPage;
     var _u = _hp[parseInt(ep)]
       ? ('/k' + ('0' + ep).slice(-2) + '.html?v=2')
       : ('/#kultur-reader&ep=' + ep);
     history.replaceState(null, '', _u);
   } catch(e) {}
-  try {
-    var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:(window._kdTotal || 40) + '期第一视角德国真相'};
+  /* 同上：只有用户主动切期时才改标题/OG，避免刚进板块页就被改掉页面标题 */
+  if (scroll !== false) try {
+    var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:(window._kdTotal || 46) + '期第一视角德国真相'};
     var metaTitle = '你不知道的德国 · 第' + ep + '集 ' + info.title + ' | Leon 德语';
     var metaDesc = info.desc + ' —— Leon德语学习中心「你不知道的德国」专栏';
     var ogT = document.querySelector('meta[property="og:title"]');
@@ -34384,7 +34324,7 @@ window.sharePhonetik = function() {
 };
 window.shareKulturEpV2 = function() {
   var ep = window._currentKulturEp || '1';
-  var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:(window._kdTotal || 40) + '期第一视角德国真相'};
+  var info = window._kdEpData[parseInt(ep)] || {title:'你不知道的德国',desc:(window._kdTotal || 46) + '期第一视角德国真相'};
   /* 确保 og:image 已更新为当期封面 */
   try {
     var shareEpDiv = document.querySelector('.kd-episode[data-ep="' + ep + '"]');
@@ -34443,26 +34383,36 @@ window.initKulturReader = function() {
   if (m) { showKulturEp(m[1]); return; }
   // 如果已有选中集数（从卡片点击进入），不要覆盖
   if (window._currentKulturEp) return;
-  showKulturEp(1);
+  showKulturEp(1, false);   /* KULTUR-INLINE v1：默认第 1 期，且不要滚动 */
 };
+/* ═══ KULTUR-INLINE v1：阅读器并进「德国文化」页，kultur-reader 变成它的别名 ═══
+   `#page-kultur-reader` 不再是独立的 .page，而是 #page-kultur 里的内嵌板块。
+   showPage('kultur-reader') 仍然要能用（#kultur-reader&ep=N、/kd/N.html、jumpKulturEp 都走它），
+   所以这里改写成 showPage('kultur')，再把期数深链接补回来。 */
 if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   var _orig = window.showPage;
   window.showPage = function(p) {
     var savedHash = window.location.hash;
-    var r = _orig.apply(this, arguments);
+    var viaAlias = (p === 'kultur-reader');
+    if (viaAlias) p = 'kultur';
+    var r = _orig.apply(this, [p]);
     try {
-      if (p === 'kultur-reader') {
-        // 若 hash 包含 &ep= 参数，showPage 会将其覆盖为 #kultur-reader，这里恢复完整 hash
+      if (p === 'kultur') {
+        /* showPage 会把 hash 覆盖成 #kultur，含 &ep= 的深链接要还原，
+           否则下面的 initKulturReader 读不到期数 */
         if (savedHash.indexOf('&ep=') !== -1) {
           history.replaceState(null, '', savedHash);
         }
-        setTimeout(function(){ initKulturReader(); }, 50);
+        setTimeout(function(){
+          window.instantiateLazyPage('kultur-reader');
+          initKulturReader();
+        }, 50);
       }
     } catch(e) {}
     return r;
   };
   window.showPage._kdInitWrapped = true;
-			}
+}
 (function() {
   var hash = window.location.hash.replace('#', '');
   if (hash.indexOf('kultur-reader&ep=') === 0) {
@@ -36410,7 +36360,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <script>
 (function(){
   window.ECHT_FACTS = [
-    {cat:'打招呼', book:'Guten Tag! Wie geht es Ihnen?', real:'Hallo! Alles gut?', note:'课本里的 <b>Wie geht es Ihnen?</b> 是正式的 Sie 形式——对陌生人、长辈、店员用完全没问题，但对朋友要换成 du：Wie geht's dir?。日常一句 <b>Alles gut?</b>（一切都好吧？）或 <b>Na?</b>（偏北德口语）就够了，对方回 <b>Ja, und dir?</b>。'},
+    {cat:'打招呼', book:'Guten Tag! Wie geht es Ihnen?', real:'Hallo! Alles gut?', note:'课本里的 <b>Wie geht es Ihnen?</b> 是正式的 Sie 形式——对陌生人、长辈、店员用完全没问题，但对朋友要换成 du：Wie geht’s dir?。日常一句 <b>Alles gut?</b>（一切都好吧？）或 <b>Na?</b>（偏北德口语）就够了，对方回 <b>Ja, und dir?</b>。'},
     {cat:'告别', book:'Auf Wiedersehen!', real:'Tschüss! / Ciao!', note:'<b>Auf Wiedersehen</b> 完全没错，只是更客气、更正式——对陌生人、店员、长辈都用。日常告别德国人说 <b>Tschüss</b>，南德爱说 <b>Ciao</b>，还有 <b>Bis dann!</b>（回头见）。'},
     {cat:'点餐', book:'Ich möchte einen Kaffee, bitte.', real:'Ich hätt’ gern einen Kaffee.', note:'<b>Ich möchte</b> 没错，但德国人点单更爱用 <b>Ich hätte gern …</b>（我想要……），听起来更礼貌自然。口语里 hätte 常缩成 <b>hätt’</b>。'},
     {cat:'道谢', book:'Danke schön. — Bitte schön.', real:'Danke! — Klar! / Kein Ding!', note:'回应"谢谢"，课本教 <b>Bitte schön</b>（至今完全标准，放心用），口语里还常听到 <b>Klar!</b>（应该的）、<b>Kein Ding!</b>（小事一桩，偏北德年轻人）或 <b>Gerne!</b>。'},
@@ -36465,7 +36415,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'带病上班', book:'Ich bin krank, aber ich kann arbeiten.', real:'Ich fühl\' mich nicht gut. / Ich meld\' mich krank.', note:'不舒服要请假，别逞强说"病了但能工作"。<b>Ich meld\' mich krank</b>（我报病了）一句话搞定。德国公司普遍认为生病就该在家休息。口语还说 <b>Ich hab\' mich krankgemeldet</b>。'},
     {cat:'开玩笑', book:'Das war ein Witz.', real:'War nur Spaß. / Nicht ernst gemeint. / Kleiner Scherz am Rande.', note:'开了个玩笑但怕对方当真，<b>War nur Spaß!</b>（开玩笑的）、<b>Nicht ernst gemeint!</b>（不是认真的）、<b>Kleiner Scherz am Rande</b>（随口一个小玩笑）都可以。德国人比刻板印象更爱笑。'},
     {cat:'表示困惑', book:'Ich verstehe das nicht.', real:'Ich blick\'s nicht. / Ich steh\' auf dem Schlauch. / Hä?', note:'听不懂/搞不明白，<b>Ich blick\'s nicht</b>（我咋看不明白呢）、<b>Ich steh\' auf dem Schlauch</b>（我脑子卡壳了——站在软管上）是德国特有比喻。<b>Hä?</b> 只限非常随意场合。'},
-    {cat:'天气抱怨', book:'Das Wetter ist heute nicht gut.', real:'So ein Mistwetter! / Schon wieder Regen… / Es zieht wie Hechtsuppe.', note:'德国人热爱抱怨天气——<b>So ein Mistwetter!</b>（什么破天！）、<b>Schon wieder Regen…</b>（又下雨了…）是日常。<b>Es zieht wie Hechtsuppe</b>（穿堂风刮得像狗鱼汤，Hecht = 狗鱼，不是梭子鱼）是经典德式比喻——德国人对 Durchzug（穿堂风）有文化级的执念。（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）'},
+    {cat:'天气抱怨', book:'Das Wetter ist heute nicht gut.', real:'So ein Mistwetter! / Schon wieder Regen… / Es zieht wie Hechtsuppe.', note:'德国人热爱抱怨天气——<b>So ein Mistwetter!</b>（什么破天！）、<b>Schon wieder Regen…</b>（又下雨了…）是日常。<b>Es zieht wie Hechtsuppe</b>（穿堂风刮得像狗鱼汤，Hecht = 狗鱼，不是梭子鱼）是经典德式比喻——德国人对 Durchzug（穿堂风）有文化级的执念。（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）（这个词的词源说法不一：一说是意第绪语「狂风」，学界至今没有定论，别当定论讲。）'},
     {cat:'垃圾分类', book:'Wo kann ich den Müll entsorgen?', real:'In welche Tonne kommt das? / Ist das Gelber Sack oder Restmüll?', note:'德国垃圾分类是生活必修课：<b>Gelber Sack</b>（黄袋，包装垃圾）、<b>Restmüll</b>（剩余垃圾，黑桶）、<b>Biomüll</b>（厨余）、<b>Altpapier</b>（废纸，蓝桶）、<b>Pfand</b>（押金瓶，退瓶机）。室友会纠正你——"Das gehört in den Gelben Sack!"'},
     {cat:'取快递', book:'Ich habe ein Paket erwartet. Wo kann ich es abholen?', real:'Bei mir wurde was zugestellt? / Ist ein Paket für mich da? / Lag das beim Nachbarn?', note:'德国快递极少送到手上——DHL 小哥按了门铃三秒后就跑，包裹大概率在 <b>beim Nachbarn</b>（邻居家）、<b>in der Packstation</b>（快递柜）、或 <b>im Paketshop</b>（代收点）。门上贴着黄色 Benachrichtigungskarte 就是"你不在家"的罪证。'},
     {cat:'约运动', book:'Möchten Sie mit mir Sport machen?', real:'Hast du Bock auf \'ne Runde joggen? / Kommst du mit zum Fußball? / Lass uns schwimmen gehen!', note:'约人运动用 <b>Hast du Bock auf…?</b>（有兴致……吗？）最自然。<b>Bock</b> 是口语万能词，表示"兴致"——Bock auf Kino?（想看电影？）、Kein Bock（没劲/不想）。注意：<b>Kein Bock</b> 完全是中性表达，不是粗鲁。'},
@@ -36482,8 +36432,8 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     {cat:'药房买药', book:'Ich brauche Medikamente.', real:'Ich hab\' \'ne Erkältung — was können Sie empfehlen? / Ist das rezeptfrei? / Haben Sie was gegen Halsschmerzen?', note:'德国医药分离：<b>Apotheke</b>（药房）卖药，<b>Drogerie</b>（日化店如 dm/Rossmann）只卖化妆品保健品不卖药。处方药叫 <b>rezeptpflichtig</b>，非处方叫 <b>rezeptfrei</b>。红大A标志就是 Apotheke。<b>Halsschmerzen</b>（喉咙痛）是留学生看医生第一高频词。'},
     {cat:'周日商店关门', book:'Die Geschäfte sind am Sonntag geschlossen.', real:'Ach ja, morgen ist Sonntag — ich hab\' nix zu essen daheim! / Mist, ich muss noch einkaufen, aber es ist schon zu.', note:'德国周日几乎一切关门，这是文化冲击第一名。<b>Ladenschlussgesetz</b>（商店关门法）保护休息日。加油站小超市、火车站商店、机场是仅有的周日可购物之地。周六下午超市里人山人海——德国人称 <b>Samstags im Supermarkt ist die Hölle los</b>。'},
     {cat:'洗衣房', book:'Wo kann ich meine Kleidung waschen?', real:'Ist der Waschkeller frei? / Wie viel kostet \'ne Maschine? / Darf ich bei dir mitwaschen?', note:'德国学生宿舍 <b>Waschkeller</b>（地下洗衣房）是社交场所。问 <b>Ist die Waschmaschine frei?</b>（洗衣机空着吗？）避免白跑一趟。投币洗衣 <b>Münzwaschmaschine</b>，洗衣粉叫 <b>Waschmittel</b>（别跟 Weichspüler 柔顺剂搞混）。记住 <b>Unter 40 Grad überlebt nichts</b>——德国人坚信40度以下洗不干净。'},
-    {cat:'手机合同', book:'Ich möchte einen Handyvertrag abschließen.', real:'Was zahlst du im Monat? / Hast du Prepaid oder Vertrag? / Lohnt sich der Tarif?', note:'德国手机合同分 <b>Prepaid</b>（预付卡，aldi talk/Lidl Connect）和 <b>Vertrag</b>（签约，Telekom/Vodafone/o2）。签约注意 <b>Mindestvertragslaufzeit</b>（最低合同期，通常24个月）和 <b>Kündigungsfrist</b>（解约期限），忘了取消自动续。<b>Datenvolumen</b>（流量）比国内少很多。'},
-    {cat:'大学食堂', book:'Wo ist die Mensa?', real:'Was gibt\'s heute in der Mensa? / Ich hol\' mir was vom Schnellimbiss. / Hast du \'ne Mensakarte?', note:'德国大学 <b>Mensa</b>（食堂）价格便宜因为有学生补贴。排队时留意 <b>Tagesgericht</b>（当日特餐）、<b>Vegetarisch</b>（素食）、<b>Schwein</b>（猪肉）、<b>Rind</b>（牛肉）、<b>Geflügel</b>（禽肉）标识。<b>Mensakarte</b> 是食堂充值卡，不付现金。嫌食堂单调的说 <b>Heute gibt\'s schon wieder Nudeln</b>。'},
+    {cat:'手机合同', book:'Ich möchte einen Handyvertrag abschließen.', real:'Was zahlst du im Monat? / Hast du Prepaid oder Vertrag? / Lohnt sich der Tarif?', note:'德国手机合同分 <b>Prepaid</b>（预付卡，aldi talk/Lidl Connect）和 <b>Vertrag</b>（签约，Telekom/Vodafone/o2）。签约注意 <b>Mindestvertragslaufzeit</b>（最低合同期，通常24个月）和 <b>Kündigungsfrist</b>（解约期限），到期后自动续。不过 2022 年起法规改了：最低 24 个月满了之后，合同转为<b>按月可取消</b>，不会再锁一个 24 个月。<b>Datenvolumen</b>（流量）比国内少很多。'},
+    {cat:'大学食堂', book:'Wo ist die Mensa?', real:'Was gibt\'s heute in der Mensa? / Ich hol\' mir was vom Schnellimbiss. / Hast du \'ne Mensakarte?', note:'德国大学 <b>Mensa</b>（食堂）价格便宜因为有学生补贴。排队时留意 <b>Tagesgericht</b>（当日特餐）、<b>Vegetarisch</b>（素食）、<b>Schwein</b>（猪肉）、<b>Rind</b>（牛肉）、<b>Geflügel</b>（禽肉）标识。<b>Mensakarte</b> 是食堂充值卡。多数德国食堂只刷卡不收现金，但也有收现金的，具体看学校。嫌食堂单调的说 <b>Heute gibt\'s schon wieder Nudeln</b>。'},
     {cat:'罢工停运', book:'Es gibt einen Streik.', real:'Die streiken schon wieder! / Kommst du heute zur Uni? / Bei uns fährt gar nichts.', note:'德国罢工（<b>Streik</b>）是季度事件——Verdi 搞公交罢工，GDL 搞火车罢工。口语说 <b>Es streikt schon wieder</b> 或 <b>Nichts fährt mehr</b>（什么都没在开了）。<b>Warnstreik</b>（警告性罢工，几小时到一天）最常见。大学或公司一般不算无故缺勤——罢工是不可抗力。'},
     {cat:'WiFi密码', book:'Können Sie mir das WLAN-Passwort geben?', real:'Habt ihr WLAN? / Wie ist das Passwort? / Ist da \'n QR-Code?', note:'德国不少咖啡馆有 free WiFi 但贴密码在墙上或收银台。问法超简单：<b>Habt ihr WLAN?</b> 或 <b>Wie ist das WLAN-Passwort?</b>。德国人说 <b>WLAN</b>（读作 V-LAN）而不是 WiFi。<b>Und es gibt kein Internet</b>——德国移动信号覆盖率在欧洲排倒数的自嘲梗。'},
     {cat:'见房东', book:'Ich möchte die Miete bezahlen.', real:'Die Miete ist überwiesen. / Die Heizung geht nicht — kannst du mal schauen? / Macht die Nebenkostenabrechnung Sinn?', note:'德国租房每月跟房东打交道高频句：<b>Die Miete ist überwiesen</b>（房租已转）、<b>Die Heizung geht nicht</b>（暖气坏了）、<b>Nebenkostenabrechnung</b>（物业附加费结算，年终多退少补——通常补交）。<b>Kaltmiete</b>（冷租不含暖气水）vs <b>Warmmiete</b>（暖租全包），签合同前一定看清。'},
@@ -37850,14 +37800,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 }
 </style>
 <!-- kultur-toc-css-v1 END -->
-<!-- kacity-css-v1 START -->
-<style>
-/* 城市与地理：单显时让卡片铺满整行 + 目录条下留点间距 */
-#page-kultur .kultur-cities.kacity-single{grid-template-columns:1fr;max-width:900px;margin:0 auto}
-#page-kultur .ka-card.kacity-item{scroll-margin-top:80px}
-#page-kultur #kacity-toc{margin-bottom:16px}
-</style>
-<!-- kacity-css-v1 END -->
+
 </style>
 
 <a href="#gk-toc-top" class="gk-backtotoc" title="回到目录">📋</a>
@@ -38785,91 +38728,62 @@ window.jumpKulturEp = function(n) {
   if (typeof window.showPage === 'function') showPage('kultur-reader');
 };
 /* kultur-toc-js-v1 END */
-/* ═══ 德国文化 · 期数卡片网格（KULTUR-UI v1）═══
-   数据源只有 window._kdEpData 一份 —— 以后加期数只改那里，这里自动跟着变。
-   点击走 jumpKulturEp(n)，和下拉框同一条路径。 */
+/* ═══ 你不知道的德国 · 滚动目录条（KULTUR-INLINE v1）═══
+   数据源只有 window._kdEpData 一份 —— 以后加期数只改那里，rail 自动跟着变。
+   点击走 jumpKulturEp(n)，和原来的下拉框同一条路径。 */
 (function(){
+  /* 第 41 期起是「🗺️ 城市与地理」专辑，chip 上给个记号 */
+  var CITY_FROM = 41;
+
+  window._kdRailSync = function(ep){
+    var host = document.getElementById('kdRail');
+    if (!host) return;
+    var chips = host.querySelectorAll('.kd-chip');
+    var hit = null;
+    for (var i = 0; i < chips.length; i++){
+      var on = (chips[i].getAttribute('data-ep') == ep);
+      chips[i].classList.toggle('active', on);
+      if (on) hit = chips[i];
+    }
+    /* 只滚目录条自己，不能用 scrollIntoView —— 那会把整页也带着跳 */
+    if (hit){
+      var left = hit.offsetLeft - (host.clientWidth - hit.offsetWidth) / 2;
+      try { host.scrollTo({ left: left, behavior: 'smooth' }); }
+      catch(e) { host.scrollLeft = left; }
+    }
+  };
+
   function build(){
-    var host = document.getElementById('kep-grid');
-    if(!host || host.getAttribute('data-built')==='1') return;
+    var host = document.getElementById('kdRail');
+    if (!host || host.getAttribute('data-built') === '1') return;
     var data = window._kdEpData || {};
     var total = window._kdTotal || 0;
-    if(!total) return;
-    var html = '', built = 0;
-    for(var i = 1; i <= total; i++){
+    if (!total) return;
+    var html = '';
+    for (var i = 1; i <= total; i++){
       var e = data[i];
-      if(!e) continue;
-      html += '<a class="kep-card" href="#" onclick="jumpKulturEp(' + i + ');return false;">'
-            +   '<span class="n">第 ' + i + ' 期</span>'
-            +   '<span class="t">' + e.title + '</span>'
-            +   (e.desc ? '<span class="d">' + e.desc + '</span>' : '')
-            +   '<span class="go">阅读 →</span>'
-            + '</a>';
-      built++;
+      if (!e) continue;
+      var isCity = (i >= CITY_FROM);
+      html += '<button type="button" class="kd-chip' + (isCity ? ' city' : '') + '"'
+            + ' data-ep="' + i + '"'
+            + ' onclick="jumpKulturEp(' + i + ')"'
+            + ' title="第 ' + i + ' 期 · ' + e.title + '">'
+            + (isCity ? '🗺️ ' : '') + '<b>' + i + '</b>' + e.title
+            + '</button>';
     }
-    if(!built) return;
+    if (!html) return;
     host.innerHTML = html;
     host.setAttribute('data-built', '1');
+    /* 板块副标题的期数跟着 _kdTotal 走，以后加期数不用手改 */
+    var sub = document.getElementById('kdSecSub');
+    if (sub) sub.textContent = total + ' 期深度专栏 · 含 🗺️ 城市与地理 · Deutschland aus erster Hand';
+    if (window._currentKulturEp) window._kdRailSync(window._currentKulturEp);
   }
-  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', build); }
+
+  if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', build); }
   else { build(); }
 })();
-/* kacity-js-v1 START */
-/* 「城市与地理」目录条：选一座城市 → 只显示那一张卡，并自动展开详情 */
-window.showKulturCity = function(n, noScroll){
-  var list = document.getElementById('kacity-list');
-  if(!list) return;
-  var sel   = document.getElementById('kacity-select');
-  var items = list.querySelectorAll('.kacity-item');
-  var i, k, ms;
-  /* 全部城市 → 网格总览，详情收起（默认状态） */
-  if(n===''||n==null){
-    list.classList.remove('kacity-single');
-    for(i=0;i<items.length;i++){
-      items[i].style.display='';
-      ms = items[i].querySelectorAll('.ka-more');
-      for(k=0;k<ms.length;k++){ ms[k].style.display='none'; }
-    }
-    if(sel) sel.value='';
-    return;
-  }
-  /* 单座城市 → 单列 + 展开详情 */
-  list.classList.add('kacity-single');
-  for(i=0;i<items.length;i++){ items[i].style.display='none'; }
-  var card = document.getElementById('kacity-'+n);
-  if(!card) return;
-  card.style.display='';
-  var mores = card.querySelectorAll('.ka-more');
-  for(k=0;k<mores.length;k++){ mores[k].style.display=''; }
-  if(sel && String(sel.value)!==String(n)) sel.value=String(n);
-  if(noScroll) return;
-  var toc = document.getElementById('kacity-toc');
-  try{ (toc||card).scrollIntoView({behavior:'smooth',block:'start'}); }
-  catch(e){ (toc||card).scrollIntoView(); }
-};
-function initKulturCities(){
-  var list = document.getElementById('kacity-list');
-  if(!list) return;
-  /* 默认展示全部城市（响应式网格）。旧版这里调 showKulturCity('1')，
-     把另外 5 座城市 display:none 掉、还加 kacity-single 压成一列 —— 6 座只露 1 座。
-     现在只有用户在下拉里主动选了具体城市，才进单列模式。 */
-  showKulturCity('', true);
-}
-if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initKulturCities); }
-else{ initKulturCities(); }
-if(typeof window.showPage==='function' && !window.showPage._kacityWrapped){
-  var _origKC = window.showPage;
-  window.showPage = function(p){
-    var r = _origKC.apply(this, arguments);
-    try{
-      var page = document.getElementById('page-kultur');
-      if(page && getComputedStyle(page).display!=='none'){ initKulturCities(); }
-    }catch(e){}
-    return r;
-  };
-  window.showPage._kacityWrapped = true;
-}
-/* kacity-js-v1 END */
+
 </script>
 <!-- audio-exclusive-v1 END -->
 </body>
