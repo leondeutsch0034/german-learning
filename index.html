@@ -33836,13 +33836,12 @@ document.addEventListener('click', function(e) {
 <!-- ═══ Section: 你不知道的德国 ═══ -->
 <div class="kultur-sec">
   <div class="kultur-sec-title">🇩🇪 你不知道的德国 <span id="kdSecSub">46 期深度专栏 · 含 🗺️ 城市与地理 · Deutschland aus erster Hand</span></div>
-  <!-- KULTUR-INLINE v1：滚动目录条（由 _kultur_inline.py 注入的脚本从 window._kdEpData 生成） -->
-  <div class="kd-rail" id="kdRail"></div>
   <!-- KULTUR-INLINE v1：阅读器本体（懒加载挂载点，内容在 lazy/kultur-reader.html） -->
   <div id="page-kultur-reader" data-lazy="true"></div>
 </div>
 
 <!-- KULTUR-INLINE v1 -->
+<!-- KULTUR-SELECT v1 -->
 <!-- ═══ CSS for page-kultur ═══ -->
 <style>
 #page-kultur{padding-bottom:40px;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
@@ -34154,10 +34153,16 @@ document.addEventListener('click', function(e) {
    id 仍是 #page-kultur-reader，所以它那一整套 .kd-* 样式全部照旧生效。
    这里只补「内嵌场景」才需要的几条覆盖。 */
 #page-kultur .kultur-sec #page-kultur-reader{background:transparent;min-height:0}
-/* 阅读器自己的顶栏（期数下拉）在页内是多余的——滚动目录条已经替代它。
-   ⚠️ 只隐藏、不删标记：sync_kultur_cards.py 以那个 <select> 为期数真源，
-   showKulturEp 也仍然要给它赋 .value（display:none 的元素照样能赋值）。 */
-#page-kultur .kultur-sec #page-kultur-reader .kd-topbar{display:none}
+/* 期数导航：用阅读器自带的下拉（对齐「林夏在德国」的 .se-eplist 观感）——
+   居中、不吸顶、不套卡片底框。原来那条横向滚动目录条已按用户要求撤掉。
+   ⚠️ <select> 必须留着：它是期数真源，sync_kultur_cards.py 往这里写 <option>。 */
+#page-kultur .kultur-sec #page-kultur-reader .kd-topbar{
+  position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+  border:0;border-radius:0;justify-content:center;gap:0;flex-wrap:nowrap;
+  padding:0 16px;margin:0 0 22px}
+/* 封面本身就印着「你不知道的德国 · NN」和标题，这里再显示一遍是重复 */
+#page-kultur .kultur-sec #page-kultur-reader .kd-ep-label{display:none}
+#page-kultur .kultur-sec #page-kultur-reader .kd-ep-select{min-width:240px}
 /* 阅读器自带的标题跟板块标题重复，页内不显示 */
 #page-kultur .kultur-sec #page-kultur-reader .kd-header{display:none}
 /* 懒加载期间给个占位，别留一大片空白 */
@@ -34166,28 +34171,6 @@ document.addEventListener('click', function(e) {
   content:"… 正在加载第 1 期";display:block;text-align:center;padding:120px 0;
   color:#94a3b8;font-size:.9rem;letter-spacing:.08em}
 
-/* ── 滚动目录条 ── */
-#page-kultur .kd-rail{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;position:sticky;top:0;z-index:60;
-  padding:10px 2px;margin:0 0 6px;
-  background:rgba(10,20,40,.94);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(246,211,101,.16)}
-#page-kultur .kd-rail::-webkit-scrollbar{display:none}
-#page-kultur .kd-rail .kd-chip{flex:0 0 auto;white-space:nowrap;cursor:pointer;font-family:inherit;
-  border:1px solid rgba(246,211,101,.22);background:rgba(246,211,101,.06);
-  color:rgba(255,245,230,.75);border-radius:20px;padding:7px 14px;font-size:.8rem;
-  transition:background .2s,border-color .2s,color .2s}
-#page-kultur .kd-rail .kd-chip b{color:#f6d365;font-weight:800;margin-right:5px}
-#page-kultur .kd-rail .kd-chip.city{border-color:rgba(96,165,250,.32);background:rgba(96,165,250,.09)}
-#page-kultur .kd-rail .kd-chip.city b{color:#93c5fd}
-#page-kultur .kd-rail .kd-chip:hover{border-color:rgba(246,211,101,.6)}
-#page-kultur .kd-rail .kd-chip.active{background:linear-gradient(135deg,#b8860b,#f6d365);
-  color:#0a1428;border-color:#f6d365;font-weight:700}
-#page-kultur .kd-rail .kd-chip.active b{color:#0a1428}
-@media(max-width:600px){
-  #page-kultur .kd-rail{padding:8px 2px}
-  #page-kultur .kd-rail .kd-chip{font-size:.74rem;padding:6px 11px}
-}
 </style>
 
 <template id="tpl-page-kultur-reader" data-src="lazy/kultur-reader.html"></template>
@@ -34235,15 +34218,14 @@ window.showKulturEp = function(ep, scroll) {
   if (scroll !== false) {
     var kdAnchor = document.getElementById('page-kultur-reader');
     if (kdAnchor) {
-      var kdBar = document.getElementById('kdRail');
-      var kdOff = (kdBar ? kdBar.offsetHeight : 0) + 12;
+      /* KULTUR-SELECT v1：目录条撤了、下拉不吸顶，留一点上边距即可 */
+      var kdOff = 12;
       var kdY = kdAnchor.getBoundingClientRect().top + window.pageYOffset - kdOff;
       try { window.scrollTo({ top: kdY, behavior: 'smooth' }); }
       catch(e) { window.scrollTo(0, kdY); }
     }
   }
   window._currentKulturEp = ep;
-  if (window._kdRailSync) window._kdRailSync(ep);
   /* 地址栏同步为可分享的 URL（浏览器自带分享按钮取的就是它）：
      有独立页 → /kNN.html（带 og 预览卡）；无独立页 → 主站锚点。
      KULTUR-INLINE v1：只在「用户主动切期 / 深链接进来」时同步。
@@ -38728,58 +38710,16 @@ window.jumpKulturEp = function(n) {
   if (typeof window.showPage === 'function') showPage('kultur-reader');
 };
 /* kultur-toc-js-v1 END */
-/* ═══ 你不知道的德国 · 滚动目录条（KULTUR-INLINE v1）═══
-   数据源只有 window._kdEpData 一份 —— 以后加期数只改那里，rail 自动跟着变。
-   点击走 jumpKulturEp(n)，和原来的下拉框同一条路径。 */
+/* ═══ 你不知道的德国 · 板块副标题期数（KULTUR-SELECT v1）═══
+   期数导航换成下拉后，这里只剩一件事：把板块副标题的「NN 期」跟着 _kdTotal 走，
+   以后加期数不用手改。下拉本身由 lazy/kultur-reader.html 里的 <select> 提供。 */
 (function(){
-  /* 第 41 期起是「🗺️ 城市与地理」专辑，chip 上给个记号 */
-  var CITY_FROM = 41;
-
-  window._kdRailSync = function(ep){
-    var host = document.getElementById('kdRail');
-    if (!host) return;
-    var chips = host.querySelectorAll('.kd-chip');
-    var hit = null;
-    for (var i = 0; i < chips.length; i++){
-      var on = (chips[i].getAttribute('data-ep') == ep);
-      chips[i].classList.toggle('active', on);
-      if (on) hit = chips[i];
-    }
-    /* 只滚目录条自己，不能用 scrollIntoView —— 那会把整页也带着跳 */
-    if (hit){
-      var left = hit.offsetLeft - (host.clientWidth - hit.offsetWidth) / 2;
-      try { host.scrollTo({ left: left, behavior: 'smooth' }); }
-      catch(e) { host.scrollLeft = left; }
-    }
-  };
-
   function build(){
-    var host = document.getElementById('kdRail');
-    if (!host || host.getAttribute('data-built') === '1') return;
-    var data = window._kdEpData || {};
     var total = window._kdTotal || 0;
     if (!total) return;
-    var html = '';
-    for (var i = 1; i <= total; i++){
-      var e = data[i];
-      if (!e) continue;
-      var isCity = (i >= CITY_FROM);
-      html += '<button type="button" class="kd-chip' + (isCity ? ' city' : '') + '"'
-            + ' data-ep="' + i + '"'
-            + ' onclick="jumpKulturEp(' + i + ')"'
-            + ' title="第 ' + i + ' 期 · ' + e.title + '">'
-            + (isCity ? '🗺️ ' : '') + '<b>' + i + '</b>' + e.title
-            + '</button>';
-    }
-    if (!html) return;
-    host.innerHTML = html;
-    host.setAttribute('data-built', '1');
-    /* 板块副标题的期数跟着 _kdTotal 走，以后加期数不用手改 */
     var sub = document.getElementById('kdSecSub');
     if (sub) sub.textContent = total + ' 期深度专栏 · 含 🗺️ 城市与地理 · Deutschland aus erster Hand';
-    if (window._currentKulturEp) window._kdRailSync(window._currentKulturEp);
   }
-
   if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', build); }
   else { build(); }
 })();
