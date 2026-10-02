@@ -1,0 +1,1342 @@
+<!-- PK-PAGE v1 · Passiv & Konjunktiv 全时态推导专题 · 真源即本文件（lazy/passivkonjunktiv.html）-->
+<style>
+/* ══════════════════════════════════════════════════════════════
+   Passiv & Konjunktiv · 全时态推导专题
+   作用域：一律 #page-passivkonjunktiv 前缀，避免污染其他板块
+   ══════════════════════════════════════════════════════════════ */
+#page-passivkonjunktiv{
+  background:#f1f5fa;
+  color:#1e293b;
+  font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  padding:0 0 70px;
+  -webkit-text-size-adjust:100%;
+  line-height:1.75;
+}
+#page-passivkonjunktiv .pk-wrap{max-width:980px;margin:0 auto;padding:0 16px}
+
+/* ── Hero ── */
+#page-passivkonjunktiv .pk-hero{
+  background:linear-gradient(155deg,#08111f 0%,#0f2544 42%,#1e3a5f 100%);
+  padding:48px 22px 40px;text-align:center;position:relative;overflow:hidden;
+  border-radius:0 0 30px 30px;box-shadow:0 12px 34px rgba(8,17,31,.32);margin-bottom:30px;
+}
+#page-passivkonjunktiv .pk-hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 22% 8%,rgba(246,211,101,.16),transparent 52%),
+             radial-gradient(circle at 82% 92%,rgba(96,165,250,.16),transparent 55%);
+  pointer-events:none;
+}
+#page-passivkonjunktiv .pk-hero-in{position:relative;z-index:1;max-width:760px;margin:0 auto}
+#page-passivkonjunktiv .pk-flag{display:flex;height:5px;width:66px;border-radius:3px;overflow:hidden;margin:0 auto 18px}
+#page-passivkonjunktiv .pk-flag span{flex:1}
+#page-passivkonjunktiv .pk-flag span:nth-child(1){background:#000}
+#page-passivkonjunktiv .pk-flag span:nth-child(2){background:#dd0000}
+#page-passivkonjunktiv .pk-flag span:nth-child(3){background:#ffce00}
+#page-passivkonjunktiv .pk-eyebrow{
+  display:inline-block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#f6d365;border:1px solid rgba(246,211,101,.42);border-radius:20px;
+  padding:4px 14px;margin-bottom:16px;font-weight:700;
+}
+#page-passivkonjunktiv .pk-hero h1{
+  font-size:clamp(1.55rem,4.6vw,2.5rem);font-weight:800;margin:0 0 12px;line-height:1.3;
+  background:linear-gradient(100deg,#ffd770,#fff4c0 26%,#ffffff 48%,#ffe08a 70%,#ffc94d);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:pkShine 5s linear infinite;
+}
+@keyframes pkShine{0%{background-position:0% 0}100%{background-position:200% 0}}
+#page-passivkonjunktiv .pk-hero .pk-sub{color:rgba(232,240,251,.8);font-size:.93rem;margin:0 0 6px}
+#page-passivkonjunktiv .pk-hero .pk-sub2{color:rgba(246,211,101,.85);font-size:.82rem;margin:0}
+#page-passivkonjunktiv .pk-hero .pk-formula{
+  margin:22px auto 0;max-width:640px;background:rgba(255,255,255,.07);border:1px solid rgba(246,211,101,.28);
+  border-radius:14px;padding:14px 16px;color:#e8f0fb;font-size:.88rem;line-height:1.85;text-align:left;
+}
+#page-passivkonjunktiv .pk-hero .pk-formula b{color:#f6d365}
+
+/* ── 目录 chips ── */
+#page-passivkonjunktiv .pk-toc{
+  background:#fff;border:1px solid #dde7f2;border-radius:16px;padding:16px 18px;
+  margin:0 0 24px;box-shadow:0 2px 12px rgba(15,30,58,.06);
+}
+#page-passivkonjunktiv .pk-toc-t{font-weight:800;color:#0f1e3a;font-size:.95rem;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+#page-passivkonjunktiv .pk-toc-grid{display:flex;flex-wrap:wrap;gap:8px}
+#page-passivkonjunktiv .pk-toc-grid a{
+  display:inline-block;background:#f1f5fa;border:1px solid #d5e0ee;color:#123055;
+  border-radius:9px;padding:6px 12px;font-size:.83rem;font-weight:600;text-decoration:none;
+  cursor:pointer;transition:.16s;
+}
+#page-passivkonjunktiv .pk-toc-grid a:hover{background:#1e3a5f;color:#f6d365;border-color:#1e3a5f}
+
+/* ── Section ── */
+#page-passivkonjunktiv .pk-sec{
+  background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px 22px 20px;
+  margin:0 0 22px;box-shadow:0 2px 12px rgba(15,30,58,.055);scroll-margin-top:74px;
+}
+#page-passivkonjunktiv .pk-h{
+  display:flex;align-items:center;gap:12px;font-size:1.17rem;font-weight:800;color:#0f1e3a;
+  margin:0 0 14px;padding-bottom:13px;border-bottom:2px solid #e8eef7;line-height:1.4;
+}
+#page-passivkonjunktiv .pk-num{
+  flex:0 0 auto;min-width:40px;height:40px;border-radius:12px;padding:0 9px;
+  background:linear-gradient(135deg,#123055,#1e3a5f);color:#f6d365;
+  display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:800;
+  box-shadow:0 3px 9px rgba(30,58,95,.32);letter-spacing:.02em;
+}
+#page-passivkonjunktiv .pk-h small{display:block;font-size:.72rem;font-weight:600;color:#7b8ca6;letter-spacing:.04em;margin-top:2px}
+#page-passivkonjunktiv .pk-h3{
+  font-size:1rem;font-weight:800;color:#123055;margin:20px 0 9px;
+  padding-left:11px;border-left:4px solid #b8860b;
+}
+#page-passivkonjunktiv .pk-h3:first-child{margin-top:6px}
+
+/* ── 文字块 ── */
+#page-passivkonjunktiv p{margin:9px 0}
+#page-passivkonjunktiv .pk-lead{font-size:.94rem;color:#334155}
+#page-passivkonjunktiv .pk-rule{
+  background:linear-gradient(180deg,#fffdf4,#fff8e2);border-left:4px solid #b8860b;
+  border-radius:10px;padding:13px 16px;margin:13px 0;font-size:.92rem;color:#1f2937;
+}
+#page-passivkonjunktiv .pk-rule b{color:#0f1e3a}
+#page-passivkonjunktiv .pk-note{
+  background:#f1f7ff;border-left:4px solid #3b82f6;border-radius:10px;
+  padding:12px 15px;margin:13px 0;font-size:.89rem;color:#1e3a5f;
+}
+#page-passivkonjunktiv .pk-warn{
+  background:#fff5f5;border-left:4px solid #dc2626;border-radius:10px;
+  padding:12px 15px;margin:13px 0;font-size:.89rem;color:#7f1d1d;
+}
+#page-passivkonjunktiv .pk-ok{
+  background:#f0fdf4;border-left:4px solid #16a34a;border-radius:10px;
+  padding:12px 15px;margin:13px 0;font-size:.89rem;color:#14532d;
+}
+
+/* ── 深色推导框 ── */
+#page-passivkonjunktiv .pk-derive{
+  background:linear-gradient(140deg,#0f1e3a,#16325a);border-left:4px solid #f6d365;
+  border-radius:14px;padding:16px 18px;margin:15px 0;color:#e8f0fb;
+  font-size:.9rem;line-height:1.85;box-shadow:0 5px 16px rgba(15,30,58,.2);
+}
+#page-passivkonjunktiv .pk-derive .pk-dt{
+  font-weight:800;color:#f6d365;margin-bottom:8px;font-size:.92rem;
+  display:flex;align-items:center;gap:7px;
+}
+#page-passivkonjunktiv .pk-derive b{color:#fde68a}
+#page-passivkonjunktiv .pk-derive em{color:#bfdbfe;font-style:normal;font-weight:700}
+#page-passivkonjunktiv .pk-derive .pk-dstep{
+  display:block;margin:7px 0;padding-left:14px;border-left:2px solid rgba(246,211,101,.35);
+}
+
+/* ── 推导链 ── */
+#page-passivkonjunktiv .pk-chain{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:13px 0}
+#page-passivkonjunktiv .pk-chain span{
+  background:#e8eef7;border:1px solid #cbd8e8;border-radius:9px;padding:6px 12px;
+  font-size:.82rem;font-weight:700;color:#123055;
+}
+#page-passivkonjunktiv .pk-chain span.on{background:linear-gradient(135deg,#1e3a5f,#2b5fa8);color:#f6d365;border-color:#1e3a5f}
+#page-passivkonjunktiv .pk-chain i{color:#94a3b8;font-style:normal;font-weight:800}
+
+/* ── 表格 ── */
+#page-passivkonjunktiv .pk-tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:13px 0}
+#page-passivkonjunktiv table{width:100%;border-collapse:collapse;font-size:.87rem;background:#fff;min-width:520px}
+#page-passivkonjunktiv table.narrow{min-width:0}
+#page-passivkonjunktiv thead th{
+  background:linear-gradient(135deg,#1e3a5f,#2b5fa8);color:#fde68a;
+  padding:9px 10px;text-align:left;font-weight:700;font-size:.8rem;letter-spacing:.02em;
+}
+#page-passivkonjunktiv tbody td{padding:9px 10px;border-bottom:1px solid #e8eef7;vertical-align:top;color:#243244}
+#page-passivkonjunktiv tbody tr:nth-child(even) td{background:#f7fafd}
+#page-passivkonjunktiv tbody tr.pk-row-hi td{background:#fffbe9}
+#page-passivkonjunktiv td.pk-t{font-weight:800;color:#123055;background:#cfe2f3 !important;white-space:nowrap}
+#page-passivkonjunktiv td.pk-t2{font-weight:700;color:#0f1e3a;background:#e8eef7 !important;white-space:nowrap}
+#page-passivkonjunktiv .pk-cn{color:#64748b;font-size:.8rem;display:block;margin-top:2px}
+
+/* ── 语法高亮（贯穿全篇的统一色码）── */
+#page-passivkonjunktiv .w-aux{color:#b45309;font-weight:800}      /* 变位助动词/情态动词 */
+#page-passivkonjunktiv .w-pii{color:#1d4ed8;font-weight:800}      /* Partizip II */
+#page-passivkonjunktiv .w-inf{color:#047857;font-weight:800}      /* 不定式 */
+#page-passivkonjunktiv .w-sub{color:#7c3aed;font-weight:700}      /* 虚拟式标记 */
+#page-passivkonjunktiv .pk-de{color:#0f4c81;font-weight:600}
+#page-passivkonjunktiv .pk-zh{color:#64748b;font-size:.85rem}
+#page-passivkonjunktiv .pk-legend{
+  display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:#475569;
+  background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:9px 13px;margin:12px 0;
+}
+#page-passivkonjunktiv .pk-legend b{font-weight:800}
+
+/* ── 例句条 ── */
+#page-passivkonjunktiv .pk-ex{
+  background:#f7fafd;border:1px solid #e0e9f4;border-radius:10px;
+  padding:10px 14px;margin:8px 0;font-size:.9rem;color:#1f2937;
+}
+#page-passivkonjunktiv .pk-ex .pk-ex-de{font-weight:600;color:#0f1e3a}
+#page-passivkonjunktiv .pk-ex .pk-ex-zh{display:block;color:#64748b;font-size:.82rem;margin-top:3px}
+
+/* ── 对比卡片 ── */
+#page-passivkonjunktiv .pk-vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+#page-passivkonjunktiv .pk-vs>div{border-radius:13px;padding:14px 15px;font-size:.88rem;line-height:1.75}
+#page-passivkonjunktiv .pk-vs .pk-vs-a{background:#eef5ff;border:1px solid #c7dcf7}
+#page-passivkonjunktiv .pk-vs .pk-vs-b{background:#fdf4e7;border:1px solid #f3ddb6}
+#page-passivkonjunktiv .pk-vs h4{margin:0 0 8px;font-size:.9rem;color:#123055}
+#page-passivkonjunktiv .pk-vs .pk-vs-b h4{color:#92400e}
+
+/* ── 练习 ── */
+#page-passivkonjunktiv .pk-q{
+  background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid #94a3b8;
+  border-radius:11px;padding:12px 14px;margin:10px 0;
+}
+#page-passivkonjunktiv .pk-q-t{font-weight:600;color:#1f2937;font-size:.9rem}
+#page-passivkonjunktiv .pk-q-n{
+  display:inline-block;min-width:24px;height:24px;line-height:24px;text-align:center;
+  background:#1e3a5f;color:#f6d365;border-radius:7px;font-size:.76rem;font-weight:800;margin-right:8px;
+}
+#page-passivkonjunktiv .pk-btn{
+  background:linear-gradient(135deg,#1e3a5f,#2b5fa8);color:#fff;border:none;border-radius:9px;
+  padding:7px 15px;font-size:.82rem;font-weight:700;cursor:pointer;margin-top:9px;transition:.15s;
+  font-family:inherit;
+}
+#page-passivkonjunktiv .pk-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(30,58,95,.3)}
+#page-passivkonjunktiv .pk-a{
+  display:none;margin-top:10px;padding:11px 14px;background:#f0fdf4;
+  border-left:3px solid #16a34a;border-radius:9px;font-size:.87rem;color:#14532d;line-height:1.8;
+}
+#page-passivkonjunktiv .pk-a.on{display:block}
+#page-passivkonjunktiv .pk-a .pk-a-de{font-weight:700;color:#065f46}
+#page-passivkonjunktiv .pk-a .pk-a-why{display:block;color:#166534;font-size:.82rem;margin-top:5px}
+
+/* ── 推导机 ── */
+#page-passivkonjunktiv .pk-gen{
+  background:linear-gradient(160deg,#08111f,#12294a);border:1px solid rgba(246,211,101,.28);
+  border-radius:18px;padding:20px 20px 22px;margin:16px 0;color:#e8f0fb;
+  box-shadow:0 8px 24px rgba(8,17,31,.28);
+}
+#page-passivkonjunktiv .pk-gen-t{font-weight:800;color:#f6d365;font-size:1rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+#page-passivkonjunktiv .pk-gen-sub{font-size:.79rem;color:rgba(232,240,251,.66);margin-bottom:15px}
+#page-passivkonjunktiv .pk-gen-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+#page-passivkonjunktiv .pk-gen-f{flex:1 1 150px;min-width:0}
+#page-passivkonjunktiv .pk-gen-f label{display:block;font-size:.75rem;color:#f6d365;font-weight:700;margin-bottom:5px;letter-spacing:.05em}
+#page-passivkonjunktiv .pk-gen-f select{
+  width:100%;padding:8px 10px;border-radius:9px;border:1px solid rgba(246,211,101,.3);
+  background:rgba(255,255,255,.96);color:#0f1e3a;font-size:.87rem;font-weight:600;font-family:inherit;
+}
+#page-passivkonjunktiv .pk-out{
+  background:#fff;color:#0f1e3a;border-radius:13px;padding:16px 17px;margin-top:6px;
+}
+#page-passivkonjunktiv .pk-out-de{font-size:1.06rem;font-weight:700;color:#0f1e3a;line-height:1.6}
+#page-passivkonjunktiv .pk-out-zh{color:#64748b;font-size:.86rem;margin-top:5px}
+#page-passivkonjunktiv .pk-out-f{
+  margin-top:12px;padding:10px 13px;background:#f1f5fa;border-radius:9px;
+  font-size:.85rem;color:#123055;line-height:1.8;border-left:3px solid #b8860b;
+}
+#page-passivkonjunktiv .pk-out-tag{
+  display:inline-block;background:#1e3a5f;color:#f6d365;border-radius:7px;
+  padding:2px 10px;font-size:.74rem;font-weight:800;margin-bottom:8px;letter-spacing:.04em;
+}
+#page-passivkonjunktiv .pk-out-w{font-size:.82rem;color:#92400e;margin-top:9px;background:#fffbeb;border-radius:8px;padding:8px 11px;line-height:1.7}
+
+/* ── 心法卡 ── */
+#page-passivkonjunktiv .pk-heart{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:14px 0}
+#page-passivkonjunktiv .pk-heart>div{
+  background:linear-gradient(150deg,#fffdf5,#fff6dd);border:1px solid #f0dfae;border-radius:12px;
+  padding:12px 14px;font-size:.86rem;line-height:1.72;color:#3b3218;
+}
+#page-passivkonjunktiv .pk-heart>div b{
+  display:block;color:#8a6208;font-size:.8rem;margin-bottom:5px;letter-spacing:.03em;
+}
+
+/* ── 底部 ── */
+#page-passivkonjunktiv .pk-top{text-align:center;margin:28px 0 0}
+#page-passivkonjunktiv .pk-top button{
+  background:#1e3a5f;color:#fde68a;border:1px solid rgba(246,211,101,.34);
+  border-radius:20px;padding:10px 24px;font-weight:700;font-size:.87rem;cursor:pointer;font-family:inherit;
+}
+#page-passivkonjunktiv .pk-xlink{
+  display:inline-block;background:#eef5ff;border:1px solid #c7dcf7;color:#1e3a5f;border-radius:9px;
+  padding:7px 14px;font-size:.83rem;font-weight:700;text-decoration:none;cursor:pointer;margin:4px 5px 4px 0;
+  transition:.15s;
+}
+#page-passivkonjunktiv .pk-xlink:hover{background:#1e3a5f;color:#f6d365}
+#page-passivkonjunktiv .pk-foot{
+  text-align:center;color:#94a3b8;font-size:.78rem;line-height:1.8;
+  padding:22px 12px 0;margin-top:20px;border-top:1px solid #e2e8f0;
+}
+
+/* ── 移动端 ── */
+@media (max-width:640px){
+  #page-passivkonjunktiv .pk-wrap{padding:0 11px}
+  #page-passivkonjunktiv .pk-hero{padding:34px 15px 30px;border-radius:0 0 20px 20px;margin-bottom:20px}
+  #page-passivkonjunktiv .pk-sec{padding:16px 13px 15px;border-radius:14px;margin-bottom:15px}
+  #page-passivkonjunktiv .pk-h{font-size:1rem;gap:9px;padding-bottom:10px}
+  #page-passivkonjunktiv .pk-num{min-width:33px;height:33px;font-size:.78rem;border-radius:10px;padding:0 7px}
+  #page-passivkonjunktiv table{font-size:.78rem}
+  #page-passivkonjunktiv thead th{padding:7px 8px;font-size:.74rem}
+  #page-passivkonjunktiv tbody td{padding:7px 8px}
+  #page-passivkonjunktiv .pk-vs{grid-template-columns:1fr}
+  #page-passivkonjunktiv .pk-heart{grid-template-columns:1fr}
+  #page-passivkonjunktiv .pk-derive{padding:13px 14px;font-size:.85rem}
+  #page-passivkonjunktiv .pk-out-de{font-size:.97rem}
+  #page-passivkonjunktiv .pk-gen{padding:16px 14px 18px}
+}
+</style>
+
+<div class="pk-wrap">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <div class="pk-hero">
+    <div class="pk-hero-in">
+      <div class="pk-flag"><span></span><span></span><span></span></div>
+      <div class="pk-eyebrow">Grammatik · 推导专题</div>
+      <h1>被动与虚拟式 · 全时态推导</h1>
+      <p class="pk-sub">Vom Tempussystem zu Passiv und Konjunktiv — 一条链走到底</p>
+      <p class="pk-sub2">六个时态 → 过程被动 → 状态被动 → 情态动词 → 虚拟式 → 交叉形态</p>
+      <div class="pk-formula">
+        <b>贯穿全篇的一条主线：</b><br>
+        ① 句子的时态，永远住在<b>第一个变位动词</b>身上；<br>
+        ② 越复杂的结构，只是往<b>右边不断叠加不定式 / 分词</b>；<br>
+        ③ 被动只换掉<b>实义动词</b>和<b>助动词</b>，虚拟式只换掉<b>变位动词</b>的形态。<br>
+        <span style="color:#bfdbfe">—— 记住这三句，下面所有表格你都能自己推出来。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 目录 ══════════════ -->
+  <div class="pk-toc">
+    <div class="pk-toc-t">📑 本专题路线图</div>
+    <div class="pk-toc-grid">
+      <a onclick="pkGo('pk-s0');return false;">0 · 三个公理</a>
+      <a onclick="pkGo('pk-s1');return false;">1 · 时态基座</a>
+      <a onclick="pkGo('pk-s2');return false;">2 · 过程被动</a>
+      <a onclick="pkGo('pk-s3');return false;">3 · 状态被动</a>
+      <a onclick="pkGo('pk-s4');return false;">4 · 情态 × 被动</a>
+      <a onclick="pkGo('pk-s5');return false;">5 · 虚拟式</a>
+      <a onclick="pkGo('pk-s6');return false;">6 · 被动 × 虚拟式</a>
+      <a onclick="pkGo('pk-s7');return false;">7 · 总表与总结</a>
+      <a onclick="pkGo('pk-s8');return false;">8 · 自测 20 题</a>
+    </div>
+    <div style="margin-top:12px;font-size:.83rem;color:#64748b;line-height:1.8">
+      🧩 <b>怎么用：</b>当作老师在黑板上的<b>推导演算</b>来读——每一步都问自己“上一行的什么变了？”；<br>
+      🎯 <b>怎么学：</b>先自己推，再对照表格；最后用第 8 节的 20 题检验，再玩一玩第 7 节的<b>「推导机」</b>。
+    </div>
+  </div>
+
+  <!-- ══════════════ §0 三个公理 ══════════════ -->
+  <div class="pk-sec" id="pk-s0">
+    <div class="pk-h"><span class="pk-num">§0</span><span>出发前的三个公理<small>Die drei Grundsätze — 后面每一页都靠它们推出来</small></span></div>
+
+    <p class="pk-lead">德语的形式看着吓人，其实只有一条建筑法则：<b>句子是「从左往右搭起来的」</b>。左边那个词决定“什么时候 / 谁的视角 / 是否非现实”，右边那些词只是“什么意思”。</p>
+
+    <div class="pk-derive">
+      <div class="pk-dt">🧱 公理 ①　时态住在「第一个变位动词」身上</div>
+      <span class="pk-dstep">一个句子无论多长，<em>第一个变位的动词</em>（V1，第二位置那个）单独决定整句的时态。</span>
+      <span class="pk-dstep">其余所有动词都只是<b>不定式</b>或<b>第二分词</b>，形式固定，不随人称变。</span>
+      <span class="pk-dstep">例：<b>hat</b> … gebaut（完成） / <b>wird</b> … bauen（将来） / <b>wurde</b> … gebaut（被动过去）——变的永远是 hat/wird/wurde。</span>
+    </div>
+
+    <div class="pk-derive">
+      <div class="pk-dt">🧱 公理 ②　Partizip II = 「完成」和「被动」共用的语义包</div>
+      <span class="pk-dstep">PII（如 <em>gebaut</em>）本身不含时态，它只打包了两个信息：<b>这件事已经发生/已经完成</b> + <b>主语是被处理的一方</b>。</span>
+      <span class="pk-dstep">所以它既能进主动完成时（hat gebaut = 建好了），也能进被动（wird gebaut = 被建）。<b>同一个 PII，两种用途。</b></span>
+    </div>
+
+    <div class="pk-derive">
+      <div class="pk-dt">🧱 公理 ③　时态往上叠，就往右边加不定式</div>
+      <span class="pk-dstep">一层：<em>baut</em>（现在）→ 两层：<em>hat gebaut</em>（完成）→ 三层：<em>ist gebaut worden</em>（被动完成）→ 四层：<em>hat gebaut werden müssen</em>（情态被动完成）。</span>
+      <span class="pk-dstep">每加一层，<b>只有最左边那个词需要变位</b>，右边的全部保持固定形状。<b>这就是全篇唯一的“增长机制”。</b></span>
+    </div>
+
+    <div class="pk-note">
+      💡 <b>为什么先讲这三条？</b>因为学习者的痛苦通常来自“把每个形式当成一个孤立的单词表去背”。而实际上：<b>被动态 = 换两个词；虚拟式 = 换一个词干。</b>整个专题就是把这两句话展开。
+    </div>
+  </div>
+
+  <!-- ══════════════ §1 时态基座 ══════════════ -->
+  <div class="pk-sec" id="pk-s1">
+    <div class="pk-h"><span class="pk-num">§1</span><span>时态基座：六个时态的形式骨架<small>Das Tempussystem — 一切推导的地基</small></span></div>
+
+    <p class="pk-lead">先不动被动、也不动虚拟式，只看<b>主动态</b>的六个时态长什么样。请特别留意：<b>左起第一列的“结构类型”</b>——它是后面全部推导的接口。</p>
+
+    <div class="pk-legend">
+      <span><b class="w-aux">橙色</b> = 变位动词（承载时态）</span>
+      <span><b class="w-pii">蓝色</b> = 第二分词 Partizip II</span>
+      <span><b class="w-inf">绿色</b> = 不定式 Infinitiv</span>
+    </div>
+
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:19%">时态</th><th style="width:20%">骨架公式</th><th>主动态示例（bauen · Der Architekt … das Haus）</th><th style="width:13%">结构类型</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t">Präsens<br><span class="pk-cn">现在时</span></td><td>V1 现在时变位</td><td>Der Architekt <span class="w-aux">baut</span> das Haus.<span class="pk-cn">建筑师建房子。</span></td><td>单动词</td></tr>
+        <tr><td class="pk-t">Präteritum<br><span class="pk-cn">过去时</span></td><td>V1 过去时变位</td><td>Der Architekt <span class="w-aux">baute</span> das Haus.<span class="pk-cn">建筑师当时建了房子。</span></td><td>单动词</td></tr>
+        <tr><td class="pk-t">Perfekt<br><span class="pk-cn">现在完成时</span></td><td>haben/sein + PII</td><td>Der Architekt <span class="w-aux">hat</span> das Haus <span class="w-pii">gebaut</span>.<span class="pk-cn">房子已经建好了。</span></td><td>双动词</td></tr>
+        <tr><td class="pk-t">Plusquamperfekt<br><span class="pk-cn">过去完成时</span></td><td>hatte/war + PII</td><td>Der Architekt <span class="w-aux">hatte</span> das Haus <span class="w-pii">gebaut</span>.<span class="pk-cn">（在那之前）房子已建好。</span></td><td>双动词</td></tr>
+        <tr><td class="pk-t">Futur I<br><span class="pk-cn">第一将来时</span></td><td>werden + Infinitiv</td><td>Der Architekt <span class="w-aux">wird</span> das Haus <span class="w-inf">bauen</span>.<span class="pk-cn">建筑师将会建房子。</span></td><td>双动词</td></tr>
+        <tr class="pk-row-hi"><td class="pk-t">Futur II<br><span class="pk-cn">第二将来时</span></td><td>werden + PII + haben/sein</td><td>Der Architekt <span class="w-aux">wird</span> das Haus <span class="w-pii">gebaut</span> <span class="w-inf">haben</span>.<span class="pk-cn">到时房子将会已建好。</span></td><td>三动词</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-rule">
+      <b>🔑 从这张表里读出三件事（后面全部推导都靠它们）：</b><br>
+      1️⃣ <b>Präsens / Präteritum 是「单动词」</b>——时态直接长在实义动词上。这是最简单的一层，也是<b>唯一“没有助动词可换”</b>的一层。<br>
+      2️⃣ <b>Perfekt / Plusquamperfekt / Futur I 是「双动词」</b>——左边一个助动词管时态，右边一个 PII 或不定式管词义。<b>“管时态的那个词”就是后面被动要替换的槽位。</b><br>
+      3️⃣ <b>Futur II 是「三动词」</b>——已经出现“werden + PII + haben”叠罗汉。它告诉我们：<b>德语允许一直往右叠</b>，叠到四层五层也不稀奇。
+    </div>
+
+    <div class="pk-note">
+      🖇️ 配套复习：本站 <a class="pk-xlink" onclick="pkGoto('b1grammar','b1s8');return false;">B1 语法 · 虚拟式</a><a class="pk-xlink" onclick="pkGoto('b1grammar','b1s9');return false;">B1 语法 · 被动语态</a> 里有更细的动词变位与例句，本页负责把它们的<b>逻辑顺序</b>串成一条链。
+    </div>
+
+    <div class="pk-rule" style="background:linear-gradient(180deg,#f7fbff,#eef5ff);border-left-color:#2563eb">
+      <b>📐 一条贯穿公理：句框结构（Satzklammer）</b><br>
+      主句里 <b>变位动词占第二位</b>，其余动词全部挤在<b>句末</b>。<br>
+      所以被动/虚拟式的所有“新词”都出现在句末那一堆里——<b>看句子时先找第二位的那个词，它告诉你一切。</b>
+    </div>
+  </div>
+
+  <!-- ══════════════ §2 过程被动 ══════════════ -->
+  <div class="pk-sec" id="pk-s2">
+    <div class="pk-h"><span class="pk-num">§2</span><span>第一跳：主动 → 过程被动<small>Vorgangspassiv — werden + Partizip II</small></span></div>
+
+    <div class="pk-h3">2.1 先看“改写算法”，再看公式</div>
+    <p class="pk-lead">把主动句改成被动句，只需要动三处地方。这三步是<b>机械的</b>，不用理解语义也能做对：</p>
+    <div class="pk-derive">
+      <div class="pk-dt">🔁 主动 → 被动 · 三步改写</div>
+      <span class="pk-dstep"><b>第 1 步</b>：宾格宾语（Akkusativ）→ 提到句首，变成<b>第一格主语</b>。</span>
+      <span class="pk-dstep"><b>第 2 步</b>：实义动词 → <b>werden</b>（由它承担全部时态变位）+ <b>Partizip II</b>（承载词义）。</span>
+      <span class="pk-dstep"><b>第 3 步</b>：原主语 → <b>von + 第三格</b>（施动者，可省略）；如果原句有第三格宾语，它<b>原地不动</b>。</span>
+    </div>
+
+    <div class="pk-vs">
+      <div class="pk-vs-a">
+        <h4>Aktiv 主动</h4>
+        <b>Der Architekt</b> <span class="w-aux">baut</span> <b>das Haus</b>.<br>
+        <span class="pk-zh">建筑师建这所房子。</span>
+      </div>
+      <div class="pk-vs-b">
+        <h4>Vorgangspassiv 过程被动</h4>
+        <b>Das Haus</b> <span class="w-aux">wird</span> (von dem Architekten) <span class="w-pii">gebaut</span>.<br>
+        <span class="pk-zh">这所房子（被建筑师）建造着/正在被建。</span>
+      </div>
+    </div>
+
+    <div class="pk-h3">2.2 核心递推公式</div>
+    <div class="pk-derive" style="border-left-color:#60a5fa">
+      <div class="pk-dt">🧮 过程被动的万能公式</div>
+      <div style="font-size:1.02rem;text-align:center;padding:6px 0">
+        <b>Passiv (时态 T) = werden 在 T 的变位 + Partizip II</b>
+      </div>
+      <span class="pk-dstep">右边那个 PII <b>永远不动</b>（gebaut 就一直写 gebaut）。</span>
+      <span class="pk-dstep">整句的时态，<b>100% 由 werden 决定</b>。所以问题从“被动有六个时态吗”变成——<b>“werden 的六个时态怎么写？”</b></span>
+    </div>
+
+    <div class="pk-h3">2.3 一步步推：把 werden 推进六个时态</div>
+    <p class="pk-lead">下面每一步都只做一件事：<b>把上一行里 werden 的形式换成更高级的时态形式</b>，PII 完全不动。</p>
+
+    <div class="pk-chain">
+      <span class="on">① Präsens</span><i>→</i><span class="on">② Präteritum</span><i>→</i><span class="on">③ Perfekt</span><i>→</i><span class="on">④ Plusquamperfekt</span><i>→</i><span class="on">⑤ Futur I</span><i>→</i><span class="on">⑥ Futur II</span>
+    </div>
+
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:20%">时态</th><th style="width:26%">werden 变成</th><th>过程被动（bauen · Das Haus …）</th><th style="width:20%">推导提示</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t">Präsens</td><td><span class="w-aux">wird</span></td><td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span>.</td><td>起点：werden 现在时</td></tr>
+        <tr><td class="pk-t">Präteritum</td><td><span class="w-aux">wurde</span></td><td>Das Haus <span class="w-aux">wurde</span> <span class="w-pii">gebaut</span>.</td><td>只把 wird → wurde</td></tr>
+        <tr class="pk-row-hi"><td class="pk-t">Perfekt</td><td><span class="w-aux">ist</span> … <span class="w-inf">worden</span></td><td>Das Haus <span class="w-aux">ist</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden</span>.</td><td>⚠️ 第二跳：werden 自己也要变完成时</td></tr>
+        <tr><td class="pk-t">Plusquamperfekt</td><td><span class="w-aux">war</span> … <span class="w-inf">worden</span></td><td>Das Haus <span class="w-aux">war</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden</span>.</td><td>ist → war，其余不动</td></tr>
+        <tr><td class="pk-t">Futur I</td><td><span class="w-aux">wird</span> … <span class="w-inf">werden</span></td><td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td><td>werden 的将来时 = wird + werden</td></tr>
+        <tr><td class="pk-t">Futur II</td><td><span class="w-aux">wird</span> … <span class="w-inf">worden sein</span></td><td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden sein</span>.</td><td>把 Perfekt 形式再套上将来</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-derive">
+      <div class="pk-dt">⚠️ 唯一的坑：geworden → worden（去掉 ge-）</div>
+      <span class="pk-dstep">werden 的第二分词本来叫 <b>geworden</b>（实义“变成”时用它：<em>Es ist kalt geworden.</em> 天变冷了）。</span>
+      <span class="pk-dstep">但在<b>被动完成时</b>里，为了避免与“变成”混淆，去掉 ge-，写成 <em>worden</em>。</span>
+      <span class="pk-dstep">✅ <b>Das Haus ist gebaut <em>worden</em>.</b>（这所房子被建好了）<br>
+      ❌ <b>Das Haus ist gebaut <em>geworden</em>.</b>（<span style="color:#fca5a5">典型错句</span>）</span>
+    </div>
+
+    <div class="pk-h3">2.4 无人称被动（主语空缺也照样被动）</div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Es <span class="w-aux">wird</span> hier nicht <span class="w-pii">geraucht</span>.</span>
+      <span class="pk-ex-zh">这里不许吸烟。（没有“谁”在吸，也没有宾语可以提为主语）</span>
+    </div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Es <span class="w-aux">wurde</span> den ganzen Abend laut <span class="w-pii">gelacht</span>.</span>
+      <span class="pk-ex-zh">整个晚上都在大声笑。（es 只是占住第一位，句子也可以写成 Gestern wurde viel gelacht.）</span>
+    </div>
+    <div class="pk-note">
+      💡 无人称被动只能出现在<b>过程被动</b>里，<b>没有</b>对应的状态被动——因为“一点结果状态都没有”。这条很常考。
+    </div>
+  </div>
+
+  <!-- ══════════════ §3 状态被动 ══════════════ -->
+  <div class="pk-sec" id="pk-s3">
+    <div class="pk-h"><span class="pk-num">§3</span><span>第二跳：过程 → 状态被动<small>Zustandspassiv — sein + Partizip II</small></span></div>
+
+    <div class="pk-lead">过程被动回答的是「<b>正在发生什么</b>」；状态被动回答的是「<b>结果是怎样的状态</b>」。两者的差别，<b>只在一个助动词上</b>。</div>
+
+    <div class="pk-vs">
+      <div class="pk-vs-a">
+        <h4>Vorgangspassiv（过程）— werden + PII</h4>
+        Die Tür <b>wird</b> geschlossen.<br>
+        <span class="pk-zh">门正在被关上。（有人正在关 → 动作）</span>
+      </div>
+      <div class="pk-vs-b">
+        <h4>Zustandspassiv（状态）— sein + PII</h4>
+        Die Tür <b>ist</b> geschlossen.<br>
+        <span class="pk-zh">门是关着的。（已经关好了 → 结果状态）</span>
+      </div>
+    </div>
+
+    <div class="pk-h3">3.1 核心递推公式</div>
+    <div class="pk-derive" style="border-left-color:#f59e0b">
+      <div class="pk-dt">🧮 状态被动的万能公式</div>
+      <div style="font-size:1.02rem;text-align:center;padding:6px 0">
+        <b>Zustandspassiv (时态 T) = sein 在 T 的变位 + Partizip II</b>
+      </div>
+      <span class="pk-dstep">把过程被动公式里的 <em>werden</em> 整体换成 <em>sein</em>——结构不变，只换助动词。</span>
+      <span class="pk-dstep">PII <b>还是那个 PII</b>，一个字都不用改（geschlossen 永远是 geschlossen）。</span>
+    </div>
+
+    <div class="pk-h3">3.2 六个时态（sein 走一遍六个时态）</div>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:19%">时态</th><th style="width:25%">sein 变成</th><th>状态被动（schließen · Das Geschäft …）</th><th style="width:17%">使用频率</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t">Präsens</td><td><span class="w-aux">ist</span></td><td>Das Geschäft <span class="w-aux">ist</span> <span class="w-pii">geschlossen</span>.<span class="pk-cn">商店关着门。</span></td><td>⭐⭐⭐ 极常用</td></tr>
+        <tr><td class="pk-t">Präteritum</td><td><span class="w-aux">war</span></td><td>Das Geschäft <span class="w-aux">war</span> <span class="w-pii">geschlossen</span>.<span class="pk-cn">商店当时关着。</span></td><td>⭐⭐⭐ 极常用</td></tr>
+        <tr><td class="pk-t">Perfekt</td><td><span class="w-aux">ist</span> … <span class="w-inf">gewesen</span></td><td>Das Geschäft <span class="w-aux">ist</span> <span class="w-pii">geschlossen</span> <span class="w-inf">gewesen</span>.<span class="pk-cn">商店（那时）一直是关着的。</span></td><td>⭐ 少见</td></tr>
+        <tr><td class="pk-t">Plusquamperfekt</td><td><span class="w-aux">war</span> … <span class="w-inf">gewesen</span></td><td>Das Geschäft <span class="w-aux">war</span> <span class="w-pii">geschlossen</span> <span class="w-inf">gewesen</span>.<span class="pk-cn">（更早前）商店是关着的。</span></td><td>⭐ 少见</td></tr>
+        <tr><td class="pk-t">Futur I</td><td><span class="w-aux">wird</span> … <span class="w-inf">sein</span></td><td>Das Geschäft <span class="w-aux">wird</span> <span class="w-pii">geschlossen</span> <span class="w-inf">sein</span>.<span class="pk-cn">商店将会是关着的。</span></td><td>⭐⭐ 书面</td></tr>
+        <tr><td class="pk-t">Futur II</td><td><span class="w-aux">wird</span> … <span class="w-inf">gewesen sein</span></td><td>Das Geschäft <span class="w-aux">wird</span> <span class="w-pii">geschlossen</span> <span class="w-inf">gewesen sein</span>.<span class="pk-cn">到时商店将已关着。</span></td><td>⚪ 极少</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-note">
+      🔎 <b>对照着记：</b>两个被动在完成时里的“标志词”完全不同——<br>
+      过程被动完成时出现 <b class="w-inf">worden</b>：<em>ist gebaut <b>worden</b></em>；<br>
+      状态被动完成时出现 <b class="w-inf">gewesen</b>：<em>ist gebaut <b>gewesen</b></em>。<br>
+      <b>看到 worden 就是过程，看到 gewesen 就是状态</b>——这是一秒钟的判断法。
+    </div>
+
+    <div class="pk-h3">3.3 四种判别测试：到底是过程还是状态？</div>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:22%">测试</th><th style="width:39%">过程被动 Vorgang</th><th>状态被动 Zustand</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t2">能否插入 <em>gerade</em>（正在）</td><td>✅ <em>Die Tür wird <b>gerade</b> geschlossen.</em> 门正在被关</td><td>❌ <em>Die Tür ist gerade geschlossen.</em>（<span style="color:#b91c1c">语义不通</span>）</td></tr>
+        <tr><td class="pk-t2">能否加 <em>von + Dativ</em>（施动者）</td><td>✅ <em>… wird <b>von ihm</b> geschlossen.</em></td><td>❌ 状态被动<b>不能</b>带 von-短语</td></tr>
+        <tr><td class="pk-t2">完成时标志词</td><td><b class="w-inf">worden</b></td><td><b class="w-inf">gewesen</b></td></tr>
+        <tr><td class="pk-t2">能否用 <em>bleiben</em> 替换 sein</td><td>❌</td><td>✅ <em>Die Tür <b>bleibt</b> geschlossen.</em> 门保持关着</td></tr>
+        <tr><td class="pk-t2">能否加 <em>seit</em> + 时间</td><td>❌</td><td>✅ <em>… <b>seit</b> gestern geschlossen.</em> 从昨天起就关着</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-warn">
+      ⚠️ <b>最容易搞混的一类：sein + PII 到底是「状态被动」还是「完成时」？</b><br>
+      • <b>及物动词</b>的 PII 跟在 sein 后面 → <b>状态被动</b>：<em>Die Tür ist geschlossen.</em>（门是关着的）<br>
+      • <b>不及物动词</b>（尤其表示“移动/状态变化”的）的 PII 跟在 sein 后面 → 那是它的 <b>Perfekt 完成时</b>，跟被动毫无关系：<em>Er ist gekommen.</em>（他来了）／<em>Das Kind ist eingeschlafen.</em>（孩子睡着了）<br>
+      👉 <b>认出“是哪个动词的 PII”，就能一秒定性。</b>
+    </div>
+
+    <div class="pk-note">
+      🧊 <b>不是所有动词都能有状态被动。</b>只有“动作做完后会产生一个持续结果状态”的动词才有：schließen → geschlossen ✓、bauen → gebaut ✓。<br>
+      而没有结果状态的动词（持续类：betreuen、dauern），或本身就无宾语的无人称被动，都<b>只说过程、不说状态</b>。
+    </div>
+
+    <div class="pk-rule">
+      <b>🎓 一个高价值的视角：状态被动 ≈ 形容词</b><br>
+      状态被动里的 PII，其实就相当于一个<b>形容词</b>：<em>Das Geschäft ist geschlossen.</em> ≈ <em>Das <b>geschlossene</b> Geschäft</em>。<br>
+      所以它能被 <em>noch / schon / seit / bleiben</em> 修饰，也能和 <em>offen, sauber</em> 这类形容词并排使用。理解这一点，状态被动就不需要“背”了。
+    </div>
+  </div>
+
+  <!-- ══════════════ §4 情态 × 被动 ══════════════ -->
+  <div class="pk-sec" id="pk-s4">
+    <div class="pk-h"><span class="pk-num">§4</span><span>第三跳：情态动词进入被动<small>Passiv mit Modalverben — 三动词结构</small></span></div>
+
+    <p class="pk-lead">“必需被… / 能够被… / 应该被…”——只要在被动上再加一个情态动词，就得到德语最常用的正式表达之一。</p>
+
+    <div class="pk-h3">4.1 核心递推公式</div>
+    <div class="pk-derive" style="border-left-color:#a855f7">
+      <div class="pk-dt">🧮 情态被动的万能公式</div>
+      <div style="font-size:1.02rem;text-align:center;padding:6px 0">
+        <b>Modalpassiv (时态 T) = 情态动词在 T 变位 + Partizip II + werden（不定式）</b>
+      </div>
+      <span class="pk-dstep">跟纯被动的区别只有一处：<b>最左边多了一个情态动词，它抢走了“变位权”</b>。</span>
+      <span class="pk-dstep">而原来的 werden 因为交出了变位权，就退回成<b>不定式 werden</b>，被挤到<b>句子最末尾</b>。</span>
+      <span class="pk-dstep">所以顺序永远是：<em>情态动词 + PII + werden</em>。</span>
+    </div>
+
+    <div class="pk-ex">
+      <span class="pk-ex-de">Das Haus <span class="w-aux">muss</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</span>
+      <span class="pk-ex-zh">这所房子必须被建造。（= 必须建这所房子）</span>
+    </div>
+
+    <div class="pk-h3">4.2 一步步推：情态动词走六个时态</div>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:19%">时态</th><th>情态被动（müssen · Das Haus …）</th><th style="width:27%">推导提示</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t">Präsens</td><td>Das Haus <span class="w-aux">muss</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td><td>muss 现在时，其余照抄</td></tr>
+        <tr><td class="pk-t">Präteritum</td><td>Das Haus <span class="w-aux">musste</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td><td>muss → musste</td></tr>
+        <tr class="pk-row-hi"><td class="pk-t">Perfekt</td><td>Das Haus <span class="w-aux">hat</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td><td>⚠️ 大坑：Ersatzinfinitiv，见 4.3</td></tr>
+        <tr><td class="pk-t">Plusquamperfekt</td><td>Das Haus <span class="w-aux">hatte</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td><td>hat → hatte</td></tr>
+        <tr><td class="pk-t">Futur I</td><td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td><td>wird + 整个不定式组</td></tr>
+        <tr><td class="pk-t">Futur II</td><td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden sein müssen</span>.</td><td>极少用，认得即可</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-h3">4.3 硬坑：Ersatzinfinitiv（替代不定式）</div>
+    <div class="pk-derive">
+      <div class="pk-dt">⚠️ 情态动词的完成时，不用 PII，用不定式</div>
+      <span class="pk-dstep">按理说“必须”的完成时应该是 <em>hat … gemusst</em>。但德语里，<b>只要还有一个不定式跟在后面</b>，情态动词就必须退回成<b>不定式 müssen</b>，而不是 gemusst。</span>
+      <span class="pk-dstep">✅ <b>Das Haus hat gebaut werden <em>müssen</em>.</b><br>
+      ❌ <b>Das Haus hat gebaut werden <em>gemusst</em>.</b></span>
+      <span class="pk-dstep">同样的规则适用于 <em>können, dürfen, sollen, wollen, mögen</em>，以及 <em>lassen, sehen, hören, fühlen, brauchen</em>。<br>
+      例：<em>Ich habe ihn kommen <b>sehen</b>.</em>（我看见他来了）／ <em>Er hat sich die Haare schneiden <b>lassen</b>.</em></span>
+    </div>
+
+    <div class="pk-warn">
+      ⚠️ <b>Ersatzinfinitiv 带来的著名语序异常（从句里）：</b><br>
+      普通从句里，变位动词应该在最末：<em>…, dass das Haus gebaut werden <b>muss</b>.</em>（现在时 ✓）<br>
+      但一变成完成时，<b>变位动词 hat 会跳到整套不定式的前面</b>：<br>
+      ✅ <em>…, dass das Haus <b>hat</b> gebaut werden müssen.</em><br>
+      ❌ <em>…, dass das Haus gebaut werden müssen <b>hat</b>.</em><br>
+      👉 这是德语语法里最公认的“不规则中的不规则”，<b>B2/C1 写作里用对一次就是加分项</b>。
+    </div>
+
+    <div class="pk-h3">4.4 语义辨析：nicht 放在哪，意思差很远</div>
+    <div class="pk-vs">
+      <div class="pk-vs-a">
+        <h4>nicht 否定“义务”</h4>
+        Das Haus <b>muss nicht</b> gebaut werden.<br>
+        <span class="pk-zh">这房子不必被建。（建也可以，不建也行）</span>
+      </div>
+      <div class="pk-vs-b">
+        <h4>nicht 否定“许可”</h4>
+        Das Haus <b>darf nicht</b> gebaut werden.<br>
+        <span class="pk-zh">这房子不许被建。（禁止）</span>
+      </div>
+    </div>
+    <div class="pk-note">💡 <em>muss nicht</em> = 不必；<em>darf nicht</em> = 不准；<em>kann nicht</em> = 不可能/不能。中文都容易说成“不能”，德语却分得很清楚。</div>
+
+    <div class="pk-h3">4.5 顺带一网打尽：被动的替代形式（Passiversatz）</div>
+    <p class="pk-lead">德语正式文体（论文、新闻、说明书）常把被动“藏”在别的结构里。认出它们 = 阅读提速 + 写作升级。</p>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:24%">替代形式</th><th style="width:30%">例子</th><th>等于</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t2">sein + zu + Infinitiv</td><td>Die Rechnung <b>ist</b> bis Freitag <b>zu bezahlen</b>.</td><td>= Die Rechnung muss bis Freitag bezahlt werden.（必须）<br>= Die Rechnung kann bis Freitag bezahlt werden.（能够）</td></tr>
+        <tr><td class="pk-t2">sich lassen + Infinitiv</td><td>Das <b>lässt sich</b> leicht <b>erklären</b>.</td><td>= Das kann leicht erklärt werden.（能被…）</td></tr>
+        <tr><td class="pk-t2">-bar 形容词</td><td>Der Text <b>ist lesbar</b>.</td><td>= Der Text kann gelesen werden.（可读的）</td></tr>
+        <tr><td class="pk-t2">bekommen / erhalten + PII</td><td>Er <b>bekommt</b> das Buch <b>geschenkt</b>.</td><td>第三格宾语的被动（= 他收到这本书作为礼物）</td></tr>
+        <tr><td class="pk-t2">功能动词结构</td><td><b>Beachtung finden</b></td><td>= beachtet werden（受到重视）</td></tr>
+        <tr><td class="pk-t2">bleiben / stehen / liegen + PII</td><td>Der Kuchen <b>bleibt</b> unberührt.</td><td>状态持续（一直没被动过）</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pk-note">
+      🖇️ 情态动词本身的完整体系（主观用法、推测、双不定式）见本站 <a class="pk-xlink" onclick="pkGoto('b2grammar','');return false;">B2 语法 · 情态动词六层体系</a>——本节只取它与被动交叉的那一部分。
+    </div>
+  </div>
+
+  <!-- ══════════════ §5 虚拟式 ══════════════ -->
+  <div class="pk-sec" id="pk-s5">
+    <div class="pk-h"><span class="pk-num">§5</span><span>第四跳：虚拟式的推导<small>Konjunktiv I / II — 换词干，不换词尾</small></span></div>
+
+    <p class="pk-lead">虚拟式不是“另一种动词”。它只是：<b>把词干换掉，词尾照旧用同一套。</b>Konjunktiv I 和 II 的差别，<b>只在词干取自哪个时态</b>。</p>
+
+    <div class="pk-h3">5.1 统一公式：一套词尾 + 两种词干</div>
+    <div class="pk-tw">
+    <table class="narrow">
+      <thead><tr><th>人称</th><th>共用词尾</th><th>KI 例（machen 现在词干 mach-）</th><th>KII 例（haben 过去词干 hatt- 加变音）</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t2">ich</td><td><b>-e</b></td><td>mache</td><td>hätte</td></tr>
+        <tr><td class="pk-t2">du</td><td><b>-est</b></td><td>machest</td><td>hättest</td></tr>
+        <tr><td class="pk-t2">er / sie / es</td><td><b>-e</b></td><td>mache</td><td>hätte</td></tr>
+        <tr><td class="pk-t2">wir</td><td><b>-en</b></td><td>machen</td><td>hätten</td></tr>
+        <tr><td class="pk-t2">ihr</td><td><b>-et</b></td><td>machet</td><td>hättet</td></tr>
+        <tr><td class="pk-t2">sie / Sie</td><td><b>-en</b></td><td>machen</td><td>hätten</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-derive">
+      <div class="pk-dt">🧮 词干从哪来？——这是 KI 与 KII 唯一的区别</div>
+      <span class="pk-dstep"><b>Konjunktiv I</b>：词干 = <em>不定式去掉 -en</em>（现在时词干）。kommen → komm- → er <b>komme</b></span>
+      <span class="pk-dstep"><b>Konjunktiv II</b>：词干 = <em>Präteritum 词干</em>，能变音就变音。kam → käm- → er <b>käme</b>；hatte → hatt- → hätte</span>
+      <span class="pk-dstep">这就是全部。德语用“<b>用过去标记非现实</b>”的隐喻——就像中文说“<u>要是当时</u>有钱就好了”，用时间上的距离表达现实上的距离。</span>
+    </div>
+
+    <div class="pk-warn">
+      ⚠️ <b>为什么还需要 würde + 不定式？</b><br>
+      规则动词（machen）的 KII 词干 = 过去词干 machte-，加词尾后 <em>er machte</em>——<b>和过去时一模一样</b>，无法区分“这是过去发生的事实”还是“这是不现实的假设”。<br>
+      于是德语演化出 <b>würde + Infinitiv</b> 作为<b>明确的非现实标记</b>。<br>
+      👉 强变化动词因为能变音（hatte → hätte），自身形式就够用，不必借 würde。
+    </div>
+
+    <div class="pk-h3">5.2 关键认知：虚拟式<b>没有六个时态</b>，只有两个时间层</div>
+    <div class="pk-note">
+      🧠 学习者最大的误解，就是以为“虚拟式也要走完六个时态”。<b>不需要。</b><br>
+      虚拟式只区分：<b>① 与说话同时（现在/将来）</b> 和 <b>② 先于说话（过去）</b>。<b>将来时直接用 würde + 不定式</b>即可。
+    </div>
+
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:20%">动词类型</th><th style="width:40%">① 现在层 · Gegenwart（非现实的现在/将来）</th><th>② 过去层 · Vergangenheit（非现实的过去）</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t2">普通动词 machen</td><td>er <b>würde machen</b> ／ 书面：er machte</td><td>er <b>hätte gemacht</b></td></tr>
+        <tr><td class="pk-t2">sein</td><td>er <b>wäre</b></td><td>er <b>wäre gewesen</b></td></tr>
+        <tr><td class="pk-t2">haben</td><td>er <b>hätte</b></td><td>er <b>hätte gehabt</b></td></tr>
+        <tr><td class="pk-t2">情态动词 können</td><td>er <b>könnte</b> (… machen)</td><td>er <b>hätte</b> … machen <b>können</b></td></tr>
+        <tr class="pk-row-hi"><td class="pk-t2">过程被动</td><td>es <b>würde</b> gebaut <b>werden</b></td><td>es <b>wäre</b> gebaut <b>worden</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-note">
+      💡 注意最后一行的规律：<b>过去层的虚拟式，把时间信息交给 hätte / wäre，真正的动词退回不定式或 PII</b>——这跟 §1 的“时态住在第一个变位动词身上”完全是同一个道理。你已经在用的，还是那条公理。
+    </div>
+
+    <div class="pk-h3">5.3 Konjunktiv I 的形态与用法（间接引语专用）</div>
+    <div class="pk-tw">
+    <table class="narrow">
+      <thead><tr><th style="width:26%">时间层</th><th>形式（以 sagen 为例）</th><th style="width:34%">说明</th></tr></thead>
+      <tbody>
+        <tr><td class="pk-t2">现在</td><td>er <b>sage</b> / er <b>sei</b> / er <b>habe</b></td><td>词干 + e 词尾</td></tr>
+        <tr><td class="pk-t2">过去</td><td>er <b>habe</b> gesagt / er <b>sei</b> gekommen</td><td>KI 没有 Präteritum，用完成时代替</td></tr>
+        <tr><td class="pk-t2">将来</td><td>er <b>werde</b> sagen</td><td>用 werden 的 KI</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pk-warn">
+      ⚠️ <b>KI 的替换规则：</b>如果 KI 形式和直陈式<b>长得一样</b>（如复数 <em>sie kommen</em> 的 KI 也是 kommen），就必须改用 <b>KII</b>（sie kämen）或 <b>würde 形式</b>（sie würden kommen），否则读者分不清是转述还是事实。<br>
+      ⚠️ <b>唯一不规则的 KI：sein</b> → <em>ich sei / du sei(e)st / er sei / wir seien / ihr sei(e)t / sie seien</em>。
+    </div>
+
+    <div class="pk-h3">5.4 Konjunktiv II 的六大功能（按“与现实的距离”排列）</div>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:6%">#</th><th style="width:20%">功能</th><th style="width:38%">例子</th><th>中文</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="pk-t2">礼貌请求</td><td><b>Würden</b> Sie mir bitte helfen?</td><td>您能帮帮我吗？</td></tr>
+        <tr><td>2</td><td class="pk-t2">非现实愿望</td><td><b>Hätte</b> ich doch mehr Zeit!</td><td>要是我有更多时间就好了！</td></tr>
+        <tr><td>3</td><td class="pk-t2">非现实条件</td><td>Wenn ich Zeit <b>hätte</b>, <b>würde</b> ich mitkommen.</td><td>如果我有时间，我就一起来。</td></tr>
+        <tr><td>4</td><td class="pk-t2">委婉建议</td><td>Du <b>solltest</b> früher schlafen.</td><td>你最好早点睡。</td></tr>
+        <tr><td>5</td><td class="pk-t2">非现实比较</td><td>Er tut, <b>als ob</b> er alles <b>wüsste</b>.</td><td>他装作什么都知道。</td></tr>
+        <tr><td>6</td><td class="pk-t2">几乎发生</td><td>Ich <b>hätte</b> es <b>fast vergessen</b>.</td><td>我差点忘了。</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pk-note">
+      🖇️ KI / KII 的完整变位表、强变化动词推导（käme, fände, gäbe …）见 <a class="pk-xlink" onclick="pkGoto('b1grammar','b1s8');return false;">B1 语法 · 虚拟式章节</a>。本节只补上“<b>两个时间层</b>”这个最关键的结构认知。
+    </div>
+  </div>
+
+  <!-- ══════════════ §6 被动 × 虚拟式 ══════════════ -->
+  <div class="pk-sec" id="pk-s6">
+    <div class="pk-h"><span class="pk-num">§6</span><span>第五跳：被动 × 虚拟式（终极交叉）<small>Passiv im Konjunktiv — 把公理①再走一遍</small></span></div>
+
+    <div class="pk-lead">到这里，两条线合流了。交叉的方法只有一句话：</div>
+
+    <div class="pk-derive" style="border-left-color:#ec4899">
+      <div class="pk-dt">🧮 被动虚拟式的万能公式</div>
+      <div style="font-size:1.02rem;text-align:center;padding:8px 0">
+        <b>把被动句里的「第一个变位动词」换成虚拟式，其余一个字都不动。</b>
+      </div>
+      <span class="pk-dstep">被动句里第一个变位动词是谁？—— 过程被动是 <em>werden</em>，状态被动是 <em>sein</em>，情态被动是<b>情态动词</b>。</span>
+      <span class="pk-dstep">把它们分别虚拟化：werden → <b>werde / würde</b>；sein → <b>sei / wäre</b>；muss → <b>müsse / müsste</b>。</span>
+      <span class="pk-dstep">后面的 <em>PII</em>、<em>werden</em>、<em>worden</em> 全部<b>保持原样</b>。</span>
+    </div>
+
+    <div class="pk-h3">6.1 完整交叉表（一表看尽）</div>
+    <div class="pk-tw">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:16%">语态</th>
+          <th style="width:21%">① KI 现在<br><span style="font-weight:400;font-size:.72rem">间接引语·现在</span></th>
+          <th style="width:21%">② KI 过去<br><span style="font-weight:400;font-size:.72rem">间接引语·过去</span></th>
+          <th style="width:21%">③ KII 现在<br><span style="font-weight:400;font-size:.72rem">非现实的现在/将来</span></th>
+          <th>④ KII 过去<br><span style="font-weight:400;font-size:.72rem">非现实的过去</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pk-t2">过程被动</td>
+          <td><span class="w-sub">werde</span> gebaut<br><span class="pk-cn">（据说）正在被建</span></td>
+          <td><span class="w-sub">sei</span> gebaut worden<br><span class="pk-cn">（据说）已被建好</span></td>
+          <td><span class="w-sub">würde</span> gebaut werden<br><span class="pk-cn">（如果…）会被建</span></td>
+          <td><span class="w-sub">wäre</span> gebaut worden<br><span class="pk-cn">（如果当时…）就会被建好了</span></td>
+        </tr>
+        <tr>
+          <td class="pk-t2">状态被动</td>
+          <td><span class="w-sub">sei</span> gebaut<br><span class="pk-cn">（据说）是建好的</span></td>
+          <td><span class="w-sub">sei</span> gebaut gewesen<br><span class="pk-cn">（据说）当时是建好的</span></td>
+          <td><span class="w-sub">wäre</span> gebaut<br><span class="pk-cn">（如果…）会是建好的状态</span></td>
+          <td><span class="w-sub">wäre</span> gebaut gewesen<br><span class="pk-cn">（如果当时…）就会是建好的</span></td>
+        </tr>
+        <tr>
+          <td class="pk-t2">情态被动<br><span class="pk-cn">müssen</span></td>
+          <td><span class="w-sub">müsse</span> gebaut werden<br><span class="pk-cn">（据说）必须被建</span></td>
+          <td><span class="w-sub">habe</span> gebaut werden müssen<br><span class="pk-cn">（据说）当时不得不被建</span></td>
+          <td><span class="w-sub">müsste</span> gebaut werden<br><span class="pk-cn">（按道理）应该被建</span></td>
+          <td><span class="w-sub">hätte</span> gebaut werden müssen<br><span class="pk-cn">（当时）本来必须被建</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="pk-note">
+      🔍 <b>看，整张表只有四个“变位动词”在动</b>：werde / sei / würde / wäre / müsse / müsste / habe / hätte。<br>
+      剩下那些 <em>gebaut、worden、gewesen、werden、müssen</em> —— 一个字都没变。<b>这就是公理①在起作用的证据。</b>
+    </div>
+
+    <div class="pk-h3">6.2 “双 werden”是怎么回事？</div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Das Haus <span class="w-sub">würde</span> gebaut <span class="w-inf">werden</span>.</span>
+      <span class="pk-ex-zh">这所房子（如果条件满足）就会被建。</span>
+    </div>
+    <div class="pk-rule">
+      一句话里出现两个 werden，别慌——它们<b>不是一个词的两个身份</b>，而是<b>分工明确的两个人</b>：<br>
+      • 前面的 <b class="w-sub">würde</b> = 变位动词，只负责「<b>非现实</b>」（KII 的标记）；<br>
+      • 后面的 <b class="w-inf">werden</b> = 不定式，只负责「<b>被动</b>」（被动语态的标记）。<br>
+      👉 去掉任何一个都会坏掉：没有 würde 就不是虚拟，没有 werden 就不是被动。
+    </div>
+
+    <div class="pk-h3">6.3 实战：新闻报道里的间接引语被动（最常考）</div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Aktiv（直接引语）：Der Minister sagte: „Wir <b>haben</b> das Gesetz <b>verabschiedet</b>.“</span>
+      <span class="pk-ex-zh">部长说：“我们已经通过了这项法律。”</span>
+    </div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">KI + 被动（记者转述）：Der Minister sagte, das Gesetz <span class="w-sub">sei</span> <span class="w-pii">verabschiedet</span> <span class="w-inf">worden</span>.</span>
+      <span class="pk-ex-zh">部长说，该法律已被通过。（记者不表态，只转述）</span>
+    </div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">KI + 情态被动：Er sagte, das Gesetz <span class="w-sub">müsse</span> noch <span class="w-pii">geprüft</span> <span class="w-inf">werden</span>.</span>
+      <span class="pk-ex-zh">他说，该法律还须被审查。</span>
+    </div>
+    <div class="pk-note">💡 德语新闻体的中立性就藏在这里：<b>内容是被动的（谁通过的不重要），态度是被虚拟的（记者不站队）。</b>两个语法工具叠加使用。</div>
+
+    <div class="pk-h3">6.4 非现实条件 + 被动（考试写作高分结构）</div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Wenn das Haus früher <span class="w-pii">gebaut</span> <span class="w-sub">worden wäre</span>, <span class="w-sub">hätten</span> wir jetzt mehr Platz.</span>
+      <span class="pk-ex-zh">要是这所房子当初早点被建好，我们现在就有更多空间了。</span>
+    </div>
+    <div class="pk-ex">
+      <span class="pk-ex-de">Wenn die Aufgabe rechtzeitig <span class="w-pii">erledigt</span> <span class="w-sub">worden wäre</span>, <span class="w-sub">wäre</span> das Projekt nicht gescheitert.</span>
+      <span class="pk-ex-zh">如果任务当时被及时完成，这个项目就不会失败了。</span>
+    </div>
+    <div class="pk-ok">
+      ✅ <b>可复制的句型模板：</b>Wenn + [PII] + worden wäre, hätte/wäre + …<br>
+      = “要是当时（被）……了，现在就……” —— 议论文里表达“经验教训”的黄金句式。
+    </div>
+  </div>
+
+  <!-- ══════════════ §7 总表 + 推导机 + 总结 ══════════════ -->
+  <div class="pk-sec" id="pk-s7">
+    <div class="pk-h"><span class="pk-num">§7</span><span>总表 · 推导机 · 总结<small>Zusammenfassung — 全部落在这一页</small></span></div>
+
+    <div class="pk-h3">7.1 终极总表：同一个动词 bauen · 六时态 × 四形态</div>
+    <div class="pk-tw">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:15%">时态</th>
+          <th style="width:20%">① Aktiv 主动</th>
+          <th style="width:22%">② Vorgangspassiv 过程被动</th>
+          <th style="width:22%">③ Zustandspassiv 状态被动</th>
+          <th>④ Modalpassiv 情态被动</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pk-t">Präsens</td>
+          <td>Der Architekt <span class="w-aux">baut</span> das Haus.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">ist</span> <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">muss</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td>
+        </tr>
+        <tr>
+          <td class="pk-t">Präteritum</td>
+          <td>Der Architekt <span class="w-aux">baute</span> das Haus.</td>
+          <td>Das Haus <span class="w-aux">wurde</span> <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">war</span> <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">musste</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td>
+        </tr>
+        <tr class="pk-row-hi">
+          <td class="pk-t">Perfekt</td>
+          <td>Der Architekt <span class="w-aux">hat</span> das Haus <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">ist</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden</span>.</td>
+          <td>Das Haus <span class="w-aux">ist</span> <span class="w-pii">gebaut</span> <span class="w-inf">gewesen</span>.</td>
+          <td>Das Haus <span class="w-aux">hat</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td>
+        </tr>
+        <tr>
+          <td class="pk-t">Plusquamperfekt</td>
+          <td>Der Architekt <span class="w-aux">hatte</span> das Haus <span class="w-pii">gebaut</span>.</td>
+          <td>Das Haus <span class="w-aux">war</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden</span>.</td>
+          <td>Das Haus <span class="w-aux">war</span> <span class="w-pii">gebaut</span> <span class="w-inf">gewesen</span>.</td>
+          <td>Das Haus <span class="w-aux">hatte</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td>
+        </tr>
+        <tr>
+          <td class="pk-t">Futur I</td>
+          <td>Der Architekt <span class="w-aux">wird</span> das Haus <span class="w-inf">bauen</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">sein</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">werden müssen</span>.</td>
+        </tr>
+        <tr>
+          <td class="pk-t">Futur II</td>
+          <td>Der Architekt <span class="w-aux">wird</span> das Haus <span class="w-pii">gebaut</span> <span class="w-inf">haben</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden sein</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">gewesen sein</span>.</td>
+          <td>Das Haus <span class="w-aux">wird</span> <span class="w-pii">gebaut</span> <span class="w-inf">worden sein müssen</span>.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pk-note">
+      📌 <b>读这张表的正确方式：</b>不要横着一行一行背，要<b>竖着看一列</b>——每一列内部的变化，永远只发生在<b>最左边那个变位动词</b>上，后面的部分<b>整列几乎不动</b>。看懂这一点，这张表就从“24 个句子”压缩成了“4 条公式”。
+    </div>
+
+    <div class="pk-h3">7.2 🎛️ 推导机：自己推一遍（选一选，看它怎么变）</div>
+    <div class="pk-gen">
+      <div class="pk-gen-t">🎛️ 被动 / 虚拟式 推导机</div>
+      <div class="pk-gen-sub">选动词、语态、时态 → 立刻看到整句 + 背后的公式。建议先在心里猜答案，再点选项对照。</div>
+      <div class="pk-gen-row">
+        <div class="pk-gen-f">
+          <label>动词 VERB</label>
+          <select id="pkGenVerb">
+            <option value="bauen">bauen · das Haus（建造）</option>
+            <option value="schliessen">schließen · das Geschäft（关闭）</option>
+            <option value="reparieren">reparieren · das Auto（修理）</option>
+            <option value="lesen">lesen · das Buch（阅读）</option>
+          </select>
+        </div>
+        <div class="pk-gen-f">
+          <label>语态 / 式 MODUS</label>
+          <select id="pkGenMode">
+            <option value="aktiv">① Aktiv 主动</option>
+            <option value="vorgang" selected>② Vorgangspassiv 过程被动</option>
+            <option value="zustand">③ Zustandspassiv 状态被动</option>
+            <option value="modal">④ Modalpassiv 情态被动</option>
+            <option value="kii">⑤ Konjunktiv II 第二虚拟式</option>
+            <option value="ki">⑥ Konjunktiv I 第一虚拟式</option>
+          </select>
+        </div>
+        <div class="pk-gen-f">
+          <label>时态 / 时间层</label>
+          <select id="pkGenTense"></select>
+        </div>
+        <div class="pk-gen-f" id="pkGenModalWrap">
+          <label>情态动词 MODALVERB</label>
+          <select id="pkGenModal">
+            <option value="muessen">müssen 必须</option>
+            <option value="koennen">können 能够</option>
+            <option value="sollen">sollen 应该</option>
+            <option value="duerfen">dürfen 被允许</option>
+          </select>
+        </div>
+      </div>
+      <div class="pk-out">
+        <span class="pk-out-tag" id="pkOutTag">Vorgangspassiv · Präsens</span>
+        <div class="pk-out-de" id="pkOutDe"></div>
+        <div class="pk-out-zh" id="pkOutZh"></div>
+        <div class="pk-out-f" id="pkOutF"></div>
+        <div class="pk-out-w" id="pkOutW" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="pk-h3">7.3 心法十二条（背下这十二句，等于背下整个专题）</div>
+    <div class="pk-heart">
+      <div><b>① 一个句子只有一个“变位动词”</b>时态、语气、人称全在它身上。找句子先找它。</div>
+      <div><b>② Partizip II 不背时态</b>它只表示“完成 + 被处理”，时态永远交给左边的助动词。</div>
+      <div><b>③ 复杂 = 往右叠</b>每加一个语法层，就往句末多放一个不定式或分词。</div>
+      <div><b>④ 被动只换两处</b>实义动词 → PII；助动词 → werden（过程）/ sein（状态）。</div>
+      <div><b>⑤ 过程看“发生”，状态看“结果”</b>Vorgang 能加 gerade 和 von；Zustand 能加 seit 和 bleiben。</div>
+      <div><b>⑥ worden 只属于过程被动</b>完成时的过程被动有 worden，状态被动有 gewesen，两者不可能同时出现。</div>
+      <div><b>⑦ werden 的 PII 有两副面孔</b>实义“变成”用 geworden；被动助动词用 worden。</div>
+      <div><b>⑧ 情态 + 被动 = 情态 + PII + werden</b>情态动词抢走变位权，werden 退成不定式排到最后。</div>
+      <div><b>⑨ 情态动词的完成时用不定式</b>Ersatzinfinitiv：hat … müssen，绝不是 hat … gemusst。</div>
+      <div><b>⑩ 虚拟式只换词干</b>KI 用现在词干，KII 用过去词干（能变音就变音），词尾同一套。</div>
+      <div><b>⑪ 虚拟式只有两个时间层</b>现在层（würde/hätte/wäre + …）和过去层（hätte/wäre + PII），将来用 würde 顶。</div>
+      <div><b>⑫ 被动虚拟式 = 把第一个变位动词虚拟化</b>werden→werde/würde，sein→sei/wäre，muss→müsse/müsste，其余照抄。</div>
+    </div>
+
+    <div class="pk-h3">7.4 易错清单（阅卷老师最爱扣分的 10 处）</div>
+    <div class="pk-tw">
+    <table>
+      <thead><tr><th style="width:44%">❌ 常见错句</th><th style="width:30%">✅ 正确</th><th>错在哪</th></tr></thead>
+      <tbody>
+        <tr><td>Das Haus ist gebaut <b>geworden</b>.</td><td>Das Haus ist gebaut <b>worden</b>.</td><td>被动完成时去掉 ge-</td></tr>
+        <tr><td>Das Haus <b>wird gebaut geworden</b>.</td><td>Das Haus <b>wird gebaut</b>.</td><td>现在时被动只有一个 werden</td></tr>
+        <tr><td>Das Haus hat gebaut werden <b>gemusst</b>.</td><td>Das Haus hat gebaut werden <b>müssen</b>.</td><td>Ersatzinfinitiv</td></tr>
+        <tr><td>Die Tür ist <b>von ihm</b> geschlossen. (= 状态)</td><td>Die Tür ist geschlossen. / Die Tür <b>wird</b> von ihm geschlossen.</td><td>状态被动不能带施动者</td></tr>
+        <tr><td>Er ist <b>geschlafen</b>.（想表达状态被动）</td><td>Er <b>hat</b> geschlafen.（= 完成时）</td><td>不及物动词没有状态被动</td></tr>
+        <tr><td>Wenn ich Zeit <b>habe</b>, würde ich kommen.</td><td>Wenn ich Zeit <b>hätte</b>, würde ich kommen.</td><td>非现实条件要用 KII</td></tr>
+        <tr><td>Er tat, als ob er alles <b>weiß</b>.</td><td>Er tat, als ob er alles <b>wüsste</b>.</td><td>als ob 后要用 KII</td></tr>
+        <tr><td>Der Minister sagte, das Gesetz <b>ist</b> verabschiedet worden.</td><td>…, das Gesetz <b>sei</b> verabschiedet worden.</td><td>间接引语用 KI</td></tr>
+        <tr><td>Das Projekt wird bis Juni beendet <b>geworden sein</b>.</td><td>Das Projekt wird bis Juni beendet <b>worden sein</b>.</td><td>Futur II 被动 = wird + PII + worden sein</td></tr>
+        <tr><td>Ich <b>hätte</b> es machen <b>können</b> gehabt.</td><td>Ich <b>hätte</b> es machen <b>können</b>.</td><td>KII 过去层不需要再加 gehabt</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pk-note">
+      📌 第 6 条和第 9 条其实是同一个病根：<b>把 werden 的两个身份搞混了</b>。实义“变成”的 PII 是 geworden，被动助动词的 PII 是 worden。<b>凡是“被……”的完成时，一律 worden。</b>
+    </div>
+  </div>
+
+  <!-- ══════════════ §8 自测 ══════════════ -->
+  <div class="pk-sec" id="pk-s8">
+    <div class="pk-h"><span class="pk-num">§8</span><span>自测 20 题<small>Selbsttest — 先自己写，再点“显示答案”</small></span></div>
+    <p class="pk-lead">建议：拿纸先写完整句，再展开答案对照。<b>错的题回到对应小节重读那一段</b>，不要只记答案。</p>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">1</span>Man baut hier ein neues Krankenhaus. → 改成过程被动（现在时）。</div>
+      <button class="pk-btn" onclick="pkA('pka1')">显示答案</button>
+      <div class="pk-a" id="pka1"><span class="pk-a-de">Hier wird ein neues Krankenhaus gebaut.</span><span class="pk-a-why">宾语 ein neues Krankenhaus → 主语；baut → wird + gebaut；Man 省略。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">2</span>Die Firma stellte 200 Leute ein. → 过程被动（过去时）。</div>
+      <button class="pk-btn" onclick="pkA('pka2')">显示答案</button>
+      <div class="pk-a" id="pka2"><span class="pk-a-de">200 Leute wurden (von der Firma) eingestellt.</span><span class="pk-a-why">可分动词 einstellen 的 PII = eingestellt；stellte → wurde。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">3</span>Man hat die Straße gesperrt. → 过程被动（现在完成时）。</div>
+      <button class="pk-btn" onclick="pkA('pka3')">显示答案</button>
+      <div class="pk-a" id="pka3"><span class="pk-a-de">Die Straße ist gesperrt worden.</span><span class="pk-a-why">⚠️ 完成时的被动用 worden，不是 geworden。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">4</span>Man hatte das Problem schon gelöst. → 过程被动（过去完成时）。</div>
+      <button class="pk-btn" onclick="pkA('pka4')">显示答案</button>
+      <div class="pk-a" id="pka4"><span class="pk-a-de">Das Problem war schon gelöst worden.</span><span class="pk-a-why">hatte → war，PII 与 worden 照抄。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">5</span>Man wird die Ergebnisse morgen veröffentlichen. → 过程被动（将来时）。</div>
+      <button class="pk-btn" onclick="pkA('pka5')">显示答案</button>
+      <div class="pk-a" id="pka5"><span class="pk-a-de">Die Ergebnisse werden morgen veröffentlicht werden.</span><span class="pk-a-why">Futur I 被动 = werden（变位）+ PII + werden（不定式）；主语复数所以是 werden…werden。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">6</span>Man wird das Projekt bis Juni beendet haben. → 过程被动（将来完成时）。</div>
+      <button class="pk-btn" onclick="pkA('pka6')">显示答案</button>
+      <div class="pk-a" id="pka6"><span class="pk-a-de">Das Projekt wird bis Juni beendet worden sein.</span><span class="pk-a-why">Futur II 被动 = wird + PII + worden sein。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">7</span>“商店关着门。” → 状态被动（现在时）。</div>
+      <button class="pk-btn" onclick="pkA('pka7')">显示答案</button>
+      <div class="pk-a" id="pka7"><span class="pk-a-de">Das Geschäft ist geschlossen.</span><span class="pk-a-why">强调“结果状态”→ 状态被动用 sein + PII。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">8</span>“昨天商店是关着的。” → 状态被动（过去时）。</div>
+      <button class="pk-btn" onclick="pkA('pka8')">显示答案</button>
+      <div class="pk-a" id="pka8"><span class="pk-a-de">Das Geschäft war gestern geschlossen.</span><span class="pk-a-why">ist → war，其余不变。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">9</span>“这所房子必须被建造。” → 情态被动（现在时）。</div>
+      <button class="pk-btn" onclick="pkA('pka9')">显示答案</button>
+      <div class="pk-a" id="pka9"><span class="pk-a-de">Das Haus muss gebaut werden.</span><span class="pk-a-why">情态动词变位 + PII + werden（不定式，句末）。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">10</span>“这所房子当时必须被建造。” → 情态被动（过去时）。</div>
+      <button class="pk-btn" onclick="pkA('pka10')">显示答案</button>
+      <div class="pk-a" id="pka10"><span class="pk-a-de">Das Haus musste gebaut werden.</span><span class="pk-a-why">muss → musste，其余照抄。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">11</span>“这所房子（当时）不得不被建造。” → 情态被动（现在完成时）。</div>
+      <button class="pk-btn" onclick="pkA('pka11')">显示答案</button>
+      <div class="pk-a" id="pka11"><span class="pk-a-de">Das Haus hat gebaut werden müssen.</span><span class="pk-a-why">⚠️ Ersatzinfinitiv：情态动词用不定式 müssen，不用 gemusst。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">12</span>把上句改成从句：…, dass das Haus … （完成时）。</div>
+      <button class="pk-btn" onclick="pkA('pka12')">显示答案</button>
+      <div class="pk-a" id="pka12"><span class="pk-a-de">…, dass das Haus hat gebaut werden müssen.</span><span class="pk-a-why">⚠️ Ersatzinfinitiv 的语序异常：hat 跳到整套不定式之前，而不是放在最末。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">13</span>Der Text kann leicht gelesen werden. → 用 -bar 形容词改写。</div>
+      <button class="pk-btn" onclick="pkA('pka13')">显示答案</button>
+      <div class="pk-a" id="pka13"><span class="pk-a-de">Der Text ist leicht lesbar.</span><span class="pk-a-why">kann … werden ↔ -bar 形容词，是最常见的被动替代形式之一。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">14</span>Das lässt sich leicht erklären. → 还原成情态被动。</div>
+      <button class="pk-btn" onclick="pkA('pka14')">显示答案</button>
+      <div class="pk-a" id="pka14"><span class="pk-a-de">Das kann leicht erklärt werden.</span><span class="pk-a-why">sich lassen + Inf. = können + PII + werden。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">15</span>Die Rechnung muss bis Freitag bezahlt werden. → 用 sein + zu + Inf. 改写。</div>
+      <button class="pk-btn" onclick="pkA('pka15')">显示答案</button>
+      <div class="pk-a" id="pka15"><span class="pk-a-de">Die Rechnung ist bis Freitag zu bezahlen.</span><span class="pk-a-why">sein + zu + 不定式 = 必须被 / 能够被。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">16</span>“要是这所房子当初早点被建好，我们现在就有更多空间了。”（用 KII + 被动）</div>
+      <button class="pk-btn" onclick="pkA('pka16')">显示答案</button>
+      <div class="pk-a" id="pka16"><span class="pk-a-de">Wenn das Haus früher gebaut worden wäre, hätten wir jetzt mehr Platz.</span><span class="pk-a-why">KII 过去层被动 = wäre + PII + worden；主句 hätte 型。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">17</span>“您能帮帮我吗？”（礼貌）→ Konjunktiv II</div>
+      <button class="pk-btn" onclick="pkA('pka17')">显示答案</button>
+      <div class="pk-a" id="pka17"><span class="pk-a-de">Könnten Sie mir bitte helfen? / Würden Sie mir bitte helfen?</span><span class="pk-a-why">KII 表礼貌：könnten / würden + 不定式。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">18</span>Der Minister sagte: „Das Gesetz wurde verabschiedet.“ → 用 KI 转述（用被动）。</div>
+      <button class="pk-btn" onclick="pkA('pka18')">显示答案</button>
+      <div class="pk-a" id="pka18"><span class="pk-a-de">Der Minister sagte, das Gesetz sei verabschiedet worden.</span><span class="pk-a-why">间接引语用 KI + 被动完成时：sei + PII + worden。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">19</span>“这所房子（据说）必须被审查。”→ KI + 情态被动</div>
+      <button class="pk-btn" onclick="pkA('pka19')">显示答案</button>
+      <div class="pk-a" id="pka19"><span class="pk-a-de">Das Haus müsse geprüft werden.</span><span class="pk-a-why">情态动词的 KI = müsse；werden 保持不定式。</span></div>
+    </div>
+
+    <div class="pk-q">
+      <div class="pk-q-t"><span class="pk-q-n">20</span>改错：<em>Das Haus ist gebaut geworden.</em></div>
+      <button class="pk-btn" onclick="pkA('pka20')">显示答案</button>
+      <div class="pk-a" id="pka20"><span class="pk-a-de">Das Haus ist gebaut worden.</span><span class="pk-a-why">被动完成时，werden 的 PII 去掉 ge- 写成 worden。geworden 只用于实义“变成”。</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ 交叉链接 ══════════════ -->
+  <div class="pk-sec">
+    <div class="pk-h"><span class="pk-num">🔗</span><span>相关章节<small>Zum Weiterlernen</small></span></div>
+    <a class="pk-xlink" onclick="pkGoto('b1grammar','b1s9');return false;">📘 B1语法 · 被动语态</a>
+    <a class="pk-xlink" onclick="pkGoto('b1grammar','b1s8');return false;">📘 B1语法 · 虚拟式 KI/KII</a>
+    <a class="pk-xlink" onclick="pkGoto('b2grammar','');return false;">📙 B2语法 · 情态动词六层体系</a>
+    <a class="pk-xlink" onclick="pkGoto('grammatik-schreiben','');return false;">✍️ A1–B1 语法抄写</a>
+    <a class="pk-xlink" onclick="pkGoto('b2grammar-schreiben','');return false;">✍️ B2–C1 语法抄写</a>
+    <div class="pk-note" style="margin-top:14px">
+      📖 <b>推荐顺序：</b>本页建立<b>整体推导框架</b> → 再去 B1 语法查<b>变位细节</b> → 最后用语法抄写页做<b>手写输出训练</b>。
+    </div>
+  </div>
+
+  <div class="pk-top"><button onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆ 回到顶部</button></div>
+
+  <div class="pk-foot">
+    Passiv &amp; Konjunktiv · 全时态推导专题<br>
+    Leons Deutschzentrum · 从时态底层到被动、虚拟式的完整推演 · 教与学 &amp; 自学皆宜
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── 选项：展开答案 ── */
+  window.pkA = function(id){
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('on');
+  };
+
+  /* ── 页内平滑滚动（不写 hash，避免触发全局路由）── */
+  window.pkGo = function(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - 62;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  };
+
+  /* ── 跳到别的板块 + 定位到锚点 ── */
+  window.pkGoto = function(pageId, anchor){
+    if (typeof window.showPage === 'function') {
+      try { window.showPage(pageId); } catch(e){}
+    }
+    if (!anchor) return;
+    setTimeout(function(){
+      var el = document.getElementById(anchor);
+      if (el) {
+        var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }, 280);
+  };
+
+  /* ══════════════ 推导机 ══════════════ */
+  var VERB = {
+    bauen:      { inf:'bauen',      pii:'gebaut',      praet:'baute',       praes3:'baut',     ki3:'baue',      aktivS:'Der Architekt',  passS:'Das Haus',     zh:'建造' },
+    schliessen: { inf:'schließen',  pii:'geschlossen', praet:'schloss',     praes3:'schließt', ki3:'schließe',  aktivS:'Der Verkäufer',  passS:'Das Geschäft', zh:'关闭' },
+    reparieren: { inf:'reparieren', pii:'repariert',   praet:'reparierte',  praes3:'repariert',ki3:'repariere', aktivS:'Die Mechanikerin',passS:'Das Auto',    zh:'修理' },
+    lesen:      { inf:'lesen',      pii:'gelesen',     praet:'las',         praes3:'liest',    ki3:'lese',      aktivS:'Die Studentin',  passS:'Das Buch',     zh:'阅读' }
+  };
+
+  var MODAL = {
+    muessen: { inf:'müssen', praes:'muss',  praet:'musste', kii:'müsste',  ki:'müsse',  zh:'必须' },
+    koennen: { inf:'können', praes:'kann',  praet:'konnte', kii:'könnte',  ki:'könne',  zh:'能够' },
+    sollen:  { inf:'sollen', praes:'soll',  praet:'sollte', kii:'sollte',  ki:'solle',  zh:'应该' },
+    duerfen: { inf:'dürfen', praes:'darf',  praet:'durfte', kii:'dürfte',  ki:'dürfe',  zh:'被允许' }
+  };
+
+  var TENSES = {
+    aktiv:   [['praes','Präsens 现在时'],['praet','Präteritum 过去时'],['perf','Perfekt 现在完成时'],['plusq','Plusquamperfekt 过去完成时'],['fut1','Futur I 第一将来时'],['fut2','Futur II 第二将来时']],
+    vorgang: [['praes','Präsens'],['praet','Präteritum'],['perf','Perfekt'],['plusq','Plusquamperfekt'],['fut1','Futur I'],['fut2','Futur II']],
+    zustand: [['praes','Präsens'],['praet','Präteritum'],['perf','Perfekt'],['plusq','Plusquamperfekt'],['fut1','Futur I'],['fut2','Futur II']],
+    modal:   [['praes','Präsens'],['praet','Präteritum'],['perf','Perfekt'],['plusq','Plusquamperfekt'],['fut1','Futur I'],['fut2','Futur II']],
+    kii:     [['g','① 现在层 Gegenwart'],['v','② 过去层 Vergangenheit']],
+    ki:      [['g','① 现在'],['v','② 过去'],['z','③ 将来']]
+  };
+
+  var MODALNAME = { aktiv:'Aktiv 主动', vorgang:'Vorgangspassiv 过程被动', zustand:'Zustandspassiv 状态被动', modal:'Modalpassiv 情态被动', kii:'Konjunktiv II', ki:'Konjunktiv I' };
+
+  var TAG = {
+    praes:'Präsens', praet:'Präteritum', perf:'Perfekt', plusq:'Plusquamperfekt', fut1:'Futur I', fut2:'Futur II',
+    g:'Gegenwart · 现在层', v:'Vergangenheit · 过去层', z:'Zukunft · 将来'
+  };
+
+  function build(v, m, mode, t){
+    var de = '', zh = '', f = '', w = '';
+    /* 宾语在句中出现时要小写首字母：Das Haus → das Haus */
+    var objLow = v.passS.charAt(0).toLowerCase() + v.passS.slice(1);
+
+    if (mode === 'aktiv'){
+      if (t === 'praes'){ de = v.aktivS+' '+v.praes3+' '+objLow+'.'; f = 'V1 现在时变位（单动词结构）'; }
+      if (t === 'praet'){ de = v.aktivS+' '+v.praet+' '+objLow+'.'; f = 'V1 过去时变位（单动词结构）'; }
+      if (t === 'perf'){ de = v.aktivS+' hat '+objLow+' '+v.pii+'.'; f = 'haben（现在时）+ PII'; }
+      if (t === 'plusq'){ de = v.aktivS+' hatte '+objLow+' '+v.pii+'.'; f = 'hatte（过去时）+ PII'; }
+      if (t === 'fut1'){ de = v.aktivS+' wird '+objLow+' '+v.inf+'.'; f = 'werden（现在时）+ Infinitiv'; }
+      if (t === 'fut2'){ de = v.aktivS+' wird '+objLow+' '+v.pii+' haben.'; f = 'werden + PII + haben'; }
+      zh = '主动态：' + v.aktivS + '（主语自己做这个动作）';
+    }
+
+    if (mode === 'vorgang'){
+      var S = v.passS;
+      if (t === 'praes'){ de = S+' wird '+v.pii+'.'; f = 'werden 现在时 wird + PII'; }
+      if (t === 'praet'){ de = S+' wurde '+v.pii+'.'; f = 'werden 过去时 wurde + PII'; }
+      if (t === 'perf'){ de = S+' ist '+v.pii+' worden.'; f = 'werden 的完成时 ist … worden + PII'; w = '⚠️ 这里必须用 worden（去掉 ge-），不是 geworden。'; }
+      if (t === 'plusq'){ de = S+' war '+v.pii+' worden.'; f = 'war … worden + PII'; w = '⚠️ 同样用 worden。'; }
+      if (t === 'fut1'){ de = S+' wird '+v.pii+' werden.'; f = 'wird + PII + werden（不定式）'; }
+      if (t === 'fut2'){ de = S+' wird '+v.pii+' worden sein.'; f = 'wird + PII + worden sein'; }
+      zh = '过程被动：只关心“正在发生什么”，谁做的不重要。' + S + ' 是承受者。';
+    }
+
+    if (mode === 'zustand'){
+      var S2 = v.passS;
+      if (t === 'praes'){ de = S2+' ist '+v.pii+'.'; f = 'sein 现在时 ist + PII'; }
+      if (t === 'praet'){ de = S2+' war '+v.pii+'.'; f = 'sein 过去时 war + PII'; }
+      if (t === 'perf'){ de = S2+' ist '+v.pii+' gewesen.'; f = 'ist … gewesen + PII'; w = '⚠️ 状态被动完成时用 gewesen，不是 worden。'; }
+      if (t === 'plusq'){ de = S2+' war '+v.pii+' gewesen.'; f = 'war … gewesen + PII'; w = '⚠️ 同样用 gewesen。'; }
+      if (t === 'fut1'){ de = S2+' wird '+v.pii+' sein.'; f = 'wird + PII + sein'; }
+      if (t === 'fut2'){ de = S2+' wird '+v.pii+' gewesen sein.'; f = 'wird + PII + gewesen sein'; }
+      zh = '状态被动：只关心“结果是什么状态”，没有施动者。';
+      if (t === 'perf' || t === 'plusq' || t === 'fut2') w = (w ? w + ' ' : '') + '这个形式在日常中很少用，认得即可。';
+    }
+
+    if (mode === 'modal'){
+      var S3 = v.passS, mm = MODAL[m];
+      if (t === 'praes'){ de = S3+' '+mm.praes+' '+v.pii+' werden.'; f = '情态动词现在时 + PII + werden'; }
+      if (t === 'praet'){ de = S3+' '+mm.praet+' '+v.pii+' werden.'; f = '情态动词过去时 + PII + werden'; }
+      if (t === 'perf'){ de = S3+' hat '+v.pii+' werden '+mm.inf+'.'; f = 'hat + PII + werden + 情态动词不定式'; w = '⚠️ Ersatzinfinitiv：情态动词完成时用不定式（'+mm.inf+'），不用第二分词。'; }
+      if (t === 'plusq'){ de = S3+' hatte '+v.pii+' werden '+mm.inf+'.'; f = 'hatte + PII + werden + 情态动词不定式'; w = '⚠️ 同样是 Ersatzinfinitiv。'; }
+      if (t === 'fut1'){ de = S3+' wird '+v.pii+' werden '+mm.inf+'.'; f = 'wird + PII + werden + 情态动词不定式'; }
+      if (t === 'fut2'){ de = S3+' wird '+v.pii+' worden sein '+mm.inf+'.'; f = 'wird + PII + worden sein + 情态动词不定式'; w = '极少使用，属书面正式语体。'; }
+      zh = '情态被动：' + mm.zh + '被……（情态动词抢走变位权，werden 退到句末）。';
+    }
+
+    if (mode === 'kii'){
+      /* 注意：Wenn 从句之后是主句，变位动词必须回到第一位（倒装） */
+      var S4 = v.passS;
+      var S4low = S4.charAt(0).toLowerCase() + S4.slice(1);
+      if (t === 'g'){
+        var kiiVerb = (m === 'muessen') ? 'müsste' : (m === 'koennen') ? 'könnte' : (m === 'sollen') ? 'sollte' : 'dürfte';
+        var kiiWhy  = (m === 'sollen') ? 'sollte（KII 与过去时同形，靠上下文区分）' : kiiVerb + '（KII 现在层）';
+        de = 'Wenn es nötig wäre, ' + kiiVerb + ' ' + S4low + ' ' + v.pii + ' werden.';
+        f = '把被动句第一个变位动词（' + MODAL[m].praes + '）换成 KII → ' + kiiWhy + ' + PII + werden；主句倒装，变位动词占第一位';
+        zh = '非现实的现在/将来：条件并不成立，“本该被……”。';
+      } else {
+        de = 'Wenn alles anders gelaufen wäre, hätte ' + S4low + ' ' + v.pii + ' werden ' + MODAL[m].inf + '.';
+        f = 'hätte（KII 过去层，占主句第一位）+ PII + werden + 情态动词不定式';
+        zh = '非现实的过去：当时“本来必须被……”，但事实上没有。';
+      }
+      w = '💡 不带情态动词的过程被动，KII 现在层写作：<b>' + S4 + ' würde ' + v.pii + ' werden.</b>'
+        + '（würde 管“非现实”，werden 管“被动”）；过去层写作：<b>' + S4 + ' wäre ' + v.pii + ' worden.</b>';
+    }
+
+    if (mode === 'ki'){
+      if (t === 'g'){
+        if (m === 'muessen'){ de = v.passS+' müsse '+v.pii+' werden.'; }
+        else if (m === 'koennen'){ de = v.passS+' könne '+v.pii+' werden.'; }
+        else if (m === 'sollen'){ de = v.passS+' solle '+v.pii+' werden.'; }
+        else { de = v.passS+' dürfe '+v.pii+' werden.'; }
+        de = 'Der Minister sagte, ' + de.charAt(0).toLowerCase() + de.slice(1);
+        f = 'KI：把情态动词变成 KI 形式（müsse/könne/solle/dürfe）+ PII + werden';
+        zh = '间接引语·现在：记者中立转述“据说必须被……”。';
+      } else if (t === 'v'){
+        de = 'Der Minister sagte, ' + v.passS.charAt(0).toLowerCase() + v.passS.slice(1) + ' habe ' + v.pii + ' werden ' + MODAL[m].inf + '.';
+        f = 'habe + PII + werden + 情态动词不定式（Ersatzinfinitiv）';
+        zh = '间接引语·过去：转述一件过去发生的事。';
+      } else {
+        de = 'Der Minister sagte, ' + v.passS.charAt(0).toLowerCase() + v.passS.slice(1) + ' werde ' + v.pii + ' werden ' + MODAL[m].inf + '.';
+        f = 'werde + PII + werden + 情态动词不定式';
+        zh = '间接引语·将来：转述将来必须被做某事。';
+      }
+    }
+
+    return { de: de, zh: zh, f: f, w: w };
+  }
+
+  function fillTense(){
+    var mode = document.getElementById('pkGenMode').value;
+    var sel  = document.getElementById('pkGenTense');
+    var list = TENSES[mode] || TENSES.vorgang;
+    sel.innerHTML = '';
+    for (var i = 0; i < list.length; i++){
+      var o = document.createElement('option');
+      o.value = list[i][0]; o.textContent = list[i][1];
+      sel.appendChild(o);
+    }
+  }
+
+  function render(){
+    var v = document.getElementById('pkGenVerb').value;
+    var mode = document.getElementById('pkGenMode').value;
+    var t = document.getElementById('pkGenTense').value;
+    var m = document.getElementById('pkGenModal').value;
+    var modalWrap = document.getElementById('pkGenModalWrap');
+    modalWrap.style.display = (mode === 'modal' || mode === 'kii' || mode === 'ki') ? 'block' : 'none';
+
+    var r = build(VERB[v], m, mode, t);
+    document.getElementById('pkOutDe').textContent = r.de;
+    document.getElementById('pkOutZh').textContent = r.zh;
+    document.getElementById('pkOutF').innerHTML = '<b>公式：</b>' + r.f;
+    var wEl = document.getElementById('pkOutW');
+    if (r.w){ wEl.style.display = 'block'; wEl.innerHTML = r.w; } else { wEl.style.display = 'none'; wEl.innerHTML = ''; }
+    document.getElementById('pkOutTag').textContent = MODALNAME[mode] + ' · ' + (TAG[t] || t);
+  }
+
+  function init(){
+    var mv = document.getElementById('pkGenVerb');
+    var mm = document.getElementById('pkGenMode');
+    if (!mv || !mm) return;
+    fillTense();
+    mv.addEventListener('change', render);
+    mm.addEventListener('change', function(){ fillTense(); render(); });
+    document.getElementById('pkGenTense').addEventListener('change', render);
+    document.getElementById('pkGenModal').addEventListener('change', render);
+    render();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
