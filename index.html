@@ -3612,7 +3612,10 @@ window.instantiateLazyPage = function(pageId, cb) {
     tpl._waiters = cb ? [cb] : [];
     page.setAttribute('data-lazy-loading', '1');
     console.log('[lazy] loading', pageId, tpl.dataset.src);
-    fetch(tpl.dataset.src).then(function(r) {
+    // ⚠️ cache:'no-cache' 不要删！= 「用缓存前先跟服务器核对」，不是「不缓存」。
+    //    两个站的 lazy/*.html 都带 ETag，没改的返回 304（几乎不耗流量），改了的立刻拿新版。
+    //    去掉它 → 浏览器按 max-age=600 直接用旧文件，改完内容十来分钟看不到更新。
+    fetch(tpl.dataset.src, {cache: 'no-cache'}).then(function(r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.text();
     }).then(function(text) {
@@ -4877,7 +4880,7 @@ function runSearch(q) {
     if (window._lazyInstantiated[pageId]) return;
     var tpl = document.getElementById(window._lazyPages[pageId].tplId);
     if (tpl && tpl.dataset.src && !tpl.dataset.loaded) {
-      pending.push(fetch(tpl.dataset.src).then(function(r) { return r.text(); }).then(function(t) {
+      pending.push(fetch(tpl.dataset.src, {cache: 'no-cache'}).then(function(r) { return r.text(); }).then(function(t) {
         tpl.innerHTML = t;
         tpl.dataset.loaded = '1';
       }).catch(function() {}));
@@ -26644,7 +26647,7 @@ window.gotoSection = function(secId) {
     if (window._lazyInstantiated[pid]) return;
     var tpl = document.getElementById(window._lazyPages[pid].tplId);
     if (!tpl || !tpl.dataset.src || tpl.dataset.loaded) return;
-    pending.push(fetch(tpl.dataset.src).then(function(r) { return r.text(); }).then(function(t) {
+    pending.push(fetch(tpl.dataset.src, {cache: 'no-cache'}).then(function(r) { return r.text(); }).then(function(t) {
       tpl.innerHTML = t;
       tpl.dataset.loaded = '1';
     }).catch(function() {}));
