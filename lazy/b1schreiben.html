@@ -191,6 +191,16 @@
   #page-b1schreiben .bsw-sub-h{font-size:1.04rem;font-weight:800;color:#fff;margin:30px 0 12px;
     padding-left:12px;border-left:4px solid #a78bfa;line-height:1.5}
   #page-b1schreiben .bsw-sub-h .mm{color:#a78bfa;font-size:.78rem;font-weight:700;margin-left:8px;white-space:nowrap}
+
+  /* ═══ BSW-TABS v1 · 套题切换标签（照 B1 模拟考试的 .bp-tab 范式）═══ */
+  #page-b1schreiben .bsw-tabs{display:flex;gap:10px;margin:28px 0 10px;justify-content:center;flex-wrap:wrap}
+  #page-b1schreiben .bsw-tab{background:rgba(255,255,255,.06);border:1px solid rgba(167,139,250,.3);color:#cbd5e1;
+    padding:11px 22px;border-radius:14px;font-size:.94rem;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit}
+  #page-b1schreiben .bsw-tab:hover{background:rgba(167,139,250,.16)}
+  #page-b1schreiben .bsw-tab.active{background:linear-gradient(90deg,#5b3a8e,#a78bfa);color:#fff;
+    border-color:rgba(196,181,253,.75);box-shadow:0 4px 14px rgba(124,58,237,.4)}
+  #page-b1schreiben .bsw-tabs-hint{text-align:center;color:#94a3b8;font-size:.8rem;line-height:1.7;margin:0 0 22px}
+  @media(max-width:600px){ #page-b1schreiben .bsw-tab{font-size:.84rem;padding:9px 13px} }
 </style>
 
 <div class="bsw-wrap" id="b1schreiben-top">
@@ -206,15 +216,13 @@
   <div class="bsw-anav">
     <a href="#bsw-s1">① 考试概览</a>
     <a href="#bsw-s2">② 写作流程</a>
-    <a href="#bsw-s3">③ Aufgabe 1 私人邮件</a>
-    <a href="#bsw-s4">④ Aufgabe 2 论坛留言</a>
-    <a href="#bsw-s5">⑤ Aufgabe 3 正式邮件</a>
-    <a href="#bsw-s6">⑥ 第二套 · 官方卷</a>
-    <a href="#bsw-s7">⑦ 第三套 · 原创卷</a>
-    <a href="#bsw-s8">⑧ 评分标准</a>
-    <a href="#bsw-s9">⑨ 万能句库</a>
-    <a href="#bsw-s10">⑩ 中式德语纠错</a>
-    <a href="#bsw-s11">⑪ 练习与自查</a>
+    <a href="#bsw-s3" data-goset="1">③ 第一套 · Modellsatz</a>
+    <a href="#bsw-s6" data-goset="2">④ 第二套 · Übungssatz</a>
+    <a href="#bsw-s7" data-goset="3">⑤ 第三套 · 原创卷</a>
+    <a href="#bsw-s8">⑥ 评分标准</a>
+    <a href="#bsw-s9">⑦ 万能句库</a>
+    <a href="#bsw-s10">⑧ 中式德语纠错</a>
+    <a href="#bsw-s11">⑨ 练习与自查</a>
   </div>
 
   <!-- ═══════════ ① 考试概览 ═══════════ -->
@@ -289,6 +297,17 @@
   </div>
 
   <!-- ═══════════ ③ Aufgabe 1 ═══════════ -->
+  
+  <!-- BSW-TABS v1 -->
+  <div class="bsw-tabs" id="bsw-tabs">
+    <button class="bsw-tab active" data-set="1" type="button">📘 第一套 · Modellsatz</button>
+    <button class="bsw-tab" data-set="2" type="button">📘 第二套 · Übungssatz</button>
+    <button class="bsw-tab" data-set="3" type="button">📘 第三套 · 原创卷</button>
+  </div>
+  <div class="bsw-tabs-hint">👆 点标签切换套题，不用一路往下翻 —— 三套共用同一套评分标准、万能句库与自查清单（在标签区下面）</div>
+
+  <div id="bsw-pane1">
+
   <div class="bsw-sec" id="bsw-s3">
     <div class="bsw-sec-h"><div class="ic">💌</div><div><h2>Aufgabe 1 · Informelle E-Mail</h2><div class="sub">私人邮件 · 约 80 词 · 20 分钟 · 三个要点一个都不能少</div></div></div>
 
@@ -517,6 +536,10 @@ Li Wei</p>
 
 <!-- BSW-SETS v1 -->
   <!-- ═══════════ ⑥ 第二套模拟题 · Übungssatz ═══════════ -->
+  </div>
+
+  <div id="bsw-pane2" style="display:none">
+
   <div class="bsw-sec" id="bsw-s6">
     <div class="bsw-sec-h"><div class="ic">🆕</div><div><h2>第二套模拟题 · Übungssatz</h2><div class="sub">歌德官方 Übungssatz Erwachsene · 三道题 1:1 卷面 + 骨架 + 范文 + 逐句拆解</div></div></div>
 
@@ -692,6 +715,10 @@ Lin Wang</p>
   </div>
 
   <!-- ═══════════ ⑦ 第三套模拟题 · 原创卷 ═══════════ -->
+  </div>
+
+  <div id="bsw-pane3" style="display:none">
+
   <div class="bsw-sec" id="bsw-s7">
     <div class="bsw-sec-h"><div class="ic">🧪</div><div><h2>第三套模拟题 · 原创卷</h2><div class="sub">Leons Deutschzentrum 自编 · 题型/词数/时间照官方 · 卷面非官方原件</div></div></div>
 
@@ -864,6 +891,8 @@ Li Wei</p>
   </div>
 
   <!-- ═══════════ ⑧ 评分标准 ═══════════ -->
+  </div>
+
   <div class="bsw-sec" id="bsw-s8">
     <div class="bsw-sec-h"><div class="ic">📊</div><div><h2>评分标准 · Bewertung</h2><div class="sub">考官手里那张评分表，一共六个维度</div></div></div>
 
@@ -1069,4 +1098,55 @@ Li Wei</p>
     });
   };
   if (window.b1swAddAnchors) { try { window.b1swAddAnchors(); } catch(e){} }
+</script>
+
+<script>
+  /* 套题切换（BSW-TABS v1）—— 捕获阶段拦 .bsw-anav 上带 data-goset 的链接，
+     因为页面里已有的 b1swAddAnchors 会 preventDefault 所有 .bsw-anav a，
+     先切面板再滚，才能滚到真正可见的位置 */
+  (function(){
+    function init(){
+      var root = document.getElementById('page-b1schreiben');
+      if(!root) return;
+      var tabs = root.querySelectorAll('.bsw-tab');
+      if(!tabs.length) return;
+
+      function show(n){
+        tabs.forEach(function(t){
+          var k = +t.getAttribute('data-set');
+          var el = document.getElementById('bsw-pane' + k);
+          if(el) el.style.display = (k === n) ? '' : 'none';
+          t.classList.toggle('active', k === n);
+        });
+      }
+      function jump(id){
+        var el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+      tabs.forEach(function(t){
+        t.addEventListener('click', function(){ show(+t.getAttribute('data-set')); });
+      });
+
+      var anav = root.querySelector('.bsw-anav');
+      if (anav){
+        anav.addEventListener('click', function(e){
+          var a = e.target.closest ? e.target.closest('a[data-goset]') : null;
+          if(!a) return;
+          e.preventDefault();
+          e.stopPropagation();
+          show(+a.getAttribute('data-goset'));
+          var id = (a.getAttribute('href') || '').slice(1);
+          if(id) setTimeout(function(){ jump(id); }, 40);
+        }, true);
+      }
+      window.b1swTab = function(n, anchor){
+        show(n);
+        if(anchor) setTimeout(function(){ jump(anchor); }, 40);
+        return false;
+      };
+      show(1);
+    }
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
 </script>
