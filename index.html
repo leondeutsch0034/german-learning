@@ -4536,7 +4536,7 @@ function createLoginPromptCard() {
 	  { id:'kultur', icon:'🏰', navLabel:'德国文化', cardTitleDe:'Deutsche Kultur', cardSubDe:'Landeskunde: Städte, Bräuche & Lesetexte', cardTitle:'德国文化',
 	    desc:'德国风土人情 · 城市介绍 · 文化知识 · 阅读理解',
 	    tags:'文化知识 · 城市 · 风俗 · 阅读',
-	    c1:'#a06018', c2:'#fdc090', locked:false },
+	    c1:'#a06018', c2:'#fdc090', locked:false }, { id:'newslesen', icon:'📰', navLabel:'德语新闻', cardTitleDe:'Deutsche Nachrichten', cardSubDe:'Nachrichten in 4 Niveaus — A1 · A2 · B1 · B2', cardTitle:'德语新闻 · 分级阅读', desc:'每期一则德国新闻，改写为 A1–B2 四档 · 德语原文 + 中文对照 + 生词表 · 持续更新', tags:'德语阅读 · 分级 · A1–B2 · 时事', c1:'#a06018', c2:'#fdc090', locked:false },
 		  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitleDe:'Echt Deutsch!', cardSubDe:'Schuldeutsch vs. echtes Deutsch — im Vergleich', cardTitle:'德国人才不这么说',
 	    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
 	    tags:'地道表达 · 课本对照 · 口语 · 搜索',
@@ -4750,7 +4750,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','passivkonjunktiv':'被动·虚拟式专题','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','newslesen':'德语新闻','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','passivkonjunktiv':'被动·虚拟式专题','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
   'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
   'b2sprechen':'B2口语','b2schreiben':'B2写作',
   'resources':'全网资源推荐'
@@ -5100,7 +5100,7 @@ document.addEventListener('keydown', function(e) {
   <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
   <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
   <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
-  </div>
+  <a href="#" onclick="showPage('newslesen');return false" class="hero-btn">📰 德语新闻 · 分级阅读 →</a></div>
 </div>
 
 <!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
@@ -5246,7 +5246,13 @@ document.addEventListener('keydown', function(e) {
   <div class="wds-empty" id="wds-empty" style="text-align:center;color:#64748b;font-size:.9rem;padding:50px 20px">🔍 没有找到匹配的冷知识，换个关键词试试</div>
   <div class="wds-page-back" style="text-align:center;margin-top:36px">
   </div>
+
+
 </div>
+<!-- NEWSLESEN v2 -->
+<div id="page-newslesen" class="page" data-lazy="true"></div>
+<div style="display:none"><!-- NEWSLESEN v2 --></div>
+
 <script>
 (function(){
   var origRender = window.renderWDSGrid;
@@ -36948,6 +36954,8 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 </script>
 
 <!-- ══════════ 林夏在德国 ══════════ -->
+<template id="tpl-page-newslesen" data-src="lazy/newslesen.html"></template>
+<script>registerLazyPage('newslesen', 'tpl-page-newslesen');</script>
 <template id="tpl-page-serie" data-src="lazy/serie.html"></template>
 <div id="page-serie" class="page" data-lazy="true"></div>
 <script>registerLazyPage('serie', 'tpl-page-serie');</script>

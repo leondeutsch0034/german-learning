@@ -1,0 +1,136 @@
+
+
+<div class="nl-wrap">
+<style>
+.nl-wrap{--nl-navy:#0f1e3a;--nl-navy2:#0a1428;--nl-gold:#f6d365;--nl-line:#1e3a5f;
+  --nl-dim:#8ba3c4;padding:6px 0 40px}
+.nl-header{margin-bottom:18px}
+.nl-kicker{font-size:11px;letter-spacing:3px;color:var(--nl-gold);opacity:.85}
+.nl-header h2{margin:6px 0 4px;font-size:1.6rem;color:#fff}
+.nl-sub{color:var(--nl-dim);font-size:.92rem}
+.nl-topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:10px 14px;margin-bottom:16px;border:1px solid var(--nl-line);
+  border-radius:12px;background:rgba(30,58,95,.35)}
+.nl-ep-label{color:var(--nl-gold);font-weight:700;font-size:.92rem}
+.nl-ep-select{flex:1;min-width:180px;background:#0a1428;color:#e8eef7;
+  border:1px solid var(--nl-line);border-radius:9px;padding:8px 10px;font:inherit;font-size:.9rem}
+.nl-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.nl-tab{background:transparent;color:#c9d8ee;border:1px solid var(--nl-line);
+  border-radius:10px;padding:8px 20px;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer}
+.nl-tab.is-on{background:var(--nl-gold);color:#12244a;border-color:var(--nl-gold)}
+.nl-panel{display:none}
+.nl-panel.is-on{display:block}
+.nl-lv-note{color:var(--nl-dim);font-size:.86rem;margin:0 0 14px}
+.nl-line{margin:0 0 16px;padding-left:14px;border-left:3px solid rgba(246,211,101,.35)}
+.nl-de{color:#fff;font-size:1.04rem;line-height:1.7;margin:0}
+.nl-zh{color:var(--nl-dim);font-size:.88rem;line-height:1.6;margin:3px 0 0}
+.nl-words{margin-top:26px;border:1px solid var(--nl-line);border-radius:12px;
+  background:rgba(30,58,95,.22);padding:14px 16px}
+.nl-words h3{margin:0 0 10px;font-size:.95rem;color:var(--nl-gold);font-weight:700}
+.nl-wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:7px 16px}
+.nl-w{font-size:.9rem;color:#e8eef7}
+.nl-w b{color:var(--nl-gold);font-weight:700;margin-right:6px}
+.nl-src{margin-top:20px;font-size:.78rem;color:var(--nl-dim);opacity:.8}
+@media(max-width:520px){.nl-de{font-size:.98rem}.nl-wgrid{grid-template-columns:1fr 1fr}}
+</style>
+  <div class="nl-header">
+    <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
+    <h2>📰 德语新闻 · 分级阅读</h2>
+    <div class="nl-sub">一则新闻，四档难度 —— 挑你能读的那一版</div>
+  </div>
+
+  <div class="nl-topbar">
+    <span class="nl-ep-label" id="nlEpLabel">第 01 期 · 德国研究者获得诺贝尔医学奖</span>
+    <select class="nl-ep-select" id="nlEpSelect" onchange="nlShow(this.value)">
+      <option value="1">第 01 期 · 德国研究者获得诺贝尔医学奖</option>
+    </select>
+  </div>
+
+  <div class="nl-tabs">
+      <button class="nl-tab is-on" data-lv="A1" onclick="nlLevel(this,'A1')">A1</button>
+      <button class="nl-tab" data-lv="A2" onclick="nlLevel(this,'A2')">A2</button>
+      <button class="nl-tab" data-lv="B1" onclick="nlLevel(this,'B1')">B1</button>
+      <button class="nl-tab" data-lv="B2" onclick="nlLevel(this,'B2')">B2</button>
+  </div>
+
+    <div class="nl-panel is-on" data-lv="A1">
+      <p class="nl-lv-note">A1</p>
+        <div class="nl-line"><p class="nl-de">Drei Forscher bekommen den Nobel-Preis für Medizin.</p><p class="nl-zh">三位研究者获得诺贝尔医学奖。</p></div>
+        <div class="nl-line"><p class="nl-de">Peter Hegemann und Georg Nagel kommen aus Deutschland.</p><p class="nl-zh">彼得·黑格曼和格奥尔格·纳格尔来自德国。</p></div>
+        <div class="nl-line"><p class="nl-de">Karl Deisseroth kommt aus den USA.</p><p class="nl-zh">卡尔·戴瑟罗斯来自美国。</p></div>
+        <div class="nl-line"><p class="nl-de">Sie haben das Gehirn erforscht.</p><p class="nl-zh">他们研究大脑。</p></div>
+        <div class="nl-line"><p class="nl-de">Sie können Nerven-Zellen mit Licht steuern.</p><p class="nl-zh">他们能用光控制神经细胞。</p></div>
+        <div class="nl-line"><p class="nl-de">Das nennt man Opto-Genetik.</p><p class="nl-zh">这叫做「光遗传学」。</p></div>
+        <div class="nl-line"><p class="nl-de">Die Forscher bekommen ungefähr 1 Million Euro.</p><p class="nl-zh">研究者们一共获得约 100 万欧元。</p></div>
+    </div>
+    <div class="nl-panel" data-lv="A2">
+      <p class="nl-lv-note">A2</p>
+        <div class="nl-line"><p class="nl-de">In diesem Jahr bekommen drei Forscher den Nobel-Preis für Medizin.</p><p class="nl-zh">今年，三位研究者获得了诺贝尔医学奖。</p></div>
+        <div class="nl-line"><p class="nl-de">Peter Hegemann und Georg Nagel kommen aus Deutschland, Karl Deisseroth kommt aus den USA.</p><p class="nl-zh">彼得·黑格曼和格奥尔格·纳格尔来自德国，卡尔·戴瑟罗斯来自美国。</p></div>
+        <div class="nl-line"><p class="nl-de">Die drei haben Nerven-Zellen im Gehirn erforscht.</p><p class="nl-zh">这三人研究了大脑里的神经细胞。</p></div>
+        <div class="nl-line"><p class="nl-de">Mit einem Licht-Strahl können sie diese Zellen steuern: Der Licht-Strahl entscheidet, ob die Zelle Signale weiterleitet oder nicht.</p><p class="nl-zh">他们能用一束光控制这些细胞：这束光决定细胞要不要传递信号。</p></div>
+        <div class="nl-line"><p class="nl-de">Diese Methode heißt Opto-Genetik.</p><p class="nl-zh">这种方法叫光遗传学。</p></div>
+        <div class="nl-line"><p class="nl-de">So können Forscher besser verstehen, wie das Gehirn funktioniert.</p><p class="nl-zh">这样一来，研究者能更好地理解大脑是怎么运作的。</p></div>
+        <div class="nl-line"><p class="nl-de">Ärzte können damit zum Beispiel Augen behandeln.</p><p class="nl-zh">医生可以用它来治疗眼睛，等等。</p></div>
+        <div class="nl-line"><p class="nl-de">Der Preis wird im Dezember in Schweden überreicht.</p><p class="nl-zh">这个奖将于十二月在瑞典颁发。</p></div>
+    </div>
+    <div class="nl-panel" data-lv="B1">
+      <p class="nl-lv-note">B1</p>
+        <div class="nl-line"><p class="nl-de">Der Nobel-Preis für Medizin geht in diesem Jahr an drei Forscher: Peter Hegemann und Georg Nagel aus Deutschland sowie Karl Deisseroth aus den USA.</p><p class="nl-zh">今年的诺贝尔医学奖授予三位研究者：来自德国的彼得·黑格曼和格奥尔格·纳格尔，以及来自美国的卡尔·戴瑟罗斯。</p></div>
+        <div class="nl-line"><p class="nl-de">Ausgezeichnet werden sie für ihre Forschung an Nervenzellen im Gehirn.</p><p class="nl-zh">他们获奖是因为对大脑神经细胞的研究。</p></div>
+        <div class="nl-line"><p class="nl-de">Mithilfe von Lichtstrahlen lassen sich diese Zellen gezielt steuern – je nach Lichteinfall leiten sie Signale weiter oder nicht.</p><p class="nl-zh">借助光束可以有针对性地控制这些细胞——根据光照不同，它们传递信号或者不传递。</p></div>
+        <div class="nl-line"><p class="nl-de">Das Verfahren ist unter dem Namen Optogenetik bekannt.</p><p class="nl-zh">这种方法以「光遗传学」之名广为人知。</p></div>
+        <div class="nl-line"><p class="nl-de">Dadurch lässt sich besser verstehen, wie das Gehirn arbeitet.</p><p class="nl-zh">由此可以更好地理解大脑如何工作。</p></div>
+        <div class="nl-line"><p class="nl-de">Nach Angaben der Nobel-Jury eröffnet die Methode Ärzten neue Möglichkeiten, etwa bei der Behandlung von Augen.</p><p class="nl-zh">据诺贝尔奖评委会称，这种方法为医生开辟了新的可能，例如在眼睛的治疗方面。</p></div>
+        <div class="nl-line"><p class="nl-de">Die drei Forscher teilen sich ein Preisgeld von rund einer Million Euro.</p><p class="nl-zh">三位研究者分享约一百万欧元的奖金。</p></div>
+        <div class="nl-line"><p class="nl-de">Überreicht wird der Preis im Dezember in Schweden.</p><p class="nl-zh">该奖将于十二月在瑞典颁发。</p></div>
+    </div>
+    <div class="nl-panel" data-lv="B2">
+      <p class="nl-lv-note">B2</p>
+        <div class="nl-line"><p class="nl-de">Der Medizin-Nobelpreis geht in diesem Jahr an drei Wissenschaftler, die als Pioniere der Optogenetik gelten: die Deutschen Peter Hegemann und Georg Nagel sowie der US-Amerikaner Karl Deisseroth.</p><p class="nl-zh">今年的诺贝尔医学奖授予三位被视为光遗传学奠基人的科学家：来自德国的彼得·黑格曼和格奥尔格·纳格尔，以及美籍学者卡尔·戴瑟罗斯。</p></div>
+        <div class="nl-line"><p class="nl-de">Geehrt wird damit ein Verfahren, das es ermöglicht, Nervenzellen im Gehirn mithilfe von Lichtstrahlen gezielt zu steuern.</p><p class="nl-zh">此次表彰的是一种方法，它使人们能够借助光束，对大脑中的神经细胞进行精准控制。</p></div>
+        <div class="nl-line"><p class="nl-de">Je nach Lichteinfall werden Signale weitergeleitet oder unterdrückt – ein Mechanismus, der tiefe Einblicke in die Funktionsweise des Gehirns eröffnet.</p><p class="nl-zh">根据光照的不同，信号会被传递或被抑制——这一机制为深入了解大脑的运作方式打开了窗口。</p></div>
+        <div class="nl-line"><p class="nl-de">Nach Einschätzung der Nobel-Jury eröffnet das Verfahren der Medizin neue Möglichkeiten, etwa bei der Behandlung von Augen.</p><p class="nl-zh">据诺贝尔奖评委会的评估，该方法为医学开辟了新的可能性，尤其是在眼睛的治疗方面。</p></div>
+        <div class="nl-line"><p class="nl-de">Die Auszeichnung ist mit rund einer Million Euro dotiert. Überreicht wird sie im Dezember in Schweden.</p><p class="nl-zh">该奖项奖金约一百万欧元，将于十二月在瑞典颁发。</p></div>
+    </div>
+
+  <div class="nl-words">
+    <h3>生词表 · Wortschatz</h3>
+    <div class="nl-wgrid">
+        <span class="nl-w"><b>der Forscher</b>研究者</span>
+        <span class="nl-w"><b>die Zelle</b>细胞</span>
+        <span class="nl-w"><b>die Nerven-Zelle</b>神经细胞</span>
+        <span class="nl-w"><b>das Gehirn</b>大脑</span>
+        <span class="nl-w"><b>forschen</b>研究</span>
+        <span class="nl-w"><b>der Licht-Strahl</b>光束</span>
+        <span class="nl-w"><b>steuern</b>控制、操纵</span>
+        <span class="nl-w"><b>das Signal</b>信号</span>
+        <span class="nl-w"><b>weiterleiten</b>传递、转接</span>
+        <span class="nl-w"><b>die Opto-Genetik</b>光遗传学</span>
+        <span class="nl-w"><b>die Auszeichnung</b>奖项、表彰</span>
+        <span class="nl-w"><b>erhalten</b>获得</span>
+        <span class="nl-w"><b>ungefähr</b>大约</span>
+        <span class="nl-w"><b>überreichen</b>颁发、授予</span>
+        <span class="nl-w"><b>sich teilen</b>共享、分摊</span>
+        <span class="nl-w"><b>das Preisgeld</b>奖金</span>
+        <span class="nl-w"><b>die Jury</b>评委会</span>
+        <span class="nl-w"><b>behandeln</b>治疗</span>
+    </div>
+  </div>
+
+  <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-05<br>
+  本条为自主改写，仅取新闻事实，非逐句翻译。</div>
+</div>
+
+<script>
+function nlLevel(btn, lv){
+  var w = btn.closest('.nl-wrap');
+  w.querySelectorAll('.nl-tab').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
+  w.querySelectorAll('.nl-panel').forEach(function(p){ p.classList.toggle('is-on', p.dataset.lv === lv); });
+}
+function nlShow(id){
+  var sel = document.getElementById('nlEpSelect');
+  var txt = sel.options[sel.selectedIndex].textContent;
+  document.getElementById('nlEpLabel').textContent = txt;
+}
+</script>
