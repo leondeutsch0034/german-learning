@@ -345,7 +345,8 @@
     }
 
     /* Cards grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;max-width:1100px;margin:0 auto 36px}
+    /* 板块框自适应：桌面一行 3 个（minmax 300px），窗口变窄自动降成 2 个 → 手机 1 个 */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;max-width:1100px;margin:0 auto 36px}
 
 /* ── 资源推荐：首页底部单独的框，跟上面的学习模块区分开 ── */
 .res-band{display:flex;align-items:center;gap:22px;max-width:1100px;margin:0 auto 8px;
