@@ -1,11 +1,10 @@
 
-
 <div class="nl-wrap">
 <style>
 .nl-wrap{--nl-gold:#f6d365;--nl-line:#1e3a5f;--nl-dim:#8ba3c4;--nl-dim2:#64789a;
   --nl-read:760px;max-width:1040px;margin:0 auto;padding:0 20px 56px}
 
-/* ── 期封面（杂志感）───────────────────────────── */
+/* 期封面 */
 .nl-cover{position:relative;padding:52px 0 34px;margin-bottom:38px;
   border-bottom:1px solid var(--nl-line)}
 .nl-cover::after{content:"";position:absolute;left:0;bottom:-1px;width:96px;height:2px;
@@ -21,7 +20,7 @@
   letter-spacing:.02em}
 .nl-meta span.k{color:var(--nl-gold);border-color:rgba(246,211,101,.35)}
 
-/* ── 期数 + 难度 ─────────────────────────────── */
+/* 期数 + 难度 */
 .nl-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
 .nl-ep-select{flex:1;min-width:200px;max-width:420px;background:#0b1730;color:#e8eef7;
   border:1px solid var(--nl-line);border-radius:10px;padding:11px 14px;
@@ -34,7 +33,7 @@
 .nl-tab:hover{border-color:rgba(246,211,101,.45);color:var(--nl-gold)}
 .nl-tab.is-on{background:var(--nl-gold);color:#12244a;border-color:var(--nl-gold)}
 
-/* ── 正文 ────────────────────────────────────── */
+/* 正文 */
 .nl-panel{display:none}
 .nl-panel.is-on{display:block;animation:nlIn .22s ease}
 @keyframes nlIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -45,11 +44,10 @@
 .nl-line{position:relative;padding:0 0 0 46px;margin:0 0 24px}
 .nl-no{position:absolute;left:0;top:2px;font-size:.72rem;font-weight:800;
   color:var(--nl-gold);opacity:.6;letter-spacing:.06em;font-variant-numeric:tabular-nums}
-.nl-de{color:#f2f6fc;font-size:clamp(1rem,1.5vw,1.1rem);line-height:1.72;margin:0;
-  letter-spacing:.002em}
+.nl-de{color:#f2f6fc;font-size:clamp(1rem,1.5vw,1.1rem);line-height:1.72;margin:0}
 .nl-zh{color:var(--nl-dim);font-size:.88rem;line-height:1.66;margin:5px 0 0}
 
-/* ── 生词表 ──────────────────────────────────── */
+/* 生词表 */
 .nl-words{max-width:var(--nl-read);margin-top:40px;padding-top:26px;
   border-top:1px solid var(--nl-line)}
 .nl-words h3{margin:0 0 16px;font-size:.8rem;color:var(--nl-gold);
@@ -60,17 +58,6 @@
   border-bottom:1px dotted rgba(30,58,95,.9)}
 .nl-w b{color:var(--nl-gold);font-weight:700;margin-right:8px}
 
-.nl-share{max-width:var(--nl-read);margin-top:38px;padding:20px 22px;
-  border:1px solid rgba(246,211,101,.28);border-radius:12px;
-  background:rgba(246,211,101,.045)}
-.nl-share-t{color:var(--nl-gold);font-weight:700;font-size:.92rem;margin-bottom:12px}
-.nl-share-u{font-size:.82rem;color:#cfe0f5;word-break:break-all;
-  background:#0b1730;border:1px solid var(--nl-line);border-radius:8px;
-  padding:10px 13px;margin-bottom:12px;font-family:ui-monospace,Consolas,monospace}
-.nl-share-b{background:var(--nl-gold);color:#12244a;border:0;border-radius:9px;
-  padding:10px 24px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
-.nl-share-b:active{opacity:.75}
-.nl-share-n{font-size:.76rem;color:var(--nl-dim2);margin-top:11px;line-height:1.6}
 .nl-src{max-width:var(--nl-read);margin-top:30px;font-size:.75rem;
   color:var(--nl-dim2);line-height:1.7}
 
@@ -84,7 +71,7 @@
 </style>
   <header class="nl-cover">
     <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
-    <h1 class="nl-cover-de">Forscher aus Deutschland bekommen Medizin-<br>Nobel-Preis</h1>
+    <h1 class="nl-cover-de">Forscher aus Deutschland bekommen Medizin-Nobel-Preis</h1>
     <div class="nl-cover-zh">德国研究者获得诺贝尔医学奖</div>
     <div class="nl-meta">
       <span class="k">第 01 期</span>
@@ -148,36 +135,22 @@
     </div>
   </div>
 
-  <div class="nl-share">
-    <div class="nl-share-t">把这一期分享给同学</div>
-    <div class="nl-share-u" id="nlShareUrl">https://leondeutsch.cn/news/01.html</div>
-    <button class="nl-share-b" onclick="nlCopyShare(this)">复制分享链接</button>
-    <div class="nl-share-n">⚠️ 要用这个链接分享 —— 直接复制浏览器地址栏的话，微信只会显示网站通用卡片。</div>
-  </div>
-
   <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-05<br>
   本条为自主改写，仅取新闻事实，非逐句翻译。</div>
 </div>
 
 <script>
+/* 登记本页面的分享路径 —— showPage 每次进这一页都会把地址栏切过去，
+   微信抓 OG 才读得到（它读不到 '#' 后面的东西）。见 index.html 的 _sharePaths。 */
+(function(){
+  window._sharePaths = window._sharePaths || {};
+  window._sharePaths['newslesen'] = '/news/01.html';
+})();
+
 function nlLevel(btn, lv){
   var w = btn.closest('.nl-wrap');
   w.querySelectorAll('.nl-tab').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
   w.querySelectorAll('.nl-panel').forEach(function(p){ p.classList.toggle('is-on', p.dataset.lv === lv); });
-}
-function nlCopyShare(btn){
-  var u = document.getElementById('nlShareUrl').textContent.trim();
-  var done = function(){ var o=btn.textContent; btn.textContent='已复制 ✓';
-                          setTimeout(function(){btn.textContent=o},1600); };
-  if (navigator.clipboard) { navigator.clipboard.writeText(u).then(done, function(){ nlFallback(u, done); }); }
-  else { nlFallback(u, done); }
-}
-function nlFallback(text, done){
-  var ta=document.createElement('textarea'); ta.value=text;
-  ta.style.position='fixed'; ta.style.opacity='0';
-  document.body.appendChild(ta); ta.select();
-  try{document.execCommand('copy')}catch(e){}
-  document.body.removeChild(ta); done();
 }
 function nlShow(id){
   /* 目前只有 1 期；将来多期时在这里切换内容 */

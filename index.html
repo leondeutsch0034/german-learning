@@ -26614,11 +26614,22 @@ function showPage(id) {
   // 游客模式：确保section遮罩已应用
   if (currentUser === 'guest') applyGuestLocks();
   // 同步 URL hash，分享出去对方看到同一页
+  /* ★ URL 始终用根路径（'/' 开头）—— 否则从 /news/01.html 这类深链接页
+     切到别的栏目时，路径会一直挂在 /news/ 底下。
+     '/#' + id 是相对根解析的，任何路径下都回到网站根。 */
   if (id !== 'index') {
-    history.replaceState(null, '', '#' + id);
+    history.replaceState(null, '', '/#' + id);
   } else {
-    history.replaceState(null, '', window.location.pathname);
+    history.replaceState(null, '', '/');
   }
+  /* ★ 栏目若有自己的分享路径，切过去 —— 微信抓 OG 读不到 '#' 后面的东西，
+     只有真路径（如 /news/01.html）才能出对的预览卡。
+     栏目自己在懒加载脚本里登记：window._sharePaths['newslesen'] = '/news/01.html' */
+  try {
+    if (window._sharePaths && window._sharePaths[id]) {
+      history.replaceState(null, '', window._sharePaths[id]);
+    }
+  } catch(e) {}
 }
 
 // 知识图谱3D / 任意深链接：跳转到某个 section（自动定位它所在的 page，再平滑滚动过去）
