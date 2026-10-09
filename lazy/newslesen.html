@@ -1,4 +1,7 @@
-<div class="nl-wrap">
+<div class="nl-langbar">
+  <button class="nl-lang is-on" type="button" data-lang="de" onclick="nlLang(this,'de')">德语</button>
+  <button class="nl-lang" type="button" data-lang="en" onclick="nlLang(this,'en')">英语</button>
+</div>
 <style>
 .nl-wrap{--nl-gold:#f6d365;--nl-line:#1e3a5f;--nl-dim:#8ba3c4;--nl-dim2:#64789a;
   --nl-read:720px;max-width:1040px;margin:0 auto;padding:0 20px 56px}
@@ -99,6 +102,24 @@
 .nl-dot:hover{border-color:rgba(246,211,101,.45);color:var(--nl-gold)}
 .nl-dot.is-on{background:var(--nl-gold);color:#12244a;border-color:var(--nl-gold)}
 
+/* ── 语言切换（德语 / 英语各一套完整结构）── */
+.nl-langbar{display:flex;gap:8px;margin:0 0 6px;padding-bottom:20px;
+  border-bottom:1px solid var(--nl-line)}
+.nl-lang{background:transparent;color:#a9bcd6;border:1px solid var(--nl-line);
+  border-radius:10px;padding:9px 30px;font:inherit;font-weight:700;font-size:.92rem;
+  cursor:pointer;transition:.18s;letter-spacing:.06em}
+.nl-lang:hover{border-color:rgba(246,211,101,.45);color:var(--nl-gold)}
+.nl-lang.is-on{background:var(--nl-gold);color:#12244a;border-color:var(--nl-gold)}
+.nl-wrap{display:none}
+.nl-wrap.is-on{display:block}
+
+/* ── 朗读 ── */
+.nl-audio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin:0 0 25px;padding:11px 15px;border:1px solid rgba(246,211,101,.22);
+  border-radius:12px;background:rgba(246,211,101,.035)}
+.nl-audio-t{font-size:.82rem;color:var(--nl-gold);font-weight:700;white-space:nowrap}
+.nl-audio audio{flex:1;min-width:210px;height:34px}
+
 /* 期：一次只显示一期 */
 .nl-issue{display:none}
 .nl-issue.is-on{display:block}
@@ -115,17 +136,18 @@
 }
 </style>
 
-  <div class="nl-topbar">
-    <select class="nl-ep-select" id="nlEpSelect" onchange="nlShow(this.value)">
-      <option value="1">第 01 期 · 德国研究者获得诺贝尔医学奖</option>
-      <option value="2" selected>第 02 期 · 德国与英国：友好条约正式生效</option>
-    </select>
-    <div class="nl-ctl">
-      <button class="nl-btn" type="button" onclick="nlGo(-1)" aria-label="上一页">‹</button>
-      <span class="nl-count" id="nlCount">1 / 6</span>
-      <button class="nl-btn" type="button" onclick="nlGo(1)" aria-label="下一页">›</button>
+  <div class="nl-wrap is-on" data-lang="de">
+    <div class="nl-topbar">
+      <select class="nl-ep-select" onchange="nlShow(this,this.value)">
+        <option value="1">第 01 期 · 德国研究者获得诺贝尔医学奖</option>
+        <option value="2" selected>第 02 期 · 德国与英国：友好条约正式生效</option>
+      </select>
+      <div class="nl-ctl">
+        <button class="nl-btn" type="button" onclick="nlGo(-1)" aria-label="上一页">‹</button>
+        <span class="nl-count">1 / 6</span>
+        <button class="nl-btn" type="button" onclick="nlGo(1)" aria-label="下一页">›</button>
+      </div>
     </div>
-  </div>
 
 
   <section class="nl-issue" data-ep="1">
@@ -156,6 +178,7 @@
           <span class="nl-lvbadge">A1</span>
           <span class="nl-lvnote">A1 · 最短的句子，零基础也能读</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-01-A1.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Drei Forscher bekommen den Nobel-Preis für Medizin.</p><p class="nl-zh">三位研究者获得诺贝尔医学奖。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Peter Hegemann und Georg Nagel kommen aus Deutschland.</p><p class="nl-zh">彼得·黑格曼和格奥尔格·纳格尔来自德国。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Karl Deisseroth kommt aus den USA.</p><p class="nl-zh">卡尔·戴瑟罗斯来自美国。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Sie haben das Gehirn erforscht.</p><p class="nl-zh">他们研究大脑。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Sie können Nerven-Zellen mit Licht steuern.</p><p class="nl-zh">他们能用光控制神经细胞。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Das nennt man Opto-Genetik.</p><p class="nl-zh">这叫做「光遗传学」。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Die Forscher bekommen ungefähr 1 Million Euro.</p><p class="nl-zh">研究者们一共获得约 100 万欧元。</p></div></div>
         <span class="nl-pn">02 / 06</span>
       </article>
@@ -165,6 +188,7 @@
           <span class="nl-lvbadge">A2</span>
           <span class="nl-lvnote">A2 · 完整短句，加了连接词</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-01-A2.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">In diesem Jahr bekommen drei Forscher den Nobel-Preis für Medizin.</p><p class="nl-zh">今年，三位研究者获得了诺贝尔医学奖。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Peter Hegemann und Georg Nagel kommen aus Deutschland, Karl Deisseroth kommt aus den USA.</p><p class="nl-zh">彼得·黑格曼和格奥尔格·纳格尔来自德国，卡尔·戴瑟罗斯来自美国。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Die drei haben Nerven-Zellen im Gehirn erforscht.</p><p class="nl-zh">这三人研究了大脑里的神经细胞。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Mit einem Licht-Strahl können sie diese Zellen steuern: Der Licht-Strahl entscheidet, ob die Zelle Signale weiterleitet oder nicht.</p><p class="nl-zh">他们能用一束光控制这些细胞：这束光决定细胞要不要传递信号。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Diese Methode heißt Opto-Genetik.</p><p class="nl-zh">这种方法叫光遗传学。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">So können Forscher besser verstehen, wie das Gehirn funktioniert.</p><p class="nl-zh">这样一来，研究者能更好地理解大脑是怎么运作的。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Ärzte können damit zum Beispiel Augen behandeln.</p><p class="nl-zh">医生可以用它来治疗眼睛，等等。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Der Preis wird im Dezember in Schweden überreicht.</p><p class="nl-zh">这个奖将于十二月在瑞典颁发。</p></div></div>
         <span class="nl-pn">03 / 06</span>
       </article>
@@ -174,6 +198,7 @@
           <span class="nl-lvbadge">B1</span>
           <span class="nl-lvnote">B1 · 完整新闻报道的写法</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-01-B1.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Der Nobel-Preis für Medizin geht in diesem Jahr an drei Forscher: Peter Hegemann und Georg Nagel aus Deutschland sowie Karl Deisseroth aus den USA.</p><p class="nl-zh">今年的诺贝尔医学奖授予三位研究者：来自德国的彼得·黑格曼和格奥尔格·纳格尔，以及来自美国的卡尔·戴瑟罗斯。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Ausgezeichnet werden sie für ihre Forschung an Nervenzellen im Gehirn.</p><p class="nl-zh">他们获奖是因为对大脑神经细胞的研究。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Mithilfe von Lichtstrahlen lassen sich diese Zellen gezielt steuern – je nach Lichteinfall leiten sie Signale weiter oder nicht.</p><p class="nl-zh">借助光束可以有针对性地控制这些细胞——根据光照不同，它们传递信号或者不传递。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Das Verfahren ist unter dem Namen Optogenetik bekannt.</p><p class="nl-zh">这种方法以「光遗传学」之名广为人知。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Dadurch lässt sich besser verstehen, wie das Gehirn arbeitet.</p><p class="nl-zh">由此可以更好地理解大脑如何工作。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Nach Angaben der Nobel-Jury eröffnet die Methode Ärzten neue Möglichkeiten, etwa bei der Behandlung von Augen.</p><p class="nl-zh">据诺贝尔奖评委会称，这种方法为医生开辟了新的可能，例如在眼睛的治疗方面。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Die drei Forscher teilen sich ein Preisgeld von rund einer Million Euro.</p><p class="nl-zh">三位研究者分享约一百万欧元的奖金。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Überreicht wird der Preis im Dezember in Schweden.</p><p class="nl-zh">该奖将于十二月在瑞典颁发。</p></div></div>
         <span class="nl-pn">04 / 06</span>
       </article>
@@ -183,6 +208,7 @@
           <span class="nl-lvbadge">B2</span>
           <span class="nl-lvnote">B2 · 书面语的复杂结构（被动、分词定语、名词化）</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-01-B2.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Der Medizin-Nobelpreis geht in diesem Jahr an drei Wissenschaftler, die als Pioniere der Optogenetik gelten: die Deutschen Peter Hegemann und Georg Nagel sowie der US-Amerikaner Karl Deisseroth.</p><p class="nl-zh">今年的诺贝尔医学奖授予三位被视为光遗传学奠基人的科学家：来自德国的彼得·黑格曼和格奥尔格·纳格尔，以及美籍学者卡尔·戴瑟罗斯。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Geehrt wird damit ein Verfahren, das es ermöglicht, Nervenzellen im Gehirn mithilfe von Lichtstrahlen gezielt zu steuern.</p><p class="nl-zh">此次表彰的是一种方法，它使人们能够借助光束，对大脑中的神经细胞进行精准控制。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Je nach Lichteinfall werden Signale weitergeleitet oder unterdrückt – ein Mechanismus, der tiefe Einblicke in die Funktionsweise des Gehirns eröffnet.</p><p class="nl-zh">根据光照的不同，信号会被传递或被抑制——这一机制为深入了解大脑的运作方式打开了窗口。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Nach Einschätzung der Nobel-Jury eröffnet das Verfahren der Medizin neue Möglichkeiten, etwa bei der Behandlung von Augen.</p><p class="nl-zh">据诺贝尔奖评委会的评估，该方法为医学开辟了新的可能性，尤其是在眼睛的治疗方面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Die Auszeichnung ist mit rund einer Million Euro dotiert. Überreicht wird sie im Dezember in Schweden.</p><p class="nl-zh">该奖项奖金约一百万欧元，将于十二月在瑞典颁发。</p></div></div>
         <span class="nl-pn">05 / 06</span>
       </article>
@@ -246,6 +272,7 @@
           <span class="nl-lvbadge">A1</span>
           <span class="nl-lvnote">A1 · 最短的句子，零基础也能读</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-02-A1.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Groß-Britannien haben einen Freundschafts-Vertrag.</p><p class="nl-zh">德国和英国有一份友好条约。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Der Regierungs-Chef von Deutschland heißt Friedrich Merz.</p><p class="nl-zh">德国政府首脑叫弗里德里希·默茨。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der Regierungs-Chef von Groß-Britannien heißt Andy Burnham.</p><p class="nl-zh">英国政府首脑叫安迪·伯纳姆。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die zwei Männer haben sich in Berlin getroffen.</p><p class="nl-zh">这两人在柏林见了面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Sie wollen mehr zusammen machen.</p><p class="nl-zh">他们想开展更多合作。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Zum Beispiel bei der Verteidigung.</p><p class="nl-zh">比如在国防方面。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Und sie wollen mehr gegen Kriminalität tun.</p><p class="nl-zh">他们也希望在打击犯罪方面做更多的事。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Schüler brauchen für Klassen-Fahrten kein Visum mehr.</p><p class="nl-zh">学生参加班级旅行不再需要签证。</p></div><div class="nl-line"><span class="nl-no">09</span><p class="nl-de">Es soll auch eine direkte Bahn-Verbindung geben.</p><p class="nl-zh">还应该有一条直达的铁路线。</p></div><div class="nl-line"><span class="nl-no">10</span><p class="nl-de">Merz sagt: Das ist ein historischer Tag.</p><p class="nl-zh">默茨说：这是历史性的一天。</p></div></div>
         <span class="nl-pn">02 / 06</span>
       </article>
@@ -255,6 +282,7 @@
           <span class="nl-lvbadge">A2</span>
           <span class="nl-lvnote">A2 · 完整短句，加了连接词</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-02-A2.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Groß-Britannien haben jetzt einen Freundschafts-Vertrag.</p><p class="nl-zh">德国和英国现在有了一份友好条约。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Der Bundes-Kanzler Friedrich Merz und der britische Regierungs-Chef Andy Burnham haben sich in Berlin getroffen.</p><p class="nl-zh">联邦总理弗里德里希·默茨和英国政府首脑安迪·伯纳姆在柏林会面。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Sie haben den Vertrag in Kraft gesetzt. Das heißt: Der Vertrag gilt jetzt.</p><p class="nl-zh">他们让条约正式生效。也就是说：条约从现在起有效。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die beiden Länder wollen zum Beispiel bei der Verteidigung mehr zusammen machen.</p><p class="nl-zh">两国想要比如在国防方面开展更多合作。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Sie wollen auch mehr gegen Kriminalität tun.</p><p class="nl-zh">他们也想在打击犯罪方面做更多的事。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">In dem Vertrag steht: Schüler brauchen für Klassen-Fahrten in das andere Land kein Visum mehr.</p><p class="nl-zh">条约中写道：学生去对方国家参加班级旅行，不再需要签证。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Es soll auch eine direkte Bahn-Verbindung zwischen den beiden Ländern geben.</p><p class="nl-zh">两国之间还应该开通一条直达铁路。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Merz sagt: Das ist ein historischer Tag. Denn Groß-Britannien ist vor fast 7 Jahren aus der EU ausgetreten.</p><p class="nl-zh">默茨说：这是历史性的一天。因为英国在大约七年前退出了欧盟。</p></div></div>
         <span class="nl-pn">03 / 06</span>
       </article>
@@ -264,6 +292,7 @@
           <span class="nl-lvbadge">B1</span>
           <span class="nl-lvnote">B1 · 完整新闻报道的写法</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-02-B1.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Großbritannien haben ihren Freundschaftsvertrag in Kraft gesetzt.</p><p class="nl-zh">德国和英国让双方的友好条约正式生效。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Bundeskanzler Friedrich Merz und der britische Premierminister Andy Burnham tauschten im Kanzleramt in Berlin die Ratifizierungsurkunden aus.</p><p class="nl-zh">联邦总理弗里德里希·默茨和英国首相安迪·伯纳姆在柏林总理府交换了批准书。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der Vertrag heißt Kensington-Vertrag und wurde im vergangenen Jahr in London unterschrieben.</p><p class="nl-zh">这份条约叫「肯辛顿条约」，去年在伦敦签署。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die beiden Länder wollen künftig enger zusammenarbeiten, zum Beispiel in der Verteidigungs- und Wirtschaftspolitik.</p><p class="nl-zh">两国今后希望更紧密地合作，比如在国防与经济政策方面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Außerdem wollen sie irreguläre Migration eindämmen und grenzüberschreitende Kriminalität bekämpfen.</p><p class="nl-zh">此外，他们想遏制非正常移民，并打击跨境犯罪。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Für Schüler und Studenten gibt es Erleichterungen: Bei Klassenfahrten ins andere Land brauchen sie kein Visum mehr.</p><p class="nl-zh">对学生来说有了便利：参加去对方国家的班级旅行，不再需要签证。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Geplant ist außerdem eine direkte Bahnverbindung zwischen Deutschland und Großbritannien.</p><p class="nl-zh">此外还计划开通德国与英国之间的直达铁路。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Merz sprach von einem historischen Tag. Großbritannien war vor fast sieben Jahren aus der Europäischen Union ausgetreten.</p><p class="nl-zh">默茨称这是历史性的一天。英国大约七年前退出了欧盟。</p></div><div class="nl-line"><span class="nl-no">09</span><p class="nl-de">Burnham sagte, Deutschland sei einer der engsten Partner Großbritanniens.</p><p class="nl-zh">伯纳姆说，德国是英国最紧密的伙伴之一。</p></div></div>
         <span class="nl-pn">04 / 06</span>
       </article>
@@ -273,6 +302,7 @@
           <span class="nl-lvbadge">B2</span>
           <span class="nl-lvnote">B2 · 书面语的复杂结构（被动、分词定语、名词化）</span>
         </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/de-02-B2.mp3"></audio></div>
         <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Mehr als sechs Jahre nach dem Brexit haben Deutschland und Großbritannien ihre Beziehungen auf eine neue Grundlage gestellt.</p><p class="nl-zh">脱欧六年多之后，德国和英国把两国关系置于新的基础之上。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Bundeskanzler Friedrich Merz und Premierminister Andy Burnham tauschten im Bundeskanzleramt die Ratifizierungsurkunden aus und setzten damit den Freundschaftsvertrag in Kraft.</p><p class="nl-zh">联邦总理弗里德里希·默茨和首相安迪·伯纳姆在联邦总理府交换了批准书，从而让友好条约正式生效。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der sogenannte Kensington-Vertrag war im vergangenen Jahr in London unterzeichnet worden.</p><p class="nl-zh">这份所谓的「肯辛顿条约」是去年在伦敦签署的。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Er sieht eine vertiefte Zusammenarbeit in der Verteidigungs- und Wirtschaftspolitik vor sowie Maßnahmen gegen irreguläre Migration und gegen grenzüberschreitende Kriminalität.</p><p class="nl-zh">条约规定在国防与经济政策上深化合作，并采取措施应对非正常移民和跨境犯罪。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Insbesondere Schülerinnen und Schülern sowie Studierenden soll die Einreise erleichtert werden: Für Klassenfahrten ins jeweils andere Land benötigen sie künftig kein Visum mehr.</p><p class="nl-zh">尤其是中小学生和大学生，入境将会更便利：今后前往对方国家参加班级旅行不再需要签证。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Darüber hinaus ist eine direkte Bahnverbindung zwischen beiden Ländern geplant.</p><p class="nl-zh">除此之外，还计划开通两国之间的直达铁路。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Merz bezeichnete den Tag als historisch und betonte, die junge Generation solle spüren, wie eng Europäer zusammenarbeiten und zusammengehören.</p><p class="nl-zh">默茨把这一天称为历史性的，并强调年轻一代应当感受到欧洲人之间的合作与归属有多么紧密。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Burnham nannte Deutschland einen der engsten Partner seines Landes; der Vertrag werde die Sicherheit in Europa verbessern, die Wirtschaft wachsen lassen und den Lebensstandard erhöhen.</p><p class="nl-zh">伯纳姆称德国是英国最紧密的伙伴之一；这份条约将改善欧洲的安全、促进经济增长并提高生活水平。</p></div></div>
         <span class="nl-pn">05 / 06</span>
       </article>
@@ -314,51 +344,153 @@
     </div>
   </section>
 
-  <div class="nl-dots" id="nlDots">
-    <button class="nl-dot is-on" type="button" onclick="nlPage(0)">封面</button>
-    <button class="nl-dot" type="button" onclick="nlPage(1)">A1</button>
-    <button class="nl-dot" type="button" onclick="nlPage(2)">A2</button>
-    <button class="nl-dot" type="button" onclick="nlPage(3)">B1</button>
-    <button class="nl-dot" type="button" onclick="nlPage(4)">B2</button>
-    <button class="nl-dot" type="button" onclick="nlPage(5)">生词</button>
+    <div class="nl-dots">
+      <button class="nl-dot is-on" type="button" onclick="nlPage(0)">封面</button>
+      <button class="nl-dot" type="button" onclick="nlPage(1)">A1</button>
+      <button class="nl-dot" type="button" onclick="nlPage(2)">A2</button>
+      <button class="nl-dot" type="button" onclick="nlPage(3)">B1</button>
+      <button class="nl-dot" type="button" onclick="nlPage(4)">B2</button>
+      <button class="nl-dot" type="button" onclick="nlPage(5)">生词</button>
+    </div>
   </div>
-</div>
+
+
+  <div class="nl-wrap" data-lang="en">
+    <div class="nl-topbar">
+      <select class="nl-ep-select" onchange="nlShow(this,this.value)">
+        <option value="1" selected>第 01 篇 · 澳大利亚海军营救横渡太平洋的划船者</option>
+      </select>
+      <div class="nl-ctl">
+        <button class="nl-btn" type="button" onclick="nlGo(-1)" aria-label="上一页">‹</button>
+        <span class="nl-count">1 / 5</span>
+        <button class="nl-btn" type="button" onclick="nlGo(1)" aria-label="下一页">›</button>
+      </div>
+    </div>
+
+
+  <section class="nl-issue is-on" data-ep="1">
+    <div class="nl-track">
+
+      <article class="nl-page nl-pg-cover">
+        <div class="nl-hero" style="">
+          <div class="nl-hero-txt">
+            <div class="nl-hook">澳大利亚海军营救横渡太平洋的划船者</div>
+            
+          </div>
+        </div>
+        <div class="nl-kicker">ENGLISH NEWS · NACH NIVEAU</div>
+        <h1 class="nl-cover-de">Australian Navy Rescues Rower Crossing Pacific</h1>
+        <div class="nl-cover-zh">澳大利亚海军营救横渡太平洋的划船者</div>
+        <div class="nl-meta">
+          <span class="k">第 01 期</span>
+          <span>2026-03-11</span>
+          <span>VOA Learning English（自主改写）</span>
+          <span>A1 · A2 · B1 · B2</span>
+        </div>
+        <div class="nl-hint">← 左右滑动翻页，同一个故事换四种难度 →</div>
+        <span class="nl-pn">01 / 05</span>
+      </article>
+
+      <article class="nl-page" data-lv="A2">
+        <div class="nl-lvhead">
+          <span class="nl-lvbadge">A2</span>
+          <span class="nl-lvnote">A2 · 短句为主，最常用的词</span>
+        </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/en-01-A2.mp3"></audio></div>
+        <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">A man from Lithuania tried to row across the Pacific Ocean alone.</p><p class="nl-zh">一名立陶宛男子试图独自划船横渡太平洋。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">His name is Aurimas Mockus. He is 44 years old.</p><p class="nl-zh">他叫 Aurimas Mockus，44 岁。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">He started in October from San Diego, in the United States.</p><p class="nl-zh">他十月从美国圣迭戈出发。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">He wanted to row to Brisbane, Australia — about 12,000 kilometres.</p><p class="nl-zh">他想划到澳大利亚布里斯班——大约 12000 公里。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">But there was a big storm near Australia.</p><p class="nl-zh">但澳大利亚附近来了一场大风暴。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">His small boat was badly damaged, and he waited three days in the sea.</p><p class="nl-zh">他的小船严重损坏，他在海上等了三天。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">He sent an emergency signal. A rescue team heard it.</p><p class="nl-zh">他发出求救信号，一支救援队收到了。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">On 3 March, an Australian navy ship rescued him.</p><p class="nl-zh">3 月 3 日，一艘澳大利亚海军舰艇把他救了起来。</p></div><div class="nl-line"><span class="nl-no">09</span><p class="nl-de">He is safe now. The ship is taking him to Sydney.</p><p class="nl-zh">他现在安全了。船正把他送往悉尼。</p></div><div class="nl-line"><span class="nl-no">10</span><p class="nl-de">Only a few people have rowed across the Pacific alone.</p><p class="nl-zh">只有极少数人独自划过太平洋。</p></div></div>
+        <span class="nl-pn">02 / 05</span>
+      </article>
+
+      <article class="nl-page" data-lv="B1">
+        <div class="nl-lvhead">
+          <span class="nl-lvbadge">B1</span>
+          <span class="nl-lvnote">B1 · 完整句子，加了连接词和从句</span>
+        </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/en-01-B1.mp3"></audio></div>
+        <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">A rower from Lithuania has been rescued by an Australian navy ship after he ran into a storm near Australia.</p><p class="nl-zh">一名来自立陶宛的划船者在澳大利亚附近遭遇风暴后，被一艘澳大利亚海军舰艇救起。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">The man, Aurimas Mockus, is 44 years old. He started his trip alone in October from San Diego, in the United States.</p><p class="nl-zh">这名男子 Aurimas Mockus 今年 44 岁。他十月独自一人从美国圣迭戈出发。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">He wanted to row about 12,000 kilometres to Brisbane, Australia. He was only 740 kilometres from the coast when he hit a tropical cyclone.</p><p class="nl-zh">他想划大约 12000 公里到澳大利亚布里斯班。遭遇热带气旋时，他离海岸只有 740 公里。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">His small boat was badly damaged, and he stayed in the sea for three days before the rescue.</p><p class="nl-zh">他的小船严重损坏，在被救之前他在海上待了三天。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">He sent an emergency signal, and a rescue team made radio contact with him. He told them he was very tired.</p><p class="nl-zh">他发出求救信号，救援队与他建立了无线电联系。他告诉他们自己非常疲惫。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">On 3 March, he was brought onto the Australian warship. The ship is now taking him to Sydney.</p><p class="nl-zh">3 月 3 日，他被接到澳大利亚军舰上。这艘船现在正送他前往悉尼。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Mockus wanted to be one of the few people who have rowed across the Pacific alone and without stopping.</p><p class="nl-zh">Mockus 想成为极少数独自、不间断划过太平洋的人之一。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Only a few people have done this. They include Peter Bird from Britain in 1983 and Michelle Lee from Australia in 2023.</p><p class="nl-zh">做到这一点的人很少，其中包括 1983 年的英国人 Peter Bird 和 2023 年的澳大利亚人 Michelle Lee。</p></div></div>
+        <span class="nl-pn">03 / 05</span>
+      </article>
+
+      <article class="nl-page" data-lv="B2">
+        <div class="nl-lvhead">
+          <span class="nl-lvbadge">B2</span>
+          <span class="nl-lvnote">B2 · 书面表达（被动、分词短语、名词化）</span>
+        </div>
+        <div class="nl-audio"><span class="nl-audio-t">🎧 听这一版</span><audio controls preload="none" src="/audio/news/en-01-B2.mp3"></audio></div>
+        <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">A rower attempting a solo crossing of the Pacific Ocean has been rescued by an Australian navy vessel after his boat was severely damaged in a tropical cyclone.</p><p class="nl-zh">一名试图独自横渡太平洋的划船者，在船被热带气旋严重损毁后，被一艘澳大利亚海军舰艇救起。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Aurimas Mockus, 44, set off from San Diego in California in October, hoping to row roughly 12,000 kilometres to Brisbane on Australia's east coast.</p><p class="nl-zh">44 岁的 Aurimas Mockus 十月从加州圣迭戈出发，目标是划大约 12000 公里，抵达澳大利亚东海岸的布里斯班。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">He had come within 740 kilometres of the mainland when he encountered Cyclone Alfred, whose winds reached 80 kilometres per hour.</p><p class="nl-zh">遭遇气旋 Alfred 时，他距离大陆仅剩 740 公里；当时风速达到每小时 80 公里。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Stranded in the Coral Sea for three days, Mockus activated an emergency beacon, which allowed rescuers to establish radio contact. He was described as fatigued.</p><p class="nl-zh">Mockus 在珊瑚海被困三天，他启动了应急信标，救援人员因此得以建立无线电联系。他被描述为「极度疲惫」。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">The enclosed vessel he had been travelling in was largely destroyed, and he was able to recover only a few personal belongings.</p><p class="nl-zh">他乘坐的封闭式小艇大部分被毁，他只抢回了少数随身物品。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">He was taken aboard a Royal Australian Navy warship on 3 March and is being transported to Sydney.</p><p class="nl-zh">3 月 3 日他被接上澳大利亚皇家海军军舰，目前正被送往悉尼。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Solo, non-stop crossings of the Pacific remain exceptionally rare.</p><p class="nl-zh">独自、不间断横渡太平洋仍然极为罕见。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Peter Bird of Britain became the first to attempt one in 1983, although he was towed for the final 48 kilometres. Australia's Michelle Lee became the first woman to complete the crossing in 2023.</p><p class="nl-zh">1983 年英国人 Peter Bird 首次尝试，尽管最后 48 公里是被拖行的。2023 年澳大利亚人 Michelle Lee 成为首位完成横渡的女性。</p></div></div>
+        <span class="nl-pn">04 / 05</span>
+      </article>
+
+      <article class="nl-page nl-pg-words">
+        <div class="nl-words">
+          <h3>词汇 · Vocabulary</h3>
+          <div class="nl-wgrid">
+          <span class="nl-w"><b>row / rower</b>划船 / 划船者</span>
+          <span class="nl-w"><b>rescue</b>营救</span>
+          <span class="nl-w"><b>navy vessel / warship</b>海军舰艇 / 军舰</span>
+          <span class="nl-w"><b>storm / cyclone</b>风暴 / 气旋</span>
+          <span class="nl-w"><b>be stranded</b>被困住</span>
+          <span class="nl-w"><b>emergency beacon</b>应急信标</span>
+          <span class="nl-w"><b>radio contact</b>无线电联系</span>
+          <span class="nl-w"><b>fatigued</b>极度疲惫的</span>
+          <span class="nl-w"><b>belongings</b>随身物品</span>
+          <span class="nl-w"><b>mainland / coast</b>大陆 / 海岸</span>
+          <span class="nl-w"><b>non-stop</b>不间断的</span>
+          <span class="nl-w"><b>be towed</b>被拖行</span>
+          <span class="nl-w"><b>attempt</b>尝试</span>
+          <span class="nl-w"><b>damaged / destroyed</b>损坏的 / 被毁的</span>
+          </div>
+        </div>
+        <div class="nl-src">Quelle: VOA Learning English（自主改写） · 2026-03-11<br>
+        本条为自主改写，仅取新闻事实，非逐句翻译。</div>
+        <span class="nl-pn">05 / 05</span>
+      </article>
+    </div>
+  </section>
+
+    <div class="nl-dots">
+      <button class="nl-dot is-on" type="button" onclick="nlPage(0)">封面</button>
+      <button class="nl-dot" type="button" onclick="nlPage(1)">A2</button>
+      <button class="nl-dot" type="button" onclick="nlPage(2)">B1</button>
+      <button class="nl-dot" type="button" onclick="nlPage(3)">B2</button>
+      <button class="nl-dot" type="button" onclick="nlPage(4)">生词</button>
+    </div>
+  </div>
+
 
 <script>
-/* 登记本页面的分享路径 —— showPage 每次进这一页都会把地址栏切过去，
-   微信抓 OG 才读得到（它读不到 '#' 后面的东西）。见 index.html 的 _sharePaths。 */
+/* 登记分享路径 —— showPage 每次进这一页都会把地址栏切过去，
+   微信抓 OG 读不到 '#' 后面的东西。见 index.html 的 _sharePaths。 */
 (function(){
   var NEWEST = '02';
   var P = '/news/' + NEWEST + '.html';
   window._sharePaths = window._sharePaths || {};
   window._sharePaths['newslesen'] = P;
-  /* 来自 /news/<NN>.html 包装页的深链接：那边把期数塞进 sessionStorage，
-     这里读出来直接打开那一期（跟 林夏在德国 的 serieEp 一个套路）。 */
   var want = null;
   try { want = sessionStorage.getItem('nlEp'); if (want) sessionStorage.removeItem('nlEp'); } catch(e) {}
-  if (want && [1,2].indexOf(parseInt(want, 10)) >= 0) {
-    var sel = document.getElementById('nlEpSelect');
-    if (sel) sel.value = String(parseInt(want, 10));
-    nlShow(want);
-  } else {
-    /* 首次进来时 showPage 早就跑过了（那时本页还没加载，登记不存在），
-       所以这里立刻补一次，别等下次。 */
-    try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', P); } catch(e) {}
-  }
+  window._nlWantEp = want;
+  try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', P); } catch(e) {}
 })();
+
+/* ══════ 语种切换 ══════ */
+function nlRoot(){ return document.querySelector('.nl-wrap.is-on'); }
+function nlLang(btn, lang){
+  document.querySelectorAll('.nl-lang').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
+  document.querySelectorAll('.nl-wrap').forEach(function(w){ w.classList.toggle('is-on', w.dataset.lang === lang); });
+  nlBind(); nlFit(); nlSync();
+}
 
 /* ══════ 翻页 ══════ */
 var NL_SMOOTH = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   ? 'auto' : 'smooth';
 
-function nlActive(){ return document.querySelector('.nl-issue.is-on'); }
+function nlActive(){ var r = nlRoot(); return r ? r.querySelector('.nl-issue.is-on') : null; }
 function nlTrack(){ var a = nlActive(); return a ? a.querySelector('.nl-track') : null; }
 function nlPageCnt(){ var t = nlTrack(); return t ? t.querySelectorAll('.nl-page').length : 0; }
 function nlIdx(){
   var t = nlTrack(); if (!t) return 0;
   var w = t.clientWidth || 1;
-  var i = Math.round(t.scrollLeft / w);
-  return Math.max(0, Math.min(nlPageCnt() - 1, i));
+  return Math.max(0, Math.min(nlPageCnt() - 1, Math.round(t.scrollLeft / w)));
 }
 /* 轨道高度跟着当前页走 —— 不然短的封面页会被最高那页撑出大片空白 */
 function nlFit(){
@@ -370,61 +502,69 @@ function nlFit(){
   var i = Math.max(0, Math.min(pages.length - 1, Math.floor(pos)));
   var j = Math.min(pages.length - 1, i + 1);
   var h = pages[i].offsetHeight;
-  /* 拖到两页之间时取较高者，别把正在看的那页裁掉 */
   if (pos - i > 0.02 && pages[j]) h = Math.max(h, pages[j].offsetHeight);
   t.style.height = Math.round(h + 2) + 'px';
 }
 function nlSync(){
+  var r = nlRoot(); if (!r) return;
   var i = nlIdx(), n = nlPageCnt();
-  var c = document.getElementById('nlCount');
+  var c = r.querySelector('.nl-count');
   if (c) c.textContent = (i + 1) + ' / ' + n;
-  var dots = document.querySelectorAll('#nlDots .nl-dot');
-  for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('is-on', k === i);
-  var prev = document.querySelector('.nl-ctl .nl-btn[aria-label="上一页"]');
-  var next = document.querySelector('.nl-ctl .nl-btn[aria-label="下一页"]');
+  r.querySelectorAll('.nl-dot').forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
+  var prev = r.querySelector('.nl-ctl .nl-btn[aria-label="上一页"]');
+  var next = r.querySelector('.nl-ctl .nl-btn[aria-label="下一页"]');
   if (prev) prev.disabled = (i <= 0);
   if (next) next.disabled = (i >= n - 1);
 }
 function nlPage(i){
   var t = nlTrack(); if (!t) return;
-  var n = nlPageCnt();
-  i = Math.max(0, Math.min(n - 1, i));
+  i = Math.max(0, Math.min(nlPageCnt() - 1, i));
   t.scrollTo({ left: i * (t.clientWidth || 1), behavior: NL_SMOOTH });
-  setTimeout(nlSync, 60);   /* 无平滑滚动时 scroll 事件不一定来 */
+  setTimeout(nlSync, 60);
 }
 function nlGo(d){ nlPage(nlIdx() + d); }
 
-function nlShow(id){
-  var w = document.querySelector('.nl-wrap');
+/* 切期：sel 是那个语种自己的下拉框（两个语种各有一个） */
+function nlShow(sel, id){
+  var w = sel ? sel.closest('.nl-wrap') : nlRoot();
   if (!w) return;
   var ep = String(parseInt(id, 10));
   w.querySelectorAll('.nl-issue').forEach(function(s){ s.classList.toggle('is-on', s.dataset.ep === ep); });
-  /* 换期了就把翻页位置归零，否则会停在上一次的页号 */
   var t = w.querySelector('.nl-issue.is-on .nl-track');
   if (t) t.scrollLeft = 0;
-  nlFit();
-  nlSync();
-  /* 分享路径跟着当前期数走 —— 发第 2 期就该出第 2 期的预览卡 */
-  var nn = ep.length < 2 ? '0' + ep : ep;
-  window._sharePaths = window._sharePaths || {};
-  window._sharePaths['newslesen'] = '/news/' + nn + '.html';
-  try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', window._sharePaths['newslesen']); } catch(e) {}
+  nlFit(); nlSync();
+  /* 分享路径跟着当前期数 —— 发第 2 期就该出第 2 期的预览卡（以德语为准） */
+  if (w.dataset.lang === 'de') {
+    var nn = ep.length < 2 ? '0' + ep : ep;
+    window._sharePaths = window._sharePaths || {};
+    window._sharePaths['newslesen'] = '/news/' + nn + '.html';
+    try { if (location.hash.indexOf('newslesen') >= 0)
+      history.replaceState(null, '', window._sharePaths['newslesen']); } catch(e) {}
+  }
 }
 
-/* 每条轨道各挂一个滚动监听，同步页码 */
-(function(){
-  var w = document.querySelector('.nl-wrap');
-  if (!w) return;
-  w.querySelectorAll('.nl-track').forEach(function(t){
+function nlBind(){
+  var r = nlRoot(); if (!r) return;
+  r.querySelectorAll('.nl-track').forEach(function(t){
+    if (t.dataset.bound) return;
+    t.dataset.bound = '1';
     t.addEventListener('scroll', function(){ nlFit(); nlSync(); }, { passive: true });
   });
-  if (w.querySelector('.nl-issue.is-on .nl-track')) { nlFit(); nlSync(); }
-  /* 字体/图片晚一步到位会改变页高，再量一次 */
-  window.addEventListener('load', nlFit);
+}
+/* 首次进入：应用深链接的期数，量高、同步 */
+function nlStart(){
+  var r = nlRoot(); if (!r) return;
+  var want = window._nlWantEp;
+  var sel = r.querySelector('.nl-ep-select');
+  if (want && sel) {
+    var ok = Array.prototype.some.call(sel.options, function(o){ return o.value === String(parseInt(want,10)); });
+    if (ok) { sel.value = String(parseInt(want, 10)); nlShow(sel, want); }
+  }
+  nlBind(); nlFit(); nlSync();
   setTimeout(nlFit, 400);
-})();
+}
 
-/* 键盘左右键 —— 只在本页可见时接管，且不在输入框里 */
+/* 键盘左右键 —— 只在本页可见时接管 */
 document.addEventListener('keydown', function(e){
   var pg = document.getElementById('page-newslesen');
   if (!pg || pg.style.display === 'none') return;
@@ -434,10 +574,7 @@ document.addEventListener('keydown', function(e){
   else if (e.key === 'ArrowLeft') { nlGo(-1); e.preventDefault(); }
 });
 
-/* 窗口尺寸变了（横竖屏切换）要重新吸附到当前页 */
-window.addEventListener('resize', function(){
-  var t = nlTrack(); if (!t) return;
-  t.scrollLeft = nlIdx() * (t.clientWidth || 1);
-  nlFit(); nlSync();
-});
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', nlStart);
+else nlStart();
+window.addEventListener('load', function(){ nlFit(); });
 </script>
