@@ -33,6 +33,10 @@
 .nl-tab:hover{border-color:rgba(246,211,101,.45);color:var(--nl-gold)}
 .nl-tab.is-on{background:var(--nl-gold);color:#12244a;border-color:var(--nl-gold)}
 
+/* 期：一次只显示一期，下拉切换 */
+.nl-issue{display:none}
+.nl-issue.is-on{display:block}
+
 /* 正文 */
 .nl-panel{display:none}
 .nl-panel.is-on{display:block;animation:nlIn .22s ease}
@@ -69,30 +73,34 @@
   .nl-w{font-size:.84rem}
 }
 </style>
-  <header class="nl-cover">
-    <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
-    <h1 class="nl-cover-de">Forscher aus Deutschland bekommen Medizin-Nobel-Preis</h1>
-    <div class="nl-cover-zh">德国研究者获得诺贝尔医学奖</div>
-    <div class="nl-meta">
-      <span class="k">第 01 期</span>
-      <span>2026-10-05</span>
-      <span>nachrichtenleicht.de (Deutschlandfunk)</span>
-      <span>A1 · A2 · B1 · B2</span>
-    </div>
-  </header>
 
   <div class="nl-topbar">
     <select class="nl-ep-select" id="nlEpSelect" onchange="nlShow(this.value)">
       <option value="1">第 01 期 · 德国研究者获得诺贝尔医学奖</option>
+      <option value="2" selected>第 02 期 · 德国与英国：友好条约正式生效</option>
     </select>
   </div>
 
-  <div class="nl-tabs">
+
+  <section class="nl-issue" data-ep="1">
+    <header class="nl-cover">
+      <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
+      <h1 class="nl-cover-de">Forscher aus Deutschland bekommen Medizin-Nobel-Preis</h1>
+      <div class="nl-cover-zh">德国研究者获得诺贝尔医学奖</div>
+      <div class="nl-meta">
+        <span class="k">第 01 期</span>
+        <span>2026-10-05</span>
+        <span>nachrichtenleicht.de (Deutschlandfunk)</span>
+        <span>A1 · A2 · B1 · B2</span>
+      </div>
+    </header>
+
+    <div class="nl-tabs">
       <button class="nl-tab is-on" data-lv="A1" onclick="nlLevel(this,'A1')">A1</button>
       <button class="nl-tab" data-lv="A2" onclick="nlLevel(this,'A2')">A2</button>
       <button class="nl-tab" data-lv="B1" onclick="nlLevel(this,'B1')">B1</button>
       <button class="nl-tab" data-lv="B2" onclick="nlLevel(this,'B2')">B2</button>
-  </div>
+    </div>
 
     <div class="nl-panel is-on" data-lv="A1">
       <p class="nl-lv-note">A1 · 最短的句子，零基础也能读</p>
@@ -111,9 +119,9 @@
       <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Der Medizin-Nobelpreis geht in diesem Jahr an drei Wissenschaftler, die als Pioniere der Optogenetik gelten: die Deutschen Peter Hegemann und Georg Nagel sowie der US-Amerikaner Karl Deisseroth.</p><p class="nl-zh">今年的诺贝尔医学奖授予三位被视为光遗传学奠基人的科学家：来自德国的彼得·黑格曼和格奥尔格·纳格尔，以及美籍学者卡尔·戴瑟罗斯。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Geehrt wird damit ein Verfahren, das es ermöglicht, Nervenzellen im Gehirn mithilfe von Lichtstrahlen gezielt zu steuern.</p><p class="nl-zh">此次表彰的是一种方法，它使人们能够借助光束，对大脑中的神经细胞进行精准控制。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Je nach Lichteinfall werden Signale weitergeleitet oder unterdrückt – ein Mechanismus, der tiefe Einblicke in die Funktionsweise des Gehirns eröffnet.</p><p class="nl-zh">根据光照的不同，信号会被传递或被抑制——这一机制为深入了解大脑的运作方式打开了窗口。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Nach Einschätzung der Nobel-Jury eröffnet das Verfahren der Medizin neue Möglichkeiten, etwa bei der Behandlung von Augen.</p><p class="nl-zh">据诺贝尔奖评委会的评估，该方法为医学开辟了新的可能性，尤其是在眼睛的治疗方面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Die Auszeichnung ist mit rund einer Million Euro dotiert. Überreicht wird sie im Dezember in Schweden.</p><p class="nl-zh">该奖项奖金约一百万欧元，将于十二月在瑞典颁发。</p></div></div>
     </div>
 
-  <div class="nl-words">
-    <h3>生词表 · Wortschatz</h3>
-    <div class="nl-wgrid">
+    <div class="nl-words">
+      <h3>生词表 · Wortschatz</h3>
+      <div class="nl-wgrid">
         <span class="nl-w"><b>der Forscher</b>研究者</span>
         <span class="nl-w"><b>die Zelle</b>细胞</span>
         <span class="nl-w"><b>die Nerven-Zelle</b>神经细胞</span>
@@ -132,33 +140,124 @@
         <span class="nl-w"><b>das Preisgeld</b>奖金</span>
         <span class="nl-w"><b>die Jury</b>评委会</span>
         <span class="nl-w"><b>behandeln</b>治疗</span>
+      </div>
     </div>
-  </div>
 
-  <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-05<br>
-  本条为自主改写，仅取新闻事实，非逐句翻译。</div>
+    <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-05<br>
+    本条为自主改写，仅取新闻事实，非逐句翻译。</div>
+  </section>
+
+
+  <section class="nl-issue is-on" data-ep="2">
+    <header class="nl-cover">
+      <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
+      <h1 class="nl-cover-de">Deutschland und Großbritannien wollen enger zusammenarbeiten</h1>
+      <div class="nl-cover-zh">德国与英国：友好条约正式生效</div>
+      <div class="nl-meta">
+        <span class="k">第 02 期</span>
+        <span>2026-10-08</span>
+        <span>nachrichtenleicht.de (Deutschlandfunk)</span>
+        <span>A1 · A2 · B1 · B2</span>
+      </div>
+    </header>
+
+    <div class="nl-tabs">
+      <button class="nl-tab is-on" data-lv="A1" onclick="nlLevel(this,'A1')">A1</button>
+      <button class="nl-tab" data-lv="A2" onclick="nlLevel(this,'A2')">A2</button>
+      <button class="nl-tab" data-lv="B1" onclick="nlLevel(this,'B1')">B1</button>
+      <button class="nl-tab" data-lv="B2" onclick="nlLevel(this,'B2')">B2</button>
+    </div>
+
+    <div class="nl-panel is-on" data-lv="A1">
+      <p class="nl-lv-note">A1 · 最短的句子，零基础也能读</p>
+      <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Groß-Britannien haben einen Freundschafts-Vertrag.</p><p class="nl-zh">德国和英国有一份友好条约。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Der Regierungs-Chef von Deutschland heißt Friedrich Merz.</p><p class="nl-zh">德国政府首脑叫弗里德里希·默茨。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der Regierungs-Chef von Groß-Britannien heißt Andy Burnham.</p><p class="nl-zh">英国政府首脑叫安迪·伯纳姆。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die zwei Männer haben sich in Berlin getroffen.</p><p class="nl-zh">这两人在柏林见了面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Sie wollen mehr zusammen machen.</p><p class="nl-zh">他们想开展更多合作。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Zum Beispiel bei der Verteidigung.</p><p class="nl-zh">比如在国防方面。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Und sie wollen mehr gegen Kriminalität tun.</p><p class="nl-zh">他们也希望在打击犯罪方面做更多的事。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Schüler brauchen für Klassen-Fahrten kein Visum mehr.</p><p class="nl-zh">学生参加班级旅行不再需要签证。</p></div><div class="nl-line"><span class="nl-no">09</span><p class="nl-de">Es soll auch eine direkte Bahn-Verbindung geben.</p><p class="nl-zh">还应该有一条直达的铁路线。</p></div><div class="nl-line"><span class="nl-no">10</span><p class="nl-de">Merz sagt: Das ist ein historischer Tag.</p><p class="nl-zh">默茨说：这是历史性的一天。</p></div></div>
+    </div>
+    <div class="nl-panel" data-lv="A2">
+      <p class="nl-lv-note">A2 · 完整短句，加了连接词</p>
+      <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Groß-Britannien haben jetzt einen Freundschafts-Vertrag.</p><p class="nl-zh">德国和英国现在有了一份友好条约。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Der Bundes-Kanzler Friedrich Merz und der britische Regierungs-Chef Andy Burnham haben sich in Berlin getroffen.</p><p class="nl-zh">联邦总理弗里德里希·默茨和英国政府首脑安迪·伯纳姆在柏林会面。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Sie haben den Vertrag in Kraft gesetzt. Das heißt: Der Vertrag gilt jetzt.</p><p class="nl-zh">他们让条约正式生效。也就是说：条约从现在起有效。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die beiden Länder wollen zum Beispiel bei der Verteidigung mehr zusammen machen.</p><p class="nl-zh">两国想要比如在国防方面开展更多合作。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Sie wollen auch mehr gegen Kriminalität tun.</p><p class="nl-zh">他们也想在打击犯罪方面做更多的事。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">In dem Vertrag steht: Schüler brauchen für Klassen-Fahrten in das andere Land kein Visum mehr.</p><p class="nl-zh">条约中写道：学生去对方国家参加班级旅行，不再需要签证。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Es soll auch eine direkte Bahn-Verbindung zwischen den beiden Ländern geben.</p><p class="nl-zh">两国之间还应该开通一条直达铁路。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Merz sagt: Das ist ein historischer Tag. Denn Groß-Britannien ist vor fast 7 Jahren aus der EU ausgetreten.</p><p class="nl-zh">默茨说：这是历史性的一天。因为英国在大约七年前退出了欧盟。</p></div></div>
+    </div>
+    <div class="nl-panel" data-lv="B1">
+      <p class="nl-lv-note">B1 · 完整新闻报道的写法</p>
+      <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Deutschland und Großbritannien haben ihren Freundschaftsvertrag in Kraft gesetzt.</p><p class="nl-zh">德国和英国让双方的友好条约正式生效。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Bundeskanzler Friedrich Merz und der britische Premierminister Andy Burnham tauschten im Kanzleramt in Berlin die Ratifizierungsurkunden aus.</p><p class="nl-zh">联邦总理弗里德里希·默茨和英国首相安迪·伯纳姆在柏林总理府交换了批准书。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der Vertrag heißt Kensington-Vertrag und wurde im vergangenen Jahr in London unterschrieben.</p><p class="nl-zh">这份条约叫「肯辛顿条约」，去年在伦敦签署。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Die beiden Länder wollen künftig enger zusammenarbeiten, zum Beispiel in der Verteidigungs- und Wirtschaftspolitik.</p><p class="nl-zh">两国今后希望更紧密地合作，比如在国防与经济政策方面。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Außerdem wollen sie irreguläre Migration eindämmen und grenzüberschreitende Kriminalität bekämpfen.</p><p class="nl-zh">此外，他们想遏制非正常移民，并打击跨境犯罪。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Für Schüler und Studenten gibt es Erleichterungen: Bei Klassenfahrten ins andere Land brauchen sie kein Visum mehr.</p><p class="nl-zh">对学生来说有了便利：参加去对方国家的班级旅行，不再需要签证。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Geplant ist außerdem eine direkte Bahnverbindung zwischen Deutschland und Großbritannien.</p><p class="nl-zh">此外还计划开通德国与英国之间的直达铁路。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Merz sprach von einem historischen Tag. Großbritannien war vor fast sieben Jahren aus der Europäischen Union ausgetreten.</p><p class="nl-zh">默茨称这是历史性的一天。英国大约七年前退出了欧盟。</p></div><div class="nl-line"><span class="nl-no">09</span><p class="nl-de">Burnham sagte, Deutschland sei einer der engsten Partner Großbritanniens.</p><p class="nl-zh">伯纳姆说，德国是英国最紧密的伙伴之一。</p></div></div>
+    </div>
+    <div class="nl-panel" data-lv="B2">
+      <p class="nl-lv-note">B2 · 书面语的复杂结构（被动、分词定语、名词化）</p>
+      <div class="nl-body"><div class="nl-line"><span class="nl-no">01</span><p class="nl-de">Mehr als sechs Jahre nach dem Brexit haben Deutschland und Großbritannien ihre Beziehungen auf eine neue Grundlage gestellt.</p><p class="nl-zh">脱欧六年多之后，德国和英国把两国关系置于新的基础之上。</p></div><div class="nl-line"><span class="nl-no">02</span><p class="nl-de">Bundeskanzler Friedrich Merz und Premierminister Andy Burnham tauschten im Bundeskanzleramt die Ratifizierungsurkunden aus und setzten damit den Freundschaftsvertrag in Kraft.</p><p class="nl-zh">联邦总理弗里德里希·默茨和首相安迪·伯纳姆在联邦总理府交换了批准书，从而让友好条约正式生效。</p></div><div class="nl-line"><span class="nl-no">03</span><p class="nl-de">Der sogenannte Kensington-Vertrag war im vergangenen Jahr in London unterzeichnet worden.</p><p class="nl-zh">这份所谓的「肯辛顿条约」是去年在伦敦签署的。</p></div><div class="nl-line"><span class="nl-no">04</span><p class="nl-de">Er sieht eine vertiefte Zusammenarbeit in der Verteidigungs- und Wirtschaftspolitik vor sowie Maßnahmen gegen irreguläre Migration und gegen grenzüberschreitende Kriminalität.</p><p class="nl-zh">条约规定在国防与经济政策上深化合作，并采取措施应对非正常移民和跨境犯罪。</p></div><div class="nl-line"><span class="nl-no">05</span><p class="nl-de">Insbesondere Schülerinnen und Schülern sowie Studierenden soll die Einreise erleichtert werden: Für Klassenfahrten ins jeweils andere Land benötigen sie künftig kein Visum mehr.</p><p class="nl-zh">尤其是中小学生和大学生，入境将会更便利：今后前往对方国家参加班级旅行不再需要签证。</p></div><div class="nl-line"><span class="nl-no">06</span><p class="nl-de">Darüber hinaus ist eine direkte Bahnverbindung zwischen beiden Ländern geplant.</p><p class="nl-zh">除此之外，还计划开通两国之间的直达铁路。</p></div><div class="nl-line"><span class="nl-no">07</span><p class="nl-de">Merz bezeichnete den Tag als historisch und betonte, die junge Generation solle spüren, wie eng Europäer zusammenarbeiten und zusammengehören.</p><p class="nl-zh">默茨把这一天称为历史性的，并强调年轻一代应当感受到欧洲人之间的合作与归属有多么紧密。</p></div><div class="nl-line"><span class="nl-no">08</span><p class="nl-de">Burnham nannte Deutschland einen der engsten Partner seines Landes; der Vertrag werde die Sicherheit in Europa verbessern, die Wirtschaft wachsen lassen und den Lebensstandard erhöhen.</p><p class="nl-zh">伯纳姆称德国是英国最紧密的伙伴之一；这份条约将改善欧洲的安全、促进经济增长并提高生活水平。</p></div></div>
+    </div>
+
+    <div class="nl-words">
+      <h3>生词表 · Wortschatz</h3>
+      <div class="nl-wgrid">
+        <span class="nl-w"><b>der Freundschaftsvertrag</b>友好条约</span>
+        <span class="nl-w"><b>in Kraft setzen</b>使生效</span>
+        <span class="nl-w"><b>der Bundeskanzler</b>联邦总理</span>
+        <span class="nl-w"><b>der Premierminister</b>首相</span>
+        <span class="nl-w"><b>austauschen</b>交换</span>
+        <span class="nl-w"><b>die Urkunde</b>文书、证书</span>
+        <span class="nl-w"><b>der Vertrag</b>条约</span>
+        <span class="nl-w"><b>unterschreiben</b>签署</span>
+        <span class="nl-w"><b>die Verteidigung</b>国防</span>
+        <span class="nl-w"><b>die Wirtschaft</b>经济</span>
+        <span class="nl-w"><b>die Kriminalität</b>犯罪</span>
+        <span class="nl-w"><b>bekämpfen</b>打击、对抗</span>
+        <span class="nl-w"><b>die Migration</b>移民</span>
+        <span class="nl-w"><b>eindämmen</b>遏制</span>
+        <span class="nl-w"><b>die Klassenfahrt</b>班级旅行</span>
+        <span class="nl-w"><b>das Visum</b>签证</span>
+        <span class="nl-w"><b>die Bahnverbindung</b>铁路连接</span>
+        <span class="nl-w"><b>historisch</b>历史性的</span>
+        <span class="nl-w"><b>austreten</b>退出</span>
+        <span class="nl-w"><b>eng</b>紧密的</span>
+        <span class="nl-w"><b>der Partner</b>伙伴</span>
+        <span class="nl-w"><b>die Sicherheit</b>安全</span>
+        <span class="nl-w"><b>der Lebensstandard</b>生活水平</span>
+        <span class="nl-w"><b>spüren</b>感觉到</span>
+      </div>
+    </div>
+
+    <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-08<br>
+    本条为自主改写，仅取新闻事实，非逐句翻译。</div>
+  </section>
+
 </div>
 
 <script>
 /* 登记本页面的分享路径 —— showPage 每次进这一页都会把地址栏切过去，
    微信抓 OG 才读得到（它读不到 '#' 后面的东西）。见 index.html 的 _sharePaths。 */
 (function(){
-  var P = '/news/01.html';
+  var NEWEST = '02';
+  var P = '/news/' + NEWEST + '.html';
   window._sharePaths = window._sharePaths || {};
   window._sharePaths['newslesen'] = P;
-  /* 首次进来时 showPage 早就跑过了（那时本页还没加载，登记不存在），
-     所以这里立刻补一次，别等下次。 */
-  try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', P); } catch(e) {}
+  /* 来自 /news/<NN>.html 包装页的深链接：那边把期数塞进 sessionStorage，
+     这里读出来直接打开那一期（跟 林夏在德国 的 serieEp 一个套路）。 */
+  var want = null;
+  try { want = sessionStorage.getItem('nlEp'); if (want) sessionStorage.removeItem('nlEp'); } catch(e) {}
+  if (want && [1,2].indexOf(parseInt(want, 10)) >= 0) {
+    var sel = document.getElementById('nlEpSelect');
+    if (sel) sel.value = String(parseInt(want, 10));
+    nlShow(want);
+  } else {
+    /* 首次进来时 showPage 早就跑过了（那时本页还没加载，登记不存在），
+       所以这里立刻补一次，别等下次。 */
+    try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', P); } catch(e) {}
+  }
 })();
 
 function nlLevel(btn, lv){
-  var w = btn.closest('.nl-wrap');
-  w.querySelectorAll('.nl-tab').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
-  w.querySelectorAll('.nl-panel').forEach(function(p){ p.classList.toggle('is-on', p.dataset.lv === lv); });
+  var it = btn.closest('.nl-issue') || document;
+  it.querySelectorAll('.nl-tab').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
+  it.querySelectorAll('.nl-panel').forEach(function(p){ p.classList.toggle('is-on', p.dataset.lv === lv); });
 }
 function nlShow(id){
-  /* 目前只有 1 期；将来多期时在这里切换内容 */
-  var sel = document.getElementById('nlEpSelect');
-  if (!sel) return;
+  var w = document.querySelector('.nl-wrap');
+  if (!w) return;
+  var ep = String(parseInt(id, 10));
+  w.querySelectorAll('.nl-issue').forEach(function(s){ s.classList.toggle('is-on', s.dataset.ep === ep); });
+  /* 分享路径跟着当前期数走 —— 发第 2 期就该出第 2 期的预览卡 */
+  var nn = ep.length < 2 ? '0' + ep : ep;
+  window._sharePaths = window._sharePaths || {};
+  window._sharePaths['newslesen'] = '/news/' + nn + '.html';
+  try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', window._sharePaths['newslesen']); } catch(e) {}
 }
 </script>

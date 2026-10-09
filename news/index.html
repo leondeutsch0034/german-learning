@@ -41,7 +41,12 @@
   p{color:#94a3b8;font-size:.9rem;margin:8px 0 0;line-height:1.7}
   a{color:#fde68a}
 </style>
-<script>window.location.replace("/#newslesen");</script>
+<script>
+  /* 深链接：把期数交给主站，免得第 2 期的分享卡点开却是第 1 期。
+     跟 林夏在德国 的 serieEp 一个套路（同源 sessionStorage）。 */
+  try { if ("") sessionStorage.setItem("nlEp", ""); } catch(e) {}
+  window.location.replace("/#newslesen");
+</script>
 </head>
 <body>
 <div class="box">
