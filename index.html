@@ -4839,6 +4839,9 @@ function _searchWalk(root, results, lower, forcePid) {
   var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: function(node) {
       var p = node.parentNode;
+      /* KULTUR-SERIE-TABS v1：#page-serie 嵌在 #page-kultur 里，
+         从 kultur 走时跳过它，免得同一段文本被记成两份 */
+      if (root.id !== 'page-serie' && p && p.closest && p.closest('#page-serie')) return NodeFilter.FILTER_REJECT;
       var tag = p.tagName ? p.tagName.toUpperCase() : '';
       if (['SCRIPT','STYLE','INPUT','BUTTON','TEMPLATE'].indexOf(tag) >= 0) return NodeFilter.FILTER_REJECT;
       return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
@@ -4872,6 +4875,11 @@ function runSearch(q) {
   pages.forEach(function(page) {
     _searchWalk(page, results, lower);
   });
+  /* KULTUR-SERIE-TABS v1：#page-serie 不再是 .page，补一遍 */
+  var sePg = document.getElementById('page-serie');
+  if (sePg && window._lazyInstantiated && window._lazyInstantiated['serie']) {
+    _searchWalk(sePg, results, lower);
+  }
 
   // 2. 内容外置的板块：先把模板拉回来，再重入本函数搜索
   //    （首次搜索需下载全部板块，之后走浏览器缓存；已加载部分不受影响）
@@ -26633,7 +26641,9 @@ window.gotoSection = function(secId) {
     var target = document.getElementById(secId);
     if (!target) return;
     var page = target.closest('.page');
-    if (page && page.id && page.id.indexOf('page-') === 0) {
+    if (page && page.id === 'page-kultur' && target.closest('#page-serie')) {
+      showPage('serie'); // KULTUR-SERIE-TABS v1：目标在 serie 面板里
+    } else if (page && page.id && page.id.indexOf('page-') === 0) {
       showPage(page.id.slice(5)); // showPage 内含权限校验 + scrollTo(0,0)
     }
     // showPage 会把页面顶到最上面，延迟一帧再滚到目标 section
@@ -26740,8 +26750,10 @@ window.addEventListener('hashchange', function() {
   var id = h.replace('#', '');
   // 你不知道的德国 深链接: #kultur-reader&ep=X → 支持浏览器前进/后退
   if (id.indexOf('kultur-reader&ep=') === 0) {
-    var ep = id.split('ep=')[1];
-    if (ep) { showKulturEp(ep); return; }
+    /* KULTUR-SERIE-TABS v1：原先是直接 showKulturEp(ep)，绕过了 showPage。
+       合并后 kultur 在 Tab 面板里，若当时停在 serie Tab，就会去翻一个看不见的面板。
+       改走 showPage，由包装器还原 hash 并交给 initKulturReader 读期数。 */
+    showPage('kultur-reader'); return;
   }
   if (document.getElementById('page-' + id)) {
     showPage(id);
@@ -33858,7 +33870,12 @@ document.addEventListener('click', function(e) {
 
 <!-- KULTUR-UI v1 -->
 <div id="page-kultur" class="page" style="background:linear-gradient(180deg,#0a1428,#0f1e3a,#152744);min-height:100vh;padding:0 0 40px">
-
+<!-- KULTUR-SERIE-TABS v1 -->
+<div class="kst-tabs" id="kst-tabs">
+  <button class="kst-tab active" type="button" data-tab="kultur" onclick="_kstTab('kultur')">🇩🇪 你不知道的德国</button>
+  <button class="kst-tab" type="button" data-tab="serie" onclick="_kstTab('serie')">🎬 林夏在德国</button>
+</div>
+<div id="kst-pane-kultur">
 <!-- ═══ Kultur Hero ═══ -->
 <div class="kultur-hero">
   <div class="flag-stripes" style="display:flex;height:6px;border-radius:3px;overflow:hidden;width:72px;margin:0 auto 18px"><span style="flex:1;background:#000"></span><span style="flex:1;background:#d00"></span><span style="flex:1;background:#fc0"></span></div>
@@ -33873,6 +33890,36 @@ document.addEventListener('click', function(e) {
   <!-- KULTUR-INLINE v1：阅读器本体（懒加载挂载点，内容在 lazy/kultur-reader.html） -->
   <div id="page-kultur-reader" data-lazy="true"></div>
 </div>
+</div>
+
+<div id="kst-pane-serie">
+<div id="page-serie" data-lazy="true"></div>
+</div>
+
+<!-- KULTUR-SERIE-TABS v1 STYLE -->
+<style>
+#kst-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:18px 16px 0}
+#kst-tabs .kst-tab{background:rgba(255,255,255,.06);border:1px solid rgba(246,211,101,.2);color:#cbd5e1;
+  padding:10px 22px;border-radius:14px;font-size:.95rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+#kst-tabs .kst-tab.active{background:linear-gradient(90deg,#2c5f8a,#63b3ed);color:#fff;border-color:rgba(246,211,101,.55);box-shadow:0 4px 14px rgba(44,95,138,.45)}
+#kst-tabs .kst-tab:hover{background:rgba(246,211,101,.14)}
+/* 默认显示 kultur 面板：万一 _kstShow 没跑起来，退化成今天的样子而不是白屏 */
+#kst-pane-kultur{display:block}
+#kst-pane-serie{display:none}
+#page-kultur.kst-on-serie #kst-pane-kultur{display:none}
+#page-kultur.kst-on-serie #kst-pane-serie{display:block}
+/* #page-kultur 的 padding-bottom 是行内 style，行内压过类选择器，必须 !important */
+#page-kultur.kst-on-serie{padding-bottom:0 !important}
+#kst-pane-serie #page-serie{min-height:calc(100vh - 64px)}
+#kst-pane-serie #page-serie[data-lazy-loading]{min-height:60vh}
+#kst-pane-serie #page-serie[data-lazy-loading]::after{content:"… 正在加载剧集";display:block;
+  text-align:center;padding:120px 0;color:#94a3b8;font-size:.9rem;letter-spacing:.08em}
+#page-kultur .kst-tabs + #kst-pane-kultur .kultur-hero{padding-top:20px}
+@media(max-width:600px){
+  #kst-tabs{padding:14px 12px 0;gap:8px}
+  #kst-tabs .kst-tab{font-size:.85rem;padding:8px 14px}
+}
+</style>
 
 <!-- KULTUR-INLINE v1 -->
 <!-- KULTUR-SELECT v1 -->
@@ -34401,6 +34448,39 @@ window.initKulturReader = function() {
   if (window._currentKulturEp) return;
   showKulturEp(1, false);   /* KULTUR-INLINE v1：默认第 1 期，且不要滚动 */
 };
+/* ═══ KULTUR-SERIE-TABS v1 ═══ */
+window._kstActiveTab = null;
+
+/* 纯视图切换：Tab 高亮 + 两个 pane 的可见性 + 导航高亮 + 回顶。
+   ★ 这里**不要**调 initKulturReader()/showKulturEp()：本函数是在 showPage 包装器里
+     `_orig(...)` 返回后、hash 还原之前被同步调用的，此刻 location.hash 已被覆盖成
+     '#kultur'，提前读会读到错期数。kultur 的初始化仍由包装器的 50ms 分支负责。 */
+window._kstShow = function(tab) {
+  if (tab !== 'kultur' && tab !== 'serie') return;
+  if (!document.getElementById('kst-pane-serie')) return;   /* 补丁没打全 → 退回旧行为 */
+  var pg = document.getElementById('page-kultur');
+  if (pg) pg.classList.toggle('kst-on-serie', tab === 'serie');
+  window._kstActiveTab = tab;
+  var tabs = document.querySelectorAll('#kst-tabs .kst-tab');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === tab);
+  }
+  /* 两个入口卡片都还在导航里：点哪个进来就亮哪个 */
+  var nk = document.getElementById('nav-kultur'), ns = document.getElementById('nav-serie');
+  if (nk) nk.classList.toggle('active', tab === 'kultur');
+  if (ns) ns.classList.toggle('active', tab === 'serie');
+  /* 只实例化被激活的那个 pane —— 这是「进 serie 不白拉 680KB kultur」的关键 */
+  if (tab === 'serie' && window.instantiateLazyPage) {
+    try { window.instantiateLazyPage('serie'); } catch(e) {}
+  }
+  window.scrollTo(0, 0);
+  if (typeof window._showBottomBar === 'function') { try { window._showBottomBar(); } catch(e) {} }
+};
+
+/* Tab 按钮统一走 showPage，复用权限校验 / 懒加载 / hash 同步 / 分享路径 */
+window._kstTab = function(tab) { if (typeof showPage === 'function') showPage(tab); };
+/* ═══ KULTUR-SERIE-TABS v1 END ═══ */
+
 /* ═══ KULTUR-INLINE v1：阅读器并进「德国文化」页，kultur-reader 变成它的别名 ═══
    `#page-kultur-reader` 不再是独立的 .page，而是 #page-kultur 里的内嵌板块。
    showPage('kultur-reader') 仍然要能用（#kultur-reader&ep=N、/kd/N.html、jumpKulturEp 都走它），
@@ -34409,9 +34489,13 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   var _orig = window.showPage;
   window.showPage = function(p) {
     var savedHash = window.location.hash;
-    var viaAlias = (p === 'kultur-reader');
-    if (viaAlias) p = 'kultur';
-    var r = _orig.apply(this, [p]);
+    var viaKulturAlias = (p === 'kultur-reader');
+    var viaSerie = (p === 'serie');
+    if (viaKulturAlias) p = 'kultur';
+    /* ★ serie 也落到 #page-kultur：合并页只有一个 .page。必须传 'kultur' 而不是 'serie'——
+       传 'serie' 会让 showPage 去找 #page-serie 并给它 display:block，
+       而它的祖先 #kst-pane-serie 是隐藏的，等于白屏。 */
+    var r = _orig.apply(this, [viaSerie ? 'kultur' : p]);
     try {
       if (p === 'kultur') {
         /* showPage 会把 hash 覆盖成 #kultur，含 &ep= 的深链接要还原，
@@ -34423,6 +34507,10 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
           window.instantiateLazyPage('kultur-reader');
           initKulturReader();
         }, 50);
+      }
+      if (window._kstShow) {
+        if (viaSerie) window._kstShow('serie');
+        else if (p === 'kultur') window._kstShow('kultur');
       }
     } catch(e) {}
     return r;
@@ -36959,7 +37047,6 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
 <template id="tpl-page-newslesen" data-src="lazy/newslesen.html"></template>
 <script>registerLazyPage('newslesen', 'tpl-page-newslesen');</script>
 <template id="tpl-page-serie" data-src="lazy/serie.html"></template>
-<div id="page-serie" class="page" data-lazy="true"></div>
 <script>registerLazyPage('serie', 'tpl-page-serie');</script>
 <script>
   /* 剧集→独立文件名映射（用于分享时生成正确的 OG 抓取地址） */
