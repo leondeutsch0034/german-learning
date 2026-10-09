@@ -4540,7 +4540,9 @@ function createLoginPromptCard() {
 		  { id:'echt', icon:'💬', navLabel:'地道德语', cardTitleDe:'Echt Deutsch!', cardSubDe:'Schuldeutsch vs. echtes Deutsch — im Vergleich', cardTitle:'德国人才不这么说',
 	    desc:'课本德语 vs 德国人日常 · 左右对照 · 每条带场景与解释 · 持续更新',
 	    tags:'地道表达 · 课本对照 · 口语 · 搜索',
-	    c1:'#0e7490', c2:'#22d3ee', locked:false },
+	    c1:'#0e7490', c2:'#22d3ee', locked:false , group:'pronunciation',
+	    hubSec:'echt', hubStep:1, hubSkill:'Echt Deutsch', hubSkillZh:'地道口语', hubAccent:'#22d3ee', hubTip:'课本这么教 · 德国人那么说 — 每条带场景与解释，拿来跟读最顺手',
+	    locked:false },
 	  { id:'serie', icon:'🎬', navLabel:'德语连续剧', cardTitleDe:'Lin Xia in Deutschland', cardSubDe:'Folge Lin Xia durch den deutschen Alltag', cardTitle:'林夏在德国',
 	    desc:'跟着主角在德国生活 · 每集一个真实场景 · 双语对话+词汇+文化坑',
 	    tags:'连载追更 · 情景对话 · A1-A2 · 实用场景',
@@ -4583,7 +4585,7 @@ var HUBS = {
         desc:'C1 高级内容 · 学术德语 · 专业写作 · 文化深读 — 内容筹备中，敬请期待',
         tags:'歌德C1 · 高级 · 即将上线' },
   pronunciation: { id:'prhub', icon:'🎙️', navLabel:'发音训练', cardTitleDe:'Aussprache-Training', cardTitle:'🎙️ 发音训练',
-        desc:'德语发音器 + 英语发音器 + 德英混淆对照 — AI 语音识别 · 音素级评分 · 精准纠音',
+        desc:'德语发音器 + 英语发音器 + 德英混淆对照 + 地道口语 — AI 语音识别 · 音素级评分 · 精准纠音',
         tags:'AI语音 · 音素评分 · 德英双语 · 假朋友' }
 };
 // hubId('a1hub') → 'a1'，找出某学习站对应的分组 key
@@ -18947,13 +18949,13 @@ showB2LArticle('');
   <div class="a1hub-hero">
     <div class="a1hub-eyebrow">🎙️ AI 发音训练</div>
     <h1>发音训练</h1>
-    <p class="a1hub-sub">字母拼读 · 德语发音器 · 英语发音器 · 德英混淆对照<br>先会读，再纠音：拼读规则打底 + AI 语音识别 · 音素级评分</p>
+    <p class="a1hub-sub">字母拼读 · 德语发音器 · 英语发音器 · 德英混淆 · 地道口语<br>先会读，再纠音：拼读规则打底 + AI 语音识别 · 音素级评分</p>
   </div>
 
   <div class="a1hub-path">
     <span class="a1hub-path-lbl">🎯 学习路径</span>
     <div class="a1hub-path-flow">
-      <span>🔤 字母拼读</span><i>→</i><span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span><i>·</i><span>🔄 德英混淆</span>
+      <span>🔤 字母拼读</span><i>→</i><span>🎤 德语发音</span><i>·</i><span>🗣️ 英语发音</span><i>·</i><span>🔄 德英混淆</span><i>·</i><span>💬 地道口语</span>
     </div>
   </div>
 
@@ -18967,9 +18969,14 @@ showB2LArticle('');
     <script>renderHubCards('pronunciation','tool');</script>
   </div>
 
+  <div class="a1hub-sec">💬 地道口语 · 跟读素材</div>
+  <div class="a1hub-grid">
+    <script>renderHubCards('pronunciation','echt');</script>
+  </div>
+
   <footer>
     🔤 字母拼读 · 五步走完见到生词就能读<br>
-    Leons Deutschzentrum · 字母拼读 · 德语发音器 · 英语发音器 · 假朋友对比
+    Leons Deutschzentrum · 字母拼读 · 德语发音器 · 英语发音器 · 假朋友对比 · 地道口语
   </footer>
 
 </div>
