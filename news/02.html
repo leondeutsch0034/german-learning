@@ -30,30 +30,50 @@
 <meta itemprop="description" content="📰 英国脱欧六年多之后，德国和英国在柏林让一份「友好条约」正式生效。同一条新闻改写成 A1 / A2 / B1 / B2 四档，四档都是德语原文，配中文对照与生词表，挑你能读的那版。每天一则德国新闻，边读边学德语。来源：nachrichtenleicht.de (Deutschlandfunk)">
 <meta itemprop="image" content="https://leondeutsch.cn/news/og/02.jpg">
 
-<meta http-equiv="refresh" content="0;url=/#newslesen">
+<!-- ══════════════════════════════════════════════════════════════
+     ⚠️ 这一页**故意不做自动跳转**。
+     以前这里是 <meta http-equiv="refresh"> + location.replace 立即跳去 /#newslesen，
+     结果：用户点右上角 ··· 分享到朋友圈时，地址栏已经不是 /news/NN.html 了，
+     微信抓卡片抓的是跳转后的 SPA 地址（读不到 hash），**卡片出不来**。
+     现在改成真正的落地页：地址栏一直停在 /news/NN.html，卡片抓得到；
+     用户点「开始阅读」再进阅读器（期数通过 sessionStorage 带过去）。
+     ══════════════════════════════════════════════════════════════ -->
 <style>
-  body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a1428;
-        color:#e2e8f0;display:flex;align-items:center;justify-content:center;
-        height:100vh;margin:0;padding:0 20px;box-sizing:border-box}
-  .box{text-align:center;max-width:520px}
-  .kicker{color:#b8860b;font-size:.75rem;letter-spacing:.28em;margin-bottom:14px}
-  h2{color:#f6d365;margin:0 0 10px;font-size:1.35rem;line-height:1.4}
-  p{color:#94a3b8;font-size:.9rem;margin:8px 0 0;line-height:1.7}
-  a{color:#fde68a}
+  *{box-sizing:border-box}
+  body{margin:0;background:#0a1428;color:#e2e8f0;min-height:100vh;
+       font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+       display:flex;flex-direction:column;overflow-x:hidden}
+  .nlx-hero{position:relative;flex:1;min-height:54vh;background-color:#132038;
+       background-size:cover;background-position:center 38%;background-repeat:no-repeat;
+       display:flex;align-items:flex-end}
+  .nlx-hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+       background:linear-gradient(180deg,rgba(8,16,32,.10) 0%,rgba(8,16,32,.32) 42%,rgba(8,16,32,.95) 100%)}
+  .nlx-txt{position:relative;z-index:1;width:100%;padding:30px 24px 26px}
+  .nlx-kicker{font-size:11px;letter-spacing:.3em;color:#f6d365;font-weight:700;margin-bottom:12px}
+  .nlx-hook{font-size:clamp(1.9rem,8.4vw,2.9rem);line-height:1.16;font-weight:900;color:#fff;
+       letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.6),0 1px 2px rgba(0,0,0,.85);
+       -webkit-text-stroke:.7px rgba(0,0,0,.32)}
+  .nlx-sub{margin-top:11px;font-size:1rem;font-weight:700;color:#fde68a;
+       text-shadow:0 1px 7px rgba(0,0,0,.75)}
+  .nlx-foot{padding:18px 24px 30px;background:#0b1730;border-top:1px solid #1e3a5f}
+  .nlx-meta{font-size:.76rem;color:#64789a;line-height:1.7;margin-bottom:14px}
+  .nlx-cta{display:block;text-align:center;text-decoration:none;
+       background:linear-gradient(90deg,#b8860b,#f6d365);color:#12244a;
+       font-weight:800;font-size:1rem;padding:15px;border-radius:12px}
+  .nlx-cta:active{opacity:.85}
 </style>
-<script>
-  /* 深链接：把期数交给主站，免得第 2 期的分享卡点开却是第 1 期。
-     跟 林夏在德国 的 serieEp 一个套路（同源 sessionStorage）。 */
-  try { if ("02") sessionStorage.setItem("nlEp", "02"); } catch(e) {}
-  window.location.replace("/#newslesen");
-</script>
 </head>
 <body>
-<div class="box">
-  <div class="kicker">DEUTSCHE NACHRICHTEN · 2026-10-08</div>
-  <h2>德国与英国：友好条约正式生效</h2>
-  <p>📰 英国脱欧六年多之后，德国和英国在柏林让一份「友好条约」正式生效。同一条新闻改写成 A1 / A2 / B1 / B2 四档，四档都是德语原文，配中文对照与生词表，挑你能读的那版。每天一则德国新闻，边读边学德语。来源：nachrichtenleicht.de (Deutschlandfunk)</p>
-  <p style="margin-top:18px">正在打开 <a href="/#newslesen">德语新闻 · 分级阅读</a>…</p>
+<div class="nlx-hero" style="background-image:url('og/src/02.jpg')">
+  <div class="nlx-txt">
+    <div class="nlx-kicker">DEUTSCHE NACHRICHTEN · 2026-10-08</div>
+    <div class="nlx-hook">德国和英国<br>签了「友好条约」</div>
+    <div class="nlx-sub">学生免签 · 直达火车</div>
+  </div>
+</div>
+<div class="nlx-foot">
+  <div class="nlx-meta">第 02 期 · 2026-10-08 · nachrichtenleicht.de (Deutschlandfunk)</div>
+  <a class="nlx-cta" href="/#newslesen" onclick="try{sessionStorage.setItem('nlEp','02')}catch(e){}">开始阅读 · 挑你能读的那版 →</a>
 </div>
 </body>
 </html>
