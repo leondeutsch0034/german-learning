@@ -60,6 +60,17 @@
   border-bottom:1px dotted rgba(30,58,95,.9)}
 .nl-w b{color:var(--nl-gold);font-weight:700;margin-right:8px}
 
+.nl-share{max-width:var(--nl-read);margin-top:38px;padding:20px 22px;
+  border:1px solid rgba(246,211,101,.28);border-radius:12px;
+  background:rgba(246,211,101,.045)}
+.nl-share-t{color:var(--nl-gold);font-weight:700;font-size:.92rem;margin-bottom:12px}
+.nl-share-u{font-size:.82rem;color:#cfe0f5;word-break:break-all;
+  background:#0b1730;border:1px solid var(--nl-line);border-radius:8px;
+  padding:10px 13px;margin-bottom:12px;font-family:ui-monospace,Consolas,monospace}
+.nl-share-b{background:var(--nl-gold);color:#12244a;border:0;border-radius:9px;
+  padding:10px 24px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
+.nl-share-b:active{opacity:.75}
+.nl-share-n{font-size:.76rem;color:var(--nl-dim2);margin-top:11px;line-height:1.6}
 .nl-src{max-width:var(--nl-read);margin-top:30px;font-size:.75rem;
   color:var(--nl-dim2);line-height:1.7}
 
@@ -137,6 +148,13 @@
     </div>
   </div>
 
+  <div class="nl-share">
+    <div class="nl-share-t">把这一期分享给同学</div>
+    <div class="nl-share-u" id="nlShareUrl">https://leondeutsch.cn/news/01.html</div>
+    <button class="nl-share-b" onclick="nlCopyShare(this)">复制分享链接</button>
+    <div class="nl-share-n">⚠️ 要用这个链接分享 —— 直接复制浏览器地址栏的话，微信只会显示网站通用卡片。</div>
+  </div>
+
   <div class="nl-src">Quelle: nachrichtenleicht.de (Deutschlandfunk) · 2026-10-05<br>
   本条为自主改写，仅取新闻事实，非逐句翻译。</div>
 </div>
@@ -146,6 +164,20 @@ function nlLevel(btn, lv){
   var w = btn.closest('.nl-wrap');
   w.querySelectorAll('.nl-tab').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
   w.querySelectorAll('.nl-panel').forEach(function(p){ p.classList.toggle('is-on', p.dataset.lv === lv); });
+}
+function nlCopyShare(btn){
+  var u = document.getElementById('nlShareUrl').textContent.trim();
+  var done = function(){ var o=btn.textContent; btn.textContent='已复制 ✓';
+                          setTimeout(function(){btn.textContent=o},1600); };
+  if (navigator.clipboard) { navigator.clipboard.writeText(u).then(done, function(){ nlFallback(u, done); }); }
+  else { nlFallback(u, done); }
+}
+function nlFallback(text, done){
+  var ta=document.createElement('textarea'); ta.value=text;
+  ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy')}catch(e){}
+  document.body.removeChild(ta); done();
 }
 function nlShow(id){
   /* 目前只有 1 期；将来多期时在这里切换内容 */
