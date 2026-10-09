@@ -143,8 +143,12 @@
 /* 登记本页面的分享路径 —— showPage 每次进这一页都会把地址栏切过去，
    微信抓 OG 才读得到（它读不到 '#' 后面的东西）。见 index.html 的 _sharePaths。 */
 (function(){
+  var P = '/news/01.html';
   window._sharePaths = window._sharePaths || {};
-  window._sharePaths['newslesen'] = '/news/01.html';
+  window._sharePaths['newslesen'] = P;
+  /* 首次进来时 showPage 早就跑过了（那时本页还没加载，登记不存在），
+     所以这里立刻补一次，别等下次。 */
+  try { if (location.hash.indexOf('newslesen') >= 0) history.replaceState(null, '', P); } catch(e) {}
 })();
 
 function nlLevel(btn, lv){
