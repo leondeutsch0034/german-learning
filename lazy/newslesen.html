@@ -39,7 +39,21 @@
 /* 页与页之间的细分隔（滚到一半时看得见） */
 .nl-page+.nl-page{border-left:1px solid rgba(30,58,95,.55)}
 
-/* ── 封面页 ── */
+/* ── 封面页：大字报（真照片横带 + 超大中文钩子压底部）── */
+.nl-hero{position:relative;margin:0 0 28px;border-radius:14px;overflow:hidden;
+  min-height:46vh;background-color:#132038;background-size:cover;
+  background-position:center 38%;background-repeat:no-repeat;
+  display:flex;align-items:flex-end}
+/* 底部压深，保证大字在亮照片上也读得清 */
+.nl-hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,16,32,.10) 0%,rgba(8,16,32,.30) 42%,rgba(8,16,32,.93) 100%)}
+.nl-hero-txt{position:relative;z-index:1;width:100%;padding:26px 24px 24px}
+.nl-hook{font-size:clamp(1.9rem,5.2vw,3.2rem);line-height:1.16;font-weight:900;color:#fff;
+  letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.6),0 1px 2px rgba(0,0,0,.85);
+  -webkit-text-stroke:.7px rgba(0,0,0,.32)}
+.nl-hook-sub{margin-top:11px;font-size:clamp(.85rem,1.9vw,1.05rem);font-weight:700;
+  color:#fde68a;letter-spacing:.02em;text-shadow:0 1px 7px rgba(0,0,0,.75)}
+
 .nl-kicker{font-size:11px;letter-spacing:.34em;color:var(--nl-gold);
   opacity:.9;margin-bottom:22px;font-weight:700}
 .nl-cover-de{font-size:clamp(1.55rem,3.4vw,2.6rem);line-height:1.24;color:#fff;
@@ -118,6 +132,12 @@
     <div class="nl-track">
 
       <article class="nl-page nl-pg-cover">
+        <div class="nl-hero" style="background-image:url('news/og/src/01.jpg')">
+          <div class="nl-hero-txt">
+            <div class="nl-hook">德国人拿了<br>诺贝尔医学奖</div>
+            <div class="nl-hook-sub">用光就能控制脑细胞</div>
+          </div>
+        </div>
         <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
         <h1 class="nl-cover-de">Forscher aus Deutschland bekommen Medizin-Nobel-Preis</h1>
         <div class="nl-cover-zh">德国研究者获得诺贝尔医学奖</div>
@@ -202,6 +222,12 @@
     <div class="nl-track">
 
       <article class="nl-page nl-pg-cover">
+        <div class="nl-hero" style="background-image:url('news/og/src/02.jpg')">
+          <div class="nl-hero-txt">
+            <div class="nl-hook">德国和英国<br>签了「友好条约」</div>
+            <div class="nl-hook-sub">学生免签 · 直达火车</div>
+          </div>
+        </div>
         <div class="nl-kicker">DEUTSCHE NACHRICHTEN · NACH NIVEAU</div>
         <h1 class="nl-cover-de">Deutschland und Großbritannien wollen enger zusammenarbeiten</h1>
         <div class="nl-cover-zh">德国与英国：友好条约正式生效</div>
