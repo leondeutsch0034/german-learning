@@ -346,6 +346,30 @@
 
     /* Cards grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;max-width:1100px;margin:0 auto 36px}
+
+/* ── 资源推荐：首页底部单独的框，跟上面的学习模块区分开 ── */
+.res-band{display:flex;align-items:center;gap:22px;max-width:1100px;margin:0 auto 8px;
+  padding:22px 26px;border-radius:18px;text-decoration:none;
+  background:linear-gradient(100deg,rgba(13,148,136,.16),rgba(45,212,191,.05) 58%,transparent);
+  border:1px solid rgba(45,212,191,.30);border-left:4px solid #2dd4bf;
+  transition:.22s}
+.res-band:hover{transform:translateY(-2px);border-color:rgba(45,212,191,.55);
+  background:linear-gradient(100deg,rgba(13,148,136,.26),rgba(45,212,191,.09) 58%,transparent)}
+.res-band-icon{flex:none;width:52px;height:52px;border-radius:14px;display:flex;
+  align-items:center;justify-content:center;font-size:1.6rem;
+  background:rgba(45,212,191,.13);border:1px solid rgba(45,212,191,.26)}
+.res-band-body{flex:1;min-width:0}
+.res-band-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.2em;
+  color:rgba(45,212,191,.85);text-transform:uppercase;margin-bottom:7px}
+.res-band-zh{font-size:1.04rem;font-weight:700;color:#e8f7f5;margin-bottom:5px}
+.res-band-desc{font-size:.8rem;color:#8fb3b0;line-height:1.6;margin:0}
+.res-band-go{flex:none;font-size:.82rem;font-weight:700;color:#5eead4;white-space:nowrap}
+@media(max-width:600px){
+  .res-band{gap:14px;padding:18px;align-items:flex-start}
+  .res-band-icon{width:44px;height:44px;font-size:1.35rem}
+  .res-band-desc{display:none}
+  .res-band-go{display:none}
+}
     #page-index .card{
       border-radius:14px;padding:16px 16px 14px;cursor:pointer;
       text-decoration:none;display:block;position:relative;overflow:hidden;
@@ -4636,6 +4660,7 @@ function renderCards() {
   }
   for (var i = 0; i < MODULES.length; i++) {
     var m = MODULES[i];
+    if (m.id === 'resources') continue;   // 资源推荐走首页底部独立的 .res-band，不进卡片格
     var card, id, groupKey;
     if (m.group && HUBS[m.group]) {
       if (doneGroups[m.group]) continue;     // 同组栏目在首页折叠成一张总卡片
@@ -5142,6 +5167,17 @@ document.addEventListener('keydown', function(e) {
 <div class="grid">
   <script>renderCards();</script>
 </div>
+
+<!-- RES-BAND v1 · 资源推荐：单独一个框，跟上面的学习模块区分开 -->
+<a class="res-band" href="#" onclick="showPage('resources'); return false">
+  <div class="res-band-icon">🌐</div>
+  <div class="res-band-body">
+    <div class="res-band-eyebrow">Ressourcen · Externe Tools</div>
+    <div class="res-band-zh">全网资源推荐</div>
+    <p class="res-band-desc">精选德语学习资源 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料 · 一站式汇总</p>
+  </div>
+  <div class="res-band-go">进入 →</div>
+</a>
 
 <!-- 官方链接 -->
 <div class="official-links">
