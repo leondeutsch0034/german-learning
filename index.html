@@ -26772,6 +26772,16 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       showPage('kultur-reader');
 			}
+  } else if (hashId.indexOf('serie&ep=') === 0) {
+    // 林夏在德国 深链接: #serie&ep=X —— 独立分享页那条「进入网站」的按钮用它，
+    // 打开对应那一集（之前硬编码 #serie，永远落在第 1 集）。
+    var sEp = parseInt(hashId.split('ep=')[1], 10) || 1;
+    window._currentSerieEp = sEp;
+    showPage('serie');
+    history.replaceState(null, '', '#serie&ep=' + sEp);
+    // showPage 只负责把面板切到 serie Tab；真正选定集数靠 showSerieEp。
+    // 页面若已实例化过，懒加载的 init 不会再跑，所以这里补一次（幂等）。
+    setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp); }, 80);
   } else if (hashId && document.getElementById('page-' + hashId)) {
     showPage(hashId);
   } else if (hashId && document.getElementById(hashId)) {
@@ -26798,6 +26808,14 @@ window.addEventListener('hashchange', function() {
        合并后 kultur 在 Tab 面板里，若当时停在 serie Tab，就会去翻一个看不见的面板。
        改走 showPage，由包装器还原 hash 并交给 initKulturReader 读期数。 */
     showPage('kultur-reader'); return;
+  }
+  // 林夏在德国 深链接: #serie&ep=X → 支持浏览器前进/后退
+  if (id.indexOf('serie&ep=') === 0) {
+    var sEp2 = parseInt(id.split('ep=')[1], 10) || 1;
+    window._currentSerieEp = sEp2;
+    showPage('serie');
+    setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp2); }, 80);
+    return;
   }
   if (document.getElementById('page-' + id)) {
     showPage(id);
