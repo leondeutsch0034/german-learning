@@ -35,6 +35,10 @@ canvas{display:block}
 #node-card .nc-go{display:block;width:100%;text-align:center;padding:11px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:.9rem;color:#1a1206;background:linear-gradient(135deg,#f6d365,#fbbf24);box-shadow:0 4px 14px rgba(246,211,101,.3);transition:transform .15s,box-shadow .15s}
 #node-card .nc-go:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(246,211,101,.45)}
 #node-card .nc-go:active{transform:translateY(0)}
+#node-card .nc-list{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
+#node-card .nc-sub{font-family:inherit;font-size:.74rem;padding:6px 11px;border-radius:9px;cursor:pointer;
+  background:rgba(107,197,255,.12);color:#bfe0ff;border:1px solid rgba(107,197,255,.35);transition:.15s}
+#node-card .nc-sub:hover{background:rgba(107,197,255,.25);color:#fff}
 @media(max-width:600px){#legend{gap:7px;right:8px}#lvkey{left:8px}#node-card{bottom:14px;padding:15px 16px 13px}}
 </style>
 </head>
@@ -43,7 +47,7 @@ canvas{display:block}
   <input id="search-input" type="text" placeholder="搜语法点... (如 Passiv / Konjunktiv / Dativ)" autocomplete="off">
   <button id="search-clear" onclick="clearSearch()">✕</button>
 </div>
-<div id="hint">🖱 拖拽旋转 · 滚轮缩放 · 点小球查看关联并跳转 · 内圈A1→外圈B1</div>
+<div id="hint">🖱 拖拽旋转 · 滚轮缩放 · 点小球跳转 · 内 A1 → 外 B1 · 最外圈是「站点」，点开看子板块</div>
 <div id="legend"></div>
 <div id="lvkey"></div>
 
@@ -52,6 +56,7 @@ canvas{display:block}
   <div class="nc-badges" id="nc-badges"></div>
   <div class="nc-title" id="nc-title"></div>
   <div class="nc-rel" id="nc-rel"></div>
+  <div class="nc-list" id="nc-list"></div>
   <button class="nc-go" id="nc-go">📖 前往学习这一节</button>
 </div>
 
@@ -188,6 +193,22 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping=true;controls.dampingFactor=.06;controls.autoRotate=true;controls.autoRotateSpeed=.35;
 controls.minDistance=7;controls.maxDistance=30;controls.target.set(0,0,0);
 
+// 按屏幕比例取景：让最外圈的站点环在竖屏手机上也能整个装进画面
+// （宽屏 dV 说了算；竖屏时横向视野窄，得按 hFov 把相机往后拉）
+function frameCamera(){
+  if(!PORTALS || !PORTALS.length) return;
+  const aspect=window.innerWidth/window.innerHeight;
+  const vFov=THREE.MathUtils.degToRad(45);
+  const need=PR*1.15;
+  const dV=need/Math.tan(vFov/2);
+  const dH=need/Math.tan(Math.atan(Math.tan(vFov/2)*aspect));
+  const d=Math.min(Math.max(dV,dH), 30);
+  const el=THREE.MathUtils.degToRad(30);          // 抬高视角，水平门户环才读成「一圈」而不是一条线
+  camera.position.set(0, Math.sin(el)*d, Math.cos(el)*d);
+  controls.minDistance=6;controls.maxDistance=Math.max(38, d*1.6);
+  controls.update();
+}
+
 scene.add(new THREE.AmbientLight(0x334466, 1.6));
 const dl = new THREE.DirectionalLight(0xffffff, 2);dl.position.set(5,8,5);scene.add(dl);
 scene.add(new THREE.DirectionalLight(0x8899cc, 1).position.set(-5,-3,-5));
@@ -251,6 +272,64 @@ NODES.forEach(d=>{
   nodeGroup.add(lbl);labelByMesh.set(mesh,div);
 });
 
+// ── 站点门户环（外圈）──
+// 数据**直接读父页的 MODULES / HUBS**（首页卡片就是它渲染的），所以加了新栏目图谱自动跟上。
+// 单独打开这个文件时（没有父页）→ 拿不到数据，这一层自动不出现，只显示语法图。
+const PR = 8.0;                                   // 门户环半径（明显在 B1 壳 5.7 之外）
+const PCOL = {hub:'#f6d365', page:'#6bc5ff'};     // 学习站=金，栏目=青
+function readPortals(){
+  let M=null,H=null;
+  try{ M=window.parent.MODULES; H=window.parent.HUBS; }catch(e){}
+  if(!M || !M.length) return [];
+  const out=[];
+  if(H) Object.keys(H).forEach(k=>{
+    const h=H[k];
+    out.push({id:'hub_'+k, kind:'hub', page:h.id,
+              n:(h.icon||'')+' '+(h.cardTitle||h.navLabel||k),
+              children:M.filter(m=>m.group===k).map(m=>({id:m.id,n:(m.icon||'')+' '+(m.cardTitle||m.navLabel||m.id)}))});
+  });
+  M.filter(m=>!m.group).forEach(m=>{
+    out.push({id:'pg_'+m.id, kind:'page', page:m.id,
+              n:(m.icon||'')+' '+(m.cardTitle||m.navLabel||m.id), children:[]});
+  });
+  return out;
+}
+const PORTALS = readPortals();
+PORTALS.forEach((p,i)=>{
+  const a=(i/PORTALS.length)*Math.PI*2;
+  const pos=new THREE.Vector3(Math.cos(a)*PR, 0, Math.sin(a)*PR);
+  p.g='站点'; p.lv='site';                        // 让 setHighlight / 搜索 认得它
+  const c=PCOL[p.kind]||'#f6d365', sz=.34;
+  const halo=new THREE.Mesh(new THREE.SphereGeometry(sz+.16,16,16),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(c),transparent:true,opacity:.28}));
+  halo.position.copy(pos);nodeGroup.add(halo);
+  // 细辐条：把门户和中心连起来，让这一圈读成「站点的入口」
+  lineGroup.add(new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), pos]),
+    new THREE.LineBasicMaterial({color:new THREE.Color(c),transparent:true,opacity:.10})));
+  const mesh=new THREE.Mesh(new THREE.SphereGeometry(sz,24,24),
+    new THREE.MeshStandardMaterial({color:new THREE.Color(c),emissive:new THREE.Color(c),emissiveIntensity:.75,roughness:.25,metalness:.4}));
+  mesh.position.copy(pos);mesh.userData=p;nodeGroup.add(mesh);
+  nodeMeshes.push(mesh);haloByMesh.set(mesh,halo);
+  nodePosMap[p.id]=pos; linkMap[p.id]=new Set();
+  const div=document.createElement('div');
+  div.className='node-lbl';div.style.fontSize='.6rem';
+  div.style.textShadow=`0 0 6px ${c},0 0 3px rgba(0,0,0,.8)`;
+  div.textContent=p.n;
+  const lbl=new CSS2DObject(div);
+  lbl.position.copy(pos.clone().add(new THREE.Vector3(0,sz+.14,0)));
+  nodeGroup.add(lbl);labelByMesh.set(mesh,div);
+});
+if(PORTALS.length){
+  scene.add(new THREE.LineSegments(
+    new THREE.WireframeGeometry(new THREE.SphereGeometry(PR,26,14)),
+    new THREE.LineBasicMaterial({color:0x6b8cc0,transparent:true,opacity:.05})));
+  const pd=document.createElement('div');
+  pd.className='shell-lbl';pd.style.color='#cfe0ff';pd.textContent='站点';
+  const pl=new CSS2DObject(pd);pl.position.set(0,PR+.3,0);scene.add(pl);
+}
+frameCamera();
+
 // ── 连线（默认很淡，点击时相关线点亮）──
 const lineByPair = [];
 LINKS.forEach(([a,b])=>{
@@ -272,7 +351,9 @@ const particles=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffd93d,siz
 scene.add(particles);
 
 // ── 图例 ──
-document.getElementById('legend').innerHTML=Object.entries(GC).map(([g,c])=>`<div class="lg"><div class="d" style="background:${c};box-shadow:0 0 8px ${c}"></div><span class="l">${g}</span></div>`).join('');
+document.getElementById('legend').innerHTML=Object.entries(GC).map(([g,c])=>`<div class="lg"><div class="d" style="background:${c};box-shadow:0 0 8px ${c}"></div><span class="l">${g}</span></div>`).join('')
+  + (PORTALS.length ? `<div class="lg" style="margin-top:8px"><div class="d" style="background:${PCOL.hub};box-shadow:0 0 8px ${PCOL.hub}"></div><span class="l">学习站</span></div>`
+                    + `<div class="lg"><div class="d" style="background:${PCOL.page};box-shadow:0 0 8px ${PCOL.page}"></div><span class="l">栏目</span></div>` : '');
 document.getElementById('lvkey').innerHTML=['a1','a2','b1'].map(lv=>`<div class="lv"><b>${LV[lv].label}</b><span>${lv==='a1'?'内圈·基础':lv==='a2'?'中圈·进阶':'外圈·高阶'}</span></div>`).join('');
 // ── 跳转 ──
 function jumpTo(node){
@@ -310,21 +391,45 @@ function setHighlight(id){
 const card=document.getElementById('node-card');
 const LVTXT={a1:'A1 基础',a2:'A2 进阶',b1:'B1 高阶'};
 let cardNode=null;
+function goPage(id){
+  try{ if(window.parent && typeof window.parent.showPage==='function'){ window.parent.showPage(id); return true; } }catch(e){}
+  try{ window.parent.postMessage({type:'goto-page',page:id},'*'); return true; }catch(e){}
+  return false;
+}
 function openCard(d){
   cardNode=d;
-  const c=GC[d.g];
-  document.getElementById('nc-badges').innerHTML=
-    `<span class="nc-badge" style="background:${c}33;color:${c};border:1px solid ${c}66">${d.g}</span>`+
-    `<span class="nc-badge" style="background:rgba(246,211,101,.15);color:#f6d365;border:1px solid rgba(246,211,101,.4)">${LVTXT[d.lv]}</span>`;
-  document.getElementById('nc-title').textContent=d.n;
-  const rel=[...linkMap[d.id]].map(rid=>nameById[rid]);
-  document.getElementById('nc-rel').innerHTML = rel.length
-    ? '🔗 相关知识点：<b>'+rel.join('</b> · <b>')+'</b>'
-    : '🔗 这是一个独立知识点';
+  const list=document.getElementById('nc-list'), go=document.getElementById('nc-go');
+  if(d.kind){                                   // ── 站点门户 ──
+    const c=PCOL[d.kind]||'#f6d365';
+    document.getElementById('nc-badges').innerHTML=
+      `<span class="nc-badge" style="background:${c}33;color:${c};border:1px solid ${c}66">${d.kind==='hub'?'学习站':'栏目'}</span>`;
+    document.getElementById('nc-title').textContent=d.n;
+    const kids=d.children||[];
+    document.getElementById('nc-rel').innerHTML = kids.length
+      ? '📚 子板块（点一下直接进）：' : '📄 直接打开这一页';
+    list.innerHTML = kids.map(k=>`<button class="nc-sub" data-pg="${k.id}">${k.n}</button>`).join('');
+    list.querySelectorAll('.nc-sub').forEach(b=>b.onclick=()=>goPage(b.dataset.pg));
+    go.textContent='📄 打开「'+(d.n||'').trim()+'」';
+  }else{                                        // ── 语法点 ──
+    const c=GC[d.g];
+    document.getElementById('nc-badges').innerHTML=
+      `<span class="nc-badge" style="background:${c}33;color:${c};border:1px solid ${c}66">${d.g}</span>`+
+      `<span class="nc-badge" style="background:rgba(246,211,101,.15);color:#f6d365;border:1px solid rgba(246,211,101,.4)">${LVTXT[d.lv]}</span>`;
+    document.getElementById('nc-title').textContent=d.n;
+    const rel=[...linkMap[d.id]].map(rid=>nameById[rid]);
+    document.getElementById('nc-rel').innerHTML = rel.length
+      ? '🔗 相关知识点：<b>'+rel.join('</b> · <b>')+'</b>'
+      : '🔗 这是一个独立知识点';
+    list.innerHTML='';
+    go.textContent='📖 前往学习这一节';
+  }
   card.classList.add('show');
 }
 window.closeCard=function(){ card.classList.remove('show'); cardNode=null; setHighlight(null); };
-document.getElementById('nc-go').onclick=function(){ if(cardNode) jumpTo(cardNode); };
+document.getElementById('nc-go').onclick=function(){
+  if(!cardNode) return;
+  if(cardNode.kind) goPage(cardNode.page); else jumpTo(cardNode);
+};
 
 // ── 点击拾取 ──
 const raycaster=new THREE.Raycaster();const mouse=new THREE.Vector2();
@@ -353,7 +458,7 @@ si.addEventListener('input',()=>{
   if(!q){ setHighlight(activeId); return; }
   nodeMeshes.forEach(m=>{
     const d=m.userData,halo=haloByMesh.get(m),lbl=labelByMesh.get(m);
-    const match=d.n.toLowerCase().includes(q)||d.g.includes(q)||d.id.includes(q)||d.lv.includes(q);
+    const match=d.n.toLowerCase().includes(q)||d.g.includes(q)||d.id.includes(q)||(d.lv||'').includes(q);
     if(match){m.material.emissive.set(0xffffff);m.material.emissiveIntensity=1.6;m.scale.setScalar(1.7);halo.material.opacity=.5;lbl.style.opacity=1;}
     else{m.material.emissive.set(m.material.color);m.material.emissiveIntensity=.2;m.scale.setScalar(.65);halo.material.opacity=.05;lbl.style.opacity=.15;}
   });
