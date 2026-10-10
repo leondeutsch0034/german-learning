@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>德国年度青少年词汇，为什么连着七年都是英语？ | Leon 德语</title>
+<meta name="description" content="林夏在德国同学的 Stammtisch 群里看到一条消息，只有两个数字：„67“。词典里查不到，翻译软件里也没有。">
+<meta property="og:title" content="德国年度青少年词汇，为什么连着七年都是英语？">
+<meta property="og:description" content="2026 年的赢家是 Ragebait。往回看：lost、cringe、smash、goofy、Aura、Das crazy —— 七个英语词，一个德语榜单。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-jugendsprache.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/jugendsprache.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Jugendsprache · 青少年俚语</div>
+  <h1>🗣️ 德国「年度青少年词」，一连七年是英语</h1>
+  <p class="sub">从 Aura 到 Ragebait：一个词榜，和它背后的英语潮</p>
+  <p class="lead">林夏在德国同学的 Stammtisch 群里看到一条消息，只有两个数字：„67“。词典里查不到，翻译软件里也没有。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 为本期新写</span></div>
+  <p class="act-lead">林夏刚被拉进德国同学的 Stammtisch 群。第一条消息跳出来，只有两个数字——„67“。她盯着看了十秒：词典里没有，翻译软件里也没有。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">📱 Stammtisch 群聊：一条消息只有两个数字</div>
+    <div class="line">
+      <div class="who">Tobias</div>
+      <div class="de">Leute, wer kommt heute Abend zum Stammtisch? 67!</div>
+      <div class="zh">各位，今晚谁来桌聚？67！</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Was heißt „67“? Ich finde es nicht im Wörterbuch.</div>
+      <div class="zh">「67」是什么意思？我在词典里查不到。</div>
+    </div>
+    <div class="line">
+      <div class="who">Anna</div>
+      <div class="de">Gar nichts. Genau das ist der Witz — 67 bedeutet einfach nichts.</div>
+      <div class="zh">什么意思都没有。这正是笑点——67 就是没意思。</div>
+    </div>
+    <div class="line">
+      <div class="who">Tobias</div>
+      <div class="de">Und wenn du was falsch machst, sag einfach „Schere“.</div>
+      <div class="zh">还有，你要是搞错了什么，就说一句「Schere」。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Schere? Wie die Schere zum Schneiden?</div>
+      <div class="zh">Schere？就是剪东西那把剪刀？</div>
+    </div>
+    <div class="line">
+      <div class="who">Anna</div>
+      <div class="de">Nicht ganz. Kommt aus dem Gaming. Heißt: sorry, mein Fehler.</div>
+      <div class="zh">不完全是。来自游戏圈。意思是：抱歉，是我的锅。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">群里那句 <b>„67“</b> 是什么意思？</div>
+      <button onclick="themeQuiz(this,true,'jugendsprache-exp')">一个「怎么说都行」的万能词——本身没有固定意思</button>
+      <button onclick="themeQuiz(this,false,'jugendsprache-exp')">67 岁（约人的时候报年龄）</button>
+      <button onclick="themeQuiz(this,false,'jugendsprache-exp')">晚上 6 点 7 分集合</button>
+    <div class="exp" id="jugendsprache-exp"><b>„67“</b>（英语 six seven）是从短视频和篮球梗传进来的，<b>本身没有任何意思</b>，所以哪里都能用——同意、起哄、接话都行。它进了 2026 年「年度青少年词」的 Top 10，但没进最后三名。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">德国每年选一个「青少年年度词汇」，本来是想记录年轻人怎么说话。结果最近这些年选出来的赢家，几乎全是从英语借来的词。</p>
+  <div class="fact">
+    <h3>🏆 2026 年的赢家：Ragebait</h3>
+    <p>德国词典出版社<b>朗氏（Langenscheidt）</b>10 月 10 日在<b>法兰克福书展</b>公布：2026 年的年度青少年词是 <b>„Ragebait“</b>。约 <b>100 万人</b>投票，它拿到约 <b>37%</b>，险胜 „Peak“（约 34%）和 „Crashout“（约 30%）。</p>
+    <div class="fun">💡 这个词字面意思是「愤怒的诱饵」（rage ＝ 暴怒，bait ＝ 诱饵）：那种<b>故意惹你生气</b>、好让你去评论转发的网络内容。</div>
+  </div>
+  <div class="fact">
+    <h3>🇬🇧 连着七年，赢家都是英语词</h3>
+    <p>2020 <b>lost</b> → 2021 <b>cringe</b> → 2022 <b>smash</b> → 2023 <b>goofy</b> → 2024 <b>Aura</b> → 2025 <b>Das crazy</b> → 2026 <b>Ragebait</b>。再往前，2017 年的 „I bims“、2018 年的 „Ehrenmann“ 都还是德语的。</p>
+    <div class="fun">💡 这个榜单从 2020 年起，连续七年把奖给了英语借词。语言里管这类词叫 <b>Anglizismen</b>（英语借词）。</div>
+  </div>
+  <div class="fact">
+    <h3>🎮 今年的 Top 10：一半来自游戏和短视频</h3>
+    <p>„67“ 是短视频和篮球梗带进来的万能词；„Schere“（＝我错了）来自游戏语音；„Süper“ 是从土耳其语借来的「超棒」；„Gute Käse“ 干脆故意不合语法——本来该写成 <i>guter Käse</i>（der Käse 是阳性）。</p>
+    <div class="fun">💡 这些词的共同点不是意思，是<b>来路</b>：Twitch、TikTok、Discord 在哪儿火，词就从哪儿来。</div>
+  </div>
+  <div class="fact">
+    <h3>📖 这个榜是谁办的、怎么办的</h3>
+    <p>从 <b>2008 年</b>起，由朗氏出版社（一家做词典的公司）每年办一次：<b>11–20 岁</b>的人在网上一人一票，先选出 Top 10，再在最后三名里决出冠军。2026 年有约 <b>100 万人</b>参加。</p>
+    <div class="fun">💡 出版社办这个，一半是记录语言，一半是<b>生意</b>——每年 10 月正好是法兰克福书展，也正是词典的销售季。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">下面是这一期的词表和两组对照：课本里怎么写，德国年轻人日常怎么说。两边都对，差的是场合。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Na, Digga? Alles klar?</td><td class="write">Hallo, wie geht es dir?</td><td class="zh">嘿，哥们儿？还好吧？／你好，你好吗？</td></tr>
+    <tr><td class="say">Schere!</td><td class="write">Entschuldigung, das war mein Fehler.</td><td class="zh">我的锅！／对不起，是我的错。</td></tr>
+    <tr><td class="say">Das ist peak!</td><td class="write">Das ist wirklich hervorragend.</td><td class="zh">这太顶了！／这真的非常出色。</td></tr>
+    <tr><td class="say">Das ist mein Macker.</td><td class="write">Das ist mein Freund.</td><td class="zh">这是我那口子（口语，常带调侃）。／这是我的男朋友。</td></tr>
+    <tr><td class="say">67</td><td class="write">(keine feste Bedeutung)</td><td class="zh">万能词，没有固定意思。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：借词也要分 der / die / das</h3>
+    <p>英语词进德语不是照搬，得<b>按德语的名词性别</b>走。两个现成的例子：2024 年的年度词是 <b>die Aura</b>（阴性，按德语的 <i>die Aura</i>）；2025 年的官方写法是 <b>„Das crazy“</b>——形容词名词化，一律用中性的 <b>das</b>（对比 <i>das Gute</i>、<i>das Schöne</i>）。</p>
+    <div class="fun">✍️ 所以碰到新的英语借词，别按英语猜性别。规则是：<b>形容词名词化 → das</b>；<b>名词借词 → 跟着德语里意思最接近的那个词</b>（词典里会标）。</div>
+  </div>
+</div>
+
+<!-- ═══ 日常怎么说（主题包 · 地道德语对照）═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">🗣️</div><h2>日常怎么说</h2>
+    <span class="from">课本 ↔ 日常</span></div>
+  <p class="act-lead">同一个意思，课本里一个说法、德国人日常另一个说法。下面是本站「地道德语」栏目的同款对照。</p>
+  <div class="echt-teaser">
+  <div class="et-card">
+    <div class="et-cat">跟朋友打招呼</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Hallo, wie geht's dir?</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Na, Digga? Alles klar?</span></div>
+    <div class="et-note">两个都对。<b>Digga</b> 来自汉堡——原本是 <i>Dicker</i> 的汉堡口音，90 年代汉堡嘻哈把它带火的，<b>跟胖瘦没关系</b>，就是「哥们儿／兄弟」。只在熟人之间用；对长辈、对刚认识的人、写邮件，还是 <i>Hallo</i>。柏林有个对应说法叫 <b>Atze</b>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">认个错</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Entschuldigung, das war mein Fehler.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Schere!</span></div>
+    <div class="et-note"><b>Schere</b> 来自游戏圈（＝ sorry，认错），游戏语音和群里最常见。两个都对，差别在<b>场合</b>：Schere 只适合熟人圈和线上；对老师说、写邮件，用 <i>Entschuldigung</i>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">夸一句</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Das ist wirklich sehr gut!</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Das ist peak!</span></div>
+    <div class="et-note"><b>peak</b> 是英语借词，意思是「顶了／最好了」。它正是 2026 年「年度青少年词」的<b>第二名</b>。朋友之间说没问题；正式写作仍然是 <i>hervorragend / ausgezeichnet</i>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">介绍对象</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Das ist mein Freund.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Das ist mein Macker.</span></div>
+    <div class="et-note">⚠️ <b>Macker</b> 有味道：德国人自己用的时候多半<b>半开玩笑</b>，可能听着亲昵，也可能听着像「那小子」。介绍给长辈、写正式场合，一律用 <i>mein Freund / mein Partner</i>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说「我无语了」</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Das ist unglaublich!</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Das ist crazy!</span></div>
+    <div class="et-note"><b>crazy</b> 在德语口语里已经彻底德语化了——2025 年的年度词甚至官方写成 <b>„Das crazy“</b>，前面挂了德语中性的冠词。口语随便用；书面语还是 <i>unglaublich / verrückt</i>。</div>
+  </div>
+    <a class="et-more" href="https://leonsdeutschzentrum.com/#echt">去「地道德语」看全部 →</a>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/news/05.html">
+      <div class="kind">NEWS · 德语新闻 · 第 5 期</div>
+      <div class="t">「Ragebait」当选德国年度青少年词汇</div>
+      <div class="note">这一期的德语客观报道，德英双语、A1–B2 四档，每档都配朗读音频</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/19.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 19 集</div>
+      <div class="t">🤝 德国朋友圈</div>
+      <div class="note">Stammtisch 与 Komilitone / Bekannter / Freund 的四级壁垒——青少年社交词背后那套关系</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k28.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 28 期</div>
+      <div class="t">🗣️ 德语的冠词性别</div>
+      <div class="note">der / die / das 到底怎么定——英语借词进来也得先过这一关</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/#kultur-reader&ep=36">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 36 期</div>
+      <div class="t">🧩 德语长词</div>
+      <div class="note">德国人怎么把词粘成一大串——跟「借词」正好是两个相反的方向</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>
