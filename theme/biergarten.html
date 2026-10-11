@@ -50,6 +50,14 @@
   .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
   .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
 
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
   .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
           border-radius:14px; padding:20px; margin-top:22px; }
   .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
