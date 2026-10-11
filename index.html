@@ -3614,6 +3614,53 @@ window.runLazyRender = function(pageId) {
 
 /* 实例化一个懒加载页面（幂等；同时支持内嵌模板与内容外置）
    cb: 内容就绪后的回调（异步时延后到 fetch 完成） */
+/* ⚠️ 站内资源一律按**站点根**解析。
+   地址栏会被 replaceState 到子路径（/serie/N.html、/news/NN.html，都是为了分享卡），
+   那一刻文档基路径就变成了 /serie/ —— 于是所有**相对**路径都会解析成
+   /serie/lazy/…  → 404，页面上表现为「内容加载失败，请刷新页面重试」。
+   （文化期/剧集的「相关学习」里点语法，就是从 /serie/N.html 触发懒加载踩到的。）
+   file:// 下没有真正的站点根，保持原样。 */
+window.sitePath = function(p) {
+  if (!p) return p;
+  if (p.charAt(0) === '/' || /^(?:[a-z]+:)?\/\//i.test(p) || p.charAt(0) === '#') return p;
+  return (location.protocol === 'file:') ? p : '/' + p.replace(/^\.?\//, '');
+};
+
+/* 把某个子树里**所有**还没加载的相对资源改写成站点根绝对路径。
+   静态那 100 多个 <audio src="audio/…"> 和懒加载注入进来的图片/音频都靠它兜底
+   （113/117 个 audio 是 preload="none"，改写在真正开始加载之前完成，不会多一次请求）。 */
+window.fixRelativeAssets = function(root) {
+  if (location.protocol === 'file:') return;
+  var scope = (root && root.nodeType === 1) ? root : document;
+  var list = [];
+  if (scope.matches && scope.matches('[src]')) list.push(scope);
+  var found = scope.querySelectorAll ? scope.querySelectorAll('[src]') : [];
+  for (var i = 0; i < found.length; i++) list.push(found[i]);
+  for (var j = 0; j < list.length; j++) {
+    var el = list[j];
+    var raw = el.getAttribute('src');
+    if (!raw) continue;
+    var fixed = window.sitePath(raw);
+    if (fixed !== raw) el.setAttribute('src', fixed);
+  }
+};
+
+/* 上面那个改写器的触发点：① 文档剩余部分解析出来的元素 ② 懒加载注入进来的元素 */
+(function(){
+  if (location.protocol === 'file:') return;
+  window.addEventListener('DOMContentLoaded', function(){ window.fixRelativeAssets(); });
+  try {
+    new MutationObserver(function(muts){
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes;
+        for (var k = 0; added && k < added.length; k++) {
+          if (added[k].nodeType === 1) window.fixRelativeAssets(added[k]);
+        }
+      }
+    }).observe(document.documentElement, {childList: true, subtree: true});
+  } catch (e) {}
+})();
+
 window.instantiateLazyPage = function(pageId, cb) {
   if (window._lazyInstantiated[pageId]) {
     window.runLazyRender(pageId);
@@ -3640,7 +3687,7 @@ window.instantiateLazyPage = function(pageId, cb) {
     // ⚠️ cache:'no-cache' 不要删！= 「用缓存前先跟服务器核对」，不是「不缓存」。
     //    两个站的 lazy/*.html 都带 ETag，没改的返回 304（几乎不耗流量），改了的立刻拿新版。
     //    去掉它 → 浏览器按 max-age=600 直接用旧文件，改完内容十来分钟看不到更新。
-    fetch(tpl.dataset.src, {cache: 'no-cache'}).then(function(r) {
+    fetch(window.sitePath(tpl.dataset.src), {cache: 'no-cache'}).then(function(r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.text();
     }).then(function(text) {
@@ -37216,7 +37263,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   /* 打开当前集的分享页 */
   window.openSerieShare = function(ep) {
     var iframe = document.querySelector('#page-serie-share iframe');
-    if (iframe) iframe.src = '林夏在德国_引流.html?ep=' + (ep || 1);
+    if (iframe) iframe.src = window.sitePath('林夏在德国_引流.html') + '?ep=' + (ep || 1);
     showPage('serie-share');
   };
 
@@ -38739,7 +38786,7 @@ window.injectSerieAudio = function() {
         var au = document.createElement('audio');
         au.controls = true;
         au.preload = 'none';               // 不点不下载
-        au.src = 'audio/' + have[part];
+        au.src = window.sitePath('audio/' + have[part]);
         box.appendChild(lab);
         box.appendChild(au);
         t.parentNode.insertBefore(box, t.nextSibling);
@@ -38748,7 +38795,7 @@ window.injectSerieAudio = function() {
   };
 
   if (window._seAudioIdx) { run(window._seAudioIdx); return; }
-  fetch('audio/serie-audio-index.json')
+  fetch(window.sitePath('audio/serie-audio-index.json'))
     .then(function(r) { return r.ok ? r.json() : {}; })
     .then(function(idx) { window._seAudioIdx = idx; run(idx); })
     .catch(function(e) { console.warn('[serie-audio] 索引拉取失败', e); });
@@ -38857,7 +38904,7 @@ window.injectKulturAudio = function() {
   };
 
   if (window._kdAudioIdx) { run(window._kdAudioIdx); return; }
-  fetch('audio/kultur-audio-index.json')
+  fetch(window.sitePath('audio/kultur-audio-index.json'))
     .then(function(r) { return r.ok ? r.json() : {}; })
     .then(function(idx) { window._kdAudioIdx = idx; run(idx); })
     .catch(function(e) { console.warn('[kultur-audio] 索引拉取失败', e); });
