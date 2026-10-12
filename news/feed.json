@@ -7,7 +7,9 @@
    "de_title": "Klima-Woche in Bayern: Neuschwanstein leuchtet in Klima-Streifen",
    "hook": "新天鹅堡|亮起气候条纹",
    "sub": "一条条纹 ＝ 一年 · 越红越暖",
-   "date": "2026-10-09"
+   "date": "2026-10-09",
+   "photo": "news/og/src/07.jpg",
+   "de_hook": "Warum leuchtet|Neuschwanstein|plötzlich bunt?"
   },
   {
    "id": 6,
@@ -15,7 +17,9 @@
    "de_title": "Deutschlandticket wird 2027 teurer: 66,80 Euro",
    "hook": "一张票|坐遍全德国",
    "sub": "2027 年起 66,80 欧 · 这是第三次涨",
-   "date": "2026-10-01"
+   "date": "2026-10-01",
+   "photo": "news/og/src/06.jpg",
+   "de_hook": "66,80 Euro im Monat –|ist das noch billig?"
   },
   {
    "id": 5,
@@ -23,7 +27,9 @@
    "de_title": "„Ragebait“ ist das Jugendwort des Jahres 2026",
    "hook": "德国年度青少年词汇|今年是个英语词",
    "sub": "Ragebait：靠激怒你赚流量",
-   "date": "2026-10-10"
+   "date": "2026-10-10",
+   "photo": "news/og/src/05.jpg",
+   "de_hook": "Warum ist das|Jugendwort des Jahres|auf Englisch?"
   },
   {
    "id": 4,
@@ -31,7 +37,9 @@
    "de_title": "Erstklässler haben jetzt einen Anspruch auf Ganztagsbetreuung",
    "hook": "德国孩子|放学不回家",
    "sub": "8月1日起 一年级有法定全天位",
-   "date": "2026-08-01"
+   "date": "2026-08-01",
+   "photo": "news/og/src/04.jpg",
+   "de_hook": "Ganztagsbetreuung|für alle Erstklässler –|ein Recht, kein Zwang?"
   },
   {
    "id": 3,
@@ -39,7 +47,9 @@
    "de_title": "Oktoberfest endet mit neuem Besucherrekord",
    "hook": "740万人|挤爆啤酒节",
    "sub": "16 天喝掉 670 万升啤酒",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "photo": "news/og/src/03.jpg",
+   "de_hook": "Wie viel Bier trinkt|München in 16 Tagen?"
   },
   {
    "id": 2,
@@ -47,7 +57,9 @@
    "de_title": "Deutschland und Großbritannien wollen enger zusammenarbeiten",
    "hook": "德国和英国|签了「友好条约」",
    "sub": "学生免签 · 直达火车",
-   "date": "2026-10-08"
+   "date": "2026-10-08",
+   "photo": "news/og/src/02.jpg",
+   "de_hook": "Deutschland und|Großbritannien –|wieder Freunde?"
   },
   {
    "id": 1,
@@ -55,7 +67,9 @@
    "de_title": "Forscher aus Deutschland bekommen Medizin-Nobel-Preis",
    "hook": "德国人拿了|诺贝尔医学奖",
    "sub": "用光就能控制脑细胞",
-   "date": "2026-10-05"
+   "date": "2026-10-05",
+   "photo": "news/og/src/01.jpg",
+   "de_hook": "Kann man Gehirnzellen|einfach mit Licht|steuern?"
   }
  ]
 }

@@ -2815,7 +2815,13 @@
     }
     /* ── 首页 · 德语新闻轮播卡（替代原 Wusstest du schon?）── */
     #news-rot { margin:0 auto 22px; max-width:800px; padding:0 20px; }
-    #news-rot .nr-card { display:block; text-decoration:none; background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:17px 22px 15px; position:relative; transition:all .3s ease; cursor:pointer; }
+    /* NEWS-CARD-RICH v1 —— 左图右文；照片与德语行让卡片不再是一块纯文字 */
+    #news-rot .nr-card { display:flex; gap:18px; align-items:stretch; text-decoration:none; background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:14px; position:relative; transition:all .3s ease; cursor:pointer; }
+    #news-rot .nr-photo { flex:0 0 208px; width:208px; border-radius:13px; overflow:hidden; background:#0b1730; }
+    #news-rot .nr-photo img { width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity .5s ease; }
+    #news-rot .nr-photo img.on { opacity:1; }
+    #news-rot .nr-main { flex:1; min-width:0; display:flex; flex-direction:column; padding:2px 6px 2px 0; }
+    #news-rot .nr-de { margin-top:8px; font-size:.82rem; font-weight:600; color:#e0b04a; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:.005em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     #news-rot .nr-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
     #news-rot .nr-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:11px; }
     #news-rot .nr-badge { display:inline-block; background:linear-gradient(135deg,#d4a030,#f6d365); color:#0a1428; font-size:.72rem; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:.03em; white-space:nowrap; box-shadow:0 2px 8px rgba(246,211,101,.18); }
@@ -2828,7 +2834,7 @@
     #news-rot .nr-meta > span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     #news-rot .nr-go { color:#f6d365; font-weight:700; white-space:nowrap; flex-shrink:0; }
     #news-rot .nr-card:hover .nr-go { color:#fde68a; }
-    @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{padding:14px 16px 12px;border-radius:14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} }
+    @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{flex-direction:column;gap:0;padding:0;border-radius:14px;overflow:hidden} #news-rot .nr-photo{flex:0 0 150px;width:100%;height:150px;border-radius:0} #news-rot .nr-main{padding:13px 16px 14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} #news-rot .nr-de{font-size:.76rem} #news-rot .nr-meta{flex-wrap:wrap;row-gap:9px} }
 
     /* ── 首页 · 德语海报入口 + 全屏海报视图（给视频号截图/取图用） ── */
     #news-rot .nr-acts { display:flex; align-items:center; gap:10px; flex-shrink:0; }
@@ -4924,16 +4930,20 @@ document.addEventListener('keydown', function(e) {
 <!-- ══════════ 首页 · 德语新闻轮播卡 ══════════ -->
 <!-- NEWS-HOME-CARD v1 -->
 <div id="news-rot" hidden>
-  <a class="nr-card" href="#" onclick="nrOpen();return false">
+    <a class="nr-card" href="#" onclick="nrOpen();return false">
+    <div class="nr-photo"><img id="nr-img" alt=""></div>
+    <div class="nr-main">
     <div class="nr-top">
       <span class="nr-badge">📰 德语新闻 · 分级阅读</span>
       <span class="nr-dots" id="nr-dots"></span>
     </div>
     <div class="nr-hook" id="nr-hook"></div>
     <div class="nr-sub" id="nr-sub"></div>
+    <div class="nr-de" id="nr-de"></div>
     <div class="nr-meta">
       <span id="nr-meta"></span>
       <span class="nr-acts"><button class="nr-shot" onclick="event.preventDefault();event.stopPropagation();nrPoster();return false;">🖼 德语海报</button><span class="nr-go">去读 →</span></span>
+    </div>
     </div>
   </a>
 </div>
@@ -4951,6 +4961,17 @@ document.addEventListener('keydown', function(e) {
     /* 大字报钩子里的 `|` 是换行位 */
     document.getElementById('nr-hook').innerHTML = esc(it.hook).replace(/\s*[|｜]\s*/g, '<br>');
     document.getElementById('nr-sub').textContent = it.sub || '';
+    document.getElementById('nr-de').textContent =
+      it.de_hook ? '\u25b8 ' + String(it.de_hook).replace(/\s*[|\uff5c]\s*/g, ' ') : '';
+    var ph = document.getElementById('nr-img');
+    if (it.photo) {
+      if (ph.getAttribute('data-src') !== it.photo) {   /* 同一张就别重设，避免闪 */
+        ph.classList.remove('on');
+        ph.setAttribute('data-src', it.photo);
+        ph.onload = function(){ ph.classList.add('on'); };
+        ph.src = window.sitePath(it.photo);
+      }
+    } else { ph.removeAttribute('src'); ph.classList.remove('on'); }
     document.getElementById('nr-meta').textContent = '第 ' + it.id + ' 期 · ' + (it.title || '');
     document.getElementById('nr-dots').innerHTML = feed.map(function(_, i){
       return '<i class="' + (i === idx ? 'on' : '') + '"></i>';
