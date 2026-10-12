@@ -1,0 +1,61 @@
+{
+ "count": 7,
+ "items": [
+  {
+   "id": 7,
+   "title": "拜仁气候周：新天鹅堡亮起气候条纹",
+   "de_title": "Klima-Woche in Bayern: Neuschwanstein leuchtet in Klima-Streifen",
+   "hook": "新天鹅堡|亮起气候条纹",
+   "sub": "一条条纹 ＝ 一年 · 越红越暖",
+   "date": "2026-10-09"
+  },
+  {
+   "id": 6,
+   "title": "德国公交月票，2027 年起涨到 66,80 欧",
+   "de_title": "Deutschlandticket wird 2027 teurer: 66,80 Euro",
+   "hook": "一张票|坐遍全德国",
+   "sub": "2027 年起 66,80 欧 · 这是第三次涨",
+   "date": "2026-10-01"
+  },
+  {
+   "id": 5,
+   "title": "「Ragebait」当选德国年度青少年词汇",
+   "de_title": "„Ragebait“ ist das Jugendwort des Jahres 2026",
+   "hook": "德国年度青少年词汇|今年是个英语词",
+   "sub": "Ragebait：靠激怒你赚流量",
+   "date": "2026-10-10"
+  },
+  {
+   "id": 4,
+   "title": "德国一年级有了「全天看护」的法定权利",
+   "de_title": "Erstklässler haben jetzt einen Anspruch auf Ganztagsbetreuung",
+   "hook": "德国孩子|放学不回家",
+   "sub": "8月1日起 一年级有法定全天位",
+   "date": "2026-08-01"
+  },
+  {
+   "id": 3,
+   "title": "慕尼黑啤酒节创纪录落幕",
+   "de_title": "Oktoberfest endet mit neuem Besucherrekord",
+   "hook": "740万人|挤爆啤酒节",
+   "sub": "16 天喝掉 670 万升啤酒",
+   "date": "2026-10-04"
+  },
+  {
+   "id": 2,
+   "title": "德国与英国：友好条约正式生效",
+   "de_title": "Deutschland und Großbritannien wollen enger zusammenarbeiten",
+   "hook": "德国和英国|签了「友好条约」",
+   "sub": "学生免签 · 直达火车",
+   "date": "2026-10-08"
+  },
+  {
+   "id": 1,
+   "title": "德国研究者获得诺贝尔医学奖",
+   "de_title": "Forscher aus Deutschland bekommen Medizin-Nobel-Preis",
+   "hook": "德国人拿了|诺贝尔医学奖",
+   "sub": "用光就能控制脑细胞",
+   "date": "2026-10-05"
+  }
+ ]
+}

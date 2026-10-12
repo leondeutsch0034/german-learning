@@ -2813,77 +2813,22 @@
       /* 歌曲简介框压缩 */
       #page-b1-lesen h1 ~ div[style*="border-top:2px solid #1565c0"] + div + div[style*="background:linear-gradient(135deg,#e3f2fd"]{padding:.7rem .8rem!important;font-size:.78rem!important;line-height:1.55!important}
     }
-    /* ── Wusstest du schon? 每日冷知识卡片（Echt Deutsch 同款范式）── */
-    #wds-card-wrap { margin:0 auto 22px; max-width:800px; padding:0 20px; }
-    #wds-card { background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:20px 22px; position:relative; transition:all .3s ease; cursor:default; display:flex; align-items:center; gap:20px; }
-    #wds-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
-    #wds-card .wds-left { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:8px; }
-    #wds-card .wds-badge { display:inline-block; background:linear-gradient(135deg,#d4a030,#f6d365); color:#0a1428; font-size:.72rem; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:.03em; white-space:nowrap; box-shadow:0 2px 8px rgba(246,211,101,.18); }
-    #wds-card .wds-emoji { font-size:2.2rem; line-height:1; }
-    #wds-card .wds-body { flex:1; min-width:0; }
-    #wds-card .wds-de { font-size:1rem; color:#fef3c7; font-weight:600; line-height:1.55; margin-bottom:4px; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:-.005em; }
-    #wds-card .wds-zh { font-size:.82rem; color:#94a3b8; line-height:1.55; }
-    #wds-card .wds-close { position:absolute; top:12px; right:16px; background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:3px 7px; border-radius:50%; transition:all .2s; line-height:1; }
-    #wds-card .wds-close:hover { color:#fde68a; background:rgba(246,211,101,.1); }
-    #wds-card .wds-footer { margin-top:10px; padding-top:10px; border-top:1px solid rgba(246,211,101,.1); display:flex; align-items:center; justify-content:space-between; font-size:.68rem; color:#64748b; }
-    #wds-card .wds-num { color:#64748b; font-size:.7rem; }
-    #wds-card .wds-num b { color:#f6d365; font-weight:700; }
-    #wds-card .wds-share-btn { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; padding:5px 14px; border-radius:16px; font-size:.7rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
-    #wds-card .wds-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
-    #wds-card .wds-more { color:#f6d365; text-decoration:none; font-weight:600; font-size:.73rem; transition:.2s; margin-left:2px; }
-    #wds-card .wds-more:hover { color:#fde68a; text-decoration:underline; }
-    @media(max-width:600px){ #wds-card-wrap{padding:0 12px} #wds-card{flex-direction:column;padding:16px 16px;border-radius:14px;gap:12px;align-items:flex-start} #wds-card .wds-left{flex-direction:row;gap:8px} #wds-card .wds-emoji{font-size:1.8rem} #wds-card .wds-de{font-size:.9rem} #wds-card .wds-zh{font-size:.78rem} }
-    /* ── WDS 全部冷知识展示页（Echt Deutsch 同款范式）── */
-    #page-wds { background:linear-gradient(180deg,#0a1428,#0f1e3a,#0a1428); min-height:100vh; padding:30px 20px 60px; font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
-    #page-wds .wds-page-header { text-align:center; margin-bottom:26px; }
-    #page-wds .wds-page-header h2 { color:#f6d365; font-size:1.75rem; margin-bottom:8px; letter-spacing:-.01em; }
-    #page-wds .wds-page-header p { color:#94a3b8; font-size:.9rem; max-width:520px; margin:0 auto; line-height:1.5; }
-    /* 搜索 + 统计条 */
-    #page-wds .wds-tools { max-width:1040px; margin:0 auto 26px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; }
-    #page-wds .wds-search-box { position:relative; flex:1; min-width:240px; max-width:440px; }
-    #page-wds .wds-search-box svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; fill:rgba(246,211,101,.45); pointer-events:none; }
-    #page-wds #wds-search { width:100%; box-sizing:border-box; background:rgba(246,211,101,.06); border:1px solid rgba(246,211,101,.22); color:#fde68a; border-radius:24px; padding:11px 40px 11px 38px; font-size:.9rem; outline:none; transition:.2s; }
-    #page-wds #wds-search::placeholder { color:rgba(148,163,184,.65); }
-    #page-wds #wds-search:focus { border-color:rgba(246,211,101,.6); background:rgba(246,211,101,.1); box-shadow:0 0 0 3px rgba(246,211,101,.08); }
-    #page-wds .wds-search-clear { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#64748b; font-size:1.1rem; cursor:pointer; padding:4px 8px; line-height:1; border-radius:50%; transition:.2s; display:none; }
-    #page-wds .wds-search-clear:hover { color:#fde68a; background:rgba(246,211,101,.12); }
-    #page-wds .wds-count { font-size:.78rem; color:#64748b; white-space:nowrap; }
-    #page-wds .wds-count b { color:#f6d365; font-weight:700; }
-    #page-wds .wds-empty { display:none; text-align:center; color:#64748b; font-size:.9rem; padding:50px 20px; }
-    /* ── 全部冷知识网格卡片（Echt Deutsch 同款范式）── */
-    #page-wds .wds-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1040px; margin:0 auto; }
-    #page-wds .wds-grid-card { background:linear-gradient(160deg,#0f1e3a,#132540); border:1px solid rgba(246,211,101,.1); border-radius:18px; padding:20px 20px 18px; transition:border-color .25s,box-shadow .25s,transform .25s; display:flex; flex-direction:column; }
-    #page-wds .wds-grid-card:hover { border-color:rgba(246,211,101,.4); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-3px); }
-    #page-wds .wds-grid-card.today { border-color:rgba(246,211,101,.5); box-shadow:0 0 0 2px rgba(246,211,101,.15),0 6px 28px rgba(0,0,0,.35); background:linear-gradient(160deg,#132540,#182d50); }
-    #page-wds .wds-grid-card .wgc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
-    #page-wds .wds-grid-card .wgc-emoji { font-size:2rem; line-height:1; }
-    #page-wds .wds-grid-card .wgc-num { font-size:.66rem; font-weight:700; color:rgba(246,211,101,.35); letter-spacing:.06em; }
-    #page-wds .wds-grid-card.today .wgc-num { color:#0a1428; background:linear-gradient(135deg,#d4a030,#f6d365); padding:4px 12px; border-radius:20px; letter-spacing:.03em; }
-    #page-wds .wds-grid-card .wgc-today-tag { font-size:.6rem; font-weight:700; color:#0a1428; background:linear-gradient(135deg,#f6d365,#fde68a); padding:3px 8px; border-radius:20px; margin-right:6px; }
-    #page-wds .wds-grid-card .wgc-de { font-size:1rem; color:#fef3c7; font-weight:600; line-height:1.55; margin-bottom:8px; overflow-wrap:break-word; word-break:break-word; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:-.005em; }
-    #page-wds .wds-grid-card .wgc-zh { font-size:.82rem; color:#94a3b8; line-height:1.55; }
-    #page-wds .wds-grid-card .wgc-footer { margin-top:auto; padding-top:14px; border-top:1px solid rgba(246,211,101,.08); display:flex; justify-content:flex-end; }
-    #page-wds .wds-grid-card .wgc-share-btn { background:linear-gradient(135deg,#b8860b,#f6d365); color:#0a1428; border:none; padding:5px 14px; border-radius:16px; font-size:.7rem; font-weight:700; cursor:pointer; transition:.25s; letter-spacing:.03em; }
-    #page-wds .wds-grid-card .wgc-share-btn:hover { box-shadow:0 3px 16px rgba(246,211,101,.35); transform:translateY(-1px); }
-    #page-wds .wds-grid-card .wgc-watermark { padding-top:8px; text-align:right; font-size:.58rem; color:rgba(246,211,101,.14); letter-spacing:.05em; }
-    #page-wds .wds-grid-card mark { background:rgba(246,211,101,.28); color:#fff; border-radius:3px; padding:0 1px; }
-    #page-wds .wds-page-back { text-align:center; margin-top:40px; }
-    #page-wds .wds-page-back a { display:inline-block; background:linear-gradient(135deg,#1e3a5f,#2a4a7a); color:#fde68a; padding:11px 30px; border-radius:22px; text-decoration:none; font-weight:600; font-size:.88rem; border:1px solid rgba(246,211,101,.22); transition:.25s; }
-    #page-wds .wds-page-back a:hover { border-color:rgba(246,211,101,.55); box-shadow:0 4px 18px rgba(246,211,101,.12); transform:translateY(-1px); }
-    @media(max-width:600px){ #page-wds{padding:20px 12px 40px} #page-wds .wds-grid{grid-template-columns:1fr;gap:12px} #page-wds .wds-grid-card{padding:16px 16px 14px} #page-wds .wds-page-header h2{font-size:1.3rem} #page-wds .wds-grid-card .wgc-de{font-size:.88rem} #page-wds .wds-grid-card .wgc-zh{font-size:.76rem} #page-wds .wds-tools{margin-bottom:20px} }
-    /* ── 分享卡片全屏弹窗 ── */
-    #wds-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
-    #wds-share-overlay.show { display:flex; }
-    #wds-share-overlay .share-close { position:absolute; top:16px; right:20px; background:rgba(255,255,255,.08); border:none; color:#94a3b8; font-size:1.5rem; width:40px; height:40px; border-radius:50%; cursor:pointer; transition:.2s; z-index:1; }
-    #wds-share-overlay .share-close:hover { background:rgba(255,255,255,.15); color:#fde68a; }
-    #wds-share-card { max-width:420px; width:100%; text-align:center; padding:40px 28px 32px; background:linear-gradient(160deg,#0f1e3a 0%,#162d4a 40%,#1a3050 100%); border:1px solid rgba(246,211,101,.3); border-radius:20px; box-shadow:0 8px 40px rgba(0,0,0,.5); }
-    #wds-share-card .share-emoji { font-size:5rem; display:block; margin-bottom:16px; line-height:1.1; }
-    #wds-share-card .share-de { font-size:1.42rem; color:#fde68a; font-weight:600; line-height:1.65; margin-bottom:14px; }
-    #wds-share-card .share-zh { font-size:1.02rem; color:#94a3b8; line-height:1.55; margin-bottom:24px; }
-    #wds-share-card .share-brand { font-size:.78rem; color:#64748b; border-top:1px solid rgba(246,211,101,.12); padding-top:16px; }
-    #wds-share-card .share-brand span { color:#f6d365; font-weight:700; }
-    #wds-share-card .share-url { font-size:.7rem; color:#64748b; margin-top:6px; }
-    @media(max-width:600px){ #wds-share-card{padding:32px 22px 28px} #wds-share-card .share-emoji{font-size:4rem} #wds-share-card .share-de{font-size:1.26rem} #wds-share-card .share-zh{font-size:.94rem} }
+    /* ── 首页 · 德语新闻轮播卡（替代原 Wusstest du schon?）── */
+    #news-rot { margin:0 auto 22px; max-width:800px; padding:0 20px; }
+    #news-rot .nr-card { display:block; text-decoration:none; background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:17px 22px 15px; position:relative; transition:all .3s ease; cursor:pointer; }
+    #news-rot .nr-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
+    #news-rot .nr-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:11px; }
+    #news-rot .nr-badge { display:inline-block; background:linear-gradient(135deg,#d4a030,#f6d365); color:#0a1428; font-size:.72rem; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:.03em; white-space:nowrap; box-shadow:0 2px 8px rgba(246,211,101,.18); }
+    #news-rot .nr-dots { display:flex; gap:6px; flex-shrink:0; }
+    #news-rot .nr-dots i { width:6px; height:6px; border-radius:50%; background:rgba(148,163,184,.32); transition:.25s; }
+    #news-rot .nr-dots i.on { background:#f6d365; box-shadow:0 0 8px rgba(246,211,101,.5); }
+    #news-rot .nr-hook { font-size:1.3rem; font-weight:800; color:#fef3c7; line-height:1.34; letter-spacing:-.01em; }
+    #news-rot .nr-sub { font-size:.84rem; color:#94a3b8; line-height:1.5; margin-top:6px; }
+    #news-rot .nr-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:13px; padding-top:11px; border-top:1px solid rgba(246,211,101,.1); font-size:.72rem; color:#64748b; }
+    #news-rot .nr-meta > span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    #news-rot .nr-go { color:#f6d365; font-weight:700; white-space:nowrap; flex-shrink:0; }
+    #news-rot .nr-card:hover .nr-go { color:#fde68a; }
+    @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{padding:14px 16px 12px;border-radius:14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} }
     /* ── Echt Deutsch 分享弹窗（对标 WDS 分享卡片） ── */
     #echt-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
     #echt-share-overlay.show { display:flex; }
@@ -3601,7 +3546,12 @@ window._lazyRenderHooks = {
       window._pendingKulturScroll = null;
     }
   },
-  wds:     function() { if (window.renderWDSGrid) window.renderWDSGrid(); },
+  /* 首页新闻卡：内容就绪后跳到点的那一期（复用新闻页自己的 sessionStorage.nlEp 约定） */
+  'newslesen': function() {
+    var ep = null;
+    try { ep = sessionStorage.getItem('nlEp'); if (ep) sessionStorage.removeItem('nlEp'); } catch (e) {}
+    if (ep && window.nlShow) window.nlShow(ep);
+  },
   echt:    function() { if (window.renderEchtGrid) window.renderEchtGrid(); },
   'de-en': function() { if (window.renderDEENGrid) window.renderDEENGrid();
                         if (window.renderDEENSentences) window.renderDEENSentences(); },
@@ -4203,238 +4153,6 @@ function createLoginPromptCard() {
 })();
 </script>
 
-<!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
-<script>
-(function(){
-  window.WDS_FACTS = [
-// WDS-BATCH-2026-09-09
-    {e:'🎵', de:'Ein <b>Ohrwurm</b> ist wörtlich ein "Ohrwurm": ein Lied, das man nicht mehr aus dem Kopf bekommt. Man hört es einmal — und summt es drei Tage lang. Forscher nennen das "involuntary musical imagery". Deutsch ist eine der wenigen Sprachen, die für dieses Gefühl ein so bildhaftes Wort haben.', zh:'<b>Ohrwurm（耳朵虫）</b>字面就是"耳中的虫子"：一首甩不掉的歌。听一遍，哼三天。科学家管这叫"不由自主的音乐想象"。德语是少数为这种感觉专门造了生动词的语言。', ds:'Ein <b>Ohrwurm</b> ist ein Lied, das man nicht mehr aus dem Kopf bekommt.', zs:'<b>Ohrwurm</b>：一首甩不掉的歌，听一遍哼三天。'},
-    {e:'🕰️', de:'Der <b>Feierabend</b> ist mehr als "Arbeitsschluss": wörtlich "der Abend des Feierns". Wer "Feierabend macht", beendet den Arbeitstag endgültig — Laptop zu, Kopf aus. Der Begriff stammt aus dem Handwerk und ist im Deutschen fast heilig: Nach dem Feierabend ruft der Chef nicht mehr an.', zh:'<b>Feierabend</b> 不只是"下班"，字面是"庆祝的夜晚"。德国人说 "Ich mache Feierabend"（我下班了）——合上电脑，脑子也关机。这个词来自手工业行会，在德国近乎神圣：下班后老板不再打电话。', ds:'Nach dem <b>Feierabend</b> ruft der Chef nicht mehr an.', zs:'<b>Feierabend</b>：下班=神圣时刻，之后老板不打电话。'},
-    {e:'🌍', de:'<b>Zeitgeist</b> heißt wörtlich "Geist der Zeit" — das Denken, Fühlen und die Mode einer Epoche. Das Wort wurde im 18. Jahrhundert geprägt und ist unverändert ins Englische übernommen worden. Wenn alle gleichzeitig dasselbe fühlen, nennt man das auf Deutsch eben Zeitgeist.', zh:'<b>Zeitgeist（时代精神）</b>字面是"时代之灵"——一个时期共同的思维方式、情绪与潮流。18世纪造出来的词，被英语原封不动借走。当所有人同时有同一种感受时，德语就叫它 Zeitgeist。', ds:'<b>Zeitgeist</b> heißt wörtlich "Geist der Zeit" — englisch direkt übernommen.', zs:'<b>Zeitgeist</b>：时代精神，英语原封不动借走的德语词。'},
-    {e:'😏', de:'<b>Schadenfreude</b> setzt sich aus "Schaden" und "Freude" zusammen: die Freude über das Missgeschick anderer. Die Engländer fanden das Wort so treffend, dass sie es einfach übernahmen. Mark Twain nannte es "das schönste Wort der deutschen Sprache" — böse, aber ehrlich.', zh:'<b>Schadenfreude（幸灾乐祸）</b>= Schaden（损失）+ Freude（快乐）：看到别人倒霉时的快乐。英国人觉得这词太精准，直接借去用了。马克·吐温称它是"德语里最美的词"——虽然刻薄，但很诚实。', ds:'<b>Schadenfreude</b> ist die Freude über das Missgeschick anderer.', zs:'<b>Schadenfreude</b>：幸灾乐祸，英语直接借走的德语词。'},
-    {e:'🧸', de:'Das <b>Kindergarten</b> wurde 1840 von Friedrich Fröbel gegründet — wörtlich "Garten für Kinder". Von Deutschland aus eroberte das Wort die Welt: Englisch, Französisch, Japanisch, Türkisch — alle sagen heute Kindergarten oder eine Variante davon. Ein deutsches Wort, das fast jeder Planet kennt.', zh:'<b>Kindergarten（幼儿园）</b>由教育家福禄贝尔 1840 年创办，字面是"儿童的花园"。这个词从德国出发征服了全世界：英语、法语、日语、土耳其语……全都直接借用了 Kindergarten 或它的变体。一个几乎全球通用的德语词。', ds:'Das Wort <b>Kindergarten</b> kommt aus dem Deutschen — von Friedrich Fröbel, 1840.', zs:'<b>Kindergarten</b>：德语词，1840年福禄贝尔造，全世界都在用。'},
-    {e:'🎒', de:'<b>Wanderlust</b> heißt wörtlich "Lust zu wandern" — die Sehnsucht, loszuziehen. Das Wort wurde im 19. Jahrhundert ins Englische übernommen und ist dort heute ein Modewort für Reiselust. Der Deutsche denkt dabei eher an Wanderschuhe, der Engländer an ein Flugticket.', zh:'<b>Wanderlust</b> 字面是"想漫游的欲望"——出发上路的渴望。19世纪被英语借走，如今是英语里很时髦的"旅行瘾"说法。德国人想到的是登山鞋，英国人想到的是机票。', ds:'<b>Wanderlust</b> heißt wörtlich "Lust zu wandern" — englisch übernommen.', zs:'<b>Wanderlust</b>：漫游癖，德语词，英语直接借走。'},
-    {e:'🎬', de:'<b>Kopfkino</b> ist das Kino im Kopf: Man liest eine Nachricht, hört einen Satz — und sofort läuft ein ganzer Film ab, mit Dialogen, die nie stattfinden. Meistens ein Drama. Der Begriff ist typisch deutsch: Man braucht kein Gerät, nur die eigene Fantasie.', zh:'<b>Kopfkino（脑内小剧场）</b>就是"头里的电影院"：读到一条消息、听到一句话，立刻自导自演一整部电影，台词还都是对方没说过的话。通常演的是悲剧。这词很德国：不需要设备，只要想象力。', ds:'<b>Kopfkino</b> ist das Kino im Kopf — meistens ein Drama.', zs:'<b>Kopfkino</b>：脑内小剧场，一条消息演一整部戏。'},
-    {e:'🍸', de:'Eine <b>Schnapsidee</b> ist eine "Idee aus dem Schnaps" — ein Plan, der nur gut klingt, wenn man betrunken ist. Kein Mensch würde nüchtern darauf kommen. Der Deutsche sagt es liebevoll-spöttisch: "Das war vielleicht eine Schnapsidee!" — und meistens stimmt es.', zh:'<b>Schnapsidee</b> 字面是"烧酒点子"——只有喝醉了才想得出的馊主意，清醒时绝不可能有。德国人用这个词语气又爱又嘲："这主意可真是够馊的！"——而且往往说对了。', ds:'Eine <b>Schnapsidee</b> ist ein Plan, der nur betrunken gut klingt.', zs:'<b>Schnapsidee</b>：馊主意，只有喝醉才想得出的点子。'},
-    {e:'🌱', de:'Ein <b>Erbsenzähler</b> zählt buchstäblich Erbsen — gemeint ist jemand, der alles kleinlich kontrolliert, jede Kleinigkeit anmahnt, jeden Cent nachrechnet. Der Deutsche hat für diese Sorte Mensch ein sehr anschauliches Wort. Ein Chef, der die Überstunden auf die Minute abrechnet, ist ein Erbsenzähler.', zh:'<b>Erbsenzähler（数豌豆的人）</b>字面就是一颗颗数豌豆——指斤斤计较、事事苛求、每一分钱都要算清的人。德语为这类人专门造了个画面感极强的词。把加班时间算到分钟的老板，就是 Erbsenzähler。', ds:'Ein <b>Erbsenzähler</b> ist ein kleinlicher Mensch, der alles kontrolliert.', zs:'<b>Erbsenzähler</b>：数豌豆的人=斤斤计较、分分计较。'},
-    {e:'🧤', de:'Der <b>Handschuh</b> ist wörtlich ein "Schuh für die Hand" — ein Schuh für die Hand. Genauso wie der Fingerhut ein "Hut für den Finger" ist und der Ziegenbart kein Bart. Das Deutsche baut Wörter aus einfachen Bildern: Hand + Schuh. Wer das einmal versteht, versteht halb Deutsch.', zh:'<b>Handschuh（手套）</b>字面是"手的鞋"——给手穿的鞋。就像 Fingerhut（顶针）是"手指的帽子"，Ziegenbart（山羊胡）不是真的胡子。德语就是用最简单的画面拼词：手+鞋。懂了这一点，就懂了半个德语。', ds:'Der <b>Handschuh</b> heißt wörtlich "Schuh für die Hand".', zs:'<b>Handschuh</b>：手套=手的鞋。德语靠拼词造世界。'},
-    {e:'🧹', de:'Der <b>Staubsauger</b> macht genau das, was im Wort steht: Er saugt Staub. Man muss kein Deutsch lernen, um dieses Gerät zu verstehen. Genau diese Bauweise macht das Deutsche für viele so charmant: Staub + Sauger — der Staub-Sauger.', zh:'<b>Staubsauger（吸尘器）</b>把功能直接写进名字里：吸（saugen）灰尘（Staub）。不用学德语也能看懂这台机器叫什么。正是这种造词方式让很多人觉得德语迷人：Staub + saugen = 吸尘器。', ds:'Der <b>Staubsauger</b> sagt selbst, was er tut: Staub saugen.', zs:'<b>Staubsauger</b>：吸尘器=吸（saugen）灰（Staub），名字就是说明书。'},
-    {e:'🐌', de:'Eine <b>Nacktschnecke</b> ist eine "nackte Schnecke" — eine Schnecke ohne Haus. Der deutsche Name sagt einfach die Wahrheit: kein Haus, also nackt. Die Engländer nennen sie "slug", die Franzosen "limace". Nur der Deutsche zieht der Schnecke gedanklich das Häuschen aus.', zh:'<b>Nacktschnecke（蛞蝓）</b>字面是"裸蜗牛"——没有壳的蜗牛。德语名字直接说了实话：没壳，所以是裸的。英语叫 slug，法语叫 limace。只有德国人会在脑子里把蜗牛的房子扒掉。', ds:'Eine <b>Nacktschnecke</b> ist wörtlich eine "nackte Schnecke" — ohne Haus.', zs:'<b>Nacktschnecke</b>：蛞蝓=裸蜗牛。德语名字直接说实话。'},
-    {e:'🦥', de:'Das <b>Faultier</b> ist wörtlich das "faule Tier". Der Deutsche hat dem Tier seine Faulheit direkt in den Namen geschrieben. Kein Wunder: Ein Faultier schläft bis zu 20 Stunden am Tag. Ein Wort, das man nie wieder vergisst, wenn man das Tier einmal gesehen hat.', zh:'<b>Faultier（树懒）</b>字面就是"懒动物"。德国人直接把"懒"写进了它的名字里。也不奇怪：树懒一天能睡 20 个小时。见过一次这动物，这个词就再也忘不掉。', ds:'Das <b>Faultier</b> heißt wörtlich "faules Tier" — es schläft bis zu 20 Stunden.', zs:'<b>Faultier</b>：树懒=懒动物，一天睡20小时。'},
-    {e:'🐹', de:'Das <b>Meerschweinchen</b> ist ein "kleines Meer-Schwein" — obwohl es weder im Meer lebt noch ein Schwein ist. Der Name kam über englische Seefahrer: Sie brachten die Tiere mit dem Schiff nach Europa, und weil sie quieken wie Ferkel, wurden sie zu Meerschweinchen.', zh:'<b>Meerschweinchen（豚鼠）</b>字面是"小海猪"——可它既不住海里，也不是猪。名字来自英国水手：他们坐船把这种动物带到欧洲，而它叫起来像小猪，于是就成了"海猪"。', ds:'Das <b>Meerschweinchen</b> lebt nicht im Meer und ist kein Schwein.', zs:'<b>Meerschweinchen</b>：豚鼠=小海猪，既不住海里也不是猪。'},
-    {e:'💡', de:'Die <b>Glühbirne</b> ist wörtlich eine "glühende Birne" — die Form erinnert an eine Birne, und im Inneren glüht ein Draht. Deutsch kombiniert zwei Alltagsbilder zu einem präzisen Namen. Die Engländer sagen "light bulb", ohne an Obst zu denken.', zh:'<b>Glühbirne（灯泡）</b>字面是"发光的梨"——形状像梨，里面烧得发亮。德语把两个日常画面拼成一个精准的名字。英语只说 light bulb，完全想不到水果。', ds:'Die <b>Glühbirne</b> heißt wörtlich "glühende Birne" — wegen der Form.', zs:'<b>Glühbirne</b>：灯泡=发光的梨，形状像梨。'},
-    {e:'🔤', de:'Deutsch ist die einzige große Sprache der Welt, in der <b>alle Substantive großgeschrieben</b> werden — Haus, Baum, Liebe, Freiheit. Die Regel geht auf das 16. Jahrhundert zurück. Für Lernende ist das mühsam, für Leser ein Geschenk: Man sieht auf einen Blick, was im Satz die Hauptdarsteller sind.', zh:'德语是全世界唯一把<b>所有名词首字母大写</b>的主要语言——Haus（房子）、Baum（树）、Liebe（爱）、Freiheit（自由）。这条规则可追溯到16世纪。对学习者很累，对读者却是礼物：一眼就能看出句子里谁是主角。', ds:'Deutsch schreibt <b>alle Substantive groß</b> — einmalig unter den Weltsprachen.', zs:'德语是唯一<b>名词全部大写</b>的主要语言，一眼看清句子的主角。'},
-    {e:'🚪', de:'Das kleine Wort <b>doch</b> ist der Liebling aller Deutschlerner und der Schrecken aller Übersetzer. Es widerspricht einer negativen Frage: "Kommst du nicht?" — "Doch!" (= ich komme). Keine andere große Sprache hat genau dieses Wort. Es ist kurz, scharf und unübersetzbar.', zh:'<b>doch</b> 这个小小的词是德语学习者的心头好、翻译者的噩梦。它专门用来反驳否定问句："你不来吗？"——"Doch!"（=我来）。没有哪种大语言有完全对应的词。它短、锋利、且无法直译。', ds:'Auf "Kommst du nicht?" antwortet man mit <b>"Doch!"</b> — unübersetzbar.', zs:'<b>doch</b>：反驳否定问句的德语专属词，无法直译。'},
-    {e:'🤷', de:'<b>Jein</b> ist die deutsche Antwort für "ja, aber eigentlich nein" — eine Mischung aus <b>ja</b> und <b>nein</b>. Man benutzt es, wenn die Frage zu einfach ist für die Wahrheit. Ein einziges Wort, das eine ganze Diskussion zusammenfasst. Nur auf Deutsch gibt es diese elegante Ausrede.', zh:'<b>Jein</b> 是德语里"是，但其实是"的答案——ja（是）+ nein（不是）的混合体。当问题太简单、配不上真相时就用它。一个词，概括一整场讨论。这种优雅的推脱，只有德语有。', ds:'<b>Jein</b> ist die Mischung aus "ja" und "nein" — nur auf Deutsch.', zs:'<b>Jein</b>：是又不是，德语独有的"优雅推脱"。'},
-    {e:'🧱', de:'Die <b>Berliner Mauer</b> wurde am 13. August 1961 gebaut und teilte die Stadt 28 Jahre lang. In der Nacht des 9. November 1989 wurde sie geöffnet — die Menschen kletterten hoch und feierten. Heute erinnern Mauerreste und die Doppelreihe Pflastersteine im Boden an ihren Verlauf.', zh:'<b>柏林墙</b>1961年8月13日开建，把这座城市劈成两半长达28年。1989年11月9日夜里被打开——人们爬上墙头庆祝。今天，墙的残段和地面上一道双排石子路，仍在标记它当年的走向。', ds:'Die <b>Berliner Mauer</b> fiel am 9. November 1989 nach 28 Jahren.', zs:'<b>柏林墙</b>：1961建，1989年11月9日倒塌，分割28年。'},
-    {e:'🎉', de:'Am 3. Oktober 1990 wurde die <b>Deutsche Einheit</b> vollzogen — seitdem ist es der deutsche Nationalfeiertag. Kurios: Es ist der einzige Feiertag, der per Bundesgesetz festgelegt wurde, und er erinnert nicht an eine Schlacht, sondern an ein Datum im Grundgesetz. Kein Feuerwerk, sondern ein Bürgerfest.', zh:'1990年10月3日两德<b>统一</b>——这天成为德国国庆日。有趣的是：它是唯一由联邦法律规定的节日，纪念的不是某场战役，而是写进《基本法》的一个日期。没有烟花，只有市民自己的节庆。', ds:'Der <b>3. Oktober</b> ist der deutsche Nationalfeiertag — seit 1990.', zs:'<b>10月3日</b>：德国国庆，纪念1990年两德统一。'},
-    {e:'📜', de:'Deutschlands Verfassung heißt <b>Grundgesetz</b> — nicht "Verfassung". Das war Absicht: 1949 sollte der Weststaat ein Provisorium sein, bis Deutschland wiedervereint ist. Die Väter und Mütter des Grundgesetzes wollten das Wort "Verfassung" für den Gesamtstaat aufsparen. 1990 kam die Einheit — der Name blieb.', zh:'德国宪法叫 <b>Grundgesetz（基本法）</b>，不叫"宪法"。这是故意的：1949年西德只想做个临时国家，等德国统一再用"宪法"这个词。1990年统一来了，名字却留了下来。', ds:'Deutschlands Verfassung heißt <b>Grundgesetz</b> — bewusst nicht "Verfassung".', zs:'德国宪法叫<b>基本法</b>不叫宪法——为统一留的名字。'},
-    {e:'🗳️', de:'Am 12. November 1918 erhielten Frauen in Deutschland das <b>Wahlrecht</b> — noch bevor sie in vielen anderen europäischen Ländern wählen durften. Die Weimarer Nationalversammlung von 1919 hatte bereits über 8% weibliche Abgeordnete. Deutschland war damit einer der Vorreiter der politischen Gleichberechtigung.', zh:'1918年11月12日，德国女性获得<b>选举权</b>——比许多欧洲国家都早。1919年的魏玛国民议会里女性议员已超过8%。在政治平权这条路上，德国当时是先行者之一。', ds:'Seit dem <b>12. November 1918</b> dürfen Frauen in Deutschland wählen.', zs:'<b>1918年11月12日</b>：德国女性获得选举权，早于多数欧洲国家。'},
-    {e:'📖', de:'Um 1450 entwickelte <b>Johannes Gutenberg</b> in Mainz den Buchdruck mit beweglichen Metalllettern. Seine berühmteste Bibel gilt heute als das wertvollste Buch der Welt. Ohne Gutenberg kein Massenbuch, keine Reformation, keine Aufklärung. Ein Mainzer Handwerker hat die Informationsgesellschaft erfunden.', zh:'约1450年，<b>古腾堡</b>在美因茨发明了金属活字印刷术。他那本著名的《古腾堡圣经》至今被视为世界上最贵的书。没有古腾堡，就没有大众书籍、没有宗教改革、没有启蒙运动。一个美因茨的手艺人，发明了信息社会。', ds:'<b>Gutenberg</b> erfand um 1450 in Mainz den Buchdruck mit beweglichen Lettern.', zs:'<b>古腾堡</b>：1450年美因茨发明金属活字印刷，开启信息社会。'},
-    {e:'🏛️', de:'Die <b>Weimarer Republik</b> (1919–1933) war Deutschlands erste Demokratie — benannt nach der Stadt Weimar, wo die Nationalversammlung tagte, weil Berlin zu unruhig war. Sie brachte Frauenwahlrecht, den Achtstundentag und eine kulturelle Blüte. Sie endete mit der Machtübernahme der Nationalsozialisten.', zh:'<b>魏玛共和国</b>（1919–1933）是德国第一个民主政体——名字来自魏玛，因为柏林太动荡，国民议会改在那儿开会。它带来了女性选举权、八小时工作制和文化繁荣，最终以纳粹上台告终。', ds:'Die <b>Weimarer Republik</b> war Deutschlands erste Demokratie — 1919 bis 1933.', zs:'<b>魏玛共和国</b>：德国第一个民主政体（1919–1933）。'},
-    {e:'✈️', de:'1948/49 blockierte die Sowjetunion alle Wege nach West-Berlin. Die Antwort: die <b>Berliner Luftbrücke</b>. Fast ein Jahr lang flogen die Alliierten Kohle, Mehl und Medikamente in die Stadt — zeitweise landete alle 63 Sekunden ein Flugzeug in Tempelhof. Die Berliner nannten die Flugzeuge liebevoll "Rosinenbomber".', zh:'1948/49年苏联封锁了通往西柏林的所有通道。回应是<b>柏林空运</b>：盟军近一年不断把煤、面粉和药品空运进城——高峰时每63秒就有一架飞机在滕珀尔霍夫降落。柏林人亲切地管这些飞机叫"葡萄干轰炸机"。', ds:'Bei der <b>Berliner Luftbrücke</b> landete alle 63 Sekunden ein Flugzeug.', zs:'<b>柏林空运</b>：1948年封锁中，每63秒一架飞机降落西柏林。'},
-    {e:'🕯️', de:'1989 gingen in Leipzig jeden Montag Hunderttausende auf die Straße — die <b>Montagsdemonstrationen</b>. Ihr Ruf: "Wir sind das Volk!" Es waren keine Krawalle, sondern Kerzen, Gebete und ein Satz, der die DDR ins Wanken brachte. Einen Monat später fiel die Mauer.', zh:'1989年，莱比锡每周一都有数十万人上街——史称<b>周一游行</b>。他们的口号是"我们就是人民！"没有暴乱，只有蜡烛、祈祷，和一句动摇整个东德的话。一个月后，柏林墙倒了。', ds:'Bei den <b>Montagsdemonstrationen</b> riefen sie: "Wir sind das Volk!"', zs:'<b>周一游行</b>：1989莱比锡，"我们就是人民"，一月后墙倒。'},
-    {e:'🌹', de:'Die <b>Weiße Rose</b> war eine Münchner Widerstandsgruppe um die Geschwister Hans und Sophie Scholl. Sie verteilten 1942/43 Flugblätter gegen das NS-Regime. Bei der sechsten Aktion wurden sie verhaftet und am 22. Februar 1943 hingerichtet. Sophie Scholl war 21 Jahre alt.', zh:'<b>白玫瑰</b>是慕尼黑的一个抵抗组织，核心是朔尔兄妹。1942/43年他们散发传单反对纳粹政权。第六次行动时被捕，1943年2月22日被处决。索菲·朔尔当时只有21岁。', ds:'Die <b>Weiße Rose</b> kämpfte mit Flugblättern gegen das NS-Regime.', zs:'<b>白玫瑰</b>：慕尼黑学生抵抗组织，1943年被处决。'},
-    {e:'🕊️', de:'Am 7. Dezember 1970 legte Bundeskanzler <b>Willy Brandt</b> am Mahnmal des Warschauer Ghetto-Aufstands einen Kranz nieder — und kniete nieder. Ein deutscher Kanzler bat um Vergebung für deutsche Schuld. Das Bild ging um die Welt. Brandt sagte später: "Ich tat, was Menschen tun, wenn die Sprache versagt."', zh:'1970年12月7日，联邦总理<b>勃兰特</b>在华沙犹太人隔离区起义纪念碑前献花圈——然后跪了下来。一位德国总理为德国的罪责请求宽恕。这张照片传遍世界。勃兰特后来说："我做了当语言失效时，人会做的事。"', ds:'<b>Willy Brandts Kniefall</b> in Warschau 1970 ging um die Welt.', zs:'<b>勃兰特之跪</b>：1970年华沙，一位德国总理请求宽恕。'},
-    {e:'🎄', de:'Deutschland hat rund <b>2.500 Weihnachtsmärkte</b> — mehr als jedes andere Land. Der älteste ist der Dresdner Striezelmarkt von 1434. Es gibt Glühwein, Lebkuchen und Bratwurst, und der Duft von Zimt liegt über der ganzen Innenstadt. Ein Monat lang riecht Deutschland nach Weihnachten.', zh:'德国有大约<b>2500个圣诞市场</b>，比任何国家都多。最古老的是1434年的德累斯顿 Striezelmarkt。热红酒、姜饼、烤肠，肉桂的香气笼罩整座老城。整整一个月，整个德国都闻起来像圣诞节。', ds:'Deutschland hat rund <b>2.500 Weihnachtsmärkte</b> — der älteste ist von 1434.', zs:'德国约<b>2500个圣诞市场</b>，最古老的始于1434年。'},
-    {e:'🏰', de:'Die gläserne <b>Reichstagskuppel</b> in Berlin wurde 1999 nach einem Entwurf von Norman Foster gebaut. Man geht in Spiralen nach oben und schaut dem Bundestag durch Glas beim Arbeiten zu. Der Eintritt ist frei, man muss sich nur vorher anmelden. Eine Demokratie, die sich beim Arbeiten zusehen lässt.', zh:'柏林的玻璃<b>国会大厦穹顶</b>由诺曼·福斯特设计，1999年建成。参观者沿螺旋坡道向上走，可以透过玻璃看底下的议会开会。入场免费，只需提前登记。一个让人看着自己办公的民主政体。', ds:'Die <b>Reichstagskuppel</b> ist gratis — man sieht dem Bundestag durch Glas zu.', zs:'柏林<b>国会大厦穹顶</b>免费，可透过玻璃看议会开会。'},
-    {e:'🏭', de:'Das deutsche <b>Wirtschaftswunder</b> der 1950er war kein Zufall: Marshallplan-Hilfe, die Währungsreform 1948, Millionen fleißiger Flüchtlinge und eine Regierung, die auf Marktwirtschaft setzte. Aus Trümmern wurde binnen einer Generation ein Exportland. Zeitzeugen sagen: Man hatte nichts — und plötzlich wieder alles.', zh:'1950年代的德国<b>经济奇迹</b>不是偶然：马歇尔计划援助、1948年货币改革、数百万勤劳的难民，以及一个押注市场经济的政府。一代人之间，废墟变成了出口大国。亲历者说：本来什么都没有——忽然又什么都有了。', ds:'Das <b>Wirtschaftswunder</b> machte aus Trümmern ein Exportland.', zs:'战后<b>经济奇迹</b>：一代人之间，废墟变出口大国。'},
-    {e:'👷', de:'Ab 1955 holte Westdeutschland gezielt <b>Gastarbeiter</b> — zuerst aus Italien, ab 1961 aus der Türkei. Man dachte, sie kämen für ein paar Jahre und gingen wieder. Sie blieben. Ihre Kinder und Enkel prägen heute Dönerbuden, Fußballvereine und den Bundestag. Deutschland ist ein Einwanderungsland geworden — ob es wollte oder nicht.', zh:'从1955年起，西德有计划地引进<b>外籍劳工</b>——先是意大利人，1961年起是土耳其人。当时以为他们干几年就走。他们留下了。他们的儿孙今天塑造着德国的烤肉店、足球俱乐部和联邦议院。不管愿不愿意，德国成了移民国家。', ds:'Ab 1955 kamen <b>Gastarbeiter</b> nach Westdeutschland — viele blieben für immer.', zs:'<b>外籍劳工</b>：1955年起引进，本想干几年，结果留下了。'},
-    {e:'🎩', de:'<b>Konrad Adenauer</b> war 1949 mit 73 Jahren der erste Bundeskanzler — und blieb es 14 Jahre, bis 1963. Er band Westdeutschland an den Westen, schloss Freundschaft mit Frankreich und fuhr im offenen Wagen durch die Republik. Mit 87 Jahren trat er ab. Der Spitzname der Nation: "der Alte".', zh:'<b>阿登纳</b>1949年以73岁高龄出任首任联邦总理，一干就是14年（到1963年）。他把西德绑在西方阵营，与法国结为友邦，坐着敞篷车跑遍全国。87岁才卸任。全国上下管他叫"老头子"。', ds:'<b>Konrad Adenauer</b> wurde 1949 mit 73 Jahren erster Bundeskanzler.', zs:'<b>阿登纳</b>：73岁出任首任总理，干了14年，绰号"老头子"。'},
-    {e:'🎭', de:'Im März 1848 erhoben sich die Deutschen gegen die Fürsten — die <b>Märzrevolution</b>. In der Frankfurter Paulskirche tagte das erste gesamtdeutsche Parlament und schrieb eine Verfassung mit Grundrechten. Der Versuch scheiterte 1849, doch die Grundrechte von damals stehen bis heute im Grundgesetz.', zh:'1848年3月，德国人起义反抗诸侯——史称<b>三月革命</b>。法兰克福保罗教堂召开了第一个全德议会，起草了含基本权利的宪法。这场尝试1849年失败，但当年的基本权利条款，今天仍写在《基本法》里。', ds:'1848 tagte in der <b>Paulskirche</b> das erste gesamtdeutsche Parlament.', zs:'<b>1848三月革命</b>：保罗教堂议会写下基本权利，延续至今。'},
-    {e:'🚗', de:'Am 29. Januar 1886 meldete <b>Carl Benz</b> in Mannheim sein "Fahrzeug mit Gasmotorenbetrieb" zum Patent an — das erste Automobil der Welt. Seine Frau Bertha fuhr damit 1888 heimlich 106 Kilometer von Mannheim nach Pforzheim. Damit bewies sie: Das Auto ist alltagstauglich.', zh:'1886年1月29日，<b>卡尔·本茨</b>在曼海姆为他的"燃气发动机车辆"申请专利——世界第一辆汽车。1888年，妻子贝尔塔瞒着他开着它从曼海姆跑到普福尔茨海姆，全程106公里，证明了一件事：汽车能日常用。', ds:'<b>Carl Benz</b> meldete 1886 das erste Automobil der Welt zum Patent an.', zs:'<b>卡尔·本茨</b>：1886年申请世界第一辆汽车专利。'},
-    {e:'🏍️', de:'Ein Jahr vor dem Auto bauten <b>Gottlieb Daimler</b> und <b>Wilhelm Maybach</b> 1885 den "Reitwagen" — das erste Motorrad der Welt. Es hatte zwei Holzräder, einen Einzylinder und keine Bremse. Bei der Testfahrt stürzte Daimlers Sohn Paul. Man lernte daraus: Motorräder brauchen Bremsen.', zh:'比汽车还早一年，1885年<b>戴姆勒</b>和<b>迈巴赫</b>造出了"骑乘车"——世界第一辆摩托车。两个木轮、一个单缸发动机、没有刹车。试车时戴姆勒的儿子保罗摔了下来。人们由此学到：摩托车需要刹车。', ds:'1885 bauten Daimler und Maybach den <b>Reitwagen</b> — das erste Motorrad.', zs:'1885年<b>戴姆勒</b>造出世界第一辆摩托车，还没刹车。'},
-    {e:'💻', de:'1941 baute <b>Konrad Zuse</b> in Berlin die <b>Z3</b> — den ersten funktionsfähigen, programmierbaren Computer der Welt. Er arbeitete mit Relais, nicht mit Röhren, und rechnete in Sekunden, wofür Menschen Stunden brauchten. Zuse baute ihn in der Wohnung seiner Eltern. Vom ersten Computer der Welt erzählte er niemandem — keiner fragte.', zh:'1941年，<b>楚泽</b>在柏林造出 <b>Z3</b>——世界第一台可编程计算机。它用继电器而非电子管，几秒钟算完人类要算几小时的东西。楚泽是在父母家的客厅里造的。这台世界第一的计算机，他谁也没告诉——因为没人问。', ds:'<b>Konrad Zuse</b> baute 1941 in Berlin den ersten programmierbaren Computer.', zs:'<b>楚泽</b>：1941年柏林造出世界第一台可编程计算机 Z3。'},
-    {e:'📏', de:'Das Format <b>A4</b> ist eine deutsche Erfindung: 1922 legte das <b>DIN</b> (Deutsches Institut für Normung) die Papierformate fest. Das Prinzip: Jede Größe ist die Hälfte der vorherigen, das Seitenverhältnis bleibt gleich. Heute benutzt die ganze Welt A4 — die meisten wissen nicht, dass es aus Berlin kommt.', zh:'<b>A4</b> 纸是德国发明的：1922年<b>德国标准化学会（DIN）</b>规定了纸张尺寸。原理很简单：每一号都是上一号的一半，长宽比始终不变。今天全世界都在用 A4——大多数人不知道它来自柏林。', ds:'Das Format <b>A4</b> wurde 1922 in Deutschland genormt — von DIN.', zs:'<b>A4纸</b>是德国1922年的标准，长宽比永远不变。'},
-    {e:'☎️', de:'1861 baute der Lehrer <b>Philipp Reis</b> in Friedrichsdorf ein Gerät, das Töne über eine elektrische Leitung übertrug — und nannte es "Telephon". Das war 15 Jahre vor Alexander Bell. Reis verkaufte es an Physiklehrer, keiner interessierte sich. Sein Grabstein trägt die Inschrift: "Er säte, ein anderer erntete."', zh:'1861年，教师<b>菲利普·赖斯</b>在弗里德里希斯多夫造出一台能通过电线传声的装置，并把它命名为 "Telephon"——比贝尔早15年。他把机器卖给物理老师，没人感兴趣。他的墓碑上写着："他播种，别人收获。"', ds:'<b>Philipp Reis</b> baute 1861 ein "Telephon" — 15 Jahre vor Alexander Bell.', zs:'<b>赖斯</b>：1861年造出电话装置，比贝尔早15年。'},
-    {e:'🧻', de:'Wenn Deutsche ein Papiertaschentuch brauchen, sagen sie oft einfach <b>Tempo</b> — nach der Marke, die 1929 auf den Markt kam. Wie "Tesa" für Klebeband oder "Uhu" für Alleskleber: Der Markenname ist zum Gattungsbegriff geworden. Tempo war übrigens das erste Taschentuch aus Zellstoff in Deutschland.', zh:'德国人需要纸巾时，常直接说 <b>Tempo</b>——这是1929年上市的纸巾品牌名。就像 "Tesa" 指胶带、"Uhu" 指万能胶：品牌名变成了通用词。顺带一提，Tempo 是德国第一款纸浆纸巾。', ds:'Deutsche sagen <b>Tempo</b> statt "Papiertaschentuch" — Marke wurde Gattungsbegriff.', zs:'<b>Tempo</b>：德国人用品牌名指代纸巾，像"舒洁"一样。'},
-    {e:'☕', de:'1908 erfand die Hausfrau <b>Melitta Bentz</b> in Dresden den Kaffeefilter aus Löschpapier. Sie hatte genug von Kaffeesatz in der Tasse und bastelte aus einem Konservendosenboden und Schulheft-Papier den ersten Filter. Aus ihrer Küchenidee wurde ein Weltunternehmen. Sie war 35 und hatte damals kein Wahlrecht.', zh:'1908年，德累斯顿的家庭主妇<b>梅丽塔·本茨</b>发明了用吸墨纸做的咖啡滤纸。她受够了杯子里的咖啡渣，用罐头盒底和练习本纸做出了第一个滤器。这个厨房里的点子后来成了跨国企业。那年她35岁，当时女性还没有选举权。', ds:'1908 erfand <b>Melitta Bentz</b> den Kaffeefilter aus Papier — in ihrer Küche.', zs:'<b>梅丽塔</b>：1908年家庭主妇发明纸质咖啡滤，成世界企业。'},
-    {e:'📺', de:'1884 meldete der Berliner Student <b>Paul Nipkow</b> ein Patent an: die <b>Nipkow-Scheibe</b> — eine Spirale aus Löchern, die ein Bild in Zeilen zerlegte. Damit war die Idee des Fernsehens geboren, 40 Jahre bevor es Fernsehsendungen gab. Nipkow wurde nie reich damit; er starb 1940 in Berlin.', zh:'1884年，柏林大学生<b>尼普科夫</b>申请了一项专利：<b>尼普科夫圆盘</b>——用螺旋排列的小孔把图像分解成行。电视的构想就此诞生，比电视节目早了40年。尼普科夫没因此发财，1940年在柏林去世。', ds:'Die <b>Nipkow-Scheibe</b> von 1884 zerlegte Bilder in Zeilen — die Idee des Fernsehens.', zs:'<b>尼普科夫圆盘</b>：1884年柏林，电视的构想诞生。'},
-    {e:'🔥', de:'Der <b>Bunsenbrenner</b> ist aus keinem Chemielabor wegzudenken — benannt nach <b>Robert Bunsen</b>, der ihn 1855 in Heidelberg perfektionierte. Die Kunst ist die rauchlose, heiße Flamme durch vorheriges Mischen von Gas und Luft. Bunsen entdeckte damit auch Cäsium und Rubidium.', zh:'<b>本生灯</b>是化学实验室的标配——以<b>本生</b>命名，他1855年在海德堡完善了它。诀窍是先把燃气和空气混合，才能得到无烟的高温火焰。本生用它还发现了铯和铷两种元素。', ds:'Der <b>Bunsenbrenner</b> macht aus Gas und Luft eine rauchlose heiße Flamme.', zs:'<b>本生灯</b>：1855年海德堡完善，化学实验室标配。'},
-    {e:'⚙️', de:'1876 baute <b>Nikolaus Otto</b> in Köln den ersten Viertaktmotor, der zuverlässig lief — Ansaugen, Verdichten, Zünden, Ausstoßen. Dieses Prinzip treibt bis heute fast jedes Auto an. Otto hatte keine Ausbildung als Ingenieur, sondern war Kaufmann. Der "Ottomotor" ist nach ihm benannt.', zh:'1876年，<b>尼古劳斯·奥托</b>在科隆造出第一台可靠运转的四冲程发动机——吸气、压缩、点火、排气。这个原理至今驱动着几乎每一辆汽车。奥托不是工程师出身，他是个商人。"奥托发动机"以他命名。', ds:'1876 baute <b>Nikolaus Otto</b> den ersten brauchbaren Viertaktmotor.', zs:'<b>奥托</b>：1876年造出四冲程发动机，至今驱动每辆车。'},
-    {e:'🌀', de:'Der <b>Wankelmotor</b> hat keine Kolben, die auf und ab fahren, sondern einen drehenden Kreiskolben — erfunden 1957 von <b>Felix Wankel</b> in Lindau. Er ist klein, leicht und läuft ruhig. Berühmt wurde er im Mazda RX-7 und im NSU Ro 80. Wegen hohen Verbrauchs verschwand er wieder — eine deutsche Idee, die Japan groß machte.', zh:'<b>汪克尔发动机</b>没有上下往复的活塞，而是靠一个旋转的三角转子——1957年由<b>汪克尔</b>在林道发明。它小巧、轻、运转平顺。因马自达 RX-7 和 NSU Ro 80 而闻名。后来因油耗高而退场——一个德国点子，在日本发扬光大。', ds:'Der <b>Wankelmotor</b> von 1957 hat keinen Kolben, sondern einen Kreiskolben.', zs:'<b>汪克尔发动机</b>：1957年德国发明，转子替代活塞。'},
-    {e:'🔬', de:'1931 baute <b>Ernst Ruska</b> in Berlin das erste <b>Elektronenmikroskop</b> — er war damals 25 Jahre alt. Weil Elektronen kürzere Wellen haben als Licht, kann man damit Dinge sehen, die kein Lichtmikroskop je zeigt: Viren, Zellorganellen, Atome. 1986 bekam er dafür den Nobelpreis, 55 Jahre nach seiner Erfindung.', zh:'1931年，25岁的<b>恩斯特·鲁斯卡</b>在柏林造出第一台<b>电子显微镜</b>。因为电子的波长比光短，它能看见光学显微镜永远看不见的东西：病毒、细胞器、原子。1986年他因此获得诺贝尔奖——距发明已过去55年。', ds:'<b>Ernst Ruska</b> baute 1931 in Berlin das erste Elektronenmikroskop.', zs:'<b>鲁斯卡</b>：1931年造出首台电子显微镜，55年后获诺奖。'},
-    {e:'🧊', de:'<b>Carl von Linde</b> entwickelte 1876 in München die erste brauchbare Kältemaschine — die Grundlage jedes Kühlschranks und jeder Klimaanlage. Vorher kühlte man mit Eis aus dem Winter, das im Keller gelagert wurde. Linde machte die Kälte industriell verfügbar. Der Kühlschrank im Haushalt kam erst 1930.', zh:'<b>卡尔·冯·林德</b>1876年在慕尼黑造出第一台实用的制冷机——冰箱和空调的基础。在那之前，人们靠冬天凿的冰、存进地窖来制冷。林德让"冷"变成了工业品。家用冰箱要到1930年才出现。', ds:'<b>Carl von Linde</b> baute 1876 die erste Kältemaschine — Basis jedes Kühlschranks.', zs:'<b>林德</b>：1876年造出制冷机，冰箱空调的起点。'},
-    {e:'🦠', de:'1882 präsentierte <b>Robert Koch</b> in Berlin den Erreger der Tuberkulose — damals die häufigste Todesursache der Welt. Er bewies damit, dass Krankheiten durch Bakterien entstehen, und begründete die Bakteriologie. 1905 bekam er den Nobelpreis. Das Robert-Koch-Institut ist heute Deutschlands Seuchenbehörde.', zh:'1882年，<b>罗伯特·科赫</b>在柏林公布了结核病的病原体——当时全球最常见的死因。他由此证明疾病由细菌引起，创立了细菌学。1905年获诺贝尔奖。今天的罗伯特·科赫研究所就是德国的疾控机构。', ds:'<b>Robert Koch</b> fand 1882 den Tuberkulose-Erreger — und begründete die Bakteriologie.', zs:'<b>科赫</b>：1882年发现结核杆菌，创立细菌学。'},
-    {e:'🍞', de:'Deutschland hat über <b>3.000 Brotsorten</b> — mehr als jedes andere Land der Welt. Von Roggenmischbrot bis Vollkorn, von Sauerteig bis Dampfbrot. Die UNESCO hat die deutsche Brotkultur 2014 als immaterielles Kulturerbe anerkannt. Kein Wunder, dass "Brot" im Deutschen auch "Lebensunterhalt" bedeutet: "Mein Brot verdienen".', zh:'德国有超过<b>3000种面包</b>，世界第一。从黑麦混合面包到全麦，从酸面团到蒸面包。2014年联合国教科文组织把德国面包文化列为非物质文化遗产。难怪德语里"面包"也指生计：Mein Brot verdienen（挣口饭吃）。', ds:'Deutschland hat über <b>3.000 Brotsorten</b> — Weltrekord.', zs:'德国有<b>3000多种面包</b>，世界第一，还是非遗。'},
-    {e:'🌙', de:'Das deutsche <b>Abendbrot</b> ist kalt: Brot, Käse, Wurst, Gurken, vielleicht ein Ei. Kein Kochen, kein Warmessen — dafür sitzt die Familie zusammen. Für viele Ausländer ist das die größte Überraschung: Die warme Mahlzeit ist mittags, abends gibt es "Brot". So isst man seit Generationen.', zh:'<b>Abendbrot（晚餐面包）</b>是冷的：面包、奶酪、香肠、黄瓜，也许加个鸡蛋。不做饭、不吃热的——但一家人坐在一起。对很多外国人来说这是最大的意外：德国人的热餐在中午，晚上吃"面包"。这样吃了好几代人。', ds:'Beim deutschen <b>Abendbrot</b> gibt es kaltes Brot — die warme Mahlzeit ist mittags.', zs:'<b>Abendbrot</b>：德国晚餐吃冷面包，热餐在中午。'},
-    {e:'🌭', de:'Die <b>Currywurst</b> wurde 1949 von <b>Herta Heuwer</b> in Berlin-Charlottenburg erfunden: Sie mischte Ketchup, Worcestersauce und Currypulver und goss es über eine Bratwurst. Heute werden in Deutschland jährlich rund 800 Millionen Currywürste gegessen. Es gibt sogar ein Deutsches Currywurst-Museum in Berlin.', zh:'<b>咖喱香肠</b>1949年由<b>赫尔塔·霍伊韦尔</b>在柏林夏洛滕堡发明：她把番茄酱、伍斯特酱和咖喱粉混在一起，浇在烤肠上。如今德国人每年吃掉约8亿根咖喱香肠。柏林甚至有一家德国咖喱香肠博物馆。', ds:'Die <b>Currywurst</b> wurde 1949 von Herta Heuwer in Berlin erfunden.', zs:'<b>咖喱香肠</b>：1949年柏林发明，德国人年吃8亿根。'},
-    {e:'🥙', de:'Der <b>Döner</b>, wie ihn die Welt kennt — im Fladenbrot, mit Salat und Soße — entstand in <b>Berlin</b>. Türkische Gastarbeiter machten aus dem Teller-Grillfleisch ein schnelles Straßenessen. Heute gibt es in Berlin über 1.000 Dönerbuden, mehr als in Istanbul. Eine deutsche Erfindung mit türkischen Wurzeln.', zh:'全世界认识的<b>土耳其烤肉夹饼</b>——扁面包夹肉、生菜和酱——诞生在<b>柏林</b>。土耳其外籍劳工把盘装的烤肉变成了街头快餐。如今柏林有超过1000家烤肉店，比伊斯坦布尔还多。一个土耳其血统的德国发明。', ds:'Der heutige <b>Döner</b> im Fladenbrot wurde in Berlin erfunden.', zs:'<b>烤肉夹饼</b>：土耳其血统，柏林发明，柏林店比伊斯坦布尔还多。'},
-    {e:'🍺', de:'Das bayerische <b>Reinheitsgebot</b> von 1516 schreibt vor: Bier darf nur aus Wasser, Gerste, Hopfen und Hefe bestehen. Es gilt als älteste noch gültige Lebensmittelvorschrift der Welt. Kurios: Ursprünglich ging es weniger um Reinheit als um die Sicherung von Weizen und Roggen fürs Brot.', zh:'1516年的巴伐利亚<b>啤酒纯净法</b>规定：啤酒只能用水、大麦、啤酒花和酵母酿造。它被认为是世界上仍在生效的最古老食品法规。有意思的是：最初的目的不是"纯净"，而是把小麦和黑麦留给面包。', ds:'Das <b>Reinheitsgebot</b> von 1516 erlaubt nur Wasser, Gerste, Hopfen und Hefe.', zs:'<b>啤酒纯净法</b>：1516年，只准四样原料，最古老食品法规。'},
-    {e:'🍻', de:'<b>Kölsch</b> und <b>Alt</b> sind die letzten obergärigen Biersorten unter den deutschen Traditionsbieren — und sie sind erbitterte Rivalen. Kölsch trinkt man in Köln aus dem 0,2-Liter-Glas, Alt in Düsseldorf aus dem 0,25-Liter-Glas. Wer in Düsseldorf Kölsch bestellt, riskiert die Freundschaft. Beide sind EU-weit geschützt.', zh:'<b>Kölsch</b>（科隆）和 <b>Alt</b>（杜塞尔多夫）是德国传统啤酒里仅存的两种上层发酵啤酒，也是死对头。科隆用0.2升小杯喝 Kölsch，杜塞尔多夫用0.25升杯喝 Alt。在杜塞尔多夫点 Kölsch，友情可能就此终结。两种酒都受欧盟地理保护。', ds:'<b>Kölsch</b> und <b>Alt</b> sind Rivalen — Köln gegen Düsseldorf, in Bierform.', zs:'<b>Kölsch vs Alt</b>：科隆与杜塞尔多夫的啤酒对决，都受欧盟保护。'},
-    {e:'🥤', de:'Die <b>Apfelschorle</b> — Apfelsaft mit Sprudelwasser — ist Deutschlands heimlicher Lieblingsdrink. Sie ist süß, aber nicht zu süß, und gilt als "gesund". In keinem anderen Land wird so viel Schorle getrunken. Bestellt man im Restaurant "eine Apfelschorle", weiß jeder sofort: Der Gast kommt aus Deutschland.', zh:'<b>Apfelschorle（苹果汁兑气泡水）</b>是德国人隐藏的国民饮料。甜，但不过分甜，还被视为"健康"。没有哪个国家喝这么多 Schorle。在餐馆点一杯 Apfelschorle，所有人立刻知道：这位客人是德国人。', ds:'Die <b>Apfelschorle</b> ist Deutschlands heimlicher Lieblingsdrink.', zs:'<b>Apfelschorle</b>：苹果汁兑气泡水，德国国民饮料。'},
-    {e:'🍰', de:'<b>Kaffee und Kuchen</b> ist eine feste Institution: nachmittags um 15 oder 16 Uhr, mit Torte, Kuchen oder Gebäck. Es ist keine Mahlzeit, sondern eine Pause — für Geburtstage, Familienbesuche, Sonntage. Ohne Kuchen gibt es keinen Kaffee, ohne Kaffee keine Unterhaltung. Ein deutscher Sonntagnachmittag in drei Worten.', zh:'<b>Kaffee und Kuchen（咖啡与蛋糕）</b>是固定节目：下午3、4点，配蛋糕或点心。它不是一顿饭，而是一段暂停——为生日、为家访、为周日。没有蛋糕就没有咖啡，没有咖啡就没有聊天。一个德国周日午后，就这三个词。', ds:'<b>Kaffee und Kuchen</b> gehört zum deutschen Sonntagnachmittag — um 15 Uhr.', zs:'<b>Kaffee und Kuchen</b>：下午三点咖啡蛋糕，德国周日标配。'},
-    {e:'🎁', de:'Der <b>Adventskalender</b> hat 24 Türchen — vom 1. bis zum 24. Dezember, jeden Tag eines. Die ersten gab es im 19. Jahrhundert, als Eltern 24 Bilder an die Wand hängten und das Kind jeden Tag eines abnehmen durfte. Heute steckt dahinter meist Schokolade, manchmal auch Spielzeug oder Tee.', zh:'<b>圣诞倒数日历</b>有24扇小门——从12月1日到24日，每天开一扇。最早出现在19世纪：父母在墙上挂24张图，孩子每天取下一张。如今门后大多是巧克力，也有玩具或茶包。', ds:'Der <b>Adventskalender</b> hat 24 Türchen — vom 1. bis 24. Dezember.', zs:'<b>圣诞倒数日历</b>：24扇门，每天开一扇到平安夜。'},
-    {e:'🍪', de:'Der <b>Lebkuchen</b> aus <b>Nürnberg</b> ist weltberühmt — seit 1395 backt die Stadt ihn urkundlich nachweisbar. Nürnberger Lebkuchen dürfen nur dort hergestellt werden; der Name ist EU-weit geschützt. Die echten werden auf Oblaten gebacken, weich und voller Gewürze. Ein Gebäck, das älter ist als Amerika.', zh:'<b>纽伦堡姜饼</b>世界闻名——有文献记载该城自1395年就开始烘焙。纽伦堡姜饼只能在该地生产，名称受欧盟保护。正宗的做法是放在薄饼上烤，口感松软、香料十足。这块饼干比美国还老。', ds:'Der <b>Nürnberger Lebkuchen</b> wird dort seit 1395 gebacken — EU-geschützt.', zs:'<b>纽伦堡姜饼</b>：1395年起烘焙，比美国还老。'},
-    {e:'🎆', de:'<b>Silvester</b>, der 31. Dezember, hat in Deutschland ein eigenes Ritual: Um kurz vor Mitternacht läuft im Fernsehen immer derselbe Sketch — <b>"Dinner for One"</b>, ein englischer Sketch von 1963. Deutsche kennen ihn auswendig und lieben ihn. Danach: Feuerwerk, Sekt und der Wunsch "Guten Rutsch!"', zh:'12月31日<b>除夕（Silvester）</b>在德国有个固定仪式：临近午夜，电视上永远放同一部片子——1963年的英国小品 <b>"Dinner for One"</b>。德国人倒背如流，还年年爱看。之后是烟花、香槟，和一句 "Guten Rutsch!"（滑进新年）。', ds:'An <b>Silvester</b> läuft im deutschen Fernsehen immer "Dinner for One".', zs:'<b>Silvester</b>：德国除夕必看同一部英国小品，配烟花与"Guten Rutsch"。'},
-    {e:'🎊', de:'Dasselbe Fest, drei Namen: <b>Karneval</b> im Rheinland, <b>Fasching</b> in Bayern und Österreich, <b>Fastnacht</b> in Südwestdeutschland. Gemeint ist immer die Zeit vor der Fastenzeit, mit Kostümen, Umzügen und Narrenrufen. In Köln sagt man "Alaaf", in Düsseldorf "Helau" — und das ist ein Unterschied, den man nicht verwechseln darf.', zh:'同一个节日，三个名字：莱茵兰叫 <b>Karneval</b>，巴伐利亚和奥地利叫 <b>Fasching</b>，西南德叫 <b>Fastnacht</b>。指的都是大斋期前的狂欢——化妆、游行、喊口号。科隆人喊 "Alaaf"，杜塞尔多夫人喊 "Helau"——这个区别绝对不能搞错。', ds:'<b>Karneval, Fasching, Fastnacht</b> — ein Fest, drei Namen, je nach Region.', zs:'同一个狂欢节：<b>Karneval / Fasching / Fastnacht</b>，三地三个名字。'},
-    {e:'🍺', de:'Das erste <b>Oktoberfest</b> fand 1810 statt — zur Hochzeit von Kronprinz Ludwig und Therese von Sachsen-Hildburghausen. Es begann als Pferderennen für das ganze Volk. Heute kommen jährlich über 6 Millionen Besucher nach München, und das Fest heißt nur "Oktoberfest", weil es im Oktober endet — es beginnt im September.', zh:'第一届<b>慕尼黑啤酒节</b>在1810年举办——为庆祝王储路德维希与特蕾泽的婚礼，最初是一场全民赛马。如今每年有超过600万游客涌向慕尼黑。它叫"十月节"，只因为在十月结束——其实九月就开始了。', ds:'Das erste <b>Oktoberfest</b> war 1810 — zur königlichen Hochzeit in München.', zs:'<b>慕尼黑啤酒节</b>：1810年办起，其实是九月开始。'},
-    {e:'🌳', de:'Am 1. Mai wird in vielen Dörfern und Städten ein <b>Maibaum</b> aufgestellt — ein geschmückter Stamm mit Zunftzeichen und Bändern. In Bayern bewachen die Burschen ihren Maibaum die ganze Nacht, denn benachbarte Dörfer versuchen traditionell, ihn zu stehlen. Gelingt der Diebstahl, muss das Dorf ihn auslösen — meist mit Bier.', zh:'5月1日，很多德国村镇会立起<b>五月柱</b>——一根装饰着行会标志和彩带的树干。在巴伐利亚，小伙子们整夜守着自家的五月柱，因为邻村传统上会来偷。偷成功了，失主就得赎回——通常用啤酒。', ds:'In Bayern wird der <b>Maibaum</b> nachts bewacht — sonst klauen ihn die Nachbarn.', zs:'<b>五月柱</b>：五月一日立起，巴伐利亚人整夜守着防邻村偷。'},
-    {e:'🥔', de:'<b>Kartoffelsalat</b> gibt es in zwei Lagern: Im Süden mit Essig, Öl, Brühe und Zwiebeln, im Norden mit Mayonnaise, Gurke und Ei. Beide Seiten halten ihre Variante für die einzig wahre. Zu Würstchen gehört er an Heiligabend und Silvester — das ist bundesweit Konsens.', zh:'<b>土豆沙拉</b>分两大阵营：南德用醋、油、高汤和洋葱；北德用蛋黄酱、酸黄瓜和鸡蛋。两边都认为自己的做法才是唯一正宗的。但有一件事全国一致：平安夜和除夕，配香肠吃。', ds:'<b>Kartoffelsalat</b>: im Süden Essig und Öl, im Norden Mayonnaise.', zs:'<b>土豆沙拉</b>：南德油醋、北德蛋黄酱，各认各的正宗。'},
-    {e:'🧀', de:'<b>Quark</b> ist ein Frischkäse aus Sauermilch — und ein Wort, das andere Sprachen nicht haben. Die Engländer übersetzen es mit "quark" oder "curd cheese" und wissen nicht recht, was gemeint ist. In Deutschland gibt es ihn pur, mit Kräutern, als Speisequark mit Früchten oder im Käsekuchen.', zh:'<b>Quark（夸克）</b>是一种酸牛奶做的鲜奶酪，也是别的语言里没有的词。英语只能音译成 quark 或叫 curd cheese，说不清到底是什么。在德国，它可以原味吃、拌香草吃、加水果吃，还是芝士蛋糕的原料。', ds:'<b>Quark</b> ist ein Frischkäse aus Sauermilch — andere Sprachen haben kein Wort dafür.', zs:'<b>Quark</b>：德国特有的鲜奶酪，别的语言没这个词。'},
-    {e:'🥨', de:'Die <b>Brezel</b> verdankt ihre braune Farbe und den typischen Geschmack dem Laugenbad: Vor dem Backen wird der Teig in Natronlauge getaucht. Der Legende nach war das ein Unfall — ein Bäcker tauchte den Teig versehentlich in Reinigungslauge. Das Ergebnis war so gut, dass es bis heute Standard ist.', zh:'<b>碱水结（Brezel）</b>的褐色和独特风味来自"碱水浴"：烘烤前把面团浸进碱液里。传说这源于一次意外——一个面包师不小心把面团掉进了清洁碱水。结果太好吃了，从此成了标准做法。', ds:'Die <b>Brezel</b> wird vor dem Backen in Lauge getaucht — daher die braune Farbe.', zs:'<b>碱水结</b>：烤前浸碱水，源自一次意外。'},
-    {e:'🍒', de:'Die <b>Schwarzwälder Kirschtorte</b> besteht aus Schokoladenbiskuit, Kirschen, Sahne und Schokoladenraspeln — und aus echtem Kirschwasser. Ohne den Schnaps ist es nur eine Kirschtorte. Der Name kommt übrigens nicht vom Wald, sondern von der Tracht der Schwarzwälder Frauen: weißer Rock, rote Bluse, schwarze Haube.', zh:'<b>黑森林蛋糕</b>由巧克力海绵、樱桃、奶油和巧克力碎组成——还有真正的樱桃烈酒。没有那口酒，它就只是普通樱桃蛋糕。名字其实不来自森林，而来自黑森林地区女性的传统服饰：白裙、红上衣、黑帽子。', ds:'Die <b>Schwarzwälder Kirschtorte</b> braucht echten Kirschwasser — sonst ist sie nur Kirschtorte.', zs:'<b>黑森林蛋糕</b>：必须有樱桃烈酒，名字来自当地传统服饰。'},
-    {e:'⛰️', de:'Die <b>Zugspitze</b> ist mit 2.962 Metern Deutschlands höchster Berg. Oben verläuft die Grenze zu Österreich — der Gipfel ist also halb deutsch, halb österreichisch. Seit 1930 fährt die Zahnradbahn hinauf, seit 2017 auch eine Seilbahn in nur 10 Minuten. Bei klarem Wetter sieht man vier Länder.', zh:'<b>楚格峰</b>海拔2962米，是德国最高峰。山顶正是德国与奥地利的国界——所以峰顶一半德国、一半奥地利。1930年起有齿轨火车上山，2017年又有了10分钟直达的缆车。天气好时能望见四个国家。', ds:'Die <b>Zugspitze</b> ist mit 2.962 Metern Deutschlands höchster Berg.', zs:'<b>楚格峰</b>：2962米德国最高峰，峰顶一半属奥地利。'},
-    {e:'🗺️', de:'Deutschland hat <b>16 Bundesländer</b> — darunter drei Stadtstaaten: Berlin, Hamburg und Bremen. Jedes Land hat eigene Schulen, Polizei, Kulturpolitik und teilweise eigene Feiertage. Bayern ist das größte, Bremen das kleinste. Bildung ist Ländersache — deshalb gibt es 16 verschiedene Schulsysteme.', zh:'德国有<b>16个联邦州</b>，其中三个是城市州：柏林、汉堡、不来梅。每个州有自己的学校、警察、文化政策，甚至部分节日也不同。巴伐利亚最大，不来梅最小。教育归各州管——所以有16套不同的学制。', ds:'Deutschland hat <b>16 Bundesländer</b> — drei davon sind Stadtstaaten.', zs:'<b>16个联邦州</b>，三个城市州，教育各州自管。'},
-    {e:'🌊', de:'Der <b>Rhein</b> ist Deutschlands längster Fluss: 865 Kilometer fließen durch Deutschland, insgesamt 1.233 Kilometer von den Alpen bis zur Nordsee. Er war jahrhundertelang die wichtigste Handelsstraße Europas — und ist es noch. Am Mittelrhein stehen mehr Burgen als irgendwo sonst: 40 auf 65 Kilometern.', zh:'<b>莱茵河</b>是德国最长的河流：在德国境内长865公里，从阿尔卑斯山到北海全长1233公里。它几百年来是欧洲最重要的商路——至今仍是。中莱茵河段的城堡密度全球第一：65公里内有40座。', ds:'Der <b>Rhein</b> fließt 865 Kilometer durch Deutschland — und trägt 40 Burgen.', zs:'<b>莱茵河</b>：德国最长河，65公里内40座城堡。'},
-    {e:'🌲', de:'Der <b>Schwarzwald</b> heißt so, weil seine dichten Tannenwälder so dunkel sind, dass kaum Licht auf den Boden fällt. Er ist berühmt für Kuckucksuhren, Schwarzwälder Schinken und Kirschtorte. Hier entspringen Donau und Neckar. Mit 6.009 km² ist er das größte zusammenhängende Mittelgebirge Deutschlands.', zh:'<b>黑森林</b>之所以叫这个名字，是因为云杉密林太暗，阳光几乎照不到地面。它以咕咕钟、黑森林火腿和樱桃蛋糕闻名。多瑙河和内卡河都发源于此。面积6009平方公里，是德国最大的连片中等山地。', ds:'Der <b>Schwarzwald</b> ist so dunkel, dass kaum Licht auf den Boden fällt.', zs:'<b>黑森林</b>：树太密、光进不去，多瑙河发源于此。'},
-    {e:'🏝️', de:'<b>Sylt</b> ist Deutschlands nördlichste Insel und der Lieblingsort der Reichen und Schönen. 40 Kilometer Sandstrand, Wanderdünen, und ein Ort namens "Westerland". Wer nach Sylt will, fährt mit dem Autozug über den Hindenburgdamm — eine 11 Kilometer lange Bahnstrecke mitten durchs Wattenmeer.', zh:'<b>叙尔特岛</b>是德国最北的岛，也是名流最爱的度假地。40公里沙滩、流动沙丘，还有一个叫"西岸"的地方。去叙尔特要坐汽车列车走兴登堡大堤——一条11公里长、穿过瓦登海的铁路。', ds:'<b>Sylt</b> ist Deutschlands nördlichste Insel — 40 Kilometer Sandstrand.', zs:'<b>叙尔特岛</b>：德国最北的岛，名流度假地，40公里沙滩。'},
-    {e:'🌾', de:'Das <b>Wattenmeer</b> ist ein Naturwunder: Bei Ebbe fällt der Meeresboden trocken, und man kann zu Fuß von Insel zu Insel wandern — eine <b>Wattwanderung</b>. Es ist UNESCO-Weltnaturerbe und erstreckt sich über 500 Kilometer von den Niederlanden bis Dänemark. Bei Flut kommt das Wasser schneller zurück, als man laufen kann.', zh:'<b>瓦登海</b>是个自然奇观：退潮时海底露出来，人可以徒步从一个岛走到另一个岛——这叫 <b>Wattwanderung（滩涂徒步）</b>。它是联合国教科文组织世界自然遗产，从荷兰到丹麦绵延500公里。涨潮时水回得比你跑得快。', ds:'Bei Ebbe kann man im <b>Wattenmeer</b> zu Fuß von Insel zu Insel wandern.', zs:'<b>瓦登海</b>：退潮可徒步走海底，涨潮比人跑得快。'},
-    {e:'🛣️', de:'Auf deutschen <b>Autobahnen</b> gibt es auf etwa zwei Dritteln der Strecke keine dauerhafte Höchstgeschwindigkeit — ein Unikum weltweit. Trotzdem ist die Zahl der Verkehrstoten pro Milliarde Fahrkilometer niedriger als in vielen Ländern mit Tempolimit. Die Empfehlung lautet 130 km/h; wer schneller fährt, haftet bei Unfällen mit.', zh:'德国<b>高速公路</b>约三分之二的路段没有永久限速——全世界独一份。尽管如此，每十亿行车公里的死亡人数仍低于不少有限速的国家。官方建议时速130公里；开得更快，出事故时责任自负。', ds:'Auf etwa zwei Dritteln der deutschen <b>Autobahn</b> gibt es kein Tempolimit.', zs:'德国<b>高速</b>约三分之二路段无限速，世界独一份。'},
-    {e:'🏘️', de:'<b>Quedlinburg</b> in Sachsen-Anhalt hat über 1.300 <b>Fachwerkhäuser</b> aus acht Jahrhunderten — die größte zusammenhängende Fläche in Deutschland. Die Altstadt ist UNESCO-Welterbe, die Straßen sind so schmal, dass kaum ein Auto durchpasst. Ein Freilichtmuseum, in dem noch Menschen wohnen.', zh:'萨克森-安哈尔特州的<b>奎德林堡</b>有超过1300座<b>桁架木屋</b>，跨越八个世纪，是德国现存最完整连片的一处。老城是世界遗产，街道窄到几乎过不去车。一座还有人住着的露天博物馆。', ds:'<b>Quedlinburg</b> hat über 1.300 Fachwerkhäuser — UNESCO-Welterbe.', zs:'<b>奎德林堡</b>：1300多座桁架木屋，最完整的木屋老城。'},
-    {e:'🌳', de:'Etwa ein Drittel Deutschlands ist <b>Wald</b> — rund 11 Millionen Hektar. Das ist mehr Wald als im Mittelalter, denn damals wurde gnadenlos gerodet. Trotzdem leidet der Wald: Dürre, Stürme und der Borkenkäfer haben seit 2018 Millionen Bäume getötet. Der deutsche Wald wird gerade umgebaut — zu einem Mischwald, der Hitze aushält.', zh:'德国约三分之一的国土是<b>森林</b>——约1100万公顷。比中世纪还多，那时被砍伐殆尽。但森林仍在受苦：2018年以来的干旱、风暴和树皮甲虫已杀死数百万棵树。德国的森林正在被改造——改造成能扛住高温的混交林。', ds:'Etwa ein Drittel Deutschlands ist <b>Wald</b> — mehr als im Mittelalter.', zs:'德国三分之一国土是<b>森林</b>，比中世纪还多。'},
-    {e:'🍇', de:'An der <b>Mosel</b> wachsen Reben an Hängen, die bis zu 65% steil sind — die steilsten Weinberge der Welt. Der Bremmer Calmont ist teilweise so steil, dass man nur mit Seilwinden arbeiten kann. Die Weine: Riesling, frisch und mineralisch. Ohne die Mosel gäbe es keinen deutschen Weißwein-Weltruf.', zh:'<b>摩泽尔河</b>两岸的葡萄园坡度最高达65%，是世界上最陡的葡萄园。Bremmer Calmont 一段陡到只能用绞盘作业。这里的酒是雷司令，清冽、带矿物感。没有摩泽尔，就没有德国白葡萄酒的世界声誉。', ds:'An der <b>Mosel</b> wachsen Reben an bis zu 65% steilen Hängen — Weltrekord.', zs:'<b>摩泽尔</b>：世界最陡葡萄园，坡度达65%，雷司令故乡。'},
-    {e:'🏞️', de:'Die <b>Sächsische Schweiz</b> ist ein Sandsteingebirge an der Elbe — mit bizarren Felsen, Schluchten und dem berühmten Felsentor der Bastei. Der Name geht auf Schweizer Maler zurück, die sich an die Heimat erinnert fühlten. Seit 1990 ist sie Nationalpark, und das Klettern hat hier eine 200 Jahre alte Tradition.', zh:'<b>萨克森小瑞士</b>是易北河畔的砂岩山脉——奇岩、峡谷，还有著名的巴斯泰石林。名字来自瑞士画家，他们觉得这里像故乡。1990年起成为国家公园，攀岩在这里已有200年传统。', ds:'Die <b>Sächsische Schweiz</b> heißt so, weil Schweizer Maler sich an die Heimat erinnert fühlten.', zs:'<b>萨克森小瑞士</b>：易北河畔砂岩奇岩，瑞士画家取的名。'},
-    {e:'🏔️', de:'Der <b>Watzmann</b> ist mit 2.713 Metern der zweithöchste Berg Deutschlands und der höchste, der vollständig auf deutschem Boden steht. Die Ostwand ist die höchste Wand der Alpen östlich der Schweiz — 1.800 Meter senkrecht. Der Watzmann ist ein Nationalpark, in dem seit 100 Jahren keine Seilbahn fährt.', zh:'<b>瓦茨曼山</b>海拔2713米，是德国第二高峰，也是完全位于德国境内的最高峰。它的东壁是瑞士以东阿尔卑斯最高的岩壁——1800米垂直落差。瓦茨曼是国家公园，一百年来没有修过一条缆车。', ds:'Der <b>Watzmann</b> (2.713 m) ist der höchste Berg, der ganz in Deutschland liegt.', zs:'<b>瓦茨曼山</b>：2713米，完全在德国境内的最高峰。'},
-    {e:'🚢', de:'Der <b>Nord-Ostsee-Kanal</b> (Kielkanal) ist die meistbefahrene künstliche Wasserstraße der Welt — mehr Schiffe als durch Suez oder Panama. 98 Kilometer quer durch Schleswig-Holstein, eröffnet 1895. Er spart Schiffen den Umweg um Dänemark, rund 450 Kilometer. Für Fußgänger gibt es Brücken, die bei Durchfahrt hochklappen.', zh:'<b>基尔运河</b>（北海-波罗的海运河）是世界上最繁忙的人工水道——通航船只比苏伊士或巴拿马还多。全长98公里横穿石勒苏益格-荷尔斯泰因，1895年通航。它让船只省去绕行丹麦的约450公里。行人过河走桥，有大船经过时桥面会升起。', ds:'Der <b>Nord-Ostsee-Kanal</b> ist die meistbefahrene künstliche Wasserstraße der Welt.', zs:'<b>基尔运河</b>：世界最繁忙人工水道，比苏伊士还挤。'},
-    {e:'🧙', de:'Der <b>Brocken</b> im Harz ist mit 1.141 Metern der höchste Berg Norddeutschlands — und Schauplatz der Walpurgisnacht in Goethes "Faust". Hier treffen sich der Legende nach am 30. April die Hexen. Auf dem Gipfel steht seit 1935 ein Fernsehturm; zu DDR-Zeiten war der Brocken militärisches Sperrgebiet.', zh:'<b>布罗肯峰</b>位于哈茨山，海拔1141米，是北德最高峰——也是歌德《浮士德》里"瓦尔普吉斯之夜"的舞台。传说4月30日女巫们在此聚会。山顶自1935年起有电视塔；东德时期这里是军事禁区。', ds:'Der <b>Brocken</b> ist Schauplatz der Walpurgisnacht in Goethes "Faust".', zs:'<b>布罗肯峰</b>：北德最高峰，《浮士德》女巫之夜的舞台。'},
-    {e:'👶', de:'<b>Kindergeld</b> bekommt in Deutschland jede Familie — unabhängig vom Einkommen. Es liegt bei über 250 Euro pro Kind und Monat. Dazu kommt der Kinderfreibetrag bei der Steuer. Das Geld fließt bis zum 25. Geburtstag, wenn das Kind noch in Ausbildung oder Studium ist. Deutschland gibt dafür jedes Jahr rund 50 Milliarden Euro aus.', zh:'<b>儿童金（Kindergeld）</b>在德国是每个家庭都能领的，与收入无关，每个孩子每月超过250欧元，报税时还有子女免税额。如果孩子还在上学或培训，可以领到25岁。德国每年为此支出约500亿欧元。', ds:'<b>Kindergeld</b> bekommt jede Familie — unabhängig vom Einkommen.', zs:'<b>儿童金</b>：每孩每月超250欧，不论收入，可领到25岁。'},
-    {e:'👨👩👧', de:'<b>Elternzeit</b> heißt: Beide Eltern dürfen bis zu drei Jahre pro Kind zu Hause bleiben — mit Kündigungsschutz. Dazu gibt es <b>Elterngeld</b>: 65% des letzten Nettoeinkommens, mindestens 300, höchstens 1.800 Euro im Monat, für 12 bis 14 Monate. Deutschland zahlt Eltern dafür, dass sie Zeit mit ihren Kindern haben.', zh:'<b>育儿假（Elternzeit）</b>意味着父母双方每人可为每个孩子在家最多三年，且受解雇保护。此外还有<b>父母金（Elterngeld）</b>：原净收入的65%，最低300、最高1800欧，可领12到14个月。德国付钱让父母陪孩子。', ds:'<b>Elternzeit</b> dauert bis zu drei Jahre — mit <b>Elterngeld</b> vom Staat.', zs:'<b>育儿假</b>最长三年带解雇保护，还有父母金补贴。'},
-    {e:'🎒', de:'Am ersten Schultag bekommt jedes Kind in Deutschland eine <b>Schultüte</b> — eine große, bunt beklebte Papiertüte voller Süßigkeiten, Stifte und kleiner Geschenke. Die Tradition ist über 200 Jahre alt und stammt aus Sachsen und Thüringen. Für viele Kinder ist sie der spannendste Moment des ganzen Jahres.', zh:'开学第一天，德国每个孩子都会得到一个<b>入学圆锥袋（Schultüte）</b>——一个贴满彩色纸的大纸筒，里面装满糖果、文具和小礼物。这个传统已有200多年，源自萨克森和图林根。对很多孩子来说，这是一年里最刺激的时刻。', ds:'Am ersten Schultag bekommt jedes Kind eine <b>Schultüte</b> voller Süßigkeiten.', zs:'<b>入学圆锥袋</b>：开学第一天装满糖果文具，200年传统。'},
-    {e:'🔧', de:'Die <b>duale Ausbildung</b> ist ein deutscher Sonderweg: Azubis lernen zwei Tage in der Berufsschule und drei Tage im Betrieb — und verdienen dabei schon Geld. Rund 320 anerkannte Ausbildungsberufe gibt es. Wer die Ausbildung abschließt, hat gute Chancen; viele Meister verdienen mehr als mancher Akademiker.', zh:'<b>双元制职业教育</b>是德国的独特道路：学徒每周两天在职业学校、三天在企业，而且已经有工资。德国有约320个受承认的培训职业。毕业了就业前景很好；很多师傅的收入超过某些大学毕业生。', ds:'In der <b>dualen Ausbildung</b> lernt man im Betrieb und in der Berufsschule — mit Gehalt.', zs:'<b>双元制</b>：企业+职校两头学，学徒就有工资。'},
-    {e:'🎓', de:'An den meisten deutschen <b>staatlichen Universitäten</b> gibt es keine Studiengebühren — nur einen Semesterbeitrag von etwa 100 bis 350 Euro, der oft ein Nahverkehrsticket enthält. Ausnahme: Baden-Württemberg nimmt 1.500 Euro pro Semester von Nicht-EU-Studierenden. Sonst gilt: Bildung ist ein Bürgerrecht, kein Luxus.', zh:'德国大多数<b>公立大学</b>不收学费——只交每学期约100到350欧的学期费，通常还包含一张公交票。例外是巴登-符腾堡州，对非欧盟学生收每学期1500欧。除此之外，德国的原则是：教育是公民权利，不是奢侈品。', ds:'Deutsche <b>Universitäten</b> kosten fast nichts — nur den Semesterbeitrag.', zs:'德国<b>公立大学</b>基本免学费，学期费还含公交票。'},
-    {e:'📡', de:'Der <b>Rundfunkbeitrag</b> ist in Deutschland Pflicht: 18,36 Euro pro Wohnung und Monat, egal ob man ARD und ZDF überhaupt schaut. Das Geld finanziert den öffentlich-rechtlichen Rundfunk — unabhängig von Werbung und Politik. Kein anderes Land hat ein so stark finanziertes öffentliches Fernsehen.', zh:'<b>广播电视费（Rundfunkbeitrag）</b>在德国是强制的：每户每月18.36欧元，不管你到底看不看 ARD 和 ZDF。这笔钱供养公共广播电视——不受广告和政治影响。没有哪个国家的公共电视有如此充裕的资金。', ds:'Der <b>Rundfunkbeitrag</b> kostet 18,36 Euro pro Wohnung — auch ohne Fernseher.', zs:'<b>广播电视费</b>：每户每月18.36欧，不看电视也要交。'},
-    {e:'🛒', de:'Am <b>Sonntag</b> sind in Deutschland die meisten Geschäfte geschlossen — das regelt das Ladenschlussgesetz, und dahinter steht das Grundgesetz: Der Sonntag ist "Tag der Arbeitsruhe". Nur Bäckereien, Tankstellen und Bahnhofsläden dürfen öffnen. Ausnahmen gibt es pro Jahr nur an wenigen "verkaufsoffenen Sonntagen".', zh:'<b>周日</b>德国大部分商店关门——由《商店营业时间法》规定，背后依据是《基本法》：周日是"劳动休息日"。只有面包店、加油站和火车站商店可以营业。例外只有每年少数几个"开放购物周日"。', ds:'Am <b>Sonntag</b> sind in Deutschland fast alle Geschäfte geschlossen — per Gesetz.', zs:'<b>周日</b>：德国商店几乎全关，写进基本法的休息日。'},
-    {e:'🗓️', de:'Deutschland hat nur <b>9 bundesweit einheitliche Feiertage</b> — der Rest ist Ländersache. Dadurch hat Bayern 13 Feiertage, Berlin nur 10. Der 8. März (Frauentag) ist nur in Berlin und Mecklenburg-Vorpommern frei, Fronleichnam nur im Süden. In einem Land, 16 Kalender.', zh:'德国只有<b>9个全国统一的法定假日</b>，其余由各州自定。因此巴伐利亚有13天，柏林只有10天。3月8日妇女节只在柏林和梅前州放假，圣体节只在南部放假。一个国家，16本日历。', ds:'Deutschland hat nur <b>9 einheitliche Feiertage</b> — Bayern hat 13, Berlin 10.', zs:'德国只有<b>9个全国假日</b>，各州自己加，巴伐利亚13天。'},
-    {e:'🏠', de:'Die <b>Mietpreisbremse</b> soll verhindern, dass Mieten in angespannten Wohnungsmärkten explodieren: Bei neuen Verträgen darf die Miete höchstens 10% über der ortsüblichen Vergleichsmiete liegen. Sie gilt in Berlin, München, Hamburg und vielen Großstädten. Ob sie wirklich wirkt, ist umstritten — die Mieten steigen trotzdem.', zh:'<b>租金刹车（Mietpreisbremse）</b>意在防止住房紧张地区房租暴涨：新签合同的租金最多只能比当地参考租金高10%。柏林、慕尼黑、汉堡等许多大城市都适用。但它是否真的有效仍有争议——房租还在涨。', ds:'Die <b>Mietpreisbremse</b> erlaubt nur 10% über der ortsüblichen Miete.', zs:'<b>租金刹车</b>：新合同最多高出当地参考租金10%。'},
-    {e:'📋', de:'Wer in Deutschland umzieht, muss sich innerhalb von <b>zwei Wochen</b> beim Einwohnermeldeamt <b>anmelden</b>. Ohne Meldebescheinigung gibt es kein Bankkonto, keinen Handyvertrag, kein Internet. Die Anmeldung ist der Schlüssel zu fast allem — deshalb steht sie bei Neuankömmlingen ganz oben auf der Liste.', zh:'在德国搬家后，必须在<b>两周内</b>到户籍局<b>登记（Anmeldung）</b>。没有登记证明，就办不了银行账户、手机合约和网络。这张纸几乎是万事的钥匙——所以新到德国的人，第一件事就是去登记。', ds:'Nach dem Umzug muss man sich in Deutschland innerhalb von <b>zwei Wochen anmelden</b>.', zs:'搬家后<b>两周内必须登记</b>，否则办不了银行卡和网络。'},
-    {e:'💰', de:'Der deutsche <b>Mindestlohn</b> liegt seit Januar 2026 bei 13,90 Euro pro Stunde. Eingeführt wurde er 2015 mit 8,50 Euro — damals heftig umstritten. Eine Kommission aus Arbeitgebern und Gewerkschaften legt die Höhe alle zwei Jahre neu fest. Rund 6 Millionen Beschäftigte profitieren davon.', zh:'德国<b>最低工资</b>自2026年1月起为每小时13.90欧元。2015年刚推出时是8.50欧，当时争议很大。由雇主和工会组成的委员会每两年重新确定一次标准。约600万劳动者受益。', ds:'Der deutsche <b>Mindestlohn</b> liegt seit 2026 bei 13,90 Euro pro Stunde.', zs:'德国<b>最低工资</b>2026年起每小时13.90欧。'},
-    {e:'✊', de:'In Deutschland ist das <b>Streikrecht</b> durch Artikel 9 Absatz 3 des Grundgesetzes geschützt — es ist ein Grundrecht, nicht nur ein Gesetz. Gestreikt wird meist nach einer Urabstimmung der Gewerkschaft. Ärzte, Erzieher, Lokführer, Piloten: Auch sie dürfen streiken. Nur Beamte nicht.', zh:'在德国，<b>罢工权</b>受《基本法》第9条第3款保护——它是基本权利，不只是普通法律。罢工通常要经工会会员投票通过。医生、幼教、火车司机、飞行员都可以罢工。只有公务员不行。', ds:'Das <b>Streikrecht</b> steht im Grundgesetz — Artikel 9 Absatz 3.', zs:'<b>罢工权</b>写进德国基本法，公务员除外。'},
-    {e:'🧾', de:'Die <b>Steuererklärung</b> ist in Deutschland fast ein Volkssport: Man reicht Belege ein und bekommt oft Geld zurück. Der Trick heißt <b>Werbungskosten</b> — Fahrt zur Arbeit, Arbeitsmittel, Fortbildung, sogar der Umzug für den Job. Der Durchschnittsdeutsche holt sich über 1.000 Euro zurück. Nicht abgeben kostet Geld.', zh:'<b>报税（Steuererklärung）</b>在德国几乎是全民运动：提交凭证，往往还能退钱。诀窍叫<b>工作相关支出（Werbungskosten）</b>——通勤费、办公用品、进修费，甚至为工作搬家。德国人平均能退回1000多欧。不报，就是白白亏钱。', ds:'Bei der <b>Steuererklärung</b> holt der Durchschnittsdeutsche über 1.000 Euro zurück.', zs:'<b>报税</b>：通勤、办公用品都能抵，平均退回1000多欧。'},
-    {e:'⛪', de:'Die <b>Kirchensteuer</b> wird in Deutschland vom Staat eingezogen — 8 oder 9 Prozent der Einkommensteuer. Wer Mitglied einer Kirche ist, zahlt automatisch; wer austritt, zahlt nicht mehr. Der Austritt erfolgt beim Standesamt und ist kostenlos. Rund die Hälfte der Deutschen gehört heute keiner Kirche mehr an.', zh:'<b>教会税</b>在德国由国家代收——为所得税的8%或9%。只要是教会成员就自动缴纳；退会就不用交了。退会去户籍处办理，免费。如今约一半德国人不再属于任何教会。', ds:'Die <b>Kirchensteuer</b> zieht der Staat ein — 8 bis 9% der Einkommensteuer.', zs:'<b>教会税</b>：国家代收，退会就免交，如今半数德国人已退出。'},
-    {e:'🔍', de:'In Deutschland muss jedes Auto alle zwei Jahre zur <b>Hauptuntersuchung</b> — umgangssprachlich "TÜV". Ohne gültige Plakette ist das Fahrzeug nicht zugelassen. Der TÜV prüft Bremsen, Licht, Reifen, Abgas. Wer durchfällt, hat einen Monat Zeit zur Nachprüfung. Kein anderes Land kontrolliert so gründlich.', zh:'在德国，每辆车必须每两年做一次<b>主检验</b>——口语里就叫 "TÜV"。没有有效检验标，车就不能上路。检验内容包括刹车、灯光、轮胎、尾气。没过的话有一个月时间复检。没有哪个国家查得这么细。', ds:'Jedes Auto muss in Deutschland alle zwei Jahre zum <b>TÜV</b>.', zs:'<b>TÜV</b>：德国车每两年必检，刹车灯光尾气全查。'},
-    {e:'🚑', de:'Wenn es auf der Autobahn stockt, müssen Autofahrer sofort eine <b>Rettungsgasse</b> bilden: Der linke Fahrstreifen fährt nach links, alle anderen nach rechts. So kommt der Rettungswagen durch. Wer keine Gasse bildet, zahlt ab 200 Euro Bußgeld, riskiert einen Monat Fahrverbot und Punkte. Seit 2017 gilt die Pflicht schon bei Schrittgeschwindigkeit.', zh:'高速公路上堵车时，司机必须立刻让出<b>救援通道</b>：最左车道的车往左靠，其余往右靠，让救护车通过。不让通道，罚款从200欧起，还可能扣分、禁驾一个月。自2017年起，只要车流降到步速就必须让道。', ds:'Bei Stau muss auf der Autobahn sofort eine <b>Rettungsgasse</b> gebildet werden.', zs:'<b>救援通道</b>：堵车必须立刻让道，否则罚200欧起。'},
-    {e:'🚦', de:'Verkehrssünden landen in Deutschland in <b>Flensburg</b> — genauer: im Fahreignungsregister des Kraftfahrt-Bundesamts. Wer 8 Punkte erreicht, verliert den Führerschein. "Wie viele Punkte hast du?" ist eine typisch deutsche Frage unter Autofahrern. Die Punkte verfallen je nach Schwere nach 2,5 bis 10 Jahren.', zh:'交通违法在德国会记到<b>弗伦斯堡</b>——准确说是联邦机动车管理局的驾驶适格登记册。累积到8分就吊销驾照。"你有几分？"是德国司机之间的经典问候。分数按情节轻重，2.5到10年后才消除。', ds:'Verkehrssünden sammeln <b>Punkte in Flensburg</b> — bei 8 ist der Führerschein weg.', zs:'<b>弗伦斯堡记分</b>：交通违章累积8分吊销驾照。'},
-    {e:'🚲', de:'In einer <b>Fahrradstraße</b> gehört die Straße den Radfahrern — Autos dürfen nur ausnahmsweise hinein und müssen sich unterordnen. Man darf nebeneinander fahren. Deutschland hat über 1.000 Kilometer Fahrradstraßen, Tendenz steigend. In Freiburg und Münster ist das Rad längst das schnellste Verkehrsmittel der Innenstadt.', zh:'在<b>自行车专用街道</b>上，路属于骑车人——汽车只能例外驶入，而且必须让行。可以并排骑行。德国已有超过1000公里的自行车专用道，还在增加。在弗赖堡和明斯特，自行车早就是老城里最快的交通工具。', ds:'In einer <b>Fahrradstraße</b> gehört die Straße den Radfahrern.', zs:'<b>自行车专用街</b>：路归骑车人，汽车只能例外进入。'},
-    {e:'🪪', de:'In Deutschland gilt <b>Ausweispflicht</b>: Ab 16 Jahren muss man einen Personalausweis oder Reisepass besitzen — mitführen muss man ihn allerdings nicht. Die Polizei darf ihn aber verlangen, und dann muss man ihn vorlegen können. Der Personalausweis ist zugleich ein EU-Dokument: Damit darf man in 27 Länder reisen.', zh:'德国有<b>身份证义务</b>：16岁以上必须持有身份证或护照——但不强制随身携带。不过警察可以要求出示，那时你得能拿出来。这张身份证同时也是欧盟证件：凭它可以去27个国家。', ds:'Ab 16 Jahren muss man in Deutschland einen <b>Personalausweis</b> besitzen.', zs:'德国<b>16岁起必须有身份证</b>，但不强制随身带。'},
-    {e:'♻️', de:'Die deutsche <b>Mülltrennung</b> ist Weltkulturerbe der Bürokratie: Bio, Papier, Verpackung (Gelber Sack), Glas (nach Farben getrennt), Restmüll — und Pfandflaschen extra. Wer falsch trennt, riskiert Ärger mit den Nachbarn. Der Gelbe Sack kam 1991, seither denkt jeder Deutsche beim Joghurtbecher an die richtige Tonne.', zh:'德国的<b>垃圾分类</b>是官僚主义的世界遗产：生物垃圾、纸、包装（黄袋）、玻璃（按颜色分）、其余垃圾——押金瓶还要另外分。分错了，邻居会找你麻烦。黄袋1991年推出，从那以后每个德国人看到酸奶杯都会想它该进哪个桶。', ds:'Die deutsche <b>Mülltrennung</b>: Bio, Papier, Gelber Sack, Glas, Restmüll.', zs:'德国<b>垃圾分类</b>：五桶分装，分错邻居会找你。'},
-  ];
-
-  function getTodayIndex() {
-    return Math.floor(Math.random() * window.WDS_FACTS.length);
-  }
-  window.getWDSIndex = getTodayIndex;
-
-  function renderWDS() {
-    var wrap = document.getElementById('wds-card-wrap');
-    if (!wrap) return;
-    var today = new Date().toDateString();
-    if (localStorage.getItem('wds-dismissed') === today) {
-      wrap.style.display = 'none';
-      return;
-    }
-    var idx = getTodayIndex();
-    window.wdsTodayIdx = idx;
-    var fact = window.WDS_FACTS[idx];
-    document.getElementById('wds-emoji').textContent = fact.e;
-    document.getElementById('wds-de').innerHTML = fact.de;
-    document.getElementById('wds-zh').innerHTML = fact.zh;
-    document.getElementById('wds-num').textContent = '#' + (idx + 1) + ' / ' + window.WDS_FACTS.length;
-  }
-
-  /* 全部冷知识展示页 grid */
-  window.renderWDSGrid = function() {
-    var grid = document.getElementById('wds-grid');
-    if (!grid || grid.children.length > 0) return; // 只渲染一次
-    var todayIdx = getTodayIndex();
-    var facts = window.WDS_FACTS;
-    var html = '';
-    for (var i = 0; i < facts.length; i++) {
-      var f = facts[i];
-      var isToday = (i === todayIdx);
-      // 纯文本（去标签）用于搜索匹配
-      var plain = (f.de + ' ' + f.zh).replace(/<[^>]+>/g, '');
-      html += '<div class="wds-grid-card' + (isToday ? ' today' : '') + '" data-idx="' + i + '" data-text="' + plain.replace(/"/g, '&quot;').toLowerCase() + '">';
-      html += '<div class="wgc-top">';
-      html += '<span class="wgc-emoji">' + f.e + '</span>';
-      html += '<span>' + (isToday ? '<span class="wgc-today-tag">今日</span>' : '') + '<span class="wgc-num">#' + (i + 1) + '</span></span>';
-      html += '</div>';
-      html += '<div class="wgc-de">' + f.de + '</div>';
-      html += '<div class="wgc-zh">' + f.zh + '</div>';
-      html += '<div class="wgc-footer"><button class="wgc-share-btn" onclick="event.stopPropagation();openWDSShare(' + i + ')">📸 分享</button></div>';
-      html += '<div class="wgc-watermark">Leons Deutschzentrum</div>';
-      html += '</div>';
-    }
-    grid.innerHTML = html;
-    updateWDSCount(facts.length, facts.length);
-  };
-
-  function updateWDSCount(shown, total) {
-    var el = document.getElementById('wds-count');
-    if (!el) return;
-    el.innerHTML = (shown === total)
-      ? '共 <b>' + total + '</b> 条'
-      : '找到 <b>' + shown + '</b> / ' + total + ' 条';
-  }
-
-  /* 搜索过滤 */
-  window.filterWDS = function(q) {
-    var grid = document.getElementById('wds-grid');
-    if (!grid) return;
-    q = (q || '').trim().toLowerCase();
-    var clearBtn = document.getElementById('wds-search-clear');
-    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
-    var cards = grid.querySelectorAll('.wds-grid-card');
-    var shown = 0;
-    for (var i = 0; i < cards.length; i++) {
-      var match = !q || cards[i].getAttribute('data-text').indexOf(q) !== -1;
-      cards[i].style.display = match ? '' : 'none';
-      if (match) shown++;
-    }
-    var empty = document.getElementById('wds-empty');
-    if (empty) empty.style.display = (shown === 0) ? 'block' : 'none';
-    updateWDSCount(shown, cards.length);
-  };
-
-  window.clearWDSSearch = function() {
-    var input = document.getElementById('wds-search');
-    if (input) { input.value = ''; input.focus(); }
-    window.filterWDS('');
-  };
-
-  /* 分享卡片：打开全屏弹窗 */
-  window.openWDSShare = function(index) {
-    var fact = window.WDS_FACTS[index];
-    document.getElementById('share-emoji').textContent = fact.e;
-    document.getElementById('share-de').innerHTML = fact.ds || fact.de;
-    document.getElementById('share-zh').innerHTML = fact.zs || fact.zh;
-    document.getElementById('wds-share-overlay').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  };
-  window.closeWDSShare = function() {
-    document.getElementById('wds-share-overlay').classList.remove('show');
-    document.body.style.overflow = '';
-  };
-  // 点击遮罩空白处关闭
-  document.addEventListener('click', function(e) {
-    if (e.target === document.getElementById('wds-share-overlay')) closeWDSShare();
-  });
-  // ESC 关闭 WDS
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeWDSShare();
-  });
-  // Echt Deutsch 分享：点击遮罩关闭
-  document.addEventListener('click', function(e) {
-    if (e.target === document.getElementById('echt-share-overlay')) closeEchtShare();
-  });
-  // Echt Deutsch 分享：ESC 关闭
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeEchtShare();
-  });
-
-  window.dismissWDS = function() {
-    localStorage.setItem('wds-dismissed', new Date().toDateString());
-    var wrap = document.getElementById('wds-card-wrap');
-    if (wrap) wrap.style.display = 'none';
-  };
-  window.renderWDS = renderWDS;
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderWDS);
-  } else {
-    renderWDS();
-  }
-})();
-</script>
 
 <!-- ══════════ 模块注册表（导航栏+首页卡片共用，增删模块只需改这里） ══════════ -->
 <script>
@@ -5186,27 +4904,64 @@ document.addEventListener('keydown', function(e) {
   <a href="#" onclick="showPage('newslesen');return false" class="hero-btn">📰 德语新闻 · 分级阅读 →</a></div>
 </div>
 
-<!-- ══════════ Wusstest du schon? 每日冷知识 ══════════ -->
-<div id="wds-card-wrap">
-  <div id="wds-card">
-    <button class="wds-close" onclick="dismissWDS()" title="关闭">×</button>
-    <div class="wds-left">
-      <span class="wds-badge">🇩🇪 Wusstest du schon?</span>
-      <span class="wds-emoji" id="wds-emoji"></span>
+<!-- ══════════ 首页 · 德语新闻轮播卡 ══════════ -->
+<!-- NEWS-HOME-CARD v1 -->
+<div id="news-rot" hidden>
+  <a class="nr-card" href="#" onclick="nrOpen();return false">
+    <div class="nr-top">
+      <span class="nr-badge">📰 德语新闻 · 分级阅读</span>
+      <span class="nr-dots" id="nr-dots"></span>
     </div>
-    <div class="wds-body">
-      <div class="wds-de" id="wds-de"></div>
-      <div class="wds-zh" id="wds-zh"></div>
-      <div class="wds-footer">
-        <span class="wds-num" id="wds-num"></span>
-        <span>
-          <button class="wds-share-btn" onclick="event.stopPropagation();openWDSShare(window.wdsTodayIdx)">📸 分享</button>
-          <a class="wds-more" href="#" onclick="showPage('wds');return false">📖 查看全部 100 条 →</a>
-        </span>
-      </div>
+    <div class="nr-hook" id="nr-hook"></div>
+    <div class="nr-sub" id="nr-sub"></div>
+    <div class="nr-meta">
+      <span id="nr-meta"></span>
+      <span class="nr-go">去读 →</span>
     </div>
-  </div>
+  </a>
 </div>
+<script>
+/* 首页新闻轮播卡 —— 数据来自 news/feed.json（gen_news_feed.py 生成）。
+   刻意不把期数写进 index.html：日更出新一期只改那个 JSON，这个文件不用再动。 */
+(function(){
+  var box = document.getElementById('news-rot');
+  if (!box || !window.sitePath) return;
+  var feed = [], idx = 0, timer = null, PERIOD = 5000;
+
+  function esc(s){ var d = document.createElement('div'); d.textContent = (s == null ? '' : String(s)); return d.innerHTML; }
+  function paint(){
+    var it = feed[idx]; if (!it) return;
+    /* 大字报钩子里的 `|` 是换行位 */
+    document.getElementById('nr-hook').innerHTML = esc(it.hook).replace(/\s*[|｜]\s*/g, '<br>');
+    document.getElementById('nr-sub').textContent = it.sub || '';
+    document.getElementById('nr-meta').textContent = '第 ' + it.id + ' 期 · ' + (it.title || '');
+    document.getElementById('nr-dots').innerHTML = feed.map(function(_, i){
+      return '<i class="' + (i === idx ? 'on' : '') + '"></i>';
+    }).join('');
+  }
+  function step(n){ if (!feed.length) return; idx = (n + feed.length) % feed.length; paint(); }
+  function start(){ if (!timer && feed.length > 1) timer = setInterval(function(){ step(idx + 1); }, PERIOD); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+
+  window.nrOpen = function(){
+    if (!feed.length || !window.showPage) return;
+    /* 新闻页自己的深链约定：进页前把期号放进 sessionStorage.nlEp */
+    try { sessionStorage.setItem('nlEp', String(feed[idx].id)); } catch (e) {}
+    window.showPage('newslesen');
+  };
+  box.addEventListener('mouseenter', stop);
+  box.addEventListener('mouseleave', start);
+
+  fetch(window.sitePath('news/feed.json'), { cache: 'no-cache' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      feed = (d && d.items) ? d.items : [];
+      if (!feed.length) return;
+      idx = 0; box.hidden = false; paint(); start();
+    })
+    .catch(function(){ /* 拿不到就不显示：宁可没有，也别留个空壳 */ });
+})();
+</script>
 
 <!-- 模块标题 -->
 <div class="sec-title">📚 学习模块</div>
@@ -5302,53 +5057,10 @@ document.addEventListener('keydown', function(e) {
 
 </div>
 
-<!-- ══════════ WDS 分享弹窗 ══════════ -->
-<div id="wds-share-overlay">
-  <button class="share-close" onclick="closeWDSShare()">✕</button>
-  <div id="wds-share-card">
-    <span class="share-emoji" id="share-emoji"></span>
-    <div class="share-de" id="share-de"></div>
-    <div class="share-zh" id="share-zh"></div>
-    <div class="share-brand"><span>Leons Deutschzentrum</span> · Wusstest du schon?</div>
-  </div>
-</div>
-
-<!-- ══════════ Wusstest du schon? 全部冷知识 ══════════ -->
-<div id="page-wds" class="page">
-  <div class="wds-page-header">
-    <h2>🇩🇪 Wusstest du schon?</h2>
-    <p>100 条德国冷知识 — 每日一条，德语阅读 + 文化科普</p>
-  </div>
-  <div class="wds-tools" style="max-width:1040px;margin:0 auto 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;padding:0 20px">
-    <div style="position:relative;flex:1;min-width:260px;max-width:480px">
-      <svg viewBox="0 0 24 24" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:rgba(246,211,101,.45);pointer-events:none"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
-      <input id="wds-search" type="text" placeholder="搜索关键词（中德文均可）" oninput="filterWDS(this.value)" style="width:100%;box-sizing:border-box;background:rgba(246,211,101,.05);border:1.5px solid rgba(246,211,101,.18);color:#fde68a;border-radius:24px;padding:12px 42px 12px 40px;font-size:.92rem;outline:none">
-      <button id="wds-search-clear" onclick="document.getElementById('wds-search').value='';filterWDS('');this.style.display='none'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;border-radius:50%;display:none">×</button>
-    </div>
-    <span class="wds-count" id="wds-page-count" style="font-size:.78rem;color:#64748b;white-space:nowrap"></span>
-  </div>
-  <div class="wds-grid" id="wds-grid" style="max-width:1040px;margin:0 auto;padding:0 20px"></div>
-  <div class="wds-empty" id="wds-empty" style="text-align:center;color:#64748b;font-size:.9rem;padding:50px 20px">🔍 没有找到匹配的冷知识，换个关键词试试</div>
-  <div class="wds-page-back" style="text-align:center;margin-top:36px">
-  </div>
-
-
-</div>
 <!-- NEWSLESEN v2 -->
 <div id="page-newslesen" class="page" data-lazy="true"></div>
 <div style="display:none"><!-- NEWSLESEN v2 --></div>
 
-<script>
-(function(){
-  var origRender = window.renderWDSGrid;
-  window.renderWDSGrid = function(){
-    origRender();
-    var total = window.WDS_FACTS ? window.WDS_FACTS.length : 0;
-    var cnt = document.getElementById('wds-page-count');
-    if (cnt) cnt.innerHTML = '共 <b>' + total + '</b> 条';
-  };
-})();
-</script>
 
 <!-- A1 学习站 — 二级聚合页：把分散的 A1 栏目集中在这里再分流 -->
 <div id="page-a1hub" class="page hub-page" style="--hub:#f6d365;--hub-soft:rgba(246,211,101,.14)">
@@ -37029,6 +36741,14 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
     if (ec) ec.style.display = 'block';
     if (pc) pc.style.display = 'none';
   };
+  // Echt Deutsch 分享：点击遮罩关闭
+  document.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('echt-share-overlay')) closeEchtShare();
+  });
+  // Echt Deutsch 分享：ESC 关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeEchtShare();
+  });
   window.clearEchtSearch = function() {
     var input = document.getElementById('echt-search');
     if (input) { input.value = ''; input.focus(); }
