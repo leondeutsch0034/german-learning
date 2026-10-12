@@ -183,6 +183,23 @@
 .phonetik .road{margin:0 0 26px}
 .phonetik .pk-intro{background:#fff;border-left:4px solid #2b6cb0;border-radius:0 12px 12px 0;padding:12px 16px;margin:0 0 22px;font-size:.9rem;color:var(--ink2);line-height:1.85;box-shadow:0 1px 6px rgba(15,30,58,.05)}
 .phonetik .pk-intro b{color:var(--navy)}
+
+/* ═══ 名词词性 / 复数表：手机端堆叠成卡片（只作用于 §7·§8，勿影响其它板块）═══ */
+@media (max-width:600px){
+  #page-grammar table.nomen-tbl,
+  #page-grammar table.nomen-tbl thead,
+  #page-grammar table.nomen-tbl tbody,
+  #page-grammar table.nomen-tbl tr,
+  #page-grammar table.nomen-tbl th,
+  #page-grammar table.nomen-tbl td{display:block;width:100%;box-sizing:border-box}
+  #page-grammar table.nomen-tbl thead{display:none}
+  #page-grammar table.nomen-tbl{margin:12px 0}
+  #page-grammar table.nomen-tbl tr{border:1.5px solid #e2e8f0;border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff}
+  #page-grammar table.nomen-tbl td{border-bottom:none;padding:8px 12px;font-size:.88rem;line-height:1.7;background:#fff}
+  #page-grammar table.nomen-tbl tbody tr td:first-child{background:#eff6ff;font-weight:800;color:#2b6cb0;font-size:.86rem}
+  #page-grammar table.nomen-tbl tbody tr:nth-child(even) td{background:#fff}
+  #page-grammar table.nomen-tbl tbody tr:nth-child(even) td:first-child{background:#eff6ff}
+}
 </style>
 
 
@@ -201,7 +218,7 @@
     <a class="toc-item" href="#s4">4. sein / haben</a>
     <a class="toc-item" href="#s5">5. 情态动词</a>
     <a class="toc-item" href="#s6">6. 可分动词</a>
-    <a class="toc-item" href="#s7">7. 冠词</a>
+    <a class="toc-item" href="#s7">7. 冠词与名词性别</a>
     <a class="toc-item" href="#s8">8. 名词复数</a>
     <a class="toc-item" href="#s9">9. 主格与宾格</a>
     <a class="toc-item" href="#s10">10. 物主冠词</a>
@@ -1280,7 +1297,7 @@
 <div class="section" id="s7">
   <div class="section-header">
     <div class="section-num">7</div>
-    <h2>冠词 Artikel</h2>
+    <h2>冠词与名词的性 Artikel und Genus</h2>
   </div>
   <div style="overflow-x:auto;margin-bottom:.8rem">
   <table style="border-collapse:collapse;width:100%;font-size:.97rem;min-width:420px">
@@ -1358,8 +1375,61 @@
     <span><span style="display:inline-block;width:14px;height:14px;background:#fca5a5;border-radius:3px;vertical-align:middle;margin-right:4px"></span>ein / ein — 无词尾，阳/中性不定冠词主格形式相同</span>
   </div>
   <div class="alert"><strong>规律：</strong>阳性名词在宾格（Akkusativ）时，冠词词尾变为 <strong>-en</strong>（der → den，ein → einen，kein → keinen）。其余性别不变。</div>
-  <h3 style="margin:14px 0 8px;color:#2b6cb0">部分常见名词性别</h3>
-  <table>
+  <h3 style="margin:24px 0 8px;color:#2b6cb0">名词的性 <span style="font-size:.85rem;color:#718096;font-weight:400">Genus der Nomen</span></h3>
+  <div class="rule-box">
+    <span class="label">核心：</span>德语每个名词都有一个固定的性——<span class="tag-der">der</span> 阳性、<span class="tag-die">die</span> 阴性、<span class="tag-das">das</span> 中性。性属<b>大多没有固定规律</b>，最可靠的办法是把<b>冠词和名词一起背</b>（背 <b>das Haus</b>，而不是背 Haus）。<br>
+    不过下面这些<b>词尾</b>和<b>意义类别</b>确实有规律，能帮你在没查词典时先猜个八九不离十。
+  </div>
+
+  <h4 style="margin:18px 0 6px;color:#1a365d;font-size:1rem">① 阳性名词 <span class="tag-der">der</span></h4>
+  <table class="nomen-tbl">
+    <thead><tr><th style="width:38%">规律</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>男性、雄性</td><td>der Mann, der Vater, der Sohn, der Bruder, der Onkel, der Lehrer, der Arzt</td></tr>
+      <tr><td>四季 / 月份 / 星期 / 一天时段</td><td>der Frühling, der Sommer, der Herbst, der Winter；der Mai, der Juli；der Sonntag, der Freitag；der Morgen, der Mittag, der Abend</td></tr>
+      <tr><td>方位 / 天气现象</td><td>der Osten, der Westen, der Norden, der Süden；der Regen, der Schnee, der Wind, der Nebel, der Frost</td></tr>
+      <tr><td>大多数山名、汽车牌号、货币</td><td>der Himalaja, der Harz；der VW, der BMW, der Audi；der Euro, der Dollar</td></tr>
+      <tr><td>以 <b>-ich, -ig, -ling</b> 结尾</td><td>der Teppich, der König, der Käfig, der Frühling, der Zwilling</td></tr>
+      <tr><td>大多数单音节动词派生的名词</td><td>der Fall, der Gang, der Sitz, der Sprung, der Druck</td></tr>
+      <tr><td>外来语 <b>-ant, -är, -ent, -eur, -ist, -or</b> 等结尾</td><td>der Student, der Patient, der Ingenieur, der Polizist, der Motor</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin:18px 0 6px;color:#1a365d;font-size:1rem">② 阴性名词 <span class="tag-die">die</span></h4>
+  <table class="nomen-tbl">
+    <thead><tr><th style="width:38%">规律</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>女性、雌性</td><td>die Frau, die Mutter, die Tochter, die Schwester, die Lehrerin, die Ärztin</td></tr>
+      <tr><td>以 <b>-e</b> 结尾（大多数）</td><td>die Schule, die Straße, die Sprache, die Blume, die Tasche, die Lampe</td></tr>
+      <tr><td>以 <b>-ei, -in, -heit, -keit, -schaft, -ung</b> 结尾</td><td>die Bäckerei；die Freundin；die Freiheit；die Möglichkeit；die Freundschaft, die Wissenschaft；die Wohnung, die Zeitung, die Übung</td></tr>
+      <tr><td>大多数花草、树木、瓜果</td><td>die Rose, die Tulpe, die Banane, die Zwiebel</td></tr>
+      <tr><td>船舶、飞机、德国河流</td><td>die Bismarck（船名）；die Boeing（机名）；die Donau, die Elbe</td></tr>
+      <tr><td>外来语 <b>-ade, -age, -enz, -ik, -ion, -tät, -ur</b> 等结尾</td><td>die Musik, die Information, die Universität, die Natur, die Etage</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin:18px 0 6px;color:#1a365d;font-size:1rem">③ 中性名词 <span class="tag-das">das</span></h4>
+  <table class="nomen-tbl">
+    <thead><tr><th style="width:38%">规律</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>幼小的生物</td><td>das Kind, das Baby, das Küken</td></tr>
+      <tr><td>不分公母的动物通称</td><td>das Pferd, das Schwein, das Schaf, das Huhn, das Rind</td></tr>
+      <tr><td>以 <b>-chen, -lein</b> 结尾的小称名词</td><td>das Mädchen, das Brötchen, das Fräulein</td></tr>
+      <tr><td><b>Ge-</b> 开头的集合名词</td><td>das Gemüse, das Getränk, das Gebäude, das Gepäck</td></tr>
+      <tr><td>化学元素、金属</td><td>das Gold, das Silber, das Eisen, das Aluminium</td></tr>
+      <tr><td>由动词 / 形容词 / 字母转化来的名词</td><td>das Essen, das Lesen, das Gute, das A, das B</td></tr>
+      <tr><td>外来语 <b>-at, -ett, -ma, -(i)um</b> 等结尾</td><td>das Drama, das Komma, das Museum, das Zentrum</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note"><strong>三条实用提醒：</strong><br>
+    ① 复合名词的性<b>由最后一个名词决定</b>：das Haus + die Tür → <b>die</b> Haustür；der Tisch + das Tuch → <b>das</b> Tischtuch。<br>
+    ② 以 <b>-e</b> 结尾的名词大多是阴性，但有几个常见例外要单独记：<b>der</b> Junge, <b>der</b> Name, <b>der</b> Buchstabe, <b>das</b> Ende, <b>das</b> Auge。<br>
+    ③ 名词永远大写、且大多带冠词；背单词时请<b>连冠词一起背</b>。
+  </div>
+
+  <h3 style="margin:24px 0 8px;color:#2b6cb0">A1 高频名词性别速查</h3>
+  <table class="nomen-tbl">
     <thead><tr><th>der（阳性）</th><th>die（阴性）</th><th>das（中性）</th></tr></thead>
     <tbody>
       <tr><td>der Mann, der Vater, der Bruder, der Sohn, der Arzt, der Lehrer, der Tag, der Monat, der Zug, der Bus, der Computer</td>
@@ -1375,15 +1445,49 @@
     <div class="section-num">8</div>
     <h2>名词复数 Pluralformen</h2>
   </div>
-  <table>
-    <thead><tr><th>规律</th><th>变化</th><th>例子</th></tr></thead>
+  <div class="rule-box">
+    <span class="label">核心：</span>复数一律用定冠词 <span class="tag-die">die</span>；<b>不定冠词 ein / eine 没有复数形式</b>（表示"一些"用 <b>die</b> 或 <b>keine</b>）。<br>
+    复数是从单数变来的，主要靠加不同词尾，少数还要<b>变音</b>（a→ä, o→ö, u→ü, au→äu）。
+  </div>
+  <table class="nomen-tbl">
+    <thead><tr><th style="width:18%">复数词尾</th><th style="width:32%">适用名词</th><th>例子</th></tr></thead>
     <tbody>
-      <tr><td>加 -e</td><td>词末 +e（部分变音）</td><td>der Tag → die Tag<b>e</b>；der Stuhl → die Stühl<b>e</b></td></tr>
-      <tr><td>加 -er</td><td>词末 +er（部分变音）</td><td>das Kind → die Kind<b>er</b>；das Haus → die Häus<b>er</b></td></tr>
-      <tr><td>加 -en / -n</td><td>词末 +en 或 +n</td><td>die Frau → die Frau<b>en</b>；die Schule → die Schule<b>n</b></td></tr>
-      <tr><td>加 -s</td><td>外来词常见</td><td>das Auto → die Auto<b>s</b>；das Hotel → die Hotel<b>s</b></td></tr>
-      <tr><td>不变 / 变音</td><td>不加词尾（部分变音）</td><td>der Lehrer → die Lehrer；der Vater → die Väter</td></tr>
-      <tr><td>加 -nen</td><td>阴性职业</td><td>die Lehrerin → die Lehrerinnen</td></tr>
+      <tr><td><b>-e</b>（有的变音）</td><td>大多数阳性名词；许多单音节中性名词</td><td>der Tag → die Tag<b>e</b>；der Tisch → die Tisch<b>e</b>；der Stuhl → die Stühl<b>e</b>；das Jahr → die Jahr<b>e</b>；das Heft → die Heft<b>e</b></td></tr>
+      <tr><td><b>-er</b>（有的变音）</td><td>大多数单音节中性名词</td><td>das Kind → die Kind<b>er</b>；das Bild → die Bild<b>er</b>；das Haus → die Häus<b>er</b>；das Buch → die Büch<b>er</b></td></tr>
+      <tr><td><b>-(e)n</b></td><td>绝大多数阴性名词</td><td>die Frau → die Frau<b>en</b>；die Schule → die Schule<b>n</b>；die Blume → die Blume<b>n</b>；die Zeitung → die Zeitung<b>en</b></td></tr>
+      <tr><td><b>-nen</b></td><td>以 <b>-in</b> 结尾的阴性名词</td><td>die Lehrerin → die Lehrerin<b>nen</b>；die Freundin → die Freundin<b>nen</b></td></tr>
+      <tr><td><b>-s</b></td><td>外来词、缩写、以元音结尾的词</td><td>das Auto → die Auto<b>s</b>；das Hotel → die Hotel<b>s</b>；der Park → die Park<b>s</b>；die Oma → die Oma<b>s</b></td></tr>
+      <tr><td><b>不加词尾</b>（有的变音）</td><td>以 <b>-er, -el, -en</b> 结尾的阳 / 中性；以 <b>-chen, -lein</b> 结尾的中性</td><td>der Lehrer → die Lehrer；der Spiegel → die Spiegel；der Vater → die Väter；das Mädchen → die Mädchen；das Fenster → die Fenster</td></tr>
+    </tbody>
+  </table>
+  <div class="alert"><strong>三条速记：</strong>
+    ① 看到<b>阴性</b>名词 → 八九不离十加 <b>-(e)n</b>（<b>-in</b> → <b>-nen</b>）；
+    ② 看到<b>单音节中性</b>名词 → 多是 <b>变音 + -er</b>；
+    ③ 看到<b>外来词、缩写、元音结尾</b> → 多是 <b>-s</b>。
+  </div>
+
+  <h3 style="margin:22px 0 8px;color:#2b6cb0">没有复数的 / 只有复数的名词</h3>
+  <table class="nomen-tbl">
+    <thead><tr><th style="width:32%">类别</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td><b>没有复数</b> · 不可数的物质名词</td><td>das Wasser, die Milch, der Reis, das Geld, der Zucker, das Fleisch</td></tr>
+      <tr><td><b>没有复数</b> · 抽象名词</td><td>die Liebe, das Glück, die Musik, der Sport</td></tr>
+      <tr><td><b>没有复数</b> · 专有名词、地名</td><td>Deutschland, Paris, Berlin</td></tr>
+      <tr><td><b>只有复数</b>（本身即复数）</td><td>die Eltern, die Geschwister, die Ferien, die Leute, die Kosten</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin:22px 0 8px;color:#2b6cb0">进阶 · 同形不同性 / 不同复数</h3>
+  <p style="font-size:.9rem;color:#4a5568;margin:0 0 4px">有些词拼写一样，性别不同，意思和复数也就不同——这是考试爱设的坑。</p>
+  <table class="nomen-tbl">
+    <thead><tr><th>单数</th><th>复数</th><th>意思</th></tr></thead>
+    <tbody>
+      <tr><td>der See</td><td>die Seen</td><td>湖</td></tr>
+      <tr><td>die See</td><td>die Seen</td><td>海</td></tr>
+      <tr><td>das Band</td><td>die Bänder</td><td>带子</td></tr>
+      <tr><td>die Band</td><td>die Bands</td><td>乐队</td></tr>
+      <tr><td>der Teil</td><td>die Teile</td><td>部分</td></tr>
+      <tr><td>das Teil</td><td>die Teile</td><td>零件；份额</td></tr>
     </tbody>
   </table>
 </div>
