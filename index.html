@@ -2829,6 +2829,23 @@
     #news-rot .nr-go { color:#f6d365; font-weight:700; white-space:nowrap; flex-shrink:0; }
     #news-rot .nr-card:hover .nr-go { color:#fde68a; }
     @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{padding:14px 16px 12px;border-radius:14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} }
+
+    /* ── 首页 · 德语海报入口 + 全屏海报视图（给视频号截图/取图用） ── */
+    #news-rot .nr-acts { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+    #news-rot .nr-shot { background:rgba(246,211,101,.13); border:1px solid rgba(246,211,101,.32); color:#f6d365; font-size:.72rem; font-weight:700; padding:5px 12px; border-radius:14px; cursor:pointer; transition:.2s; font-family:inherit; white-space:nowrap; }
+    #news-rot .nr-shot:hover { background:rgba(246,211,101,.24); color:#fde68a; }
+    #nr-poster { display:none; position:fixed; inset:0; z-index:99999; background:rgba(4,10,22,.95); align-items:center; justify-content:center; }
+    #nr-poster.on { display:flex; }
+    #nr-poster #nrp-open { display:block; line-height:0; }
+    #nr-poster .nrp-img { cursor:zoom-in; max-height:calc(100vh - 120px); max-width:min(94vw,560px); width:auto; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.65); display:block; }
+    #nr-poster .nrp-bar { position:absolute; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 18px; }
+    #nr-poster .nrp-title { color:#94a3b8; font-size:.8rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    #nr-poster .nrp-btn { background:rgba(255,255,255,.1); border:none; color:#e8eef7; padding:7px 14px; border-radius:16px; font-size:.8rem; cursor:pointer; text-decoration:none; font-family:inherit; white-space:nowrap; }
+    #nr-poster .nrp-btn:hover { background:rgba(255,255,255,.2); color:#fde68a; }
+    #nr-poster .nrp-nav { position:absolute; bottom:16px; display:flex; gap:10px; align-items:center; }
+    #nr-poster .nrp-hint { color:#64748b; font-size:.72rem; margin-left:6px; }
+    @media(max-width:600px){ #nr-poster .nrp-img{max-height:calc(100vh - 150px)} #nr-poster .nrp-hint{display:none} }
+<!-- NEWS-POSTER-VIEW v1 -->
     /* ── Echt Deutsch 分享弹窗（对标 WDS 分享卡片） ── */
     #echt-share-overlay { display:none; position:fixed; inset:0; z-index:99999; background:#0a1428; flex-direction:column; align-items:center; justify-content:center; padding:24px; }
     #echt-share-overlay.show { display:flex; }
@@ -4916,7 +4933,7 @@ document.addEventListener('keydown', function(e) {
     <div class="nr-sub" id="nr-sub"></div>
     <div class="nr-meta">
       <span id="nr-meta"></span>
-      <span class="nr-go">去读 →</span>
+      <span class="nr-acts"><button class="nr-shot" onclick="event.preventDefault();event.stopPropagation();nrPoster();return false;">🖼 德语海报</button><span class="nr-go">去读 →</span></span>
     </div>
   </a>
 </div>
@@ -4960,6 +4977,63 @@ document.addEventListener('keydown', function(e) {
       idx = 0; box.hidden = false; paint(); start();
     })
     .catch(function(){ /* 拿不到就不显示：宁可没有，也别留个空壳 */ });
+
+  /* ── 全屏德语海报视图（给视频号截图/取图）── */
+  var pv = null, pvIdx = 0;
+  function pvUrl(it){
+    var nn = (it.id < 10 ? '0' + it.id : '' + it.id);
+    return window.sitePath('news/poster/' + nn + '.jpg');
+  }
+  function pvBuild(){
+    if (pv) return pv;
+    pv = document.createElement('div');
+    pv.id = 'nr-poster';
+    pv.innerHTML =
+      '<div class="nrp-bar">' +
+        '<button class="nrp-btn" onclick="nrPosterClose()">✕ 关闭</button>' +
+        '<span class="nrp-title" id="nrp-title"></span>' +
+        '<a class="nrp-btn" id="nrp-dl" download="">⬇ 下载</a>' +
+      '</div>' +
+      '<a id="nrp-open" href="#" target="_blank" rel="noopener" title="在新标签打开原图（1080×1920）">' +
+        '<img class="nrp-img" id="nrp-img" alt="Deutsch-Poster">' +
+      '</a>' +
+      '<div class="nrp-nav">' +
+        '<button class="nrp-btn" onclick="nrPosterGo(-1)">← 上一期</button>' +
+        '<button class="nrp-btn" onclick="nrPosterGo(1)">下一期 →</button>' +
+        '<span class="nrp-hint">点图片看原图（1080×1920）· ←→ 翻期 · ESC 关闭</span>' +
+      '</div>';
+    document.body.appendChild(pv);            /* 挂 body：fixed 才不会被 transform 祖先吃掉 */
+    pv.addEventListener('click', function(e){ if (e.target === pv) window.nrPosterClose(); });
+    return pv;
+  }
+  function pvPaint(){
+    var it = feed[pvIdx]; if (!it) return;
+    var u = pvUrl(it);
+    document.getElementById('nrp-img').src = u;
+    document.getElementById('nrp-open').href = u;
+    var dl = document.getElementById('nrp-dl');
+    dl.href = u;
+    dl.setAttribute('download', 'Leon-Deutschzentrum-' + (it.id < 10 ? '0' + it.id : it.id) + '.jpg');
+    document.getElementById('nrp-title').textContent = '第 ' + it.id + ' 期 · ' + it.title;
+  }
+  window.nrPoster = function(){
+    if (!feed.length) return;
+    pvBuild(); pvIdx = idx; pvPaint();
+    pv.classList.add('on'); document.body.style.overflow = 'hidden'; stop();
+  };
+  window.nrPosterClose = function(){
+    if (!pv) return;
+    pv.classList.remove('on'); document.body.style.overflow = ''; start();
+  };
+  window.nrPosterGo = function(d){
+    pvIdx = (pvIdx + d + feed.length) % feed.length; pvPaint();
+  };
+  document.addEventListener('keydown', function(e){
+    if (!pv || !pv.classList.contains('on')) return;
+    if (e.key === 'Escape') window.nrPosterClose();
+    else if (e.key === 'ArrowLeft') window.nrPosterGo(-1);
+    else if (e.key === 'ArrowRight') window.nrPosterGo(1);
+  });
 })();
 </script>
 
