@@ -2763,7 +2763,8 @@
       border-top:1px solid rgba(246,211,101,.1); font-size:.79rem; line-height:1.62; color:#9fb0c8;
       display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
     #news-rot .nr-words { margin-top:10px; font-size:.73rem; line-height:1.58; color:#8ea3bd;
-      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+      /* 固定 1 行 + 省略号：译文长短不一，放开会有的折行有的不折，跨期不统一 */
+      display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
     #news-rot .nr-words b { color:#e0b04a; font-weight:700; }
     #news-rot .nr-de { margin-top:8px; font-size:.82rem; font-weight:600; color:#e0b04a; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:.005em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     #news-rot .nr-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
