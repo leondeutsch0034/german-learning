@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 9,
+   "title": "德国：每 5 个学生就有 1 个在网上被辱骂",
+   "de_title": "Jeder 5. Schüler in Deutschland wird im Internet beleidigt",
+   "hook": "每 5 个学生|就有 1 个|在网上被欺负",
+   "sub": "网络霸凌 · 近 240 万学生 · 多来自同校同班",
+   "date": "2026-10-13",
+   "photo": "news/og/src/09.jpg",
+   "de_hook": "Jeder 5. Schüler wird|im Netz beleidigt.|Schützt sie niemand?",
+   "zh_intro": "德国一项新研究显示：每 5 个学生里就有 1 个在网上被人辱骂或攻击过，全国接近 240 万人。攻击大多来自同校甚至同班同学，主要发生在 WhatsApp、TikTok、Instagram 这些平台上。该联盟要求为网络霸凌立专门法。",
+   "words": [
+    [
+     "das Cyber-Mobbing",
+     "网络霸凌"
+    ],
+    [
+     "beleidigen / die Beleidigung",
+     "辱骂 / 侮辱"
+    ],
+    [
+     "das Opfer / die Opfer",
+     "受害者"
+    ]
+   ]
+  },
+  {
    "id": 8,
    "title": "德国人 35 年来首次登上网球世界第一",
    "de_title": "Zverev wird die Nummer 1 der Welt – der erste Deutsche seit 35 Jahren",
@@ -173,31 +198,6 @@
     [
      "der Bundeskanzler",
      "联邦总理"
-    ]
-   ]
-  },
-  {
-   "id": 1,
-   "title": "德国研究者获得诺贝尔医学奖",
-   "de_title": "Forscher aus Deutschland bekommen Medizin-Nobel-Preis",
-   "hook": "德国人拿了|诺贝尔医学奖",
-   "sub": "用光就能控制脑细胞",
-   "date": "2026-10-05",
-   "photo": "news/og/src/01.jpg",
-   "de_hook": "Kann man Gehirnzellen|einfach mit Licht|steuern?",
-   "zh_intro": "今年的诺贝尔医学奖，颁给了三位研究「光遗传学」的学者。",
-   "words": [
-    [
-     "der Forscher",
-     "研究者"
-    ],
-    [
-     "die Zelle",
-     "细胞"
-    ],
-    [
-     "die Nerven-Zelle",
-     "神经细胞"
     ]
    ]
   }
