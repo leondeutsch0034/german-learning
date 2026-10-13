@@ -2817,10 +2817,12 @@
     #news-rot { margin:0 auto 22px; max-width:800px; padding:0 20px; }
     /* NEWS-CARD-RICH v1 —— 左图右文；照片与德语行让卡片不再是一块纯文字 */
     #news-rot .nr-card { display:flex; gap:18px; align-items:stretch; text-decoration:none; background:linear-gradient(160deg,#0f1e3a 0%,#132540 60%,#152847 100%); border:1px solid rgba(246,211,101,.12); border-radius:18px; padding:14px; position:relative; transition:all .3s ease; cursor:pointer; }
-    #news-rot .nr-photo { flex:0 0 208px; width:208px; border-radius:13px; overflow:hidden; background:#0b1730; }
+    /* 208 : 337 ≈ 1 : 1.618（黄金比），写死尺寸 —— 不跟着原图比例走，
+       否则竖构图照片会把框撑高、横构图不会，同排卡片高矮不一。 */
+    #news-rot .nr-photo { flex:0 0 208px; width:208px; height:337px; align-self:center; border-radius:13px; overflow:hidden; background:#0b1730; }
     #news-rot .nr-photo img { width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity .5s ease; }
     #news-rot .nr-photo img.on { opacity:1; }
-    #news-rot .nr-main { flex:1; min-width:0; display:flex; flex-direction:column; padding:2px 6px 2px 0; }
+    #news-rot .nr-main { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; padding:2px 6px 2px 0; }
     #news-rot .nr-de { margin-top:8px; font-size:.82rem; font-weight:600; color:#e0b04a; font-family:Georgia,'Segoe UI',serif; font-style:italic; letter-spacing:.005em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     #news-rot .nr-card:hover { border-color:rgba(246,211,101,.45); box-shadow:0 6px 28px rgba(0,0,0,.35),0 0 16px rgba(246,211,101,.06); transform:translateY(-1px); }
     #news-rot .nr-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:11px; }
@@ -2834,7 +2836,7 @@
     #news-rot .nr-meta > span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     #news-rot .nr-go { color:#f6d365; font-weight:700; white-space:nowrap; flex-shrink:0; }
     #news-rot .nr-card:hover .nr-go { color:#fde68a; }
-    @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{flex-direction:column;gap:0;padding:0;border-radius:14px;overflow:hidden} #news-rot .nr-photo{flex:0 0 150px;width:100%;height:150px;border-radius:0} #news-rot .nr-main{padding:13px 16px 14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} #news-rot .nr-de{font-size:.76rem} #news-rot .nr-meta{flex-wrap:wrap;row-gap:9px} }
+    @media(max-width:600px){ #news-rot{padding:0 12px} #news-rot .nr-card{flex-direction:column;gap:0;padding:0;border-radius:14px;overflow:hidden} #news-rot .nr-photo{flex:0 0 150px;width:100%;height:150px;align-self:stretch;border-radius:0} #news-rot .nr-main{padding:13px 16px 14px} #news-rot .nr-hook{font-size:1.1rem} #news-rot .nr-sub{font-size:.78rem} #news-rot .nr-de{font-size:.76rem} #news-rot .nr-meta{flex-wrap:wrap;row-gap:9px} }
 
     /* ── 首页 · 德语海报入口 + 全屏海报视图（给视频号截图/取图用） ── */
     #news-rot .nr-acts { display:flex; align-items:center; gap:10px; flex-shrink:0; }
