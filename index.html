@@ -124,6 +124,17 @@
   模板不增加解析时间——浏览器跳过 <template> 内容。
 -->
 <script>
+/* ══════ 深链参数抢存（必须在这里，早于任何路由）══════
+   分享链接形如 /?ep=10#newslesen。showPage 会把地址栏 replaceState 成
+   '/#newslesen'，**query 会被冲掉**；而新闻页的懒加载脚本要等之后再跑。
+   所以在最早的脚本里先把 ep 存进 sessionStorage.nlEp（新闻页已有的兜底约定）。 */
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('ep');
+    if (q && /^\d+$/.test(q)) sessionStorage.setItem('nlEp', q);
+  } catch (e) {}
+})();
+
 /* ══════ 懒加载框架 ══════ */
 window._lazyPages = {};
 window._lazyInstantiated = {};

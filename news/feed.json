@@ -2,26 +2,126 @@
  "count": 8,
  "items": [
   {
+   "id": 13,
+   "title": "德国医保涨价：附加费创历史新高",
+   "de_title": "Krankenkassenbeiträge steigen: Zusatzbeitrag auf Rekordhoch",
+   "hook": "德国医保|涨到17,5%",
+   "sub": "月薪2000欧，要缴175欧",
+   "date": "2026-01-01",
+   "photo": "news/og/src/13.jpg",
+   "de_hook": "17,5 Prozent|Rekordhoch",
+   "zh_intro": "2026 年起，德国法定医保的平均附加费涨到 2,9%，加上基础费率 14,6%，合计 17,5%——史上最高。私营医保那边，约六成投保人面临平均 13% 的涨价。",
+   "words": [
+    [
+     "die Krankenversicherung",
+     "医疗保险"
+    ],
+    [
+     "die Krankenkasse",
+     "医保机构"
+    ],
+    [
+     "der Beitrag / der Beitragssatz",
+     "费用 / 费率"
+    ]
+   ]
+  },
+  {
+   "id": 12,
+   "title": "慕尼黑租房：每平米 23 欧起",
+   "de_title": "Miete in München: im Schnitt über 23 Euro pro Quadratmeter",
+   "hook": "慕尼黑租房|23欧一平米",
+   "sub": "冷租暖租，差在哪儿",
+   "date": "2026-10-14",
+   "photo": "news/og/src/12.jpg",
+   "de_hook": "23 Euro|pro Quadratmeter",
+   "zh_intro": "在慕尼黑，一套房的冷租平均每平米超过 23 欧，加上约 4 欧的附加费，暖租接近 27 欧。同样一平米，换个城市可能只要一半。这一期看懂德国的房租账单。",
+   "words": [
+    [
+     "die Miete",
+     "房租"
+    ],
+    [
+     "die Kaltmiete",
+     "冷租（不含附加费）"
+    ],
+    [
+     "die Warmmiete",
+     "暖租（含附加费）"
+    ]
+   ]
+  },
+  {
+   "id": 11,
+   "title": "德国平均月薪 4.850 欧，到手只剩 3.053",
+   "de_title": "4.850 Euro brutto, 3.053 Euro netto – was vom Gehalt übrig bleibt",
+   "hook": "4850欧工资|到手3053",
+   "sub": "社保和税扣掉三分之一多",
+   "date": "2026-10-14",
+   "photo": "news/og/src/11.jpg",
+   "de_hook": "4.850 brutto|3.053 netto",
+   "zh_intro": "德国全职员工的平均毛月薪约 4.850 欧——但真正打到卡上的只有约 3.053 欧。税和社保拿走三分之一多。这一期把这张工资单拆开看。",
+   "words": [
+    [
+     "das Gehalt",
+     "工资"
+    ],
+    [
+     "brutto",
+     "税前、毛"
+    ],
+    [
+     "netto",
+     "税后、净"
+    ]
+   ]
+  },
+  {
+   "id": 10,
+   "title": "德国养老金 7 月起涨 4,24%",
+   "de_title": "Die Rente steigt zum 1. Juli 2026 um 4,24 Prozent",
+   "hook": "德国养老金|涨了4,24%",
+   "sub": "但钱还是不够，争议更大了",
+   "date": "2026-07-01",
+   "photo": "news/og/src/10.jpg",
+   "de_hook": "Rente rauf|Beitrag auch rauf?",
+   "zh_intro": "2026 年 7 月起，德国养老金上调 4,24%。但平均下来，男性和女性、东部和西部，拿到的钱差得很远；而改革的大争论还没完。",
+   "words": [
+    [
+     "die Rente",
+     "养老金"
+    ],
+    [
+     "der Rentner / die Rentnerin",
+     "退休者"
+    ],
+    [
+     "der Rentenwert",
+     "养老金单位值（计发基数）"
+    ]
+   ]
+  },
+  {
    "id": 9,
-   "title": "德国每 5 个学生就有 1 个遭遇网络霸凌",
-   "de_title": "Jeder fünfte Schüler in Deutschland wird im Internet beleidigt",
-   "hook": "每 5 个学生|就有 1 个|在网上被骂",
-   "sub": "网络霸凌创新高 · 200 多万人受影响 · 施暴者多来自同班",
+   "title": "德国：每 5 个学生就有 1 个在网上被辱骂",
+   "de_title": "Jeder 5. Schüler in Deutschland wird im Internet beleidigt",
+   "hook": "每 5 个学生|就有 1 个|在网上被欺负",
+   "sub": "网络霸凌 · 近 240 万学生 · 多来自同校同班",
    "date": "2026-10-13",
    "photo": "news/og/src/09.jpg",
-   "de_hook": "Jeder fünfte Schüler|wird im Netz gemobbt.|Warum tut keiner was?",
-   "zh_intro": "在德国，越来越多的儿童和青少年在互联网上被辱骂。每 5 个学生里就有 1 个已经成为网络霸凌的受害者，比两年前更多；受影响的孩子和年轻人超过 200 万。这些攻击大多发生在聊天软件和社交网络里，而施暴者常常就来自同一个班。",
+   "de_hook": "Jeder 5. Schüler wird|im Netz beleidigt.|Schützt sie niemand?",
+   "zh_intro": "德国一项新研究显示：每 5 个学生里就有 1 个在网上被人辱骂或攻击过，全国接近 240 万人。攻击大多来自同校甚至同班同学，主要发生在 WhatsApp、TikTok、Instagram 这些平台上。该联盟要求为网络霸凌立专门法。",
    "words": [
     [
      "das Cyber-Mobbing",
      "网络霸凌"
     ],
     [
-     "der Schüler / die Schülerin",
-     "学生"
+     "beleidigen / die Beleidigung",
+     "辱骂 / 侮辱"
     ],
     [
-     "das Opfer",
+     "das Opfer / die Opfer",
      "受害者"
     ]
    ]
@@ -98,106 +198,6 @@
     [
      "der Nahverkehr",
      "近程交通（市内＋区域）"
-    ]
-   ]
-  },
-  {
-   "id": 5,
-   "title": "「Ragebait」当选德国年度青少年词汇",
-   "de_title": "„Ragebait“ ist das Jugendwort des Jahres 2026",
-   "hook": "德国年度青少年词汇|今年是个英语词",
-   "sub": "Ragebait：靠激怒你赚流量",
-   "date": "2026-10-10",
-   "photo": "news/og/src/05.jpg",
-   "de_hook": "Warum ist das|Jugendwort des Jahres|auf Englisch?",
-   "zh_intro": "德国每年选一个「青少年年度词汇」。2026 年的赢家是个英语词：Ragebait。",
-   "words": [
-    [
-     "das Jugendwort (die Jugendwörter)",
-     "青少年年度词汇"
-    ],
-    [
-     "der Verlag (die Verlage)",
-     "出版社"
-    ],
-    [
-     "der Köder",
-     "诱饵"
-    ]
-   ]
-  },
-  {
-   "id": 4,
-   "title": "德国一年级有了「全天看护」的法定权利",
-   "de_title": "Erstklässler haben jetzt einen Anspruch auf Ganztagsbetreuung",
-   "hook": "德国孩子|放学不回家",
-   "sub": "8月1日起 一年级有法定全天位",
-   "date": "2026-08-01",
-   "photo": "news/og/src/04.jpg",
-   "de_hook": "Ganztagsbetreuung|für alle Erstklässler –|ein Recht, kein Zwang?",
-   "zh_intro": "从 8 月 1 日起，德国一年级孩子有了「全天看护」的法定权利——但这是权利不是义务，而且位置还不够。",
-   "words": [
-    [
-     "der Rechtsanspruch",
-     "法定权利"
-    ],
-    [
-     "die Ganztagsbetreuung",
-     "全天看护"
-    ],
-    [
-     "die Grundschule",
-     "小学"
-    ]
-   ]
-  },
-  {
-   "id": 3,
-   "title": "慕尼黑啤酒节创纪录落幕",
-   "de_title": "Oktoberfest endet mit neuem Besucherrekord",
-   "hook": "740万人|挤爆啤酒节",
-   "sub": "16 天喝掉 670 万升啤酒",
-   "date": "2026-10-04",
-   "photo": "news/og/src/03.jpg",
-   "de_hook": "Wie viel Bier trinkt|München in 16 Tagen?",
-   "zh_intro": "第 191 届慕尼黑啤酒节落幕，约 740 万人到场，创下历史新高。",
-   "words": [
-    [
-     "das Oktoberfest / die Wiesn",
-     "啤酒节"
-    ],
-    [
-     "der Besucher / der Gast",
-     "访客 / 客人"
-    ],
-    [
-     "der Rekord",
-     "纪录"
-    ]
-   ]
-  },
-  {
-   "id": 2,
-   "title": "德国与英国：友好条约正式生效",
-   "de_title": "Deutschland und Großbritannien wollen enger zusammenarbeiten",
-   "hook": "德国和英国|签了「友好条约」",
-   "sub": "学生免签 · 直达火车",
-   "date": "2026-10-08",
-   "photo": "news/og/src/02.jpg",
-   "de_hook": "Deutschland und|Großbritannien –|wieder Freunde?",
-   "zh_intro": "英国脱欧六年多之后，德国和英国在柏林让一份「友好条约」正式生效。",
-   "words": [
-    [
-     "der Freundschaftsvertrag",
-     "友好条约"
-    ],
-    [
-     "in Kraft setzen",
-     "使生效"
-    ],
-    [
-     "der Bundeskanzler",
-     "联邦总理"
     ]
    ]
   }
