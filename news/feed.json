@@ -3,25 +3,25 @@
  "items": [
   {
    "id": 9,
-   "title": "德国：每 5 个学生就有 1 个在网上被辱骂",
-   "de_title": "Jeder 5. Schüler in Deutschland wird im Internet beleidigt",
-   "hook": "每 5 个学生|就有 1 个|在网上被欺负",
-   "sub": "网络霸凌 · 近 240 万学生 · 多来自同校同班",
+   "title": "德国每 5 个学生就有 1 个遭遇网络霸凌",
+   "de_title": "Jeder fünfte Schüler in Deutschland wird im Internet beleidigt",
+   "hook": "每 5 个学生|就有 1 个|在网上被骂",
+   "sub": "网络霸凌创新高 · 200 多万人受影响 · 施暴者多来自同班",
    "date": "2026-10-13",
    "photo": "news/og/src/09.jpg",
-   "de_hook": "Jeder 5. Schüler wird|im Netz beleidigt.|Schützt sie niemand?",
-   "zh_intro": "德国一项新研究显示：每 5 个学生里就有 1 个在网上被人辱骂或攻击过，全国接近 240 万人。攻击大多来自同校甚至同班同学，主要发生在 WhatsApp、TikTok、Instagram 这些平台上。该联盟要求为网络霸凌立专门法。",
+   "de_hook": "Jeder fünfte Schüler|wird im Netz gemobbt.|Warum tut keiner was?",
+   "zh_intro": "在德国，越来越多的儿童和青少年在互联网上被辱骂。每 5 个学生里就有 1 个已经成为网络霸凌的受害者，比两年前更多；受影响的孩子和年轻人超过 200 万。这些攻击大多发生在聊天软件和社交网络里，而施暴者常常就来自同一个班。",
    "words": [
     [
      "das Cyber-Mobbing",
      "网络霸凌"
     ],
     [
-     "beleidigen / die Beleidigung",
-     "辱骂 / 侮辱"
+     "der Schüler / die Schülerin",
+     "学生"
     ],
     [
-     "das Opfer / die Opfer",
+     "das Opfer",
      "受害者"
     ]
    ]
