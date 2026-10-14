@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 14,
+   "title": "德国人做了张「无障碍博物馆地图」",
+   "de_title": "Neue Website zeigt barrierefreie Museen in acht Ländern",
+   "hook": "轮椅也能|逛博物馆",
+   "sub": "电梯·车位·陪同免票，一页查完",
+   "date": "2026-10-12",
+   "photo": "news/og/src/14.jpg",
+   "de_hook": "Welches Museum|ist wirklich|barrierefrei?",
+   "zh_intro": "对坐轮椅的人来说，出门看展常常要先打一堆电话：有没有电梯、有没有车位、陪同的人要不要买票？德国人 Christoph Hein 做了一张网站 Museums-Atlas，把这些问题一次查清——而且他不赚钱。",
+   "words": [
+    [
+     "der Rollstuhl",
+     "轮椅"
+    ],
+    [
+     "der Rollstuhl-Fahrer / die Rollstuhl-Fahrerin",
+     "轮椅使用者"
+    ],
+    [
+     "barrierefrei",
+     "无障碍的"
+    ]
+   ]
+  },
+  {
    "id": 13,
    "title": "德国医保涨价：附加费创历史新高",
    "de_title": "Krankenkassenbeiträge steigen: Zusatzbeitrag auf Rekordhoch",
@@ -173,31 +198,6 @@
     [
      "der Klima-Schutz",
      "气候保护"
-    ]
-   ]
-  },
-  {
-   "id": 6,
-   "title": "德国公交月票，2027 年起涨到 66,80 欧",
-   "de_title": "Deutschlandticket wird 2027 teurer: 66,80 Euro",
-   "hook": "一张票|坐遍全德国",
-   "sub": "2027 年起 66,80 欧 · 这是第三次涨",
-   "date": "2026-10-01",
-   "photo": "news/og/src/06.jpg",
-   "de_hook": "66,80 Euro im Monat –|ist das noch billig?",
-   "zh_intro": "一张能在全德国坐公交、地铁、区域火车的月票，2027 年 1 月 1 日起从 63 欧涨到 66,80 欧。原因是联邦和州给的补贴被冻住了——成本一涨，只能落到乘客头上。",
-   "words": [
-    [
-     "das Deutschlandticket",
-     "德国票（全国公交月票）"
-    ],
-    [
-     "die Fahrkarte",
-     "车票"
-    ],
-    [
-     "der Nahverkehr",
-     "近程交通（市内＋区域）"
     ]
    ]
   }
