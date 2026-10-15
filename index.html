@@ -574,7 +574,7 @@ function pagesNeedingLock() {
   return locked;
 }
 function applyGuestLocks() {
-  // 自动给 #page-lesen 的 33 个 ls-section 注入 id（ls-s1 ~ ls-s33），用于加锁与目录跳转
+  // 自动给 #page-lesen 的 34 个 ls-section 注入 id（ls-s1 ~ ls-s33），用于加锁与目录跳转
   document.querySelectorAll('#page-lesen .ls-section').forEach(function(s, i){
     if (!s.id) s.id = 'ls-s' + (i+1);
   });
@@ -25608,7 +25608,7 @@ function brToggleSample4() {
 </div>
 <!-- ══════════════════════ 目录 Inhaltsverzeichnis ══════════════════════ -->
 <div id="ls-toc-top" style="background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:1.6rem;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto">
-  <div style="background:linear-gradient(90deg,#b45309,#d97706);color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis &nbsp;<span style="font-weight:400;opacity:.85;font-size:.85rem">· 共 33 篇</span></div>
+  <div style="background:linear-gradient(90deg,#b45309,#d97706);color:#fff;padding:.75rem 1.2rem;font-weight:700;font-size:1rem">📋 目录 Inhaltsverzeichnis &nbsp;<span style="font-weight:400;opacity:.85;font-size:.85rem">· 共 34 篇</span></div>
   <div style="padding:1rem 1.2rem">
     <label for="lesen-article-select" style="display:block;font-size:.85rem;color:#92400e;font-weight:600;margin-bottom:.5rem">选择文章 · Artikel wählen：</label>
     <select id="lesen-article-select" onchange="showLesenArticle(this.value)"
@@ -25616,37 +25616,38 @@ function brToggleSample4() {
       <option value="">— 请选择一篇文章 —</option>
       <option value="1">① Zaira Franca</option>
       <option value="2">② Vedat Arslan</option>
-      <option value="3">③ Zahlen im Alltag</option>
-      <option value="4">④ Gespräche im Café</option>
-      <option value="5">⑤ Nachbarn von Deutschland</option>
-      <option value="6">⑥ Mein Tag</option>
-      <option value="7">⑦ Einkaufen auf dem Markt</option>
-      <option value="8">⑧ Meine Wohnung</option>
-      <option value="9">⑨ Beim Arzt</option>
-      <option value="10">⑩ Regina Werner, Deutschlehrerin</option>
-      <option value="11">⑪ Andrick Razandry, Student</option>
-      <option value="12">⑫ Wer wohnt wo?</option>
-      <option value="13">⑬ Unsere Wohnung</option>
-      <option value="14">⑭ Wohngemeinschaft (WG)</option>
-      <option value="15">⑮ Sind die Deutschen pünktlich?</option>
-      <option value="16">⑯ Leipzig</option>
-      <option value="17">⑰ Sarah Herbst, Sekretärin</option>
-      <option value="18">⑱ Klaus Stephan, Mechatroniker</option>
-      <option value="19">⑲ Call-Center-Agentin</option>
-      <option value="20">⑳ Fitnesskaufmann</option>
-      <option value="21">㉑ Nach dem Weg fragen</option>
-      <option value="22">㉒ Familie Mertens im Urlaub</option>
-      <option value="23">㉓ Jenny Manteufel</option>
-      <option value="24">㉔ Bademeister/in</option>
-      <option value="25">㉕ Currywurst oder Schnitzel?</option>
-      <option value="26">㉖ Nudelauflauf</option>
-      <option value="27">㉗ Essenszeiten in Deutschland</option>
-      <option value="28">㉘ Shoppen gehen</option>
-      <option value="29">㉙ Anmeldung in der Arztpraxis</option>
-      <option value="30">㉚ Jeans-Mode</option>
-      <option value="31">㉛ Im Sprechzimmer</option>
-      <option value="32">㉜ Krankenpfleger</option>
-      <option value="33">㉝ Beim türkischen Friseur</option>
+      <option value="3">③ Hong Cai</option>
+      <option value="4">④ Zahlen im Alltag</option>
+      <option value="5">⑤ Gespräche im Café</option>
+      <option value="6">⑥ Nachbarn von Deutschland</option>
+      <option value="7">⑦ Mein Tag</option>
+      <option value="8">⑧ Einkaufen auf dem Markt</option>
+      <option value="9">⑨ Meine Wohnung</option>
+      <option value="10">⑩ Beim Arzt</option>
+      <option value="11">⑪ Regina Werner, Deutschlehrerin</option>
+      <option value="12">⑫ Andrick Razandry, Student</option>
+      <option value="13">⑬ Wer wohnt wo?</option>
+      <option value="14">⑭ Unsere Wohnung</option>
+      <option value="15">⑮ Wohngemeinschaft (WG)</option>
+      <option value="16">⑯ Sind die Deutschen pünktlich?</option>
+      <option value="17">⑰ Leipzig</option>
+      <option value="18">⑱ Sarah Herbst, Sekretärin</option>
+      <option value="19">⑲ Klaus Stephan, Mechatroniker</option>
+      <option value="20">⑳ Call-Center-Agentin</option>
+      <option value="21">㉑ Fitnesskaufmann</option>
+      <option value="22">㉒ Nach dem Weg fragen</option>
+      <option value="23">㉓ Familie Mertens im Urlaub</option>
+      <option value="24">㉔ Jenny Manteufel</option>
+      <option value="25">㉕ Bademeister/in</option>
+      <option value="26">㉖ Currywurst oder Schnitzel?</option>
+      <option value="27">㉗ Nudelauflauf</option>
+      <option value="28">㉘ Essenszeiten in Deutschland</option>
+      <option value="29">㉙ Shoppen gehen</option>
+      <option value="30">㉚ Anmeldung in der Arztpraxis</option>
+      <option value="31">㉛ Jeans-Mode</option>
+      <option value="32">㉜ Im Sprechzimmer</option>
+      <option value="33">㉝ Krankenpfleger</option>
+      <option value="34">㉞ Beim türkischen Friseur</option>
     </select>
     <div style="font-size:.8rem;color:#a16207;margin-top:.6rem;line-height:1.5">💡 选择后只显示该篇，方便单独阅读或打印；想换文章再用上面的下拉框。</div>
   </div>
@@ -25847,10 +25848,107 @@ function brToggleSample4() {
 
   </div>
 </div>
+<div class="ls-section">
+  <div class="ls-section-header">③ 阅读理解 · Hong Cai</div>
+  <div class="ls-section-body">
+
+    <div class="ls-passage">
+      <strong>Hong Cai</strong><br><br>
+      Hong Cai ist Studentin. Sie lebt in Shanghai und studiert an der Tongji Universität. Sie ist 21 und möchte in Deutschland Biologie oder Chemie studieren. Ihre Hobbys sind Musik und Sport. Sie spielt Gitarre. Ihre Freundin Jin studiert Englisch. Sie möchte nach Kanada. Deutsch ist für Hong Cai Musik. Sie sagt: „Ich liebe Beethoven und Schubert."
+    </div>
+    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
+      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
+      <audio controls style="width:100%" preload="none">
+        <source src="audio/a1-lesen-s1-hong-cai.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <button class="ls-btn ls-btn-show" onclick="lsToggle('hong-trans')">显示/隐藏 中文翻译</button>
+    <div class="ls-answer-box" id="hong-trans">
+      <strong>中文翻译：</strong><br>
+      Hong Cai 是大学生。她住在上海，在同济大学学习。她 21 岁，希望到德国学习生物或化学。她的爱好是音乐和运动。她弹吉他。她的朋友 Jin 学英语，想去加拿大。对 Hong Cai 来说，德语就是音乐。她说：“我热爱贝多芬和舒伯特。”
+    </div>
+
+    <button class="ls-btn ls-btn-show" onclick="lsToggle('hong-vocab')">显示/隐藏 词汇解析</button>
+    <div class="ls-answer-box" id="hong-vocab">
+      <strong>重点词汇：</strong><br>
+      • <strong>die Studentin</strong> = 女大学生<br>
+      • <strong>studieren</strong> = 上大学，读（专业）<br>
+      • <strong>die Universität</strong> = 大学（die Tongji Universität = 同济大学）<br>
+      • <strong>das Hobby / die Hobbys</strong> = 爱好（单数 / 复数）<br>
+      • <strong>Gitarre spielen</strong> = 弹吉他<br>
+      • <strong>möchten</strong> = 想要，希望<br><br>
+      <strong>语法点：</strong><br>
+      • <strong>möchte + 动词原形</strong> — 表愿望：<em>Sie möchte in Deutschland studieren.</em><br>
+      • <strong>studieren an + Dativ（大学/学校）</strong> — <em>Sie studiert an der Tongji Universität.</em><br>
+      • <strong>in + 城市（无冠词）</strong> — <em>Sie lebt in Shanghai.</em>（城市、国家名一般不用冠词）<br>
+      • <strong>oder</strong> 表选择并列：<em>Biologie oder Chemie.</em>
+    </div>
+
+    <div class="ls-mcq-list" id="hong-mcq">
+      <div class="ls-mcq-item" data-ans="B">
+        <p>1. Wo lebt Hong Cai?</p>
+        <div class="ls-mcq-options">
+          <label><input type="radio" name="hq1" value="A"> A) In Deutschland</label>
+          <label><input type="radio" name="hq1" value="B"> B) In Shanghai</label>
+          <label><input type="radio" name="hq1" value="C"> C) In Kanada</label>
+        </div>
+      </div>
+      <div class="ls-mcq-item" data-ans="A">
+        <p>2. Wo studiert Hong Cai?</p>
+        <div class="ls-mcq-options">
+          <label><input type="radio" name="hq2" value="A"> A) An der Tongji Universität</label>
+          <label><input type="radio" name="hq2" value="B"> B) An der Universität München</label>
+          <label><input type="radio" name="hq2" value="C"> C) In Deutschland</label>
+        </div>
+      </div>
+      <div class="ls-mcq-item" data-ans="B">
+        <p>3. Wie alt ist Hong Cai?</p>
+        <div class="ls-mcq-options">
+          <label><input type="radio" name="hq3" value="A"> A) 18</label>
+          <label><input type="radio" name="hq3" value="B"> B) 21</label>
+          <label><input type="radio" name="hq3" value="C"> C) 25</label>
+        </div>
+      </div>
+      <div class="ls-mcq-item" data-ans="B">
+        <p>4. Was möchte Hong Cai in Deutschland studieren?</p>
+        <div class="ls-mcq-options">
+          <label><input type="radio" name="hq4" value="A"> A) Musik</label>
+          <label><input type="radio" name="hq4" value="B"> B) Biologie oder Chemie</label>
+          <label><input type="radio" name="hq4" value="C"> C) Englisch</label>
+        </div>
+      </div>
+      <div class="ls-mcq-item" data-ans="C">
+        <p>5. Was studiert ihre Freundin Jin?</p>
+        <div class="ls-mcq-options">
+          <label><input type="radio" name="hq5" value="A"> A) Musik</label>
+          <label><input type="radio" name="hq5" value="B"> B) Biologie</label>
+          <label><input type="radio" name="hq5" value="C"> C) Englisch</label>
+        </div>
+      </div>
+    </div>
+
+    <button class="ls-btn ls-btn-check" onclick="lsCheckMCQ('hong-mcq')">批改答案</button>
+    <button class="ls-btn ls-btn-show" onclick="lsToggle('hong-explain')">显示/隐藏 解析</button>
+    <button class="ls-btn ls-btn-reset" onclick="lsResetMCQ('hong-mcq')">重置</button>
+    <div id="hong-mcq-score"></div>
+
+    <div class="ls-answer-box" id="hong-explain">
+      <strong>答案解析：</strong><br>
+      1. <strong>B</strong> — 文中说 "Sie lebt in Shanghai"（住在上海）。<br>
+      2. <strong>A</strong> — 文中说 "studiert an der Tongji Universität"。<br>
+      3. <strong>B</strong> — 文中说 "Sie ist 21"。<br>
+      4. <strong>B</strong> — 文中说 "möchte in Deutschland Biologie oder Chemie studieren"。<br>
+      5. <strong>C</strong> — 文中说 "Ihre Freundin Jin studiert Englisch"。
+    </div>
+
+  </div>
+</div>
+
 
   <!-- 阅读理解 5 -->
   <div class="ls-section">
-    <div class="ls-section-header">③ 阅读理解 · Zahlen im Alltag</div>
+    <div class="ls-section-header">④ 阅读理解 · Zahlen im Alltag</div>
     <div class="ls-section-body">
       <div class="ls-passage">
         <strong>Zahlen im Alltag</strong><br><br>
@@ -25949,7 +26047,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Gespräche im Café ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">④ 对话朗读 · Gespräche im Café &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">Lektion 1 · Ü1–2</span></div>
+  <div class="ls-section-header">⑤ 对话朗读 · Gespräche im Café &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">Lektion 1 · Ü1–2</span></div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26007,7 +26105,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Nachbarländer ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑤ 朗读短文 · Nachbarn von Deutschland</div>
+  <div class="ls-section-header">⑥ 朗读短文 · Nachbarn von Deutschland</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26037,7 +26135,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Mein Tag ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑥ 朗读短文 · Mein Tag</div>
+  <div class="ls-section-header">⑦ 朗读短文 · Mein Tag</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26067,7 +26165,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Einkaufen auf dem Markt ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑦ 朗读短文 · Einkaufen auf dem Markt</div>
+  <div class="ls-section-header">⑧ 朗读短文 · Einkaufen auf dem Markt</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26097,7 +26195,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Meine Wohnung ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑧ 朗读短文 · Meine Wohnung</div>
+  <div class="ls-section-header">⑨ 朗读短文 · Meine Wohnung</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26128,7 +26226,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Beim Arzt ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑨ 对话朗读 · Beim Arzt</div>
+  <div class="ls-section-header">⑩ 对话朗读 · Beim Arzt</div>
   <div class="ls-section-body">
     <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
       <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
@@ -26172,7 +26270,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Berufe an der Universität ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑩ 朗读短文 · Regina Werner, Deutschlehrerin</div>
+  <div class="ls-section-header">⑪ 朗读短文 · Regina Werner, Deutschlehrerin</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26202,7 +26300,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Uni international ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑪ 朗读短文 · Andrick Razandry, Student</div>
+  <div class="ls-section-header">⑫ 朗读短文 · Andrick Razandry, Student</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26232,7 +26330,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Wer wohnt wo? ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑫ 朗读短文 · Wer wohnt wo?</div>
+  <div class="ls-section-header">⑬ 朗读短文 · Wer wohnt wo?</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26283,7 +26381,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Unsere Wohnung ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑬ 朗读短文 · Unsere Wohnung</div>
+  <div class="ls-section-header">⑭ 朗读短文 · Unsere Wohnung</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26314,7 +26412,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Wohngemeinschaft ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑭ 朗读短文 · Wohngemeinschaft (WG)</div>
+  <div class="ls-section-header">⑮ 朗读短文 · Wohngemeinschaft (WG)</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26352,7 +26450,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Pünktlichkeit ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑮ 朗读短文 · Sind die Deutschen pünktlich?</div>
+  <div class="ls-section-header">⑯ 朗读短文 · Sind die Deutschen pünktlich?</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26382,7 +26480,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Leipzig ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑯ 朗读短文 · Leipzig</div>
+  <div class="ls-section-header">⑰ 朗读短文 · Leipzig</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26428,7 +26526,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Sarah Herbst ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑰ 朗读短文 · Sarah Herbst, Sekretärin</div>
+  <div class="ls-section-header">⑱ 朗读短文 · Sarah Herbst, Sekretärin</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26458,7 +26556,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Klaus Stephan ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑱ 朗读短文 · Klaus Stephan, Mechatroniker</div>
+  <div class="ls-section-header">⑲ 朗读短文 · Klaus Stephan, Mechatroniker</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26500,7 +26598,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Call-Center-Agentin ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑲ 朗读短文 · Call-Center-Agentin</div>
+  <div class="ls-section-header">⑳ 朗读短文 · Call-Center-Agentin</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       📞 <strong>Thema:</strong> Berufe — 呼叫中心客服
@@ -26526,7 +26624,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Fitnesskaufmann ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">⑳ 朗读短文 · Fitnesskaufmann</div>
+  <div class="ls-section-header">㉑ 朗读短文 · Fitnesskaufmann</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🏋️ <strong>Thema:</strong> Berufe — 健身行业
@@ -26552,7 +26650,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Nach dem Weg fragen ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉑ 对话朗读 · Nach dem Weg fragen</div>
+  <div class="ls-section-header">㉒ 对话朗读 · Nach dem Weg fragen</div>
   <div class="ls-section-body">
     <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
       <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
@@ -26589,7 +26687,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Familie Mertens ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉒ 朗读短文 · Familie Mertens im Urlaub</div>
+  <div class="ls-section-header">㉓ 朗读短文 · Familie Mertens im Urlaub</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🚴 <strong>Thema:</strong> Urlaub &amp; Reisetagebuch — 多瑙河骑行日记
@@ -26632,7 +26730,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Jenny Manteufel ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉓ 朗读短文 · Jenny Manteufel</div>
+  <div class="ls-section-header">㉔ 朗读短文 · Jenny Manteufel</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       ✈️ <strong>Thema:</strong> Berufe — 旅行社职员
@@ -26658,7 +26756,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Bademeister ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉔ 朗读短文 · Bademeister/in</div>
+  <div class="ls-section-header">㉕ 朗读短文 · Bademeister/in</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🏊 <strong>Thema:</strong> Berufe — 游泳池管理员
@@ -26684,7 +26782,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Currywurst ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉕ 朗读短文 · Currywurst oder Schnitzel?</div>
+  <div class="ls-section-header">㉖ 朗读短文 · Currywurst oder Schnitzel?</div>
   <div class="ls-section-body">
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🍽️ <strong>Thema:</strong> Essen in der Kantine — 食堂最受欢迎的菜
@@ -26710,7 +26808,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Nudelauflauf ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉖ 朗读短文 · Nudelauflauf</div>
+  <div class="ls-section-header">㉗ 朗读短文 · Nudelauflauf</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26743,7 +26841,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Essenszeiten ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉗ 朗读短文 · Essenszeiten in Deutschland</div>
+  <div class="ls-section-header">㉘ 朗读短文 · Essenszeiten in Deutschland</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26774,7 +26872,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Shoppen gehen ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉘ 对话朗读 · Shoppen gehen</div>
+  <div class="ls-section-header">㉙ 对话朗读 · Shoppen gehen</div>
   <div class="ls-section-body">
     <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
       <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
@@ -26815,7 +26913,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Arztpraxis ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉙ 对话朗读 · Anmeldung in der Arztpraxis</div>
+  <div class="ls-section-header">㉚ 对话朗读 · Anmeldung in der Arztpraxis</div>
   <div class="ls-section-body">
     <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
       <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
@@ -26850,7 +26948,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Jeans-Mode ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉚ 朗读短文 · Jeans-Mode</div>
+  <div class="ls-section-header">㉛ 朗读短文 · Jeans-Mode</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26903,7 +27001,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Im Sprechzimmer ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉛ 对话朗读 · Im Sprechzimmer</div>
+  <div class="ls-section-header">㉜ 对话朗读 · Im Sprechzimmer</div>
   <div class="ls-section-body">
     <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
       <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
@@ -26941,7 +27039,7 @@ function brToggleSample4() {
 
 <!-- ===== 朗读短文：Krankenpfleger ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉜ 朗读短文 · Krankenpfleger</div>
+  <div class="ls-section-header">㉝ 朗读短文 · Krankenpfleger</div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -26972,7 +27070,7 @@ function brToggleSample4() {
 
 <!-- ===== 对话朗读：Beim türkischen Friseur ===== -->
 <div class="ls-section">
-  <div class="ls-section-header">㉝ 对话朗读 · Beim türkischen Friseur &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">beim Barbier</span></div>
+  <div class="ls-section-header">㉞ 对话朗读 · Beim türkischen Friseur &nbsp;<span style="font-size:.82rem;font-weight:400;opacity:.85">beim Barbier</span></div>
   <div class="ls-section-body">
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -27086,7 +27184,7 @@ function brToggleSample4() {
 <!-- 阅读朗读：目录条切换（单篇显示，便于阅读/打印） -->
 <script>
 (function(){
-  // 确保 33 篇 ls-section 都有 id（ls-s1..ls-s33）；与 applyGuestLocks 注入规则一致，兜底
+  // 确保 34 篇 ls-section 都有 id（ls-s1..ls-s33）；与 applyGuestLocks 注入规则一致，兜底
   function ensureIds(){
     document.querySelectorAll('#page-lesen .ls-section').forEach(function(s,i){
       if(!s.id) s.id='ls-s'+(i+1);
