@@ -1284,4 +1284,40 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/60.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/60-%E5%BE%B7%E5%9B%BD%E5%B7%A5%E8%B5%84%E5%8D%95.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/61.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/61-%E5%BE%B7%E5%9B%BD%E5%85%BB%E8%80%81%E9%87%91.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/62.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leonsdeutschzentrum.com/serie/62-%E7%8F%AD%E7%BA%A7%E7%BE%A4%E9%87%8C%E7%9A%84%E9%82%A3%E6%9D%A1%E6%B6%88%E6%81%AF.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
