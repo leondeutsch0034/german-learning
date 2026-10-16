@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 15,
+   "title": "德国所有火车站，10 月 15 日起禁酒",
+   "de_title": "Deutsche Bahn verbietet Alkohol an allen Bahnhöfen",
+   "hook": "德国火车站|全面禁酒",
+   "sub": "站台、大厅都不能喝 · 餐厅除外",
+   "date": "2026-10-15",
+   "photo": "news/og/src/15.jpg",
+   "de_hook": "Kein Bier mehr|am Bahnhof –|ist das übertrieben?",
+   "zh_intro": "从 2026 年 10 月 15 日起，德国铁路（Deutsche Bahn）在旗下所有火车站禁止饮酒——站台、大厅、通道都算在内。车站里的餐厅和咖啡馆不受影响；买来的酒放在行李里带走也一直允许。联邦政府的禁毒专员 Hendrik Streeck 支持这一规定，说酒精会让争执和冲突更严重。据联邦警察统计，车站暴力事件中约三分之一与酒精有关。",
+   "words": [
+    [
+     "der Bahnhof / die Bahnhöfe",
+     "火车站"
+    ],
+    [
+     "der Bahnsteig",
+     "站台"
+    ],
+    [
+     "die Deutsche Bahn (DB)",
+     "德国铁路（德铁）"
+    ]
+   ]
+  },
+  {
    "id": 14,
    "title": "德国人做了张「无障碍博物馆地图」",
    "de_title": "Neue Website zeigt barrierefreie Museen in acht Ländern",
@@ -173,31 +198,6 @@
     [
      "der 1. Platz / Platz 1",
      "第 1 名、榜首"
-    ]
-   ]
-  },
-  {
-   "id": 7,
-   "title": "拜仁气候周：新天鹅堡亮起气候条纹",
-   "de_title": "Klima-Woche in Bayern: Neuschwanstein leuchtet in Klima-Streifen",
-   "hook": "新天鹅堡|亮起气候条纹",
-   "sub": "一条条纹 ＝ 一年 · 越红越暖",
-   "date": "2026-10-09",
-   "photo": "news/og/src/07.jpg",
-   "de_hook": "Warum leuchtet|Neuschwanstein|plötzlich bunt?",
-   "zh_intro": "拜仁州的气候周开始了：人们、企业、学校和协会都能参加。开幕式上，新天鹅堡被蓝色和红色的「气候条纹」照亮——每条条纹代表一年，颜色越暖说明那一年越热。",
-   "words": [
-    [
-     "die Klima-Woche",
-     "气候周"
-    ],
-    [
-     "das Bundesland / Bayern",
-     "联邦州 / 拜仁州"
-    ],
-    [
-     "der Klima-Schutz",
-     "气候保护"
     ]
    ]
   }
