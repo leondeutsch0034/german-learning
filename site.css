@@ -2771,13 +2771,11 @@
     #news-rot .nr-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:11px; }
     #news-rot .nr-badge { display:inline-block; background:linear-gradient(135deg,#d4a030,#f6d365); color:#0a1428; font-size:.72rem; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:.03em; white-space:nowrap; box-shadow:0 2px 8px rgba(246,211,101,.18); }
     #news-rot .nr-dots { display:flex; gap:6px; flex-shrink:0; align-items:center; }
-    #news-rot .nr-dots i { width:6px; height:6px; border-radius:50%; background:rgba(148,163,184,.32); transition:.25s; cursor:pointer; position:relative; }
+    #news-rot .nr-dots i { flex:0 0 auto; width:6px; height:6px; min-height:6px; border-radius:50%; background:rgba(148,163,184,.32); transition:.25s; cursor:pointer; position:relative; }
     #news-rot .nr-dots i::after { content:""; position:absolute; inset:-3px; border-radius:50%; }   /* 扩大点按热区，视觉不变 */
     #news-rot .nr-dots i:hover { background:rgba(246,211,101,.55); }
     #news-rot .nr-dots i.on { background:#f6d365; box-shadow:0 0 8px rgba(246,211,101,.5); }
     #news-rot .nr-dots i:focus-visible { outline:2px solid #f6d365; outline-offset:2px; }
-    #news-rot .nr-swipe { display:none; margin:-3px 0 10px; font-size:.68rem; color:#5b6b86; letter-spacing:.04em; }
-    @media(hover:none),(pointer:coarse){ #news-rot .nr-swipe { display:block; } }
     #news-rot .nr-hook { font-size:1.3rem; font-weight:800; color:#fef3c7; line-height:1.34; letter-spacing:-.01em; }
     #news-rot .nr-sub { font-size:.84rem; color:#94a3b8; line-height:1.5; margin-top:6px; }
     #news-rot .nr-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:13px; padding-top:11px; border-top:1px solid rgba(246,211,101,.1); font-size:.72rem; color:#64748b; }
