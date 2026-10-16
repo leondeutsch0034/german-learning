@@ -1524,6 +1524,7 @@ document.addEventListener('keydown', function(e) {
       <span class="nr-badge">📰 德语新闻 · 分级阅读</span>
       <span class="nr-dots" id="nr-dots"></span>
     </div>
+    <div class="nr-swipe" aria-hidden="true">← 左右滑动 · 或点圆点，切换期数 →</div>
     <div class="nr-hook" id="nr-hook"></div>
     <div class="nr-sub" id="nr-sub"></div>
     <div class="nr-de" id="nr-de"></div>
@@ -1574,15 +1575,58 @@ document.addEventListener('keydown', function(e) {
       }
     } else { ph.removeAttribute('src'); ph.classList.remove('on'); }
     document.getElementById('nr-meta').textContent = '第 ' + it.id + ' 期 · ' + (it.title || '');
-    document.getElementById('nr-dots').innerHTML = feed.map(function(_, i){
-      return '<i class="' + (i === idx ? 'on' : '') + '"></i>';
+    document.getElementById('nr-dots').innerHTML = feed.map(function(it, i){
+      var lb = '第 ' + it.id + ' 期 · ' + (it.title || '');
+      return '<i class="' + (i === idx ? 'on' : '') + '" data-i="' + i + '"'
+        + ' role="button" tabindex="0" aria-label="' + esc(lb) + '" title="' + esc(lb) + '"></i>';
     }).join('');
   }
   function step(n){ if (!feed.length) return; idx = (n + feed.length) % feed.length; paint(); }
   function start(){ if (!timer && feed.length > 1) timer = setInterval(function(){ step(idx + 1); }, PERIOD); }
   function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function restart(){ stop(); start(); }   /* 手动翻过之后重新计时，别眨眼又被自动轮播顶走 */
+
+  /* ── 手指左右滑动切期（触屏）；滑完抑制紧随其后那次 click，免得误进正文 ── */
+  var card = box.querySelector('.nr-card');
+  var sx = 0, sy = 0, dx = 0, drag = false, suppress = false;
+  if (card) {
+    card.addEventListener('pointerdown', function(e){
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      drag = true; suppress = false; sx = e.clientX; sy = e.clientY; dx = 0;
+      try { card.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    card.addEventListener('pointermove', function(e){
+      if (!drag) return;
+      dx = e.clientX - sx;
+      var dy = e.clientY - sy;
+      if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy) && e.cancelable) e.preventDefault();
+    });
+    card.addEventListener('pointerup', function(e){
+      if (!drag) return; drag = false;
+      try { card.releasePointerCapture(e.pointerId); } catch (_) {}
+      if (Math.abs(dx) >= 45) { suppress = true; step(dx < 0 ? idx + 1 : idx - 1); restart(); }
+      dx = 0;
+    });
+    card.addEventListener('pointercancel', function(){ drag = false; dx = 0; });
+    card.addEventListener('dragstart', function(e){ e.preventDefault(); });  /* 鼠标拖拽别触发原生拖链接 */
+  }
+
+  /* ── 圆点可点：直接跳到想看的那一期 ── */
+  var dots = document.getElementById('nr-dots');
+  function dotPick(e){
+    var t = e.target.closest('[data-i]');
+    if (!t) return;
+    e.preventDefault(); e.stopPropagation();
+    step(parseInt(t.getAttribute('data-i'), 10));
+    restart();
+  }
+  dots.addEventListener('click', dotPick);
+  dots.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') dotPick(e);
+  });
 
   window.nrOpen = function(){
+    if (suppress) { suppress = false; return; }   /* 刚才是滑动，不是点按 */
     if (!feed.length || !window.showPage) return;
     /* 新闻页自己的深链约定：进页前把期号放进 sessionStorage.nlEp */
     try { sessionStorage.setItem('nlEp', String(feed[idx].id)); } catch (e) {}
