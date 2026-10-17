@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 17,
+   "title": "德国公司给员工配自行车，一半打工人有资格",
+   "de_title": "Die Firma least das Dienstrad",
+   "hook": "公司发你|一辆自行车",
+   "sub": "租的 · 税前付 · 三年后能买断",
+   "date": "2026-10-17",
+   "photo": "news/og/src/17.jpg",
+   "de_hook": "Ein Fahrrad|vom Arbeitgeber",
+   "zh_intro": "在德国，越来越多的公司给员工提供「公司自行车」（Dienstrad / JobRad）。2025 年有 34,2 万家企业提供这种福利，约 2260 万在职者拿到资格——差不多一半。但真正用的只有约 240 万人，占合格者的 11%。多数是公司替你租，三年后可以按残值买断。",
+   "words": [
+    [
+     "das Dienstrad / das Jobrad",
+     "公司自行车 / JobRad"
+    ],
+    [
+     "das Firmenrad",
+     "公司配车（口语）"
+    ],
+    [
+     "leasen / das Leasing",
+     "租赁 / 租赁（名词）"
+    ]
+   ]
+  },
+  {
    "id": 16,
    "title": "超过 14.8 万人投票，选出 2027 年度鸟类",
    "de_title": "Mehlschwalbe ist Vogel des Jahres 2027",
@@ -173,31 +198,6 @@
     [
      "der Rentenwert",
      "养老金单位值（计发基数）"
-    ]
-   ]
-  },
-  {
-   "id": 9,
-   "title": "德国：每 5 个学生就有 1 个在网上被辱骂",
-   "de_title": "Jeder 5. Schüler in Deutschland wird im Internet beleidigt",
-   "hook": "每 5 个学生|就有 1 个|在网上被欺负",
-   "sub": "网络霸凌 · 近 240 万学生 · 多来自同校同班",
-   "date": "2026-10-13",
-   "photo": "news/og/src/09.jpg",
-   "de_hook": "Jeder 5. Schüler wird|im Netz beleidigt.|Schützt sie niemand?",
-   "zh_intro": "德国一项新研究显示：每 5 个学生里就有 1 个在网上被人辱骂或攻击过，全国接近 240 万人。攻击大多来自同校甚至同班同学，主要发生在 WhatsApp、TikTok、Instagram 这些平台上。该联盟要求为网络霸凌立专门法。",
-   "words": [
-    [
-     "das Cyber-Mobbing",
-     "网络霸凌"
-    ],
-    [
-     "beleidigen / die Beleidigung",
-     "辱骂 / 侮辱"
-    ],
-    [
-     "das Opfer / die Opfer",
-     "受害者"
     ]
    ]
   }
