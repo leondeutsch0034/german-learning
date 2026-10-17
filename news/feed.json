@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 18,
+   "title": "德国急诊改革：不是人人都要进急诊室",
+   "de_title": "Bundestag beschließt Reform der Notfallversorgung",
+   "hook": "先判断|再决定去哪",
+   "sub": "德国通过急诊改革 · 轻症可去诊所",
+   "date": "2026-10-15",
+   "photo": "news/og/src/18.jpg",
+   "de_hook": "112 gewählt –|war es wirklich|ein Notfall?",
+   "zh_intro": "在德国，突然生病的人常常直接打急救电话，由救护车送到医院急诊室。专家说，其中一部分其实没必要，也太贵。联邦议院因此通过了急诊改革：以后先由专家判断病人是否真的有生命危险——可以在电话里判断，也可以到现场判断。没有生命危险的病人可以被转到诊所；情况危急的则直接去医院。新的急诊中心还会判断病人需要哪位医生。目标是让病人更快得到正确的帮助，同时减少涌进医院急诊室的人数。",
+   "words": [
+    [
+     "der Notruf",
+     "急救电话"
+    ],
+    [
+     "der Krankenwagen",
+     "救护车"
+    ],
+    [
+     "das Krankenhaus / die Krankenhäuser",
+     "医院"
+    ]
+   ]
+  },
+  {
    "id": 17,
    "title": "德国公司给员工配自行车，一半打工人有资格",
    "de_title": "Die Firma least das Dienstrad",
@@ -173,31 +198,6 @@
     [
      "netto",
      "税后、净"
-    ]
-   ]
-  },
-  {
-   "id": 10,
-   "title": "德国养老金 7 月起涨 4,24%",
-   "de_title": "Die Rente steigt zum 1. Juli 2026 um 4,24 Prozent",
-   "hook": "德国养老金|涨了4,24%",
-   "sub": "但钱还是不够，争议更大了",
-   "date": "2026-07-01",
-   "photo": "news/og/src/10.jpg",
-   "de_hook": "Rente rauf|Beitrag auch rauf?",
-   "zh_intro": "2026 年 7 月起，德国养老金上调 4,24%。但平均下来，男性和女性、东部和西部，拿到的钱差得很远；而改革的大争论还没完。",
-   "words": [
-    [
-     "die Rente",
-     "养老金"
-    ],
-    [
-     "der Rentner / die Rentnerin",
-     "退休者"
-    ],
-    [
-     "der Rentenwert",
-     "养老金单位值（计发基数）"
     ]
    ]
   }
