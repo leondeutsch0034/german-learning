@@ -2,6 +2,81 @@
  "count": 8,
  "items": [
   {
+   "id": 21,
+   "title": "德国烟草税连涨四年，一包烟将逼近 12 欧",
+   "de_title": "Tabaksteuer steigt: Zigaretten bald fast 12 Euro",
+   "hook": "一包烟|快 12 欧",
+   "sub": "德国烟草税连涨四年 · 电子烟也涨",
+   "date": "2026-10-16",
+   "photo": "news/og/src/21.jpg",
+   "de_hook": "Fast 12 Euro|für eine Packung –|rauchst du noch?",
+   "zh_intro": "在德国，吸烟很快会明显变贵：烟草税将在未来几年逐步提高。一包普通香烟四年后可能接近 12 欧元，比现在贵约 4 欧元。联邦议院和联邦参议院已经通过。罐装烟丝——很多人用来自己卷烟——也会涨价，电子烟同样如此。政府一方面想增加财政收入，另一方面希望更高的价格能让更少的人吸烟：吸烟会上瘾，也会致病。",
+   "words": [
+    [
+     "die Tabaksteuer",
+     "烟草税"
+    ],
+    [
+     "das Rauchen",
+     "吸烟"
+    ],
+    [
+     "rauchen",
+     "吸烟"
+    ]
+   ]
+  },
+  {
+   "id": 20,
+   "title": "特朗普要求泽连斯基下台，欧盟说继续支持乌克兰",
+   "de_title": "Trump fordert Rücktritt von Selenskyj – EU unterstützt Ukraine weiter",
+   "hook": "美国逼下台|欧盟接住",
+   "sub": "俄乌战争四年多 · 美乌关系生变，欧盟继续支持",
+   "date": "2026-10-16",
+   "photo": "news/og/src/20.jpg",
+   "de_hook": "Trump gegen|Selenskyj –|eskaliert das?",
+   "zh_intro": "俄罗斯对乌克兰的攻击已经持续四年多。许多国家支持乌克兰，其中包括美国：美国提供武器、资金和数据，比如俄军会在哪些地方发动攻击——这类信息部分来自美国卫星。但美国政府现在对乌克兰不满意。美国总统特朗普要求乌克兰总统泽连斯基下台。泽连斯基表示自己不会辞职，并说他对美国转向俄罗斯一边感到难过；他还说，美国卫星没有提供全部重要数据，这对乌克兰很危险。泽连斯基随后出席欧盟会议，欧盟国家表示将继续支持乌克兰。",
+   "words": [
+    [
+     "der Krieg",
+     "战争"
+    ],
+    [
+     "angreifen",
+     "攻击"
+    ],
+    [
+     "unterstützen",
+     "支持"
+    ]
+   ]
+  },
+  {
+   "id": 19,
+   "title": "80 岁以上照样夺冠：德国老年足球队 2:0 胜美国",
+   "de_title": "Ü80-WM: Deutschland gewinnt 2:0 gegen die USA",
+   "hook": "八十岁|照样拿|世界冠军",
+   "sub": "德国 Ü80 队 2:0 胜美国 · 8 人一队，一场一小时",
+   "date": "2026-10-17",
+   "photo": "news/og/src/19.jpg",
+   "de_hook": "Mit 80 noch|Weltmeister –|wie geht das?",
+   "zh_intro": "80 岁以上足球世界杯在澳大利亚举行。德国队在决赛中 2:0 战胜美国队。每队 8 名球员，比赛一小时，30 分钟后有休息；小组赛阶段，这些老将甚至一天要踢两场。球员们想证明：年纪大了，照样可以运动。队员 Michael Rätsch 说，大家踢得脸红、晒伤了，但为这场胜利非常高兴。",
+   "words": [
+    [
+     "die Weltmeisterschaft",
+     "世界锦标赛、世界杯"
+    ],
+    [
+     "das Finale",
+     "决赛"
+    ],
+    [
+     "die Nationalmannschaft",
+     "国家队"
+    ]
+   ]
+  },
+  {
    "id": 18,
    "title": "德国急诊改革：不是人人都要进急诊室",
    "de_title": "Bundestag beschließt Reform der Notfallversorgung",
@@ -123,81 +198,6 @@
     [
      "barrierefrei",
      "无障碍的"
-    ]
-   ]
-  },
-  {
-   "id": 13,
-   "title": "德国医保涨价：附加费创历史新高",
-   "de_title": "Krankenkassenbeiträge steigen: Zusatzbeitrag auf Rekordhoch",
-   "hook": "德国医保|涨到17,5%",
-   "sub": "月薪2000欧，要缴175欧",
-   "date": "2026-01-01",
-   "photo": "news/og/src/13.jpg",
-   "de_hook": "17,5 Prozent|Rekordhoch",
-   "zh_intro": "2026 年起，德国法定医保的平均附加费涨到 2,9%，加上基础费率 14,6%，合计 17,5%——史上最高。私营医保那边，约六成投保人面临平均 13% 的涨价。",
-   "words": [
-    [
-     "die Krankenversicherung",
-     "医疗保险"
-    ],
-    [
-     "die Krankenkasse",
-     "医保机构"
-    ],
-    [
-     "der Beitrag / der Beitragssatz",
-     "费用 / 费率"
-    ]
-   ]
-  },
-  {
-   "id": 12,
-   "title": "慕尼黑租房：每平米 23 欧起",
-   "de_title": "Miete in München: im Schnitt über 23 Euro pro Quadratmeter",
-   "hook": "慕尼黑租房|23欧一平米",
-   "sub": "冷租暖租，差在哪儿",
-   "date": "2026-10-14",
-   "photo": "news/og/src/12.jpg",
-   "de_hook": "23 Euro|pro Quadratmeter",
-   "zh_intro": "在慕尼黑，一套房的冷租平均每平米超过 23 欧，加上约 4 欧的附加费，暖租接近 27 欧。同样一平米，换个城市可能只要一半。这一期看懂德国的房租账单。",
-   "words": [
-    [
-     "die Miete",
-     "房租"
-    ],
-    [
-     "die Kaltmiete",
-     "冷租（不含附加费）"
-    ],
-    [
-     "die Warmmiete",
-     "暖租（含附加费）"
-    ]
-   ]
-  },
-  {
-   "id": 11,
-   "title": "德国平均月薪 4.850 欧，到手只剩 3.053",
-   "de_title": "4.850 Euro brutto, 3.053 Euro netto – was vom Gehalt übrig bleibt",
-   "hook": "4850欧工资|到手3053",
-   "sub": "社保和税扣掉三分之一多",
-   "date": "2026-10-14",
-   "photo": "news/og/src/11.jpg",
-   "de_hook": "4.850 brutto|3.053 netto",
-   "zh_intro": "德国全职员工的平均毛月薪约 4.850 欧——但真正打到卡上的只有约 3.053 欧。税和社保拿走三分之一多。这一期把这张工资单拆开看。",
-   "words": [
-    [
-     "das Gehalt",
-     "工资"
-    ],
-    [
-     "brutto",
-     "税前、毛"
-    ],
-    [
-     "netto",
-     "税后、净"
     ]
    ]
   }
