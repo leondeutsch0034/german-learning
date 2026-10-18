@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 24,
+   "title": "柏林三党谈组阁：大房东的房子可能收归市有",
+   "de_title": "Berlin: Linke, Grüne und SPD wollen große Wohnungskonzerne vergesellschaften",
+   "hook": "大房东的房子|要归柏林",
+   "sub": "超过 1 万套 · 最高补偿 160 亿欧",
+   "date": "2026-10-17",
+   "photo": "news/og/src/24.jpg",
+   "de_hook": "10.000 Wohnungen –|ab wann gehört|ein Haus der Stadt?",
+   "zh_intro": "柏林市议会选举之后，左翼党（Linke）、绿党（Grüne）和社民党（SPD）结束了试探性组阁谈判，就重要问题达成一致。他们计划：如果共同执政，就把在柏林拥有超过 1 万套住房的大型私营住房公司收归市有——公司可以保留 1 万套，多出来的部分在获得补偿后交给柏林市，目的是让租金降下来。据左翼党方面估算，涉及约 5 家大公司、约 16 万套住房，补偿上限为 160 亿欧元。这还不是法律：法案计划到 2028 年中期才出台，而且还要经过宪法法院审查。",
+   "words": [
+    [
+     "die Sondierungsgespräche (Plural)",
+     "试探性组阁谈判"
+    ],
+    [
+     "die Koalitionsverhandlungen (Plural)",
+     "联合政府谈判"
+    ],
+    [
+     "das Abgeordnetenhaus",
+     "市议会（柏林）"
+    ]
+   ]
+  },
+  {
    "id": 23,
    "title": "德国给孩子存养老金：每月 10 欧，65 岁可能超 5 万",
    "de_title": "Bundestag beschließt Früh-Start-Rente für Kinder",
@@ -173,31 +198,6 @@
     [
      "leasen / das Leasing",
      "租赁 / 租赁（名词）"
-    ]
-   ]
-  },
-  {
-   "id": 16,
-   "title": "超过 14.8 万人投票，选出 2027 年度鸟类",
-   "de_title": "Mehlschwalbe ist Vogel des Jahres 2027",
-   "hook": "一只燕子|当选年度鸟类",
-   "sub": "超过 14.8 万人投票 · 它其实正在变少",
-   "date": "2026-10-15",
-   "photo": "news/og/src/16.jpg",
-   "de_hook": "Warum verschwinden|die Lehmnester|unter unserem Dach?",
-   "zh_intro": "每年，德国都会评选「年度鸟类」。2027 年的评选由自然保护组织 NABU 和 LBV 主办，超过 14.8 万人参加了线上投票，毛脚燕（Mehlschwalbe）以约 45% 的得票率胜出。这种小鸟在屋檐下用泥土筑巢，是候鸟——入冬前飞几千公里去非洲，四月初回来繁殖。但它正面临麻烦：很多巢被人移走或破坏，小昆虫越来越少，红色名录已经把它列为受威胁物种。",
-   "words": [
-    [
-     "die Mehlschwalbe",
-     "毛脚燕（一种燕子）"
-    ],
-    [
-     "der Vogel / die Vögel",
-     "鸟"
-    ],
-    [
-     "der Vogel des Jahres",
-     "年度鸟类"
     ]
    ]
   }
