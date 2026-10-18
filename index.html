@@ -23249,6 +23249,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hash 路由：分享链接打开时自动跳转到对应页面
   var hash = window.location.hash;
   var hashId = hash ? hash.replace('#', '') : '';
+  // A1 阅朗读文章号：优先 hash，其次 query。
+  // 微信等内嵌浏览器可能丢掉 # 后面的内容，所以分享链接同时带 ?art=N
+  var qArt = null;
+  try { qArt = new URLSearchParams(window.location.search).get('art'); } catch (e) {}
   // 你不知道的德国 深链接: 路径 /kd/X.html 或 hash #kultur-reader&ep=X
   var kdMatch = window.location.pathname.match(/\/kd\/(\d+)\.html/);
   if (kdMatch) {
@@ -23280,6 +23284,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // showPage 只负责把面板切到 serie Tab；真正选定集数靠 showSerieEp。
     // 页面若已实例化过，懒加载的 init 不会再跑，所以这里补一次（幂等）。
     setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp); }, 80);
+  } else if (qArt && /^\d+$/.test(qArt)) {
+    // A1 阅朗读文章深链接（query 版）：/?art=5#lesen —— 微信丢 hash 也能定位
+    showPage('lesen');
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(parseInt(qArt, 10)); }, 0);
   } else if (hashId.indexOf('lesen&art=') === 0 || /^ls-s\d+$/.test(hashId)) {
     // A1 阅朗读文章深链接：/#lesen&art=5（也兼容旧的 #ls-s5）
     var artN = hashId.indexOf('lesen&art=') === 0
@@ -27276,7 +27284,8 @@ function brToggleSample4() {
     sec.style.display='';
     if(sel && String(sel.value)!==String(n)) sel.value=String(n);
     window._currentLesenArticle=String(n);
-    try{ history.replaceState(null,'','/#lesen&art='+n); }catch(e){}
+    // ?art 给微信兜底（内嵌浏览器可能丢 # 后的内容），#lesen 负责站内定位
+    try{ history.replaceState(null,'','/?art='+n+'#lesen'); }catch(e){}
     // 滚动到文章顶部（让下拉框和文章都在视野上方）
     var toc=document.getElementById('ls-toc-top');
     var target=toc||sec;
@@ -27289,7 +27298,8 @@ function brToggleSample4() {
     if(!n && sel) n=sel.value;
     var base=location.origin+location.pathname.replace(/[^/]*$/,'');
     if(base.slice(-1)!=='/') base+='/';
-    var url=base+'#lesen'+(n?'&art='+n:'');
+    // 双保险：?art 给微信兜底，不依赖 # 后面的内容
+    var url=n?(base+'?art='+n+'#lesen'):(base+'#lesen');
     function toast(msg){
       var t=document.createElement('div');
       t.textContent=msg;
