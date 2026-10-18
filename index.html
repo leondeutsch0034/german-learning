@@ -23280,6 +23280,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // showPage 只负责把面板切到 serie Tab；真正选定集数靠 showSerieEp。
     // 页面若已实例化过，懒加载的 init 不会再跑，所以这里补一次（幂等）。
     setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp); }, 80);
+  } else if (hashId.indexOf('lesen&art=') === 0 || /^ls-s\d+$/.test(hashId)) {
+    // A1 阅朗读文章深链接：/#lesen&art=5（也兼容旧的 #ls-s5）
+    var artN = hashId.indexOf('lesen&art=') === 0
+      ? (parseInt(hashId.split('art=')[1], 10) || 1)
+      : parseInt(hashId.replace('ls-s', ''), 10);
+    showPage('lesen');
+    // initLesen（后注册的 DOMContentLoaded）会重置到第 1 篇，延后一帧再定位
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(artN); }, 0);
   } else if (hashId && document.getElementById('page-' + hashId)) {
     showPage(hashId);
   } else if (hashId && document.getElementById(hashId)) {
@@ -23313,6 +23321,15 @@ window.addEventListener('hashchange', function() {
     window._currentSerieEp = sEp2;
     showPage('serie');
     setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp2); }, 80);
+    return;
+  }
+  if (id.indexOf('lesen&art=') === 0 || /^ls-s\d+$/.test(id)) {
+    // A1 阅朗读文章深链接：前进/后退也能定位到具体一篇
+    var artH = id.indexOf('lesen&art=') === 0
+      ? (parseInt(id.split('art=')[1], 10) || 1)
+      : parseInt(id.replace('ls-s', ''), 10);
+    showPage('lesen');
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(artH); }, 0);
     return;
   }
   if (document.getElementById('page-' + id)) {
@@ -25692,7 +25709,11 @@ function brToggleSample4() {
       <option value="33">㉝ Krankenpfleger</option>
       <option value="34">㉞ Beim türkischen Friseur</option>
     </select>
-    <div style="font-size:.8rem;color:#a16207;margin-top:.6rem;line-height:1.5">💡 选择后只显示该篇，方便单独阅读或打印；想换文章再用上面的下拉框。</div>
+    <button type="button" onclick="shareLesenArticle()"
+            style="display:block;width:100%;margin-top:.6rem;padding:.65rem 1rem;border:2px solid #b45309;border-radius:10px;background:#fff;color:#92400e;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit">
+      🔗 复制本篇链接（对方打开直达这一篇）
+    </button>
+    <div style="font-size:.8rem;color:#a16207;margin-top:.6rem;line-height:1.5">💡 选择后只显示该篇，方便单独阅读或打印；想换文章再用上面的下拉框。复制上面的链接发给别人，打开就直接定位到当前这一篇。</div>
   </div>
 </div>
 <!-- ══════════════════════ 目录结束 ══════════════════════ -->
@@ -27238,12 +27259,15 @@ function brToggleSample4() {
     document.querySelectorAll('#page-lesen .ls-section').forEach(function(s){ s.style.display='none'; });
   }
   // 显示第 n 篇，隐藏其余
+  // 地址栏同步成 #lesen&art=n：复制地址栏 / 点「复制本篇链接」发给别人，打开直达这一篇
   window.showLesenArticle=function(n){
     ensureIds();
     var sel=document.getElementById('lesen-article-select');
     if(n===''||n==null){           // 选了占位项 → 全隐藏，只剩目录
       hideAll();
       if(sel) sel.value='';
+      window._currentLesenArticle=null;
+      try{ history.replaceState(null,'','/#lesen'); }catch(e){}
       return;
     }
     hideAll();
@@ -27251,10 +27275,35 @@ function brToggleSample4() {
     if(!sec){ return; }
     sec.style.display='';
     if(sel && String(sel.value)!==String(n)) sel.value=String(n);
+    window._currentLesenArticle=String(n);
+    try{ history.replaceState(null,'','/#lesen&art='+n); }catch(e){}
     // 滚动到文章顶部（让下拉框和文章都在视野上方）
     var toc=document.getElementById('ls-toc-top');
     var target=toc||sec;
     try{ target.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ target.scrollIntoView(); }
+  };
+  // 复制当前这一篇的可分享链接（对方打开直达本篇）
+  window.shareLesenArticle=function(){
+    var n=window._currentLesenArticle;
+    var sel=document.getElementById('lesen-article-select');
+    if(!n && sel) n=sel.value;
+    var base=location.origin+location.pathname.replace(/[^/]*$/,'');
+    if(base.slice(-1)!=='/') base+='/';
+    var url=base+'#lesen'+(n?'&art='+n:'');
+    function toast(msg){
+      var t=document.createElement('div');
+      t.textContent=msg;
+      t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0a1428;color:#fde68a;padding:12px 28px;border-radius:24px;border:2px solid #f6d365;z-index:99999;font-size:.85rem;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:none;text-align:center;white-space:pre-line';
+      document.body.appendChild(t);
+      setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; },1800);
+      setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },2300);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){ toast('✅ 本篇链接已复制，对方打开直达这一篇'); })
+        .catch(function(){ prompt('复制此链接分享：',url); });
+    }else{
+      prompt('复制此链接分享：',url);
+    }
   };
   // 进入 page-lesen 时默认只显示目录（全部文章隐藏）
   function initLesen(){
@@ -27265,6 +27314,7 @@ function brToggleSample4() {
     if(first) first.style.display='';
     var sel=document.getElementById('lesen-article-select');
     if(sel) sel.value='1';
+    window._currentLesenArticle='1';
   }
   // 首次就绪时初始化
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initLesen);}
