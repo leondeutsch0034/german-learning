@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 22,
+   "title": "月薪 200 欧：德国残疾人工坊员工状告雇主",
+   "de_title": "Werkstatt-Beschäftigter klagt für den Mindestlohn",
+   "hook": "干了 40 年|月薪 200 欧",
+   "sub": "德国最低时薪 13,90 欧 · 他把雇主告了",
+   "date": "2026-10-17",
+   "photo": "news/og/src/22.jpg",
+   "de_hook": "Arbeit wie alle –|aber nur 2 Euro|die Stunde?",
+   "zh_intro": "尤尔根·林内曼（Jürgen Linnemann）在德国北威州的残障人士工坊工作了约 40 年。现在他每周工作三天，用电脑扫描文件，每月拿不到 200 欧元，折合时薪约 2 欧。德国法定最低时薪是 13,90 欧。他认为这不公平，把雇主告上了法庭。工坊方面说，给所有员工发最低工资负担不起。明斯特劳动法院已推迟裁决，判决可能在 11 月或 12 月作出。",
+   "words": [
+    [
+     "die Werkstatt / die Werkstätten",
+     "工坊；残障人士工作场所"
+    ],
+    [
+     "der Mensch mit Behinderung",
+     "残障人士"
+    ],
+    [
+     "die Behinderung",
+     "残障"
+    ]
+   ]
+  },
+  {
    "id": 21,
    "title": "德国烟草税连涨四年，一包烟将逼近 12 欧",
    "de_title": "Tabaksteuer steigt: Zigaretten bald fast 12 Euro",
@@ -173,31 +198,6 @@
     [
      "die Deutsche Bahn (DB)",
      "德国铁路（德铁）"
-    ]
-   ]
-  },
-  {
-   "id": 14,
-   "title": "德国人做了张「无障碍博物馆地图」",
-   "de_title": "Neue Website zeigt barrierefreie Museen in acht Ländern",
-   "hook": "轮椅也能|逛博物馆",
-   "sub": "电梯·车位·陪同免票，一页查完",
-   "date": "2026-10-12",
-   "photo": "news/og/src/14.jpg",
-   "de_hook": "Welches Museum|ist wirklich|barrierefrei?",
-   "zh_intro": "对坐轮椅的人来说，出门看展常常要先打一堆电话：有没有电梯、有没有车位、陪同的人要不要买票？德国人 Christoph Hein 做了一张网站 Museums-Atlas，把这些问题一次查清——而且他不赚钱。",
-   "words": [
-    [
-     "der Rollstuhl",
-     "轮椅"
-    ],
-    [
-     "der Rollstuhl-Fahrer / die Rollstuhl-Fahrerin",
-     "轮椅使用者"
-    ],
-    [
-     "barrierefrei",
-     "无障碍的"
     ]
    ]
   }
