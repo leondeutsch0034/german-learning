@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 23,
+   "title": "德国给孩子存养老金：每月 10 欧，65 岁可能超 5 万",
+   "de_title": "Bundestag beschließt Früh-Start-Rente für Kinder",
+   "hook": "每月10欧|国家替孩子|存养老金",
+   "sub": "6–18 岁 · 钱投进股市 · 65 岁才能取",
+   "date": "2026-10-16",
+   "photo": "news/og/src/23.jpg",
+   "de_hook": "Zehn Euro pro Monat|für jedes Kind –|reicht das später?",
+   "zh_intro": "德国联邦议院通过了一项新法律：国家为 6 到 18 岁的孩子每月存入 10 欧元，这笔钱投入股票市场。政府希望股票长期升值；孩子满 65 岁以后才能领取。财政部算过一笔账：到那时，这笔钱可能超过 5 万欧元。",
+   "words": [
+    [
+     "die Rente",
+     "养老金"
+    ],
+    [
+     "die Altersvorsorge",
+     "养老储备、养老保障"
+    ],
+    [
+     "die Früh-Start-Rente",
+     "早起步养老金"
+    ]
+   ]
+  },
+  {
    "id": 22,
    "title": "月薪 200 欧：德国残疾人工坊员工状告雇主",
    "de_title": "Werkstatt-Beschäftigter klagt für den Mindestlohn",
@@ -173,31 +198,6 @@
     [
      "der Vogel des Jahres",
      "年度鸟类"
-    ]
-   ]
-  },
-  {
-   "id": 15,
-   "title": "德国所有火车站，10 月 15 日起禁酒",
-   "de_title": "Deutsche Bahn verbietet Alkohol an allen Bahnhöfen",
-   "hook": "德国火车站|全面禁酒",
-   "sub": "站台、大厅都不能喝 · 餐厅除外",
-   "date": "2026-10-15",
-   "photo": "news/og/src/15.jpg",
-   "de_hook": "Kein Bier mehr|am Bahnhof –|ist das übertrieben?",
-   "zh_intro": "从 2026 年 10 月 15 日起，德国铁路（Deutsche Bahn）在旗下所有火车站禁止饮酒——站台、大厅、通道都算在内。车站里的餐厅和咖啡馆不受影响；买来的酒放在行李里带走也一直允许。联邦政府的禁毒专员 Hendrik Streeck 支持这一规定，说酒精会让争执和冲突更严重。据联邦警察统计，车站暴力事件中约三分之一与酒精有关。",
-   "words": [
-    [
-     "der Bahnhof / die Bahnhöfe",
-     "火车站"
-    ],
-    [
-     "der Bahnsteig",
-     "站台"
-    ],
-    [
-     "die Deutsche Bahn (DB)",
-     "德国铁路（德铁）"
     ]
    ]
   }
