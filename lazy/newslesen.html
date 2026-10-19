@@ -1,6 +1,6 @@
 <div class="nl-langbar">
   <button class="nl-lang is-on" type="button" data-lang="de" onclick="nlLang(this,'de')">德语</button>
-  <button class="nl-lang" type="button" data-lang="en" onclick="nlLang(this,'en')">英语</button>
+  <button class="nl-lang" type="button" data-lang="en" onclick="nlLang(this,'en')">切换至英语</button>
 </div>
 <style>
 .nl-wrap{--nl-gold:#f6d365;--nl-line:#1e3a5f;--nl-dim:#8ba3c4;--nl-dim2:#64789a;
@@ -5081,7 +5081,12 @@
 /* ══════ 语种切换 ══════ */
 function nlRoot(){ return document.querySelector('.nl-wrap.is-on'); }
 function nlLang(btn, lang){
-  document.querySelectorAll('.nl-lang').forEach(function(b){ b.classList.toggle('is-on', b === btn); });
+  document.querySelectorAll('.nl-lang').forEach(function(b){
+    var on = b === btn;
+    b.classList.toggle('is-on', on);
+    var name = b.dataset.lang === 'de' ? '德语' : '英语';
+    b.textContent = on ? name : ('切换至' + name);
+  });
   document.querySelectorAll('.nl-wrap').forEach(function(w){ w.classList.toggle('is-on', w.dataset.lang === lang); });
   nlBind(); nlFit(); nlSync();
 }
