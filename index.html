@@ -209,12 +209,17 @@ window.initPhonetikDeepLink = function() {
     if (el) {
       setTimeout(function() {
         var y = el.getBoundingClientRect().top + window.pageYOffset - 88;
+        window._phLockUrl = true;   // 自动定位期间别让滚动监听把目标行改掉
         try { window.scrollTo({ top: y, behavior: 'smooth' }); }
         catch (e) { window.scrollTo(0, y); }
         window._phCurrent = target;
-        try { history.replaceState(null, '', '/?ph=' + encodeURIComponent(target) + '#phonetik'); } catch (e) {}
+        try { history.replaceState(null, '', '/phonetik.html?ph=' + encodeURIComponent(target)); } catch (e) {}
+        setTimeout(function() { window._phLockUrl = false; }, 1400);
       }, 120);
     }
+  } else {
+    /* 没带行号也切到壳页 URL —— 这样浏览器分享同样出「拼读」预览卡 */
+    try { history.replaceState(null, '', '/phonetik.html'); } catch (e) {}
   }
 
   if (!window._phShareBound) {
@@ -225,19 +230,23 @@ window.initPhonetikDeepLink = function() {
       ticking = true;
       requestAnimationFrame(function() {
         ticking = false;
+        if (window._phLockUrl) return;
         var pg = document.getElementById('page-phonetik');
         if (!pg || getComputedStyle(pg).display === 'none') return;
         var rows = pg.querySelectorAll('[id^="ph-row-"]');
-        var cur = null, threshold = 140;
+        var line = window.innerHeight * 0.35;   // 视觉「阅读线」：取离它最近的一行
+        var cur = null, best = 1e9;
         for (var i = 0; i < rows.length; i++) {
           if (!rows[i].getClientRects().length) continue;   // 跳过折叠/隐藏的行
-          if (rows[i].getBoundingClientRect().top <= threshold) cur = rows[i];
-          else break;
+          var rr = rows[i].getBoundingClientRect();
+          if (rr.bottom < 60 || rr.top > window.innerHeight) continue;
+          var d = Math.abs((rr.top + rr.bottom) / 2 - line);
+          if (d < best) { best = d; cur = rows[i]; }
         }
         if (cur && cur.id !== lastId) {
           lastId = cur.id;
           window._phCurrent = cur.id;
-          try { history.replaceState(null, '', '/?ph=' + encodeURIComponent(cur.id) + '#phonetik'); } catch (e) {}
+          try { history.replaceState(null, '', '/phonetik.html?ph=' + encodeURIComponent(cur.id)); } catch (e) {}
         }
       });
     }, { passive: true });
