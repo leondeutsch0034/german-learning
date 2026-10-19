@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 25,
+   "title": "世界重启心脏日：德国人学怎么把人救回来",
+   "de_title": "Welt-Tag der Wiederbelebung: Wie man Herzen wieder startet",
+   "hook": "心脏停了|你敢按吗",
+   "sub": "世界重启心脏日 · 德国医院现场教",
+   "date": "2026-10-16",
+   "photo": "news/og/src/25.jpg",
+   "de_hook": "Traust du dich,|ein Herz wieder|zu starten?",
+   "zh_intro": "心脏一旦停止跳动，人就有生命危险；但反复按压胸廓、做心肺复苏，往往能让心脏重新跳起来，同时还要向患者口中吹气。很多人不敢动手，怕自己做错。10 月 16 日是世界重启心脏日，德国许多医院举办活动，医生和急救人员在假人上示范正确的胸外按压。",
+   "words": [
+    [
+     "die Wiederbelebung",
+     "心肺复苏"
+    ],
+    [
+     "der Herzstillstand",
+     "心脏骤停"
+    ],
+    [
+     "das Herz",
+     "心脏"
+    ]
+   ]
+  },
+  {
    "id": 24,
    "title": "柏林三党谈组阁：大房东的房子可能收归市有",
    "de_title": "Berlin: Linke, Grüne und SPD wollen große Wohnungskonzerne vergesellschaften",
@@ -173,31 +198,6 @@
     [
      "das Krankenhaus / die Krankenhäuser",
      "医院"
-    ]
-   ]
-  },
-  {
-   "id": 17,
-   "title": "德国公司给员工配自行车，一半打工人有资格",
-   "de_title": "Die Firma least das Dienstrad",
-   "hook": "公司发你|一辆自行车",
-   "sub": "租的 · 税前付 · 三年后能买断",
-   "date": "2026-10-17",
-   "photo": "news/og/src/17.jpg",
-   "de_hook": "Ein Fahrrad|vom Arbeitgeber",
-   "zh_intro": "在德国，越来越多的公司给员工提供「公司自行车」（Dienstrad / JobRad）。2025 年有 34,2 万家企业提供这种福利，约 2260 万在职者拿到资格——差不多一半。但真正用的只有约 240 万人，占合格者的 11%。多数是公司替你租，三年后可以按残值买断。",
-   "words": [
-    [
-     "das Dienstrad / das Jobrad",
-     "公司自行车 / JobRad"
-    ],
-    [
-     "das Firmenrad",
-     "公司配车（口语）"
-    ],
-    [
-     "leasen / das Leasing",
-     "租赁 / 租赁（名词）"
     ]
    ]
   }
