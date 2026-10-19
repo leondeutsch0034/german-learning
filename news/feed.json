@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 26,
+   "title": "德国新法：受害人上法庭，有人陪、律师免费",
+   "de_title": "Opfer von Straftaten bekommen mehr Hilfe vor Gericht",
+   "hook": "法庭上|不再一个人",
+   "sub": "德国新法 · 免费陪同和律师",
+   "date": "2026-10-18",
+   "photo": "news/og/src/26.jpg",
+   "de_hook": "Allein vor Gericht –|muss das|wirklich sein?",
+   "zh_intro": "德国联邦议院通过一项法律：重罪受害人在法庭上能得到专业人员的帮助——向他们解释程序、陪着他们出庭，费用全免。儿童、青少年和残疾人自动获得这项帮助；在家遭遇暴力的人，也能免费得到一名律师。",
+   "words": [
+    [
+     "das Gesetz",
+     "法律"
+    ],
+    [
+     "der Bundestag",
+     "联邦议院"
+    ],
+    [
+     "das Opfer",
+     "受害人"
+    ]
+   ]
+  },
+  {
    "id": 25,
    "title": "世界重启心脏日：德国人学怎么把人救回来",
    "de_title": "Welt-Tag der Wiederbelebung: Wie man Herzen wieder startet",
@@ -173,31 +198,6 @@
     [
      "die Nationalmannschaft",
      "国家队"
-    ]
-   ]
-  },
-  {
-   "id": 18,
-   "title": "德国急诊改革：不是人人都要进急诊室",
-   "de_title": "Bundestag beschließt Reform der Notfallversorgung",
-   "hook": "先判断|再决定去哪",
-   "sub": "德国通过急诊改革 · 轻症可去诊所",
-   "date": "2026-10-15",
-   "photo": "news/og/src/18.jpg",
-   "de_hook": "112 gewählt –|war es wirklich|ein Notfall?",
-   "zh_intro": "在德国，突然生病的人常常直接打急救电话，由救护车送到医院急诊室。专家说，其中一部分其实没必要，也太贵。联邦议院因此通过了急诊改革：以后先由专家判断病人是否真的有生命危险——可以在电话里判断，也可以到现场判断。没有生命危险的病人可以被转到诊所；情况危急的则直接去医院。新的急诊中心还会判断病人需要哪位医生。目标是让病人更快得到正确的帮助，同时减少涌进医院急诊室的人数。",
-   "words": [
-    [
-     "der Notruf",
-     "急救电话"
-    ],
-    [
-     "der Krankenwagen",
-     "救护车"
-    ],
-    [
-     "das Krankenhaus / die Krankenhäuser",
-     "医院"
     ]
    ]
   }
