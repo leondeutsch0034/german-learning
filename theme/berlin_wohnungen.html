@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>大房东的房子，真要归柏林？ | Leon 德语</title>
+<meta name="description" content="柏林克罗伊茨贝格一栋老住宅楼，楼道墙上贴着一家大型住房公司的告示。林夏陪朋友看房，楼下的老太太抬头看了一眼，说：现在他们要把它收归市有了。">
+<meta property="og:title" content="大房东的房子，真要归柏林？">
+<meta property="og:description" content="柏林左翼党、绿党和社民党谈成组阁要点：拥有超过 1 万套住房的私营住房公司，超出部分在获得补偿后收归市有。涉及约 5 家公司、约 16 万套住房，补偿上限 160 亿欧元。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-berlin_wohnungen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/berlin_wohnungen.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">Wohnungspolitik · 住房政策</div>
+  <h1>🏙️ 大房东的房子，真要归柏林？</h1>
+  <p class="sub">超过 1 万套就要谈收归 · 最高补偿 160 亿欧</p>
+  <p class="lead">柏林克罗伊茨贝格一栋老住宅楼，楼道墙上贴着一家大型住房公司的告示。林夏陪朋友看房，楼下的老太太抬头看了一眼，说：现在他们要把它收归市有了。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 为本期新写</span></div>
+  <p class="act-lead">柏林克罗伊茨贝格一栋老住宅楼，楼道墙上贴着一家大型住房公司的告示。林夏陪朋友来看房，楼下的老太太也抬头看那张纸。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">🏙️ 楼道里的告示：这栋楼属于谁？</div>
+    <div class="line">
+      <div class="who">Frau Berger</div>
+      <div class="de">Diese Häuser gehören einem großen Konzern. Seit Jahren steigen die Mieten.</div>
+      <div class="zh">这些房子属于一家大公司。这些年租金一直在涨。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und jetzt will der Senat die Wohnungen übernehmen?</div>
+      <div class="zh">那现在市政府要接管这些住房？</div>
+    </div>
+    <div class="line">
+      <div class="who">Frau Berger</div>
+      <div class="de">So ist der Plan. Wer mehr als 10.000 Wohnungen hat, muss die meisten abgeben — gegen Geld.</div>
+      <div class="zh">计划是这样。谁拥有超过 1 万套，就必须交出大部分——换补偿。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Dann werden die Mieten endlich billiger?</div>
+      <div class="zh">那租金终于会变便宜吗？</div>
+    </div>
+    <div class="line">
+      <div class="who">Frau Berger</div>
+      <div class="de">Das hoffen viele. Aber es ist noch kein Gesetz. Erst 2028 soll es kommen.</div>
+      <div class="zh">很多人这么希望。但这还不是法律。要到 2028 年才来。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und die CDU?</div>
+      <div class="zh">那基民盟呢？</div>
+    </div>
+    <div class="line">
+      <div class="who">Frau Berger</div>
+      <div class="de">Die ist dagegen. Es wird noch lange dauern.</div>
+      <div class="zh">他们反对。还会拖很久。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">按目前的计划，一家住房公司在柏林最多可以保留多少套住房？</div>
+      <button onclick="themeQuiz(this,true,'berlin_wohnungen-exp')">1 万套</button>
+      <button onclick="themeQuiz(this,false,'berlin_wohnungen-exp')">10 万套</button>
+      <button onclick="themeQuiz(this,false,'berlin_wohnungen-exp')">一套都不能留</button>
+    <div class="exp" id="berlin_wohnungen-exp">谈判文件写的是：企业保留 <b>10.000 套</b>的基本存量，<b>超出部分</b>才在获得补偿后交给柏林市。合作社和 2021 年 1 月 1 日以后建成的住房不在其中。注意：这还只是三党的谈判结果，<b>不是法律</b>——法案要到 2028 年中期才计划出台。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">这条新闻看着是「政府要收房」，其实是柏林讨论了十几年的老问题：房租涨得太快，而房子越来越多地握在少数大公司手里。</p>
+  <div class="fact">
+    <h3>🏠 到底要收什么</h3>
+    <p>对象是<b>私营大型住房公司</b>：在柏林拥有<b>超过 10.000 套</b>住房的企业。企业可以保留 10.000 套，<b>超出的部分</b>在获得补偿后转给柏林市。目标是让更多住房回到公共手里，从而压低租金。</p>
+    <div class="fun">💡 不是「所有房东都被收房」——私人小房东、合作社、公益机构都不在范围内。门槛定在 1 万套，针对的是大公司，不是普通买房出租的人。</div>
+  </div>
+  <div class="fact">
+    <h3>🔢 5 家 · 16 万套 · 160 亿欧</h3>
+    <p>据左翼党方面估算，大约 <b>5 家大公司</b>会受影响，其中包括 <b>Vonovia</b>；涉及约 <b>16 万套</b>住房；补偿总额上限 <b>160 亿欧元</b>。这些数字来自谈判方的说法，最终以法案和法院审查为准。</p>
+    <div class="fun">💡 新闻写作里这类数字要带来源：<i>nach Angaben der Linken</i>（据左翼党方面）。它们是<b>计划数字</b>，不是已经生效的结果。</div>
+  </div>
+  <div class="fact">
+    <h3>⚖️ 为什么能收：基本法第 15 条</h3>
+    <p>拟用的法律依据是《基本法》<b>第 15 条</b>。这一条允许把土地、自然资源和生产资料在获得补偿的前提下转为公有或其他公共经济形式。<b>这一条从制定以来从未被实际适用过</b>，所以外界普遍预计会打到宪法法院。</p>
+    <div class="fun">💡 德语里两个词要分清：<b>Enteignung</b>（征收，通常针对具体财产）和 <b>Vergesellschaftung</b>（社会化、收归公有，可以是整类资产）。这次谈判文件用的是后者。</div>
+  </div>
+  <div class="fact">
+    <h3>🗳️ 接下来：不是明天就生效</h3>
+    <p>三党还要让各自的机构同意启动<b>联合政府谈判</b>；谈判成功后才谈组阁。法案计划<b>2028 年中期</b>出台，通过后再过一年才生效。联邦建设部已宣布要推一项反对收归公有的法律，基民盟也明确反对。</p>
+    <div class="fun">💡 所以这条新闻现在最准确的写法是：<b>三党谈成了计划</b>，距离真正实施还有很多关：党内机构、联合谈判、法案、宪法法院。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">这一期的德语是「租房 + 政策」的常用说法。左边是口语，右边是新闻和合同里的写法。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Was zahlst du warm?</td><td class="write">Wie hoch ist die Warmmiete?</td><td class="zh">你一个月总共交多少房租？／暖租是多少？</td></tr>
+    <tr><td class="say">Ich zieh um.</td><td class="write">Ich ziehe in eine andere Wohnung.</td><td class="zh">我要搬家。／我搬到另一套住房。</td></tr>
+    <tr><td class="say">Die Miete geht schon wieder hoch.</td><td class="write">Die Miete wird erhöht.</td><td class="zh">房租又涨了。／房租被上调。</td></tr>
+    <tr><td class="say">Kann ich mal reinschauen?</td><td class="write">Ich möchte die Wohnung besichtigen.</td><td class="zh">我能进去看看吗？／我想看一下这套住房。</td></tr>
+    <tr><td class="say">Hab den Vertrag unterschrieben.</td><td class="write">Ich habe den Mietvertrag unterschrieben.</td><td class="zh">合同我签了。／我已签署租房合同。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：ab + 第三格 / gegen + 第四格</h3>
+    <p>新闻里的两个关键词组：<i>„<b>ab</b> 10.000 Wohnungen“</i>（从 1 万套起）和 <i>„<b>gegen</b> Entschädigung“</i>（以补偿为交换）。<b>ab</b> 后面跟<b>第三格（Dativ）</b>：<i>ab dem 1. Januar</i>、<i>ab 10.000 Wohnungen</i>；<b>gegen</b> 表示「交换、对抗」时跟<b>第四格（Akkusativ）</b>：<i>gegen eine Entschädigung</i>。</p>
+    <div class="fun">✍️ 一句话串起来：<i>Ab 10.000 Wohnungen sollen die Unternehmen ihre Häuser gegen eine Entschädigung abgeben.</i>（从 1 万套起，企业应以补偿为交换交出住房。）</div>
+  </div>
+</div>
+
+<!-- ═══ 日常怎么说（主题包 · 地道德语对照）═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">🗣️</div><h2>日常怎么说</h2>
+    <span class="from">课本 ↔ 日常</span></div>
+  <p class="act-lead">同一个意思，课本里一个说法、德国人日常另一个说法。下面是本站「地道德语」栏目的同款对照。</p>
+  <div class="echt-teaser">
+  <div class="et-card">
+    <div class="et-cat">问房租</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Wie hoch ist die Miete für die Wohnung?</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Was zahlst du warm?</span></div>
+    <div class="et-note">德国房租分 <b>Kaltmiete</b>（冷租，不含暖气/水电）和 <b>Warmmiete</b>（暖租，含附加费）。口语里问「你一个月总共交多少」最常说的是 <b>Was zahlst du warm?</b>；正式场合才说 <i>Wie hoch ist die Miete?</i>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">看房</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Ich möchte die Wohnung besichtigen.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Kann ich mal reinschauen?</span></div>
+    <div class="et-note"><b>besichtigen</b>（参观、看房）是中介和合同里的词；跟房东或朋友说 <b>Kann ich mal reinschauen?</b>（我能进去看看吗）更自然。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说要搬家</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Ich ziehe in eine andere Wohnung.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Ich zieh um.</span></div>
+    <div class="et-note"><b>umziehen</b> 是可分动词：<i>Ich ziehe um.</i> / 完成时 <i>Ich bin umgezogen.</i>。口语里几乎不说全称 <i>in eine andere Wohnung ziehen</i>，一句 <b>Ich zieh um</b> 就够了。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">抱怨涨租</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Die Miete wird erhöht.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Die Miete geht schon wieder hoch.</span></div>
+    <div class="et-note">新闻和通知里用被动态 <i>Die Miete wird erhöht</i>；租客之间更常说 <b>Die Miete geht schon wieder hoch</b>——<b>schon wieder</b>（又）是抱怨涨价的固定信号。名词是 <b>die Mieterhöhung</b>。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">签合同</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Ich habe den Mietvertrag unterschrieben.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Hab den Vertrag unterschrieben.</span></div>
+    <div class="et-note"><b>der Mietvertrag</b>（租房合同）是正式说法；口语里直接说 <b>der Vertrag</b>。签合同前还要交 <b>die Kaution</b>（押金），通常是三个月冷租。</div>
+  </div>
+    <a class="et-more" href="https://leonsdeutschzentrum.com/#echt">去「地道德语」看全部 →</a>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/news/24.html">
+      <div class="kind">NEWS · 德语新闻 · 第 24 期</div>
+      <div class="t">柏林三党谈组阁：大房东的房子可能收归市有</div>
+      <div class="note">这一期的德语客观报道，A1–B2 四档；住房、补偿和组阁谈判的德语说法都在这里</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/#kultur-reader&ep=39">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 39 期</div>
+      <div class="t">🏙️ 柏林和慕尼黑，像两个国家</div>
+      <div class="note">柏林为什么长期便宜、这几年又涨得最快——住房问题的另一面</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+</script>
+</body>
+</html>
