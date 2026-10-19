@@ -32,7 +32,7 @@
 <meta itemprop="description" content="字母 → 拼读 → 词重音 → 句重音 → 读短文，五步走完，见到生词就能读。35 组辨音对比 + 短文重音标注。">
 <meta itemprop="image" content="https://leonsdeutschzentrum.com/images/phonetik-og.png">
 
-<meta http-equiv="refresh" content="0;url=https://leonsdeutschzentrum.com/#phonetik">
+<meta http-equiv="refresh" content="0;url=/#phonetik">
 <style>
   body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a1428;color:#e2e8f0;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
   .box{text-align:center;padding:20px}
@@ -43,7 +43,12 @@
 </style>
 <script>
   // 立即跳转到主站对应页面（社交爬虫读取 meta 标签后忽略 JS）
-  window.location.replace("https://leonsdeutschzentrum.com/#phonetik");
+  // 带上 ?ph= 行号：壳页在微信里的预览卡不变，点进来仍能直达具体那一行。
+  (function(){
+    var ph = '';
+    try { ph = new URLSearchParams(location.search).get('ph') || ''; } catch (e) {}
+    window.location.replace(ph ? ('/?ph=' + encodeURIComponent(ph) + '#phonetik') : '/#phonetik');
+  })();
 </script>
 </head>
 <body>
@@ -51,7 +56,7 @@
   <div class="kicker">🇩🇪 德语拼读教程 · Phonetik</div>
   <h2>见到生词就能读</h2>
   <p>字母发音 → 拼读规则 → 词重音 → 句重音 → 读短文</p>
-  <p style="margin-top:16px">正在跳转到 <a href="https://leonsdeutschzentrum.com/#phonetik">Leon 德语学习中心</a>...</p>
+  <p style="margin-top:16px">正在跳转到 <a href="/#phonetik">Leon 德语学习中心</a>...</p>
 </div>
 </body>
 </html>

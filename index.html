@@ -133,6 +133,11 @@
     var q = new URLSearchParams(location.search).get('ep');
     if (q && /^\d+$/.test(q)) sessionStorage.setItem('nlEp', q);
   } catch (e) {}
+  /* 字母拼读行级深链：/?ph=ph-row-12#phonetik —— 同样先存，避免被 showPage 冲掉 */
+  try {
+    var ph = new URLSearchParams(location.search).get('ph');
+    if (ph && /^ph-row-\d+$/.test(ph)) sessionStorage.setItem('phAnchor', ph);
+  } catch (e) {}
 })();
 
 /* ══════ 懒加载框架 ══════ */
@@ -164,11 +169,79 @@ window._lazyRenderHooks = {
   echt:    function() { if (window.renderEchtGrid) window.renderEchtGrid(); },
   'de-en': function() { if (window.renderDEENGrid) window.renderDEENGrid();
                         if (window.renderDEENSentences) window.renderDEENSentences(); },
-  serie:   function() { if (window.showSerieEp) window.showSerieEp(window._currentSerieEp || 1); }
+  serie:   function() { if (window.showSerieEp) window.showSerieEp(window._currentSerieEp || 1); },
+  /* 字母拼读：内容就绪后定位到分享的那一行，并接管「滚动即同步地址栏」 */
+  phonetik: function() { if (window.initPhonetikDeepLink) window.initPhonetikDeepLink(); }
 };
 window.runLazyRender = function(pageId) {
   var fn = window._lazyRenderHooks[pageId];
   if (fn) { try { fn(); } catch (e) { console.warn('lazy render error', pageId, e); } }
+};
+
+/* ══════ 字母拼读 · 行级分享 ══════
+   每行（表格行/字母卡/对比行/短文段落…）分配稳定 id；
+   滚动时把「当前行」写进地址栏 /?ph=ph-row-N#phonetik，
+   浏览器自带分享取的就是它；打开链接后自动滚回该行。 */
+window.initPhonetikDeepLink = function() {
+  var page = document.getElementById('page-phonetik');
+  if (!page) return;
+
+  if (!page.dataset.phRows) {
+    page.dataset.phRows = '1';
+    var sel = 'table tbody tr, .abc > div, .vmap .row, .pairs .pr, .words > span, .text .body p, .dlg > div, li';
+    var nodes = page.querySelectorAll(sel);
+    for (var i = 0; i < nodes.length; i++) {
+      if (!nodes[i].id) nodes[i].id = 'ph-row-' + (i + 1);
+    }
+  }
+
+  var target = null;
+  try { target = sessionStorage.getItem('phAnchor'); if (target) sessionStorage.removeItem('phAnchor'); } catch (e) {}
+  if (!target) {
+    try { target = new URLSearchParams(location.search).get('ph'); } catch (e) {}
+  }
+  if (!target) {
+    var hm = (location.hash || '').match(/^#(ph-row-\d+)$/);
+    if (hm) target = hm[1];
+  }
+  if (target) {
+    var el = document.getElementById(target);
+    if (el) {
+      setTimeout(function() {
+        var y = el.getBoundingClientRect().top + window.pageYOffset - 88;
+        try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+        catch (e) { window.scrollTo(0, y); }
+        window._phCurrent = target;
+        try { history.replaceState(null, '', '/?ph=' + encodeURIComponent(target) + '#phonetik'); } catch (e) {}
+      }, 120);
+    }
+  }
+
+  if (!window._phShareBound) {
+    window._phShareBound = true;
+    var ticking = false, lastId = '';
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        ticking = false;
+        var pg = document.getElementById('page-phonetik');
+        if (!pg || getComputedStyle(pg).display === 'none') return;
+        var rows = pg.querySelectorAll('[id^="ph-row-"]');
+        var cur = null, threshold = 140;
+        for (var i = 0; i < rows.length; i++) {
+          if (!rows[i].getClientRects().length) continue;   // 跳过折叠/隐藏的行
+          if (rows[i].getBoundingClientRect().top <= threshold) cur = rows[i];
+          else break;
+        }
+        if (cur && cur.id !== lastId) {
+          lastId = cur.id;
+          window._phCurrent = cur.id;
+          try { history.replaceState(null, '', '/?ph=' + encodeURIComponent(cur.id) + '#phonetik'); } catch (e) {}
+        }
+      });
+    }, { passive: true });
+  }
 };
 
 /* 实例化一个懒加载页面（幂等；同时支持内嵌模板与内容外置）
@@ -31156,9 +31229,11 @@ window.shareKulturLink = function() {
 };
 /* 字母拼读教程：复制分享链接。
    指向带 og 预览卡的独立壳页 phonetik.html（不是 SPA 的 #phonetik——那个抓不出单独的卡）。
-   域名用 location.origin 自适应国内线/国际线。 */
+   域名用 location.origin 自适应国内线/国际线。
+   带上 ?ph= 当前行，壳页会把它转交给 SPA，对方打开直达这一行。 */
 window.sharePhonetik = function() {
-  var url = location.origin + '/phonetik.html';
+  var ph = window._phCurrent || '';
+  var url = location.origin + '/phonetik.html' + (ph ? '?ph=' + encodeURIComponent(ph) : '');
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function() {
       var t = document.createElement('div');
