@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 28,
+   "title": "德国超市「安静一小时」：照顾看不见的障碍",
+   "de_title": "Stille Stunde: Eine Stunde ruhig einkaufen",
+   "hook": "一小时|安安静静|逛超市",
+   "sub": "10 月 20 日 · 看不见的障碍，也需要被看见",
+   "date": "2026-10-19",
+   "photo": "news/og/src/28.jpg",
+   "de_hook": "Eine Stunde still|einkaufen –|warum eigentlich?",
+   "zh_intro": "10 月 20 日是「看不见的障碍」行动日。德国许多商店会参加「安静一小时」：关掉音乐、减少广播，让对声音和光线敏感的人也能安心买东西。活动想说明一件事——不是每种障碍都看得见，但每个人都该有同样的机会。",
+   "words": [
+    [
+     "die Behinderung / die Behinderungen",
+     "障碍、残疾"
+    ],
+    [
+     "nicht sichtbar",
+     "看不见的"
+    ],
+    [
+     "der Aktionstag",
+     "行动日"
+    ]
+   ]
+  },
+  {
    "id": 27,
    "title": "法国抗议物价高涨，多地骚乱：商店被抢、市政厅被烧",
    "de_title": "Frankreich: Proteste gegen hohe Preise eskalieren",
@@ -173,31 +198,6 @@
     [
      "rauchen",
      "吸烟"
-    ]
-   ]
-  },
-  {
-   "id": 20,
-   "title": "特朗普要求泽连斯基下台，欧盟说继续支持乌克兰",
-   "de_title": "Trump fordert Rücktritt von Selenskyj – EU unterstützt Ukraine weiter",
-   "hook": "美国逼下台|欧盟接住",
-   "sub": "俄乌战争四年多 · 美乌关系生变，欧盟继续支持",
-   "date": "2026-10-16",
-   "photo": "news/og/src/20.jpg",
-   "de_hook": "Trump gegen|Selenskyj –|eskaliert das?",
-   "zh_intro": "俄罗斯对乌克兰的攻击已经持续四年多。许多国家支持乌克兰，其中包括美国：美国提供武器、资金和数据，比如俄军会在哪些地方发动攻击——这类信息部分来自美国卫星。但美国政府现在对乌克兰不满意。美国总统特朗普要求乌克兰总统泽连斯基下台。泽连斯基表示自己不会辞职，并说他对美国转向俄罗斯一边感到难过；他还说，美国卫星没有提供全部重要数据，这对乌克兰很危险。泽连斯基随后出席欧盟会议，欧盟国家表示将继续支持乌克兰。",
-   "words": [
-    [
-     "der Krieg",
-     "战争"
-    ],
-    [
-     "angreifen",
-     "攻击"
-    ],
-    [
-     "unterstützen",
-     "支持"
     ]
    ]
   }
