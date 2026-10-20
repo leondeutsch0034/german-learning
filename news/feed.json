@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 29,
+   "title": "近 200 国开会：2030 年前保护近 30% 的地球",
+   "de_title": "UNO-Konferenz in Armenien: Das 30-Prozent-Ziel für die Natur",
+   "hook": "三成地球|留给自然",
+   "sub": "2030 年的目标 · 联合国说还差得远",
+   "date": "2026-10-19",
+   "photo": "news/og/src/29.jpg",
+   "de_hook": "Fast 200 Länder|reden über Natur –|was kommt dabei raus?",
+   "zh_intro": "近 200 个国家的代表在亚美尼亚开会，商量怎么更好地保护动物、植物和自然。目标是在 2030 年前保护近 30% 的陆地、海洋和海岸。联合国说，现在做得还远远不够，所以各国要再谈两周。",
+   "words": [
+    [
+     "die Konferenz / die Konferenzen",
+     "会议 / 会议（复数）"
+    ],
+    [
+     "das Land / die Länder",
+     "国家 / 国家（复数）"
+    ],
+    [
+     "die Natur",
+     "大自然"
+    ]
+   ]
+  },
+  {
    "id": 28,
    "title": "德国超市「安静一小时」：照顾看不见的障碍",
    "de_title": "Stille Stunde: Eine Stunde ruhig einkaufen",
@@ -173,31 +198,6 @@
     [
      "die Behinderung",
      "残障"
-    ]
-   ]
-  },
-  {
-   "id": 21,
-   "title": "德国烟草税连涨四年，一包烟将逼近 12 欧",
-   "de_title": "Tabaksteuer steigt: Zigaretten bald fast 12 Euro",
-   "hook": "一包烟|快 12 欧",
-   "sub": "德国烟草税连涨四年 · 电子烟也涨",
-   "date": "2026-10-16",
-   "photo": "news/og/src/21.jpg",
-   "de_hook": "Fast 12 Euro|für eine Packung –|rauchst du noch?",
-   "zh_intro": "在德国，吸烟很快会明显变贵：烟草税将在未来几年逐步提高。一包普通香烟四年后可能接近 12 欧元，比现在贵约 4 欧元。联邦议院和联邦参议院已经通过。罐装烟丝——很多人用来自己卷烟——也会涨价，电子烟同样如此。政府一方面想增加财政收入，另一方面希望更高的价格能让更少的人吸烟：吸烟会上瘾，也会致病。",
-   "words": [
-    [
-     "die Tabaksteuer",
-     "烟草税"
-    ],
-    [
-     "das Rauchen",
-     "吸烟"
-    ],
-    [
-     "rauchen",
-     "吸烟"
     ]
    ]
   }
