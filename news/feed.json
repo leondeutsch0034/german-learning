@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 27,
+   "title": "法国抗议物价高涨，多地骚乱：商店被抢、市政厅被烧",
+   "de_title": "Frankreich: Proteste gegen hohe Preise eskalieren",
+   "hook": "物价太高|法国街头|烧起来了",
+   "sub": "巴黎商店被抢 · 利摩日市政厅被烧",
+   "date": "2026-10-18",
+   "photo": "news/og/src/27.jpg",
+   "de_hook": "Frankreich:|Warum brennt|die Straße?",
+   "zh_intro": "法国多地爆发反对高物价的抗议，部分示威演变成骚乱：巴黎有汽车被点燃、商店橱窗被砸、店铺遭抢；利摩日的市政厅被纵火。法国政府称，500 多名警察和消防人员受伤，警方逮捕了许多人。大多数示威者保持和平，其中很多年轻人已连续数周要求改善学校和大学的状况。",
+   "words": [
+    [
+     "die Demonstration, -en",
+     "示威、游行"
+    ],
+    [
+     "protestieren",
+     "抗议"
+    ],
+    [
+     "hohe Preise",
+     "高物价"
+    ]
+   ]
+  },
+  {
    "id": 26,
    "title": "德国新法：受害人上法庭，有人陪、律师免费",
    "de_title": "Opfer von Straftaten bekommen mehr Hilfe vor Gericht",
@@ -173,31 +198,6 @@
     [
      "unterstützen",
      "支持"
-    ]
-   ]
-  },
-  {
-   "id": 19,
-   "title": "80 岁以上照样夺冠：德国老年足球队 2:0 胜美国",
-   "de_title": "Ü80-WM: Deutschland gewinnt 2:0 gegen die USA",
-   "hook": "八十岁|照样拿|世界冠军",
-   "sub": "德国 Ü80 队 2:0 胜美国 · 8 人一队，一场一小时",
-   "date": "2026-10-17",
-   "photo": "news/og/src/19.jpg",
-   "de_hook": "Mit 80 noch|Weltmeister –|wie geht das?",
-   "zh_intro": "80 岁以上足球世界杯在澳大利亚举行。德国队在决赛中 2:0 战胜美国队。每队 8 名球员，比赛一小时，30 分钟后有休息；小组赛阶段，这些老将甚至一天要踢两场。球员们想证明：年纪大了，照样可以运动。队员 Michael Rätsch 说，大家踢得脸红、晒伤了，但为这场胜利非常高兴。",
-   "words": [
-    [
-     "die Weltmeisterschaft",
-     "世界锦标赛、世界杯"
-    ],
-    [
-     "das Finale",
-     "决赛"
-    ],
-    [
-     "die Nationalmannschaft",
-     "国家队"
     ]
    ]
   }
