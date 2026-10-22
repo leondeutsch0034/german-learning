@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>周宇航 · 专属练习 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+.wrap{max-width:920px;margin:0 auto;padding:26px 18px 60px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:26px}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.35rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px;transition:.2s}
+.gate input:focus{border-color:var(--gold)}
+.btn{width:100%;background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:12px;font-size:1rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.9}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:8px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 6px;font-size:1.7rem;color:#fff8e8}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.8rem;line-height:1.65}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:24px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.week{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+.week h2{margin:0;font-size:1.02rem;color:#fff8e8}
+.week .sub{color:var(--muted);font-size:.78rem;margin:2px 0 10px}
+.item{display:block;text-decoration:none;color:inherit;padding:11px 12px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);margin-top:8px;transition:.18s}
+.item:hover{background:rgba(246,211,101,.07);border-color:rgba(246,211,101,.28);transform:translateX(2px)}
+.item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mod{font-size:.66rem;font-weight:800;letter-spacing:.06em;background:rgba(246,211,101,.13);color:#ffe088;padding:2px 8px;border-radius:6px;flex-shrink:0}
+.item-title{font-size:.9rem;font-weight:700;color:#f1f5f9}
+.item-note{font-size:.75rem;color:var(--muted);margin-top:4px}
+.tag{font-size:.66rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:520px){.wrap{padding:18px 14px 50px}.hero{padding:20px}.hero h1{font-size:1.4rem}.week{padding:14px}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand{display:none}#app{display:block!important}.hero,.week,.item{border-color:#ddd;background:#fff;color:#111}.hero h1,.week h2,.item-title,.item{color:#111}.item-note,.sub,.foot,.eyebrow{color:#555}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span>🎓 Leons Deutschzentrum</span><a href="../">← 返回主站</a></div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>周宇航 的专属练习</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">歌德 B1 冲刺 · 专属学习计划</div>
+      <h1>周宇航</h1>
+      <div class="meta">
+        <span class="chip">目标：Goethe-Zertifikat B1</span>
+        <span class="chip">级别：B1</span>
+        <span class="chip">更新：2026-10-22</span>
+      </div>
+      <div class="notice">这是按 B1 备考节奏排的起步计划。每周先完成当周任务，再做下一周；老师会根据完成情况随时调整。</div>
+    </div>
+
+    <div class="sec-title">每周计划</div>
+    <div id="weeks"></div>
+
+    <div class="sec-title">常备练习库</div>
+    <div class="grid" id="library"></div>
+
+    <div class="foot">
+      这是 周宇航 的专属页面 · 只有口令可以打开<br>
+      <a href="../">← 返回 Leons Deutschzentrum 主站</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var D = {"slug":"zhouyuhang","name":"周宇航","level":"B1","levelLabel":"歌德 B1 冲刺","tagline":"B1 模考 + 四项专项","updated":"2026-10-22","goal":"Goethe-Zertifikat B1","notice":"这是按 B1 备考节奏排的起步计划。每周先完成当周任务，再做下一周；老师会根据完成情况随时调整。","weeks":[{"title":"第 1 周 · 诊断","sub":"先知道自己差在哪个模块，后面才不盲目刷题","items":[{"module":"模考","title":"B1 真题模拟 Modelltest 1 · 全套限时","href":"../#b1modell","note":"Lesen 65 分钟 · Hören 40 分钟 · Schreiben 60 分钟 · Sprechen 15 分钟，中间不查词、不停表。","tag":"限时"},{"module":"复盘","title":"把四项分数记下来","href":"../#b1pruefung","note":"哪一项低于 60%，就把它排进第 2、3 周的重点；错题按题型归档，不抄整题。","tag":"记录"}]},{"title":"第 2 周 · Lesen + Hören","sub":"阅读学找证据，听力练抓关键句","items":[{"module":"Lesen","title":"MT1 阅读逐题回原文找证据","href":"../#b1modell","note":"每道错题写一句：答案在原文哪一句、我当初被哪个词骗了。","tag":"精析"},{"module":"Lesen","title":"B1 阅读精读 2 篇","href":"../#b1-lesen","note":"先通读抓主旨，再逐段划关键词，最后做后面的题。","tag":"2 篇"},{"module":"Hören","title":"MT1 听力精听","href":"../#b1modell","note":"先做题 → 对答案 → 看听力原文 → 把没听出来的句子跟读 3 遍。","tag":"精听"},{"module":"Hören","title":"B1 听力专项 1 组","href":"../#b1hoeren","note":"重点练 Teil 1、2 的场景词：预约、问路、办事、工作。","tag":"专项"}]},{"title":"第 3 周 · Schreiben + Sprechen","sub":"输入转输出，开始动手写、开口说","items":[{"module":"Schreiben","title":"B1 写作三种题型各 1 篇","href":"../#b1schreiben","note":"私人邮件、论坛留言、正式邮件，按卷面要求限时写，写完对照范文改。","tag":"3 篇"},{"module":"Schreiben","title":"整理 5 个万能句","href":"../#b1schreiben","note":"开头、道歉、请求、建议、结尾各 1 句，背到能不假思索写出来。","tag":"背诵"},{"module":"Sprechen","title":"B1 口语 Teil 1–3 流程过一遍","href":"../#b1sprechen","note":"每个 Teil 先看流程和常用表达，再自己说一轮并录音，回听卡壳的地方。","tag":"录音"}]},{"title":"第 4 周 · 整套冲刺","sub":"按考试节奏完整走一遍，错题只二刷错过的","items":[{"module":"模考","title":"B1 真题模拟 Modelltest 2 · 全套限时","href":"../#b1modell","note":"和真实考试同一顺序、同一时间，写作必须一次成稿，不中途大改。","tag":"限时"},{"module":"复盘","title":"错题二刷","href":"../#b1modell","note":"只做第 1、2 周错过的题型，连续两次做对才算过。","tag":"二刷"},{"module":"Sprechen","title":"口语完整模拟 1 次","href":"../#b1sprechen","note":"三个 Teil 连着做完，中途不暂停；录音回听流利度和连接词。","tag":"模拟"}]}],"library":[{"module":"语法","title":"B1 语法查漏","href":"../#b1grammar","note":"按错题对应的语法点补，不从头刷。"},{"module":"语法","title":"被动 · 虚拟式专题","href":"../#passivkonjunktiv","note":"B1 阅读和写作高频，推导一遍再做题。"},{"module":"抄写","title":"A1–B1 语法抄写","href":"../#grammatik-schreiben","note":"手写练变位和语序，每天 10 分钟。"},{"module":"阅读","title":"B1 阅读大全","href":"../#b1-lesen","note":"精读 + 泛读，按主题挑自己弱的。"},{"module":"听力","title":"B1 听力专项","href":"../#b1hoeren","note":"对话、采访、广播，磨耳朵用。"},{"module":"写作","title":"B1 写作模板与范文","href":"../#b1schreiben","note":"三种题型的结构骨架和高分表达。"},{"module":"口语","title":"B1 口语流程与表达","href":"../#b1sprechen","note":"考前把三个 Teil 的流程再看一遍。"}],"passHash":"b131f84de57c010f3c1d698a97630489e663d5e8cb8f01ac4ddf0b6796850d96"};
+var PASS_HASH = 'b131f84de57c010f3c1d698a97630489e663d5e8cb8f01ac4ddf0b6796850d96';
+var KEY = 'stu_unlock_' + D.slug;
+
+/* SHA-256（纯 JS，file:// 下也能用；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function itemHTML(it){
+  var ext = /^https?:/i.test(it.href || '');
+  var tag = it.tag ? '<span class="tag">' + esc(it.tag) + '</span>' : '';
+  var note = it.note ? '<div class="item-note">' + esc(it.note) + '</div>' : '';
+  return '<a class="item" href="' + esc(it.href || '#') + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>'
+    + '<div class="item-head"><span class="mod">' + esc(it.module || '练习') + '</span>'
+    + '<span class="item-title">' + esc(it.title) + '</span>' + tag + '</div>'
+    + note + '</a>';
+}
+
+function render(){
+  var wh = '';
+  (D.weeks || []).forEach(function(w){
+    wh += '<div class="week"><h2>' + esc(w.title) + '</h2>'
+      + (w.sub ? '<div class="sub">' + esc(w.sub) + '</div>' : '')
+      + (w.items || []).map(itemHTML).join('') + '</div>';
+  });
+  document.getElementById('weeks').innerHTML = wh;
+  document.getElementById('library').innerHTML = (D.library || []).map(itemHTML).join('');
+}
+
+function show(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  render();
+}
+
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v) { err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    show();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = '';
+    input.focus();
+  }
+}
+
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) show();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
