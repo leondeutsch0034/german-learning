@@ -950,6 +950,12 @@ function createLoginPromptCard() {
     desc:"B1模拟考试 · 两套官方模考(Tab切换) · 阅读可判分+听力+写作范文+口语表达",
     tags:"歌德B1 · 模拟考试 · 听说读写 · 实时判分",
     c1:"#6b21a8", c2:"#a78bfa", locked:false },
+  { id:"b1modell", icon:"🗝️", navLabel:"B1真题15套", cardTitleDe:"15 Übungsprüfungen", cardSubDe:"Goethe B1 · 15 komplette Modelltests — Lösungen & Transkripte", cardTitle:"B1真题模拟15套", group:"b1",
+    hubStep:6, hubSkill:"Test", hubSkillZh:"真题模拟", hubAccent:"#a78bfa",
+    hubTip:"15 套完整真题 · 原声听力 · 判分 · 原文 · 口令进入",
+    desc:"B1真题专题 · 15 套原书模拟卷 · 四模块页图 + 原声听力 + 官方答案 + 听力原文",
+    tags:"歌德B1 · 15套真题 · 口令 · 自测",
+    c1:"#4c1d95", c2:"#a78bfa", locked:false },
   { id:"b1sprechen", icon:"🗣️", navLabel:"B1口语", cardTitleDe:"B1 Sprechen", cardSubDe:"Goethe B1 mündliche Prüfung — 流程 · 题型 · 技巧 · 视频", cardTitle:"B1口语", group:"b1",
     hubStep:7, hubSkill:"Sprechen", hubSkillZh:"口语", hubAccent:"#f59e0b", hubTip:"口语专项：考试流程 · 三部分题型 · 答题技巧 · 精选视频",
     desc:"B1口语 · 歌德 B1 口语全解析 · 流程+题型+技巧+表达 · 精选国内外视频",
@@ -1235,7 +1241,7 @@ var PAGE_NAMES = {
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
   'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','newslesen':'德语新闻','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','passivkonjunktiv':'被动·虚拟式专题','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
-  'b1hub':'B1学习站','b2hub':'B2学习站','c1hub':'C1学习站',
+  'b1hub':'B1学习站','b1modell':'B1真题15套','b2hub':'B2学习站','c1hub':'C1学习站',
   'b2sprechen':'B2口语','b2schreiben':'B2写作',
   'resources':'全网资源推荐'
 };
@@ -1971,6 +1977,10 @@ document.addEventListener('keydown', function(e) {
 
 <div id="page-b1pruefung" class="page" data-lazy="true"></div>
 <script>registerLazyPage('b1pruefung', 'tpl-page-b1pruefung', function(page){ if(window.b1pfAddAnchors){ try{ window.b1pfAddAnchors(); }catch(e){} } });</script>
+<template id="tpl-page-b1modell" data-src="lazy/b1modell.html"></template>
+
+<div id="page-b1modell" class="page" data-lazy="true"></div>
+<script>registerLazyPage('b1modell', 'tpl-page-b1modell');</script>
 <template id="tpl-page-b1sprechen" data-src="lazy/b1sprechen.html"></template>
 
 <div id="page-b1sprechen" class="page" data-lazy="true"></div>

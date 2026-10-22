@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /b1modell/
+Disallow: /lazy/b1modell.html
 
 Sitemap: https://leonsdeutschzentrum.com/sitemap.xml
