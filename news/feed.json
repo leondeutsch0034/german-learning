@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 31,
+   "title": "德国父母为什么不给孩子打卡？",
+   "de_title": "Hausaufgaben: Warum deutsche Eltern nicht jeden Tag kontrollieren",
+   "hook": "德国父母|不每天打卡",
+   "sub": "每周签一次字，不批改作业",
+   "date": "2026-10-22",
+   "photo": "news/og/src/31.jpg",
+   "de_hook": "Kein Foto|kein täglicher Stempel|– warum?",
+   "zh_intro": "在中国，很多家长每天要在班级群发照片打卡；在德国，家长最多每周在作业本上签一次字，而且学校明确不希望家长替孩子改作业。差别不在管得松，而在谁向谁证明。",
+   "words": [
+    [
+     "der Nachweis",
+     "证明、凭证"
+    ],
+    [
+     "abzeichnen",
+     "签字确认"
+    ],
+    [
+     "das Hausaufgabenheft",
+     "作业记录本"
+    ]
+   ]
+  },
+  {
    "id": 30,
    "title": "欧盟新规：车票、机票取消，14 天内退钱",
    "de_title": "EU-Parlament: Geld zurück bei ausgefallenen Reisen",
@@ -173,31 +198,6 @@
     [
      "das Abgeordnetenhaus",
      "市议会（柏林）"
-    ]
-   ]
-  },
-  {
-   "id": 23,
-   "title": "德国给孩子存养老金：每月 10 欧，65 岁可能超 5 万",
-   "de_title": "Bundestag beschließt Früh-Start-Rente für Kinder",
-   "hook": "每月10欧|国家替孩子|存养老金",
-   "sub": "6–18 岁 · 钱投进股市 · 65 岁才能取",
-   "date": "2026-10-16",
-   "photo": "news/og/src/23.jpg",
-   "de_hook": "Zehn Euro pro Monat|für jedes Kind –|reicht das später?",
-   "zh_intro": "德国联邦议院通过了一项新法律：国家为 6 到 18 岁的孩子每月存入 10 欧元，这笔钱投入股票市场。政府希望股票长期升值；孩子满 65 岁以后才能领取。财政部算过一笔账：到那时，这笔钱可能超过 5 万欧元。",
-   "words": [
-    [
-     "die Rente",
-     "养老金"
-    ],
-    [
-     "die Altersvorsorge",
-     "养老储备、养老保障"
-    ],
-    [
-     "die Früh-Start-Rente",
-     "早起步养老金"
     ]
    ]
   }
