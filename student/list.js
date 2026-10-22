@@ -2,7 +2,7 @@
 window.STUDENT_LINKS = [
   {
     "slug": "zhouyuhang",
-    "name": "周宇航",
+    "name": "周同学",
     "level": "B1",
     "tagline": "B1 模考 + 四项专项",
     "updated": "2026-10-22"

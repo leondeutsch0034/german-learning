@@ -35827,7 +35827,7 @@ window.jumpKulturEp = function(n) {
       grid.innerHTML = items.map(function(s){
         return '<a class="stu-link-card" href="student/' + encodeURIComponent(s.slug) + '.html">'
           + '<div class="stu-link-head"><span class="stu-link-avatar">' + esc((s.name || '?').slice(0,1)) + '</span>'
-          + '<span class="stu-link-name">' + esc(s.name) + ' 同学</span>'
+          + '<span class="stu-link-name">' + esc(s.name) + '</span>'
           + '<span class="stu-link-badge">' + esc(s.level) + '</span></div>'
           + '<div class="stu-link-tag">' + esc(s.tagline || '专属练习') + '</div>'
           + '<div class="stu-link-foot"><span>🔐 需口令进入</span><span class="go">进入 →</span></div></a>';
