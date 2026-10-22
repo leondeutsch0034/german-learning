@@ -953,7 +953,7 @@ function createLoginPromptCard() {
   { id:"b1modell", icon:"🗝️", navLabel:"B1真题15套", cardTitleDe:"15 Übungsprüfungen", cardSubDe:"Goethe B1 · 15 komplette Modelltests — Lösungen & Transkripte", cardTitle:"B1真题模拟15套", group:"b1",
     hubStep:6, hubSkill:"Test", hubSkillZh:"真题模拟", hubAccent:"#a78bfa",
     hubTip:"15 套完整真题 · 原声听力 · 判分 · 原文 · 口令进入",
-    desc:"B1真题专题 · 15 套原书模拟卷 · 四模块页图 + 原声听力 + 官方答案 + 听力原文",
+    desc:"B1真题专题 · 15 套原书模拟卷 · 四模块文字卷面 + 原声听力 + 官方答案 + 听力原文",
     tags:"歌德B1 · 15套真题 · 口令 · 自测",
     c1:"#4c1d95", c2:"#a78bfa", locked:false },
   { id:"b1sprechen", icon:"🗣️", navLabel:"B1口语", cardTitleDe:"B1 Sprechen", cardSubDe:"Goethe B1 mündliche Prüfung — 流程 · 题型 · 技巧 · 视频", cardTitle:"B1口语", group:"b1",
@@ -1910,6 +1910,9 @@ document.addEventListener('keydown', function(e) {
     <script>renderHubCards('a1');</script>
   </div>
 
+  <div class="a1hub-sec" id="a1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="a1hub-student-grid" style="display:none"></div>
+
   <footer>
     🇩🇪 Viel Erfolg bei der A1-Prüfung! &nbsp; 祝 A1 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A1 · 语法 · 听力 · 阅朗读 · 写作 · 综合
@@ -1938,6 +1941,9 @@ document.addEventListener('keydown', function(e) {
     <script>renderHubCards('a2');</script>
   </div>
 
+  <div class="a1hub-sec" id="a2hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="a2hub-student-grid" style="display:none"></div>
+
   <footer>
     🇩🇪 Viel Erfolg bei der A2-Prüfung! &nbsp; 祝 A2 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A2 · 语法 · 听力 · 阅读 · 写作 · 单元综合
@@ -1965,6 +1971,9 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-grid" id="b1hub-grid">
     <script>renderHubCards('b1');</script>
   </div>
+
+  <div class="a1hub-sec" id="b1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="b1hub-student-grid" style="display:none"></div>
 
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
@@ -2023,6 +2032,9 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-grid" id="b2hub-grid">
     <script>renderHubCards('b2');</script>
   </div>
+
+  <div class="a1hub-sec" id="b2hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="b2hub-student-grid" style="display:none"></div>
 
   <footer>
     🇩🇪 B2 — Die Mittelstufe! &nbsp; 中高级内容
@@ -15457,6 +15469,9 @@ showB2LArticle('');
   <div class="a1hub-grid" id="c1hub-grid">
     <script>renderHubCards('c1');</script>
   </div>
+
+  <div class="a1hub-sec" id="c1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="c1hub-student-grid" style="display:none"></div>
 
   <footer>
     🇩🇪 C1 — Fortgeschrittenes Deutsch! &nbsp; 高级内容
@@ -35773,5 +35788,58 @@ window.jumpKulturEp = function(n) {
 
 </script>
 <!-- audio-exclusive-v1 END -->
+<!-- student-portal-v1 START -->
+<style>
+.stu-link-card{position:relative;display:block;text-decoration:none;overflow:hidden;
+  background:linear-gradient(150deg,#13243f,#0f1c33);
+  border:1px solid rgba(246,211,101,.22);border-left:3px solid var(--hub,#f6d365);
+  border-radius:16px;padding:16px 18px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.stu-link-card:hover{transform:translateY(-3px);border-color:rgba(246,211,101,.5);box-shadow:0 10px 28px rgba(8,16,40,.55)}
+.stu-link-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.stu-link-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;font-weight:800;color:#fff8e8;
+  background:color-mix(in srgb,var(--hub,#f6d365) 18%,transparent);
+  border:1px solid color-mix(in srgb,var(--hub,#f6d365) 35%,transparent)}
+.stu-link-name{font-size:1rem;font-weight:800;color:#fff8e8}
+.stu-link-badge{margin-left:auto;font-size:.66rem;font-weight:800;letter-spacing:.06em;color:#ffe088;
+  background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);padding:2px 8px;border-radius:999px}
+.stu-link-tag{font-size:.76rem;color:rgba(255,235,215,.62);margin-bottom:10px}
+.stu-link-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-size:.7rem;color:rgba(246,211,101,.8)}
+.stu-link-foot .go{font-weight:800}
+</style>
+<script src="student/list.js"></script>
+<script>
+(function(){
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function renderStudentLinks(){
+    var list = window.STUDENT_LINKS || [];
+    ['a1','a2','b1','b2','c1'].forEach(function(k){
+      var sec = document.getElementById(k + 'hub-student-sec');
+      var grid = document.getElementById(k + 'hub-student-grid');
+      if (!sec || !grid) return;
+      var items = list.filter(function(s){ return String(s.level || '').toUpperCase() === k.toUpperCase(); });
+      if (!items.length) return;
+      grid.innerHTML = items.map(function(s){
+        return '<a class="stu-link-card" href="student/' + encodeURIComponent(s.slug) + '.html">'
+          + '<div class="stu-link-head"><span class="stu-link-avatar">' + esc((s.name || '?').slice(0,1)) + '</span>'
+          + '<span class="stu-link-name">' + esc(s.name) + ' 同学</span>'
+          + '<span class="stu-link-badge">' + esc(s.level) + '</span></div>'
+          + '<div class="stu-link-tag">' + esc(s.tagline || '专属练习') + '</div>'
+          + '<div class="stu-link-foot"><span>🔐 需口令进入</span><span class="go">进入 →</span></div></a>';
+      }).join('');
+      sec.style.display = '';
+      grid.style.display = '';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderStudentLinks);
+  else renderStudentLinks();
+})();
+</script>
+<!-- student-portal-v1 END -->
 </body>
 </html>
