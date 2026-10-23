@@ -123,6 +123,15 @@
   padding-left:1.4rem;text-indent:-1.4rem}
 #page-b1modell .b1m-doc .doc-opt{color:#c3d0e2;margin:0 0 .18rem 1.5rem;font-size:.91rem}
 #page-b1modell .b1m-doc .doc-opt:last-child{margin-bottom:.8rem}
+#page-b1modell .b1m-cbtn{display:block;width:100%;text-align:left;background:transparent;
+  border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:6px 11px;color:#c3d0e2;
+  font:inherit;font-size:.88rem;line-height:1.65;cursor:pointer;margin:3px 0;transition:.15s}
+#page-b1modell .b1m-cbtn:hover{border-color:#f6d365;color:#fde68a;background:rgba(246,211,101,.06)}
+#page-b1modell .b1m-cbtn.sel{background:rgba(246,211,101,.16);border-color:#f6d365;color:#fde68a;font-weight:700}
+#page-b1modell .b1m-cbtn.right{background:rgba(74,222,128,.12);border-color:#4ade80;color:#86efac}
+#page-b1modell .b1m-cbtn.wrong{background:rgba(248,113,113,.12);border-color:#f87171;color:#fca5a5}
+#page-b1modell .b1m-quizbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+#page-b1modell .b1m-quizbar .score{font-size:.85rem;font-weight:700;color:#fde68a}
 #page-b1modell .b1m-t4grid{background:rgba(10,20,35,.35);border:1px solid rgba(96,165,250,.2);
   border-radius:10px;padding:10px 12px;margin:10px 0}
 #page-b1modell .b1m-t4grid table{width:100%;border-collapse:collapse;font-size:.82rem}
@@ -481,7 +490,7 @@
   function sectionsHtml(e, mod){
     var secs = (e.sections && e.sections[mod]) || [];
     if (!secs.length) return textHtml(e, mod);
-    var out = '<p class="b1m-ocrnote">卷面按 Teil 分节；题目/选项保留原书文字。往下拉到「答题卡」点选后判分。</p>';
+    var out = '<p class="b1m-ocrnote">卷面按 Teil 分节；选项可直接点选，点上方「判分本模块」核对。题目文字保留原书（OCR 转写）。</p>';
     secs.forEach(function(s){
       out += '<div class="b1m-teilblk"><div class="b1m-teilhead">' + esc(s.title) + '</div>';
       (s.instr || []).forEach(function(t){ out += '<p class="b1m-instrline">' + esc(t) + '</p>'; });
@@ -502,22 +511,29 @@
       (s.questions || []).forEach(function(q){
         out += '<div class="b1m-qcard"><div class="b1m-stem">'
              + (q.label || q.n ? '<span class="qn">' + esc(q.label || q.n) + '</span>' : '') + esc(q.stem) + '</div>';
-        var choices = [];
+        var pairs = [];
         if (q.opts && q.opts.length){
           if (q.opts.length === 1 && /^Richtig\s*\/\s*Falsch$/.test(q.opts[0])){
-            choices = ['Richtig', 'Falsch'];
+            pairs = [{v:'Richtig', t:'Richtig'}, {v:'Falsch', t:'Falsch'}];
           } else {
-            choices = q.opts;
+            q.opts.forEach(function(o, oi){
+              var mm = /^\(([a-cA-C])\)\s*(.*)$/.exec(o);
+              pairs.push({v: mm ? mm[1].toLowerCase() : 'abc'.charAt(oi),
+                          t: mm ? mm[2] : o});
+            });
           }
         } else {
           var ty = qType(mod, q.n);
-          choices = ty === 'rf' ? ['Richtig', 'Falsch']
-                  : ty === 'yn' ? ['Ja', 'Nein']
-                  : ty === 'match' ? ['a','b','c','d','e','f','g','h','i','j','0']
-                  : ['a', 'b', 'c'];
+          var defs = ty === 'rf' ? ['Richtig','Falsch']
+                   : ty === 'yn' ? ['Ja','Nein']
+                   : ty === 'match' ? ['a','b','c','d','e','f','g','h','i','j','0']
+                   : ['a','b','c'];
+          pairs = defs.map(function(x){ return {v:x, t:x}; });
         }
-        out += '<div class="b1m-choices">' + choices.map(function(c){
-          return '<div class="b1m-choice">' + esc(c) + '</div>';
+        var saved = (S.answers[CUR.n] && S.answers[CUR.n][mod] && S.answers[CUR.n][mod][q.n]) || '';
+        out += '<div class="b1m-choices">' + pairs.map(function(c){
+          return '<button class="b1m-cbtn' + (saved === c.v ? ' sel' : '') + '" data-n="' + q.n + '" data-v="' + esc(c.v) + '">'
+               + esc(c.t) + '</button>';
         }).join('') + '</div></div>';
       });
       (s.extra || []).forEach(function(t){ out += '<p class="b1m-extra">' + esc(t) + '</p>'; });
@@ -575,6 +591,9 @@
       } else {
         h += '<p class="b1m-lead"><b>先做题，再对答案。</b>阅读 65 分钟 5 个 Teil；建议先看题目再回原文定位，每道错题都写出原文依据句。</p>';
       }
+      h += '<div class="b1m-quizbar"><button class="b1m-btn gold" data-act="gradeTop">✓ 判分本模块</button>'
+         + '<button class="b1m-btn ghost" data-act="clearTop">↺ 清空</button>'
+         + '<span class="score" id="b1mTopScore"></span></div>';
       h += sectionsHtml(e, mod);
       h += checkHtml(mod);
       h += '<p class="b1m-lead" style="margin-top:14px">👉 做完后打开 <b>Lösungen</b> 核对答案；打开 <b>Transkripte</b> 做听力精听/跟读。</p>';
@@ -674,6 +693,19 @@
       + '<div class="b1m-result" id="b1mResult"></div></div>';
     return out;
   }
+  function syncChoice(n){
+    var mod = CUR.tab;
+    var ans = (S.answers[CUR.n] && S.answers[CUR.n][mod] && S.answers[CUR.n][mod][n]) || '';
+    var panel = $('b1mPanel');
+    panel.querySelectorAll('.b1m-cbtn[data-n="' + n + '"]').forEach(function(b){
+      b.classList.toggle('sel', b.getAttribute('data-v') === ans);
+      b.classList.remove('right', 'wrong');
+    });
+    panel.querySelectorAll('.b1m-opt[data-i="' + n + '"]').forEach(function(b){
+      b.classList.toggle('sel', b.getAttribute('data-v') === ans);
+    });
+  }
+
   function bindCheck(mod){
     var box = $('b1mPanel').querySelector('.b1m-check');
     if (!box) return;
@@ -688,6 +720,7 @@
         save();
         $('b1mResult').innerHTML = '';
         var curSel = S.answers[CUR.n][mod][i];
+        syncChoice(i);
         $('b1mPanel').querySelectorAll('.b1m-t4opt[data-n="' + i + '"]').forEach(function(c){
           c.classList.toggle('sel', c.getAttribute('data-v') === curSel);
         });
@@ -726,6 +759,16 @@
       for (var i=t[1];i<=t[2];i++) if (ans[i] === key[i-1]) r++;
       return '<tr><td>Teil '+t[0]+'</td><td>'+r+' / '+tot+'</td><td>'+(r/tot*100).toFixed(0)+'%</td></tr>';
     }).join('');
+    for (var k=1;k<=30;k++){
+      var keyv = key[k-1], av = ans[k];
+      $('b1mPanel').querySelectorAll('.b1m-cbtn[data-n="' + k + '"]').forEach(function(b){
+        b.classList.remove('right','wrong');
+        if (b.getAttribute('data-v') === keyv) b.classList.add('right');
+        else if (av && b.getAttribute('data-v') === av) b.classList.add('wrong');
+      });
+    }
+    var topScore = $('b1mTopScore');
+    if (topScore) topScore.textContent = right + ' / 30 · ' + pct + '%';
     $('b1mResult').innerHTML =
       '<div class="big">'+right+' / 30 · '+pct+'%</div>'
       + '<div class="'+(pass?'pass':'fail')+'">'+(pass?'✅ 达到 60% 参考线':'⚠ 未到 60% 参考线（18/30）')+'</div>'
@@ -739,10 +782,29 @@
   }
 
   page.addEventListener('click', function(e){
+    var c = e.target.closest && e.target.closest('.b1m-cbtn');
+    if (c){
+      var n = +c.getAttribute('data-n'), v = c.getAttribute('data-v'), mod = CUR.tab;
+      S.answers[CUR.n] = S.answers[CUR.n] || {};
+      S.answers[CUR.n][mod] = S.answers[CUR.n][mod] || {};
+      if (S.answers[CUR.n][mod][n] === v) delete S.answers[CUR.n][mod][n];
+      else S.answers[CUR.n][mod][n] = v;
+      save(); syncChoice(n);
+      var ts = $('b1mTopScore'); if (ts) ts.textContent = '';
+      var rr = $('b1mResult'); if (rr) rr.innerHTML = '';
+      return;
+    }
+    var act = e.target.getAttribute && e.target.getAttribute('data-act');
+    if (act === 'gradeTop'){ grade(CUR.tab); return; }
+    if (act === 'clearTop'){
+      S.answers[CUR.n] = S.answers[CUR.n] || {};
+      S.answers[CUR.n][CUR.tab] = {};
+      save(); renderPanel(); return;
+    }
     var b = e.target.closest && e.target.closest('.b1m-t4opt');
     if (!b) return;
-    var n = b.getAttribute('data-n'), v = b.getAttribute('data-v');
-    var g = $('b1mPanel').querySelector('.b1m-opt[data-i="' + n + '"][data-v="' + v + '"]');
+    var n2 = b.getAttribute('data-n'), v2 = b.getAttribute('data-v');
+    var g = $('b1mPanel').querySelector('.b1m-opt[data-i="' + n2 + '"][data-v="' + v2 + '"]');
     if (g) g.click();
   });
 
