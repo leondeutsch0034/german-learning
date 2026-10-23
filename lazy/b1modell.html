@@ -123,6 +123,9 @@
   padding-left:1.4rem;text-indent:-1.4rem}
 #page-b1modell .b1m-doc .doc-opt{color:#c3d0e2;margin:0 0 .18rem 1.5rem;font-size:.91rem}
 #page-b1modell .b1m-doc .doc-opt:last-child{margin-bottom:.8rem}
+#page-b1modell .b1m-circles{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 2px 34px}
+#page-b1modell .b1m-circle{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;
+  justify-content:center;border-radius:50%;font-size:.86rem;font-weight:800;text-align:center;margin:0}
 #page-b1modell .b1m-cbtn{display:block;width:100%;text-align:left;background:transparent;
   border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:6px 11px;color:#c3d0e2;
   font:inherit;font-size:.88rem;line-height:1.65;cursor:pointer;margin:3px 0;transition:.15s}
@@ -130,6 +133,9 @@
 #page-b1modell .b1m-cbtn.sel{background:rgba(246,211,101,.16);border-color:#f6d365;color:#fde68a;font-weight:700}
 #page-b1modell .b1m-cbtn.right{background:rgba(74,222,128,.12);border-color:#4ade80;color:#86efac}
 #page-b1modell .b1m-cbtn.wrong{background:rgba(248,113,113,.12);border-color:#f87171;color:#fca5a5}
+#page-b1modell .b1m-circles .b1m-circle{width:34px!important;height:34px!important;display:inline-flex!important;
+  align-items:center;justify-content:center;border-radius:50%;padding:0!important;margin:0!important;
+  font-size:.86rem;flex:0 0 auto}
 #page-b1modell .b1m-quizbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
 #page-b1modell .b1m-quizbar .score{font-size:.85rem;font-weight:700;color:#fde68a}
 #page-b1modell .b1m-t4grid{background:rgba(10,20,35,.35);border:1px solid rgba(96,165,250,.2);
@@ -531,9 +537,12 @@
           pairs = defs.map(function(x){ return {v:x, t:x}; });
         }
         var saved = (S.answers[CUR.n] && S.answers[CUR.n][mod] && S.answers[CUR.n][mod][q.n]) || '';
-        out += '<div class="b1m-choices">' + pairs.map(function(c){
-          return '<button class="b1m-cbtn' + (saved === c.v ? ' sel' : '') + '" data-n="' + q.n + '" data-v="' + esc(c.v) + '">'
-               + esc(c.t) + '</button>';
+        var isMatch = qType(mod, q.n) === 'match';
+        var wrap = isMatch ? 'b1m-circles' : 'b1m-choices';
+        var bcls = isMatch ? 'b1m-cbtn b1m-circle' : 'b1m-cbtn';
+        out += '<div class="' + wrap + '">' + pairs.map(function(c){
+          return '<button class="' + bcls + (saved === c.v ? ' sel' : '') + '" data-n="' + q.n + '" data-v="' + esc(c.v) + '" title="Anzeige ' + esc(c.v) + '">'
+               + esc(isMatch ? c.v : c.t) + '</button>';
         }).join('') + '</div></div>';
       });
       (s.extra || []).forEach(function(t){ out += '<p class="b1m-extra">' + esc(t) + '</p>'; });
