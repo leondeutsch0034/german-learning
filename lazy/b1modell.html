@@ -361,8 +361,13 @@
     lesen: [[1,6,['Richtig','Falsch']],[7,12,['a','b','c']],
             [13,19,['a','b','c','d','e','f','g','h','i','j','0']],
             [20,26,['Ja','Nein']],[27,30,['a','b','c']]],
-    hoeren:[[1,10,['Richtig','Falsch']],[11,15,['a','b','c']],
-            [16,22,['a','b','c']],[23,30,['a','b','c']]]
+    hoeren:[[1,1,['Richtig','Falsch']],[2,2,['a','b','c']],
+            [3,3,['Richtig','Falsch']],[4,4,['a','b','c']],
+            [5,5,['Richtig','Falsch']],[6,6,['a','b','c']],
+            [7,7,['Richtig','Falsch']],[8,8,['a','b','c']],
+            [9,9,['Richtig','Falsch']],[10,10,['a','b','c']],
+            [11,15,['a','b','c']],[16,22,['Richtig','Falsch']],
+            [23,30,['a','b','c']]]
   };
   var TEILE = {
     lesen:[[1,1,6],[2,7,12],[3,13,19],[4,20,26],[5,27,30]],
@@ -490,7 +495,7 @@
       if (n >= 20 && n <= 26) return 'yn';
       return 'mc';
     }
-    if (mod === 'hoeren') return (n >= 1 && n <= 10) ? 'rf' : 'mc';
+    if (mod === 'hoeren') return ((n >= 1 && n <= 10 && n % 2 === 1) || (n >= 16 && n <= 22)) ? 'rf' : 'mc';
     return 'mc';
   }
   function sectionsHtml(e, mod){
