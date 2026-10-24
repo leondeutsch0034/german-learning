@@ -138,6 +138,16 @@
     var ph = new URLSearchParams(location.search).get('ph');
     if (ph && /^ph-row-\d+$/.test(ph)) sessionStorage.setItem('phAnchor', ph);
   } catch (e) {}
+  /* 通用「页面 + 小节」深链：/?p=grammar&to=s7#grammar
+     学生专属页等站外入口用它直达具体小节；query 先存，避免被 showPage 冲掉。 */
+  try {
+    var _dp = new URLSearchParams(location.search);
+    var _dpp = _dp.get('p'), _dpt = _dp.get('to');
+    if (_dpp && /^[a-z0-9-]+$/.test(_dpp) && _dpt && /^[A-Za-z0-9_-]+$/.test(_dpt)) {
+      sessionStorage.setItem('dpPage', _dpp);
+      sessionStorage.setItem('dpTo', _dpt);
+    }
+  } catch (e) {}
 })();
 
 /* ══════ 懒加载框架 ══════ */
@@ -1174,7 +1184,6 @@ document.addEventListener('keydown', function(e) {
   <div class="hero-flag"><span class="hf-black"></span><span class="hf-red"></span><span class="hf-gold"></span></div>
   <div class="hero-links">
   <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
-  <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
   <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
   <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
   <a href="#" onclick="showPage('newslesen');return false" class="hero-btn">📰 德语新闻 · 分级阅读 →</a></div>
@@ -22892,6 +22901,34 @@ window.gotoSection = function(secId) {
   });
 };
 
+// 「页面 + 小节」定向跳转：/?p=grammar&to=s7#grammar
+// 直接实例化指定页（不走 gotoSection 的全量懒加载扫描），内容就绪后滚到目标小节。
+window.deepLinkTo = function(pid, secId) {
+  if (!pid || !secId) return;
+  var page = document.getElementById('page-' + pid);
+  if (!page) return;
+  if (page.style.display === 'none') showPage(pid);
+  var tries = 0;
+  function jump() {
+    var t = document.getElementById(secId);
+    if (!t) {
+      if (++tries < 30) setTimeout(jump, 120);
+      return;
+    }
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      t.setAttribute('data-deep-top', Math.round(t.getBoundingClientRect().top));
+      document.documentElement.setAttribute('data-deep-scroll', Math.round(window.scrollY));
+    }, 1200);
+  }
+  var lazy = window._lazyPages && window._lazyPages[pid] && !window._lazyInstantiated[pid];
+  if (lazy) {
+    window.instantiateLazyPage(pid, function() { setTimeout(jump, 100); });
+  } else {
+    setTimeout(jump, 100);
+  }
+};
+
 // 接收来自 iframe（知识图谱3D 等）的跳转请求。
 // 用 postMessage 而非直接 window.parent.gotoSection()，因为本地 file:// 下
 // 浏览器把每个文件当独立 origin，直接跨 iframe 访问父页面函数会被同源策略拦截。
@@ -23024,6 +23061,20 @@ window.addEventListener('popstate', function() {
     window._currentSerieEp = parseInt(sm[1]);
     showPage('serie');
 			}
+});
+
+// 学生专属页等外部入口的「页面 + 小节」深链：正常路由完成后再滚到目标小节。
+document.addEventListener('DOMContentLoaded', function() {
+  var dpp = null, dpt = null;
+  try {
+    dpp = sessionStorage.getItem('dpPage');
+    dpt = sessionStorage.getItem('dpTo');
+    if (dpp && dpt) {
+      sessionStorage.removeItem('dpPage');
+      sessionStorage.removeItem('dpTo');
+    }
+  } catch (e) {}
+  if (dpp && dpt) window.deepLinkTo(dpp, dpt);
 });
 </script>
 
