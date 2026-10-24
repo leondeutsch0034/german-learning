@@ -16503,7 +16503,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 1 ===== -->
-<div class="section">
+<div class="section" id="hr-sec1">
   <div class="section-head">
     <div class="sec-badge">Teil 1 · 第一部分</div>
     <h2>日常短对话 Alltagsgespräche（6题）</h2>
@@ -16629,7 +16629,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 2 ===== -->
-<div class="section">
+<div class="section" id="hr-sec2">
   <div class="section-head">
     <div class="sec-badge">Teil 2 · 第二部分</div>
     <h2>采访/对话 Interview（5题）</h2>
@@ -16710,7 +16710,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 3 ===== -->
-<div class="section">
+<div class="section" id="hr-sec3">
   <div class="section-head">
     <div class="sec-badge">Teil 3 · 第三部分</div>
     <h2>短通知/留言 Ansagen（5题）</h2>
@@ -16854,7 +16854,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 4 – 附加教材音频 ===== -->
-<div class="section" style="margin-top:30px">
+<div class="section" id="hr-sec4" style="margin-top:30px">
   <div class="section-head">
     <div class="sec-badge" style="background:linear-gradient(90deg,#b45309,#d97706)">附加教材 · Zusatzmaterial</div>
     <h2>📚 教材配套听力练习 Zusatzübungen zum Hören</h2>
@@ -17069,7 +17069,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== 歌德A1 模拟听力题 ===== -->
-<div class="section" style="margin-top:30px;border-top:3px solid #7c3aed;padding-top:30px">
+<div class="section" id="hr-sec5" style="margin-top:30px;border-top:3px solid #7c3aed;padding-top:30px">
   <div class="section-head">
     <div class="sec-badge" style="background:linear-gradient(135deg,#7c3aed,#c026d3)">🎯 模拟考题 · Prüfungssimulation</div>
     <h2>歌德A1 听力模拟题（四套）</h2>
@@ -22915,11 +22915,23 @@ window.deepLinkTo = function(pid, secId) {
       if (++tries < 30) setTimeout(jump, 120);
       return;
     }
-    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      t.setAttribute('data-deep-top', Math.round(t.getBoundingClientRect().top));
-      document.documentElement.setAttribute('data-deep-scroll', Math.round(window.scrollY));
-    }, 1200);
+    var nav = document.getElementById('main-nav');
+    var offset = Math.min(88, (nav && nav.offsetHeight ? nav.offsetHeight + 8 : 72));
+    function place() {
+      var y = t.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo(0, Math.max(0, y));
+    }
+    place();
+    // 懒加载/图片会让版面继续变长，短时间内补几次校正，目标偏离才动
+    var settle = 0;
+    (function correct() {
+      if (++settle > 6) return;
+      setTimeout(function() {
+        var top = t.getBoundingClientRect().top;
+        if (top < offset - 24 || top > offset + 80) place();
+        correct();
+      }, 400);
+    })();
   }
   var lazy = window._lazyPages && window._lazyPages[pid] && !window._lazyInstantiated[pid];
   if (lazy) {

@@ -2915,8 +2915,12 @@ function showBook(bookId) {
   }
 }
 
-// Initialize schaf on load
-showBook('schaf');
+// Initialize on load — #book-stadt / #stadt 可直接打开对应书页
+(function(){
+  var id = (location.hash || '').replace(/^#/, '');
+  if (id.indexOf('book-') === 0) id = id.slice(5);
+  showBook(id && document.getElementById('book-' + id) ? id : 'schaf');
+})();
 
 // ═══════════════════════════════════════════
 // 3D STADT NAVIGATION — 德国城市指路场景
