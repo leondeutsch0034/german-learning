@@ -83,6 +83,11 @@ body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%)
       <div class="notice">这是按 B1 备考节奏排的起步计划。每周先完成当周任务，再做下一周；老师会根据完成情况随时调整。</div>
     </div>
 
+    <div id="history-wrap" style="display:none">
+      <div class="sec-title">已完成的作业</div>
+      <div class="grid" id="history"></div>
+    </div>
+
     <div class="sec-title">每周计划</div>
     <div id="weeks"></div>
 
@@ -186,6 +191,9 @@ function render(){
   });
   document.getElementById('weeks').innerHTML = wh;
   document.getElementById('library').innerHTML = (D.library || []).map(itemHTML).join('');
+  var hist = (D.history || []).map(itemHTML).join('');
+  document.getElementById('history').innerHTML = hist;
+  if (hist) document.getElementById('history-wrap').style.display = '';
 }
 
 function show(){
