@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 32,
+   "title": "德国电动滑板车被改装：限速 20，有人跑到 80",
+   "de_title": "Getunte E-Scooter: Polizei warnt vor Rollern mit 80 km/h",
+   "hook": "限速 20|跑到了 80",
+   "sub": "刷一次机，保险就失效",
+   "date": "2026-10-23",
+   "photo": "news/og/src/32.jpg",
+   "de_hook": "20 km/h erlaubt –|warum fahren|manche 80?",
+   "zh_intro": "本该最多跑 20 km/h 的电动滑板车，用手机 App 点几下就能快上好几倍。德国警方最近警告：街头被改装的车越来越多，有人被测到 70、80 km/h。2025 年德国有 38 人死于电动滑板车事故，比前一年多了约 40%。改装不只是违法——保险也会随之失效。",
+   "words": [
+    [
+     "der E-Scooter",
+     "电动滑板车"
+    ],
+    [
+     "der Roller",
+     "滑板车、小轮车"
+    ],
+    [
+     "der Elektro-Motor",
+     "电动机"
+    ]
+   ]
+  },
+  {
    "id": 31,
    "title": "德国父母为什么不给孩子打卡？",
    "de_title": "Hausaufgaben: Warum deutsche Eltern nicht jeden Tag kontrollieren",
@@ -173,31 +198,6 @@
     [
      "das Herz",
      "心脏"
-    ]
-   ]
-  },
-  {
-   "id": 24,
-   "title": "柏林三党谈组阁：大房东的房子可能收归市有",
-   "de_title": "Berlin: Linke, Grüne und SPD wollen große Wohnungskonzerne vergesellschaften",
-   "hook": "大房东的房子|要归柏林",
-   "sub": "超过 1 万套 · 最高补偿 160 亿欧",
-   "date": "2026-10-17",
-   "photo": "news/og/src/24.jpg",
-   "de_hook": "10.000 Wohnungen –|ab wann gehört|ein Haus der Stadt?",
-   "zh_intro": "柏林市议会选举之后，左翼党（Linke）、绿党（Grüne）和社民党（SPD）结束了试探性组阁谈判，就重要问题达成一致。他们计划：如果共同执政，就把在柏林拥有超过 1 万套住房的大型私营住房公司收归市有——公司可以保留 1 万套，多出来的部分在获得补偿后交给柏林市，目的是让租金降下来。据左翼党方面估算，涉及约 5 家大公司、约 16 万套住房，补偿上限为 160 亿欧元。这还不是法律：法案计划到 2028 年中期才出台，而且还要经过宪法法院审查。",
-   "words": [
-    [
-     "die Sondierungsgespräche (Plural)",
-     "试探性组阁谈判"
-    ],
-    [
-     "die Koalitionsverhandlungen (Plural)",
-     "联合政府谈判"
-    ],
-    [
-     "das Abgeordnetenhaus",
-     "市议会（柏林）"
     ]
    ]
   }
