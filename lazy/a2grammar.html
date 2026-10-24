@@ -338,7 +338,20 @@
   ══════════════════════ -->
   <div class="section" id="a2g-s6">
     <div class="section-header">专题六：第二虚拟式——礼貌表达（Konjunktiv II）</div>
-    <div class="section-body">
+
+    <div class="pw-gate" id="a2gS6Gate">
+      <div class="pw-ico">🔐</div>
+      <h3>本节需要口令</h3>
+      <p>第二虚拟式是内部讲义，输入老师给的口令后查看。</p>
+      <div class="pw-row">
+        <input id="a2gS6Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+        <button id="a2gS6Go" type="button">进入</button>
+      </div>
+      <div class="pw-err" id="a2gS6Err" role="alert"></div>
+      <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+    </div>
+
+    <div class="section-body pw-hide" id="a2gS6Body" hidden>
 
       <div class="rule-box">
         <strong>📌 规则（Grammatik aktiv 第 65 章）</strong><br>
@@ -2121,7 +2134,20 @@
 <!-- ===== 前置：Futur I 将来时 ===== -->
 <div class="section" id="a2g-s12b">
   <div class="section-header">前置：Futur I / Futur II 将来时 — 看懂被动将来时的前提</div>
-  <div class="section-body">
+
+  <div class="pw-gate" id="a2gS12bGate">
+    <div class="pw-ico">🔐</div>
+    <h3>本节需要口令</h3>
+    <p>这一节讲被动将来时的前置时态，输入老师给的口令后查看。</p>
+    <div class="pw-row">
+      <input id="a2gS12bPw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+      <button id="a2gS12bGo" type="button">进入</button>
+    </div>
+    <div class="pw-err" id="a2gS12bErr" role="alert"></div>
+    <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+  </div>
+
+  <div class="section-body pw-hide" id="a2gS12bBody" hidden>
 
     <div class="rule-box">
       <strong>📌 Futur I = werden（按人称变位）+ Infinitiv（句末）</strong><br>
@@ -3072,22 +3098,19 @@
 <script>
 (function(){
   var PASS = ['zhouyuhang','yizimeng'];
-  var KEY = 'a2g13_unlocked';
-  function unlock(){
-    var gate=document.getElementById('a2gS13Gate'), body=document.getElementById('a2gS13Body');
-    if(gate) gate.hidden = true;
-    if(body) body.hidden = false;
-  }
-  function init(){
-    var gate=document.getElementById('a2gS13Gate'); if(!gate || gate.dataset.bound==='1') return;
+  function makeGate(prefix,key){
+    var gate=document.getElementById(prefix+'Gate'), body=document.getElementById(prefix+'Body');
+    if(!gate || gate.dataset.bound==='1') return;
     gate.dataset.bound='1';
-    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
-    var inp=document.getElementById('a2gS13Pw'), btn=document.getElementById('a2gS13Go'), err=document.getElementById('a2gS13Err');
+    function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
+    try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById(prefix+'Pw'), btn=document.getElementById(prefix+'Go'), err=document.getElementById(prefix+'Err');
+    if(!inp||!btn) return;
     function go(){
       var v=(inp.value||'').trim().toLowerCase();
       if(!v){ err.textContent='请输入口令'; return; }
       if(PASS.indexOf(v) > -1){
-        try{ localStorage.setItem(KEY,'1'); }catch(e){}
+        try{ localStorage.setItem(key,'1'); }catch(e){}
         err.textContent='';
         unlock();
       }else{
@@ -3097,6 +3120,11 @@
     }
     btn.addEventListener('click',go);
     inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  function init(){
+    makeGate('a2gS6','a2g6_unlocked');
+    makeGate('a2gS12b','a2g12b_unlocked');
+    makeGate('a2gS13','a2g13_unlocked');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
   else init();
