@@ -999,6 +999,20 @@
   </div>
 </div>
 
+<div class="pw-gate" id="b2sPwGate">
+  <div class="pw-ico">🔐</div>
+  <h3>本章组需要口令</h3>
+  <p>第 9–19 章（虚拟式 + 被动态）是内部练习，输入老师给的口令后查看。</p>
+  <div class="pw-row">
+    <input id="b2sPwInput" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button id="b2sPwGo" type="button">进入</button>
+  </div>
+  <div class="pw-err" id="b2sPwErr" role="alert"></div>
+  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+</div>
+
+<div id="b2sPwBody" class="pw-hide" hidden>
+
 <!-- ═══════════════ Kapitel 9: Konjunktiv 2 der Gegenwart ═══════════════ -->
 <div class="b2s-chapter" id="b2s-k9">
   <h2><span class="b2s-ch-num">9</span> 虚拟式二式 · 现在时 · Konjunktiv 2 der Gegenwart</h2>
@@ -3355,6 +3369,8 @@
     <div class="b2s-ans">feste Wendung / Funktionsverbgefüge（Abschied nehmen）</div>
   </div>
 </div>
+
+</div><!-- /b2sPwBody -->
 
 <!-- ═══════════════ Kapitel 20: Wechselpräpositionen ═══════════════ -->
 <div class="b2s-chapter" id="b2s-k20">
@@ -11275,5 +11291,38 @@ function b2sToggleDone(cb) {
       }, 300);
     };
   }
+})();
+</script>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  var KEY = 'b2s9_unlocked';
+  function unlock(){
+    var gate=document.getElementById('b2sPwGate'), body=document.getElementById('b2sPwBody');
+    if(gate) gate.hidden = true;
+    if(body) body.hidden = false;
+  }
+  function init(){
+    var gate=document.getElementById('b2sPwGate'); if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById('b2sPwInput'), btn=document.getElementById('b2sPwGo'), err=document.getElementById('b2sPwErr');
+    if(!inp||!btn) return;
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(KEY,'1'); }catch(e){}
+        err.textContent=''; unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。'; inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
 })();
 </script>

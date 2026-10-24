@@ -277,7 +277,21 @@
 }
 </style>
 
-<div class="pk-wrap">
+<div class="pk-pwgate" id="pkGate" style="padding:56px 16px 20px">
+  <div class="pw-gate" style="max-width:560px;margin:0 auto">
+    <div class="pw-ico">🔐</div>
+    <h3>本专题需要口令</h3>
+    <p>被动 &amp; 虚拟式全时态推导是内部讲义，输入老师给的口令后查看。</p>
+    <div class="pw-row">
+      <input id="pkPw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+      <button id="pkGo" type="button">进入</button>
+    </div>
+    <div class="pw-err" id="pkErr" role="alert"></div>
+    <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+  </div>
+</div>
+
+<div class="pk-wrap pw-hide" id="pkBody" hidden>
 
   <!-- ══════════════ HERO ══════════════ -->
   <div class="pk-hero">
@@ -1337,6 +1351,39 @@
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  var KEY = 'pk_unlocked';
+  function unlock(){
+    var gate=document.getElementById('pkGate'), body=document.getElementById('pkBody');
+    if(gate) gate.hidden = true;
+    if(body) body.hidden = false;
+  }
+  function init(){
+    var gate=document.getElementById('pkGate'); if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById('pkPw'), btn=document.getElementById('pkGo'), err=document.getElementById('pkErr');
+    if(!inp||!btn) return;
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(KEY,'1'); }catch(e){}
+        err.textContent=''; unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。'; inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
   else init();
 })();
 </script>

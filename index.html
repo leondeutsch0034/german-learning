@@ -55,7 +55,7 @@
     "teaches": ["德语 A1", "德语 A2", "德语 B1", "德语 B2", "Goethe Zertifikat A1", "Goethe Zertifikat A2", "Goethe Zertifikat B1", "Goethe Zertifikat B2"]
   }
   </script>
-  <link rel="stylesheet" href="/site.css"/>
+  <link rel="stylesheet" href="/site.css?v=20261024"/>
 <style id="serie-xcss">
     #page-serie .se-narr{background:rgba(246,211,101,.05);border-left:3px solid rgba(246,211,101,.35);border-radius:8px;padding:12px 15px;margin:18px 0 14px;font-size:.86rem;color:#cbd5e1;line-height:1.7}
     #page-serie .se-narr b{color:#f6d365}
@@ -15634,6 +15634,20 @@ showB2LArticle('');
 <div class="section" id="b1s8">
 <div class="section-header"><span class="section-num">10</span> Konjunktiv 虚拟式</div>
 
+<div class="pw-gate" id="b1s8Gate">
+  <div class="pw-ico">🔐</div>
+  <h3>本节需要口令</h3>
+  <p>虚拟式是内部讲义，输入老师给的口令后查看。</p>
+  <div class="pw-row">
+    <input id="b1s8Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button id="b1s8Go" type="button">进入</button>
+  </div>
+  <div class="pw-err" id="b1s8Err" role="alert"></div>
+  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+</div>
+
+<div id="b1s8Body" class="pw-hide" hidden>
+
 <div style="margin:0 0 14px;padding:11px 14px;background:linear-gradient(135deg,#0f1e3a,#1e3a5f);border-radius:10px;border-left:4px solid #f6d365;display:flex;flex-wrap:wrap;align-items:center;gap:10px">
   <span style="color:#fde68a;font-size:.88rem;font-weight:600">🧭 想看“虚拟式 × 被动 × 六个时态”的完整推导链？</span>
   <a href="#" onclick="showPage('passivkonjunktiv');return false;" style="background:#f6d365;color:#0f1e3a;padding:6px 14px;border-radius:16px;text-decoration:none;font-weight:700;font-size:.82rem">进入专题 →</a>
@@ -15982,11 +15996,26 @@ showB2LArticle('');
 <div class="ex-item"><span class="hl-de">KI/KII 切换:</span> Sie sagen, sie <strong>hätten</strong> es nicht gewusst.（KI seien = 直陈 sind → 换 KII hätten）</div>
 </div>
 
+</div><!-- /b1s8Body -->
 </div>
 
 <!-- ═══════════════ Section 11: Passiv 被动语态 ═══════════════ -->
 <div class="section" id="b1s9">
 <div class="section-header"><span class="section-num">11</span> Passiv 被动语态</div>
+
+<div class="pw-gate" id="b1s9Gate">
+  <div class="pw-ico">🔐</div>
+  <h3>本节需要口令</h3>
+  <p>被动语态是内部讲义，输入老师给的口令后查看。</p>
+  <div class="pw-row">
+    <input id="b1s9Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button id="b1s9Go" type="button">进入</button>
+  </div>
+  <div class="pw-err" id="b1s9Err" role="alert"></div>
+  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+</div>
+
+<div id="b1s9Body" class="pw-hide" hidden>
 
 <div style="margin:0 0 14px;padding:11px 14px;background:linear-gradient(135deg,#0f1e3a,#1e3a5f);border-radius:10px;border-left:4px solid #f6d365;display:flex;flex-wrap:wrap;align-items:center;gap:10px">
   <span style="color:#fde68a;font-size:.88rem;font-weight:600">🧭 这里只有结论表？去专题看它<b>怎么一步步推出来</b>（含情态动词、虚拟式交叉）</span>
@@ -16249,6 +16278,7 @@ showB2LArticle('');
 <div class="ex-item"><span class="hl-de">man:</span> In Deutschland <strong>isst man</strong> viel Brot. ≈ In Deutschland wird viel Brot gegessen.</div>
 </div>
 <div class="note">💡 sich lassen 和 sein zu 的区别：lassen 强调<strong>可能性</strong>（可不可以），sein zu 既可表<strong>可能性</strong>（können）也可表<strong>必要性</strong>（müssen），需靠语境判断。被动替代形式是 B1 阅读理解的常见考点。</div>
+</div><!-- /b1s9Body -->
 </div>
 
 <!-- Section 12: Futur I -->
@@ -16465,6 +16495,39 @@ showB2LArticle('');
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',setup);}
   else{setup();}
+})();
+</script>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  function makeGate(gateId,bodyId,inpId,btnId,errId,key){
+    var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
+    if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
+    try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById(inpId), btn=document.getElementById(btnId), err=document.getElementById(errId);
+    if(!inp||!btn) return;
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(key,'1'); }catch(e){}
+        err.textContent=''; unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。'; inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  function init(){
+    makeGate('b1s8Gate','b1s8Body','b1s8Pw','b1s8Go','b1s8Err','b1s8_unlocked');
+    makeGate('b1s9Gate','b1s9Body','b1s9Pw','b1s9Go','b1s9Err','b1s9_unlocked');
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
 })();
 </script>
 

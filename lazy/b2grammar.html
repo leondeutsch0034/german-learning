@@ -368,6 +368,19 @@
       <span class="b2g-sec-lv">⭐⭐ 进阶</span>
     </div>
 
+    <div class="pw-gate" id="b2gL4Gate">
+      <div class="pw-ico">🔐</div>
+      <h3>本节需要口令</h3>
+      <p>情态动词 × 被动态是内部讲义，输入老师给的口令后查看。</p>
+      <div class="pw-row">
+        <input id="b2gL4Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+        <button id="b2gL4Go" type="button">进入</button>
+      </div>
+      <div class="pw-err" id="b2gL4Err" role="alert"></div>
+      <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+    </div>
+
+    <div id="b2gL4Body" class="pw-hide" hidden>
     <div class="b2g-block">
       <h3>① 情态动词 + 第一被动不定式（禁止 / 命令 / 要求）</h3>
       <div class="b2g-beispiel">
@@ -425,6 +438,7 @@
         <span class="b2g-ans-i">第 5 题同时是第 5 层"主观推测"的预告：must 猜测 + 已完成 → muss + Infinitiv II。</span>
       </div>
     </div>
+    </div><!-- /b2gL4Body -->
   </div>
 
   <!-- ════════════════════ L5 ════════════════════ -->
@@ -542,6 +556,19 @@
       <span class="b2g-sec-lv hard">⭐⭐⭐ 高阶</span>
     </div>
 
+    <div class="pw-gate" id="b2gL6Gate">
+      <div class="pw-ico">🔐</div>
+      <h3>本节需要口令</h3>
+      <p>虚拟式与特殊用法是内部讲义，输入老师给的口令后查看。</p>
+      <div class="pw-row">
+        <input id="b2gL6Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+        <button id="b2gL6Go" type="button">进入</button>
+      </div>
+      <div class="pw-err" id="b2gL6Err" role="alert"></div>
+      <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+    </div>
+
+    <div id="b2gL6Body" class="pw-hide" hidden>
     <div class="b2g-block">
       <h3>① 情态动词的第二虚拟式 —— 礼貌 / 愿望 / 劝告 / 条件</h3>
       <div class="b2g-tbl-wrap">
@@ -615,6 +642,7 @@
         <span class="b2g-ans-i">第 5 题注意：从句里情态动词也走"动词放句末"规则（… sie dressieren will）。</span>
       </div>
     </div>
+    </div><!-- /b2gL6Body -->
   </div>
 
   <div class="b2g-separator"></div>
@@ -662,3 +690,36 @@
   </div>
 
 </div>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  function makeGate(gateId,bodyId,inpId,btnId,errId,key){
+    var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
+    if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
+    try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById(inpId), btn=document.getElementById(btnId), err=document.getElementById(errId);
+    if(!inp||!btn) return;
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(key,'1'); }catch(e){}
+        err.textContent=''; unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。'; inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  function init(){
+    makeGate('b2gL4Gate','b2gL4Body','b2gL4Pw','b2gL4Go','b2gL4Err','b2gL4_unlocked');
+    makeGate('b2gL6Gate','b2gL6Body','b2gL6Pw','b2gL6Go','b2gL6Err','b2gL6_unlocked');
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>

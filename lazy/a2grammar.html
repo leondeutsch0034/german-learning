@@ -2247,7 +2247,20 @@
 <!-- ===== 被动态 Passiv 专题 ===== -->
 <div class="section" id="a2g-s13">
   <div class="section-header">专题十一：被动态（Passiv）</div>
-  <div class="section-body">
+
+  <div class="pw-gate" id="a2gS13Gate">
+    <div class="pw-ico">🔐</div>
+    <h3>本节需要口令</h3>
+    <p>被动态专题是内部讲义，输入老师给的口令后查看。</p>
+    <div class="pw-row">
+      <input id="a2gS13Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+      <button id="a2gS13Go" type="button">进入</button>
+    </div>
+    <div class="pw-err" id="a2gS13Err" role="alert"></div>
+    <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+  </div>
+
+  <div class="section-body pw-hide" id="a2gS13Body" hidden>
 
     <!-- 什么是被动态 -->
     <div class="rule-box">
@@ -3055,3 +3068,37 @@
 
 
 </div>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  var KEY = 'a2g13_unlocked';
+  function unlock(){
+    var gate=document.getElementById('a2gS13Gate'), body=document.getElementById('a2gS13Body');
+    if(gate) gate.hidden = true;
+    if(body) body.hidden = false;
+  }
+  function init(){
+    var gate=document.getElementById('a2gS13Gate'); if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById('a2gS13Pw'), btn=document.getElementById('a2gS13Go'), err=document.getElementById('a2gS13Err');
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(KEY,'1'); }catch(e){}
+        err.textContent='';
+        unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。';
+        inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>

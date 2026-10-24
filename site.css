@@ -3375,3 +3375,23 @@
 
 /* ── 首页品牌中文名（SEO：让百度能匹配「Leon德语学习中心」 + 中文访客看得到中文站名）── */
 .hero-brand-cn{font-size:clamp(.92rem,2.2vw,1.15rem);font-weight:600;letter-spacing:.18em;text-indent:.18em;color:#f6d365;opacity:.85;margin:-6px 0 12px}
+
+/* ── 分节口令门（A1 16b 双向介词 / A2 被动态 共用）── */
+.pw-gate{background:#fff;border:1.5px dashed #93c5fd;border-radius:14px;padding:26px 22px;margin:6px 0 18px;text-align:center;box-shadow:0 3px 12px rgba(15,30,58,.06)}
+.pw-gate .pw-ico{font-size:2rem;line-height:1}
+.pw-gate h3{margin:8px 0 6px;font-size:1.1rem;color:#1e3a5f}
+.pw-gate p{margin:0;font-size:.9rem;color:#546e7a;line-height:1.75}
+.pw-row{display:flex;gap:8px;max-width:360px;margin:16px auto 0}
+.pw-row input{flex:1;min-width:0;border:1.5px solid #cbd5e1;border-radius:10px;padding:10px 12px;font-size:.95rem;background:#f8fafc;color:#1f2937;font-family:inherit}
+.pw-row input:focus{outline:none;border-color:#2b6cb0;background:#fff}
+.pw-row button{border:0;border-radius:10px;padding:10px 20px;font-size:.95rem;font-weight:700;background:#2b6cb0;color:#fff;cursor:pointer;font-family:inherit}
+.pw-row button:active{transform:translateY(1px)}
+.pw-err{min-height:1.2em;font-size:.82rem;color:#c53030;margin-top:8px}
+.pw-foot{font-size:.76rem;color:#94a3b8;margin-top:12px;line-height:1.8}
+.pw-hide[hidden]{display:none!important}
+#page-b2grammar .pw-gate,#page-b2grammar-schreiben .pw-gate{background:rgba(255,255,255,.05);border-color:rgba(246,211,101,.35);box-shadow:none}
+#page-b2grammar .pw-gate h3,#page-b2grammar-schreiben .pw-gate h3{color:#fde68a}
+#page-b2grammar .pw-gate p,#page-b2grammar-schreiben .pw-gate p{color:rgba(232,240,251,.72)}
+#page-b2grammar .pw-row input,#page-b2grammar-schreiben .pw-row input{background:rgba(10,20,35,.7);border-color:rgba(246,211,101,.28);color:#e8eef7}
+#page-b2grammar .pw-row button,#page-b2grammar-schreiben .pw-row button{background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428}
+#page-b2grammar .pw-foot,#page-b2grammar-schreiben .pw-foot{color:rgba(232,240,251,.45)}

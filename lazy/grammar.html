@@ -2058,6 +2058,19 @@
     <h2>双向介词 Wechselpräpositionen</h2>
   </div>
 
+  <div class="pw-gate" id="g16Gate">
+    <div class="pw-ico">🔐</div>
+    <h3>本节需要口令</h3>
+    <p>16b 双向介词是内部讲义，输入老师给的口令后查看。</p>
+    <div class="pw-row">
+      <input id="g16Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+      <button id="g16Go" type="button">进入</button>
+    </div>
+    <div class="pw-err" id="g16Err" role="alert"></div>
+    <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+  </div>
+
+  <div id="g16Body" class="pw-hide" hidden>
   <div class="rule-box">
     <span class="label">核心规则：</span>
     九个介词既可接<b>第三格 Dativ</b>（静态 Wo?），也可接<b>第四格 Akkusativ</b>（动态 Wohin?）<br>
@@ -2324,6 +2337,7 @@
     <button class="btn-ex" onclick="wpResetFill('g')" style="background:#e2e8f0;color:#4a5568">↺ 重置</button>
     <span id="wp-fill-g-score" style="font-size:.9rem"></span>
   </div>
+  </div><!-- /g16Body -->
 </div>
 
 <!-- ⑰ Perfekt -->
@@ -3308,6 +3322,40 @@
 </div>
 
 <a href="#top" class="g-backtotoc" title="回到目录">📋</a>
+
+<script>
+(function(){
+  var PASS = ['zhouyuhang','yizimeng'];   /* 改口令只改这一行 */
+  var KEY = 'g16_unlocked';
+  function unlock(){
+    var gate=document.getElementById('g16Gate'), body=document.getElementById('g16Body');
+    if(gate) gate.hidden = true;
+    if(body) body.hidden = false;
+  }
+  function init(){
+    var gate=document.getElementById('g16Gate'); if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById('g16Pw'), btn=document.getElementById('g16Go'), err=document.getElementById('g16Err');
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(KEY,'1'); }catch(e){}
+        err.textContent='';
+        unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。';
+        inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
 
 <script>
 (function(){
