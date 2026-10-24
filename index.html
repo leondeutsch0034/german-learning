@@ -383,11 +383,6 @@ window.instantiateLazyPage = function(pageId, cb) {
     try { cfg.onInit(page); } catch(e) { console.warn('lazy init error for', pageId, e); }
   }
 
-  // 重新应用游客锁（新注入的 section 可能需要加锁）
-  if (typeof currentUser !== 'undefined' && currentUser === 'guest') {
-    try { applyGuestLocks(); } catch(e) {}
-  }
-
   // 内容已就绪，执行该页的渲染钩子（grid 渲染、连续剧首集等）
   window.runLazyRender(pageId);
 };
@@ -777,12 +772,6 @@ function renderA1HubCards() { renderHubCards('a1'); }
 </script>
 
 <!-- Nav bar -->
-<div id="user-status-bar">
-  <span id="user-status-text"></span>
-  <span class="tier-badge" id="user-tier-badge"></span>
-  <a class="logout-link" onclick="logout()">退出登录</a>
-</div>
-
 <nav id="main-nav">
   <script>renderNav();</script>
 </nav>
@@ -1143,15 +1132,8 @@ function escHtml(s) {
 // 键盘快捷键 Ctrl+F / Cmd+F
 document.addEventListener('keydown', function(e) {
   if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-    if (document.getElementById('login-overlay').style.display === 'none' ||
-        !document.getElementById('login-overlay').style.display) {
-      // 只在已登录时拦截
-      var overlay = document.getElementById('login-overlay');
-      if (overlay && overlay.style.display === 'none') {
-        e.preventDefault();
-        openSearch();
-      }
-    }
+    e.preventDefault();
+    openSearch();
   }
   if (e.key === 'Escape') closeSearch();
 });
@@ -22815,23 +22797,7 @@ showB2LArticle('');
 
 <!-- Page switching JS -->
 <script>
-function showLoginFromLock() {
-  document.getElementById('login-overlay').style.display = 'flex';
-  document.getElementById('login-err').innerHTML = '';
-  document.getElementById('login-price-list').style.display = 'block';
-}
-
 function showPage(id) {
-  // 检查当前用户是否能访问这个页面
-  var needLock = pagesNeedingLock();
-  if (needLock.indexOf(id) !== -1) {
-    if (currentUser === 'guest') {
-      showLoginFromLock();
-    } else {
-      alert((TIER_LABELS[currentTier] || '会员') + '无法访问此页面，请升级到更高等级');
-    }
-    return;
-  }
   // 懒加载：首次访问时注入内容（内容外置时为异步，就绪后由 runLazyRender 触发渲染）
   var needLazy = window._lazyPages && window._lazyPages[id] && !window._lazyInstantiated[id];
   if (needLazy) {
@@ -22855,8 +22821,6 @@ function showPage(id) {
   // 依赖 DOM 的渲染：内容就绪后执行。
   // 懒加载页（needLazy）此时内容还在路上，由 instantiateLazyPage 完成时调 runLazyRender 触发。
   if (!needLazy) window.runLazyRender(id);
-  // 游客模式：确保section遮罩已应用
-  if (currentUser === 'guest') applyGuestLocks();
   // 同步 URL hash，分享出去对方看到同一页
   /* ★ URL 始终用根路径（'/' 开头）—— 否则从 /news/01.html 这类深链接页
      切到别的栏目时，路径会一直挂在 /news/ 底下。
@@ -23010,8 +22974,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // 动态更新模块计数：显示全部学习板块数
   var mc = document.getElementById('module-count');
   if (mc) mc.textContent = MODULES.length;
-  // 如果已是游客模式，补充应用锁
-  if (currentUser) applyGuestLocks();
 });
 
 // 运行中 hash 变化：优先页面 ID，其次 section ID，空 hash 回首页（浏览器前进后退都能用）
@@ -26955,7 +26917,7 @@ function brToggleSample4() {
 <!-- 阅读朗读：目录条切换（单篇显示，便于阅读/打印） -->
 <script>
 (function(){
-  // 确保 34 篇 ls-section 都有 id（ls-s1..ls-s33）；与 applyGuestLocks 注入规则一致，兜底
+  // 确保 34 篇 ls-section 都有 id（ls-s1..ls-s33），兜底
   function ensureIds(){
     document.querySelectorAll('#page-lesen .ls-section').forEach(function(s,i){
       if(!s.id) s.id='ls-s'+(i+1);
