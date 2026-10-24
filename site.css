@@ -3389,9 +3389,9 @@
 .pw-err{min-height:1.2em;font-size:.82rem;color:#c53030;margin-top:8px}
 .pw-foot{font-size:.76rem;color:#94a3b8;margin-top:12px;line-height:1.8}
 .pw-hide[hidden]{display:none!important}
-#page-b2grammar .pw-gate,#page-b2grammar-schreiben .pw-gate{background:rgba(255,255,255,.05);border-color:rgba(246,211,101,.35);box-shadow:none}
-#page-b2grammar .pw-gate h3,#page-b2grammar-schreiben .pw-gate h3{color:#fde68a}
-#page-b2grammar .pw-gate p,#page-b2grammar-schreiben .pw-gate p{color:rgba(232,240,251,.72)}
-#page-b2grammar .pw-row input,#page-b2grammar-schreiben .pw-row input{background:rgba(10,20,35,.7);border-color:rgba(246,211,101,.28);color:#e8eef7}
-#page-b2grammar .pw-row button,#page-b2grammar-schreiben .pw-row button{background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428}
-#page-b2grammar .pw-foot,#page-b2grammar-schreiben .pw-foot{color:rgba(232,240,251,.45)}
+#page-b2grammar .pw-gate{background:rgba(255,255,255,.05);border-color:rgba(246,211,101,.35);box-shadow:none}
+#page-b2grammar .pw-gate h3{color:#fde68a}
+#page-b2grammar .pw-gate p{color:rgba(232,240,251,.72)}
+#page-b2grammar .pw-row input{background:rgba(10,20,35,.7);border-color:rgba(246,211,101,.28);color:#e8eef7}
+#page-b2grammar .pw-row button{background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428}
+#page-b2grammar .pw-foot{color:rgba(232,240,251,.45)}

@@ -10213,20 +10213,6 @@
 </div>
 
 
-<div class="pw-gate" id="gsPwGate">
-  <div class="pw-ico">🔐</div>
-  <h3>本章组需要口令</h3>
-  <p>第 52–53 章（虚拟式 + 被动态）是内部练习，输入老师给的口令后查看。</p>
-  <div class="pw-row">
-    <input id="gsPwInput" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
-    <button id="gsPwGo" type="button">进入</button>
-  </div>
-  <div class="pw-err" id="gsPwErr" role="alert"></div>
-  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
-</div>
-
-<div id="gsPwBody" class="pw-hide" hidden>
-
 <!-- ═══════════ Kapitel 52: Konjunktiv 2 ═══════════ -->
 <div class="gs-chapter" id="gs-k52">
   <h2><span class="gs-ch-num">52</span> Konjunktiv II — 虚拟式</h2>
@@ -10530,8 +10516,6 @@
 
 </div>
 
-
-</div><!-- /gsPwBody -->
 
 <!-- ═══════════ Kapitel 54: Futur I ═══════════ -->
 <div class="gs-chapter" id="gs-k54">
@@ -13297,36 +13281,3 @@ function gsRevealAllChapter(chId) {
   </div>
 </div>
 
-
-<script>
-(function(){
-  var PASS = ['zhouyuhang','yizimeng'];
-  var KEY = 'gs52_unlocked';
-  function unlock(){
-    var gate=document.getElementById('gsPwGate'), body=document.getElementById('gsPwBody');
-    if(gate) gate.hidden = true;
-    if(body) body.hidden = false;
-  }
-  function init(){
-    var gate=document.getElementById('gsPwGate'); if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
-    try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
-    var inp=document.getElementById('gsPwInput'), btn=document.getElementById('gsPwGo'), err=document.getElementById('gsPwErr');
-    if(!inp||!btn) return;
-    function go(){
-      var v=(inp.value||'').trim().toLowerCase();
-      if(!v){ err.textContent='请输入口令'; return; }
-      if(PASS.indexOf(v) > -1){
-        try{ localStorage.setItem(KEY,'1'); }catch(e){}
-        err.textContent=''; unlock();
-      }else{
-        err.textContent='口令不对，请向老师确认。'; inp.select();
-      }
-    }
-    btn.addEventListener('click',go);
-    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
-  else init();
-})();
-</script>
