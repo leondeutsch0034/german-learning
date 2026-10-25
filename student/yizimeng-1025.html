@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>易同学 · 10/25 互动作业 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.8rem;line-height:1.7}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:26px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.checklist{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:14px 16px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:.84rem;color:#dbe4f0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.06)}
+.checklist label:last-child{border-bottom:0}
+.checklist input{margin-top:4px;accent-color:var(--gold);flex-shrink:0}
+.checklist label.done span{color:var(--muted);text-decoration:line-through}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.ex-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ex-num{width:28px;height:28px;border-radius:9px;background:rgba(246,211,101,.14);color:#ffe088;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem;flex-shrink:0}
+.ex h2{margin:0;font-size:1rem;color:#fff8e8}
+.ex-tag{font-size:.65rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.ex-tip{color:var(--muted);font-size:.78rem;margin:7px 0 4px}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;border-bottom:1px dashed rgba(125,211,252,.35)}
+.ex-link:hover{color:#bae6fd}
+.items{margin-top:10px}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07);position:relative}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:160px;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit;transition:.15s}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mcol{display:flex;flex-direction:column;gap:7px}
+.mbtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:9px;padding:9px 10px;font-size:.86rem;cursor:pointer;text-align:left;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:6px}
+.mbtn:hover{border-color:rgba(246,211,101,.5)}
+.mbtn.sel{border-color:var(--gold);background:rgba(246,211,101,.14);color:#fff3c4}
+.mbtn.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5;cursor:default;opacity:.85}
+.mbtn.boom{border-color:var(--bad);background:rgba(248,113,113,.14);animation:boom .3s}
+@keyframes boom{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:560px){.wrap{padding:18px 12px 60px}.hero{padding:20px}.ex{padding:14px}.q{font-size:.88rem}.blank{min-width:62px;width:78px}.match{gap:6px}.mbtn{font-size:.8rem;padding:8px}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand,.ex-foot{display:none}#app{display:block!important}.hero,.ex,.checklist{border-color:#ddd;background:#fff;color:#111}.hero h1,.ex h2,.q,.chip{color:#111}.notice,.ex-tip,.score{color:#444}.why{display:block!important;color:#333;background:#f7f7f7;border-color:#ccc}.blank{background:#fff;color:#111;border-color:#999}.opt,.mbtn{background:#fff;color:#111;border-color:#ccc}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="yizimeng.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>易同学的 10/25 作业</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-10-25 · 课后互动作业</div>
+      <h1>易梓萌 · 第 4 单元 Wohnen</h1>
+      <div class="sub">Menschen und Häuser · 否定 · 物主冠词 · 三格四格 · 静三动四</div>
+      <div class="meta">
+        <span class="chip">7 组 · 72 题</span>
+        <span class="chip">做完点「检查本组」</span>
+        <span class="chip">错题下面有讲解</span>
+      </div>
+      <div class="notice">
+        今天上课学了「住」：房间和家具、kein / nicht 否定、物主冠词、定冠词和不定冠词的一格 / 四格 / 三格，还有 in / an / auf 的静三动四。<br>
+        先做下面 7 组，再写练习册 S.22–25、S.40–41、S.106–107；语法书 S.40–41 的 Negation 复习一遍。分两次做也行，做完一组点一次「检查本组」。
+      </div>
+      <div class="progress"><span id="pct">已完成 0 / 7</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的作业清单</div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">互动练习</div>
+    <div id="exercises"></div>
+
+    <div class="foot">
+      这是易梓萌的专属作业页 · 只有口令可以打开<br>
+      <a href="yizimeng.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["练习册 S.22 · 物主冠词","练习册 S.23 · 定冠词与不定冠词","练习册 S.24–25 · 房间与宿舍","练习册 S.40–41 · 否定 kein / nicht","练习册 S.106–107 · Test Menschen und Häuser","语法书 S.40–41 · Negation 复习","朗读 Vokalwechsel 答案页，检查 10/18 作业"],"exercises":[{"id":"poss","type":"fill","tag":"12 题","title":"物主冠词 Possessivartikel","tip":"先看东西是 der / das / die / 复数，再看是谁的。词尾跟 ein / eine 一样走。","link":{"href":"../?p=grammar&to=s10#grammar","text":"复习：A1 语法 · 物主冠词"},"items":[{"q":"Das ist Klaus. Das war ___ Schule.","a":"seine","hint":"Klaus = er","why":"Schule 是阴性，sein- 加 -e → seine。"},{"q":"Das sind wir. Das war ___ Auto.","a":"unser","hint":"wir","why":"Auto 是中性，一格 / 四格都用 unser，不加词尾。"},{"q":"Das bin ich. Das war ___ Büro.","a":"mein","hint":"ich","why":"Büro 是中性，mein 不加词尾。"},{"q":"Seid ihr das? Waren das ___ Freunde?","a":"eure","hint":"ihr","why":"复数：euer 先去掉 -er，再加 -e → eure。"},{"q":"Bist du das? Waren das ___ Freunde?","a":"deine","hint":"du","why":"复数：dein + e → deine。"},{"q":"Das ist Ute. Das war ___ Zimmer.","a":"ihr","hint":"Ute = sie","why":"Zimmer 是中性，ihr 不加词尾。"},{"q":"Das sind Keiko und Natascha. Das war ___ Lehrerin.","a":"ihre","hint":"两个人 = sie（复数）","why":"Lehrerin 是阴性，复数所有者 ihr + e → ihre。"},{"q":"Sind Sie das? War das ___ Mann?","a":"Ihr","hint":"尊称 Sie，首字母大写","cs":true,"why":"尊称 Sie 的物主冠词是 Ihr，首字母大写；Mann 是阳性，不加词尾。"},{"q":"Wie viele Zimmer hat ___ Wohnung, Herr Neumann?","a":"Ihre","hint":"对 Herr Neumann 用尊称 Sie","cs":true,"why":"Wohnung 是阴性，尊称 Ihr + e → Ihre。"},{"q":"Jutta, ist das ___ Heft?","a":"dein","hint":"对 Jutta 用 du","why":"Heft 是中性，dein 不加词尾。"},{"q":"Wir besuchen heute Abend ___ Eltern.","a":"unsere","hint":"wir","why":"复数加 -e → unsere；besuchen 后面是四格，复数四格不变。"},{"q":"Die Kinder suchen ___ Schuhe.","a":"ihre","hint":"die Kinder = sie（复数）","why":"复数四格：ihr + e → ihre。"}]},{"id":"art","type":"choice","tag":"10 题","title":"冠词 · 一格 / 四格 / 三格","tip":"先找介词或动词：一格是主语，四格是动作的对象，三格多是「给谁 / 在哪里」。","link":{"href":"../?p=grammar&to=s9#grammar","text":"复习：A1 语法 · 主格与宾格"},"items":[{"q":"Das ist ___ Buch.","opts":["der","das","die","den"],"a":"das","why":"Buch 是中性，一格用 das。"},{"q":"Ich sehe ___ Hund.","opts":["der","den","dem","des"],"a":"den","why":"阳性名词作四格宾语：der → den。"},{"q":"Ich habe ___ Tasche.","opts":["die","der","das","den"],"a":"die","why":"阴性四格不变：die。"},{"q":"Wir wohnen in ___ Haus.","opts":["das","dem","den","der"],"a":"dem","why":"in + 三格（地点），Haus 是中性 → dem。"},{"q":"Er kommt aus ___ Schweiz.","opts":["die","der","dem","den"],"a":"der","why":"aus + 三格，Schweiz 是阴性 → der。"},{"q":"Das Buch ist von ___ Vater.","opts":["der","den","dem","das"],"a":"dem","why":"von + 三格，Vater 是阳性 → dem。"},{"q":"Ich gehe in ___ Küche.","opts":["die","der","dem","das"],"a":"die","why":"in + 四格（方向），Küche 是阴性 → die。"},{"q":"Die Bücher liegen auf ___ Tisch.","opts":["der","den","dem","das"],"a":"dem","why":"auf + 三格（位置），Tisch 是阳性 → dem。"},{"q":"Sie wohnt bei ___ Eltern.","opts":["die","den","der","des"],"a":"den","why":"bei + 三格复数：die → den（Eltern 本身已是复数）。"},{"q":"Hast du ___ Kugelschreiber?","opts":["ein","einen","einem","einer"],"a":"einen","why":"阳性四格不定冠词：ein → einen。"}]},{"id":"wohnen","type":"match","tag":"12 对","title":"房间与家具 Wohnen","tip":"先把每个词读出来；点击左边德语，再点右边中文，配对成功会变绿。","link":{"href":"../?p=mix&to=ex5#mix","text":"加练：A1 综合 · 词汇分类"},"pairs":[["das Wohnzimmer","客厅"],["das Schlafzimmer","卧室"],["die Küche","厨房"],["das Bad","浴室"],["der Flur","走廊"],["der Balkon","阳台"],["der Garten","花园"],["der Schrank","柜子"],["der Schreibtisch","书桌"],["das Sofa","沙发"],["der Sessel","单人沙发"],["das Regal","置物架"]]},{"id":"neg","type":"choice","tag":"10 题","title":"否定 kein / nicht","tip":"kein 否定名词（前面是 ein / eine / 没有冠词）；nicht 否定动词、形容词、名字、物主冠词。","link":{"href":"../?p=grammar&to=s11#grammar","text":"复习：A1 语法 · 否定"},"items":[{"q":"Ich habe ___ Zeit.","opts":["kein","keine","nicht"],"a":"keine","why":"Zeit 是阴性名词，否定名词用 kein，阴性 → keine。"},{"q":"Das ist ___ Problem.","opts":["kein","nicht"],"a":"kein","why":"Problem 是中性名词，kein 不加词尾。"},{"q":"Ich verstehe das ___.","opts":["kein","nicht"],"a":"nicht","why":"否定动词 verstehen 用 nicht；das 是代词，不用 kein。"},{"q":"Sie hat ___ Hunger.","opts":["kein","keinen","nicht"],"a":"keinen","why":"Hunger 是阳性名词，四格 → keinen。"},{"q":"Wir haben ___ Geld.","opts":["kein","keine","nicht"],"a":"kein","why":"Geld 是中性名词，四格 → kein。"},{"q":"Er kommt heute ___.","opts":["kein","nicht"],"a":"nicht","why":"否定动词 kommen 用 nicht。"},{"q":"Das sind ___ meine Bücher.","opts":["kein","nicht"],"a":"nicht","why":"物主冠词 meine 前面只能用 nicht，不能用 kein。"},{"q":"Ich trinke ___ Kaffee.","opts":["kein","keinen","nicht"],"a":"keinen","why":"Kaffee 是阳性，四格 → keinen。"},{"q":"Sie wohnt ___ in Berlin.","opts":["kein","nicht"],"a":"nicht","why":"否定动词 wohnen 用 nicht。"},{"q":"Ich habe ___ Bruder.","opts":["ein","keinen","nicht"],"a":"keinen","why":"否定名词 Bruder（阳性四格）→ keinen。"}]},{"id":"wechsel","type":"choice","tag":"10 题","title":"静三动四 in / an / auf","tip":"位置（Wo?）用三格；方向（Wohin?）用四格。先看动词：liegen / stehen / sein / wohnen 是位置，legen / stellen / gehen 是方向。","link":{"href":"../?p=grammar&to=s16b#grammar","text":"复习：A1 语法 · 双向介词"},"items":[{"q":"Das Buch liegt auf ___ Tisch.","opts":["dem","den"],"a":"dem","why":"liegen 表示位置，Wo? → 三格：dem Tisch。"},{"q":"Ich lege das Buch auf ___ Tisch.","opts":["dem","den"],"a":"den","why":"legen 表示方向，Wohin? → 四格：den Tisch。"},{"q":"Ich bin in ___ Küche.","opts":["der","die"],"a":"der","why":"sein + 位置，Wo? → 三格：der Küche。"},{"q":"Ich gehe in ___ Küche.","opts":["der","die"],"a":"die","why":"gehen + 方向，Wohin? → 四格：die Küche。"},{"q":"Die Kinder spielen in ___ Garten.","opts":["dem","den"],"a":"dem","why":"spielen + 位置，Wo? → 三格：dem Garten。"},{"q":"Die Kinder gehen in ___ Garten.","opts":["dem","den"],"a":"den","why":"gehen + 方向，Wohin? → 四格：den Garten。"},{"q":"Der Stuhl steht an ___ Fenster.","opts":["dem","das"],"a":"dem","why":"stehen + 位置，Wo? → 三格：dem Fenster。"},{"q":"Ich stelle den Stuhl an ___ Fenster.","opts":["dem","das"],"a":"das","why":"stellen + 方向，Wohin? → 四格：das Fenster。"},{"q":"Wir wohnen in ___ Haus.","opts":["dem","das"],"a":"dem","why":"wohnen + 位置，Wo? → 三格：dem Haus。"},{"q":"Wir gehen in ___ Haus.","opts":["dem","das"],"a":"das","why":"gehen + 方向，Wohin? → 四格：das Haus。"}]},{"id":"vokal","type":"fill","tag":"10 题","title":"元音变化 Vokalwechsel（10/18 复习）","tip":"元音变化只发生在 du 和 er / sie / es；ich 和 wir 不变。先看括号里的原形，再想变音。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时"},"items":[{"q":"Er ___ gern Pizza. (essen)","a":"isst","hint":"essen","why":"essen：du isst，er isst（e → i）。"},{"q":"___ du Deutsch? (sprechen)","a":"sprichst","hint":"sprechen","why":"sprechen：du sprichst（e → i）。"},{"q":"Ich ___ den Bus. (nehmen)","a":"nehme","hint":"nehmen","why":"nehmen：ich nehme，ich 不变音。"},{"q":"Er ___ nach Berlin. (fahren)","a":"fährt","hint":"fahren","why":"fahren：du fährst，er fährt（a → ä）。"},{"q":"Sie ___ acht Stunden. (schlafen)","a":"schläft","hint":"schlafen","why":"schlafen：du schläfst，er / sie schläft（a → ä）。"},{"q":"___ mir bitte das Buch! (geben)","a":"gib","hint":"geben · 命令式 du","why":"geben：du gibst；对 du 的命令式 Gib!（e → i）。"},{"q":"Er ___ seiner Mutter. (helfen)","a":"hilft","hint":"helfen","why":"helfen：du hilfst，er hilft（e → i）。"},{"q":"Sie ___ ein Buch. (lesen)","a":"liest","hint":"lesen","why":"lesen：du liest，er / sie liest（e → ie）。"},{"q":"___ du den Film? (sehen)","a":"siehst","hint":"sehen","why":"sehen：du siehst（e → ie）。"},{"q":"Ich ___ den Termin. (vergessen)","a":"vergesse","hint":"vergessen","why":"vergessen：ich vergesse，ich 不变音；du vergisst，er vergisst。"}]},{"id":"adj","type":"match","tag":"8 对","title":"形容词反义 Adjektive","tip":"读出来，把意思相反的两个词配成一对。","link":{"href":"../?p=grammar&to=s18#grammar","text":"复习：A1 语法 · 形容词"},"pairs":[["groß","小的"],["hell","昏暗的"],["laut","安静的"],["teuer","便宜的"],["alt","新的"],["breit","窄的"],["lang","短的"],["modern","老式的"]]}]};
+var PASS_HASH = 'b00e0e1d7ff2c226b472653851bb83ae10fe2780297d5a4e9cf637169141b55b';
+var KEY = 'stu_unlock_yizimeng';
+var SAVE = 'yzm1025_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+state.ans = state.ans || {};
+state.solved = state.solved || {};
+state.checked = state.checked || {};
+state.revealed = state.revealed || {};
+state.order = state.order || {};
+state.cb = state.cb || {};
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+function speak(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .9;
+    window.speechSynthesis.speak(u);
+  } catch(e){}
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+
+function fullSentence(ex, i){
+  var it = ex.items[i];
+  if (ex.type === 'fill') return it.q.replace('___', it.a);
+  if (ex.type === 'choice') return it.q.replace('___', it.a);
+  return it.a;
+}
+
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+}
+
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var parts = it.q.split('___');
+    var v = (state.ans[ex.id] && state.ans[ex.id][i]) || '';
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
+      + esc(parts[1] || '')
+      + (it.hint ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button>'
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.ans[ex.id] && state.ans[ex.id][i];
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(it.q.split('___')[0]) + '<b style="color:var(--gold)">___</b>' + esc(it.q.split('___')[1] || '')
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button></div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button type="button" class="opt' + (cur === o ? ' sel' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-opt="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderMatch(ex){
+  var solved = state.solved[ex.id] || [];
+  var order = state.order[ex.id];
+  if (!order){
+    order = ex.pairs.map(function(_, i){ return i; });
+    for (var k = order.length - 1; k > 0; k--){
+      var r = Math.floor(Math.random() * (k + 1)), t = order[k]; order[k] = order[r]; order[r] = t;
+    }
+    state.order[ex.id] = order; save();
+  }
+  var left = ex.pairs.map(function(p, i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="l" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>'
+      + '<span>' + esc(p[0]) + '</span><span class="spk" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
+  }).join('');
+  var right = order.map(function(i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="r" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>' + esc(ex.pairs[i][1]) + '</button>';
+  }).join('');
+  return '<div class="items"><div class="match"><div class="mcol">' + left + '</div><div class="mcol">' + right + '</div></div></div>';
+}
+
+function renderGroup(ex, idx){
+  var body = ex.type === 'fill' ? renderFill(ex) : ex.type === 'choice' ? renderChoice(ex) : renderMatch(ex);
+  var btnCheck = ex.type === 'match' ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>';
+  return '<section class="ex" id="ex-' + ex.id + '">'
+    + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+    + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+    + (ex.link ? '<a class="ex-link" href="' + esc(ex.link.href) + '">' + esc(ex.link.text) + '</a>' : '')
+    + body
+    + '<div class="ex-foot">' + btnCheck
+    + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+    + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+    + '<span class="score" id="score-' + ex.id + '"></span></div>'
+    + '</section>';
+}
+
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(renderGroup).join('');
+  DATA.exercises.forEach(function(ex){
+    if (state.checked[ex.id]) checkGroup(ex, true);
+    else if (ex.type === 'match') updateMatchScore(ex);
+    else updateScore(ex, null);
+  });
+}
+
+function markItem(itemEl, good, whyEl){
+  itemEl.classList.remove('ok','bad');
+  itemEl.classList.add(good ? 'ok' : 'bad');
+  if (whyEl){ whyEl.classList.add('show'); if (!good) whyEl.classList.add('bad'); }
+}
+
+function checkGroup(ex, silent){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  var good = 0, total = 0;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    ex.items.forEach(function(it, i){
+      var itemEl = root.querySelector('.item[data-i="' + i + '"]');
+      if (!itemEl) return;
+      total++;
+      var val = state.ans[ex.id] && state.ans[ex.id][i];
+      var ok = isCorrect(it, val);
+      if (ok) good++;
+      if (ex.type === 'fill'){
+        var inp = itemEl.querySelector('.blank');
+        if (inp){ inp.classList.remove('ok','bad'); inp.classList.add(ok ? 'ok' : 'bad'); }
+        if (state.revealed[ex.id]) inp.value = it.a;
+      } else {
+        var opts = itemEl.querySelectorAll('.opt');
+        for (var j = 0; j < opts.length; j++){
+          var o = opts[j];
+          o.classList.remove('ok','bad');
+          if (o.dataset.opt === it.a) o.classList.add('ok');
+          else if (o.dataset.opt === val) o.classList.add('bad');
+        }
+      }
+      var why = itemEl.querySelector('.why');
+      markItem(itemEl, ok, why);
+    });
+    state.checked[ex.id] = true;
+    updateScore(ex, good + '/' + total);
+  } else {
+    var solved = state.solved[ex.id] || [];
+    total = ex.pairs.length; good = solved.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateMatchScore(ex);
+  }
+  save(); updateProgress();
+}
+
+function updateScore(ex, text){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  if (text == null){
+    el.textContent = '';
+    return;
+  }
+  var parts = text.split('/');
+  var all = parts.length === 2 && parts[0] === parts[1];
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全对 <b>' + text + '</b>' : '答对 <b>' + text + '</b>';
+}
+
+function updateMatchScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.pairs.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部配对 <b>' + solved + '/' + total + '</b>' : '已配对 <b>' + solved + '/' + total + '</b>';
+}
+
+function revealGroup(ex){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  state.revealed[ex.id] = true;
+  state.checked[ex.id] = true;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.a;
+      if (ex.type === 'fill'){
+        var inp = root.querySelector('.blank[data-i="' + i + '"]');
+        if (inp) inp.value = it.a;
+      }
+    });
+    checkGroup(ex);
+    root.querySelectorAll('.why').forEach(function(w){ w.classList.add('show'); w.classList.remove('bad'); });
+  } else {
+    state.solved[ex.id] = ex.pairs.map(function(_, i){ return i; });
+    save();
+    renderExercises();
+  }
+  updateProgress();
+}
+
+function redoGroup(ex){
+  delete state.ans[ex.id];
+  delete state.solved[ex.id];
+  delete state.checked[ex.id];
+  delete state.revealed[ex.id];
+  delete state.order[ex.id];
+  save();
+  renderExercises();
+  updateProgress();
+}
+
+function updateProgress(){
+  var done = DATA.exercises.filter(function(ex){
+    if (ex.type === 'match') return (state.solved[ex.id] || []).length === ex.pairs.length;
+    return !!state.checked[ex.id];
+  }).length;
+  document.getElementById('pct').textContent = '已完成 ' + done + ' / ' + DATA.exercises.length;
+  document.getElementById('pbar').style.width = (done / DATA.exercises.length * 100) + '%';
+}
+
+/* 事件 */
+document.addEventListener('input', function(e){
+  var inp = e.target.closest('.blank');
+  if (!inp) return;
+  var ex = inp.dataset.ex, i = inp.dataset.i;
+  state.ans[ex] = state.ans[ex] || {};
+  state.ans[ex][i] = inp.value;
+  save();
+  var itemEl = inp.closest('.item');
+  if (itemEl){
+    inp.classList.remove('ok','bad');
+    var why = itemEl.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    itemEl.classList.remove('ok','bad');
+  }
+});
+
+document.addEventListener('click', function(e){
+  var spk = e.target.closest('.spk');
+  if (spk){
+    e.preventDefault(); e.stopPropagation();
+    var t = spk.dataset.say;
+    if (t) speak(t);
+    return;
+  }
+  var opt = e.target.closest('.opt');
+  if (opt){
+    var exId = opt.dataset.ex, idx = opt.dataset.i;
+    state.ans[exId] = state.ans[exId] || {};
+    state.ans[exId][idx] = opt.dataset.opt;
+    save();
+    var item = opt.closest('.item');
+    item.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel','bad'); });
+    opt.classList.add('sel');
+    var why = item.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    item.classList.remove('ok','bad');
+    var ex = DATA.exercises.filter(function(x){ return x.id === exId; })[0];
+    if (ex && state.checked[exId]) checkGroup(ex);
+    return;
+  }
+  var m = e.target.closest('.mbtn');
+  if (m){
+    if (m.disabled) return;
+    var mex = m.dataset.ex, side = m.dataset.side, pair = m.dataset.pair;
+    var ex = DATA.exercises.filter(function(x){ return x.id === mex; })[0];
+    if (!ex) return;
+    var root = document.getElementById('ex-' + mex);
+    if (side === 'l'){
+      root.querySelectorAll('.mbtn[data-side="l"]').forEach(function(b){ b.classList.remove('sel'); });
+      m.classList.add('sel');
+      return;
+    }
+    var sel = root.querySelector('.mbtn[data-side="l"].sel');
+    if (!sel) return;
+    if (sel.dataset.pair === pair){
+      state.solved[mex] = state.solved[mex] || [];
+      if (state.solved[mex].indexOf(Number(pair)) < 0) state.solved[mex].push(Number(pair));
+      save();
+      renderExercises();
+      var s = state.solved[mex].length;
+      if (s === ex.pairs.length){ state.checked[mex] = true; save(); updateProgress(); }
+    } else {
+      m.classList.add('boom'); sel.classList.add('boom');
+      setTimeout(function(){ m.classList.remove('boom'); sel.classList.remove('boom'); sel.classList.remove('sel'); }, 340);
+    }
+    return;
+  }
+  var act = e.target.closest('[data-act]');
+  if (act){
+    var a = act.dataset.act;
+    var ex = DATA.exercises.filter(function(x){ return x.id === act.dataset.ex; })[0];
+    if (!ex) return;
+    if (a === 'check') checkGroup(ex);
+    else if (a === 'reveal') revealGroup(ex);
+    else if (a === 'redo') redoGroup(ex);
+    return;
+  }
+  var cb = e.target.closest('[data-ci]');
+  if (cb){
+    state.cb[cb.dataset.ci] = cb.checked;
+    cb.closest('label').classList.toggle('done', cb.checked);
+    save();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderChecklist();
+  renderExercises();
+  updateProgress();
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
