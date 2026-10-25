@@ -303,7 +303,7 @@ function renderMatch(ex){
   }
   var left = ex.pairs.map(function(p, i){
     return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="l" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>'
-      + '<span>' + esc(p[0]) + '</span><span class="spk" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
+      + '<span>' + esc(p[0]) + '</span><span class="spk" role="button" tabindex="0" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
   }).join('');
   var right = order.map(function(i){
     return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="r" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>' + esc(ex.pairs[i][1]) + '</button>';
@@ -338,7 +338,10 @@ function renderExercises(){
 function markItem(itemEl, good, whyEl){
   itemEl.classList.remove('ok','bad');
   itemEl.classList.add(good ? 'ok' : 'bad');
-  if (whyEl){ whyEl.classList.add('show'); if (!good) whyEl.classList.add('bad'); }
+  if (whyEl){
+    if (good){ whyEl.classList.remove('show','bad'); }
+    else { whyEl.classList.add('show','bad'); }
+  }
 }
 
 function checkGroup(ex, silent){
