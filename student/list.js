@@ -5,7 +5,7 @@ window.STUDENT_LINKS = [
     "name": "易同学",
     "level": "A1",
     "tagline": "A1 前三单元巩固 + 拼读 + 综合自测",
-    "updated": "2026-10-24"
+    "updated": "2026-10-25"
   },
   {
     "slug": "zhouyuhang",

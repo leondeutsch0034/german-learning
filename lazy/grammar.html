@@ -1969,22 +1969,115 @@
     <div class="section-num">15</div>
     <h2>数字、日期与时间 Zahlen, Datum und Uhrzeit</h2>
   </div>
-  <table>
-    <thead><tr><th>数字</th><th colspan="2">德语</th><th>数字</th><th colspan="2">德语</th></tr></thead>
-    <tbody>
-      <tr><td>0</td><td colspan="2">null</td><td>11</td><td colspan="2">elf</td></tr>
-      <tr><td>1</td><td colspan="2">ein(s)</td><td>12</td><td colspan="2">zwölf</td></tr>
-      <tr><td>2</td><td colspan="2">zwei</td><td>13</td><td colspan="2">dreizehn</td></tr>
-      <tr><td>3</td><td colspan="2">drei</td><td>20</td><td colspan="2">zwanzig</td></tr>
-      <tr><td>4</td><td colspan="2">vier</td><td>21</td><td colspan="2">einundzwanzig</td></tr>
-      <tr><td>5</td><td colspan="2">fünf</td><td>30</td><td colspan="2">dreißig</td></tr>
-      <tr><td>6</td><td colspan="2">sechs</td><td>40</td><td colspan="2">vierzig</td></tr>
-      <tr><td>7</td><td colspan="2">sieben</td><td>50</td><td colspan="2">fünfzig</td></tr>
-      <tr><td>8</td><td colspan="2">acht</td><td>100</td><td colspan="2">hundert</td></tr>
-      <tr><td>9</td><td colspan="2">neun</td><td>1000</td><td colspan="2">tausend</td></tr>
-      <tr><td>10</td><td colspan="2">zehn</td><td>1.000.000</td><td colspan="2">eine Million</td></tr>
-    </tbody>
-  </table>
+  <style>
+  .zz-group{font-size:.82rem;font-weight:800;color:#2b6cb0;letter-spacing:.04em;margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+  .zz-group::after{content:'';flex:1;height:1px;background:#dbeafe}
+  .zz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(142px,1fr));gap:6px}
+  .zz-chip{display:flex;align-items:baseline;gap:7px;width:100%;text-align:left;font:inherit;background:#f7fafc;border:1px solid #e2e8f0;border-radius:9px;padding:7px 10px;cursor:pointer;transition:.15s;color:#2d3748}
+  .zz-chip:hover{background:#ebf4ff;border-color:#63b3ed;transform:translateY(-1px)}
+  .zz-chip b{color:#1a365d;font-size:.95rem;min-width:36px;display:inline-block;font-variant-numeric:tabular-nums}
+  .zz-chip span{font-size:.85rem;color:#2b6cb0;font-weight:600;word-break:break-word}
+  .zz-chip::after{content:'🔊';margin-left:auto;opacity:.3;font-size:.72rem}
+  .zz-chip.speaking{background:#fff7d6;border-color:#f6ad55}
+  .zz-chip.speaking::after{opacity:1}
+  .zz-practice{background:#f0fff4;border-left:4px solid #48bb78;border-radius:0 10px 10px 0;padding:14px 16px;margin:16px 0 6px}
+  .zz-practice h4{margin:0 0 6px;font-size:.95rem;color:#276749}
+  .zz-practice p{margin:0 0 10px;font-size:.85rem;color:#475569;line-height:1.7}
+  .zz-btns{display:flex;flex-wrap:wrap;gap:8px}
+  .zz-btn{font:inherit;font-size:.82rem;font-weight:700;color:#276749;background:#fff;border:1.5px solid #9ae6b4;border-radius:999px;padding:7px 14px;cursor:pointer;transition:.15s}
+  .zz-btn:hover{background:#48bb78;color:#fff;border-color:#48bb78}
+  .zz-out{margin-top:10px;font-size:.88rem;color:#276749;font-weight:700;min-height:22px}
+  @media(max-width:520px){.zz-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.zz-chip b{min-width:30px}.zz-chip span{font-size:.8rem}}
+  </style>
+
+  <h3 id="zahlen" style="margin:4px 0 10px;color:#2b6cb0">🔢 Zahlen verstehen 数字怎么读</h3>
+  <div class="rule-box">
+    <span class="label">两条核心规则：</span><br>
+    ① <b>21–99 倒着读</b>：<span class="hl-r">个位 + und + 十位</span> —— 21 = ein<b style="color:#c05621">und</b>zwanzig（字面「一和二十」），35 = fünfunddreißig。<br>
+    ② <b>100 以上先读百位</b>：百位 + <b>hundert</b> + 后面照常 —— 120 = einhundertzwanzig；101 = einhundert<b style="color:#c05621">eins</b>（末尾用 eins，不用 ein）。
+  </div>
+  <div class="note"><b>点一下数字就能听发音。</b>先跟着读清楚，再自己盖住德语列读一遍。</div>
+
+  <div class="zz-group">0–9</div>
+  <div class="zz-grid">
+    <button type="button" class="zz-chip" data-say="null"><b>0</b><span>null</span></button>
+    <button type="button" class="zz-chip" data-say="eins"><b>1</b><span>eins</span></button>
+    <button type="button" class="zz-chip" data-say="zwei"><b>2</b><span>zwei</span></button>
+    <button type="button" class="zz-chip" data-say="drei"><b>3</b><span>drei</span></button>
+    <button type="button" class="zz-chip" data-say="vier"><b>4</b><span>vier</span></button>
+    <button type="button" class="zz-chip" data-say="fünf"><b>5</b><span>fünf</span></button>
+    <button type="button" class="zz-chip" data-say="sechs"><b>6</b><span>sechs</span></button>
+    <button type="button" class="zz-chip" data-say="sieben"><b>7</b><span>sieben</span></button>
+    <button type="button" class="zz-chip" data-say="acht"><b>8</b><span>acht</span></button>
+    <button type="button" class="zz-chip" data-say="neun"><b>9</b><span>neun</span></button>
+  </div>
+
+  <div class="zz-group">10–19</div>
+  <div class="zz-grid">
+    <button type="button" class="zz-chip" data-say="zehn"><b>10</b><span>zehn</span></button>
+    <button type="button" class="zz-chip" data-say="elf"><b>11</b><span>elf</span></button>
+    <button type="button" class="zz-chip" data-say="zwölf"><b>12</b><span>zwölf</span></button>
+    <button type="button" class="zz-chip" data-say="dreizehn"><b>13</b><span>dreizehn</span></button>
+    <button type="button" class="zz-chip" data-say="vierzehn"><b>14</b><span>vierzehn</span></button>
+    <button type="button" class="zz-chip" data-say="fünfzehn"><b>15</b><span>fünfzehn</span></button>
+    <button type="button" class="zz-chip" data-say="sechzehn"><b>16</b><span>sechzehn</span></button>
+    <button type="button" class="zz-chip" data-say="siebzehn"><b>17</b><span>siebzehn</span></button>
+    <button type="button" class="zz-chip" data-say="achtzehn"><b>18</b><span>achtzehn</span></button>
+    <button type="button" class="zz-chip" data-say="neunzehn"><b>19</b><span>neunzehn</span></button>
+  </div>
+
+  <div class="zz-group">20–29 · 倒着读</div>
+  <div class="zz-grid">
+    <button type="button" class="zz-chip" data-say="zwanzig"><b>20</b><span>zwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="einundzwanzig"><b>21</b><span>einundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="zweiundzwanzig"><b>22</b><span>zweiundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="dreiundzwanzig"><b>23</b><span>dreiundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="vierundzwanzig"><b>24</b><span>vierundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="fünfundzwanzig"><b>25</b><span>fünfundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="sechsundzwanzig"><b>26</b><span>sechsundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="siebenundzwanzig"><b>27</b><span>siebenundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="achtundzwanzig"><b>28</b><span>achtundzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="neunundzwanzig"><b>29</b><span>neunundzwanzig</span></button>
+  </div>
+
+  <div class="zz-group">整十 30–90</div>
+  <div class="zz-grid">
+    <button type="button" class="zz-chip" data-say="dreißig"><b>30</b><span>dreißig</span></button>
+    <button type="button" class="zz-chip" data-say="vierzig"><b>40</b><span>vierzig</span></button>
+    <button type="button" class="zz-chip" data-say="fünfzig"><b>50</b><span>fünfzig</span></button>
+    <button type="button" class="zz-chip" data-say="sechzig"><b>60</b><span>sechzig</span></button>
+    <button type="button" class="zz-chip" data-say="siebzig"><b>70</b><span>siebzig</span></button>
+    <button type="button" class="zz-chip" data-say="achtzig"><b>80</b><span>achtzig</span></button>
+    <button type="button" class="zz-chip" data-say="neunzig"><b>90</b><span>neunzig</span></button>
+  </div>
+
+  <div class="zz-group">100 以上</div>
+  <div class="zz-grid">
+    <button type="button" class="zz-chip" data-say="einhundert"><b>100</b><span>einhundert</span></button>
+    <button type="button" class="zz-chip" data-say="einhunderteins"><b>101</b><span>einhunderteins</span></button>
+    <button type="button" class="zz-chip" data-say="einhundertzehn"><b>110</b><span>einhundertzehn</span></button>
+    <button type="button" class="zz-chip" data-say="einhundertzwanzig"><b>120</b><span>einhundertzwanzig</span></button>
+    <button type="button" class="zz-chip" data-say="zweihundert"><b>200</b><span>zweihundert</span></button>
+    <button type="button" class="zz-chip" data-say="dreihundert"><b>300</b><span>dreihundert</span></button>
+    <button type="button" class="zz-chip" data-say="vierhundert"><b>400</b><span>vierhundert</span></button>
+    <button type="button" class="zz-chip" data-say="tausend"><b>1.000</b><span>tausend (eintausend)</span></button>
+    <button type="button" class="zz-chip" data-say="eine Million"><b>1.000.000</b><span>eine Million</span></button>
+  </div>
+
+  <div class="zz-practice">
+    <h4>b) Laut lesen — 先慢读，再快读</h4>
+    <p>先按「慢速」，一个数字一个数字读清楚（ein · und · zwanzig 是三段）；再按「常速」把它们连起来。读的时候不要在心里翻译成中文，直接读德语。</p>
+    <div class="zz-btns">
+      <button type="button" class="zz-btn" data-zz-list="20er" data-zz-rate="0.6">🐢 慢速读 21–29</button>
+      <button type="button" class="zz-btn" data-zz-list="20er" data-zz-rate="0.95">▶ 常速读 21–29</button>
+      <button type="button" class="zz-btn" data-zz-list="0-19" data-zz-rate="0.8">读一遍 0–19</button>
+      <button type="button" class="zz-btn" data-zz-list="100er" data-zz-rate="0.8">读一遍 100 以上</button>
+      <button type="button" class="zz-btn" data-zz-rand="1">🎲 随机来一个</button>
+    </div>
+    <div class="zz-out" id="zz-out"></div>
+  </div>
+
+  <div class="alert"><b>容易读错的几个：</b>16 = sechzehn（少一个 s，不是 sech<u>s</u>zehn）；17 = siebzehn（少 en，不是 sieb<u>en</u>zehn）；30 = dreißig（用 ß，不是 dreizig）；报电话号码时 2 常读 zwo，免得和 drei 听混。</div>
   <h3 style="margin:16px 0 10px;color:#2b6cb0">月份 Monate</h3>
   <table>
     <thead><tr><th>月份</th><th>德语</th><th>月份</th><th>德语</th></tr></thead>
@@ -2016,6 +2109,81 @@
     问日期：<span class="hl-r">Den Wievielten haben wir heute?</span> 或 <span class="hl-r">Welches Datum ist heute?</span>
   </div>
 </div>
+
+<script>
+/* 数字点读（Zahlen-SPK v1）· document 级委托，两个站点共用也只会绑一次 */
+(function(){
+  if (window._zzSpkBound) return;
+  window._zzSpkBound = true;
+
+  var LISTS = {
+    '0-19': ['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf','dreizehn','vierzehn','fünfzehn','sechzehn','siebzehn','achtzehn','neunzehn'],
+    '20er': ['einundzwanzig','zweiundzwanzig','dreiundzwanzig','vierundzwanzig','fünfundzwanzig','sechsundzwanzig','siebenundzwanzig','achtundzwanzig','neunundzwanzig'],
+    '100er': ['einhundert','einhunderteins','einhundertzehn','einhundertzwanzig','zweihundert','dreihundert','vierhundert','tausend']
+  };
+  var ALL = LISTS['0-19'].concat(LISTS['20er'], LISTS['100er']);
+
+  function voice(){
+    try { if (typeof window._pickDeVoice === 'function') { var v = window._pickDeVoice(); if (v) return v; } } catch(e){}
+    var vs = (window.speechSynthesis && window.speechSynthesis.getVoices()) || [];
+    for (var i = 0; i < vs.length; i++) if (/^de/i.test(vs[i].lang)) return vs[i];
+    return null;
+  }
+  function supported(){
+    if (!('speechSynthesis' in window)) {
+      alert('这个浏览器不支持朗读，请用 Chrome、Edge 或最新版 Safari 打开。');
+      return false;
+    }
+    return true;
+  }
+  function sayOne(text, rate, btn){
+    if (!text || !supported()) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = rate || 0.85; u.pitch = 1;
+    var v = voice(); if (v) u.voice = v;
+    if (btn) {
+      btn.classList.add('speaking');
+      u.onend = u.onerror = function(){ btn.classList.remove('speaking'); };
+    }
+    window.speechSynthesis.speak(u);
+  }
+  function sayList(list, rate){
+    if (!supported()) return;
+    window.speechSynthesis.cancel();
+    var v = voice(), i = 0;
+    (function next(){
+      if (i >= list.length) return;
+      var u = new SpeechSynthesisUtterance(list[i++]);
+      u.lang = 'de-DE'; u.rate = rate; u.pitch = 1;
+      if (v) u.voice = v;
+      u.onend = function(){ setTimeout(next, 240); };
+      u.onerror = function(){ setTimeout(next, 240); };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target && e.target.closest ? e.target.closest('.zz-chip,.zz-btn') : null;
+    if (!t) return;
+    e.preventDefault();
+    if (t.classList.contains('zz-chip')) {
+      sayOne(t.getAttribute('data-say'), 0.8, t);
+      return;
+    }
+    if (t.hasAttribute('data-zz-rand')) {
+      var w = ALL[Math.floor(Math.random() * ALL.length)];
+      var box = t.closest('.zz-practice');
+      var out = box && box.querySelector('.zz-out');
+      if (out) out.textContent = '听到的是：' + w;
+      sayOne(w, 0.8);
+      return;
+    }
+    var key = t.getAttribute('data-zz-list');
+    if (key && LISTS[key]) sayList(LISTS[key], parseFloat(t.getAttribute('data-zz-rate')) || 0.85);
+  }, true);
+})();
+</script>
 
 <!-- ⑯ 介词 -->
 <div class="section" id="s16">
