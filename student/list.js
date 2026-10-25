@@ -8,6 +8,13 @@ window.STUDENT_LINKS = [
     "updated": "2026-10-25"
   },
   {
+    "slug": "lixiangqin",
+    "name": "李同学",
+    "level": "A1",
+    "tagline": "发音专项：-t · -d · -en 词尾朗读训练",
+    "updated": "2026-10-25"
+  },
+  {
     "slug": "zhouyuhang",
     "name": "周同学",
     "level": "B1",

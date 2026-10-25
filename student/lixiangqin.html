@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>李同学 · 专属练习 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+.wrap{max-width:920px;margin:0 auto;padding:26px 18px 60px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:26px}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.35rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px;transition:.2s}
+.gate input:focus{border-color:var(--gold)}
+.btn{width:100%;background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:12px;font-size:1rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.9}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:8px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 6px;font-size:1.7rem;color:#fff8e8}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.testnote{margin-top:14px;padding:10px 14px;border-radius:12px;background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.4);color:#ffe088;font-size:.8rem;line-height:1.65;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.8rem;line-height:1.65}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:24px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.week{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+.week h2{margin:0;font-size:1.02rem;color:#fff8e8}
+.week .sub{color:var(--muted);font-size:.78rem;margin:2px 0 10px}
+.item{display:block;text-decoration:none;color:inherit;padding:11px 12px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);margin-top:8px;transition:.18s}
+.item:hover{background:rgba(246,211,101,.07);border-color:rgba(246,211,101,.28);transform:translateX(2px)}
+.item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mod{font-size:.66rem;font-weight:800;letter-spacing:.06em;background:rgba(246,211,101,.13);color:#ffe088;padding:2px 8px;border-radius:6px;flex-shrink:0}
+.item-title{font-size:.9rem;font-weight:700;color:#f1f5f9}
+.item-note{font-size:.75rem;color:var(--muted);margin-top:4px}
+.item--rich:hover{background:rgba(255,255,255,.025);border-color:rgba(255,255,255,.06);transform:none}
+.item-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.item-links a{font-size:.72rem;font-weight:700;color:#ffe088;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.28);border-radius:999px;padding:4px 10px;text-decoration:none;line-height:1.4}
+.item-links a:hover{background:rgba(246,211,101,.22);border-color:rgba(246,211,101,.5)}
+.item-links a::after{content:" ›";opacity:.7}
+.tag{font-size:.66rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:520px){.wrap{padding:18px 14px 50px}.hero{padding:20px}.hero h1{font-size:1.4rem}.week{padding:14px}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand{display:none}#app{display:block!important}.hero,.week,.item{border-color:#ddd;background:#fff;color:#111}.hero h1,.week h2,.item-title,.item{color:#111}.item-note,.sub,.foot,.eyebrow{color:#555}.item-links a{color:#8a5a00;background:#fff;border-color:#ddd}.item-links a::after{content:""}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span>🎓 Leons Deutschzentrum</span><a href="../">← 返回主站</a></div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>李同学 的专属练习</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">A1 · 发音专项 · 专属学习计划</div>
+      <h1>李同学</h1>
+      <div class="meta">
+        <span class="chip">目标：把德语词尾读清楚</span>
+        <span class="chip">级别：A1</span>
+        <span class="chip">更新：2026-10-25</span>
+      </div>
+      <div class="testnote" id="testnote" hidden></div>
+      <div class="notice"></div>
+    </div>
+
+    <div id="history-wrap" style="display:none">
+      <div class="sec-title">已完成的作业</div>
+      <div class="grid" id="history"></div>
+    </div>
+
+    <div class="sec-title">每周计划</div>
+    <div id="weeks"></div>
+
+    <div class="sec-title">常备练习库</div>
+    <div class="grid" id="library"></div>
+
+    <div class="foot">
+      这是 李同学 的专属页面 · 只有口令可以打开<br>
+      <a href="../">← 返回 Leons Deutschzentrum 主站</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var D = {"slug":"lixiangqin","name":"李同学","publicName":"李同学","level":"A1","levelLabel":"A1 · 发音专项","tagline":"发音专项：-t · -d · -en 词尾朗读训练","updated":"2026-10-25","goal":"把德语词尾读清楚","redirect":"../?p=lixiangqin&bare=1#lixiangqin","history":[],"weeks":[],"library":[],"passHash":"0816a0ef6c2241c095b80bd9158d0a4a5cc689ab868cdb56ce89c0bde19b06d4"};
+var PASS_HASH = '0816a0ef6c2241c095b80bd9158d0a4a5cc689ab868cdb56ce89c0bde19b06d4';
+var KEY = 'stu_unlock_' + D.slug;
+
+/* SHA-256（纯 JS，file:// 下也能用；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function itemHTML(it){
+  var ext = /^https?:/i.test(it.href || '');
+  var tag = it.tag ? '<span class="tag">' + esc(it.tag) + '</span>' : '';
+  var note = it.note ? '<div class="item-note">' + esc(it.note) + '</div>' : '';
+  var head = '<div class="item-head"><span class="mod">' + esc(it.module || '练习') + '</span>'
+    + '<span class="item-title">' + esc(it.title) + '</span>' + tag + '</div>';
+  if (it.links && it.links.length){
+    var links = it.links.map(function(l){
+      var e2 = /^https?:/i.test(l.h || '');
+      return '<a href="' + esc(l.h || '#') + '"' + (e2 ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.t) + '</a>';
+    }).join('');
+    return '<div class="item item--rich">' + head + note + '<div class="item-links">' + links + '</div></div>';
+  }
+  return '<a class="item" href="' + esc(it.href || '#') + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>'
+    + head + note + '</a>';
+}
+
+function render(){
+  var wh = '';
+  (D.weeks || []).forEach(function(w){
+    wh += '<div class="week"><h2>' + esc(w.title) + '</h2>'
+      + (w.sub ? '<div class="sub">' + esc(w.sub) + '</div>' : '')
+      + (w.items || []).map(itemHTML).join('') + '</div>';
+  });
+  document.getElementById('weeks').innerHTML = wh;
+  document.getElementById('library').innerHTML = (D.library || []).map(itemHTML).join('');
+  var hist = (D.history || []).map(itemHTML).join('');
+  document.getElementById('history').innerHTML = hist;
+  if (hist) document.getElementById('history-wrap').style.display = '';
+}
+
+var REDIRECT = '../?p=lixiangqin&bare=1#lixiangqin';
+
+function show(){
+  if (REDIRECT){ location.replace(REDIRECT); return; }
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  (function(){var tn=document.getElementById('testnote');if(tn&&tn.textContent.trim())tn.hidden=false;})();
+  render();
+}
+
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v) { err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    show();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = '';
+    input.focus();
+  }
+}
+
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) show();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>

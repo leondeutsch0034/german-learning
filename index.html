@@ -56,6 +56,7 @@
   }
   </script>
   <link rel="stylesheet" href="/site.css?v=20261024"/>
+<style id="bare-xcss">html.bare #float-nav,html.bare footer,html.bare .res-band{display:none!important}</style>
 <style id="serie-xcss">
     #page-serie .se-narr{background:rgba(246,211,101,.05);border-left:3px solid rgba(246,211,101,.35);border-radius:8px;padding:12px 15px;margin:18px 0 14px;font-size:.86rem;color:#cbd5e1;line-height:1.7}
     #page-serie .se-narr b{color:#f6d365}
@@ -129,6 +130,10 @@
    '/#newslesen'，**query 会被冲掉**；而新闻页的懒加载脚本要等之后再跑。
    所以在最早的脚本里先把 ep 存进 sessionStorage.nlEp（新闻页已有的兜底约定）。 */
 (function(){
+  /* 学生专属入口：/?p=xxx&bare=1 只显示内容页，隐藏底部导航、页脚和资源条 */
+  try {
+    if (/[?&]bare=1(?:&|$)/.test(location.search)) document.documentElement.className += ' bare';
+  } catch (e) {}
   try {
     var q = new URLSearchParams(location.search).get('ep');
     if (q && /^\d+$/.test(q)) sessionStorage.setItem('nlEp', q);
@@ -641,12 +646,6 @@ window.instantiateLazyPage = function(pageId, cb) {
 	    tags:'假朋友 · 德英对比 · 纠错 · 双语',
 	    c1:'#dc2626', c2:'#3b82f6', locked:false },
 
-	  // ── 定制（锁定） ──
-	  { id:'lixiangqin', icon:'⭐', navLabel:'LXQ定制', cardTitleDe:'LXQ Individual', cardSubDe:'Personalisierte Lerninhalte & Lernpfad', cardTitle:'LXQ定制', group:'a1', hubStep:6, hubSkill:'Premium', hubSkillZh:'专属定制', hubAccent:'#f9d880', hubTip:'VIP专属：个性化定制学习路径',
-	    desc:'个性化定制练习内容 · 专属学习路径',
-	    tags:'定制内容 · 专属 · 进阶',
-	    c1:'#a87014', c2:'#f9d880', locked:true },
-
 	  // ── 资源推荐 ──
 	  { id:'resources', icon:'🌐', navLabel:'资源推荐', cardTitleDe:'Ressourcen', cardSubDe:'Externe Lernressourcen & Tools', cardTitle:'全网资源推荐',
 	    desc:'精选德语学习资源 · 词典 · 新闻 · 播客 · YouTube · App · 考试资料 · 一站式汇总',
@@ -835,7 +834,7 @@ var PAGE_NAMES = {
   'index':'首页','grammar':'语法','hoeren':'听力','schreiben':'写作','mix':'综合',
   'daten':'数据描述','lesen':'阅朗读',
   'lianxi':'练习专栏','a2unit1':'A2单元练习','a2grammar':'A2语法','a2lesen':'A2阅读',
-  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','newslesen':'德语新闻','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'LXQ定制','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','passivkonjunktiv':'被动·虚拟式专题','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
+  'a2schreiben':'A2写作','a2hoeren':'A2听力','echt':'地道德语','serie':'林夏在德国','echt-share':'地道德语·分享版','serie-share':'林夏在德国·分享版','kultur':'德国文化','newslesen':'德语新闻','kultur-reader':'你不知道的德国','wissnicht':'你不知道的德国','grammar-cards':'A1语法速查','lixiangqin':'李同学','pronunciation':'德语发音器','phonetik':'字母拼读','english-pronunciation':'英语发音器','grammatik-schreiben':'A1-B1语法抄写','b1grammar':'B1语法','passivkonjunktiv':'被动·虚拟式专题','b1hoeren':'B1听力','b1lesen':'B1阅读','b1schreiben':'B1写作','klippklapp':'Klipp-Klapp城市导航',
   'b1hub':'B1学习站','b1modell':'B1真题15套','b2hub':'B2学习站','c1hub':'C1学习站',
   'b2sprechen':'B2口语','b2schreiben':'B2写作',
   'resources':'全网资源推荐'
@@ -9505,10 +9504,11 @@ function showPage(id) {
   /* ★ URL 始终用根路径（'/' 开头）—— 否则从 /news/01.html 这类深链接页
      切到别的栏目时，路径会一直挂在 /news/ 底下。
      '/#' + id 是相对根解析的，任何路径下都回到网站根。 */
+  var _bareQ = document.documentElement.classList.contains('bare') ? '?bare=1' : '';
   if (id !== 'index') {
-    history.replaceState(null, '', '/#' + id);
+    history.replaceState(null, '', '/' + _bareQ + '#' + id);
   } else {
-    history.replaceState(null, '', '/');
+    history.replaceState(null, '', '/' + _bareQ);
   }
   /* ★ 栏目若有自己的分享路径，切过去 —— 微信抓 OG 读不到 '#' 后面的东西，
      只有真路径（如 /news/01.html）才能出对的预览卡。
@@ -17726,12 +17726,12 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   </iframe>
 </div>
 
-<!-- ══════════ LXQ定制 ══════════ -->
+<!-- ══════════ 李同学 · 发音专项（学生专属） ══════════ -->
 <div id="page-lixiangqin" class="page" style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#0f172a,#1a2740,#1e3a5f);color:#263238;line-height:1.7;padding:20px">
 <div style="max-width:860px;margin:0 auto">
   <div style="text-align:center;background:linear-gradient(135deg,#6b21a8,#db2777);color:#fff;padding:32px 24px 24px;border-radius:20px;margin-bottom:28px;box-shadow:0 6px 20px rgba(107,33,168,.35)">
-    <h1 style="font-size:1.8rem;margin-bottom:6px">LXQ定制练习</h1>
-    <p style="opacity:.85;font-size:.97rem">发音专项：-t · -d · -en 词尾朗读训练</p>
+    <h1 style="font-size:1.8rem;margin-bottom:6px">发音专项练习</h1>
+    <p style="opacity:.85;font-size:.97rem">李同学 · -t · -d · -en 词尾朗读训练</p>
   </div>
 
   <div class="tip" style="background:#f3e8ff;border-left:4px solid #6b21a8;border-radius:6px;padding:.8rem 1.1rem;margin-bottom:1.6rem;font-size:.9rem;color:#4a1d96">

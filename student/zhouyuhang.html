@@ -44,6 +44,11 @@ body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%)
 .mod{font-size:.66rem;font-weight:800;letter-spacing:.06em;background:rgba(246,211,101,.13);color:#ffe088;padding:2px 8px;border-radius:6px;flex-shrink:0}
 .item-title{font-size:.9rem;font-weight:700;color:#f1f5f9}
 .item-note{font-size:.75rem;color:var(--muted);margin-top:4px}
+.item--rich:hover{background:rgba(255,255,255,.025);border-color:rgba(255,255,255,.06);transform:none}
+.item-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.item-links a{font-size:.72rem;font-weight:700;color:#ffe088;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.28);border-radius:999px;padding:4px 10px;text-decoration:none;line-height:1.4}
+.item-links a:hover{background:rgba(246,211,101,.22);border-color:rgba(246,211,101,.5)}
+.item-links a::after{content:" ›";opacity:.7}
 .tag{font-size:.66rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 .foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
@@ -52,7 +57,7 @@ body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%)
 .lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
 .lockbtn:hover{color:var(--gold);border-color:var(--gold)}
 @media(max-width:520px){.wrap{padding:18px 14px 50px}.hero{padding:20px}.hero h1{font-size:1.4rem}.week{padding:14px}}
-@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand{display:none}#app{display:block!important}.hero,.week,.item{border-color:#ddd;background:#fff;color:#111}.hero h1,.week h2,.item-title,.item{color:#111}.item-note,.sub,.foot,.eyebrow{color:#555}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand{display:none}#app{display:block!important}.hero,.week,.item{border-color:#ddd;background:#fff;color:#111}.hero h1,.week h2,.item-title,.item{color:#111}.item-note,.sub,.foot,.eyebrow{color:#555}.item-links a{color:#8a5a00;background:#fff;border-color:#ddd}.item-links a::after{content:""}}
 </style>
 </head>
 <body>
@@ -176,10 +181,17 @@ function itemHTML(it){
   var ext = /^https?:/i.test(it.href || '');
   var tag = it.tag ? '<span class="tag">' + esc(it.tag) + '</span>' : '';
   var note = it.note ? '<div class="item-note">' + esc(it.note) + '</div>' : '';
+  var head = '<div class="item-head"><span class="mod">' + esc(it.module || '练习') + '</span>'
+    + '<span class="item-title">' + esc(it.title) + '</span>' + tag + '</div>';
+  if (it.links && it.links.length){
+    var links = it.links.map(function(l){
+      var e2 = /^https?:/i.test(l.h || '');
+      return '<a href="' + esc(l.h || '#') + '"' + (e2 ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.t) + '</a>';
+    }).join('');
+    return '<div class="item item--rich">' + head + note + '<div class="item-links">' + links + '</div></div>';
+  }
   return '<a class="item" href="' + esc(it.href || '#') + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>'
-    + '<div class="item-head"><span class="mod">' + esc(it.module || '练习') + '</span>'
-    + '<span class="item-title">' + esc(it.title) + '</span>' + tag + '</div>'
-    + note + '</a>';
+    + head + note + '</a>';
 }
 
 function render(){
@@ -196,7 +208,10 @@ function render(){
   if (hist) document.getElementById('history-wrap').style.display = '';
 }
 
+var REDIRECT = '';
+
 function show(){
+  if (REDIRECT){ location.replace(REDIRECT); return; }
   document.getElementById('gate').style.display = 'none';
   document.getElementById('app').style.display = 'block';
   (function(){var tn=document.getElementById('testnote');if(tn&&tn.textContent.trim())tn.hidden=false;})();
