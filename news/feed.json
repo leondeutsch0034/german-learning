@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 33,
+   "title": "德国圣诞树涨价：Nordmanntanne 每米 25–33 欧",
+   "de_title": "Weihnachtsbäume werden teurer: Nordmanntanne kostet 25 bis 33 Euro pro Meter",
+   "hook": "一棵圣诞树|今年贵了一成",
+   "sub": "德国人按米买树，越大越贵",
+   "date": "2026-10-23",
+   "photo": "news/og/src/33.jpg",
+   "de_hook": "Warum kostet der|Weihnachtsbaum|dieses Jahr mehr?",
+   "zh_intro": "再过几周，德国的圣诞树就要开卖了。今年一棵树大概要比去年多花几欧元：最受欢迎的 Nordmanntanne 每米 25 到 33 欧，去年是 23 到 30 欧，涨了约一成。种树的农民说，工钱、运输都贵了，夏天的高温和干旱又伤到了小树。德国人买树按米算钱——树越大，价格越高。",
+   "words": [
+    [
+     "der Weihnachtsbaum, die Weihnachtsbäume",
+     "圣诞树"
+    ],
+    [
+     "die Nordmanntanne",
+     "诺德曼冷杉（最常见的圣诞树品种）"
+    ],
+    [
+     "die Fichte",
+     "云杉"
+    ]
+   ]
+  },
+  {
    "id": 32,
    "title": "德国电动滑板车被改装：限速 20，有人跑到 80",
    "de_title": "Getunte E-Scooter: Polizei warnt vor Rollern mit 80 km/h",
@@ -173,31 +198,6 @@
     [
      "das Opfer",
      "受害人"
-    ]
-   ]
-  },
-  {
-   "id": 25,
-   "title": "世界重启心脏日：德国人学怎么把人救回来",
-   "de_title": "Welt-Tag der Wiederbelebung: Wie man Herzen wieder startet",
-   "hook": "心脏停了|你敢按吗",
-   "sub": "世界重启心脏日 · 德国医院现场教",
-   "date": "2026-10-16",
-   "photo": "news/og/src/25.jpg",
-   "de_hook": "Traust du dich,|ein Herz wieder|zu starten?",
-   "zh_intro": "心脏一旦停止跳动，人就有生命危险；但反复按压胸廓、做心肺复苏，往往能让心脏重新跳起来，同时还要向患者口中吹气。很多人不敢动手，怕自己做错。10 月 16 日是世界重启心脏日，德国许多医院举办活动，医生和急救人员在假人上示范正确的胸外按压。",
-   "words": [
-    [
-     "die Wiederbelebung",
-     "心肺复苏"
-    ],
-    [
-     "der Herzstillstand",
-     "心脏骤停"
-    ],
-    [
-     "das Herz",
-     "心脏"
     ]
    ]
   }

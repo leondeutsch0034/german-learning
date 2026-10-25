@@ -106,6 +106,28 @@
     }
 
     
+    #user-status-bar {
+      display: none;
+      position: sticky; top: 0; z-index: 1000;
+      background: #0a1428;
+      padding: 6px 14px;
+      font-size: 0.78rem; color: #fff8e8;
+      text-align: center;
+      border-bottom: 1px solid rgba(246,211,101,.35);
+      align-items: center; justify-content: center; gap: 12px;
+    }
+    #user-status-bar.show { display: flex; }
+    #user-status-bar .tier-badge {
+      font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+      background: rgba(255,220,130,.25); color: #ffe088;
+      font-weight: 600;
+    }
+    #user-status-bar .logout-link {
+      color: #f87171; cursor: pointer; text-decoration: none;
+      font-weight: 600;
+    }
+    #user-status-bar .logout-link:hover { color: #fca5a5; }
+
     
     .page { display: none; min-height: 100vh; }
     .page.active { display: block; }
@@ -2192,7 +2214,39 @@
     .br-order-input.correct{background:#dcfce7;border-color:#22c55e}
     .br-order-input.wrong{background:#fee2e2;border-color:#ef4444}
 
-        @media(max-width:600px){
+    
+    .login-prompt-card {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      flex-wrap: wrap;
+      margin: 20px auto; padding: 16px 20px;
+      max-width: 500px;
+      background: linear-gradient(135deg, #0a1428, #1e3a5f);
+      border: 1.5px solid rgba(246,211,101,.35);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      text-align: center;
+    }
+    .login-prompt-card .lp-msg {
+      color: #fde68a; font-size: .88rem; font-weight: 600;
+      line-height: 1.5; min-width: 120px;
+    }
+    .login-prompt-card .lp-btn {
+      background: linear-gradient(90deg, #1e3a5f, #2e527c);
+      color: #fde68a; border: 1px solid rgba(246,211,101,.4); border-radius: 20px;
+      padding: 10px 24px; font-size: .9rem; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .login-prompt-card .lp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(246,211,101,.35);
+    }
+    @media (max-width: 600px) {
+      .login-prompt-card { padding: 14px 16px; gap: 10px; margin: 14px 8px; }
+      .login-prompt-card .lp-msg { font-size: .8rem; }
+      .login-prompt-card .lp-btn { padding: 8px 18px; font-size: .82rem; }
+    }
+    @media(max-width:600px){
       #page-schreiben .br-section{padding:8px!important}
       .phrase-grid{grid-template-columns:1fr}
       .envelope-visual{min-height:auto}
@@ -3375,23 +3429,3 @@
 
 /* ── 首页品牌中文名（SEO：让百度能匹配「Leon德语学习中心」 + 中文访客看得到中文站名）── */
 .hero-brand-cn{font-size:clamp(.92rem,2.2vw,1.15rem);font-weight:600;letter-spacing:.18em;text-indent:.18em;color:#f6d365;opacity:.85;margin:-6px 0 12px}
-
-/* ── 分节口令门（A1 16b 双向介词 / A2 被动态 共用）── */
-.pw-gate{background:#fff;border:1.5px dashed #93c5fd;border-radius:14px;padding:26px 22px;margin:6px 0 18px;text-align:center;box-shadow:0 3px 12px rgba(15,30,58,.06)}
-.pw-gate .pw-ico{font-size:2rem;line-height:1}
-.pw-gate h3{margin:8px 0 6px;font-size:1.1rem;color:#1e3a5f}
-.pw-gate p{margin:0;font-size:.9rem;color:#546e7a;line-height:1.75}
-.pw-row{display:flex;gap:8px;max-width:360px;margin:16px auto 0}
-.pw-row input{flex:1;min-width:0;border:1.5px solid #cbd5e1;border-radius:10px;padding:10px 12px;font-size:.95rem;background:#f8fafc;color:#1f2937;font-family:inherit}
-.pw-row input:focus{outline:none;border-color:#2b6cb0;background:#fff}
-.pw-row button{border:0;border-radius:10px;padding:10px 20px;font-size:.95rem;font-weight:700;background:#2b6cb0;color:#fff;cursor:pointer;font-family:inherit}
-.pw-row button:active{transform:translateY(1px)}
-.pw-err{min-height:1.2em;font-size:.82rem;color:#c53030;margin-top:8px}
-.pw-foot{font-size:.76rem;color:#94a3b8;margin-top:12px;line-height:1.8}
-.pw-hide[hidden]{display:none!important}
-#page-b2grammar .pw-gate{background:rgba(255,255,255,.05);border-color:rgba(246,211,101,.35);box-shadow:none}
-#page-b2grammar .pw-gate h3{color:#fde68a}
-#page-b2grammar .pw-gate p{color:rgba(232,240,251,.72)}
-#page-b2grammar .pw-row input{background:rgba(10,20,35,.7);border-color:rgba(246,211,101,.28);color:#e8eef7}
-#page-b2grammar .pw-row button{background:linear-gradient(135deg,#f6d365,#b8860b);color:#0a1428}
-#page-b2grammar .pw-foot{color:rgba(232,240,251,.45)}
