@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 34,
+   "title": "德国补课调查：五年级以上约两成",
+   "de_title": "Studie: Jeder fünfte Schüler ab Klasse 5 nimmt bezahlte Nachhilfe",
+   "hook": "德国补课|五年级以上两成",
+   "sub": "补差还是拔高",
+   "date": "2026-10-26",
+   "photo": "news/og/src/34.jpg",
+   "de_hook": "19 Prozent|nehmen Nachhilfe",
+   "zh_intro": "德国也补课。Forsa 受 Studienkreis 委托的调查显示，五年级以上约 19% 的学生在用付费补习，11–13 年级为 17%；22% 的家长至少付过一次。和「德国孩子不补课」的印象不一样。",
+   "words": [
+    [
+     "die Nachhilfe",
+     "补习、补课"
+    ],
+    [
+     "kostenpflichtig",
+     "收费的"
+    ],
+    [
+     "die Umfrage",
+     "调查"
+    ]
+   ]
+  },
+  {
    "id": 33,
    "title": "德国圣诞树涨价：Nordmanntanne 每米 25–33 欧",
    "de_title": "Weihnachtsbäume werden teurer: Nordmanntanne kostet 25 bis 33 Euro pro Meter",
@@ -173,31 +198,6 @@
     [
      "hohe Preise",
      "高物价"
-    ]
-   ]
-  },
-  {
-   "id": 26,
-   "title": "德国新法：受害人上法庭，有人陪、律师免费",
-   "de_title": "Opfer von Straftaten bekommen mehr Hilfe vor Gericht",
-   "hook": "法庭上|不再一个人",
-   "sub": "德国新法 · 免费陪同和律师",
-   "date": "2026-10-18",
-   "photo": "news/og/src/26.jpg",
-   "de_hook": "Allein vor Gericht –|muss das|wirklich sein?",
-   "zh_intro": "德国联邦议院通过一项法律：重罪受害人在法庭上能得到专业人员的帮助——向他们解释程序、陪着他们出庭，费用全免。儿童、青少年和残疾人自动获得这项帮助；在家遭遇暴力的人，也能免费得到一名律师。",
-   "words": [
-    [
-     "das Gesetz",
-     "法律"
-    ],
-    [
-     "der Bundestag",
-     "联邦议院"
-    ],
-    [
-     "das Opfer",
-     "受害人"
     ]
    ]
   }
