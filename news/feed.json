@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 36,
+   "title": "金球奖第一次给凯恩：61 球赛季，和德国的足球土壤",
+   "de_title": "Ballon d'Or: Kane und Putellas ausgezeichnet",
+   "hook": "61 个球|换来一座金球",
+   "sub": "凯恩第一次，普特拉斯第三次",
+   "date": "2026-10-27",
+   "photo": "news/og/src/36.jpg",
+   "de_hook": "61 Tore –|und endlich|der Ballon d'Or?",
+   "zh_intro": "金球奖在伦敦颁出。英格兰前锋凯恩第一次获奖，上赛季他为拜仁在 51 场正式比赛里打进 61 球；西班牙中场普特拉斯第三次获奖，2026 年 7 月刚从巴萨转到伦敦城雌狮。今年是第 70 届。",
+   "words": [
+    [
+     "der Ballon d'Or",
+     "金球奖"
+    ],
+    [
+     "der Fußballer, -",
+     "足球运动员"
+    ],
+    [
+     "die Fußballerin, -nen",
+     "女足运动员"
+    ]
+   ]
+  },
+  {
    "id": 35,
    "title": "奥迪美国建厂风波：CEO 为特朗普站台，德国工会怒了",
    "de_title": "Audi-Chef bei Trump: Ärger um neues Werk in den USA",
@@ -173,31 +198,6 @@
     [
      "die Natur",
      "大自然"
-    ]
-   ]
-  },
-  {
-   "id": 28,
-   "title": "德国超市「安静一小时」：照顾看不见的障碍",
-   "de_title": "Stille Stunde: Eine Stunde ruhig einkaufen",
-   "hook": "一小时|安安静静|逛超市",
-   "sub": "10 月 20 日 · 看不见的障碍，也需要被看见",
-   "date": "2026-10-19",
-   "photo": "news/og/src/28.jpg",
-   "de_hook": "Eine Stunde still|einkaufen –|warum eigentlich?",
-   "zh_intro": "10 月 20 日是「看不见的障碍」行动日。德国许多商店会参加「安静一小时」：关掉音乐、减少广播，让对声音和光线敏感的人也能安心买东西。活动想说明一件事——不是每种障碍都看得见，但每个人都该有同样的机会。",
-   "words": [
-    [
-     "die Behinderung / die Behinderungen",
-     "障碍、残疾"
-    ],
-    [
-     "nicht sichtbar",
-     "看不见的"
-    ],
-    [
-     "der Aktionstag",
-     "行动日"
     ]
    ]
   }
