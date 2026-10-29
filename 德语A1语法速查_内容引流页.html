@@ -517,8 +517,25 @@
 <!-- ═══════ 点位分享：翻到哪一块，分享链接就落在哪一块 ═══════ -->
 <script>
 (function(){
-  var SEL = '.hook-card, .section, .cheatsheet, .quiz-block, .q, .gender-cards';
+  /* 行级锚点：表格行、钩子卡、性别卡标题、性别卡里的每一行、每个测验题、
+     各级标题、提示框、广告位…基本覆盖页面上每一个可见单元 */
+  var SEL = 'table tr, .hook-card, .gc-header, .gc-line, .q, .section > h2, .section-sub, ' +
+            '.cheatsheet > h3, .quiz-block > h3, .callout, .soft-cta, .hero h1, .hero .sub, details > summary';
   var blocks = [];
+  /* <br> 分隔的「行」先拆成真正的元素，才能一行一个锚点 */
+  function splitLines(){
+    var boxes = document.querySelectorAll('.gc-body, .callout');
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i];
+      if (box.dataset.gcSplit) continue;
+      box.dataset.gcSplit = '1';
+      var parts = box.innerHTML.split(/<br\s*\/?>/i);
+      if (parts.length < 2) continue;
+      var out = '';
+      for (var k = 0; k < parts.length; k++) out += '<div class="gc-line">' + parts[k] + '</div>';
+      box.innerHTML = out;
+    }
+  }
   function collect(){
     var nodes = document.querySelectorAll(SEL);
     blocks = [];
@@ -533,15 +550,22 @@
   var LOCK = false, cur = '', tick = false;
   function inFrame(){ try { return window.parent && window.parent !== window; } catch(e) { return false; } }
 
+  var lockY = -1;
   function sync(){
     if (tick || LOCK || !blocks.length) return;
+    if (lockY >= 0) {
+      if (Math.abs(window.scrollY - lockY) < 40) return;   /* 版面变化，不是用户滚动 */
+      lockY = -1;
+    }
     tick = true;
     setTimeout(function(){
       tick = false;
-      var line = window.innerHeight * 0.35, pick = null;
+      var line = window.innerHeight * 0.35, pick = null, best = 1e9;
       for (var i = 0; i < blocks.length; i++) {
         var r = blocks[i].getBoundingClientRect();
-        if (r.top <= line) pick = blocks[i];
+        if (!r.height) continue;
+        var d = Math.abs((r.top + r.bottom) / 2 - line);
+        if (d < best) { best = d; pick = blocks[i]; }
       }
       if (!pick || pick.id === cur) return;
       cur = pick.id;
@@ -553,11 +577,14 @@
   function goto(id, smooth){
     var el = document.getElementById(id);
     if (!el) return false;
+    var det = el.closest ? el.closest('details') : null;
+    if (det && !det.open) det.open = true;
     var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.35;
     LOCK = true;
     try { window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' }); }
     catch(e) { window.scrollTo(0, y); }
     cur = id;
+    lockY = window.scrollY;
     setTimeout(function(){ LOCK = false; }, smooth ? 1400 : 1200);
     return true;
   }
@@ -574,12 +601,16 @@
     setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 2100);
   }
   function share(){
+    splitLines();
     collect();
     var id = cur;
     if (!id) {
-      var line = window.innerHeight * 0.35;
+      var line = window.innerHeight * 0.35, best = 1e9;
       for (var i = 0; i < blocks.length; i++) {
-        if (blocks[i].getBoundingClientRect().top <= line) id = blocks[i].id;
+        var r = blocks[i].getBoundingClientRect();
+        if (!r.height) continue;
+        var d = Math.abs((r.top + r.bottom) / 2 - line);
+        if (d < best) { best = d; id = blocks[i].id; }
       }
     }
     var origin = location.origin;
@@ -607,6 +638,7 @@
   });
 
   function boot(){
+    splitLines();
     collect();
     var id = '';
     try { id = new URLSearchParams(location.search).get('gc') || ''; } catch(e) {}
