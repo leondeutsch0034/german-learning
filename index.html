@@ -151,6 +151,14 @@
       sessionStorage.setItem('nlp', nlp);
     }
   } catch (e) {}
+  /* A1 语法点位深链：/?pg=grammar-cards&gc=gc-12#grammar-cards —— 同样先存 */
+  try {
+    var gcA = new URLSearchParams(location.search).get('gc');
+    if (gcA && /^gc-\d+$/.test(gcA)) {
+      window._gcWant = gcA;
+      sessionStorage.setItem('gcAnchor', gcA);
+    }
+  } catch (e) {}
   /* 通用小节深链：/?pg=b1pruefung&dl=3#b1pruefung —— 同样先存 */
   try {
     var _dq = new URLSearchParams(location.search);
@@ -22160,7 +22168,7 @@ window.jumpKulturEp = function(n) {
 <script>
 (function(){
   /* 跳过有自己方案的页：首页无小节；拼读器行级；新闻按档位；剧集/文化按期数 */
-  var SKIP = {index:1, phonetik:1, newslesen:1, serie:1, kultur:1, 'kultur-reader':1};
+  var SKIP = {index:1, phonetik:1, newslesen:1, serie:1, kultur:1, 'kultur-reader':1, 'grammar-cards':1};
   var timer = null, last = '';
 
   function activePage(){
@@ -22251,6 +22259,66 @@ window.jumpKulturEp = function(n) {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function(){ setTimeout(restore, 80); });
   } else { setTimeout(restore, 80); }
+})();
+</script>
+<!-- a1grammar-deeplink-v1：A1 语法速查（iframe 内容页）→ 点位分享，地址栏用带 og 的壳页 -->
+<script>
+(function(){
+  var PAGE = 'grammar-cards';
+  function pageEl(){ return document.getElementById('page-' + PAGE); }
+  function frame(){ var p = pageEl(); return p ? p.querySelector('iframe') : null; }
+  function setUrl(id){
+    try { history.replaceState(null, '', '/grammatik-a1.html' + (id ? '?gc=' + encodeURIComponent(id) : '')); } catch (e) {}
+  }
+  var cur = '';
+
+  /* 内容页滚动时通过 postMessage 报「当前这一块」 */
+  window.addEventListener('message', function(ev){
+    var d = ev.data;
+    if (!d || d.__gc !== 1 || d.type !== 'gc-anchor') return;
+    var id = String(d.id || '');
+    if (!/^gc-\d+$/.test(id)) return;
+    var p = pageEl(); if (!p || p.style.display === 'none') return;
+    if (id === cur) return;
+    cur = id;
+    setUrl(cur);
+  });
+
+  function init(){
+    var p = pageEl(); if (!p || p.style.display === 'none') return;
+    var f = frame(); if (!f) return;
+    var gc = '';
+    try { gc = new URLSearchParams(location.search).get('gc') || ''; } catch (e) {}
+    if (!gc && window._gcWant) gc = window._gcWant;
+    if (!gc) { try { gc = sessionStorage.getItem('gcAnchor') || ''; sessionStorage.removeItem('gcAnchor'); } catch (e) {} }
+    if (gc && !/^gc-\d+$/.test(gc)) gc = '';
+    if (gc) {
+      cur = gc;
+      if (f.getAttribute('data-gc') !== gc) {
+        f.setAttribute('data-gc', gc);
+        var base = (f.getAttribute('src') || '').split('?')[0];
+        f.setAttribute('src', base + '?gc=' + encodeURIComponent(gc));
+      }
+      setUrl(gc);
+    } else if (location.pathname !== '/grammatik-a1.html') {
+      /* 没带点位也把地址换成壳页 —— 浏览器分享同样出 A1 语法预览卡 */
+      setUrl('');
+    }
+  }
+  /* 父页也可以主动叫内容页滚过去 */
+  window.gcGoto = function(id){
+    var f = frame();
+    if (f && f.contentWindow) f.contentWindow.postMessage({ __gc: 1, type: 'gc-goto', id: id }, '*');
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  window.addEventListener('hashchange', function(){ setTimeout(init, 80); });
+  if (typeof window.showPage === 'function' && !window.showPage._gcWrapped) {
+    var _gcOrig = window.showPage;
+    window.showPage = function(){ var r = _gcOrig.apply(this, arguments); setTimeout(init, 80); return r; };
+    window.showPage._gcWrapped = true;
+  }
 })();
 </script>
 </body>
