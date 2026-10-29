@@ -513,5 +513,112 @@
   </div>
 </div>
 
+
+<!-- ═══════ 点位分享：翻到哪一块，分享链接就落在哪一块 ═══════ -->
+<script>
+(function(){
+  var SEL = '.hook-card, .section, .cheatsheet, .quiz-block, .q, .gender-cards';
+  var blocks = [];
+  function collect(){
+    var nodes = document.querySelectorAll(SEL);
+    blocks = [];
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (!n.getClientRects().length) continue;      /* 折叠内容跳过 */
+      if (!n.id) n.id = 'gc-' + (i + 1);
+      blocks.push(n);
+    }
+  }
+
+  var LOCK = false, cur = '', tick = false;
+  function inFrame(){ try { return window.parent && window.parent !== window; } catch(e) { return false; } }
+
+  function sync(){
+    if (tick || LOCK || !blocks.length) return;
+    tick = true;
+    setTimeout(function(){
+      tick = false;
+      var line = window.innerHeight * 0.35, pick = null;
+      for (var i = 0; i < blocks.length; i++) {
+        var r = blocks[i].getBoundingClientRect();
+        if (r.top <= line) pick = blocks[i];
+      }
+      if (!pick || pick.id === cur) return;
+      cur = pick.id;
+      try { parent.postMessage({ __gc: 1, type: 'gc-anchor', id: cur }, '*'); } catch(e) {}
+      if (!inFrame()) { try { history.replaceState(null, '', '/grammatik-a1.html?gc=' + encodeURIComponent(cur)); } catch(e) {} }
+    }, 180);
+  }
+
+  function goto(id, smooth){
+    var el = document.getElementById(id);
+    if (!el) return false;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.35;
+    LOCK = true;
+    try { window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' }); }
+    catch(e) { window.scrollTo(0, y); }
+    cur = id;
+    setTimeout(function(){ LOCK = false; }, smooth ? 1400 : 1200);
+    return true;
+  }
+
+  /* 分享按钮 */
+  function toast(txt){
+    var t = document.createElement('div');
+    t.textContent = txt;
+    t.style.cssText = 'position:fixed;bottom:84px;right:20px;background:#0a1428;color:#fde68a;' +
+      'padding:12px 20px;border-radius:20px;border:2px solid #f6d365;z-index:99999;font-size:.82rem;font-weight:700;' +
+      'box-shadow:0 8px 28px rgba(0,0,0,.5);pointer-events:none';
+    document.body.appendChild(t);
+    setTimeout(function(){ t.style.opacity = '0'; t.style.transition = 'opacity .4s'; }, 1600);
+    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 2100);
+  }
+  function share(){
+    collect();
+    var id = cur;
+    if (!id) {
+      var line = window.innerHeight * 0.35;
+      for (var i = 0; i < blocks.length; i++) {
+        if (blocks[i].getBoundingClientRect().top <= line) id = blocks[i].id;
+      }
+    }
+    var origin = location.origin;
+    var url = origin + '/grammatik-a1.html' + (id ? '?gc=' + encodeURIComponent(id) : '');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function(){ toast('✅ 链接已复制，粘到微信就能发'); })
+        .catch(function(){ prompt('分享链接：', url); });
+    } else { prompt('分享链接：', url); }
+  }
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.textContent = '📤 复制分享链接';
+  btn.style.cssText = 'position:fixed;right:18px;bottom:22px;z-index:9998;border:1px solid rgba(246,211,101,.55);' +
+    'background:rgba(10,20,40,.92);color:#f6d365;font-weight:700;font-size:.8rem;padding:11px 16px;' +
+    'border-radius:22px;box-shadow:0 6px 24px rgba(0,0,0,.45);cursor:pointer;' +
+    "font-family:'PingFang SC','Microsoft YaHei',sans-serif";
+  btn.onclick = share;
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('message', function(e){
+    var d = e.data;
+    if (d && d.__gc && d.type === 'gc-goto' && typeof d.id === 'string') goto(d.id, false);
+  });
+
+  function boot(){
+    collect();
+    var id = '';
+    try { id = new URLSearchParams(location.search).get('gc') || ''; } catch(e) {}
+    if (!id) { var m = (location.hash || '').match(/^(?:#)?(gc-\d+)$/); if (m) id = m[1]; }
+    if (id) { setTimeout(function(){ goto(id, false); }, 160); }
+    sync();
+    /* 图片加载会改变位置，补两次校正后再开始同步 */
+    setTimeout(function(){ if (id) goto(id, false); }, 900);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
 </body>
 </html>
