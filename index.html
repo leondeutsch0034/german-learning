@@ -22230,6 +22230,9 @@ window.jumpKulturEp = function(n) {
     var tries = 0;
     (function tick(){
       var page = document.getElementById('page-' + pg);
+      if (page && page.style.display === 'none' && typeof window.showPage === 'function') {
+        try { window.showPage(pg); } catch (e) {}   /* hash 被吃掉时也要能落位 */
+      }
       var hs = heads(page);
       /* 页面可能还没显示（display:none 时测出来的位置全是 0），等它可见再滚 */
       if (hs.length > n && page && page.style.display !== 'none'
@@ -22285,7 +22288,17 @@ window.jumpKulturEp = function(n) {
   });
 
   function init(){
-    var p = pageEl(); if (!p || p.style.display === 'none') return;
+    var p = pageEl(); if (!p) return;
+    if (p.style.display === 'none') {
+      /* 有些客户端会把 hash 吃掉 —— 只要带 gc 就主动切到这一页 */
+      var has = '';
+      try { has = new URLSearchParams(location.search).get('gc') || ''; } catch (e) {}
+      if (!has && window._gcWant) has = window._gcWant;
+      if (has && /^gc-\d+$/.test(has) && typeof window.showPage === 'function') {
+        try { window.showPage(PAGE); } catch (e) {}
+      }
+      return;
+    }
     var f = frame(); if (!f) return;
     var gc = '';
     try { gc = new URLSearchParams(location.search).get('gc') || ''; } catch (e) {}
