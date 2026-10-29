@@ -146,13 +146,17 @@
   /* 新闻档位深链：/?ep=37&nlp=B2#newslesen —— showPage 会清掉 query，先存 */
   try {
     var nlp = new URLSearchParams(location.search).get('nlp');
-    if (nlp && /^[A-Za-z0-9]+$/.test(nlp)) sessionStorage.setItem('nlp', nlp);
+    if (nlp && /^[A-Za-z0-9]+$/.test(nlp)) {
+      window._nlWantLv = nlp;              /* 内存兜底：微信里 sessionStorage 可能不可靠 */
+      sessionStorage.setItem('nlp', nlp);
+    }
   } catch (e) {}
   /* 通用小节深链：/?pg=b1pruefung&dl=3#b1pruefung —— 同样先存 */
   try {
     var _dq = new URLSearchParams(location.search);
     var _dpg = _dq.get('pg'), _ddl = _dq.get('dl');
     if (_dpg && /^[a-z0-9-]+$/.test(_dpg) && _ddl !== null && /^\d+$/.test(_ddl)) {
+      window._dlWant = { pg: _dpg, dl: _ddl };   /* 内存兜底 */
       sessionStorage.setItem('dlPage', _dpg);
       sessionStorage.setItem('dlIdx', _ddl);
     }
@@ -22205,8 +22209,9 @@ window.jumpKulturEp = function(n) {
     } catch (e) {}
     if (!pg || dl === null) {
       try {
-        pg = sessionStorage.getItem('dlPage');
-        dl = sessionStorage.getItem('dlIdx');
+        if (window._dlWant) { pg = window._dlWant.pg; dl = window._dlWant.dl; }
+        if (!pg) pg = sessionStorage.getItem('dlPage');
+        if (dl === null) dl = sessionStorage.getItem('dlIdx');
         sessionStorage.removeItem('dlPage');
         sessionStorage.removeItem('dlIdx');
       } catch (e) {}

@@ -7355,6 +7355,7 @@ function nlStart(){
   var lv = '';
   try {
     lv = new URLSearchParams(location.search).get('nlp') || '';
+    if (!lv && window._nlWantLv) lv = window._nlWantLv;
     if (!lv) { lv = sessionStorage.getItem('nlp') || ''; sessionStorage.removeItem('nlp'); }
   } catch(e) {}
   if (!lv) { var m = (location.hash || '').match(/^#a=([A-Za-z0-9]+)$/); if (m) lv = m[1]; }
