@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A1 语法速查 | 德语基础语法一页看完 · Leon 德语学习中心</title>
+<meta name="description" content="德语 A1 全部基础语法：词性、变格、变位、语序、否定、时态。每一句配中文对照，翻到哪一行都能单独分享。Leon 德语学习中心">
+
+<!-- Open Graph（微信 / Facebook 预览卡）—— 放最前面，爬虫只读开头一段 -->
+<meta property="og:title" content="A1 语法速查 | 德语基础语法一页看完">
+<meta property="og:description" content="词性 · 变格 · 变位 · 语序 · 否定 · 时态，每一句配中文对照。翻到哪一行，分享出去就落在那一行。">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/a1grammatik.jpg">
+<meta property="og:image:secure_url" content="https://leonsdeutschzentrum.com/images/og/a1grammatik.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="A1 语法速查 | Leon 德语学习中心">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://leonsdeutschzentrum.com/grammatik-a1.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Leon 德语学习中心">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A1 语法速查 | 德语基础语法一页看完">
+<meta name="twitter:description" content="词性 · 变格 · 变位 · 语序 · 否定 · 时态，每一句配中文对照。">
+<meta name="twitter:image" content="https://leonsdeutschzentrum.com/images/og/a1grammatik.jpg">
+
+<style>
+  body{margin:0;background:#0a1428;color:#e2e8f0;min-height:100vh;
+       font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+       display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+  .box{max-width:420px}
+  .kicker{font-size:11px;letter-spacing:.3em;color:#f6d365;font-weight:700;margin-bottom:14px}
+  h1{font-size:1.5rem;margin:0 0 10px;color:#fff}
+  p{font-size:.9rem;line-height:1.75;color:#9fb3cf;margin:0 0 20px}
+  a{display:inline-block;text-decoration:none;background:linear-gradient(90deg,#b8860b,#f6d365);
+    color:#12244a;font-weight:800;padding:13px 26px;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="kicker">A1 GRAMMATIK</div>
+  <h1>A1 语法速查</h1>
+  <p>词性 · 变格 · 变位 · 语序 · 否定 · 时态<br>正在打开…</p>
+  <a id="go" href="/?pg=grammar-cards#grammar-cards">开始阅读 →</a>
+</div>
+<script>
+/* 带点位 ?gc=gc-N 就转交给 SPA，由它把内容页滚到那一块。
+   爬虫不带参数，读到的是上面完整的 og，预览卡正常。 */
+(function(){
+  var gc = '';
+  try { gc = new URLSearchParams(location.search).get('gc') || ''; } catch(e) {}
+  if (gc && !/^gc-\d+$/.test(gc)) gc = '';
+  var url = '/?pg=grammar-cards' + (gc ? '&gc=' + encodeURIComponent(gc) : '') + '#grammar-cards';
+  var a = document.getElementById('go');
+  if (a) a.href = url;
+  location.replace(url);
+})();
+</script>
+</body>
+</html>
