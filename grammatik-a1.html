@@ -25,6 +25,16 @@
 <meta name="twitter:description" content="词性 · 变格 · 变位 · 语序 · 否定 · 时态，每一句配中文对照。">
 <meta name="twitter:image" content="https://leonsdeutschzentrum.com/images/og/a1grammatik.jpg">
 
+<!-- 立刻转交阅读器：脚本放 head，避免用户先看到这一页 —— og 仍完整，微信爬虫照常出卡 -->
+<script>
+(function(){
+  var gc = '';
+  try { gc = new URLSearchParams(location.search).get('gc') || ''; } catch(e) {}
+  if (gc && !/^gc-\d+$/.test(gc)) gc = '';
+  location.replace('/?pg=grammar-cards' + (gc ? '&gc=' + encodeURIComponent(gc) : '') + '#grammar-cards');
+})();
+</script>
+
 <style>
   body{margin:0;background:#0a1428;color:#e2e8f0;min-height:100vh;
        font-family:'PingFang SC','Microsoft YaHei',sans-serif;
@@ -44,18 +54,6 @@
   <p>词性 · 变格 · 变位 · 语序 · 否定 · 时态<br>正在打开…</p>
   <a id="go" href="/?pg=grammar-cards#grammar-cards">开始阅读 →</a>
 </div>
-<script>
-/* 带点位 ?gc=gc-N 就转交给 SPA，由它把内容页滚到那一块。
-   爬虫不带参数，读到的是上面完整的 og，预览卡正常。 */
-(function(){
-  var gc = '';
-  try { gc = new URLSearchParams(location.search).get('gc') || ''; } catch(e) {}
-  if (gc && !/^gc-\d+$/.test(gc)) gc = '';
-  var url = '/?pg=grammar-cards' + (gc ? '&gc=' + encodeURIComponent(gc) : '') + '#grammar-cards';
-  var a = document.getElementById('go');
-  if (a) a.href = url;
-  location.replace(url);
-})();
-</script>
+
 </body>
 </html>
