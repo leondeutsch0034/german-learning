@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 37,
+   "title": "德国核废料找家：搜索范围缩到国土 5% 以下",
+   "de_title": "Endlagersuche für Atommüll: BGE grenzt Suche auf unter fünf Prozent der Fläche ein",
+   "hook": "核废料|要埋一百万年",
+   "sub": "德国只剩不到 5% 国土在找",
+   "date": "2026-10-28",
+   "photo": "news/og/src/37.jpg",
+   "de_hook": "Wohin mit dem|Atommüll – für|eine Million Jahre?",
+   "zh_intro": "德国的核电站已经关闭，但高放射性废料还在，眼下存放在各地的中间贮存设施里。负责选址的联邦机构 BGE 在 10 月 27 日公布新进展：搜索范围从约 25% 的国土缩到不足 5%，待查子区域从 90 个减到 36 个，五个联邦州不再参与。这个地下处置库要能挡住辐射一百万年，目标是最迟 2050 年定址。",
+   "words": [
+    [
+     "der Atommüll",
+     "核废料"
+    ],
+    [
+     "das Endlager",
+     "最终处置库"
+    ],
+    [
+     "das Zwischenlager",
+     "中间贮存设施"
+    ]
+   ]
+  },
+  {
    "id": 36,
    "title": "金球奖第一次给凯恩：61 球赛季，和德国的足球土壤",
    "de_title": "Ballon d'Or: Kane und Putellas ausgezeichnet",
@@ -173,31 +198,6 @@
     [
      "der Reisende / die Reisende",
      "旅客"
-    ]
-   ]
-  },
-  {
-   "id": 29,
-   "title": "近 200 国开会：2030 年前保护近 30% 的地球",
-   "de_title": "UNO-Konferenz in Armenien: Das 30-Prozent-Ziel für die Natur",
-   "hook": "三成地球|留给自然",
-   "sub": "2030 年的目标 · 联合国说还差得远",
-   "date": "2026-10-19",
-   "photo": "news/og/src/29.jpg",
-   "de_hook": "Fast 200 Länder|reden über Natur –|was kommt dabei raus?",
-   "zh_intro": "近 200 个国家的代表在亚美尼亚开会，商量怎么更好地保护动物、植物和自然。目标是在 2030 年前保护近 30% 的陆地、海洋和海岸。联合国说，现在做得还远远不够，所以各国要再谈两周。",
-   "words": [
-    [
-     "die Konferenz / die Konferenzen",
-     "会议 / 会议（复数）"
-    ],
-    [
-     "das Land / die Länder",
-     "国家 / 国家（复数）"
-    ],
-    [
-     "die Natur",
-     "大自然"
     ]
    ]
   }
