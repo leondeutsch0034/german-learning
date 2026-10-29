@@ -143,6 +143,20 @@
     var ph = new URLSearchParams(location.search).get('ph');
     if (ph && /^ph-row-\d+$/.test(ph)) sessionStorage.setItem('phAnchor', ph);
   } catch (e) {}
+  /* 新闻档位深链：/?ep=37&nlp=B2#newslesen —— showPage 会清掉 query，先存 */
+  try {
+    var nlp = new URLSearchParams(location.search).get('nlp');
+    if (nlp && /^[A-Za-z0-9]+$/.test(nlp)) sessionStorage.setItem('nlp', nlp);
+  } catch (e) {}
+  /* 通用小节深链：/?pg=b1pruefung&dl=3#b1pruefung —— 同样先存 */
+  try {
+    var _dq = new URLSearchParams(location.search);
+    var _dpg = _dq.get('pg'), _ddl = _dq.get('dl');
+    if (_dpg && /^[a-z0-9-]+$/.test(_dpg) && _ddl !== null && /^\d+$/.test(_ddl)) {
+      sessionStorage.setItem('dlPage', _dpg);
+      sessionStorage.setItem('dlIdx', _ddl);
+    }
+  } catch (e) {}
   /* 通用「页面 + 小节」深链：/?p=grammar&to=s7#grammar
      学生专属页等站外入口用它直达具体小节；query 先存，避免被 showPage 冲掉。 */
   try {
@@ -22138,5 +22152,101 @@ window.jumpKulturEp = function(n) {
 })();
 </script>
 <!-- student-portal-v1 END -->
+<!-- deeplink-scroll-v1：翻到哪一节，地址栏就写到哪一节，分享出去直达同一节 -->
+<script>
+(function(){
+  /* 跳过有自己方案的页：首页无小节；拼读器行级；新闻按档位；剧集/文化按期数 */
+  var SKIP = {index:1, phonetik:1, newslesen:1, serie:1, kultur:1, 'kultur-reader':1};
+  var timer = null, last = '';
+
+  function activePage(){
+    var ps = document.querySelectorAll('.page');
+    for (var i = 0; i < ps.length; i++) {
+      if (ps[i].style.display !== 'none') return ps[i];
+    }
+    return null;
+  }
+  function pageId(p){
+    var id = (p && p.id) || '';
+    return id.indexOf('page-') === 0 ? id.slice(5) : '';
+  }
+  function heads(p){ return p ? p.querySelectorAll('h1,h2,h3') : []; }
+
+  function sync(){
+    var page = activePage(); if (!page) return;
+    var id = pageId(page); if (!id || SKIP[id]) return;
+    if (location.pathname !== '/' && location.pathname !== '/index.html') return;
+    if (document.documentElement.classList.contains('bare')) return;
+    var hs = heads(page); if (!hs.length) return;
+    var idx = -1;
+    for (var i = 0; i < hs.length; i++) {
+      var r = hs[i].getBoundingClientRect();
+      /* 折叠面板/未选中的 tab 里的标题位置全是 0，会把序号顶到最后一节 */
+      if (!r.height || !hs[i].offsetParent) continue;
+      if (r.top <= 140) idx = i;
+    }
+    var url = idx < 0 ? ('/#' + id) : ('/?pg=' + id + '&dl=' + idx + '#' + id);
+    if (url === last) return;
+    last = url;
+    if (location.pathname + location.search + location.hash === url) return;
+    try { history.replaceState(null, '', url); } catch (e) {}
+  }
+  window.addEventListener('scroll', function(){
+    if (timer) return;
+    timer = setTimeout(function(){ timer = null; sync(); }, 400);
+  }, { passive: true });
+
+  /* 打开带 pg/dl 的链接：等懒加载内容就绪再滚过去（最多等 6 秒） */
+  function restore(){
+    var pg = null, dl = null;
+    try {
+      var q = new URLSearchParams(location.search);
+      pg = q.get('pg'); dl = q.get('dl');
+    } catch (e) {}
+    if (!pg || dl === null) {
+      try {
+        pg = sessionStorage.getItem('dlPage');
+        dl = sessionStorage.getItem('dlIdx');
+        sessionStorage.removeItem('dlPage');
+        sessionStorage.removeItem('dlIdx');
+      } catch (e) {}
+    }
+    if (!pg || dl === null) return;
+    var n = parseInt(dl, 10);
+    if (isNaN(n) || n < 0) return;
+    var tries = 0;
+    (function tick(){
+      var page = document.getElementById('page-' + pg);
+      var hs = heads(page);
+      /* 页面可能还没显示（display:none 时测出来的位置全是 0），等它可见再滚 */
+      if (hs.length > n && page && page.style.display !== 'none'
+          && hs[n].getBoundingClientRect().height > 0) {
+        var nav = document.getElementById('main-nav');
+        var off = Math.min(88, (nav && nav.offsetHeight ? nav.offsetHeight + 8 : 72));
+        function place(){
+          window.scrollTo(0, Math.max(0, hs[n].getBoundingClientRect().top + window.scrollY - off));
+        }
+        place();
+        /* 懒加载/图片会把版面继续拉长，短时间补几次校正 */
+        var settle = 0;
+        (function correct(){
+          if (++settle > 6) return;
+          setTimeout(function(){
+            var top = hs[n].getBoundingClientRect().top;
+            if (top < off - 24 || top > off + 80) place();
+            correct();
+          }, 400);
+        })();
+        last = location.pathname + location.search + location.hash;
+        return;
+      }
+      if (++tries < 40) setTimeout(tick, 150);
+    })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(restore, 80); });
+  } else { setTimeout(restore, 80); }
+})();
+</script>
 </body>
 </html>

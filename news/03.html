@@ -79,5 +79,14 @@
   <div class="nlx-meta">第 03 期 · 2026-10-04 · Deutschlandfunk · Oktoberfest.de</div>
   <a class="nlx-cta" href="/?ep=03#newslesen" onclick="try{sessionStorage.setItem('nlEp','03')}catch(e){}">开始阅读 · 挑你能读的那版 →</a>
 </div>
+<script>
+/* 档位深链：/news/37.html#a=B2 → 直接进阅读器的 B2 那一页。
+   微信爬虫不带 hash，抓到的仍是这张完整落地页，预览卡不受影响。 */
+(function(){
+  var m = (location.hash || '').match(/^#a=([A-Za-z0-9]+)$/);
+  if (!m) return;
+  location.replace('/?ep=03&nlp=' + encodeURIComponent(m[1]) + '#newslesen');
+})();
+</script>
 </body>
 </html>

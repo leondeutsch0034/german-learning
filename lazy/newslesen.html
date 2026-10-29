@@ -7265,6 +7265,7 @@ function nlSync(){
   var next = r.querySelector('.nl-ctl .nl-btn[aria-label="下一页"]');
   if (prev) prev.disabled = (i <= 0);
   if (next) next.disabled = (i >= n - 1);
+  nlHash();
 }
 function nlPage(i){
   var t = nlTrack(); if (!t) return;
@@ -7300,6 +7301,37 @@ function nlShare(){
     history.replaceState(null, '', window._sharePaths['newslesen']); } catch(e) {}
 }
 
+/* ══════ 档位深链：翻到哪一档，地址栏就写哪一档 ══════
+   分享出去是 /news/37.html#a=B2 —— 打开直接落到 B2 那一页 */
+function nlLvAt(i){
+  var t = nlTrack(); if (!t) return '';
+  var p = t.querySelectorAll('.nl-page')[i]; if (!p) return '';
+  if (p.dataset && p.dataset.lv) return p.dataset.lv;
+  if (p.classList.contains('nl-pg-cover')) return 'cover';
+  if (p.classList.contains('nl-pg-words')) return 'words';
+  return '';
+}
+function nlHash(){
+  try {
+    var base = window._sharePaths && window._sharePaths['newslesen'];
+    if (!base) return;
+    var lv = nlLvAt(nlIdx());
+    if (!lv) return;
+    if (location.pathname + location.hash !== base + '#a=' + lv)
+      history.replaceState(null, '', base + '#a=' + lv);
+  } catch(e) {}
+}
+function nlApplyLevel(lv){
+  var t = nlTrack(); if (!t || !lv) return;
+  var pages = t.querySelectorAll('.nl-page');
+  for (var i = 0; i < pages.length; i++) {
+    var p = pages[i];
+    var plv = (p.dataset && p.dataset.lv) || (p.classList.contains('nl-pg-cover') ? 'cover'
+              : (p.classList.contains('nl-pg-words') ? 'words' : ''));
+    if (plv === lv) { t.scrollLeft = i * (t.clientWidth || 1); nlSync(); return; }
+  }
+}
+
 function nlBind(){
   var r = nlRoot(); if (!r) return;
   r.querySelectorAll('.nl-track').forEach(function(t){
@@ -7319,6 +7351,14 @@ function nlStart(){
   }
   if (epv) nlShow(epv);
   nlBind(); nlFit(); nlSync();
+  /* 深链带的档位（?nlp=B2 或 #a=B2）：内容就绪后落到那一档 */
+  var lv = '';
+  try {
+    lv = new URLSearchParams(location.search).get('nlp') || '';
+    if (!lv) { lv = sessionStorage.getItem('nlp') || ''; sessionStorage.removeItem('nlp'); }
+  } catch(e) {}
+  if (!lv) { var m = (location.hash || '').match(/^#a=([A-Za-z0-9]+)$/); if (m) lv = m[1]; }
+  if (lv) setTimeout(function(){ nlApplyLevel(lv); }, 90);
   setTimeout(nlFit, 400);
 }
 

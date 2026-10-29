@@ -335,6 +335,30 @@ function themeQuiz(el, ok, expId) {
   var e = document.getElementById(expId);
   if (e) { e.style.display = 'block'; }
 }
+
+(function(){
+  var hs = document.querySelectorAll('h2');
+  if (!hs.length) return;
+  var t = null;
+  window.addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){
+      t = null;
+      var i = -1;
+      for (var k = 0; k < hs.length; k++) {
+        if (hs[k].getBoundingClientRect().top <= 120) i = k;
+      }
+      var h = i < 0 ? '' : ('#a=' + i);
+      if (location.hash === h) return;
+      try { history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {}
+    }, 350);
+  }, { passive: true });
+  var m = (location.hash || '').match(/^#a=(\d+)$/);
+  if (m) {
+    var n = parseInt(m[1], 10);
+    setTimeout(function(){ if (hs[n]) hs[n].scrollIntoView(); }, 250);
+  }
+})();
 </script>
 </body>
 </html>
