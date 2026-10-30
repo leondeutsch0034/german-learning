@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>谁在管欧元？欧洲央行行长提前卸任 | Leon 德语</title>
+<meta name="description" content="超市里，林夏盯着价签问 Felix：物价这么涨，到底谁在管？Felix 说：你钱包里的欧元，由一个没人投票选出来的行长在管。">
+<meta property="og:title" content="谁在管欧元？欧洲央行行长提前卸任">
+<meta property="og:description" content="21 个国家的钱由谁说了算：看懂 EZB 的职责、拉加德为什么早走、下一位可能姓什么。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-ezb_lagarde.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/ezb_lagarde.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">EZB · 欧洲央行</div>
+  <h1>🏦 谁在管欧元：欧洲央行换掌门</h1>
+  <p class="sub">拉加德提前八个月卸任，德国要抢位子</p>
+  <p class="lead">超市里，林夏盯着价签问 Felix：物价这么涨，到底谁在管？Felix 说：你钱包里的欧元，由一个没人投票选出来的行长在管。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 本期新写</span></div>
+  <p class="act-lead">超市里，林夏拿着一盒黄油看了半天价签。Felix 说：别看了，它不会自己降。两个人在收银台前聊起了那个管着 21 个国家货币的机构。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">🏦 没人投票的行长</div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Wer entscheidet eigentlich, wie viel unser Geld wert ist?</div>
+      <div class="zh">到底谁决定我们的钱值多少？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Die EZB. Sie versucht, die Preise stabil zu halten – sonst wird alles teurer.</div>
+      <div class="zh">欧洲央行。它努力让物价稳定——不然什么都变贵。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und wer steht an der Spitze?</div>
+      <div class="zh">那谁当头？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Christine Lagarde. Aber sie hört im Februar auf – früher als geplant.</div>
+      <div class="zh">克里斯蒂娜·拉加德。但她二月份就走了——比计划的早。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">欧洲央行的首要任务是什么？</div>
+      <button onclick="themeQuiz(this,true,'ezb_lagarde-exp')">让欧元区的物价保持稳定</button>
+      <button onclick="themeQuiz(this,false,'ezb_lagarde-exp')">给各国政府发放补贴</button>
+      <button onclick="themeQuiz(this,false,'ezb_lagarde-exp')">决定欧盟的税收高低</button>
+    <div class="exp" id="ezb_lagarde-exp">EZB 的核心目标是物价稳定，中期通胀瞄准 <b>2%</b>。它不负责收税，也不给政府发钱——相反，各国政府跟它借钱也要付利息。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">一个不经过选举的行长，管着 21 个国家的钱。德国为什么这么在意谁来坐这个位子？</p>
+  <div class="fact">
+    <h3>🏦 EZB 是干什么的</h3>
+    <p>欧洲央行是欧元区的中央银行，为 <b>21</b> 个欧盟国家制定货币政策。它的目标写得很清楚：中期通胀维持在 <b>2%</b> 左右。</p>
+    <div class="fun">💡 央行不印钱给政府花，它的工具是利率——利率高，借钱贵，物价就压得下来。</div>
+  </div>
+  <div class="fact">
+    <h3>👩‍💼 拉加德是谁</h3>
+    <p>Christine Lagarde 从 <b>2019</b> 年起担任 EZB 行长，是这家银行史上第一位女性掌门人，此前她当过国际货币基金组织（IWF）总裁。</p>
+    <div class="fun">💡 她的任期经历了疫情、能源危机和一轮高通胀，这也是她被反复讨论的原因。</div>
+  </div>
+  <div class="fact">
+    <h3>📅 为什么提前走</h3>
+    <p>她本应干到 <b>2027 年 10 月底</b>，现在宣布 <b>2027 年 2 月 7 日</b> 就卸任，提前约八个月。多家媒体称，时点选在法国总统选举（2027 年 4 月）之前。</p>
+    <div class="fun">💡 提前定人，等于把这道题从选举结果手里拿走——这也是争议所在。</div>
+  </div>
+  <div class="fact">
+    <h3>🇪🇺 谁来接</h3>
+    <p>热门人选是荷兰前央行行长 <b>Klaas Knot</b> 和现任国际清算银行总经理 <b>Pablo Hernández de Cos</b>；德国央行行长 Nagel 也表达了兴趣。最终由欧盟国家在欧洲理事会决定。</p>
+    <div class="fun">💡 德国是欧元区最大经济体，但在 EZB 历史上还从没出过行长——这才是「抢位子」的分量。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">同一件事，新闻稿和厨房餐桌上是两种说法。两边都正确，区别只在语体和场合。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Wer wird der neue Chef?</td><td class="write">Die Nachfolge an der Spitze der EZB ist offen.</td><td class="zh">新行长是谁？／欧洲央行行长继任问题尚未确定。</td></tr>
+    <tr><td class="say">Sie hört früher auf.</td><td class="write">Lagarde legt ihr Amt vorzeitig nieder.</td><td class="zh">她提前不干了。／拉加德提前辞去职务。</td></tr>
+    <tr><td class="say">Deutschland will mitreden.</td><td class="write">Deutschland beansprucht eine wichtige Rolle bei der Personalentscheidung.</td><td class="zh">德国想插句话。／德国要求在人事决定中占据重要角色。</td></tr>
+    <tr><td class="say">Die Preise sollen stabil bleiben.</td><td class="write">Die EZB ist dem Ziel der Preisstabilität verpflichtet.</td><td class="zh">物价得稳住。／欧洲央行负有物价稳定的目标义务。</td></tr>
+    <tr><td class="say">Alles wird teurer.</td><td class="write">Die Inflation entwertet die Kaufkraft.</td><td class="zh">什么都变贵了。／通胀侵蚀购买力。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：名词化（Nominalisierung）</h3>
+    <p>新闻体爱把整句压成名词短语，信息密度一下子上来：<br><i>Die Preise steigen.</i> → <i><b>der Preisanstieg</b></i>（物价上涨）<br><i>Lagarde tritt zurück.</i> → <i><b>der Rücktritt</b> Lagardes</i>（拉加德辞职）<br><i>Die EU wählt eine Nachfolgerin.</i> → <i><b>die Auswahl</b> der Nachfolgerin</i>（继任者的遴选）<br><i>Die Zinsen werden erhöht.</i> → <i><b>die Zinserhöhung</b></i>（加息）</p>
+    <div class="fun">✍️ 读长句时先找这些名词：<b>-ung / -heit / -keit</b> 结尾，或动词直接变名词（Rücktritt、Auswahl）。找到主干，剩下的修饰语就好拆了。反过来写作时，一篇里名词化太多会显得官腔——口语对话里还是用动词。</div>
+  </div>
+</div>
+
+<!-- ═══ 日常怎么说（主题包 · 地道德语对照）═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">🗣️</div><h2>日常怎么说</h2>
+    <span class="from">课本 ↔ 日常</span></div>
+  <p class="act-lead">同一个意思，课本里一个说法、德国人日常另一个说法。下面是本站「地道德语」栏目的同款对照。</p>
+  <div class="echt-teaser">
+  <div class="et-card">
+    <div class="et-cat">说央行</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">die Europäische Zentralbank</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">die EZB</span></div>
+    <div class="et-note">两个都对。<b>Europäische Zentralbank</b> 是全称，出现在正式文件和新闻首段；<b>EZB</b> 是缩写，媒体第二句起、日常聊天里几乎只用这个。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说卸任</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Sie legt ihr Amt zum 7. Februar 2027 nieder.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Sie hört im Februar auf.</span></div>
+    <div class="et-note"><b>ein Amt niederlegen</b> 是「辞去职务」，书面、正式；口语里 <b>aufhören</b>（不干了）最自然，不带褒贬。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说继任</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Die Nachfolge muss geregelt werden.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Wer macht das jetzt?</span></div>
+    <div class="et-note"><b>die Nachfolge regeln</b> 是流程语言（把继任安排妥当）；日常更直接：「那现在谁干？」</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说通胀</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Die Inflationsrate ist gestiegen.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Alles wird teurer.</span></div>
+    <div class="et-note"><b>Inflationsrate</b> 是统计口径；口语里德国人常说 <b>Alles wird teurer</b>（什么都变贵了），更贴近体感。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说参与决定</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Deutschland beansprucht eine gewichtige Rolle.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Deutschland will da mitreden.</span></div>
+    <div class="et-note"><b>beanspruchen</b>（要求、主张）语气强，多见于政治报道；<b>mitreden</b>（插得上话）是日常说法，语气软很多。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">说利率</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Die EZB hat die Leitzinsen angehoben.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Die Zinsen sind ganz schön hoch.</span></div>
+    <div class="et-note"><b>Leitzins</b> 是央行基准利率，专业词；口语直接说 <b>die Zinsen</b>（利息、利率），加个 <b>ganz schön</b> 表示「相当」。</div>
+  </div>
+    <a class="et-more" href="https://leonsdeutschzentrum.com/#echt">去「地道德语」看全部 →</a>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/news/38.html">
+      <div class="kind">NEWS · 德语新闻 · 第 38 期</div>
+      <div class="t">欧洲央行行长拉加德提前卸任：欧元的下一位掌门人是谁</div>
+      <div class="note">这一期的德语客观报道，A1–C2 六档 + 英语 A2–B2，附朗读音频</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k14.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 14 期</div>
+      <div class="t">💰 理财与储蓄</div>
+      <div class="note">Sparbuch 存折、Bausparvertrag 建房储蓄、Riester 养老金——德国人怎么存钱</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/k12.html">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 12 期</div>
+      <div class="t">📱 数字生活</div>
+      <div class="note">Fax 传真机、Bargeld 现金、Datenschutz 数据保护——德国为什么还在用现金</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+
+(function(){
+  var hs = document.querySelectorAll('h2');
+  if (!hs.length) return;
+  var t = null;
+  window.addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){
+      t = null;
+      var i = -1;
+      for (var k = 0; k < hs.length; k++) {
+        if (hs[k].getBoundingClientRect().top <= 120) i = k;
+      }
+      var h = i < 0 ? '' : ('#a=' + i);
+      if (location.hash === h) return;
+      try { history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {}
+    }, 350);
+  }, { passive: true });
+  var m = (location.hash || '').match(/^#a=(\d+)$/);
+  if (m) {
+    var n = parseInt(m[1], 10);
+    setTimeout(function(){ if (hs[n]) hs[n].scrollIntoView(); }, 250);
+  }
+})();
+</script>
+</body>
+</html>

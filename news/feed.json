@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 38,
+   "title": "欧洲央行行长拉加德提前卸任：欧元的下一位掌门人是谁",
+   "de_title": "EZB-Chefin Lagarde tritt im Februar 2027 vorzeitig zurück",
+   "hook": "欧元换掌门|提前八个月",
+   "sub": "拉加德 2027 年 2 月卸任，欧盟忙着找接班人",
+   "date": "2026-10-29",
+   "photo": "news/og/src/38.jpg",
+   "de_hook": "Wer führt bald|die EZB – und|unser Geld?",
+   "zh_intro": "欧洲央行（EZB）管着 21 个国家的货币，首要任务是让欧元区物价保持稳定。10 月 29 日，行长克里斯蒂娜·拉加德宣布提前卸任：2027 年 2 月 7 日就走，而她的任期本来要到 2027 年 10 月底。欧盟必须尽快定下继任者，德国财政部长克林拜尔表示，德国要在这次人事决定中发挥重要作用。",
+   "words": [
+    [
+     "die Europäische Zentralbank (EZB)",
+     "欧洲中央银行"
+    ],
+    [
+     "der Euro",
+     "欧元"
+    ],
+    [
+     "der Euroraum",
+     "欧元区"
+    ]
+   ]
+  },
+  {
    "id": 37,
    "title": "德国核废料找家：搜索范围缩到国土 5% 以下",
    "de_title": "Endlagersuche für Atommüll: BGE grenzt Suche auf unter fünf Prozent der Fläche ein",
@@ -173,31 +198,6 @@
     [
      "das Hausaufgabenheft",
      "作业记录本"
-    ]
-   ]
-  },
-  {
-   "id": 30,
-   "title": "欧盟新规：车票、机票取消，14 天内退钱",
-   "de_title": "EU-Parlament: Geld zurück bei ausgefallenen Reisen",
-   "hook": "车票取消|钱多久退回来",
-   "sub": "欧盟新规：14 天内退，中介费也退",
-   "date": "2026-10-20",
-   "photo": "news/og/src/30.jpg",
-   "de_hook": "Geld zurück –|aber erst nach|14 Tagen?",
-   "zh_intro": "欧盟议会 10 月 20 日通过新规：飞机、火车、大巴、轮船延误或取消，旅客要在 14 天内拿回钱——就算票是在 Booking 这类平台上买的，中介费也一起退。新规 2027 年 10 月 23 日起适用，但还得等欧盟理事会正式点头。",
-   "words": [
-    [
-     "das Europäische Parlament",
-     "欧盟议会"
-    ],
-    [
-     "die Fahrgastrechte",
-     "乘客权利"
-    ],
-    [
-     "der Reisende / die Reisende",
-     "旅客"
     ]
    ]
   }
