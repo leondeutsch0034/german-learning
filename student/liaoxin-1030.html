@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>廖同学 · 10/30 课后练习 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.82rem;line-height:1.75}
+.notice b{color:#fde68a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.step{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px}
+.step b{display:block;font-size:.8rem;color:#ffe088;margin-bottom:3px}
+.step span{font-size:.72rem;color:var(--muted);line-height:1.55}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:26px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.checklist{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:14px 16px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:.84rem;color:#dbe4f0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.06)}
+.checklist label:last-child{border-bottom:0}
+.checklist input{margin-top:4px;accent-color:var(--gold);flex-shrink:0}
+.checklist label.done span{color:var(--muted);text-decoration:line-through}
+.combos{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:9px}
+.combo{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:12px;padding:11px 13px}
+.combo .ct{font-size:1.15rem;font-weight:800;color:#fff3c4;letter-spacing:.02em}
+.combo .cs{font-size:.72rem;color:#93c5fd;margin-left:6px;font-weight:600}
+.combo .cw{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.cword{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;border-radius:7px;padding:2px 8px;font-size:.8rem;cursor:pointer;font-family:inherit}
+.cword:hover{border-color:rgba(246,211,101,.5);color:#ffe088}
+.combo .cn{font-size:.7rem;color:rgba(148,163,184,.8);margin-top:6px;line-height:1.5}
+.read{display:flex;flex-direction:column;gap:10px}
+.rcard{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:14px 16px}
+.rde{font-size:1.06rem;color:#fff8e8;line-height:1.8;font-weight:600}
+.rdone{display:flex;align-items:center;gap:7px;font-size:.74rem;color:var(--muted);margin-top:9px;cursor:pointer}
+.rdone input{accent-color:var(--gold)}
+.rbtn{background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.3);color:#ffe088;border-radius:8px;padding:4px 11px;font-size:.74rem;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit}
+.rbtn:hover{background:rgba(246,211,101,.2)}
+.rmore{margin-top:9px;padding:9px 12px;border-radius:10px;background:rgba(52,211,153,.06);border-left:2px solid rgba(52,211,153,.5);font-size:.8rem;line-height:1.75;color:#d1fae5}
+.rmore .rzh{color:#ffe088;font-weight:700}
+.rmore .rrule{color:#a7f3d0}
+.rmore .rhint{color:#93c5fd;font-size:.76rem}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.ex-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ex-num{width:28px;height:28px;border-radius:9px;background:rgba(246,211,101,.14);color:#ffe088;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem;flex-shrink:0}
+.ex h2{margin:0;font-size:1rem;color:#fff8e8}
+.ex-tag{font-size:.65rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.ex-tip{color:var(--muted);font-size:.78rem;margin:7px 0 4px}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;border-bottom:1px dashed rgba(125,211,252,.35)}
+.ex-link:hover{color:#bae6fd}
+.items{margin-top:10px}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07);position:relative}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:160px;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit;transition:.15s}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mcol{display:flex;flex-direction:column;gap:7px}
+.mbtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:9px;padding:9px 10px;font-size:.86rem;cursor:pointer;text-align:left;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:6px}
+.mbtn:hover{border-color:rgba(246,211,101,.5)}
+.mbtn.sel{border-color:var(--gold);background:rgba(246,211,101,.14);color:#fff3c4}
+.mbtn.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5;cursor:default;opacity:.85}
+.mbtn.boom{border-color:var(--bad);background:rgba(248,113,113,.14);animation:boom .3s}
+@keyframes boom{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.ord-ans{display:flex;flex-wrap:wrap;gap:6px;min-height:36px;margin-top:8px;padding:7px;border-radius:9px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12)}
+.ord-slot{display:inline-flex;align-items:center;min-width:52px;min-height:28px;padding:2px 9px;border-radius:7px;border:1px solid rgba(246,211,101,.2);background:rgba(246,211,101,.06);font-size:.84rem;color:#fff8e8;cursor:default}
+.ord-slot.filled{border-color:rgba(246,211,101,.5);cursor:pointer}
+.ord-slot.filled:hover{border-color:var(--bad);color:#fecaca}
+.ord-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.ord-chip{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.84rem;cursor:pointer;font-family:inherit;text-align:left;transition:.15s}
+.ord-chip:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.ord-chip.long{display:block;width:100%;line-height:1.6;padding:7px 10px;font-size:.82rem}
+.item.ok .ord-ans{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.06)}
+.item.bad .ord-ans{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.06)}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:560px){.wrap{padding:18px 12px 60px}.hero{padding:20px}.ex{padding:14px}.q{font-size:.88rem}.blank{min-width:62px;width:78px}.match{gap:6px}.mbtn{font-size:.8rem;padding:8px}.steps{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand,.ex-foot{display:none}#app{display:block!important}.hero,.ex,.checklist,.combo,.rcard{border-color:#ddd;background:#fff;color:#111}.hero h1,.ex h2,.q,.chip,.rde,.combo .ct{color:#111}.notice,.ex-tip,.score,.combo .cn{color:#444}.why{display:block!important;color:#333;background:#f7f7f7;border-color:#ccc}.blank{background:#fff;color:#111;border-color:#999}.opt,.mbtn,.ord-chip,.cword{background:#fff;color:#111;border-color:#ccc}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="liaoxin.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>廖同学的 10/30 课后练习</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-10-30 · 课后练习</div>
+      <h1>廖欣 · 先读出声，再做练习</h1>
+      <div class="sub">拼读复习 · 自我介绍 · 简单句语序 · 动词变位 · 咖啡馆对话</div>
+      <div class="meta">
+        <span class="chip">11 组 · 100 题</span>
+        <span class="chip">每句都能点 🔊 听</span>
+        <span class="chip">先读 → 懂 → 规则</span>
+      </div>
+      <div class="notice">
+        你的字母组合还容易忘（学十分忘七分），所以这一页的顺序是：<b>先读出声</b>，读顺了再看中文和语法，最后才动手做圈出来的题。<br>
+        做题时也不要默看：先读整句，再想空格填什么。读不出来的词，点它旁边的 🔊 跟读两遍。
+      </div>
+      <div class="steps">
+        <div class="step"><b>① 读</b><span>听 🔊、跟读、再自己读三遍。只看德文，不先翻译。</span></div>
+        <div class="step"><b>② 懂</b><span>读顺了再点「看意思」，确认自己理解对不对。</span></div>
+        <div class="step"><b>③ 规则</b><span>回头看一眼：这句用了哪条语法？动词在第几位？</span></div>
+      </div>
+      <div class="progress"><span id="pct">已完成 0 / 11</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的作业清单</div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">第一步 · 拼读卡：先读准字母组合</div>
+    <div class="combos" id="combos"></div>
+
+    <div class="sec-title">第二步 · 读句子：先读，再看意思 <span id="readcount" style="font-size:.66rem;color:rgba(148,163,184,.7)"></span></div>
+    <div class="read" id="read"></div>
+
+    <div class="sec-title">第三步 · 动手练：圈出来的题</div>
+    <div id="exercises"></div>
+
+    <div class="foot">
+      这是廖欣的专属练习页 · 只有口令可以打开<br>
+      <a href="liaoxin.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["朗读 · 拼读卡：ei / ie / ä ö ü / ch / sch / sp-st 各跟读 3 遍","朗读 · S.24/1 两段咖啡馆对话，每段 3 遍（先读，后看中文）","S.9/9 · sein 变位：先读整句，再填","S.98/4 · 短文：读顺了再选动词","S.97/6 · 问句：读出上扬语调，再填疑问词","S.96/1 · 对话：读一遍，再判断对错","S.7/4 · 咖啡馆对话：分角色读，再填空"],"combos":[{"t":"ei","s":"[ai]","words":["heiße","drei","Wein","ein"],"note":"ei 读「爱」，不是「诶一」"},{"t":"ie","s":"[iː]","words":["sie","wie","hier","vier"],"note":"ie 读长音「衣」，不读「耶」"},{"t":"eu","s":"[ɔy]","words":["Euro","neun","heute"],"note":"eu 是「欧 + 伊」合口音"},{"t":"ä ö ü","s":"","words":["spät","möchten","üben","Türkei"],"note":"变音：嘴型比 a / o / u 更靠前"},{"t":"ch","s":"[ç] / [x]","words":["ich","sprechen","Buch","auch"],"note":"ich 后面读软 [ç]；Buch 后面读硬 [x]"},{"t":"sch","s":"[ʃ]","words":["Schule","Schweden","Sprachschule"],"note":"sch 读「什」"},{"t":"sp · st","s":"[ʃp] [ʃt]","words":["sprechen","Student","Steinbach"],"note":"词首 sp / st 读 schp / scht"},{"t":"z","s":"[ts]","words":["zwei","Zucker","zwölf"],"note":"z 读「次」，不读「兹」"},{"t":"w","s":"[v]","words":["wohnen","wie","Wein","Woher"],"note":"w 读「v」，别读成英语的 w"},{"t":"v","s":"[f]","words":["vier","viel"],"note":"v 多数读 [f]：vier, viel"},{"t":"s","s":"[z] / [s] / [ʃ]","words":["sind","was","Student"],"note":"词首 s 读 [z]；was 读 [s]；st 前读 [ʃ]"}],"read":[{"de":"Guten Tag! Ich bin Frau Schiller.","zh":"您好！我是席勒女士。","rule":"陈述句：主语第一位，变位动词第二位（Ich bin …）。","hint":"Guten 的 g 读 [g]；Tag 的 g 在词尾读 [k]。"},{"de":"Woher kommen Sie?","zh":"您从哪里来？","rule":"W-Frage：疑问词第一位，动词第二位，主语第三位。","hint":"Woher：wo + her，连读成一个词。"},{"de":"Ich komme aus Jiangxi.","zh":"我来自江西。","rule":"aus + 地方 = 来自哪里；动词 komme 在第二位。","hint":"kommen 的 ich 形式只加 -e：komme。"},{"de":"Wohnen Sie in Nanchang?","zh":"您住在南昌吗？","rule":"是非问句：动词第一位，主语第二位。","hint":"wohnen 的 Sie 形式和原形一样：wohnen。"},{"de":"Wie heißen Sie?","zh":"您叫什么名字？","rule":"W-Frage：wie 第一位，动词第二位。","hint":"heißen 的 ß 读 [s]；Sie 的 S 读 [z]。"},{"de":"Ich bin Krankenschwester.","zh":"我是护士。","rule":"sein + 职业，职业前面不加冠词。","hint":"Krankenschwester：Kranken + Schwester，重音在第一个词。"},{"de":"Wir trinken einen Kaffee.","zh":"我们喝一杯咖啡。","rule":"规则动词：wir 用原形（trinken）；einen 是阳性四格。","hint":"trinken 的 r 在辅音前轻读，别卷舌。"},{"de":"Er wohnt in Bad Homburg.","zh":"他住在巴特洪堡。","rule":"er / sie / es 的动词词尾是 -t：wohnt。","hint":"Bad Homburg 的 H 要送气；burg 的 g 词尾读 [k]。"},{"de":"Seid ihr auch im Deutschkurs?","zh":"你们也在上德语课吗？","rule":"sein 的 ihr 形式是 seid；是非问句动词第一位。","hint":"Deutsch 的 eu 读 [ɔy]；kurs 的 k 送气。"},{"de":"Zwei Kaffee und zwei Wasser, bitte!","zh":"两杯咖啡、两杯水，谢谢！","rule":"点单常用句；数量 + 饮料 + bitte 收尾。","hint":"zwei 的 z 读 [ts]；Wasser 的 w 读 [v]。"}],"exercises":[{"id":"sein","type":"fill","tag":"12 题","title":"sein 变位（S.9/9）","tip":"先读整句，再想空格里是 bin / bist / ist / sind / seid 的哪一个。读的时候把句子读完整。","link":{"href":"../?p=grammar&to=s4#grammar","text":"复习：A1 语法 · sein 和 haben"},"items":[{"q":"ich ___ (sein)","a":"bin","hint":"sein","why":"ich + bin。sein 是不规则动词，要整组背。"},{"q":"du ___ (sein)","a":"bist","hint":"sein","why":"du + bist。"},{"q":"er / sie / es ___ (sein)","a":"ist","hint":"sein","why":"er / sie / es + ist。"},{"q":"wir ___ (sein)","a":"sind","hint":"sein","why":"wir + sind。"},{"q":"ihr ___ (sein)","a":"seid","hint":"sein","why":"ihr + seid，别写成 sind。"},{"q":"sie / Sie ___ (sein)","a":"sind","hint":"sein","why":"sie（他们）/ Sie（您）都用 sind。"},{"q":"Guten Tag, ___ hier noch frei?","a":"Ist","hint":"sein","cs":true,"why":"主语是「这里」（es），用 ist；句首大写 Ist。"},{"q":"Ja, bitte. ___ Sie auch im Deutschkurs?","a":"Sind","hint":"sein","cs":true,"why":"对 Sie 提问用 Sind；是非问句动词放第一位。"},{"q":"Nein, ich ___ im Spanischkurs.","a":"bin","hint":"sein","why":"ich + bin。"},{"q":"Hallo, Alida. Das ___ Cai und Hung.","a":"sind","hint":"sein","why":"Das 指两个人，是复数，用 sind。"},{"q":"Nein, wir ___ aus Vietnam.","a":"sind","hint":"sein","why":"wir + sind；aus + 国家表示来自哪里。"},{"q":"Wo ___ du?","a":"bist","hint":"sein","why":"du + bist；Wo 问「在哪里」。"}]},{"id":"konj","type":"fill","tag":"18 题","title":"规则动词变位表：kommen / wohnen / heißen","tip":"规则：词干 + 词尾（ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en）。先把整组读一遍再填；填完再读一遍。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"ich ___ (kommen)","a":"komme","hint":"kommen","why":"komm- + e → komme。"},{"q":"du ___ (kommen)","a":"kommst","hint":"kommen","why":"komm- + st → kommst。"},{"q":"er / sie / es ___ (kommen)","a":"kommt","hint":"kommen","why":"komm- + t → kommt。"},{"q":"wir ___ (kommen)","a":"kommen","hint":"kommen","why":"wir 用原形：kommen。"},{"q":"ihr ___ (kommen)","a":"kommt","hint":"kommen","why":"ihr 和 er 一样是 kommt。"},{"q":"sie / Sie ___ (kommen)","a":"kommen","hint":"kommen","why":"sie / Sie 用原形：kommen。"},{"q":"ich ___ (wohnen)","a":"wohne","hint":"wohnen","why":"wohn- + e → wohne。"},{"q":"du ___ (wohnen)","a":"wohnst","hint":"wohnen","why":"wohn- + st → wohnst。"},{"q":"er / sie / es ___ (wohnen)","a":"wohnt","hint":"wohnen","why":"wohn- + t → wohnt。"},{"q":"wir ___ (wohnen)","a":"wohnen","hint":"wohnen","why":"wir 用原形：wohnen。"},{"q":"ihr ___ (wohnen)","a":"wohnt","hint":"wohnen","why":"ihr 和 er 一样是 wohnt。"},{"q":"sie / Sie ___ (wohnen)","a":"wohnen","hint":"wohnen","why":"sie / Sie 用原形：wohnen。"},{"q":"ich ___ (heißen)","a":"heiße","hint":"heißen","why":"heiß- + e → heiße。"},{"q":"du ___ (heißen)","a":"heißt","hint":"heißen","why":"heiß- 已经以 ß 结尾，只加 -t → heißt，不加 -st。"},{"q":"er / sie / es ___ (heißen)","a":"heißt","hint":"heißen","why":"heiß- + t → heißt。"},{"q":"wir ___ (heißen)","a":"heißen","hint":"heißen","why":"wir 用原形：heißen。"},{"q":"ihr ___ (heißen)","a":"heißt","hint":"heißen","why":"ihr 也是 heißt。"},{"q":"sie / Sie ___ (heißen)","a":"heißen","hint":"heißen","why":"sie / Sie 用原形：heißen。"}]},{"id":"satzbau","type":"order","tag":"8 句","title":"语序：动词放第几位？","tip":"点单词，按德语顺序拼成句子。先说规则：陈述句动词第二位；W-Frage 疑问词第一、动词第二；是非问句动词第一位。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 疑问句"},"items":[{"words":["Ich","komme","aus","Jiangxi."],"hint":"我从江西来。（陈述句）","why":"陈述句：主语 Ich 第一位，动词 komme 第二位。"},{"words":["Er","wohnt","in","Nanchang."],"hint":"他住在南昌。（陈述句）","why":"陈述句：Er 第一位，动词 wohnt 第二位。"},{"words":["Wir","trinken","einen","Kaffee."],"hint":"我们喝一杯咖啡。（陈述句）","why":"陈述句：Wir 第一位，动词 trinken 第二位。"},{"words":["Woher","kommen","Sie?"],"hint":"您从哪里来？（W-Frage）","why":"W-Frage：疑问词 Woher 第一位，动词 kommen 第二位。"},{"words":["Wie","heißen","Sie?"],"hint":"您叫什么名字？（W-Frage）","why":"W-Frage：Wie 第一位，动词 heißen 第二位。"},{"words":["Kommen","Sie","aus","China?"],"hint":"您从中国来吗？（是非问句）","why":"是非问句：动词 Kommen 第一位，主语 Sie 第二位。"},{"words":["Wohnen","Sie","in","Berlin?"],"hint":"您住在柏林吗？（是非问句）","why":"是非问句：动词 Wohnen 第一位。"},{"words":["Seid","ihr","auch","im","Deutschkurs?"],"hint":"你们也在德语课吗？（是非问句）","why":"是非问句：动词 Seid 第一位；sein 的 ihr 形式是 seid。"}]},{"id":"wfrage","type":"fill","tag":"8 题","title":"疑问词：wo / woher / wie / was（S.97/6）","tip":"先读问句，语调上扬；再想答案问的是「哪里」「从哪来」「怎么样」还是「什么」。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 疑问句"},"items":[{"q":"___ kommst du?","a":"Woher","hint":"来自哪里","cs":true,"why":"答案说 「aus …」，问的是来源 → Woher。"},{"q":"___ wohnst du jetzt?","a":"Wo","hint":"住在哪里","cs":true,"why":"问地点 → Wo。"},{"q":"___ ist deine Telefonnummer?","a":"Wie","hint":"号码是多少","cs":true,"why":"问号码用 Wie ist …?。"},{"q":"Und ___ machst du?","a":"was","hint":"做什么","why":"问做什么 → was。"},{"q":"___ studierst du?","a":"Was","hint":"学什么","cs":true,"why":"问学什么 → Was。"},{"q":"___ heißen Sie?","a":"Wie","hint":"名字","cs":true,"why":"问名字固定说法：Wie heißen Sie?。"},{"q":"___ wohnen Sie?","a":"Wo","hint":"住哪里","cs":true,"why":"问地点 → Wo。"},{"q":"___ kommen Sie?","a":"Woher","hint":"从哪来","cs":true,"why":"问来源 → Woher。"}]},{"id":"ausin","type":"fill","tag":"8 题","title":"aus 还是 in？","tip":"来自某个地方用 aus；住在某个地方用 in。两个词后面都接三格：aus der Türkei, in Deutschland。","link":{"href":"../?p=grammar&to=s16#grammar","text":"复习：A1 语法 · 介词"},"items":[{"q":"Wo wohnen Sie? — ___ Frankfurt.","a":"In","hint":"aus / in","cs":true,"why":"wohnen（住）→ in + 城市：in Frankfurt。"},{"q":"Woher kommen Sie? — ___ Brasilien.","a":"Aus","hint":"aus / in","cs":true,"why":"kommen（来自）→ aus + 国家：aus Brasilien。"},{"q":"Ich komme ___ Indien.","a":"aus","hint":"aus / in","why":"kommen 后面表示来源用 aus。"},{"q":"Ich wohne ___ Berlin.","a":"in","hint":"aus / in","why":"wohnen 后面表示地点用 in。"},{"q":"Sie kommt ___ der Türkei.","a":"aus","hint":"aus / in","why":"国家带 der 时：aus + der → aus der Türkei。"},{"q":"Er wohnt ___ Bad Homburg.","a":"in","hint":"aus / in","why":"wohnen → in + 城市。"},{"q":"Wir leben ___ Deutschland.","a":"in","hint":"aus / in","why":"leben（生活）→ in + 国家。"},{"q":"Herr Tang kommt ___ China.","a":"aus","hint":"aus / in","why":"kommen → aus + 国家。"}]},{"id":"sprachschule","type":"choice","tag":"6 题","title":"动词选择（S.98/4）","tip":"先读顺短文，再选。看主语是单数还是复数，动词跟着主语走。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"Frau Stutz ___ Deutschlehrerin an der Gloria-Sprachschule.","opts":["ist","sind"],"a":"ist","why":"Frau Stutz 是一个人 → ist。"},{"q":"Im A1-Kurs ___ zwölf Studenten.","opts":["ist","sind"],"a":"sind","why":"zwölf Studenten 是复数 → sind。"},{"q":"Sie ___ aus sieben Ländern.","opts":["kommt","kommen"],"a":"kommen","why":"Sie 指学生（复数）→ kommen。"},{"q":"Der Kurs ___ international.","opts":["bin","ist"],"a":"ist","why":"Der Kurs 是三单 → ist。"},{"q":"Die Studenten ___ mit dem Kursbuch oder am Computer.","opts":["üben","übt"],"a":"üben","why":"Die Studenten 是复数 → üben。"},{"q":"Frau Stutz ___ Englisch, Spanisch und Französisch.","opts":["sprichst","spricht"],"a":"spricht","why":"Frau Stutz 三单 → spricht（sprechen 的 e→i 变化只在 du / er）。"}]},{"id":"dialog1","type":"order","tag":"2 段","title":"咖啡馆对话排序（S.24/1）","tip":"先把每句话读出声，再按对话逻辑排序：打招呼 → 问名字/来自哪里 → 问喝什么 → 点单。长句子也可以点 🔊 听。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 疑问句"},"items":[{"long":true,"words":["Hallo, Marina! Marina, das ist Conny. Sie ist Deutschlehrerin. Conny, das ist Marina Álvarez.","Hallo, Marina. Woher kommst du?","Ich komme aus Argentinien, aus Rosario.","Was möchtet ihr trinken?","Cappuccino.","Ich auch.","Zwei Cappuccini und ein Wasser, bitte."],"hint":"A 段：三个人在咖啡馆见面","why":"顺序：打招呼介绍 → 问来自哪里 → 回答 → 问喝什么 → 两人各点一杯 → 服务员复述订单。"},{"long":true,"words":["Entschuldigung, ist hier noch frei?","Ja, klar, bitte. Seid ihr auch im Deutschkurs?","Ja. Ich heiße Isabel und das ist Carlos. Wir kommen aus Kolumbien. Wie heißt du und woher kommst du?","Ich bin Tuva. Ich komme aus Schweden und wohne jetzt in Berlin. Was trinkt ihr?","Kaffee und Wasser.","Drei Kaffee und zwei Wasser, bitte!"],"hint":"B 段：问座位 + 互相认识","why":"顺序：问能不能坐 → 回答并反问是不是也上德语课 → 自我介绍 + 问对方名字和来源 → 回答 + 问喝什么 → 回答 → 服务员复述。"}]},{"id":"cafe","type":"fill","tag":"12 题","title":"咖啡馆对话填空（S.7/4）","tip":"词库：bist · ist · heiße · komme · kommst · wohnst · wohne · möchten · nehme · trinkst。先读一遍对话，再填。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"Hallo, ___ du auch im Deutschkurs?","a":"bist","hint":"sein","why":"du + sein → bist。"},{"q":"Ja. Ich ___ Laura und du?","a":"heiße","hint":"heißen","why":"ich + heißen → heiße。"},{"q":"Hallo Laura, mein Name ___ Pradeep.","a":"ist","hint":"sein","why":"mein Name 是单数 → ist。"},{"q":"Woher ___ du?","a":"kommst","hint":"kommen","why":"du + kommen → kommst。"},{"q":"Ich ___ aus Spanien. Und du?","a":"komme","hint":"kommen","why":"ich + kommen → komme。"},{"q":"Ich ___ aus Indien.","a":"komme","hint":"kommen","why":"ich + kommen → komme。"},{"q":"___ du hier in Mannheim?","a":"Wohnst","hint":"wohnen","cs":true,"why":"是非问句动词第一位；du + wohnen → Wohnst。"},{"q":"Nein, ich ___ in Weinheim.","a":"wohne","hint":"wohnen","why":"ich + wohnen → wohne。"},{"q":"___ Sie bestellen?","a":"Möchten","hint":"möchten","cs":true,"why":"对 Sie 提问用 möchten 的 Sie 形式 Möchten。"},{"q":"Ja, ich ___ Espresso.","a":"nehme","hint":"nehmen","why":"ich + nehmen → nehme（第一人称不变音）。"},{"q":"Und was ___ du?","a":"trinkst","hint":"trinken","why":"du + trinken → trinkst。"},{"q":"Ich ___ Chai Latte.","a":"nehme","hint":"nehmen","why":"ich + nehmen → nehme。"}]},{"id":"verstehen","type":"choice","tag":"8 题","title":"读对话，判断对错（S.96/1）","tip":"先读一遍对话，再判断每句话对不对。错的句子，答案就在对话里。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 疑问句"},"items":[{"q":"Birgit Stutz ist Lehrerin an der Sprachschule.","opts":["richtig","falsch"],"a":"richtig","why":"她说：Ich bin Lehrerin an der Sprachschule."},{"q":"Marco kommt aus Neapel.","opts":["richtig","falsch"],"a":"richtig","why":"他说：Ich heiße Marco, ich komme aus Neapel."},{"q":"Jennifer wohnt in Melbourne.","opts":["richtig","falsch"],"a":"falsch","why":"她来自 Melbourne，但住：Und jetzt wohne ich in Frankfurt."},{"q":"Jennifer kommt aus Australien.","opts":["richtig","falsch"],"a":"richtig","why":"她说：Aus Australien, aus Melbourne."},{"q":"Marco und Jennifer sind im Deutschkurs.","opts":["richtig","falsch"],"a":"richtig","why":"Marco 说：Und das ist Jennifer. Wir sind im Deutschkurs."},{"q":"Birgit Stutz trinkt Kaffee.","opts":["richtig","falsch"],"a":"falsch","why":"她最后说：Hm, Kaffee? Nein, lieber ein Wasser."},{"q":"Marco trinkt einen Kaffee.","opts":["richtig","falsch"],"a":"richtig","why":"他说：Wir trinken einen Kaffee."},{"q":"Birgit Stutz kommt aus Indien.","opts":["richtig","falsch"],"a":"falsch","why":"对话里没有说 Birgit Stutz 来自 Indien；这句不对。"}]},{"id":"gruss","type":"match","tag":"8 对","title":"问候语与自我介绍（10/23 板书）","tip":"先读德语，再点中文。读的时候注意 Guten 的 g 和 Tag 词尾的 k。","link":{"href":"../?p=grammar&to=s1#grammar","text":"复习：A1 语法 · 字母与拼读"},"pairs":[["Guten Morgen","早上好"],["Guten Tag","白天好 / 您好"],["Guten Abend","晚上好"],["Gute Nacht","晚安（睡前）"],["Wie heißen Sie?","您叫什么名字？"],["Woher kommen Sie?","您从哪里来？"],["Wo wohnen Sie?","您住在哪里？"],["Auf Wiedersehen","再见"]]},{"id":"getraenke","type":"match","tag":"10 对","title":"饮料词汇（Im Café）","tip":"先读德语，再点中文。注意 Kaffee 的 ff、Tee 的 ee、Wasser 的 w。","link":{"href":"../?p=grammar&to=s1#grammar","text":"复习：A1 语法 · 字母与拼读"},"pairs":[["der Kaffee","咖啡"],["der Tee","茶"],["der Espresso","浓缩咖啡"],["der Cappuccino","卡布奇诺"],["das Wasser","水"],["der Orangensaft","橙汁"],["die Milch","牛奶"],["die Cola","可乐"],["der Wein","葡萄酒"],["das Bier","啤酒"]]}]};
+var PASS_HASH = 'fc1e4ec93c5818727b0ebdcabe7d7ae673ccbd78690a624767780e87f23586f4';
+var KEY = 'stu_unlock_liaoxin';
+var SAVE = 'liaoxin1030_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+state.ans = state.ans || {};
+state.solved = state.solved || {};
+state.checked = state.checked || {};
+state.revealed = state.revealed || {};
+state.order = state.order || {};
+state.cb = state.cb || {};
+state.read = state.read || {};
+state.shuf = state.shuf || {};
+state.bad = state.bad || {};
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+function speak(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .85;
+    window.speechSynthesis.speak(u);
+  } catch(e){}
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+
+function fullSentence(ex, i){
+  var it = ex.items[i];
+  if (ex.type === 'fill' || ex.type === 'choice') return it.q.replace('___', it.a);
+  if (ex.type === 'order') return it.words.join(' ');
+  return it.a;
+}
+
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+}
+
+function renderCombos(){
+  document.getElementById('combos').innerHTML = DATA.combos.map(function(c){
+    return '<div class="combo"><div class="ct">' + esc(c.t) + (c.s ? '<span class="cs">' + esc(c.s) + '</span>' : '') + '</div>'
+      + '<div class="cw">' + c.words.map(function(w){
+          return '<button type="button" class="cword" data-say="' + esc(w) + '">' + esc(w) + ' 🔊</button>';
+        }).join('') + '</div>'
+      + '<div class="cn">' + esc(c.note) + '</div></div>';
+  }).join('');
+}
+
+function renderRead(){
+  document.getElementById('read').innerHTML = DATA.read.map(function(r, i){
+    var on = !!state.read[i];
+    return '<div class="rcard" data-r="' + i + '">'
+      + '<div class="rde">' + esc(r.de) + ' <button class="spk" type="button" data-say="' + esc(r.de) + '" title="朗读">🔊</button></div>'
+      + '<button class="rbtn" type="button" data-rv="' + i + '">读完了 · 看意思和规则</button>'
+      + '<div class="rmore" id="rmore-' + i + '" hidden>'
+      + '<div class="rzh">' + esc(r.zh) + '</div>'
+      + '<div class="rrule">语法：' + esc(r.rule) + '</div>'
+      + '<div class="rhint">发音：' + esc(r.hint) + '</div></div>'
+      + '<label class="rdone"><input type="checkbox" data-rd="' + i + '"' + (on ? ' checked' : '') + '> 我读了三遍</label>'
+      + '</div>';
+  }).join('');
+  updateReadCount();
+}
+
+function updateReadCount(){
+  var n = Object.keys(state.read).filter(function(k){ return state.read[k]; }).length;
+  var el = document.getElementById('readcount');
+  if (el) el.textContent = '（已读三遍 ' + n + ' / ' + DATA.read.length + '）';
+}
+
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var parts = it.q.split('___');
+    var v = (state.ans[ex.id] && state.ans[ex.id][i]) || '';
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
+      + esc(parts[1] || '')
+      + (it.hint ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button>'
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.ans[ex.id] && state.ans[ex.id][i];
+    var parts = it.q.split('___');
+    var qhtml = parts.length > 1
+      ? esc(parts[0]) + '<b style="color:var(--gold)">___</b>' + esc(parts.slice(1).join('___'))
+      : esc(it.q);
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + qhtml
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button></div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button type="button" class="opt' + (cur === o ? ' sel' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-opt="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderMatch(ex){
+  var solved = state.solved[ex.id] || [];
+  var order = state.order[ex.id];
+  if (!order){
+    order = ex.pairs.map(function(_, i){ return i; });
+    for (var k = order.length - 1; k > 0; k--){
+      var r = Math.floor(Math.random() * (k + 1)), t = order[k]; order[k] = order[r]; order[r] = t;
+    }
+    state.order[ex.id] = order; save();
+  }
+  var left = ex.pairs.map(function(p, i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="l" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>'
+      + '<span>' + esc(p[0]) + '</span><span class="spk" role="button" tabindex="0" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
+  }).join('');
+  var right = order.map(function(i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="r" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>' + esc(ex.pairs[i][1]) + '</button>';
+  }).join('');
+  return '<div class="items"><div class="match"><div class="mcol">' + left + '</div><div class="mcol">' + right + '</div></div></div>';
+}
+
+function renderOrder(ex){
+  var ans = state.ans[ex.id] || {};
+  var shuf = state.shuf[ex.id] || (state.shuf[ex.id] = {});
+  var bad = state.bad[ex.id] || {};
+  var solved = state.solved[ex.id] || [];
+  var out = '<div class="items">';
+  ex.items.forEach(function(it, i){
+    if (!shuf[i]){
+      var idx = it.words.map(function(_, k){ return k; });
+      for (var k = idx.length - 1; k > 0; k--){
+        var r = Math.floor(Math.random() * (k + 1)), t = idx[k]; idx[k] = idx[r]; idx[r] = t;
+      }
+      shuf[i] = idx;
+    }
+    var chosen = ans[i] || [];
+    var isDone = solved.indexOf(i) >= 0;
+    var ansHTML = '';
+    it.words.forEach(function(w, pos){
+      var k = chosen[pos];
+      ansHTML += '<span class="ord-slot' + (k != null ? ' filled' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-pos="' + pos + '">'
+        + (k != null ? esc(it.words[k]) : '·') + '</span>';
+    });
+    var poolHTML = '';
+    shuf[i].forEach(function(k){
+      if (chosen.indexOf(k) < 0){
+        poolHTML += '<button type="button" class="ord-chip' + (it.long ? ' long' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-k="' + k + '">' + esc(it.words[k]) + '</button>';
+      }
+    });
+    out += '<div class="item' + (isDone ? ' ok' : (bad[i] ? ' bad' : '')) + '" data-i="' + i + '">'
+      + '<div class="q">' + (it.hint ? esc(it.hint) : '') + '<button class="spk" type="button" data-say="' + esc(it.words.join(' ')) + '" title="朗读">🔊</button></div>'
+      + '<div class="ord-ans">' + ansHTML + '</div>'
+      + '<div class="ord-pool">' + poolHTML + '</div>'
+      + '<div class="why' + (bad[i] ? ' show bad' : '') + '" data-why="' + i + '">' + esc(it.why) + '</div>'
+      + '</div>';
+  });
+  return out + '</div>';
+}
+
+function renderGroup(ex, idx){
+  var body = ex.type === 'fill' ? renderFill(ex)
+    : ex.type === 'choice' ? renderChoice(ex)
+    : ex.type === 'match' ? renderMatch(ex)
+    : renderOrder(ex);
+  var btnCheck = (ex.type === 'match' || ex.type === 'order') ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>';
+  return '<section class="ex" id="ex-' + ex.id + '">'
+    + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+    + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+    + (ex.link ? '<a class="ex-link" href="' + esc(ex.link.href) + '">' + esc(ex.link.text) + '</a>' : '')
+    + body
+    + '<div class="ex-foot">' + btnCheck
+    + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+    + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+    + '<span class="score" id="score-' + ex.id + '"></span></div>'
+    + '</section>';
+}
+
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(renderGroup).join('');
+  DATA.exercises.forEach(function(ex){
+    if (ex.type === 'match' || ex.type === 'order'){
+      if (ex.type === 'match') updateMatchScore(ex); else updateOrderScore(ex);
+      if (state.checked[ex.id]) checkGroup(ex, true);
+    } else {
+      if (state.checked[ex.id]) checkGroup(ex, true);
+      else updateScore(ex, null);
+    }
+  });
+}
+
+function markItem(itemEl, good, whyEl){
+  itemEl.classList.remove('ok','bad');
+  itemEl.classList.add(good ? 'ok' : 'bad');
+  if (whyEl){
+    if (good){ whyEl.classList.remove('show','bad'); }
+    else { whyEl.classList.add('show','bad'); }
+  }
+}
+
+function checkGroup(ex, silent){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  var good = 0, total = 0;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    ex.items.forEach(function(it, i){
+      var itemEl = root.querySelector('.item[data-i="' + i + '"]');
+      if (!itemEl) return;
+      total++;
+      var val = state.ans[ex.id] && state.ans[ex.id][i];
+      var ok = isCorrect(it, val);
+      if (ok) good++;
+      if (ex.type === 'fill'){
+        var inp = itemEl.querySelector('.blank');
+        if (inp){ inp.classList.remove('ok','bad'); inp.classList.add(ok ? 'ok' : 'bad'); }
+        if (state.revealed[ex.id]) inp.value = it.a;
+      } else {
+        var opts = itemEl.querySelectorAll('.opt');
+        for (var j = 0; j < opts.length; j++){
+          var o = opts[j];
+          o.classList.remove('ok','bad');
+          if (o.dataset.opt === it.a) o.classList.add('ok');
+          else if (o.dataset.opt === val) o.classList.add('bad');
+        }
+      }
+      var why = itemEl.querySelector('.why');
+      markItem(itemEl, ok, why);
+    });
+    state.checked[ex.id] = true;
+    updateScore(ex, good + '/' + total);
+  } else if (ex.type === 'match'){
+    var solved = state.solved[ex.id] || [];
+    total = ex.pairs.length; good = solved.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateMatchScore(ex);
+  } else {
+    var s2 = state.solved[ex.id] || [];
+    total = ex.items.length; good = s2.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateOrderScore(ex);
+  }
+  save(); updateProgress();
+}
+
+function updateScore(ex, text){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  if (text == null){
+    el.textContent = '';
+    return;
+  }
+  var parts = text.split('/');
+  var all = parts.length === 2 && parts[0] === parts[1];
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全对 <b>' + text + '</b>' : '答对 <b>' + text + '</b>';
+}
+
+function updateMatchScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.pairs.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部配对 <b>' + solved + '/' + total + '</b>' : '已配对 <b>' + solved + '/' + total + '</b>';
+}
+
+function updateOrderScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.items.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部排对 <b>' + solved + '/' + total + '</b>' : '已排对 <b>' + solved + '/' + total + '</b>';
+}
+
+function revealGroup(ex){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  state.revealed[ex.id] = true;
+  state.checked[ex.id] = true;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.a;
+      if (ex.type === 'fill'){
+        var inp = root.querySelector('.blank[data-i="' + i + '"]');
+        if (inp) inp.value = it.a;
+      }
+    });
+    checkGroup(ex);
+    root.querySelectorAll('.why').forEach(function(w){ w.classList.add('show'); w.classList.remove('bad'); });
+  } else if (ex.type === 'match'){
+    state.solved[ex.id] = ex.pairs.map(function(_, i){ return i; });
+    save(); renderExercises();
+  } else {
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.words.map(function(_, k){ return k; });
+    });
+    state.solved[ex.id] = ex.items.map(function(_, i){ return i; });
+    state.bad[ex.id] = {};
+    save(); renderExercises();
+  }
+  updateProgress();
+}
+
+function redoGroup(ex){
+  delete state.ans[ex.id];
+  delete state.solved[ex.id];
+  delete state.checked[ex.id];
+  delete state.revealed[ex.id];
+  delete state.order[ex.id];
+  delete state.shuf[ex.id];
+  delete state.bad[ex.id];
+  save();
+  renderExercises();
+  updateProgress();
+}
+
+function updateProgress(){
+  var done = DATA.exercises.filter(function(ex){
+    if (ex.type === 'match') return (state.solved[ex.id] || []).length === ex.pairs.length;
+    if (ex.type === 'order') return (state.solved[ex.id] || []).length === ex.items.length;
+    return !!state.checked[ex.id];
+  }).length;
+  document.getElementById('pct').textContent = '已完成 ' + done + ' / ' + DATA.exercises.length;
+  document.getElementById('pbar').style.width = (done / DATA.exercises.length * 100) + '%';
+}
+
+/* 事件 */
+document.addEventListener('input', function(e){
+  var inp = e.target.closest('.blank');
+  if (!inp) return;
+  var ex = inp.dataset.ex, i = inp.dataset.i;
+  state.ans[ex] = state.ans[ex] || {};
+  state.ans[ex][i] = inp.value;
+  save();
+  var itemEl = inp.closest('.item');
+  if (itemEl){
+    inp.classList.remove('ok','bad');
+    var why = itemEl.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    itemEl.classList.remove('ok','bad');
+  }
+});
+
+document.addEventListener('click', function(e){
+  var spk = e.target.closest('.spk');
+  if (spk){
+    e.preventDefault(); e.stopPropagation();
+    var t = spk.dataset.say;
+    if (t) speak(t);
+    return;
+  }
+  var rbtn = e.target.closest('[data-rv]');
+  if (rbtn){
+    var i2 = rbtn.dataset.rv;
+    var box = document.getElementById('rmore-' + i2);
+    if (box){
+      box.hidden = !box.hidden;
+      rbtn.textContent = box.hidden ? '读完了 · 看意思和规则' : '收起意思和规则';
+    }
+    return;
+  }
+  var opt = e.target.closest('.opt');
+  if (opt){
+    var exId = opt.dataset.ex, idx = opt.dataset.i;
+    state.ans[exId] = state.ans[exId] || {};
+    state.ans[exId][idx] = opt.dataset.opt;
+    save();
+    var item = opt.closest('.item');
+    item.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel','bad'); });
+    opt.classList.add('sel');
+    var why = item.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    item.classList.remove('ok','bad');
+    var ex = DATA.exercises.filter(function(x){ return x.id === exId; })[0];
+    if (ex && state.checked[exId]) checkGroup(ex);
+    return;
+  }
+  var m = e.target.closest('.mbtn');
+  if (m){
+    if (m.disabled) return;
+    var mex = m.dataset.ex, side = m.dataset.side, pair = m.dataset.pair;
+    var ex = DATA.exercises.filter(function(x){ return x.id === mex; })[0];
+    if (!ex) return;
+    var root = document.getElementById('ex-' + mex);
+    if (side === 'l'){
+      root.querySelectorAll('.mbtn[data-side="l"]').forEach(function(b){ b.classList.remove('sel'); });
+      m.classList.add('sel');
+      return;
+    }
+    var sel = root.querySelector('.mbtn[data-side="l"].sel');
+    if (!sel) return;
+    if (sel.dataset.pair === pair){
+      state.solved[mex] = state.solved[mex] || [];
+      if (state.solved[mex].indexOf(Number(pair)) < 0) state.solved[mex].push(Number(pair));
+      save();
+      renderExercises();
+      var s = state.solved[mex].length;
+      if (s === ex.pairs.length){ state.checked[mex] = true; save(); updateProgress(); }
+    } else {
+      m.classList.add('boom'); sel.classList.add('boom');
+      setTimeout(function(){ m.classList.remove('boom'); sel.classList.remove('boom'); sel.classList.remove('sel'); }, 340);
+    }
+    return;
+  }
+  var chip = e.target.closest('.ord-chip');
+  if (chip){
+    var oex = chip.dataset.ex, oi = Number(chip.dataset.i), ok = Number(chip.dataset.k);
+    var exo = DATA.exercises.filter(function(x){ return x.id === oex; })[0];
+    if (!exo) return;
+    state.ans[oex] = state.ans[oex] || {};
+    var arr = state.ans[oex][oi] || [];
+    if (arr.indexOf(ok) < 0) arr.push(ok);
+    state.ans[oex][oi] = arr;
+    delete (state.bad[oex] || {})[oi];
+    save();
+    if (arr.length === exo.items[oi].words.length){
+      var good = arr.every(function(k, pos){ return k === pos; });
+      if (good){
+        state.solved[oex] = state.solved[oex] || [];
+        if (state.solved[oex].indexOf(oi) < 0) state.solved[oex].push(oi);
+        if (state.solved[oex].length === exo.items.length) state.checked[oex] = true;
+        delete (state.bad[oex] || {})[oi];
+      } else {
+        state.bad[oex] = state.bad[oex] || {};
+        state.bad[oex][oi] = true;
+      }
+      save();
+    }
+    renderExercises(); updateProgress();
+    return;
+  }
+  var slot = e.target.closest('.ord-slot');
+  if (slot){
+    if (!slot.classList.contains('filled')) return;
+    var sex = slot.dataset.ex, si = Number(slot.dataset.i), pos = Number(slot.dataset.pos);
+    state.ans[sex] = state.ans[sex] || {};
+    var sa = state.ans[sex][si] || [];
+    sa = sa.filter(function(_, k){ return k !== pos; });
+    state.ans[sex][si] = sa;
+    if (state.bad[sex]) delete state.bad[sex][si];
+    state.solved[sex] = (state.solved[sex] || []).filter(function(x){ return x !== si; });
+    save();
+    renderExercises(); updateProgress();
+    return;
+  }
+  var act = e.target.closest('[data-act]');
+  if (act){
+    var a = act.dataset.act;
+    var ex = DATA.exercises.filter(function(x){ return x.id === act.dataset.ex; })[0];
+    if (!ex) return;
+    if (a === 'check') checkGroup(ex);
+    else if (a === 'reveal') revealGroup(ex);
+    else if (a === 'redo') redoGroup(ex);
+    return;
+  }
+  var cb = e.target.closest('[data-ci]');
+  if (cb){
+    state.cb[cb.dataset.ci] = cb.checked;
+    cb.closest('label').classList.toggle('done', cb.checked);
+    save();
+    return;
+  }
+  var rd = e.target.closest('[data-rd]');
+  if (rd){
+    state.read[rd.dataset.rd] = rd.checked;
+    save(); updateReadCount();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderChecklist();
+  renderCombos();
+  renderRead();
+  renderExercises();
+  updateProgress();
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>

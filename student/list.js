@@ -1,6 +1,13 @@
 /* 公开索引：只含姓名/级别/标签，不含口令和练习计划。由 _students/build_students.py 生成 */
 window.STUDENT_LINKS = [
   {
+    "slug": "liaoxin",
+    "name": "廖同学",
+    "level": "A1",
+    "tagline": "拼读复习 + 简单句语序 + 动词变位",
+    "updated": "2026-10-30"
+  },
+  {
     "slug": "yizimeng",
     "name": "易同学",
     "level": "A1",
