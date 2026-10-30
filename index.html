@@ -22265,48 +22265,10 @@ window.jumpKulturEp = function(n) {
     setUrl(id, curId);
   }
 
-  function button(){
-    if (window._lnBtn) return window._lnBtn;
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = '📤 复制分享链接';
-    b.style.cssText = 'position:fixed;right:18px;bottom:22px;z-index:9998;display:none;' +
-      'border:1px solid rgba(246,211,101,.55);background:rgba(10,20,40,.92);color:#f6d365;' +
-      'font-weight:700;font-size:.8rem;padding:11px 16px;border-radius:22px;' +
-      'box-shadow:0 6px 24px rgba(0,0,0,.45);cursor:pointer;' +
-      "font-family:'PingFang SC','Microsoft YaHei',sans-serif";
-    b.onclick = function(){
-      var page = activePage(); var id = pageId(page);
-      if (!id) return;
-      var ln = curId;
-      if (!ln) { var t = target(page); if (t) { sync(t, page); ln = curId; } }
-      var url = location.origin + '/s-' + id + '.html' + (ln ? '?ln=' + encodeURIComponent(ln) : '');
-      var done = function(){ toast('✅ 链接已复制，粘到微信就能发'); };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done, function(){ prompt('分享链接：', url); });
-      } else { prompt('分享链接：', url); }
-    };
-    document.body.appendChild(b);
-    window._lnBtn = b;
-    return b;
-  }
-  function toast(txt){
-    var t = document.createElement('div');
-    t.textContent = txt;
-    t.style.cssText = 'position:fixed;bottom:84px;right:20px;background:#0a1428;color:#fde68a;' +
-      'padding:12px 20px;border-radius:20px;border:2px solid #f6d365;z-index:99999;font-size:.82rem;' +
-      'font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,.5);pointer-events:none';
-    document.body.appendChild(t);
-    setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 1600);
-    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 2100);
-  }
-
   function ensure(){
     var page = activePage(); if (!page) return;
     var id = pageId(page);
     var ok = id && SHELLS[id] && !SKIP[id];
-    var b = button();
-    b.style.display = ok ? 'block' : 'none';
     if (!ok) { curId = ''; lastPage = ''; return; }
     var t = target(page); if (!t) return;
     anchors(t); bind(t, page);
