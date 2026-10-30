@@ -159,6 +159,14 @@
       sessionStorage.setItem('gcAnchor', gcA);
     }
   } catch (e) {}
+  /* 行级深链：/?pg=<页>&ln=ln-12 —— showPage 会清掉 query，先存 */
+  try {
+    var lnA = new URLSearchParams(location.search).get('ln');
+    if (lnA && /^ln-\d+$/.test(lnA)) {
+      window._lnWant = lnA;
+      sessionStorage.setItem('lnAnchor', lnA);
+    }
+  } catch (e) {}
   /* 通用小节深链：/?pg=b1pruefung&dl=3#b1pruefung —— 同样先存 */
   try {
     var _dq = new URLSearchParams(location.search);
@@ -22164,106 +22172,190 @@ window.jumpKulturEp = function(n) {
 })();
 </script>
 <!-- student-portal-v1 END -->
-<!-- deeplink-scroll-v1：翻到哪一节，地址栏就写到哪一节，分享出去直达同一节 -->
+<!-- linedl-v1：每个板块「翻到哪一行，分享就落在哪一行」（含同源 iframe 内容页） -->
 <script>
 (function(){
-  /* 跳过有自己方案的页：首页无小节；拼读器行级；新闻按档位；剧集/文化按期数 */
-  var SKIP = {index:1, phonetik:1, newslesen:1, serie:1, kultur:1, 'kultur-reader':1, 'grammar-cards':1};
-  var timer = null, last = '';
+  /* 有分享壳页的板块（/s-<page>.html，带各自的 og 预览卡） */
+  var SHELLS = {grammar:1,hoeren:1,schreiben:1,mix:1,daten:1,lesen:1,lianxi:1,a2unit1:1,a2grammar:1,
+    a2lesen:1,a2schreiben:1,a2hoeren:1,echt:1,'echt-share':1,'serie-share':1,wissnicht:1,
+    'grammatik-schreiben':1,b1grammar:1,passivkonjunktiv:1,b1hoeren:1,b1lesen:1,b1schreiben:1,
+    klippklapp:1,b1hub:1,b1modell:1,b2hub:1,c1hub:1,b2sprechen:1,b2schreiben:1,resources:1};
+  /* 已有自己方案的页不接管 */
+  var SKIP = {index:1,phonetik:1,newslesen:1,serie:1,kultur:1,'kultur-reader':1,'grammar-cards':1,
+    lixiangqin:1,pronunciation:1,'english-pronunciation':1};
+  var SEL = 'h1,h2,h3,h4,h5,h6,p,li,tr,summary,div';
+  var curId = '', lastPage = '', lastUrl = '', lockY = -1, lockUntil = 0, timer = null;
 
   function activePage(){
     var ps = document.querySelectorAll('.page');
-    for (var i = 0; i < ps.length; i++) {
-      if (ps[i].style.display !== 'none') return ps[i];
-    }
+    for (var i=0;i<ps.length;i++) if (ps[i].style.display !== 'none') return ps[i];
     return null;
   }
   function pageId(p){
     var id = (p && p.id) || '';
     return id.indexOf('page-') === 0 ? id.slice(5) : '';
   }
-  function heads(p){ return p ? p.querySelectorAll('h1,h2,h3') : []; }
-
-  function sync(){
-    var page = activePage(); if (!page) return;
-    var id = pageId(page); if (!id || SKIP[id]) return;
-    if (location.pathname !== '/' && location.pathname !== '/index.html') return;
-    if (document.documentElement.classList.contains('bare')) return;
-    var hs = heads(page); if (!hs.length) return;
-    var idx = -1;
-    for (var i = 0; i < hs.length; i++) {
-      var r = hs[i].getBoundingClientRect();
-      /* 折叠面板/未选中的 tab 里的标题位置全是 0，会把序号顶到最后一节 */
-      if (!r.height || !hs[i].offsetParent) continue;
-      if (r.top <= 140) idx = i;
+  /* 同源 iframe 内容页 → 操作 iframe 里的文档；外站 iframe 跳过 */
+  function target(page){
+    var f = page.querySelector('iframe');
+    if (f) {
+      var src = f.getAttribute('src') || '';
+      if (/^https?:/i.test(src)) return null;
+      var d = null; try { d = f.contentDocument; } catch(e) { return null; }
+      if (!d || !d.body) return null;
+      return { doc: d, win: f.contentWindow, frame: f };
     }
-    var url = idx < 0 ? ('/#' + id) : ('/?pg=' + id + '&dl=' + idx + '#' + id);
-    if (url === last) return;
-    last = url;
-    if (location.pathname + location.search + location.hash === url) return;
-    try { history.replaceState(null, '', url); } catch (e) {}
+    return { doc: document, win: window, frame: null };
   }
-  window.addEventListener('scroll', function(){
-    if (timer) return;
-    timer = setTimeout(function(){ timer = null; sync(); }, 400);
-  }, { passive: true });
-
-  /* 打开带 pg/dl 的链接：等懒加载内容就绪再滚过去（最多等 6 秒） */
-  function restore(){
-    var pg = null, dl = null;
-    try {
-      var q = new URLSearchParams(location.search);
-      pg = q.get('pg'); dl = q.get('dl');
-    } catch (e) {}
-    if (!pg || dl === null) {
-      try {
-        if (window._dlWant) { pg = window._dlWant.pg; dl = window._dlWant.dl; }
-        if (!pg) pg = sessionStorage.getItem('dlPage');
-        if (dl === null) dl = sessionStorage.getItem('dlIdx');
-        sessionStorage.removeItem('dlPage');
-        sessionStorage.removeItem('dlIdx');
-      } catch (e) {}
+  function anchors(t){
+    var d = t.doc;
+    if (d.documentElement.dataset.lnReady === '1' && d.__lnAnchors) return d.__lnAnchors;
+    var all = d.querySelectorAll(SEL), out = [], n = 0;
+    for (var i=0;i<all.length && n<400;i++){
+      var el = all[i];
+      if (el.tagName === 'DIV' && el.children.length) continue;
+      if (!el.getClientRects().length) continue;
+      var r = el.getBoundingClientRect();
+      if (r.height < 8) continue;
+      if (!el.id) el.id = 'ln-' + (++n);
+      out.push(el);
     }
-    if (!pg || dl === null) return;
-    var n = parseInt(dl, 10);
-    if (isNaN(n) || n < 0) return;
+    d.documentElement.dataset.lnReady = '1';
+    d.__lnAnchors = out;
+    return out;
+  }
+  function bind(t, page){
+    var d = t.doc;
+    if (d.documentElement.dataset.lnScroll === '1') return;
+    d.documentElement.dataset.lnScroll = '1';
+    t.win.addEventListener('scroll', function(){ schedule(t, page); }, { passive: true });
+  }
+  function schedule(t, page){
+    if (timer) return;
+    timer = setTimeout(function(){ timer = null; sync(t, page); }, 320);
+  }
+  function setUrl(id, ln){
+    var u = '/s-' + id + '.html' + (ln ? '?ln=' + encodeURIComponent(ln) : '');
+    if (u === lastUrl) return;
+    try { history.replaceState(null, '', u); lastUrl = u; } catch(e) {}
+  }
+  function sync(t, page){
+    var id = pageId(page);
+    if (!id || SKIP[id] || !SHELLS[id]) return;
+    if (Date.now() < lockUntil) return;
+    if (lockY >= 0) {
+      if (Math.abs((t.win.scrollY||0) - lockY) < 40) return;
+      lockY = -1;
+    }
+    var list = anchors(t);
+    var line = (t.win.innerHeight || 600) * 0.35, pick = null, best = 1e9;
+    for (var i=0;i<list.length;i++){
+      var r = list[i].getBoundingClientRect();
+      if (!r.height) continue;
+      var dd = Math.abs((r.top + r.bottom)/2 - line);
+      if (dd < best) { best = dd; pick = list[i]; }
+    }
+    if (!pick || pick.id === curId) return;
+    curId = pick.id;
+    setUrl(id, curId);
+  }
+
+  function button(){
+    if (window._lnBtn) return window._lnBtn;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = '📤 复制分享链接';
+    b.style.cssText = 'position:fixed;right:18px;bottom:22px;z-index:9998;display:none;' +
+      'border:1px solid rgba(246,211,101,.55);background:rgba(10,20,40,.92);color:#f6d365;' +
+      'font-weight:700;font-size:.8rem;padding:11px 16px;border-radius:22px;' +
+      'box-shadow:0 6px 24px rgba(0,0,0,.45);cursor:pointer;' +
+      "font-family:'PingFang SC','Microsoft YaHei',sans-serif";
+    b.onclick = function(){
+      var page = activePage(); var id = pageId(page);
+      if (!id) return;
+      var ln = curId;
+      if (!ln) { var t = target(page); if (t) { sync(t, page); ln = curId; } }
+      var url = location.origin + '/s-' + id + '.html' + (ln ? '?ln=' + encodeURIComponent(ln) : '');
+      var done = function(){ toast('✅ 链接已复制，粘到微信就能发'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, function(){ prompt('分享链接：', url); });
+      } else { prompt('分享链接：', url); }
+    };
+    document.body.appendChild(b);
+    window._lnBtn = b;
+    return b;
+  }
+  function toast(txt){
+    var t = document.createElement('div');
+    t.textContent = txt;
+    t.style.cssText = 'position:fixed;bottom:84px;right:20px;background:#0a1428;color:#fde68a;' +
+      'padding:12px 20px;border-radius:20px;border:2px solid #f6d365;z-index:99999;font-size:.82rem;' +
+      'font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,.5);pointer-events:none';
+    document.body.appendChild(t);
+    setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 1600);
+    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 2100);
+  }
+
+  function ensure(){
+    var page = activePage(); if (!page) return;
+    var id = pageId(page);
+    var ok = id && SHELLS[id] && !SKIP[id];
+    var b = button();
+    b.style.display = ok ? 'block' : 'none';
+    if (!ok) { curId = ''; lastPage = ''; return; }
+    var t = target(page); if (!t) return;
+    anchors(t); bind(t, page);
+    if (lastPage !== id) { lastPage = id; curId = ''; }
+    if (location.pathname === '/' || location.pathname === '/index.html') setUrl(id, curId);
+  }
+
+  function restore(){
+    var q, pg = '', ln = '';
+    try { q = new URLSearchParams(location.search); pg = q.get('pg') || ''; ln = q.get('ln') || ''; } catch(e) {}
+    if (!pg) return;
+    if (!ln) { try { ln = sessionStorage.getItem('lnAnchor') || ''; sessionStorage.removeItem('lnAnchor'); } catch(e) {} }
+    if (!ln && window._lnWant) ln = window._lnWant;
+    if (ln && !/^ln-\d+$/.test(ln)) ln = '';
     var tries = 0;
     (function tick(){
       var page = document.getElementById('page-' + pg);
-      if (page && page.style.display === 'none' && typeof window.showPage === 'function') {
-        try { window.showPage(pg); } catch (e) {}   /* hash 被吃掉时也要能落位 */
+      if (page && page.style.display === 'none' && typeof showPage === 'function') {
+        try { showPage(pg); } catch(e) {}
       }
-      var hs = heads(page);
-      /* 页面可能还没显示（display:none 时测出来的位置全是 0），等它可见再滚 */
-      if (hs.length > n && page && page.style.display !== 'none'
-          && hs[n].getBoundingClientRect().height > 0) {
-        var nav = document.getElementById('main-nav');
-        var off = Math.min(88, (nav && nav.offsetHeight ? nav.offsetHeight + 8 : 72));
-        function place(){
-          window.scrollTo(0, Math.max(0, hs[n].getBoundingClientRect().top + window.scrollY - off));
-        }
-        place();
-        /* 懒加载/图片会把版面继续拉长，短时间补几次校正 */
+      if (!ln) return;
+      var t = page ? target(page) : null;
+      var el = t ? t.doc.getElementById(ln) : null;
+      if (el && el.getClientRects().length) {
+        var y = el.getBoundingClientRect().top + (t.win.pageYOffset || 0) - (t.win.innerHeight || 600) * 0.35;
+        lockY = t.win.scrollY; lockUntil = Date.now() + 1600; curId = ln;
+        try { t.win.scrollTo({ top: y, behavior: 'auto' }); } catch(e) { t.win.scrollTo(0, y); }
+        setUrl(pg, ln);
         var settle = 0;
-        (function correct(){
+        (function fix(){
           if (++settle > 6) return;
           setTimeout(function(){
-            var top = hs[n].getBoundingClientRect().top;
-            if (top < off - 24 || top > off + 80) place();
-            correct();
+            var top = el.getBoundingClientRect().top;
+            var want = (t.win.innerHeight || 600) * 0.35;
+            if (Math.abs(top - want) > 60) {
+              var y2 = el.getBoundingClientRect().top + (t.win.pageYOffset || 0) - want;
+              try { t.win.scrollTo(0, y2); } catch(e) {}
+            }
+            fix();
           }, 400);
         })();
-        last = location.pathname + location.search + location.hash;
         return;
       }
       if (++tries < 40) setTimeout(tick, 150);
     })();
   }
+
+  setInterval(ensure, 700);
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function(){ setTimeout(restore, 80); });
-  } else { setTimeout(restore, 80); }
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ ensure(); restore(); }, 80); });
+  } else { setTimeout(function(){ ensure(); restore(); }, 80); }
 })();
 </script>
+
 <!-- a1grammar-deeplink-v1：A1 语法速查（iframe 内容页）→ 点位分享，地址栏用带 og 的壳页 -->
 <script>
 (function(){
