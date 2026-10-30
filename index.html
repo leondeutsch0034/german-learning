@@ -161,6 +161,11 @@
   } catch (e) {}
   /* 行级深链：/?pg=<页>&ln=ln-12 —— showPage 会清掉 query，先存 */
   try {
+    var _lp = new URLSearchParams(location.search).get('pg');
+    if (_lp && /^[a-z0-9-]+$/.test(_lp)) {
+      window._pgWant = _lp;
+      sessionStorage.setItem('pgAnchor', _lp);
+    }
     var lnA = new URLSearchParams(location.search).get('ln');
     if (lnA && /^ln-\d+$/.test(lnA)) {
       window._lnWant = lnA;
@@ -22312,6 +22317,9 @@ window.jumpKulturEp = function(n) {
   function restore(){
     var q, pg = '', ln = '';
     try { q = new URLSearchParams(location.search); pg = q.get('pg') || ''; ln = q.get('ln') || ''; } catch(e) {}
+    if (!pg) { try { pg = sessionStorage.getItem('pgAnchor') || ''; sessionStorage.removeItem('pgAnchor'); } catch(e) {} }
+    if (!pg && window._pgWant) pg = window._pgWant;
+    if (!pg) { var hm = (location.hash || '').match(/^#([a-z0-9-]+)$/); if (hm) pg = hm[1]; }
     if (!pg) return;
     if (!ln) { try { ln = sessionStorage.getItem('lnAnchor') || ''; sessionStorage.removeItem('lnAnchor'); } catch(e) {} }
     if (!ln && window._lnWant) ln = window._lnWant;
