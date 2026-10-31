@@ -3483,7 +3483,7 @@
 .pw-row button:active{transform:translateY(1px)}
 .pw-err{min-height:20px;margin-top:9px;font-size:.84rem;font-weight:700;color:#c53030}
 .pw-foot{font-size:.76rem;color:#a08a5e;margin:6px 0 0;line-height:1.75}
-.pw-hide{display:none}
+/* 注意：解锁脚本只摘 hidden 属性，别给 .pw-hide 写 display:none，否则内容永远打不开 */
 
 /* 章节标题右侧的「需口令 / 已解锁」标签（由 enhancePwGates 自动注入）*/
 .pw-pill{
