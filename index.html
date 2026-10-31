@@ -356,6 +356,38 @@ window.fixRelativeAssets = function(root) {
   } catch (e) {}
 })();
 
+/* 口令门可见性增强：在包含 .pw-gate 的章节标题右侧挂「🔒 需口令 / 🔓 已解锁」标签 */
+window.enhancePwGates = function(root) {
+  var scope = root || document;
+  var gates = scope.querySelectorAll('.pw-gate');
+  for (var i = 0; i < gates.length; i++) {
+    (function(g) {
+      var sec = g.closest ? g.closest('.section') : null;
+      if (!sec) return;
+      var head = sec.querySelector('.section-header');
+      if (!head || head.querySelector('.pw-pill')) return;
+      var pill = document.createElement('span');
+      pill.className = 'pw-pill';
+      var sync = function() {
+        var open = g.hidden || g.style.display === 'none';
+        pill.textContent = open ? '🔓 已解锁' : '🔒 需口令';
+        pill.classList.toggle('is-open', !!open);
+      };
+      sync();
+      head.appendChild(pill);
+      head.classList.add('has-pw-pill');
+      try {
+        new MutationObserver(sync).observe(g, { attributes: true, attributeFilter: ['hidden', 'style'] });
+      } catch (e) {}
+    })(gates[i]);
+  }
+};
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { try { window.enhancePwGates(document); } catch (e) {} });
+} else {
+  try { window.enhancePwGates(document); } catch (e) {}
+}
+
 window.instantiateLazyPage = function(pageId, cb) {
   if (window._lazyInstantiated[pageId]) {
     window.runLazyRender(pageId);
@@ -430,6 +462,7 @@ window.instantiateLazyPage = function(pageId, cb) {
   });
 
   page.appendChild(frag);
+  try { window.enhancePwGates(page); } catch (e) {}
   window._lazyInstantiated[pageId] = true;
 
   // 执行注入后的初始化回调
@@ -1884,8 +1917,8 @@ document.addEventListener('keydown', function(e) {
 <a href="#b1s5">7. 可分/不可分动词</a>
 <a href="#b1s6">8. 动词+介词搭配</a>
 <a href="#b1s7">9. 代副词</a>
-<a href="#b1s8">10. Konjunktiv II 虚拟式</a>
-<a href="#b1s9">11. Passiv 被动语态</a>
+<a class="toc-locked" href="#b1s8">10. Konjunktiv II 虚拟式 · 需口令</a>
+<a class="toc-locked" href="#b1s9">11. Passiv 被动语态 · 需口令</a>
 <a href="#b1s12">12. Futur I 将来时</a>
 <a href="#b1s13">13. lassen 使役动词</a>
 <a href="#b1s14">14. 位移动词</a>
@@ -1895,6 +1928,15 @@ document.addEventListener('keydown', function(e) {
 <a href="#b1s18">18. 间接问句</a>
 <a href="#b1s19">19. Infinitiv + zu</a>
 <a href="#b1s20">20. 关系从句 Relativsätze</a>
+</div>
+<div class="pw-notice">
+  <span class="pw-notice-ico">🔐</span>
+  <div>
+    <b>本页有 2 节内部讲义，要输入口令才能打开：</b>
+    <a href="#b1s8">10. 虚拟式 Konjunktiv II</a> ·
+    <a href="#b1s9">11. 被动语态 Passiv</a><br>
+    没拿到口令请找老师要；已经输过口令的，再进本节会自动解锁。
+  </div>
 </div>
 </div>
 
