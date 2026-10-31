@@ -3427,5 +3427,8 @@
     #page-b1-lesen #b1s20-mcq-score{text-align:center;margin-top:12px;font-size:1.1rem;font-weight:700;min-height:28px}
   
 
+/* ── 邮件/信件范文正文：*{margin:0} 重置清掉了 p 的默认段距，这里按标准信件格式补回段间空行 ── */
+.mail-body>p+p{margin-top:1em}
+
 /* ── 首页品牌中文名（SEO：让百度能匹配「Leon德语学习中心」 + 中文访客看得到中文站名）── */
 .hero-brand-cn{font-size:clamp(.92rem,2.2vw,1.15rem);font-weight:600;letter-spacing:.18em;text-indent:.18em;color:#f6d365;opacity:.85;margin:-6px 0 12px}
