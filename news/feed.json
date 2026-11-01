@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 39,
+   "title": "德国 30 多城青年示威：要学校经费，不要兵役",
+   "de_title": "Zehntausende junge Menschen demonstrieren in über 30 Städten",
+   "hook": "30 多座城市|年轻人上街了",
+   "sub": "要学校经费、要气候保护、不要兵役 · 多数和平",
+   "date": "2026-10-31",
+   "photo": "news/og/src/39.jpg",
+   "de_hook": "Mehr Geld für Schulen –|und wer bezahlt|das?",
+   "zh_intro": "10 月 31 日星期六，德国 30 多个城市同时出现青年示威。发起方是几周前才靠 TikTok 趋势凑到一起的新团体„Gen Z regelt“（Z 世代搞定）。他们要更多学校经费、更多气候保护、心理治疗与成瘾援助，并要求减轻生活成本压力；同时明确反对恢复义务兵役。多数集会和平，科隆、法兰克福、斯图加特的游行队伍因蒙面和燃放烟火被警方中断。",
+   "words": [
+    [
+     "die Demonstration / die Demo",
+     "示威、游行"
+    ],
+    [
+     "demonstrieren",
+     "游行示威"
+    ],
+    [
+     "die Initiative",
+     "倡议、发起团体"
+    ]
+   ]
+  },
+  {
    "id": 38,
    "title": "欧洲央行行长拉加德提前卸任：欧元的下一位掌门人是谁",
    "de_title": "EZB-Chefin Lagarde tritt im Februar 2027 vorzeitig zurück",
@@ -173,31 +198,6 @@
     [
      "der Elektro-Motor",
      "电动机"
-    ]
-   ]
-  },
-  {
-   "id": 31,
-   "title": "德国父母为什么不给孩子打卡？",
-   "de_title": "Hausaufgaben: Warum deutsche Eltern nicht jeden Tag kontrollieren",
-   "hook": "德国父母|不每天打卡",
-   "sub": "每周签一次字，不批改作业",
-   "date": "2026-10-22",
-   "photo": "news/og/src/31.jpg",
-   "de_hook": "Kein Foto|kein täglicher Stempel|– warum?",
-   "zh_intro": "在中国，很多家长每天要在班级群发照片打卡；在德国，家长最多每周在作业本上签一次字，而且学校明确不希望家长替孩子改作业。差别不在管得松，而在谁向谁证明。",
-   "words": [
-    [
-     "der Nachweis",
-     "证明、凭证"
-    ],
-    [
-     "abzeichnen",
-     "签字确认"
-    ],
-    [
-     "das Hausaufgabenheft",
-     "作业记录本"
     ]
    ]
   }
