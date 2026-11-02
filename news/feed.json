@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 40,
+   "title": "欧盟加收包裹费：一个箱子按类别收，不按件",
+   "de_title": "EU: 2 Euro Bearbeitungsgebühr pro Warenkategorie für Pakete aus Drittstaaten",
+   "hook": "跨境包裹|每类加 2 欧",
+   "sub": "欧盟 11 月起执行 · 另加 3 欧固定关税",
+   "date": "2026-11-01",
+   "photo": "news/og/src/40.jpg",
+   "de_hook": "2 Euro pro Kategorie –|lohnt sich|Shein noch?",
+   "zh_intro": "11 月 1 日起，欧盟对来自非欧盟国家的网购包裹加收每类商品 2 欧元的处理费，不论包裹价值多少，也不论对方国家有没有自贸协定。此前 7 月已有一笔每类至少 3 欧元的固定关税，两项相加，每类商品至少贵 5 欧元。收费对象是商家和平台，但成本大概率会进到售价里。",
+   "words": [
+    [
+     "die Gebühr / die Bearbeitungsgebühr",
+     "费用 / 处理费"
+    ],
+    [
+     "das Paket / die Sendung",
+     "包裹 / 寄件"
+    ],
+    [
+     "der Zoll",
+     "海关；关税"
+    ]
+   ]
+  },
+  {
    "id": 39,
    "title": "德国 30 多城青年示威：要学校经费，不要兵役",
    "de_title": "Zehntausende junge Menschen demonstrieren in über 30 Städten",
@@ -173,31 +198,6 @@
     [
      "die Fichte",
      "云杉"
-    ]
-   ]
-  },
-  {
-   "id": 32,
-   "title": "德国电动滑板车被改装：限速 20，有人跑到 80",
-   "de_title": "Getunte E-Scooter: Polizei warnt vor Rollern mit 80 km/h",
-   "hook": "限速 20|跑到了 80",
-   "sub": "刷一次机，保险就失效",
-   "date": "2026-10-23",
-   "photo": "news/og/src/32.jpg",
-   "de_hook": "20 km/h erlaubt –|warum fahren|manche 80?",
-   "zh_intro": "本该最多跑 20 km/h 的电动滑板车，用手机 App 点几下就能快上好几倍。德国警方最近警告：街头被改装的车越来越多，有人被测到 70、80 km/h。2025 年德国有 38 人死于电动滑板车事故，比前一年多了约 40%。改装不只是违法——保险也会随之失效。",
-   "words": [
-    [
-     "der E-Scooter",
-     "电动滑板车"
-    ],
-    [
-     "der Roller",
-     "滑板车、小轮车"
-    ],
-    [
-     "der Elektro-Motor",
-     "电动机"
     ]
    ]
   }
