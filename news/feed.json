@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 41,
+   "title": "法兰克福骚乱：54 人被捕，官方为什么不报国籍？",
+   "de_title": "Krawalle in Frankfurt: 54 Festnahmen – warum keine Nationalitäten genannt werden",
+   "hook": "54 人被捕|多数是德国籍|却扯到移民背景",
+   "sub": "国籍 ≠ 移民背景 · 官方没给逐国名单",
+   "date": "2026-11-01",
+   "photo": "news/og/src/41.jpg",
+   "de_hook": "54 Festnahmen –|warum heißt es nur|„migrantisches Milieu“?",
+   "zh_intro": "10 月 31 日的青年示威多数和平，但法兰克福和科隆在夜间演变成骚乱：橱窗被砸、商店被抢、警察被袭。法兰克福警方逮捕 54 人，年龄 13 到 29 岁。黑森州内政部长说，被捕者「多数拥有德国国籍」，同时又说施暴群体「以移民背景为主」——这两句话并不矛盾，但常被混为一谈。官方至今没有公布按国籍分列的名单。",
+   "words": [
+    [
+     "die Ausschreitung / die Krawalle",
+     "骚乱、暴力冲突"
+    ],
+    [
+     "die Demonstration / die Demo",
+     "游行、示威"
+    ],
+    [
+     "die Kundgebung",
+     "集会"
+    ]
+   ]
+  },
+  {
    "id": 40,
    "title": "欧盟加收包裹费：一个箱子按类别收，不按件",
    "de_title": "EU: 2 Euro Bearbeitungsgebühr pro Warenkategorie für Pakete aus Drittstaaten",
@@ -173,31 +198,6 @@
     [
      "die Umfrage",
      "调查"
-    ]
-   ]
-  },
-  {
-   "id": 33,
-   "title": "德国圣诞树涨价：Nordmanntanne 每米 25–33 欧",
-   "de_title": "Weihnachtsbäume werden teurer: Nordmanntanne kostet 25 bis 33 Euro pro Meter",
-   "hook": "一棵圣诞树|今年贵了一成",
-   "sub": "德国人按米买树，越大越贵",
-   "date": "2026-10-23",
-   "photo": "news/og/src/33.jpg",
-   "de_hook": "Warum kostet der|Weihnachtsbaum|dieses Jahr mehr?",
-   "zh_intro": "再过几周，德国的圣诞树就要开卖了。今年一棵树大概要比去年多花几欧元：最受欢迎的 Nordmanntanne 每米 25 到 33 欧，去年是 23 到 30 欧，涨了约一成。种树的农民说，工钱、运输都贵了，夏天的高温和干旱又伤到了小树。德国人买树按米算钱——树越大，价格越高。",
-   "words": [
-    [
-     "der Weihnachtsbaum, die Weihnachtsbäume",
-     "圣诞树"
-    ],
-    [
-     "die Nordmanntanne",
-     "诺德曼冷杉（最常见的圣诞树品种）"
-    ],
-    [
-     "die Fichte",
-     "云杉"
     ]
    ]
   }
