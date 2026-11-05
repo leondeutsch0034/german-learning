@@ -56,6 +56,7 @@
   }
   </script>
   <link rel="stylesheet" href="/site.css"/>
+<style id="bare-xcss">html.bare #float-nav,html.bare footer,html.bare .res-band{display:none!important}</style>
 <style id="serie-xcss">
     #page-serie .se-narr{background:rgba(246,211,101,.05);border-left:3px solid rgba(246,211,101,.35);border-radius:8px;padding:12px 15px;margin:18px 0 14px;font-size:.86rem;color:#cbd5e1;line-height:1.7}
     #page-serie .se-narr b{color:#f6d365}
@@ -129,9 +130,67 @@
    '/#newslesen'，**query 会被冲掉**；而新闻页的懒加载脚本要等之后再跑。
    所以在最早的脚本里先把 ep 存进 sessionStorage.nlEp（新闻页已有的兜底约定）。 */
 (function(){
+  /* 学生专属入口：/?p=xxx&bare=1 只显示内容页，隐藏底部导航、页脚和资源条 */
+  try {
+    if (/[?&]bare=1(?:&|$)/.test(location.search)) document.documentElement.className += ' bare';
+  } catch (e) {}
   try {
     var q = new URLSearchParams(location.search).get('ep');
     if (q && /^\d+$/.test(q)) sessionStorage.setItem('nlEp', q);
+  } catch (e) {}
+  /* 字母拼读行级深链：/?ph=ph-row-12#phonetik —— 同样先存，避免被 showPage 冲掉 */
+  try {
+    var ph = new URLSearchParams(location.search).get('ph');
+    if (ph && /^ph-row-\d+$/.test(ph)) sessionStorage.setItem('phAnchor', ph);
+  } catch (e) {}
+  /* 新闻档位深链：/?ep=37&nlp=B2#newslesen —— showPage 会清掉 query，先存 */
+  try {
+    var nlp = new URLSearchParams(location.search).get('nlp');
+    if (nlp && /^[A-Za-z0-9]+$/.test(nlp)) {
+      window._nlWantLv = nlp;              /* 内存兜底：微信里 sessionStorage 可能不可靠 */
+      sessionStorage.setItem('nlp', nlp);
+    }
+  } catch (e) {}
+  /* A1 语法点位深链：/?pg=grammar-cards&gc=gc-12#grammar-cards —— 同样先存 */
+  try {
+    var gcA = new URLSearchParams(location.search).get('gc');
+    if (gcA && /^gc-\d+$/.test(gcA)) {
+      window._gcWant = gcA;
+      sessionStorage.setItem('gcAnchor', gcA);
+    }
+  } catch (e) {}
+  /* 行级深链：/?pg=<页>&ln=ln-12 —— showPage 会清掉 query，先存 */
+  try {
+    var _lp = new URLSearchParams(location.search).get('pg');
+    if (_lp && /^[a-z0-9-]+$/.test(_lp)) {
+      window._pgWant = _lp;
+      sessionStorage.setItem('pgAnchor', _lp);
+    }
+    var lnA = new URLSearchParams(location.search).get('ln');
+    if (lnA && /^ln-\d+$/.test(lnA)) {
+      window._lnWant = lnA;
+      sessionStorage.setItem('lnAnchor', lnA);
+    }
+  } catch (e) {}
+  /* 通用小节深链：/?pg=b1pruefung&dl=3#b1pruefung —— 同样先存 */
+  try {
+    var _dq = new URLSearchParams(location.search);
+    var _dpg = _dq.get('pg'), _ddl = _dq.get('dl');
+    if (_dpg && /^[a-z0-9-]+$/.test(_dpg) && _ddl !== null && /^\d+$/.test(_ddl)) {
+      window._dlWant = { pg: _dpg, dl: _ddl };   /* 内存兜底 */
+      sessionStorage.setItem('dlPage', _dpg);
+      sessionStorage.setItem('dlIdx', _ddl);
+    }
+  } catch (e) {}
+  /* 通用「页面 + 小节」深链：/?p=grammar&to=s7#grammar
+     学生专属页等站外入口用它直达具体小节；query 先存，避免被 showPage 冲掉。 */
+  try {
+    var _dp = new URLSearchParams(location.search);
+    var _dpp = _dp.get('p'), _dpt = _dp.get('to');
+    if (_dpp && /^[a-z0-9-]+$/.test(_dpp) && _dpt && /^[A-Za-z0-9_-]+$/.test(_dpt)) {
+      sessionStorage.setItem('dpPage', _dpp);
+      sessionStorage.setItem('dpTo', _dpt);
+    }
   } catch (e) {}
 })();
 
@@ -164,11 +223,88 @@ window._lazyRenderHooks = {
   echt:    function() { if (window.renderEchtGrid) window.renderEchtGrid(); },
   'de-en': function() { if (window.renderDEENGrid) window.renderDEENGrid();
                         if (window.renderDEENSentences) window.renderDEENSentences(); },
-  serie:   function() { if (window.showSerieEp) window.showSerieEp(window._currentSerieEp || 1); }
+  serie:   function() { if (window.showSerieEp) window.showSerieEp(window._currentSerieEp || 1); },
+  /* 字母拼读：内容就绪后定位到分享的那一行，并接管「滚动即同步地址栏」 */
+  phonetik: function() { if (window.initPhonetikDeepLink) window.initPhonetikDeepLink(); }
 };
 window.runLazyRender = function(pageId) {
   var fn = window._lazyRenderHooks[pageId];
   if (fn) { try { fn(); } catch (e) { console.warn('lazy render error', pageId, e); } }
+};
+
+/* ══════ 字母拼读 · 行级分享 ══════
+   每行（表格行/字母卡/对比行/短文段落…）分配稳定 id；
+   滚动时把「当前行」写进地址栏 /?ph=ph-row-N#phonetik，
+   浏览器自带分享取的就是它；打开链接后自动滚回该行。 */
+window.initPhonetikDeepLink = function() {
+  var page = document.getElementById('page-phonetik');
+  if (!page) return;
+
+  if (!page.dataset.phRows) {
+    page.dataset.phRows = '1';
+    var sel = 'table tbody tr, .abc > div, .vmap .row, .pairs .pr, .words > span, .text .body p, .dlg > div, li';
+    var nodes = page.querySelectorAll(sel);
+    for (var i = 0; i < nodes.length; i++) {
+      if (!nodes[i].id) nodes[i].id = 'ph-row-' + (i + 1);
+    }
+  }
+
+  var target = null;
+  try { target = sessionStorage.getItem('phAnchor'); if (target) sessionStorage.removeItem('phAnchor'); } catch (e) {}
+  if (!target) {
+    try { target = new URLSearchParams(location.search).get('ph'); } catch (e) {}
+  }
+  if (!target) {
+    var hm = (location.hash || '').match(/^#(ph-row-\d+)$/);
+    if (hm) target = hm[1];
+  }
+  if (target) {
+    var el = document.getElementById(target);
+    if (el) {
+      setTimeout(function() {
+        var y = el.getBoundingClientRect().top + window.pageYOffset - 88;
+        window._phLockUrl = true;   // 自动定位期间别让滚动监听把目标行改掉
+        try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+        catch (e) { window.scrollTo(0, y); }
+        window._phCurrent = target;
+        try { history.replaceState(null, '', '/phonetik.html?ph=' + encodeURIComponent(target)); } catch (e) {}
+        setTimeout(function() { window._phLockUrl = false; }, 1400);
+      }, 120);
+    }
+  } else {
+    /* 没带行号也切到壳页 URL —— 这样浏览器分享同样出「拼读」预览卡 */
+    try { history.replaceState(null, '', '/phonetik.html'); } catch (e) {}
+  }
+
+  if (!window._phShareBound) {
+    window._phShareBound = true;
+    var ticking = false, lastId = '';
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        ticking = false;
+        if (window._phLockUrl) return;
+        var pg = document.getElementById('page-phonetik');
+        if (!pg || getComputedStyle(pg).display === 'none') return;
+        var rows = pg.querySelectorAll('[id^="ph-row-"]');
+        var line = window.innerHeight * 0.35;   // 视觉「阅读线」：取离它最近的一行
+        var cur = null, best = 1e9;
+        for (var i = 0; i < rows.length; i++) {
+          if (!rows[i].getClientRects().length) continue;   // 跳过折叠/隐藏的行
+          var rr = rows[i].getBoundingClientRect();
+          if (rr.bottom < 60 || rr.top > window.innerHeight) continue;
+          var d = Math.abs((rr.top + rr.bottom) / 2 - line);
+          if (d < best) { best = d; cur = rows[i]; }
+        }
+        if (cur && cur.id !== lastId) {
+          lastId = cur.id;
+          window._phCurrent = cur.id;
+          try { history.replaceState(null, '', '/phonetik.html?ph=' + encodeURIComponent(cur.id)); } catch (e) {}
+        }
+      });
+    }, { passive: true });
+  }
 };
 
 /* 实例化一个懒加载页面（幂等；同时支持内嵌模板与内容外置）
@@ -219,6 +355,38 @@ window.fixRelativeAssets = function(root) {
     }).observe(document.documentElement, {childList: true, subtree: true});
   } catch (e) {}
 })();
+
+/* 口令门可见性增强：在包含 .pw-gate 的章节标题右侧挂「🔒 需口令 / 🔓 已解锁」标签 */
+window.enhancePwGates = function(root) {
+  var scope = root || document;
+  var gates = scope.querySelectorAll('.pw-gate');
+  for (var i = 0; i < gates.length; i++) {
+    (function(g) {
+      var sec = g.closest ? g.closest('.section') : null;
+      if (!sec) return;
+      var head = sec.querySelector('.section-header');
+      if (!head || head.querySelector('.pw-pill')) return;
+      var pill = document.createElement('span');
+      pill.className = 'pw-pill';
+      var sync = function() {
+        var open = g.hidden || g.style.display === 'none';
+        pill.textContent = open ? '🔓 已解锁' : '🔒 需口令';
+        pill.classList.toggle('is-open', !!open);
+      };
+      sync();
+      head.appendChild(pill);
+      head.classList.add('has-pw-pill');
+      try {
+        new MutationObserver(sync).observe(g, { attributes: true, attributeFilter: ['hidden', 'style'] });
+      } catch (e) {}
+    })(gates[i]);
+  }
+};
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { try { window.enhancePwGates(document); } catch (e) {} });
+} else {
+  try { window.enhancePwGates(document); } catch (e) {}
+}
 
 window.instantiateLazyPage = function(pageId, cb) {
   if (window._lazyInstantiated[pageId]) {
@@ -294,6 +462,7 @@ window.instantiateLazyPage = function(pageId, cb) {
   });
 
   page.appendChild(frag);
+  try { window.enhancePwGates(page); } catch (e) {}
   window._lazyInstantiated[pageId] = true;
 
   // 执行注入后的初始化回调
@@ -1828,6 +1997,9 @@ document.addEventListener('keydown', function(e) {
     <script>renderHubCards('a1');</script>
   </div>
 
+  <div class="a1hub-sec" id="a1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="a1hub-student-grid" style="display:none"></div>
+
   <footer>
     🇩🇪 Viel Erfolg bei der A1-Prüfung! &nbsp; 祝 A1 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A1 · 语法 · 听力 · 阅朗读 · 写作 · 综合
@@ -1856,6 +2028,9 @@ document.addEventListener('keydown', function(e) {
     <script>renderHubCards('a2');</script>
   </div>
 
+  <div class="a1hub-sec" id="a2hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="a2hub-student-grid" style="display:none"></div>
+
   <footer>
     🇩🇪 Viel Erfolg bei der A2-Prüfung! &nbsp; 祝 A2 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A2 · 语法 · 听力 · 阅读 · 写作 · 单元综合
@@ -1883,6 +2058,9 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-grid" id="b1hub-grid">
     <script>renderHubCards('b1');</script>
   </div>
+
+  <div class="a1hub-sec" id="b1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="b1hub-student-grid" style="display:none"></div>
 
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
@@ -1941,6 +2119,9 @@ document.addEventListener('keydown', function(e) {
   <div class="a1hub-grid" id="b2hub-grid">
     <script>renderHubCards('b2');</script>
   </div>
+
+  <div class="a1hub-sec" id="b2hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="b2hub-student-grid" style="display:none"></div>
 
   <footer>
     🇩🇪 B2 — Die Mittelstufe! &nbsp; 中高级内容
@@ -15376,6 +15557,9 @@ showB2LArticle('');
     <script>renderHubCards('c1');</script>
   </div>
 
+  <div class="a1hub-sec" id="c1hub-student-sec" style="display:none">👤 学生专属练习</div>
+  <div class="a1hub-grid" id="c1hub-student-grid" style="display:none"></div>
+
   <footer>
     🇩🇪 C1 — Fortgeschrittenes Deutsch! &nbsp; 高级内容
     <br>Leons Deutschzentrum · Goethe-Zertifikat C1
@@ -15554,8 +15738,8 @@ showB2LArticle('');
 <a href="#b1s5">7. 可分/不可分动词</a>
 <a href="#b1s6">8. 动词+介词搭配</a>
 <a href="#b1s7">9. 代副词</a>
-<a href="#b1s8">10. Konjunktiv II 虚拟式</a>
-<a href="#b1s9">11. Passiv 被动语态</a>
+<a class="toc-locked" href="#b1s8">10. Konjunktiv II 虚拟式 · 需口令</a>
+<a class="toc-locked" href="#b1s9">11. Passiv 被动语态 · 需口令</a>
 <a href="#b1s12">12. Futur I 将来时</a>
 <a href="#b1s13">13. lassen 使役动词</a>
 <a href="#b1s14">14. 位移动词</a>
@@ -15950,6 +16134,20 @@ showB2LArticle('');
 <div class="section" id="b1s8">
 <div class="section-header"><span class="section-num">10</span> Konjunktiv 虚拟式</div>
 
+<div class="pw-gate" id="b1s8Gate">
+  <div class="pw-ico">🔐</div>
+  <h3>本节需要口令</h3>
+  <p>虚拟式是内部讲义，输入老师给的口令后查看。</p>
+  <div class="pw-row">
+    <input id="b1s8Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button id="b1s8Go" type="button">进入</button>
+  </div>
+  <div class="pw-err" id="b1s8Err" role="alert"></div>
+  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+</div>
+
+<div id="b1s8Body" class="pw-hide" hidden>
+
 <div style="margin:0 0 14px;padding:11px 14px;background:linear-gradient(135deg,#0f1e3a,#1e3a5f);border-radius:10px;border-left:4px solid #f6d365;display:flex;flex-wrap:wrap;align-items:center;gap:10px">
   <span style="color:#fde68a;font-size:.88rem;font-weight:600">🧭 想看“虚拟式 × 被动 × 六个时态”的完整推导链？</span>
   <a href="#" onclick="showPage('passivkonjunktiv');return false;" style="background:#f6d365;color:#0f1e3a;padding:6px 14px;border-radius:16px;text-decoration:none;font-weight:700;font-size:.82rem">进入专题 →</a>
@@ -16298,11 +16496,26 @@ showB2LArticle('');
 <div class="ex-item"><span class="hl-de">KI/KII 切换:</span> Sie sagen, sie <strong>hätten</strong> es nicht gewusst.（KI seien = 直陈 sind → 换 KII hätten）</div>
 </div>
 
+</div><!-- /b1s8Body -->
 </div>
 
 <!-- ═══════════════ Section 11: Passiv 被动语态 ═══════════════ -->
 <div class="section" id="b1s9">
 <div class="section-header"><span class="section-num">11</span> Passiv 被动语态</div>
+
+<div class="pw-gate" id="b1s9Gate">
+  <div class="pw-ico">🔐</div>
+  <h3>本节需要口令</h3>
+  <p>被动语态是内部讲义，输入老师给的口令后查看。</p>
+  <div class="pw-row">
+    <input id="b1s9Pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button id="b1s9Go" type="button">进入</button>
+  </div>
+  <div class="pw-err" id="b1s9Err" role="alert"></div>
+  <p class="pw-foot">口令只发给学员本人，请不要外传。<br>忘记口令请联系老师。</p>
+</div>
+
+<div id="b1s9Body" class="pw-hide" hidden>
 
 <div style="margin:0 0 14px;padding:11px 14px;background:linear-gradient(135deg,#0f1e3a,#1e3a5f);border-radius:10px;border-left:4px solid #f6d365;display:flex;flex-wrap:wrap;align-items:center;gap:10px">
   <span style="color:#fde68a;font-size:.88rem;font-weight:600">🧭 这里只有结论表？去专题看它<b>怎么一步步推出来</b>（含情态动词、虚拟式交叉）</span>
@@ -16565,6 +16778,7 @@ showB2LArticle('');
 <div class="ex-item"><span class="hl-de">man:</span> In Deutschland <strong>isst man</strong> viel Brot. ≈ In Deutschland wird viel Brot gegessen.</div>
 </div>
 <div class="note">💡 sich lassen 和 sein zu 的区别：lassen 强调<strong>可能性</strong>（可不可以），sein zu 既可表<strong>可能性</strong>（können）也可表<strong>必要性</strong>（müssen），需靠语境判断。被动替代形式是 B1 阅读理解的常见考点。</div>
+</div><!-- /b1s9Body -->
 </div>
 
 <!-- Section 12: Futur I -->
@@ -16759,6 +16973,39 @@ showB2LArticle('');
 
 <script>
 (function(){
+  var PASS = ['zhouyuhang','yizimeng'];
+  function makeGate(gateId,bodyId,inpId,btnId,errId,key){
+    var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
+    if(!gate || gate.dataset.bound==='1') return;
+    gate.dataset.bound='1';
+    function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
+    try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
+    var inp=document.getElementById(inpId), btn=document.getElementById(btnId), err=document.getElementById(errId);
+    if(!inp||!btn) return;
+    function go(){
+      var v=(inp.value||'').trim().toLowerCase();
+      if(!v){ err.textContent='请输入口令'; return; }
+      if(PASS.indexOf(v) > -1){
+        try{ localStorage.setItem(key,'1'); }catch(e){}
+        err.textContent=''; unlock();
+      }else{
+        err.textContent='口令不对，请向老师确认。'; inp.select();
+      }
+    }
+    btn.addEventListener('click',go);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
+  }
+  function init(){
+    makeGate('b1s8Gate','b1s8Body','b1s8Pw','b1s8Go','b1s8Err','b1s8_unlocked');
+    makeGate('b1s9Gate','b1s9Body','b1s9Pw','b1s9Go','b1s9Err','b1s9_unlocked');
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
+})();
+</script>
+
+<script>
+(function(){
   function setup(){
     var page=document.getElementById('page-b1grammar');
     var btoc=document.querySelector('.b1g-backtotoc');
@@ -16819,7 +17066,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 1 ===== -->
-<div class="section">
+<div class="section" id="hr-sec1">
   <div class="section-head">
     <div class="sec-badge">Teil 1 · 第一部分</div>
     <h2>日常短对话 Alltagsgespräche（6题）</h2>
@@ -16945,7 +17192,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 2 ===== -->
-<div class="section">
+<div class="section" id="hr-sec2">
   <div class="section-head">
     <div class="sec-badge">Teil 2 · 第二部分</div>
     <h2>采访/对话 Interview（5题）</h2>
@@ -17026,7 +17273,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 3 ===== -->
-<div class="section">
+<div class="section" id="hr-sec3">
   <div class="section-head">
     <div class="sec-badge">Teil 3 · 第三部分</div>
     <h2>短通知/留言 Ansagen（5题）</h2>
@@ -17170,7 +17417,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== TEIL 4 – 附加教材音频 ===== -->
-<div class="section" style="margin-top:30px">
+<div class="section" id="hr-sec4" style="margin-top:30px">
   <div class="section-head">
     <div class="sec-badge" style="background:linear-gradient(90deg,#b45309,#d97706)">附加教材 · Zusatzmaterial</div>
     <h2>📚 教材配套听力练习 Zusatzübungen zum Hören</h2>
@@ -17385,7 +17632,7 @@ showB2LArticle('');
 </div>
 
 <!-- ===== 歌德A1 模拟听力题 ===== -->
-<div class="section" style="margin-top:30px;border-top:3px solid #7c3aed;padding-top:30px">
+<div class="section" id="hr-sec5" style="margin-top:30px;border-top:3px solid #7c3aed;padding-top:30px">
   <div class="section-head">
     <div class="sec-badge" style="background:linear-gradient(135deg,#7c3aed,#c026d3)">🎯 模拟考题 · Prüfungssimulation</div>
     <h2>歌德A1 听力模拟题（四套）</h2>
@@ -23168,10 +23415,11 @@ function showPage(id) {
   /* ★ URL 始终用根路径（'/' 开头）—— 否则从 /news/01.html 这类深链接页
      切到别的栏目时，路径会一直挂在 /news/ 底下。
      '/#' + id 是相对根解析的，任何路径下都回到网站根。 */
+  var _bareQ = document.documentElement.classList.contains('bare') ? '?bare=1' : '';
   if (id !== 'index') {
-    history.replaceState(null, '', '/#' + id);
+    history.replaceState(null, '', '/' + _bareQ + '#' + id);
   } else {
-    history.replaceState(null, '', '/');
+    history.replaceState(null, '', '/' + _bareQ);
   }
   /* ★ 栏目若有自己的分享路径，切过去 —— 微信抓 OG 读不到 '#' 后面的东西，
      只有真路径（如 /news/01.html）才能出对的预览卡。
@@ -23235,6 +23483,46 @@ window.gotoSection = function(secId) {
   });
 };
 
+// 「页面 + 小节」定向跳转：/?p=grammar&to=s7#grammar
+// 直接实例化指定页（不走 gotoSection 的全量懒加载扫描），内容就绪后滚到目标小节。
+window.deepLinkTo = function(pid, secId) {
+  if (!pid || !secId) return;
+  var page = document.getElementById('page-' + pid);
+  if (!page) return;
+  if (page.style.display === 'none') showPage(pid);
+  var tries = 0;
+  function jump() {
+    var t = document.getElementById(secId);
+    if (!t) {
+      if (++tries < 30) setTimeout(jump, 120);
+      return;
+    }
+    var nav = document.getElementById('main-nav');
+    var offset = Math.min(88, (nav && nav.offsetHeight ? nav.offsetHeight + 8 : 72));
+    function place() {
+      var y = t.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo(0, Math.max(0, y));
+    }
+    place();
+    // 懒加载/图片会让版面继续变长，短时间内补几次校正，目标偏离才动
+    var settle = 0;
+    (function correct() {
+      if (++settle > 6) return;
+      setTimeout(function() {
+        var top = t.getBoundingClientRect().top;
+        if (top < offset - 24 || top > offset + 80) place();
+        correct();
+      }, 400);
+    })();
+  }
+  var lazy = window._lazyPages && window._lazyPages[pid] && !window._lazyInstantiated[pid];
+  if (lazy) {
+    window.instantiateLazyPage(pid, function() { setTimeout(jump, 100); });
+  } else {
+    setTimeout(jump, 100);
+  }
+};
+
 // 接收来自 iframe（知识图谱3D 等）的跳转请求。
 // 用 postMessage 而非直接 window.parent.gotoSection()，因为本地 file:// 下
 // 浏览器把每个文件当独立 origin，直接跨 iframe 访问父页面函数会被同源策略拦截。
@@ -23259,6 +23547,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hash 路由：分享链接打开时自动跳转到对应页面
   var hash = window.location.hash;
   var hashId = hash ? hash.replace('#', '') : '';
+  // A1 阅朗读文章号：优先 hash，其次 query。
+  // 微信等内嵌浏览器可能丢掉 # 后面的内容，所以分享链接同时带 ?art=N
+  var qArt = null;
+  try { qArt = new URLSearchParams(window.location.search).get('art'); } catch (e) {}
   // 你不知道的德国 深链接: 路径 /kd/X.html 或 hash #kultur-reader&ep=X
   var kdMatch = window.location.pathname.match(/\/kd\/(\d+)\.html/);
   if (kdMatch) {
@@ -23290,6 +23582,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // showPage 只负责把面板切到 serie Tab；真正选定集数靠 showSerieEp。
     // 页面若已实例化过，懒加载的 init 不会再跑，所以这里补一次（幂等）。
     setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp); }, 80);
+  } else if (qArt && /^\d+$/.test(qArt)) {
+    // A1 阅朗读文章深链接（query 版）：/?art=5#lesen —— 微信丢 hash 也能定位
+    showPage('lesen');
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(parseInt(qArt, 10)); }, 0);
+  } else if (hashId.indexOf('lesen&art=') === 0 || /^ls-s\d+$/.test(hashId)) {
+    // A1 阅朗读文章深链接：/#lesen&art=5（也兼容旧的 #ls-s5）
+    var artN = hashId.indexOf('lesen&art=') === 0
+      ? (parseInt(hashId.split('art=')[1], 10) || 1)
+      : parseInt(hashId.replace('ls-s', ''), 10);
+    showPage('lesen');
+    // initLesen（后注册的 DOMContentLoaded）会重置到第 1 篇，延后一帧再定位
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(artN); }, 0);
   } else if (hashId && document.getElementById('page-' + hashId)) {
     showPage(hashId);
   } else if (hashId && document.getElementById(hashId)) {
@@ -23325,6 +23629,15 @@ window.addEventListener('hashchange', function() {
     setTimeout(function() { if (window.showSerieEp) window.showSerieEp(sEp2); }, 80);
     return;
   }
+  if (id.indexOf('lesen&art=') === 0 || /^ls-s\d+$/.test(id)) {
+    // A1 阅朗读文章深链接：前进/后退也能定位到具体一篇
+    var artH = id.indexOf('lesen&art=') === 0
+      ? (parseInt(id.split('art=')[1], 10) || 1)
+      : parseInt(id.replace('ls-s', ''), 10);
+    showPage('lesen');
+    setTimeout(function() { if (window.showLesenArticle) window.showLesenArticle(artH); }, 0);
+    return;
+  }
   if (document.getElementById('page-' + id)) {
     showPage(id);
   } else {
@@ -23344,6 +23657,20 @@ window.addEventListener('popstate', function() {
     window._currentSerieEp = parseInt(sm[1]);
     showPage('serie');
 			}
+});
+
+// 学生专属页等外部入口的「页面 + 小节」深链：正常路由完成后再滚到目标小节。
+document.addEventListener('DOMContentLoaded', function() {
+  var dpp = null, dpt = null;
+  try {
+    dpp = sessionStorage.getItem('dpPage');
+    dpt = sessionStorage.getItem('dpTo');
+    if (dpp && dpt) {
+      sessionStorage.removeItem('dpPage');
+      sessionStorage.removeItem('dpTo');
+    }
+  } catch (e) {}
+  if (dpp && dpt) window.deepLinkTo(dpp, dpt);
 });
 </script>
 
@@ -35669,5 +35996,58 @@ window.jumpKulturEp = function(n) {
 
 </script>
 <!-- audio-exclusive-v1 END -->
+<!-- student-portal-v1 START -->
+<style>
+.stu-link-card{position:relative;display:block;text-decoration:none;overflow:hidden;
+  background:linear-gradient(150deg,#13243f,#0f1c33);
+  border:1px solid rgba(246,211,101,.22);border-left:3px solid var(--hub,#f6d365);
+  border-radius:16px;padding:16px 18px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.stu-link-card:hover{transform:translateY(-3px);border-color:rgba(246,211,101,.5);box-shadow:0 10px 28px rgba(8,16,40,.55)}
+.stu-link-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.stu-link-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;font-weight:800;color:#fff8e8;
+  background:color-mix(in srgb,var(--hub,#f6d365) 18%,transparent);
+  border:1px solid color-mix(in srgb,var(--hub,#f6d365) 35%,transparent)}
+.stu-link-name{font-size:1rem;font-weight:800;color:#fff8e8}
+.stu-link-badge{margin-left:auto;font-size:.66rem;font-weight:800;letter-spacing:.06em;color:#ffe088;
+  background:rgba(246,211,101,.12);border:1px solid rgba(246,211,101,.25);padding:2px 8px;border-radius:999px}
+.stu-link-tag{font-size:.76rem;color:rgba(255,235,215,.62);margin-bottom:10px}
+.stu-link-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-size:.7rem;color:rgba(246,211,101,.8)}
+.stu-link-foot .go{font-weight:800}
+</style>
+<script src="student/list.js"></script>
+<script>
+(function(){
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function renderStudentLinks(){
+    var list = window.STUDENT_LINKS || [];
+    ['a1','a2','b1','b2','c1'].forEach(function(k){
+      var sec = document.getElementById(k + 'hub-student-sec');
+      var grid = document.getElementById(k + 'hub-student-grid');
+      if (!sec || !grid) return;
+      var items = list.filter(function(s){ return String(s.level || '').toUpperCase() === k.toUpperCase(); });
+      if (!items.length) return;
+      grid.innerHTML = items.map(function(s){
+        return '<a class="stu-link-card" href="student/' + encodeURIComponent(s.slug) + '.html">'
+          + '<div class="stu-link-head"><span class="stu-link-avatar">' + esc((s.name || '?').slice(0,1)) + '</span>'
+          + '<span class="stu-link-name">' + esc(s.name) + '</span>'
+          + '<span class="stu-link-badge">' + esc(s.level) + '</span></div>'
+          + '<div class="stu-link-tag">' + esc(s.tagline || '专属练习') + '</div>'
+          + '<div class="stu-link-foot"><span>🔐 需口令进入</span><span class="go">进入 →</span></div></a>';
+      }).join('');
+      sec.style.display = '';
+      grid.style.display = '';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderStudentLinks);
+  else renderStudentLinks();
+})();
+</script>
+<!-- student-portal-v1 END -->
 </body>
 </html>
