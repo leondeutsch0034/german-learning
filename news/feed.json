@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 42,
+   "title": "超市冷柜被人远程调温：36 万欧元食品报废",
+   "de_title": "Cyberangriff auf Kühlanlagen: Supermärkte werfen Lebensmittel weg",
+   "hook": "冷柜变暖气|36万欧元扔了",
+   "sub": "德国多地超市中招 · 警方怀疑黑客远程攻击",
+   "date": "2026-11-03",
+   "photo": "news/og/src/42.jpg",
+   "de_hook": "Wer dreht nachts|die Kühlregale|auf 30 Grad?",
+   "zh_intro": "在德国北威州和下萨克森州，多家超市的冷柜被人从远处把温度调高。香肠、奶酪和冷冻食品全部变质，其中一家店扔掉的东西价值超过 36 万欧元。警方怀疑这是一次黑客攻击。",
+   "words": [
+    [
+     "der Supermarkt / die Supermärkte",
+     "超市"
+    ],
+    [
+     "der Kühlschrank / das Kühlregal",
+     "冰箱 / 冷藏货架"
+    ],
+    [
+     "die Kühlanlage, -n",
+     "冷柜设备、制冷装置"
+    ]
+   ]
+  },
+  {
    "id": 41,
    "title": "法兰克福骚乱：54 人被捕，官方为什么不报国籍？",
    "de_title": "Krawalle in Frankfurt: 54 Festnahmen – warum keine Nationalitäten genannt werden",
@@ -173,31 +198,6 @@
     [
      "der Chef",
      "负责人、老板"
-    ]
-   ]
-  },
-  {
-   "id": 34,
-   "title": "德国补课调查：五年级以上约两成",
-   "de_title": "Studie: Jeder fünfte Schüler ab Klasse 5 nimmt bezahlte Nachhilfe",
-   "hook": "德国补课|五年级以上两成",
-   "sub": "补差还是拔高",
-   "date": "2026-10-26",
-   "photo": "news/og/src/34.jpg",
-   "de_hook": "19 Prozent|nehmen Nachhilfe",
-   "zh_intro": "德国也补课。Forsa 受 Studienkreis 委托的调查显示，五年级以上约 19% 的学生在用付费补习，11–13 年级为 17%；22% 的家长至少付过一次。和「德国孩子不补课」的印象不一样。",
-   "words": [
-    [
-     "die Nachhilfe",
-     "补习、补课"
-    ],
-    [
-     "kostenpflichtig",
-     "收费的"
-    ],
-    [
-     "die Umfrage",
-     "调查"
     ]
    ]
   }
