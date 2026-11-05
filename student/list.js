@@ -12,7 +12,7 @@ window.STUDENT_LINKS = [
     "name": "易同学",
     "level": "A1",
     "tagline": "A1 前四单元巩固 + 拼读 + 综合自测",
-    "updated": "2026-10-31"
+    "updated": "2026-11-05"
   },
   {
     "slug": "lixiangqin",

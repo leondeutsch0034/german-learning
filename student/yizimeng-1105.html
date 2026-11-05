@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>易同学 · 10/31 互动作业 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.8rem;line-height:1.7}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:26px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.checklist{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:14px 16px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:.84rem;color:#dbe4f0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.06)}
+.checklist label:last-child{border-bottom:0}
+.checklist input{margin-top:4px;accent-color:var(--gold);flex-shrink:0}
+.checklist label.done span{color:var(--muted);text-decoration:line-through}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.ex-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ex-num{width:28px;height:28px;border-radius:9px;background:rgba(246,211,101,.14);color:#ffe088;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem;flex-shrink:0}
+.ex h2{margin:0;font-size:1rem;color:#fff8e8}
+.ex-tag{font-size:.65rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.ex-tip{color:var(--muted);font-size:.78rem;margin:7px 0 4px}
+.ex-text{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:12px 14px;margin:9px 0;font-size:.88rem;line-height:1.95;color:#dbe4f0;white-space:pre-line}
+@media print{.ex-text{background:#fafafa;border-color:#ccc;color:#111}}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;border-bottom:1px dashed rgba(125,211,252,.35)}
+.ex-link:hover{color:#bae6fd}
+.items{margin-top:10px}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07);position:relative}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:160px;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit;transition:.15s}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mcol{display:flex;flex-direction:column;gap:7px}
+.mbtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:9px;padding:9px 10px;font-size:.86rem;cursor:pointer;text-align:left;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:6px}
+.mbtn:hover{border-color:rgba(246,211,101,.5)}
+.mbtn.sel{border-color:var(--gold);background:rgba(246,211,101,.14);color:#fff3c4}
+.mbtn.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5;cursor:default;opacity:.85}
+.mbtn.boom{border-color:var(--bad);background:rgba(248,113,113,.14);animation:boom .3s}
+@keyframes boom{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:560px){.wrap{padding:18px 12px 60px}.hero{padding:20px}.ex{padding:14px}.q{font-size:.88rem}.blank{min-width:62px;width:78px}.match{gap:6px}.mbtn{font-size:.8rem;padding:8px}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand,.ex-foot{display:none}#app{display:block!important}.hero,.ex,.checklist{border-color:#ddd;background:#fff;color:#111}.hero h1,.ex h2,.q,.chip{color:#111}.notice,.ex-tip,.score{color:#444}.why{display:block!important;color:#333;background:#f7f7f7;border-color:#ccc}.blank{background:#fff;color:#111;border-color:#999}.opt,.mbtn{background:#fff;color:#111;border-color:#ccc}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="yizimeng.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>易同学的 11/05 作业</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-11-05 · 课后互动作业</div>
+      <h1>易梓萌 · Termine 与可分动词</h1>
+      <div class="sub">Begrüßungen · Internationale Wörter · Trennbare Verben · nicht / kein · haben &amp; sein im Präteritum</div>
+      <div class="meta">
+        <span class="chip">11 组 · 80 题</span>
+        <span class="chip">做完点「检查本组」</span>
+        <span class="chip">错题下面有讲解</span>
+      </div>
+      <div class="notice">
+        今天两页课文：Begrüßungen（握手 / 亲吻、du 还是 Sie、各地的 Servus / Grüß Gott / Moin）和 Internationale Wörter（Markus 是飞行员、Ralf 在耶拿学德语、Andrea 在西门子、Milena 在维也纳拉小提琴）。<br>
+        语法是可分动词（anrufen → Ich rufe … an.）、nicht 放句末、nicht / kein 的区别、haben 和 sein 的过去时（hatte / war）。先做下面 11 组，再按清单在练习册和语法书上写句子，写完对照最后一组参考答案。
+      </div>
+      <div class="progress"><span id="pct">已完成 0 / 11</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的作业清单</div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">互动练习</div>
+    <div id="exercises"></div>
+
+    <div class="foot">
+      这是易梓萌的专属作业页 · 只有口令可以打开<br>
+      <a href="yizimeng.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["朗读课文一 Begrüßungen 两遍（Hallo / Tschüss / Servus / Grüß Gott 要读出声）","朗读课文二 Internationale Wörter 四小段各一遍","练习册 S.29 第 2 题 b：照例子写 4 组「问 + 答」（可分动词）","练习册 S.30 第 9 题：6 句否定回答写成完整句（nicht / kein）","练习册 S.31 第 10 题 b：把 Renate 的邮件抄一遍，空格补全","Grammatik aktiv S.20 第 2 题、S.21 第 4 / 5 题：在书上填空","Grammatik aktiv S.21 第 3 / 6 题：写句子（可分动词放句末）","互动作业 11 组做完，错题看下面的讲解"],"exercises":[{"id":"gruss","type":"choice","tag":"6 题","title":"课文一 · Begrüßungen 读一遍再做题","tip":"先读两遍再答题。第一遍读出声，第二遍找信息：德国人和奥地利人怎么打招呼？哪些国家的人亲吻？「Sie」和「du」分别用在哪？","text":"Begrüßung international\nIn Deutschland und in Österreich gibt man meistens die Hand. Aus Frankreich, Spanien und Italien kommt eine andere Tradition: Man küsst Bekannte einmal, zweimal oder dreimal. Und in Ihrem Land?\n\nDu oder Sie?\nEs gibt keine Regeln. „Sie\" ist offiziell, formal und neutral. Freunde und gute Bekannte sagen „du\". Aus England und aus den USA kommt eine andere Variante: „Sie\" mit Vornamen. Das ist in Deutschland in internationalen Firmen und auch an Universitäten sehr populär.\n\nBegrüßung und Verabschiedung regional\n„Guten Morgen\", „Guten Tag\", „Guten Abend\" (ab 18 Uhr) und „Auf Wiedersehen\" sind neutral. „Hallo\" und „Tschüss\" hört man sehr oft. Das ist nicht so formal. In Österreich sagt man auch „Servus\" und in der Schweiz „Grüezi\" und „Auf Wiederluege\". In Norddeutschland sagen viele Menschen nicht „Guten Tag\", sie sagen „Moin, Moin\". In Süddeutschland grüßt man mit „Grüß Gott\".","items":[{"q":"In Deutschland und in Österreich gibt man zur Begrüßung ___.","opts":["die Hand","einen Kuss","gar nichts"],"a":"die Hand","why":"第一段第一句：In Deutschland und in Österreich gibt man meistens die Hand. 握手是最常见的。"},{"q":"In Frankreich, Spanien und Italien küsst man Bekannte ___.","opts":["einmal, zweimal oder dreimal","immer dreimal","nur die Hand"],"a":"einmal, zweimal oder dreimal","why":"Man küsst Bekannte einmal, zweimal oder dreimal. 次数不固定，一到三次都有。"},{"q":"„Sie\" ist ___.","opts":["offiziell, formal und neutral","nur für Freunde","nur im Internet"],"a":"offiziell, formal und neutral","why":"第二段：„Sie\" ist offiziell, formal und neutral. 正式、客气、中立。"},{"q":"Freunde und gute Bekannte sagen ___.","opts":["„du\"","„Sie\"","„Ihr\""],"a":"„du\"","why":"Freunde und gute Bekannte sagen „du\". 朋友和熟人用 du。"},{"q":"In Norddeutschland sagen viele Menschen ___.","opts":["„Moin, Moin\"","„Grüß Gott\"","„Servus\""],"a":"„Moin, Moin\"","why":"第三段最后：In Norddeutschland sagen viele Menschen nicht „Guten Tag\", sie sagen „Moin, Moin\". Grüß Gott 在德国南部。"},{"q":"In Österreich sagt man auch ___.","opts":["„Servus\"","„Grüezi\"","„Moin\""],"a":"„Servus\"","why":"In Österreich sagt man auch „Servus\"; Grüezi 是瑞士德语，Moin 是北德。"}]},{"id":"intl","type":"choice","tag":"5 题","title":"课文二 · Internationale Wörter 四个人","tip":"四小段各读一遍再答题。读到数字和地名时停一下：42 / 26 / 29、Kronberg / Jena / Erding / Nitra。","text":"1. Das ist Markus Bernstein. Herr Bernstein ist 42 Jahre alt. Er wohnt mit seiner Familie in Kronberg. In 30 Minuten ist er am Airport in Frankfurt. Er ist Pilot bei der Lufthansa. Herr Bernstein mag seinen Job. Er fliegt einen Airbus A320. Heute fliegt er von Frankfurt nach Madrid, von Madrid nach Frankfurt und dann Frankfurt–Budapest und zurück. Er spricht Englisch und Spanisch.\n\n2. Ralf Bürger ist Student an der Friedrich-Schiller-Universität in Jena. Das ist in Thüringen. Ralf studiert Deutsch und Interkulturelle Kommunikation. Er ist im 8. Semester. Seine Freundin Magda Sablewska studiert auch Deutsch, im 4. Semester. Magda kommt aus Polen, aus Krakau. Ralf ist 26, Magda 23 Jahre alt. Magda spricht Polnisch, Deutsch und Russisch. Ralf spricht Englisch und ein bisschen Polnisch.\n\n3. Andrea Fiedler aus Bern ist seit 2009 bei Siemens in München. Vorher war sie drei Jahre für Siemens Medical Dept. in Singapur. Sie ist Elektronikingenieurin, Spezialität: Medizintechnologie. Sie spricht Englisch, Französisch und ein bisschen Chinesisch. Sie wohnt in Erding bei München. Sie mag die Alpen. Ski fahren ist ihr Hobby – und ihr BMW!\n\n4. Milena Filipová ist 29. Sie lebt seit zehn Jahren in Wien. Sie ist Musikerin und kommt aus Nitra. Das ist in der Slowakei. Sie spielt Violine und gehört zum Ensemble der Wiener Staatsoper. Sie findet Wien fantastisch: die Stadt, die Menschen, die Restaurants, die Donau, die Atmosphäre im Sommer, die Cafés. Um 20 Uhr hat sie heute ein Konzert.","items":[{"q":"Markus Bernstein ist ___.","opts":["Pilot bei der Lufthansa","Student in Jena","Musiker in Wien"],"a":"Pilot bei der Lufthansa","why":"第一段：Er ist Pilot bei der Lufthansa. Er fliegt einen Airbus A320."},{"q":"Ralf Bürger studiert ___.","opts":["Deutsch und Interkulturelle Kommunikation","Medizintechnologie","Musik"],"a":"Deutsch und Interkulturelle Kommunikation","why":"第二段：Ralf studiert Deutsch und Interkulturelle Kommunikation. 他在耶拿大学第 8 学期。"},{"q":"Andrea Fiedler arbeitet ___.","opts":["bei Siemens in München","an der Universität Jena","bei der Lufthansa"],"a":"bei Siemens in München","why":"第三段：Andrea Fiedler aus Bern ist seit 2009 bei Siemens in München."},{"q":"Milena Filipová kommt aus ___.","opts":["der Slowakei","Polen","Österreich"],"a":"der Slowakei","why":"第四段：Sie kommt aus Nitra. Das ist in der Slowakei.（注意 aus + 三格：aus der Slowakei）"},{"q":"Ski fahren ist das Hobby von ___.","opts":["Andrea Fiedler","Markus Bernstein","Milena Filipová"],"a":"Andrea Fiedler","why":"第三段：Sie mag die Alpen. Ski fahren ist ihr Hobby – und ihr BMW!"}]},{"id":"intlmatch","type":"choice","tag":"12 题","title":"课文二 · 词语出自哪一段（练习册 b 题）","tip":"Text 1 = Markus（飞行员，法兰克福），Text 2 = Ralf（耶拿，学德语），Text 3 = Andrea（西门子，滑雪），Text 4 = Milena（维也纳，小提琴）。","items":[{"q":"studieren 出自哪一段？","say":"studieren","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 2 · Ralf","why":"Ralf studiert Deutsch und Interkulturelle Kommunikation：studieren 是大学生「读专业」。"},{"q":"Hobbys 出自哪一段？","say":"Hobbys","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 3 · Andrea","why":"Ski fahren ist ihr Hobby – 爱好在 Andrea 那段。"},{"q":"Musik 出自哪一段？","say":"Musik","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 4 · Milena","why":"Milena ist Musikerin，拉小提琴、在歌剧院乐团。"},{"q":"Universität 出自哪一段？","say":"Universität","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 2 · Ralf","why":"Friedrich-Schiller-Universität in Jena。"},{"q":"Rhein-Main-Airport 出自哪一段？","say":"Rhein-Main-Airport","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 1 · Markus","why":"法兰克福机场就叫 Rhein-Main-Airport；Markus 在那儿工作。"},{"q":"Familie 出自哪一段？","say":"Familie","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 1 · Markus","why":"Er wohnt mit seiner Familie in Kronberg。"},{"q":"Ski fahren 出自哪一段？","say":"Ski fahren","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 3 · Andrea","why":"Ski fahren ist ihr Hobby – und ihr BMW! 这是 Andrea 的原句。"},{"q":"Französisch 出自哪一段？","say":"Französisch","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 3 · Andrea","why":"Andrea spricht Englisch, Französisch und ein bisschen Chinesisch。"},{"q":"Frankfurt 出自哪一段？","say":"Frankfurt","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 1 · Markus","why":"Markus 从法兰克福起飞：Heute fliegt er von Frankfurt nach Madrid ..."},{"q":"Polnisch 出自哪一段？","say":"Polnisch","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 2 · Ralf","why":"Magda kommt aus Polen，说 Polnisch；Ralf 也会一点。"},{"q":"Oper 出自哪一段？","say":"Oper","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 4 · Milena","why":"Wiener Staatsoper，维也纳国家歌剧院。"},{"q":"Konzert 出自哪一段？","say":"Konzert","opts":["Text 1 · Markus","Text 2 · Ralf","Text 3 · Andrea","Text 4 · Milena"],"a":"Text 4 · Milena","why":"Um 20 Uhr hat sie heute ein Konzert。"}]},{"id":"prefix","type":"fill","tag":"6 题","title":"可分动词 · 填前缀（练习册 S.29 第 2a 题）","tip":"可分的动词被拆开：动词主体在第二位，前缀跑到句末。先想是哪个动词，再把前缀放回句末的空里。备选：an / auf / aus / ein / mit / zu。","items":[{"q":"Ich rufe morgen beim Friseur ___.","a":"an","hint":"anrufen","why":"anrufen（打电话）→ Ich rufe ... an. 前缀 an 在句末。"},{"q":"Ordnen Sie den Fragen passende Antworten ___.","a":"zu","hint":"zuordnen","why":"zuordnen（配对、归类）→ Ordnen Sie ... zu. 前缀 zu 在句末。"},{"q":"Geht ihr morgen Abend ___?","a":"aus","hint":"ausgehen","why":"ausgehen（出门、外出）→ Geht ihr ... aus?"},{"q":"Ich stehe von Montag bis Freitag immer um halb sieben ___.","a":"auf","hint":"aufstehen","why":"aufstehen（起床）→ Ich stehe ... auf. 注意：只写前缀，不加动词。"},{"q":"Ihr wollt ins Café gehen? Ich kann nicht. Ich komme heute nicht ___.","a":"mit","hint":"mitkommen","why":"mitkommen（一起来）→ Ich komme ... mit. nicht 在前缀前面。"},{"q":"Kaufen Sie immer im Supermarkt ___?","a":"ein","hint":"einkaufen","why":"einkaufen（购物）→ Kaufen Sie ... ein? 前缀 ein 在句末。"}]},{"id":"verben","type":"fill","tag":"9 题","title":"可分动词 · 变位（Grammatik aktiv 第 2 题）","tip":"前缀已经印在句末了，你只需要填动词主体并按主语变位。例如 einsteigen → ich steige ... ein。","items":[{"q":"Ich ___ an der Station „Westend\" in die U6 ein.","a":"steige","hint":"einsteigen","why":"ich 对应 steige；einsteigen = 上车。"},{"q":"An der Station „Hauptwache\" ___ ich um und nehme die U1.","a":"steige","hint":"umsteigen","why":"umsteigen = 换乘；ich steige um，前缀 um 在句末。"},{"q":"Am Südbahnhof ___ ich aus.","a":"steige","hint":"aussteigen","why":"aussteigen = 下车；ich steige aus。"},{"q":"Pünktlich um 8 Uhr ___ ich im Büro an.","a":"komme","hint":"ankommen","why":"ankommen = 到达；ich komme ... an。"},{"q":"Es ist sehr warm. Ich ___ das Fenster auf.","a":"mache","hint":"aufmachen","why":"aufmachen = 打开；ich mache ... auf。"},{"q":"Mein Kollege ___ rein und sagt Hallo.","a":"kommt","hint":"reinkommen","why":"reinkommen = 进来；er/sie/es kommt ... rein。"},{"q":"„Es ist kalt hier. ___ Sie doch das Fenster zu.\"","a":"machen","hint":"zumachen","why":"zumachen = 关上；Sie 对应 machen。"},{"q":"Ich ___ das Fenster wieder zu.","a":"mache","hint":"zumachen","why":"wieder = 又、再；ich mache ... zu。"},{"q":"Dann ___ ich mit der Arbeit an.","a":"fange","hint":"anfangen","why":"anfangen = 开始；ich fange ... an（a → ä 元音变化）。"}]},{"id":"nichtpos","type":"choice","tag":"6 题","title":"nicht 的位置（练习册 S.30 第 3 题）","tip":"nicht 一般放在句末；句末有可分前缀时，放在前缀前面（… nicht aus）。选对的那句，答案首字母拼起来正好是今天的主题词。","items":[{"q":"Ich verstehe Sie. 怎么否定？","opts":["Ich verstehe Sie nicht.","Ich nicht verstehe Sie.","Ich verstehe nicht Sie."],"a":"Ich verstehe Sie nicht.","why":"否定全句时 nicht 放句末：Ich verstehe Sie nicht.（首字母 T）"},{"q":"Morgen Vormittag? Tut mir leid, ich kann. 怎么否定？","opts":["Tut mir leid, ich kann nicht.","Tut mir leid, nicht ich kann.","Tut mir leid, ich nicht kann."],"a":"Tut mir leid, ich kann nicht.","why":"情态动词单独用时，nicht 在句末：ich kann nicht.（首字母 E）"},{"q":"Nein, ich gehe am Wochenende aus. 怎么否定？","opts":["Nein, ich gehe am Wochenende nicht aus.","Nein, ich nicht gehe am Wochenende aus.","Nein, ich gehe nicht am Wochenende aus."],"a":"Nein, ich gehe am Wochenende nicht aus.","why":"可分动词：nicht 放在前缀 aus 前面。第二句 nicht 位置错，第三句把周末整块否定了，意思变了。（首字母 R）"},{"q":"Nein, ich rufe dich an. 怎么否定？","opts":["Nein, ich rufe dich nicht an.","Nein, ich nicht rufe dich an.","Nein, ich rufe nicht dich an."],"a":"Nein, ich rufe dich nicht an.","why":"nicht 在前缀 an 前面：ich rufe dich nicht an. 第三种是「不是打给你，是打给别人」，意思不同。（首字母 M）"},{"q":"Kommen Sie am Mittwochnachmittag mit? 怎么否定回答？","opts":["Nein, ich komme am Mittwochnachmittag nicht mit.","Nein, ich komme nicht am Mittwochnachmittag mit.","Nein, nicht ich komme am Mittwochnachmittag mit."],"a":"Nein, ich komme am Mittwochnachmittag nicht mit.","why":"nicht 紧贴前缀 mit。（首字母 I）"},{"q":"Tut mir leid, in einer Stunde geht es. 怎么否定？","opts":["Tut mir leid, in einer Stunde geht es auch nicht.","Tut mir leid, in einer Stunde geht nicht es auch.","Tut mir leid, nicht in einer Stunde geht es auch."],"a":"Tut mir leid, in einer Stunde geht es auch nicht.","why":"auch nicht 一起放句末。（首字母 N）"}]},{"id":"kein","type":"fill","tag":"6 题","title":"nicht 还是 kein（练习册 S.30 第 9 题）","tip":"否定名词用 kein（要跟着名词变格：kein / keine / keinen）；否定动词、形容词或整句用 nicht。","items":[{"q":"Arbeitet Thomas heute? – Nein, er arbeitet heute ___.","a":"nicht","hint":"nicht / kein-","why":"arbeitet 是动词，前面没有名词要否定 → nicht。"},{"q":"Hast du morgen Zeit? – Tut mir leid, ich habe morgen ___ Zeit.","a":"keine","hint":"nicht / kein-","why":"Zeit 是阴性名词（die Zeit），四格还是 die → keine Zeit。"},{"q":"Möchtest du eine Cola? – Nein, danke, ich möchte ___ Cola.","a":"keine","hint":"nicht / kein-","why":"die Cola 阴性四格 → keine Cola。"},{"q":"Könnt ihr am nächsten Wochenende? – Nein, wir können am nächsten Wochenende ___.","a":"nicht","hint":"nicht / kein-","why":"können 是情态动词，nicht 在句末。"},{"q":"Haben Sie am Montag einen Termin frei? – Nein, tut mir leid. Wir haben am Montag ___ Termin frei.","a":"keinen","hint":"nicht / kein-","why":"der Termin 阳性，四格 → einen Termin → keinen Termin。"},{"q":"Wir gehen am Freitag zu Lisas Party. Kommst du mit? – Am Freitag? Nein, ich kann am Freitag ___.","a":"nicht","hint":"nicht / kein-","why":"kann 是情态动词 → nicht 在句末：ich kann am Freitag nicht."}]},{"id":"hattab","type":"fill","tag":"6 题","title":"haben 过去时 · 变位表（练习册 S.31 第 10a 题）","tip":"haben 的过去时：hatte / hattest / hatte / hatten / hattet / hatten。除了 du 和 ihr，其他都是 hatte(n)。","items":[{"q":"ich ___","a":"hatte","hint":"haben · Präteritum","why":"ich hatte（我那时有）"},{"q":"du ___","a":"hattest","hint":"haben · Präteritum","why":"du hattest，加 -st"},{"q":"er / es / sie ___","a":"hatte","hint":"haben · Präteritum","why":"第三人称单数没有词尾：er hatte"},{"q":"wir ___","a":"hatten","hint":"haben · Präteritum","why":"wir hatten"},{"q":"ihr ___","a":"hattet","hint":"haben · Präteritum","why":"ihr hattet，加 -t"},{"q":"sie / Sie ___","a":"hatten","hint":"haben · Präteritum","why":"sie/Sie hatten"}]},{"id":"mail","type":"fill","tag":"9 题","title":"Renate 的邮件 · haben 过去时（S.31 第 10b 题）","tip":"一封没赶上的出差邮件。先看主语再变位：ich → hatte，wir → hatten，du → hattest。","items":[{"q":"Lieber Thomas, ich ___ heute kein Glück.","a":"hatte","hint":"haben · Präteritum","why":"主语 ich → hatte。kein Glück = 没运气。"},{"q":"Am Vormittag ___ wir um 10 Uhr einen Termin bei Softtronics in Mannheim.","a":"hatten","hint":"haben · Präteritum","why":"主语 wir → hatten。"},{"q":"Klaus ___ das Auto vom Chef.","a":"hatte","hint":"haben · Präteritum","why":"主语 Klaus（er）→ hatte。"},{"q":"Aber dann ___ wir auf der Autobahn bei Frankfurt eine Panne.","a":"hatten","hint":"haben · Präteritum","why":"主语 wir → hatten。die Panne = 抛锚。"},{"q":"Zum Glück ___ ich die Nummer von Softtronics.","a":"hatte","hint":"haben · Präteritum","why":"主语 ich → hatte。"},{"q":"Unser Partner von Softtronics ___ keine Zeit.","a":"hatte","hint":"haben · Präteritum","why":"主语 unser Partner（er）→ hatte。"},{"q":"Super! Wir ___ kein Auto und keinen Termin!","a":"hatten","hint":"haben · Präteritum","why":"主语 wir → hatten。这是反话。"},{"q":"Dann ___ der Zug nach Kassel 45 Minuten Verspätung.","a":"hatte","hint":"haben · Präteritum","why":"主语 der Zug（er）→ hatte。Verspätung haben = 晚点。"},{"q":"___ du auch schon einmal so einen Tag?","a":"Hattest","hint":"haben · Präteritum","why":"主语 du → hattest；疑问句放句首，大写 Hattest。"}]},{"id":"war1","type":"fill","tag":"8 题","title":"sein / haben 过去时 · 对话题 1（S.31 第 11 题）","tip":"sein 的过去时：war / warst / war / waren / wart / waren；haben 的过去时：hatte / hattest / hatte / hatten / hattet / hatten。先找主语再变位。","items":[{"q":"Wie ___ Madrid?","a":"war","hint":"sein · Präteritum","why":"Wie war Madrid? 主语 Madrid（er）→ war。"},{"q":"Madrid ___ super.","a":"war","hint":"sein · Präteritum","why":"主语 Madrid → war。"},{"q":"___ ihr Zeit für Museen?","a":"Hattet","hint":"haben · Präteritum","why":"主语 ihr → hattet；疑问句句首大写 Hattet。Zeit haben = 有时间。"},{"q":"Ja, wir ___ im Reina Sofia und im Prado.","a":"waren","hint":"sein · Präteritum","why":"主语 wir → waren。"},{"q":"Und ___ ihr auch bei Isabel?","a":"wart","hint":"sein · Präteritum","why":"主语 ihr → wart（不是 wartet！）。"},{"q":"Nein, sie ___ leider keine Zeit.","a":"hatte","hint":"haben · Präteritum","why":"主语 sie（单数，Isabel）→ hatte。"},{"q":"Aber John ___ auch in Madrid.","a":"war","hint":"sein · Präteritum","why":"主语 John → war。"},{"q":"Wir ___ viel Spaß zusammen.","a":"hatten","hint":"haben · Präteritum","why":"主语 wir → hatten。Spaß haben = 玩得开心。"}]},{"id":"war2","type":"fill","tag":"7 题","title":"sein / haben 过去时 · 对话题 2（S.31 第 11 题）","tip":"同一个方法：先圈主语，再选 war 家族还是 hatte 家族。注意 du → warst / hattest，ich → war / hatte。","items":[{"q":"Wo ___ du am Montag?","a":"warst","hint":"sein · Präteritum","why":"主语 du → warst。"},{"q":"Wir ___ eine Verabredung.","a":"hatten","hint":"haben · Präteritum","why":"主语 wir → hatten。eine Verabredung haben = 有约。"},{"q":"Am Montag? Ich ___ keine Zeit.","a":"hatte","hint":"haben · Präteritum","why":"主语 ich → hatte。"},{"q":"Ja, genau. Ich ___ dann allein im Kino.","a":"war","hint":"sein · Präteritum","why":"主语 ich → war。"},{"q":"___ du auch kein Telefon?","a":"Hattest","hint":"haben · Präteritum","why":"主语 du → hattest；疑问句句首大写。"},{"q":"Ja, aber ich ___ deine Nummer nicht.","a":"hatte","hint":"haben · Präteritum","why":"主语 ich → hatte。"},{"q":"___ das wirklich so?","a":"War","hint":"sein · Präteritum","why":"主语 das（es）→ war；疑问句句首大写。"}]},{"id":"writing","type":"note","tag":"参考答案","title":"写作题 · 写完对照（Grammatik aktiv 第 3 / 4 / 5 / 6 题、练习册 2b）","tip":"这些题要自己写在书上或本子上，没有自动判分。写完再点开这段对照，不要先看。","text":"练习册 S.29 第 2b 题（问 + 答）\n1. Rufst du an? – Ja, ich rufe an. / Wann rufst du an? – Ich rufe heute Nachmittag an.\n2. Kaufst du ein? – Ja, ich kaufe ein. / Wo kaufst du ein? – Ich kaufe im Supermarkt ein.\n3. Gehst du aus? – Ja, ich gehe aus. / Wann gehst du aus? – Ich gehe am Wochenende aus.\n4. Fängst du an? – Ja, ich fange an. / Wann fängst du an? – Ich fange um neun Uhr an.\n\nGrammatik aktiv S.21 第 3 题（Mein Tag）\n1. Ich stehe um 6 Uhr auf.\n2. Ich ziehe mir um 7.30 Uhr die Jacke an. / Ich ziehe mich um 7.30 Uhr an.\n3. Ich fange um 8 Uhr mit der Arbeit an.\n4. Am Abend räume ich auf.\n5. Ich komme um 23 Uhr nach Hause.\n6. Ich schlafe bald ein.\n\nGrammatik aktiv S.21 第 4 题（Ferien）\nWir fahren am Montag ab. / Meine Eltern laden meine Freundin ein. / Ich nehme mein Handy mit. / Kommst du mit? / Wir steigen in Hannover um. / Wir kommen um 20.18 Uhr an. / Wir holen dich am Bahnhof ab. / Wir fahren am Samstag zurück.\n\nGrammatik aktiv S.21 第 5 题（Hausarbeit）\nIch stehe früh auf. / Ich bereite das Frühstück vor. / Ich wasche ab. / Ich mache die Waschmaschine an. / Ich kaufe ein. / Ich hole die Kinder ab. / Ich räume auf. / Ich hänge die Wäsche auf. / Ich leihe das Auto aus. / Ich rufe an. / Ich sehe fern."}],"audio":{"1. Das ist Markus Bernstein. Herr Bernstein ist 42 Jahre alt. Er wohnt mit seiner Familie in Kronberg. In 30 Minuten ist er am Airport in Frankfurt. Er ist Pilot bei der Lufthansa. Herr Bernstein mag seinen Job. Er fliegt einen Airbus A320. Heute fliegt er von Frankfurt nach Madrid, von Madrid nach Frankfurt und dann Frankfurt–Budapest und zurück. Er spricht Englisch und Spanisch.\n\n2. Ralf Bürger ist Student an der Friedrich-Schiller-Universität in Jena. Das ist in Thüringen. Ralf studiert Deutsch und Interkulturelle Kommunikation. Er ist im 8. Semester. Seine Freundin Magda Sablewska studiert auch Deutsch, im 4. Semester. Magda kommt aus Polen, aus Krakau. Ralf ist 26, Magda 23 Jahre alt. Magda spricht Polnisch, Deutsch und Russisch. Ralf spricht Englisch und ein bisschen Polnisch.\n\n3. Andrea Fiedler aus Bern ist seit 2009 bei Siemens in München. Vorher war sie drei Jahre für Siemens Medical Dept. in Singapur. Sie ist Elektronikingenieurin, Spezialität: Medizintechnologie. Sie spricht Englisch, Französisch und ein bisschen Chinesisch. Sie wohnt in Erding bei München. Sie mag die Alpen. Ski fahren ist ihr Hobby – und ihr BMW!\n\n4. Milena Filipová ist 29. Sie lebt seit zehn Jahren in Wien. Sie ist Musikerin und kommt aus Nitra. Das ist in der Slowakei. Sie spielt Violine und gehört zum Ensemble der Wiener Staatsoper. Sie findet Wien fantastisch: die Stadt, die Menschen, die Restaurants, die Donau, die Atmosphäre im Sommer, die Cafés. Um 20 Uhr hat sie heute ein Konzert.":"80c5121cabb8.mp3","Aber John war auch in Madrid.":"4a0b97f40150.mp3","Aber dann hatten wir auf der Autobahn bei Frankfurt eine Panne.":"2e0a3f4630ad.mp3","Am Montag? Ich hatte keine Zeit.":"f46daa7e8053.mp3","Am Südbahnhof steige ich aus.":"6ba78718bdd0.mp3","Am Vormittag hatten wir um 10 Uhr einen Termin bei Softtronics in Mannheim.":"329980750a4c.mp3","An der Station „Hauptwache\" steige ich um und nehme die U1.":"27d914b6e180.mp3","Andrea Fiedler arbeitet bei Siemens in München.":"70a39058ab87.mp3","Arbeitet Thomas heute? – Nein, er arbeitet heute nicht.":"32c5dd828030.mp3","Begrüßung international\nIn Deutschland und in Österreich gibt man meistens die Hand. Aus Frankreich, Spanien und Italien kommt eine andere Tradition: Man küsst Bekannte einmal, zweimal oder dreimal. Und in Ihrem Land?\n\nDu oder Sie?\nEs gibt keine Regeln. „Sie\" ist offiziell, formal und neutral. Freunde und gute Bekannte sagen „du\". Aus England und aus den USA kommt eine andere Variante: „Sie\" mit Vornamen. Das ist in Deutschland in internationalen Firmen und auch an Universitäten sehr populär.\n\nBegrüßung und Verabschiedung regional\n„Guten Morgen\", „Guten Tag\", „Guten Abend\" (ab 18 Uhr) und „Auf Wiedersehen\" sind neutral. „Hallo\" und „Tschüss\" hört man sehr oft. Das ist nicht so formal. In Österreich sagt man auch „Servus\" und in der Schweiz „Grüezi\" und „Auf Wiederluege\". In Norddeutschland sagen viele Menschen nicht „Guten Tag\", sie sagen „Moin, Moin\". In Süddeutschland grüßt man mit „Grüß Gott\".":"08601bb08780.mp3","Dann fange ich mit der Arbeit an.":"005ed5e1acd5.mp3","Dann hatte der Zug nach Kassel 45 Minuten Verspätung.":"27e8ada813e2.mp3","Es ist sehr warm. Ich mache das Fenster auf.":"b3a4122b0206.mp3","Familie":"674e9d39f3b0.mp3","Frankfurt":"d5d8846569e1.mp3","Französisch":"a2091993c538.mp3","Freunde und gute Bekannte sagen „du\".":"0dac1ac7cfd2.mp3","Geht ihr morgen Abend aus?":"7d50b74e8335.mp3","Haben Sie am Montag einen Termin frei? – Nein, tut mir leid. Wir haben am Montag keinen Termin frei.":"7764b156ddba.mp3","Hast du morgen Zeit? – Tut mir leid, ich habe morgen keine Zeit.":"6c1afca5297e.mp3","Hattest du auch kein Telefon?":"11c21d25dc6c.mp3","Hattest du auch schon einmal so einen Tag?":"d48d04edf501.mp3","Hattet ihr Zeit für Museen?":"1336976f1b9a.mp3","Hobbys":"a1f782992484.mp3","Ich mache das Fenster wieder zu.":"935a3b58343f.mp3","Ich rufe morgen beim Friseur an.":"6330f1e2297b.mp3","Ich stehe von Montag bis Freitag immer um halb sieben auf.":"942d25e39bea.mp3","Ich steige an der Station „Westend\" in die U6 ein.":"066e81af8fae.mp3","Ich verstehe Sie nicht.":"731df048dfe5.mp3","Ihr wollt ins Café gehen? Ich kann nicht. Ich komme heute nicht mit.":"a826d9d6cc63.mp3","In Deutschland und in Österreich gibt man zur Begrüßung die Hand.":"1859de0dec21.mp3","In Frankreich, Spanien und Italien küsst man Bekannte einmal, zweimal oder dreimal.":"4e497f5e5c36.mp3","In Norddeutschland sagen viele Menschen „Moin, Moin\".":"d7108b970773.mp3","In Österreich sagt man auch „Servus\".":"bdf20ce41191.mp3","Ja, aber ich hatte deine Nummer nicht.":"b40676ebf42b.mp3","Ja, genau. Ich war dann allein im Kino.":"cb23b29cec3c.mp3","Ja, wir waren im Reina Sofia und im Prado.":"4d340f0f9768.mp3","Kaufen Sie immer im Supermarkt ein?":"826222762e47.mp3","Klaus hatte das Auto vom Chef.":"0ca341fdb063.mp3","Konzert":"d7aef4459512.mp3","Könnt ihr am nächsten Wochenende? – Nein, wir können am nächsten Wochenende nicht.":"2a9eecd791b5.mp3","Lieber Thomas, ich hatte heute kein Glück.":"d77be86e124c.mp3","Madrid war super.":"a62dd0ce60b7.mp3","Markus Bernstein ist Pilot bei der Lufthansa.":"92c1846f49f2.mp3","Mein Kollege kommt rein und sagt Hallo.":"52ebce5f0d04.mp3","Milena Filipová kommt aus der Slowakei.":"eef2691d731c.mp3","Musik":"287efbb2acea.mp3","Möchtest du eine Cola? – Nein, danke, ich möchte keine Cola.":"7edf7094f162.mp3","Nein, ich gehe am Wochenende nicht aus.":"0421f2a11403.mp3","Nein, ich komme am Mittwochnachmittag nicht mit.":"8382e116019d.mp3","Nein, ich rufe dich nicht an.":"3fb887b10b62.mp3","Nein, sie hatte leider keine Zeit.":"d97b9b2517cd.mp3","Oper":"fe6d81329890.mp3","Ordnen Sie den Fragen passende Antworten zu.":"1bc0d12dd0af.mp3","Polnisch":"c6c055133428.mp3","Pünktlich um 8 Uhr komme ich im Büro an.":"2b2d98dbf978.mp3","Ralf Bürger studiert Deutsch und Interkulturelle Kommunikation.":"b10b02eb0377.mp3","Rhein-Main-Airport":"15cd5d95f2f2.mp3","Ski fahren":"3b0eb45132d5.mp3","Ski fahren ist das Hobby von Andrea Fiedler.":"d3bb9c3f3b42.mp3","Super! Wir hatten kein Auto und keinen Termin!":"6d18f3bf37ff.mp3","Tut mir leid, ich kann nicht.":"4b21afb0f916.mp3","Tut mir leid, in einer Stunde geht es auch nicht.":"fa8356cba982.mp3","Und wart ihr auch bei Isabel?":"03f3db67fa97.mp3","Universität":"4c05dd177ed5.mp3","Unser Partner von Softtronics hatte keine Zeit.":"2987da3d5e0b.mp3","War das wirklich so?":"247398bb385a.mp3","Wie war Madrid?":"b3f2b63bc610.mp3","Wir gehen am Freitag zu Lisas Party. Kommst du mit? – Am Freitag? Nein, ich kann am Freitag nicht.":"f1a8316da47b.mp3","Wir hatten eine Verabredung.":"e5ebda261515.mp3","Wir hatten viel Spaß zusammen.":"c8134dd33979.mp3","Wo warst du am Montag?":"c375d75873e0.mp3","Zum Glück hatte ich die Nummer von Softtronics.":"8594ff57e89c.mp3","du hattest":"ad474821e94a.mp3","er / es / sie hatte":"fe9bf55c6c59.mp3","ich hatte":"80c760c34059.mp3","ihr hattet":"d8543a794f62.mp3","sie / Sie hatten":"9394032bff07.mp3","studieren":"c430fdf421c0.mp3","wir hatten":"7724b3a6d41c.mp3","„Es ist kalt hier. machen Sie doch das Fenster zu.\"":"dacc824efdff.mp3","„Sie\" ist offiziell, formal und neutral.":"c19c695204c6.mp3"}};
+var PASS_HASH = 'b00e0e1d7ff2c226b472653851bb83ae10fe2780297d5a4e9cf637169141b55b';
+var KEY = 'stu_unlock_yizimeng';
+var SAVE = 'yzm1105_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+state.ans = state.ans || {};
+state.solved = state.solved || {};
+state.checked = state.checked || {};
+state.revealed = state.revealed || {};
+state.order = state.order || {};
+state.cb = state.cb || {};
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+var audioEl = null;
+function speak(text){
+  if (!text) return;
+  if (audioEl){ try { audioEl.pause(); } catch(e){} audioEl = null; }
+  var f = (DATA.audio || {})[text];
+  if (f){
+    try {
+      audioEl = new Audio('audio/yizimeng-1105/' + f);
+      var p = audioEl.play();
+      if (p && p.catch) p.catch(function(){ audioEl = null; speakTTS(text); });
+      return;
+    } catch(e){}
+  }
+  speakTTS(text);
+}
+function speakTTS(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    var synth = window.speechSynthesis;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .85; u.volume = 1;
+    var vs = synth.getVoices() || [];
+    for (var i = 0; i < vs.length; i++){
+      if (/^de([-_]|$)/i.test(vs[i].lang) || /german|deutsch/i.test(vs[i].name)){
+        u.voice = vs[i]; break;
+      }
+    }
+    setTimeout(function(){ synth.speak(u); }, 60);
+  } catch(e){}
+}
+if ('speechSynthesis' in window){
+  try { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){}; } catch(e){}
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+
+function fullSentence(ex, i){
+  var it = ex.items[i];
+  if (it.say) return it.say;
+  var q = String(it.q || '').replace(/\s*\([^)]*\)\s*$/, '');
+  if (q.indexOf('___') >= 0) return q.replace('___', it.a);
+  return it.a;
+}
+
+function hasCJK(s){ return /[一-鿿]/.test(String(s == null ? '' : s)); }
+
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+}
+
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var parts = it.q.split('___');
+    var v = (state.ans[ex.id] && state.ans[ex.id][i]) || '';
+    var say = fullSentence(ex, i);
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
+      + esc(parts[1] || '')
+      + (it.hint ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + (say && !hasCJK(say) ? '<button class="spk" type="button" data-say="' + esc(say) + '" title="朗读">🔊</button>' : '')
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.ans[ex.id] && state.ans[ex.id][i];
+    var say = fullSentence(ex, i);
+    var qHtml = it.q.indexOf('___') >= 0
+      ? esc(it.q.split('___')[0]) + '<b style="color:var(--gold)">___</b>' + esc(it.q.split('___')[1] || '')
+      : esc(it.q);
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + qHtml
+      + (say && !hasCJK(say) ? '<button class="spk" type="button" data-say="' + esc(say) + '" title="朗读">🔊</button>' : '') + '</div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button type="button" class="opt' + (cur === o ? ' sel' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-opt="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderMatch(ex){
+  var solved = state.solved[ex.id] || [];
+  var order = state.order[ex.id];
+  if (!order){
+    order = ex.pairs.map(function(_, i){ return i; });
+    for (var k = order.length - 1; k > 0; k--){
+      var r = Math.floor(Math.random() * (k + 1)), t = order[k]; order[k] = order[r]; order[r] = t;
+    }
+    state.order[ex.id] = order; save();
+  }
+  var left = ex.pairs.map(function(p, i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="l" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>'
+      + '<span>' + esc(p[0]) + '</span><span class="spk" role="button" tabindex="0" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
+  }).join('');
+  var right = order.map(function(i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="r" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>' + esc(ex.pairs[i][1]) + '</button>';
+  }).join('');
+  return '<div class="items"><div class="match"><div class="mcol">' + left + '</div><div class="mcol">' + right + '</div></div></div>';
+}
+
+function renderGroup(ex, idx){
+  var note = ex.type === 'note';
+  var body = note ? '' : (ex.type === 'fill' ? renderFill(ex) : ex.type === 'choice' ? renderChoice(ex) : renderMatch(ex));
+  var btnCheck = (note || ex.type === 'match') ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>';
+  var foot = note ? '' : '<div class="ex-foot">' + btnCheck
+    + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+    + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+    + '<span class="score" id="score-' + ex.id + '"></span></div>';
+  return '<section class="ex" id="ex-' + ex.id + '">'
+    + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+    + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+    + (ex.link ? '<a class="ex-link" href="' + esc(ex.link.href) + '">' + esc(ex.link.text) + '</a>' : '')
+    + (ex.text ? '<div class="ex-text">' + esc(ex.text) + (note ? '' : ' <button class="spk" type="button" data-say="' + esc(ex.text) + '" title="朗读全文">🔊</button>') + '</div>' : '')
+    + body + foot
+    + '</section>';
+}
+
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(renderGroup).join('');
+  DATA.exercises.forEach(function(ex){
+    if (ex.type === 'note') return;
+    if (state.checked[ex.id]) checkGroup(ex, true);
+    else if (ex.type === 'match') updateMatchScore(ex);
+    else updateScore(ex, null);
+  });
+}
+
+function markItem(itemEl, good, whyEl){
+  itemEl.classList.remove('ok','bad');
+  itemEl.classList.add(good ? 'ok' : 'bad');
+  if (whyEl){
+    if (good){ whyEl.classList.remove('show','bad'); }
+    else { whyEl.classList.add('show','bad'); }
+  }
+}
+
+function checkGroup(ex, silent){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  var good = 0, total = 0;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    ex.items.forEach(function(it, i){
+      var itemEl = root.querySelector('.item[data-i="' + i + '"]');
+      if (!itemEl) return;
+      total++;
+      var val = state.ans[ex.id] && state.ans[ex.id][i];
+      var ok = isCorrect(it, val);
+      if (ok) good++;
+      if (ex.type === 'fill'){
+        var inp = itemEl.querySelector('.blank');
+        if (inp){ inp.classList.remove('ok','bad'); inp.classList.add(ok ? 'ok' : 'bad'); }
+        if (state.revealed[ex.id]) inp.value = it.a;
+      } else {
+        var opts = itemEl.querySelectorAll('.opt');
+        for (var j = 0; j < opts.length; j++){
+          var o = opts[j];
+          o.classList.remove('ok','bad');
+          if (o.dataset.opt === it.a) o.classList.add('ok');
+          else if (o.dataset.opt === val) o.classList.add('bad');
+        }
+      }
+      var why = itemEl.querySelector('.why');
+      markItem(itemEl, ok, why);
+    });
+    state.checked[ex.id] = true;
+    updateScore(ex, good + '/' + total);
+  } else {
+    var solved = state.solved[ex.id] || [];
+    total = ex.pairs.length; good = solved.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateMatchScore(ex);
+  }
+  save(); updateProgress();
+}
+
+function updateScore(ex, text){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  if (text == null){
+    el.textContent = '';
+    return;
+  }
+  var parts = text.split('/');
+  var all = parts.length === 2 && parts[0] === parts[1];
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全对 <b>' + text + '</b>' : '答对 <b>' + text + '</b>';
+}
+
+function updateMatchScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.pairs.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部配对 <b>' + solved + '/' + total + '</b>' : '已配对 <b>' + solved + '/' + total + '</b>';
+}
+
+function revealGroup(ex){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  state.revealed[ex.id] = true;
+  state.checked[ex.id] = true;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.a;
+      if (ex.type === 'fill'){
+        var inp = root.querySelector('.blank[data-i="' + i + '"]');
+        if (inp) inp.value = it.a;
+      }
+    });
+    checkGroup(ex);
+    root.querySelectorAll('.why').forEach(function(w){ w.classList.add('show'); w.classList.remove('bad'); });
+  } else {
+    state.solved[ex.id] = ex.pairs.map(function(_, i){ return i; });
+    save();
+    renderExercises();
+  }
+  updateProgress();
+}
+
+function redoGroup(ex){
+  delete state.ans[ex.id];
+  delete state.solved[ex.id];
+  delete state.checked[ex.id];
+  delete state.revealed[ex.id];
+  delete state.order[ex.id];
+  save();
+  renderExercises();
+  updateProgress();
+}
+
+function updateProgress(){
+  var graded = DATA.exercises.filter(function(ex){ return ex.type !== 'note'; });
+  var done = graded.filter(function(ex){
+    if (ex.type === 'match') return (state.solved[ex.id] || []).length === ex.pairs.length;
+    return !!state.checked[ex.id];
+  }).length;
+  document.getElementById('pct').textContent = '已完成 ' + done + ' / ' + graded.length;
+  document.getElementById('pbar').style.width = (done / graded.length * 100) + '%';
+}
+
+/* 事件 */
+document.addEventListener('input', function(e){
+  var inp = e.target.closest('.blank');
+  if (!inp) return;
+  var ex = inp.dataset.ex, i = inp.dataset.i;
+  state.ans[ex] = state.ans[ex] || {};
+  state.ans[ex][i] = inp.value;
+  save();
+  var itemEl = inp.closest('.item');
+  if (itemEl){
+    inp.classList.remove('ok','bad');
+    var why = itemEl.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    itemEl.classList.remove('ok','bad');
+  }
+});
+
+document.addEventListener('click', function(e){
+  var spk = e.target.closest('.spk');
+  if (spk){
+    e.preventDefault(); e.stopPropagation();
+    var t = spk.dataset.say;
+    if (t) speak(t);
+    return;
+  }
+  var opt = e.target.closest('.opt');
+  if (opt){
+    var exId = opt.dataset.ex, idx = opt.dataset.i;
+    state.ans[exId] = state.ans[exId] || {};
+    state.ans[exId][idx] = opt.dataset.opt;
+    save();
+    var item = opt.closest('.item');
+    item.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel','bad'); });
+    opt.classList.add('sel');
+    var why = item.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    item.classList.remove('ok','bad');
+    var ex = DATA.exercises.filter(function(x){ return x.id === exId; })[0];
+    if (ex && state.checked[exId]) checkGroup(ex);
+    return;
+  }
+  var m = e.target.closest('.mbtn');
+  if (m){
+    if (m.disabled) return;
+    var mex = m.dataset.ex, side = m.dataset.side, pair = m.dataset.pair;
+    var ex = DATA.exercises.filter(function(x){ return x.id === mex; })[0];
+    if (!ex) return;
+    var root = document.getElementById('ex-' + mex);
+    if (side === 'l'){
+      root.querySelectorAll('.mbtn[data-side="l"]').forEach(function(b){ b.classList.remove('sel'); });
+      m.classList.add('sel');
+      return;
+    }
+    var sel = root.querySelector('.mbtn[data-side="l"].sel');
+    if (!sel) return;
+    if (sel.dataset.pair === pair){
+      state.solved[mex] = state.solved[mex] || [];
+      if (state.solved[mex].indexOf(Number(pair)) < 0) state.solved[mex].push(Number(pair));
+      save();
+      renderExercises();
+      var s = state.solved[mex].length;
+      if (s === ex.pairs.length){ state.checked[mex] = true; save(); updateProgress(); }
+    } else {
+      m.classList.add('boom'); sel.classList.add('boom');
+      setTimeout(function(){ m.classList.remove('boom'); sel.classList.remove('boom'); sel.classList.remove('sel'); }, 340);
+    }
+    return;
+  }
+  var act = e.target.closest('[data-act]');
+  if (act){
+    var a = act.dataset.act;
+    var ex = DATA.exercises.filter(function(x){ return x.id === act.dataset.ex; })[0];
+    if (!ex) return;
+    if (a === 'check') checkGroup(ex);
+    else if (a === 'reveal') revealGroup(ex);
+    else if (a === 'redo') redoGroup(ex);
+    return;
+  }
+  var cb = e.target.closest('[data-ci]');
+  if (cb){
+    state.cb[cb.dataset.ci] = cb.checked;
+    cb.closest('label').classList.toggle('done', cb.checked);
+    save();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderChecklist();
+  renderExercises();
+  updateProgress();
+  if (location.hash){
+    var el = document.getElementById(location.hash.slice(1));
+    if (el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 0);
+  }
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
