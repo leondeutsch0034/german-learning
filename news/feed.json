@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 43,
+   "title": "白蜡树当选 2027 年度树：一种真菌正把它逼退",
+   "de_title": "Gemeine Esche ist Baum des Jahres 2027 – bedroht von einem Pilz",
+   "hook": "300年白蜡树|败给一朵真菌",
+   "sub": "德国 2027 年度树 · 专家想保住它的栖息地",
+   "date": "2026-11-04",
+   "photo": "news/og/src/43.jpg",
+   "de_hook": "Ein Pilz aus Asien|lässt Eschen sterben –|warum ehrt man sie?",
+   "zh_intro": "德国把 2027 年的「年度树」评给了白蜡树。它不是因为茂盛才被选中，而是因为一种从东亚传入的真菌正在让成片的树枯死。专家希望借这个头衔，让更多人看见这种树和它生活的河岸有多脆弱。",
+   "words": [
+    [
+     "die Esche, -n",
+     "白蜡树"
+    ],
+    [
+     "der Baum des Jahres",
+     "年度树"
+    ],
+    [
+     "die Auszeichnung, -en",
+     "荣誉、奖项"
+    ]
+   ]
+  },
+  {
    "id": 42,
    "title": "超市冷柜被人远程调温：36 万欧元食品报废",
    "de_title": "Cyberangriff auf Kühlanlagen: Supermärkte werfen Lebensmittel weg",
@@ -173,31 +198,6 @@
     [
      "die Fußballerin, -nen",
      "女足运动员"
-    ]
-   ]
-  },
-  {
-   "id": 35,
-   "title": "奥迪美国建厂风波：CEO 为特朗普站台，德国工会怒了",
-   "de_title": "Audi-Chef bei Trump: Ärger um neues Werk in den USA",
-   "hook": "去美国建厂|德国先炸了",
-   "sub": "大众的工厂，奥迪的美国厂",
-   "date": "2026-10-26",
-   "photo": "news/og/src/35.jpg",
-   "de_hook": "Warum baut Audi|jetzt in den USA –|und nicht hier?",
-   "zh_intro": "奥迪是德国车企。它的负责人 Gernot Döllner 周末出现在美国总统特朗普的竞选活动上，特朗普当场宣布：奥迪要在美国建一座新工厂。Döllner 还感谢了特朗普的支持。德国工会和政治家不干了——一边是母公司大众在德国裁员、甚至可能关厂，一边却跑去美国投资。而且这个厂能不能建，还得大众监事会点头。",
-   "words": [
-    [
-     "die Auto-Firma",
-     "汽车公司"
-    ],
-    [
-     "der Auto-Hersteller",
-     "汽车制造商"
-    ],
-    [
-     "der Chef",
-     "负责人、老板"
     ]
    ]
   }
