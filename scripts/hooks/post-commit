@@ -1,0 +1,2 @@
+#!/bin/bash
+source "$(git rev-parse --show-toplevel)/scripts/hooks/_sync-site-copy.sh"

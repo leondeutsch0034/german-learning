@@ -1,0 +1,21 @@
+#!/bin/bash
+# 拦住「index.html 被旧副本整份覆盖」的提交（2026-11-02 事故，11-05 修复）。
+# 关键功能区块缺任何一个就中止提交；确实要删除时，连同这条检查一起改。
+if git diff --cached --name-only | grep -qx 'index.html'; then
+  blob="$(git show :index.html)"
+  missing=""
+  while IFS= read -r m; do
+    printf '%s' "$blob" | grep -qF "$m" || missing="$missing $m"
+  done <<'EOF'
+student-portal-v1
+id="hr-sec1"
+b1s8Gate
+window.deepLinkTo
+EOF
+  if [ -n "$missing" ]; then
+    echo "✗ index.html 缺少关键区块:$missing" >&2
+    echo "  看起来是拿旧副本整份覆盖了。先跑 scripts/hooks/_sync-site-copy.sh 或从 git 取回再提交。" >&2
+    exit 1
+  fi
+fi
+exit 0
