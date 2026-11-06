@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>廖同学 · 11/06 课后练习 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.82rem;line-height:1.75}
+.notice b{color:#fde68a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.step{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px}
+.step b{display:block;font-size:.8rem;color:#ffe088;margin-bottom:3px}
+.step span{font-size:.72rem;color:var(--muted);line-height:1.55}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:26px 0 12px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.checklist{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:14px 16px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:.84rem;color:#dbe4f0;cursor:pointer;border-bottom:1px dashed rgba(255,255,255,.06)}
+.checklist label:last-child{border-bottom:0}
+.checklist input{margin-top:4px;accent-color:var(--gold);flex-shrink:0}
+.checklist label.done span{color:var(--muted);text-decoration:line-through}
+.cgroup{margin-bottom:10px}
+.cgroup-title{font-size:.68rem;letter-spacing:.1em;color:rgba(246,211,101,.75);font-weight:800;margin:10px 0 8px}
+.cgroup:first-child .cgroup-title{margin-top:0}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:9px}
+.combo{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:12px;padding:11px 13px}
+.combo .ct{font-size:1.15rem;font-weight:800;color:#fff3c4;letter-spacing:.02em}
+.combo .cs{font-size:.72rem;color:#93c5fd;margin-left:6px;font-weight:600}
+.combo .cw{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.cword{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;border-radius:7px;padding:2px 8px;font-size:.8rem;cursor:pointer;font-family:inherit}
+.cword:hover{border-color:rgba(246,211,101,.5);color:#ffe088}
+.combo .cn{font-size:.7rem;color:rgba(148,163,184,.8);margin-top:6px;line-height:1.5}
+.read{display:flex;flex-direction:column;gap:10px}
+.rcard{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:14px 16px}
+.rde{font-size:1.06rem;color:#fff8e8;line-height:1.8;font-weight:600}
+.rsrc{font-size:.64rem;letter-spacing:.08em;color:rgba(246,211,101,.75);margin-bottom:4px}
+.rdone{display:flex;align-items:center;gap:7px;font-size:.74rem;color:var(--muted);margin-top:9px;cursor:pointer}
+.rdone input{accent-color:var(--gold)}
+.rbtn{background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.3);color:#ffe088;border-radius:8px;padding:4px 11px;font-size:.74rem;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit}
+.rbtn:hover{background:rgba(246,211,101,.2)}
+.rmore{margin-top:9px;padding:9px 12px;border-radius:10px;background:rgba(52,211,153,.06);border-left:2px solid rgba(52,211,153,.5);font-size:.8rem;line-height:1.75;color:#d1fae5}
+.rmore .rzh{color:#ffe088;font-weight:700}
+.rmore .rrule{color:#a7f3d0}
+.rmore .rhint{color:#93c5fd;font-size:.76rem}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-left:3px solid var(--gold2);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.ex-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ex-num{width:28px;height:28px;border-radius:9px;background:rgba(246,211,101,.14);color:#ffe088;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem;flex-shrink:0}
+.ex h2{margin:0;font-size:1rem;color:#fff8e8}
+.ex-tag{font-size:.65rem;color:#93c5fd;margin-left:auto;white-space:nowrap}
+.ex-tip{color:var(--muted);font-size:.78rem;margin:7px 0 4px}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;border-bottom:1px dashed rgba(125,211,252,.35)}
+.ex-link:hover{color:#bae6fd}
+.items{margin-top:10px}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07);position:relative}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:160px;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit;transition:.15s}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mcol{display:flex;flex-direction:column;gap:7px}
+.mbtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:9px;padding:9px 10px;font-size:.86rem;cursor:pointer;text-align:left;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:6px}
+.mbtn:hover{border-color:rgba(246,211,101,.5)}
+.mbtn.sel{border-color:var(--gold);background:rgba(246,211,101,.14);color:#fff3c4}
+.mbtn.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5;cursor:default;opacity:.85}
+.mbtn.boom{border-color:var(--bad);background:rgba(248,113,113,.14);animation:boom .3s}
+@keyframes boom{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.ord-ans{display:flex;flex-wrap:wrap;gap:6px;min-height:36px;margin-top:8px;padding:7px;border-radius:9px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12)}
+.ord-slot{display:inline-flex;align-items:center;min-width:52px;min-height:28px;padding:2px 9px;border-radius:7px;border:1px solid rgba(246,211,101,.2);background:rgba(246,211,101,.06);font-size:.84rem;color:#fff8e8;cursor:default}
+.ord-slot.filled{border-color:rgba(246,211,101,.5);cursor:pointer}
+.ord-slot.filled:hover{border-color:var(--bad);color:#fecaca}
+.ord-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.ord-chip{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.84rem;cursor:pointer;font-family:inherit;text-align:left;transition:.15s}
+.ord-chip:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.ord-chip.long{display:block;width:100%;line-height:1.6;padding:7px 10px;font-size:.82rem}
+.item.ok .ord-ans{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.06)}
+.item.bad .ord-ans{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.06)}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:560px){.wrap{padding:18px 12px 60px}.hero{padding:20px}.ex{padding:14px}.q{font-size:.88rem}.blank{min-width:62px;width:78px}.match{gap:6px}.mbtn{font-size:.8rem;padding:8px}.steps{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#111}.gate,.lockbar,.brand,.ex-foot{display:none}#app{display:block!important}.hero,.ex,.checklist,.combo,.rcard{border-color:#ddd;background:#fff;color:#111}.hero h1,.ex h2,.q,.chip,.rde,.combo .ct{color:#111}.notice,.ex-tip,.score,.combo .cn{color:#444}.why{display:block!important;color:#333;background:#f7f7f7;border-color:#ccc}.blank{background:#fff;color:#111;border-color:#999}.opt,.mbtn,.ord-chip,.cword{background:#fff;color:#111;border-color:#ccc}}
+
+.bwrap{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bcard{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:14px 16px}
+.bcard.wide{grid-column:1/-1}
+.bcard h3{margin:0 0 6px;font-size:.86rem;color:#ffe088}
+.btable{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:6px}
+.btable th,.btable td{border:1px solid rgba(255,255,255,.09);padding:5px 6px;text-align:center}
+.btable th{color:#ffe088;font-weight:700;background:rgba(246,211,101,.06)}
+.bw{background:none;border:0;color:#dbe4f0;font:inherit;cursor:pointer;padding:1px 3px;border-radius:5px;text-align:left;line-height:1.6}
+.bw:hover{background:rgba(246,211,101,.12);color:#ffe088}
+.bnote{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.7}
+.bnote b{color:#fde68a}
+.bex{font-size:.86rem;line-height:1.9;color:#e2e8f0;margin:6px 0}
+.bex span{font-size:.74rem;color:var(--muted)}
+.blist{font-size:.78rem;line-height:1.85;color:#dbe4f0;margin:6px 0;padding-left:18px}
+.blist b{color:#fde68a}
+@media(max-width:680px){.bwrap{grid-template-columns:1fr}}
+@media print{.bcard{border-color:#ddd;background:#fff;color:#111}.bcard h3,.btable th,.bnote b,.blist b{color:#111}.btable th,.btable td{border-color:#ccc}.bw{color:#111}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="liaoxin.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>廖同学的 11/06 课后练习</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-11-06 · 课后练习</div>
+      <h1>廖欣 · 动词变位、名词的性、一格和四格</h1>
+      <div class="sub">板书三大变位 · 教材咖啡馆与教室词汇 · 10/30 作业讲解</div>
+      <div class="meta">
+        <span class="chip" id="chip-count">练习</span>
+        <span class="chip">每句都能点 🔊 听</span>
+        <span class="chip">先读 → 懂 → 规则</span>
+      </div>
+      <div class="notice">
+        今天老师在你书上标了这些板块：咖啡馆对话、饮料、变位表、教室物品、名词词性和复数。还有 10/30 作业里圈出来的题，老师也讲了。<br>
+        这一页还是老顺序：<b>先读出声</b>，读顺了再看中文和规则，最后做题。今天语法比上次多，别着急，一组一组来。
+      </div>
+      <div class="steps">
+        <div class="step"><b>① 读</b><span>听 🔊、跟读、再自己读三遍。只看德文，不先翻译。</span></div>
+        <div class="step"><b>② 懂</b><span>读顺了再点「看意思」，确认自己理解对不对。</span></div>
+        <div class="step"><b>③ 规则</b><span>回头看一眼：这句用了哪条语法？动词在第几位？</span></div>
+      </div>
+      <div class="progress"><span id="pct">已完成 0 / 11</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的作业清单</div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">第一步 · 读词卡：先把今天的词读顺</div>
+    <div class="combos" id="combos"></div>
+
+    <div class="sec-title">第二步 · 读句子：先读，再看意思 <span id="readcount" style="font-size:.66rem;color:rgba(148,163,184,.7)"></span></div>
+    <div class="read" id="read"></div>
+
+    <div class="sec-title">第三步 · 板书速查（11/06）</div>
+    <div class="bwrap">
+      <div class="bcard wide">
+        <h3>① 三个动词的现在时变位</h3>
+        <table class="btable">
+          <thead><tr><th>人称</th><th>schreiben 写</th><th>können 能 / 会</th><th>sprechen 说</th></tr></thead>
+          <tbody>
+            <tr><th>ich</th><td><button class="bw" data-say="ich schreibe">schreibe</button></td><td><button class="bw" data-say="ich kann">kann</button></td><td><button class="bw" data-say="ich spreche">spreche</button></td></tr>
+            <tr><th>du</th><td><button class="bw" data-say="du schreibst">schreibst</button></td><td><button class="bw" data-say="du kannst">kannst</button></td><td><button class="bw" data-say="du sprichst">sprichst</button></td></tr>
+            <tr><th>er / sie / es</th><td><button class="bw" data-say="er schreibt">schreibt</button></td><td><button class="bw" data-say="er kann">kann</button></td><td><button class="bw" data-say="er spricht">spricht</button></td></tr>
+            <tr><th>wir</th><td><button class="bw" data-say="wir schreiben">schreiben</button></td><td><button class="bw" data-say="wir können">können</button></td><td><button class="bw" data-say="wir sprechen">sprechen</button></td></tr>
+            <tr><th>ihr</th><td><button class="bw" data-say="ihr schreibt">schreibt</button></td><td><button class="bw" data-say="ihr könnt">könnt</button></td><td><button class="bw" data-say="ihr sprecht">sprecht</button></td></tr>
+            <tr><th>sie / Sie</th><td><button class="bw" data-say="sie schreiben">schreiben</button></td><td><button class="bw" data-say="sie können">können</button></td><td><button class="bw" data-say="sie sprechen">sprechen</button></td></tr>
+          </tbody>
+        </table>
+        <div class="bnote">规则动词 = 词干 + 词尾（-e, -st, -t, -en, -t, -en）。<br>können 是情态动词：ich 和 er/sie/es 都不加词尾（kann）。<br>sprechen 只有 du 和 er/sie/es 变音：e → i。<br>点表格里的词可以听。</div>
+      </div>
+      <div class="bcard">
+        <h3>② gern 放哪里</h3>
+        <div class="bex"><button class="bw" data-say="Ich trinke gern Kaffee.">Ich trinke gern Kaffee.</button><br><span>我乐意喝咖啡。</span></div>
+        <div class="bex"><button class="bw" data-say="Du trinkst gern Tee.">Du trinkst gern Tee.</button><br><span>你乐意喝茶。</span></div>
+        <div class="bnote">gern（乐意）永远放在<b>变位动词后面</b>、宾语前面：trinke <b>gern</b> Kaffee。</div>
+      </div>
+      <div class="bcard">
+        <h3>③ 名词的性 + 复数</h3>
+        <div class="bex"><button class="bw" data-say="der Tisch, das Buch, die Tasche">der Tisch · das Buch · die Tasche</button></div>
+        <div class="bex"><button class="bw" data-say="die Tische, die Bücher, die Taschen">die Tische · die Bücher · die Taschen</button></div>
+        <div class="bnote">阳性 der / 中性 das / 阴性 die；复数冠词永远是 <b>die</b>。<br>名词首字母永远大写。<br>复数常见结尾：-e（Tische）、-er（Bücher）、-n/-en（Taschen）。</div>
+      </div>
+      <div class="bcard">
+        <h3>④ 一格 vs 四格（先认阳性）</h3>
+        <div class="bex"><button class="bw" data-say="Der Lehrer ist gut.">Der Lehrer ist gut.</button><br><span>一格（主语）</span></div>
+        <div class="bex"><button class="bw" data-say="Ich trinke den Kaffee.">Ich trinke den Kaffee.</button><br><span>四格（宾语）</span></div>
+        <div class="bnote">只有<b>阳性</b>名词在四格变：der → <b>den</b>。<br>das / die 在一格和四格里长得一样。<br>sein 和 Das ist 后面用一格：Das ist <b>der</b> Lehrer.</div>
+      </div>
+      <div class="bcard wide">
+        <h3>⑤ 10/30 作业讲解 · 老师圈出来的点</h3>
+        <ul class="blist">
+          <li>sie（他们）/ Sie（您）都用 <b>sind</b>；只有 ihr 用 <b>seid</b>。</li>
+          <li>Das 指两个人 → <b>Das sind</b> Cai und Hung.</li>
+          <li>Jennifer 现在住在 <b>Frankfurt</b>，不是 Berlin：Und jetzt wohne ich in Frankfurt.</li>
+          <li>问句动词位置：Woher <b>kommst</b> du?（疑问词第一） / <b>Wohnst</b> du in Mannheim?（动词第一）。</li>
+          <li>名词首字母必须大写：das <b>B</b>uch, der <b>T</b>isch。</li>
+          <li>möchten：ich möchte, du möchtest；nehmen：ich nehme, du nimmst。</li>
+          <li>是 <b>Yogakurs</b>（瑜伽课），不是 Salzkurs。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-title">第四步 · 动手练：今天的语法 + 作业复盘</div>
+    <div id="exercises"></div>
+
+    <div class="foot">
+      这是廖欣的专属练习页 · 只有口令可以打开<br>
+      <a href="liaoxin.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["朗读 · 板书三组变位：schreiben / können / sprechen，每组读 3 遍","朗读 · 板书例句：gern、一格和四格，每句读 3 遍","朗读 · 教材 S.16 咖啡馆两段对话，每段读 3 遍（先读，后看中文）","板书变位 · schreiben / können / sprechen：18 题","教材 S.19 变位表：trinken / heißen / wohnen / kommen：24 题","教材 S.27 第 10 题：整句填空 12 题","名词的性：教室物品 der / das / die：18 题","复数：单数变复数 12 题","一格 / 四格 + Das ist / Das sind：14 题","10/30 作业复盘：sein、动词选择、疑问词、咖啡馆填空：34 题"],"combos":[{"g":"板书 · 三个动词","t":"schreiben","s":"写字","words":["ich schreibe","du schreibst","er schreibt","wir schreiben","ihr schreibt","sie schreiben"],"note":"词干 schreib- 加词尾：-e, -st, -t, -en, -t, -en。"},{"g":"板书 · 三个动词","t":"können","s":"能 / 会","words":["ich kann","du kannst","er kann","wir können","ihr könnt","sie können"],"note":"情态动词：ich 和 er/sie/es 都不加词尾，都是 kann。"},{"g":"板书 · 三个动词","t":"sprechen","s":"说","words":["ich spreche","du sprichst","er spricht","wir sprechen","ihr sprecht","sie sprechen"],"note":"只有 du 和 er/sie/es 变音：e → i（sprichst / spricht）。"},{"g":"板书 · 例句","t":"gern","s":"乐意","words":["Ich trinke gern Kaffee.","Du trinkst gern Tee.","Er trinkt gern Milch."],"note":"gern 放在变位动词后面、宾语前面。"},{"g":"板书 · 例句","t":"一格 / 四格","s":"","words":["Der Lehrer ist gut.","Ich trinke den Kaffee.","Das ist Julia.","Das sind Julia und Thomas."],"note":"阳性名词四格 der → den；das / die 不变。"},{"g":"教材 · 教室物品","t":"der / das / die","s":"背词连冠词一起背","words":["die Tafel","das Papier","der Tisch","der Stuhl","das Buch","die Tasche","der Füller","die Brille","das Wörterbuch","der Bleistift","der Radiergummi","das Heft","das Handy","der Kuli","die Landkarte","das Whiteboard","der Becher","das Brötchen"],"note":"名词首字母永远大写；冠词和单词一起记。"},{"g":"教材 · 饮料","t":"Getränke","s":"点单用","words":["der Espresso","der Kaffee","die Cola","der Kakao","das Wasser","der Orangensaft","die Milch","der Wein","der Tee","der Latte macchiato"],"note":"点单：Ich möchte einen Kaffee. / Zwei Tee, bitte."},{"g":"教材 · 复数","t":"单数 → 复数","s":"","words":["die Tafel → die Tafeln","das Buch → die Bücher","der Stuhl → die Stühle","die Tasche → die Taschen","das Auto → die Autos","das Haus → die Häuser"],"note":"复数冠词永远是 die；常见结尾 -e、-er、-n/-en。"}],"read":[{"src":"板书 11/06","de":"Ich schreibe Sätze. Du schreibst Texte.","zh":"我写句子，你写文章。","rule":"schreiben 的 ich / du 形式：schreibe / schreibst。","hint":"Sätze 的 ä 是变音，读 [ɛ]。"},{"src":"板书 11/06","de":"Ich kann Deutsch sprechen.","zh":"我会说德语。","rule":"情态动词 können 放第二位，另一个动词 sprechen 放句尾。","hint":"kann 的 a 读短而开的音。"},{"src":"教材 S.32","de":"Kannst du das bitte wiederholen?","zh":"你能再说一遍吗？","rule":"是非问句：Kannst 第一位，主语 du 第二位。","hint":"wiederholen 的 ie 读长音。"},{"src":"板书 11/06","de":"Ich trinke gern Kaffee.","zh":"我乐意喝咖啡。","rule":"gern 放在变位动词 trinke 后面。","hint":"Kaffee 的 ff 前面 a 读短音。"},{"src":"板书 11/06","de":"Der Lehrer ist gut.","zh":"这位老师很好。","rule":"Der Lehrer 是一格，做主语。","hint":"Lehrer 的 eh 读长音。"},{"src":"板书 11/06","de":"Ich trinke den Kaffee.","zh":"我喝这杯咖啡。","rule":"阳性名词在四格：der → den。","hint":"den 的 e 读短音。"},{"src":"板书 11/06","de":"Das ist Julia. Das sind Julia und Thomas.","zh":"这是尤利娅。这是尤利娅和托马斯。","rule":"Das ist + 单数；Das sind + 复数。","hint":"sind 的 d 轻轻带过。"},{"src":"教材 S.16","de":"Entschuldigung, ist hier noch frei?","zh":"不好意思，这里还有人吗？","rule":"是非问句：ist 第一位，主语 hier 第二位。","hint":"Entschuldigung 的 z 读 [ts]。"},{"src":"教材 S.16","de":"Ich heiße Astrid Jobim, ich komme aus Brasilien.","zh":"我叫阿斯特丽德·若宾，我来自巴西。","rule":"heißen 的 ich 形式是 heiße；kommen 的 ich 形式是 komme。","hint":"Brasilien 的 s 读 [z]。"},{"src":"教材 S.16","de":"Ich wohne jetzt in Berlin.","zh":"我现在住在柏林。","rule":"wohnen + in + 城市；jetzt 放在变位动词后面。","hint":"jetzt 的 z 读 [ts]。"},{"src":"教材 S.33","de":"Wie heißt das auf Deutsch?","zh":"这个用德语怎么说？","rule":"固定问法：Wie heißt das auf Deutsch?","hint":"Deutsch 的 eu 读 [ɔy]。"},{"src":"教材 S.33","de":"Keine Ahnung. Kein Problem.","zh":"不知道。——没问题。","rule":"keine 配阴性名词 Ahnung；kein 配中性名词 Problem。","hint":"Ahnung 的 ah 读长音。"},{"src":"教材 S.27","de":"Wir trinken zwei Milchshakes.","zh":"我们喝两杯奶昔。","rule":"wir 用动词原形 trinken。","hint":"Milchshakes 的 ch 读 [ç]。"},{"src":"教材 S.19","de":"Ich möchte einen Kaffee mit Zucker.","zh":"我想要一杯加糖的咖啡。","rule":"möchten 表示想要；einen 是阳性四格。","hint":"möchte 的 ö 要撅嘴。"}],"exercises":[{"id":"vb1106","type":"fill","tag":"18 题","title":"板书变位 · schreiben / können / sprechen","tip":"先把整组读一遍再填。规则动词是词干 + 词尾；können 的 ich 和 er/sie/es 都不加词尾；sprechen 只有 du 和 er/sie/es 变音。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"ich ___","a":"schreibe","hint":"schreiben","why":"schreib- + e → schreibe。"},{"q":"du ___","a":"schreibst","hint":"schreiben","why":"schreib- + st → schreibst。"},{"q":"er / sie / es ___","a":"schreibt","hint":"schreiben","why":"schreib- + t → schreibt。"},{"q":"wir ___","a":"schreiben","hint":"schreiben","why":"wir 用原形：schreiben。"},{"q":"ihr ___","a":"schreibt","hint":"schreiben","why":"ihr 和 er 一样：schreibt。"},{"q":"sie / Sie ___","a":"schreiben","hint":"schreiben","why":"sie / Sie 用原形：schreiben。"},{"q":"ich ___","a":"kann","hint":"können","why":"情态动词：ich + kann，不加词尾。"},{"q":"du ___","a":"kannst","hint":"können","why":"du + kannst。"},{"q":"er / sie / es ___","a":"kann","hint":"können","why":"er / sie / es + kann，也不加词尾。"},{"q":"wir ___","a":"können","hint":"können","why":"wir 用原形：können。"},{"q":"ihr ___","a":"könnt","hint":"können","why":"ihr + könnt，注意变音。"},{"q":"sie / Sie ___","a":"können","hint":"können","why":"sie / Sie 用原形：können。"},{"q":"ich ___","a":"spreche","hint":"sprechen","why":"sprech- + e → spreche。"},{"q":"du ___","a":"sprichst","hint":"sprechen","why":"du 变音：e → i，sprichst。"},{"q":"er / sie / es ___","a":"spricht","hint":"sprechen","why":"er 也变音：e → i，spricht。"},{"q":"wir ___","a":"sprechen","hint":"sprechen","why":"wir 不变音，用原形：sprechen。"},{"q":"ihr ___","a":"sprecht","hint":"sprechen","why":"ihr 不变音：sprecht。"},{"q":"sie / Sie ___","a":"sprechen","hint":"sprechen","why":"sie / Sie 用原形：sprechen。"}]},{"id":"s19","type":"fill","tag":"24 题","title":"教材 S.19 变位表 · trinken / heißen / wohnen / kommen","tip":"这是书上第 19 页的表。先按人称读一遍，再填；填完再从头读一遍。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"ich ___","a":"trinke","hint":"trinken","why":"trink- + e → trinke。"},{"q":"du ___","a":"trinkst","hint":"trinken","why":"trink- + st → trinkst。"},{"q":"er / sie / es ___","a":"trinkt","hint":"trinken","why":"trink- + t → trinkt。"},{"q":"wir ___","a":"trinken","hint":"trinken","why":"wir 用原形：trinken。"},{"q":"ihr ___","a":"trinkt","hint":"trinken","why":"ihr 和 er 一样：trinkt。"},{"q":"sie / Sie ___","a":"trinken","hint":"trinken","why":"sie / Sie 用原形：trinken。"},{"q":"ich ___","a":"heiße","hint":"heißen","why":"heiß- + e → heiße。"},{"q":"du ___","a":"heißt","hint":"heißen","why":"heiß- 已以 ß 结尾，只加 -t：heißt。"},{"q":"er / sie / es ___","a":"heißt","hint":"heißen","why":"heiß- + t → heißt。"},{"q":"wir ___","a":"heißen","hint":"heißen","why":"wir 用原形：heißen。"},{"q":"ihr ___","a":"heißt","hint":"heißen","why":"ihr 也是 heißt。"},{"q":"sie / Sie ___","a":"heißen","hint":"heißen","why":"sie / Sie 用原形：heißen。"},{"q":"ich ___","a":"wohne","hint":"wohnen","why":"wohn- + e → wohne。"},{"q":"du ___","a":"wohnst","hint":"wohnen","why":"wohn- + st → wohnst。"},{"q":"er / sie / es ___","a":"wohnt","hint":"wohnen","why":"wohn- + t → wohnt。"},{"q":"wir ___","a":"wohnen","hint":"wohnen","why":"wir 用原形：wohnen。"},{"q":"ihr ___","a":"wohnt","hint":"wohnen","why":"ihr 和 er 一样：wohnt。"},{"q":"sie / Sie ___","a":"wohnen","hint":"wohnen","why":"sie / Sie 用原形：wohnen。"},{"q":"ich ___","a":"komme","hint":"kommen","why":"komm- + e → komme。"},{"q":"du ___","a":"kommst","hint":"kommen","why":"komm- + st → kommst。"},{"q":"er / sie / es ___","a":"kommt","hint":"kommen","why":"komm- + t → kommt。"},{"q":"wir ___","a":"kommen","hint":"kommen","why":"wir 用原形：kommen。"},{"q":"ihr ___","a":"kommt","hint":"kommen","why":"ihr 和 er 一样：kommt。"},{"q":"sie / Sie ___","a":"kommen","hint":"kommen","why":"sie / Sie 用原形：kommen。"}]},{"id":"s2710","type":"fill","tag":"12 题","title":"教材 S.27 第 10 题 · 整句填空","tip":"先读整句，再看主语是谁，最后想动词变位。句首的空格别忘了大写。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"Frau Sánchez, woher ___ Sie?","a":"kommen","hint":"kommen","why":"对 Sie 提问，动词用原形 kommen。"},{"q":"Ich ___ aus Barcelona.","a":"komme","hint":"kommen","why":"ich + kommen → komme。"},{"q":"Hallo, ich ___ Jenny.","a":"heiße","hint":"heißen","why":"ich + heißen → heiße。"},{"q":"Ich ___ in Berlin.","a":"wohne","hint":"wohnen","why":"ich + wohnen → wohne。"},{"q":"Und ihr, wo ___ ihr?","a":"wohnt","hint":"wohnen","why":"ihr + wohnen → wohnt。"},{"q":"Wir ___ auch in Berlin!","a":"wohnen","hint":"wohnen","why":"wir 用原形：wohnen。"},{"q":"Noemi, ___ Peter lieber Tee oder Kaffee?","a":"trinkt","hint":"trinken","why":"Peter 是 er，trinken → trinkt。"},{"q":"Er ___ lieber Kaffee.","a":"trinkt","hint":"trinken","why":"er + trinken → trinkt。"},{"q":"Sandra, wie ___ die Studentin?","a":"heißt","hint":"heißen","why":"die Studentin 是 she，heißen → heißt。"},{"q":"Sie ___ Rani.","a":"heißt","hint":"heißen","why":"sie（她）+ heißen → heißt。"},{"q":"Alida und Belal, was ___ ihr?","a":"trinkt","hint":"trinken","why":"ihr + trinken → trinkt。"},{"q":"Wir ___ zwei Milchshakes.","a":"trinken","hint":"trinken","why":"wir 用原形：trinken。"}]},{"id":"gern","type":"order","tag":"6 句","title":"语序 · gern 放在哪里","tip":"点单词排成句子。规则：主语第一位，变位动词第二位，gern 紧跟在动词后面，再放宾语。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 句子结构"},"items":[{"words":["Ich","trinke","gern","Kaffee."],"hint":"我乐意喝咖啡。","why":"gern 放在变位动词 trinke 后面。"},{"words":["Du","trinkst","gern","Tee."],"hint":"你乐意喝茶。","why":"du + trinken → trinkst；gern 跟在其后。"},{"words":["Er","trinkt","gern","Milch."],"hint":"他乐意喝牛奶。","why":"er + trinken → trinkt；gern 跟在其后。"},{"words":["Wir","trinken","gern","Wasser."],"hint":"我们乐意喝水。","why":"wir 用原形 trinken；gern 跟在其后。"},{"words":["Sie","schreiben","gern","Texte."],"hint":"他们乐意写文章。","why":"sie（他们）用原形 schreiben；gern 跟在其后。"},{"words":["Ich","schreibe","gern","Sätze."],"hint":"我乐意写句子。","why":"ich + schreiben → schreibe；gern 跟在其后。"}]},{"id":"gender","type":"choice","tag":"18 题","title":"名词的性 · 教室物品 der / das / die","tip":"先读单词，再选冠词。背单词时一定要连冠词一起背；名词首字母永远大写。","link":{"href":"../?p=grammar&to=s7#grammar","text":"复习：A1 语法 · 冠词"},"items":[{"q":"___ Tisch","opts":["der","das","die"],"a":"der","why":"Tisch 是阳性 → der Tisch。"},{"q":"___ Papier","opts":["der","das","die"],"a":"das","why":"Papier 是中性 → das Papier。"},{"q":"___ Tafel","opts":["der","das","die"],"a":"die","why":"Tafel 是阴性 → die Tafel。"},{"q":"___ Stuhl","opts":["der","das","die"],"a":"der","why":"Stuhl 是阳性 → der Stuhl。"},{"q":"___ Buch","opts":["der","das","die"],"a":"das","why":"Buch 是中性 → das Buch。"},{"q":"___ Tasche","opts":["der","das","die"],"a":"die","why":"Tasche 是阴性 → die Tasche。"},{"q":"___ Füller","opts":["der","das","die"],"a":"der","why":"Füller 是阳性 → der Füller。"},{"q":"___ Brille","opts":["der","das","die"],"a":"die","why":"Brille 是阴性 → die Brille。"},{"q":"___ Wörterbuch","opts":["der","das","die"],"a":"das","why":"Wörterbuch 是中性 → das Wörterbuch。"},{"q":"___ Bleistift","opts":["der","das","die"],"a":"der","why":"Bleistift 是阳性 → der Bleistift。"},{"q":"___ Radiergummi","opts":["der","das","die"],"a":"der","why":"Radiergummi 是阳性 → der Radiergummi。"},{"q":"___ Heft","opts":["der","das","die"],"a":"das","why":"Heft 是中性 → das Heft。"},{"q":"___ Handy","opts":["der","das","die"],"a":"das","why":"Handy 是中性 → das Handy。"},{"q":"___ Kuli","opts":["der","das","die"],"a":"der","why":"Kuli 是阳性 → der Kuli。"},{"q":"___ Landkarte","opts":["der","das","die"],"a":"die","why":"Landkarte 是阴性 → die Landkarte。"},{"q":"___ Whiteboard","opts":["der","das","die"],"a":"das","why":"Whiteboard 是中性 → das Whiteboard。"},{"q":"___ Becher","opts":["der","das","die"],"a":"der","why":"Becher 是阳性 → der Becher。"},{"q":"___ Brötchen","opts":["der","das","die"],"a":"das","why":"Brötchen 是中性 → das Brötchen（-chen 结尾多为中性）。"}]},{"id":"plural","type":"fill","tag":"12 题","title":"复数 · 单数变复数","tip":"箭头左边是单数，右边填复数。先读单数，再读复数；所有复数冠词都是 die。","link":{"href":"../?p=grammar&to=s8#grammar","text":"复习：A1 语法 · 名词复数"},"items":[{"q":"die Tafel → ___","a":"die Tafeln","hint":"复数","why":"阴性名词多数加 -n：Tafel → Tafeln。"},{"q":"das Papier → ___","a":"die Papiere","hint":"复数","why":"中性名词常加 -e：Papier → Papiere。"},{"q":"der Tisch → ___","a":"die Tische","hint":"复数","why":"阳性名词常加 -e：Tisch → Tische。"},{"q":"der Stuhl → ___","a":"die Stühle","hint":"复数","why":"Stuhl 变音并加 -e：Stühle。"},{"q":"das Buch → ___","a":"die Bücher","hint":"复数","why":"Buch 变音并加 -er：Bücher。"},{"q":"die Tasche → ___","a":"die Taschen","hint":"复数","why":"以 -e 结尾的阴性名词加 -n：Taschen。"},{"q":"das Auto → ___","a":"die Autos","hint":"复数","why":"外来词常加 -s：Autos。"},{"q":"der Computer → ___","a":"die Computer","hint":"复数","why":"以 -er 结尾的阳性名词复数不变：Computer。"},{"q":"das Haus → ___","a":"die Häuser","hint":"复数","why":"Haus 变音并加 -er：Häuser。"},{"q":"der Apfel → ___","a":"die Äpfel","hint":"复数","why":"Apfel 只变音，不加词尾：Äpfel。"},{"q":"die Frau → ___","a":"die Frauen","hint":"复数","why":"阴性名词加 -en：Frauen。"},{"q":"das Kind → ___","a":"die Kinder","hint":"复数","why":"中性名词加 -er：Kinder。"}]},{"id":"dassind","type":"choice","tag":"6 题","title":"Das ist / Das sind","tip":"看 Das 后面是一个东西还是几个东西：一个用 ist，几个用 sind。","link":{"href":"../?p=grammar&to=s4#grammar","text":"复习：A1 语法 · sein 和 haben"},"items":[{"q":"Das ___ Julia.","opts":["ist","sind"],"a":"ist","why":"Julia 是一个人，单数 → ist。"},{"q":"Das ___ Thomas.","opts":["ist","sind"],"a":"ist","why":"Thomas 是一个人，单数 → ist。"},{"q":"Das ___ Julia und Thomas.","opts":["ist","sind"],"a":"sind","why":"两个人 → 复数，用 sind。"},{"q":"Das ___ zwei Bücher.","opts":["ist","sind"],"a":"sind","why":"zwei Bücher 是复数 → sind。"},{"q":"Das ___ ein Tisch.","opts":["ist","sind"],"a":"ist","why":"ein Tisch 是单数 → ist。"},{"q":"Das ___ meine Freunde.","opts":["ist","sind"],"a":"sind","why":"meine Freunde 是复数 → sind。"}]},{"id":"kasus","type":"choice","tag":"8 题","title":"一格 / 四格 · 先认阳性 der → den","tip":"一格是主语，四格是动词后面的宾语。只有阳性名词在四格变 der → den；das 和 die 不变。","link":{"href":"../?p=grammar&to=s7#grammar","text":"复习：A1 语法 · 冠词"},"items":[{"q":"Ich trinke ___ Kaffee.","opts":["der","den"],"a":"den","why":"Kaffee 是阳性，在 trinken 后面做四格：den Kaffee。"},{"q":"Er trinkt ___ Tee.","opts":["der","den"],"a":"den","why":"Tee 是阳性，四格：den Tee。"},{"q":"Wir trinken ___ Wasser.","opts":["das","den"],"a":"das","why":"Wasser 是中性，一格和四格都是 das。"},{"q":"Sie trinkt ___ Milch.","opts":["die","den"],"a":"die","why":"Milch 是阴性，一格和四格都是 die。"},{"q":"Ich frage ___ Lehrer.","opts":["der","den"],"a":"den","why":"fragen 后面是四格；Lehrer 阳性：den Lehrer。"},{"q":"Ich schreibe ___ Satz.","opts":["der","den"],"a":"den","why":"schreiben 后面是四格；Satz 阳性：den Satz。"},{"q":"Das ist ___ Lehrer.","opts":["der","den"],"a":"der","why":"Das ist 后面用一格：der Lehrer。"},{"q":"Das ist ___ Buch.","opts":["das","den"],"a":"das","why":"Das ist 后面用一格；Buch 中性：das Buch。"}]},{"id":"hwsein","type":"fill","tag":"12 题","title":"10/30 作业复盘 · sein 变位","tip":"作业第 9 页。先读整句，再想 bin / bist / ist / sind / seid。注意 sie 和 Sie 都是 sind，ihr 才是 seid。","link":{"href":"../?p=grammar&to=s4#grammar","text":"复习：A1 语法 · sein 和 haben"},"items":[{"q":"ich ___","a":"bin","hint":"sein","why":"ich + sein → bin。"},{"q":"du ___","a":"bist","hint":"sein","why":"du + sein → bist。"},{"q":"er / sie / es ___","a":"ist","hint":"sein","why":"er / sie / es + sein → ist。"},{"q":"wir ___","a":"sind","hint":"sein","why":"wir + sein → sind。"},{"q":"ihr ___","a":"seid","hint":"sein","why":"ihr + sein → seid，别写成 sind。"},{"q":"sie / Sie ___","a":"sind","hint":"sein","why":"sie（他们）和 Sie（您）都用 sind。"},{"q":"Das ___ Cai und Hung.","a":"sind","hint":"sein","why":"Das 指两个人，复数 → sind。"},{"q":"___ ihr aus China?","a":"Seid","hint":"sein","cs":true,"why":"是非问句动词第一位；ihr + sein → Seid。"},{"q":"Nein, wir ___ aus Vietnam.","a":"sind","hint":"sein","why":"wir + sein → sind。"},{"q":"Woher ___ du?","a":"kommst","hint":"kommen","why":"du + kommen → kommst。"},{"q":"Nein, ich ___ im Spanischkurs.","a":"bin","hint":"sein","why":"ich + sein → bin。"},{"q":"Nein, sie und Aliz ___ im Yogakurs.","a":"sind","hint":"sein","why":"sie und Aliz 是两个人 → sind；是 Yogakurs，不是 Salzkurs。"}]},{"id":"hwverbs","type":"choice","tag":"6 题","title":"10/30 作业复盘 · 动词选择（S.98/4）","tip":"先读顺短文，再看主语是单数还是复数。动词跟着主语走。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"Frau Stutz ___ Deutschlehrerin an der Gloria-Sprachschule.","opts":["ist","sind"],"a":"ist","why":"Frau Stutz 是一个人 → ist。"},{"q":"Im A1-Kurs ___ zwölf Studenten.","opts":["ist","sind"],"a":"sind","why":"zwölf Studenten 是复数 → sind。"},{"q":"Sie ___ aus sieben Ländern.","opts":["kommt","kommen"],"a":"kommen","why":"Sie 指学生，复数 → kommen。"},{"q":"Der Kurs ___ international.","opts":["bin","ist"],"a":"ist","why":"Der Kurs 是单数 → ist。"},{"q":"Die Studenten ___ mit dem Kursbuch oder am Computer.","opts":["üben","übt"],"a":"üben","why":"Die Studenten 是复数 → üben。"},{"q":"Frau Stutz ___ Englisch, Spanisch und Französisch.","opts":["sprichst","spricht"],"a":"spricht","why":"Frau Stutz 是单数，sprechen 变音 → spricht。"}]},{"id":"hwwfrage","type":"fill","tag":"6 题","title":"10/30 作业复盘 · 疑问词（S.97/6）","tip":"先读问句，再想答案问的是「谁/哪里/从哪来/什么」。问句语调上扬。","link":{"href":"../?p=grammar&to=s12#grammar","text":"复习：A1 语法 · 疑问句"},"items":[{"q":"___ heißen die Studenten?","a":"Wie","hint":"名字","cs":true,"why":"问名字固定说法：Wie heißen Sie? / Wie heißen die Studenten?"},{"q":"___ kommt sie?","a":"Woher","hint":"从哪来","cs":true,"why":"答案说 aus …，问来源 → Woher。"},{"q":"___ studiert sie?","a":"Was","hint":"学什么","cs":true,"why":"问学什么 → Was。"},{"q":"___ wohnt sie?","a":"Wo","hint":"住哪里","cs":true,"why":"问地点 → Wo。"},{"q":"Wie ist die Telefonnummer ___ Jennifer?","a":"von","hint":"……的","why":"von Jennifer = 詹妮弗的（号码）。"},{"q":"Was machst du ___?","a":"gern","hint":"乐意","why":"问爱好：Was machst du gern?（你乐意做什么？）"}]},{"id":"hwcafe","type":"fill","tag":"10 题","title":"10/30 作业复盘 · 咖啡馆填空（S.7/4）","tip":"词库：bist · heiße · ist · kommst · komme · Wohnst · wohne · Möchten · nehme · trinkst。先读一遍对话，再填。","link":{"href":"../?p=grammar&to=s3#grammar","text":"复习：A1 语法 · 动词现在时变位"},"items":[{"q":"Hallo, ___ du auch im Deutschkurs?","a":"bist","hint":"sein","why":"du + sein → bist。"},{"q":"Ja. Ich ___ Laura und du?","a":"heiße","hint":"heißen","why":"ich + heißen → heiße。"},{"q":"Hallo Laura, mein Name ___ Pradeep.","a":"ist","hint":"sein","why":"mein Name 是单数 → ist。"},{"q":"Woher ___ du?","a":"kommst","hint":"kommen","why":"du + kommen → kommst。"},{"q":"Ich ___ aus Spanien. Und du?","a":"komme","hint":"kommen","why":"ich + kommen → komme。"},{"q":"Ich ___ aus Indien.","a":"komme","hint":"kommen","why":"ich + kommen → komme。"},{"q":"___ du hier in Mannheim?","a":"Wohnst","hint":"wohnen","cs":true,"why":"是非问句动词第一位；du + wohnen → Wohnst。"},{"q":"Nein, ich ___ in Weinheim.","a":"wohne","hint":"wohnen","why":"ich + wohnen → wohne。"},{"q":"___ Sie bestellen?","a":"Möchten","hint":"möchten","cs":true,"why":"对 Sie 提问用 Möchten；表示「您想点单吗？」"},{"q":"Ja, ich ___ Espresso.","a":"nehme","hint":"nehmen","why":"ich + nehmen → nehme（第一人称不变音）。"}]},{"id":"matchclass","type":"match","tag":"18 对","title":"词汇配对 · 教室物品","tip":"先读德语（连冠词一起读），再点中文。读不出来的点 🔊。","link":{"href":"../?p=grammar&to=s7#grammar","text":"复习：A1 语法 · 冠词"},"pairs":[["die Tafel","黑板"],["das Papier","纸"],["der Tisch","桌子"],["der Stuhl","椅子"],["das Buch","书"],["die Tasche","包"],["der Füller","水笔"],["die Brille","眼镜"],["das Wörterbuch","词典"],["der Bleistift","铅笔"],["der Radiergummi","橡皮"],["das Heft","练习册"],["das Handy","手机"],["der Kuli","圆珠笔"],["die Landkarte","地图"],["das Whiteboard","白板"],["der Becher","杯子"],["das Brötchen","小面包"]]},{"id":"matchdrinks","type":"match","tag":"10 对","title":"词汇配对 · 饮料","tip":"先读德语，再点中文。注意 Kaffee 的 ff、Tee 的 ee、Wasser 的 w 读 [v]。","link":{"href":"../?p=grammar&to=s7#grammar","text":"复习：A1 语法 · 冠词"},"pairs":[["der Espresso","浓缩咖啡"],["der Kaffee","咖啡"],["die Cola","可乐"],["der Kakao","可可"],["das Wasser","水"],["der Orangensaft","橙汁"],["die Milch","牛奶"],["der Wein","葡萄酒"],["der Tee","茶"],["der Latte macchiato","拿铁玛奇朵"]]}],"audio":{"der Tisch → die Tische":"8b9c8da24f5b.mp3","Sie trinkt die Milch.":"44aa8829d615.mp3","Das sind Cai und Hung.":"439520fe7b1c.mp3","Keine Ahnung. Kein Problem.":"89a4850005b1.mp3","Das sind zwei Bücher.":"96672b3c8fce.mp3","wir sprechen":"2dd08a82868d.mp3","Möchten Sie bestellen?":"1ef5789b954d.mp3","Wir trinken gern Wasser.":"61e9f71d6163.mp3","ich bin":"f2cdd3d4cdc2.mp3","Sie schreiben gern Texte.":"46cfb9356ca9.mp3","der Latte macchiato":"8000bb5412d7.mp3","Wir wohnen auch in Berlin!":"f54a6370c55a.mp3","das Whiteboard":"bbb32ab70c1d.mp3","wir kommen":"81c9c163836e.mp3","Woher kommt sie?":"0f2bffd4367c.mp3","er / sie / es ist":"e148f701c71a.mp3","Wie ist die Telefonnummer von Jennifer?":"b9b83539f144.mp3","der Wein":"2a84b474dac0.mp3","Das ist Thomas.":"6e64874d8a6f.mp3","Der Kurs ist international.":"5eebb9e900a1.mp3","Ich komme aus Indien.":"78a7e91c2cf8.mp3","sie schreiben":"116a2ed235d2.mp3","das Wörterbuch":"b8b326644c7e.mp3","das Auto → die Autos":"37062a2107ed.mp3","Alida und Belal, was trinkt ihr?":"58dd240360b6.mp3","Ich komme aus Barcelona.":"695697a1ee67.mp3","Nein, ich bin im Spanischkurs.":"b79edbfcb27c.mp3","er / sie / es schreibt":"07b7e83a4d00.mp3","Der Lehrer ist gut.":"89bb86f985ba.mp3","sie / Sie können":"9fd0bd5454fd.mp3","Woher kommst du?":"84072b16bad9.mp3","Ja, ich nehme Espresso.":"c9f7c3d99821.mp3","das Buch → die Bücher":"509d33b41022.mp3","wir trinken":"7920c903c559.mp3","er / sie / es trinkt":"65330b782e3b.mp3","die Tafel → die Tafeln":"04f73fff5def.mp3","ich trinke":"0cdb82c71b80.mp3","Sandra, wie heißt die Studentin?":"9466452c87e8.mp3","der Becher":"1844ea85aa52.mp3","das Heft":"501787ed287b.mp3","der Stuhl → die Stühle":"07253b535e35.mp3","Was machst du gern?":"54d3da154a49.mp3","die Cola":"72d0b46a37b8.mp3","ihr sprecht":"65979df3b8d8.mp3","Er trinkt gern Milch.":"cfe57fde7dd3.mp3","sie / Sie sind":"4d6664b25ec3.mp3","ich komme":"6d32ae726f9b.mp3","der Kaffee":"97aa100d293b.mp3","er kann":"ad4dfabce4ca.mp3","du kommst":"4a4a41116f87.mp3","die Tasche":"867f02b2644a.mp3","der Stuhl":"d09614b1764f.mp3","er / sie / es spricht":"6da71c880b18.mp3","der Apfel → die Äpfel":"fc79953a3e85.mp3","ihr trinkt":"9fc380ecc42c.mp3","Ich frage den Lehrer.":"caa4057b4f1d.mp3","sie können":"bb42470c1e79.mp3","Sie kommen aus sieben Ländern.":"7b73f10bd088.mp3","ich spreche":"6ad41a4a3b8d.mp3","Hallo, bist du auch im Deutschkurs?":"c655a6e5635f.mp3","Ich trinke den Kaffee.":"7418ee0e17f5.mp3","Wo wohnt sie?":"504bd6422889.mp3","Du trinkst gern Tee.":"bd718ce82b32.mp3","Ich schreibe Sätze. Du schreibst Texte.":"028fa998dc87.mp3","du trinkst":"1e0f4b3aea4f.mp3","Die Studenten üben mit dem Kursbuch oder am Computer.":"357758601da1.mp3","Das ist Julia. Das sind Julia und Thomas.":"40562a4ed64e.mp3","er / sie / es wohnt":"032aa829bbd5.mp3","Das ist das Buch.":"1ab05627dddc.mp3","wir sind":"7d431b75aecc.mp3","Ich komme aus Spanien. Und du?":"2d81efd829aa.mp3","Ich heiße Astrid Jobim, ich komme aus Brasilien.":"ab21223b5e95.mp3","Ich wohne jetzt in Berlin.":"a5dee4e9bb76.mp3","das Buch":"08ebc48d5279.mp3","Ich kann Deutsch sprechen.":"73d847294453.mp3","du heißt":"b8b565ac88cd.mp3","Ich möchte einen Kaffee mit Zucker.":"6ab15f44116d.mp3","sie / Sie sprechen":"e5f5ae863d62.mp3","ihr schreibt":"d2da6fbf0cea.mp3","der Bleistift":"ef06ca218659.mp3","die Tafel":"c101de3d0a16.mp3","er / sie / es heißt":"481d067a5b66.mp3","ich schreibe":"5652a7351366.mp3","der Orangensaft":"6a29e7bcdccf.mp3","Noemi, trinkt Peter lieber Tee oder Kaffee?":"01aeda90f2a8.mp3","wir wohnen":"2f48bdf4a32b.mp3","Ich schreibe gern Sätze.":"2a58f006469b.mp3","du kannst":"047cb096ea82.mp3","der Kuli":"993e700c8dfa.mp3","er / sie / es kommt":"6f54ffcdc201.mp3","ihr heißt":"7d55b2423d88.mp3","ich kann":"3916e3135883.mp3","Das sind Julia und Thomas.":"f5392e60d2fd.mp3","sie / Sie kommen":"6e7f17260520.mp3","Frau Sánchez, woher kommen Sie?":"f06358b3be2e.mp3","Das ist Julia.":"cb9c585a9929.mp3","er schreibt":"4e9fb74be777.mp3","das Haus → die Häuser":"e7ab4f9e3174.mp3","Er trinkt lieber Kaffee.":"b1b734896f42.mp3","ihr seid":"83615abbad84.mp3","das Handy":"c7ddac2473b1.mp3","Kannst du das bitte wiederholen?":"b6d457adc0be.mp3","das Papier":"06c5a328d074.mp3","Seid ihr aus China?":"0ed0f0f91cbb.mp3","Nein, wir sind aus Vietnam.":"d94f97bfd76d.mp3","die Tische, die Bücher, die Taschen":"e5f62c124a8f.mp3","der Espresso":"105f031d12d7.mp3","die Tasche → die Taschen":"4ee7b3517ad1.mp3","Hallo Laura, mein Name ist Pradeep.":"9c5b9c680462.mp3","Wie heißt das auf Deutsch?":"e6ded63c0d11.mp3","Nein, sie und Aliz sind im Yogakurs.":"5f4919a772ed.mp3","das Wasser":"86011e261357.mp3","sie / Sie heißen":"d9c9a99acae8.mp3","Im A1-Kurs sind zwölf Studenten.":"a49e5b1f7467.mp3","Ich wohne in Berlin.":"e337c6d14893.mp3","wir heißen":"43790fc07033.mp3","sie / Sie trinken":"7bbf6689995b.mp3","du bist":"4c1565f04777.mp3","Er trinkt den Tee.":"f449dc42a2b5.mp3","ihr kommt":"e85b83307388.mp3","Wie heißen die Studenten?":"df99129a61ec.mp3","wir schreiben":"ba64ae3bec14.mp3","Was studiert sie?":"b496f4f51890.mp3","sie sprechen":"902ee1f788d5.mp3","der Füller":"2277a76e0218.mp3","Das ist der Lehrer.":"c4f28b84d0d1.mp3","Sie heißt Rani.":"adbfeb0278cc.mp3","Ja. Ich heiße Laura und du?":"b9ea0313ad0c.mp3","die Frau → die Frauen":"7b326bc100af.mp3","wir können":"93425b9fb772.mp3","Wir trinken zwei Milchshakes.":"33a28bcb0918.mp3","Hallo, ich heiße Jenny.":"035dd3a10606.mp3","ich heiße":"c53eff9715c2.mp3","die Milch":"5923ede2959c.mp3","die Brille":"c6ba723da9f0.mp3","Frau Stutz ist Deutschlehrerin an der Gloria-Sprachschule.":"8b6e522f6038.mp3","ihr könnt":"ae4af72f64f1.mp3","du schreibst":"493a14a30a72.mp3","sie / Sie wohnen":"bebe898a96e1.mp3","er spricht":"61fdffe79961.mp3","der Kakao":"ab2ea68e5672.mp3","er / sie / es kann":"3b3b1ef8ce47.mp3","der Tisch":"2715b44ea5b3.mp3","Frau Stutz spricht Englisch, Spanisch und Französisch.":"ed233e412fe3.mp3","die Landkarte":"1c69aac6018f.mp3","der Tee":"e52377a41235.mp3","ich wohne":"12cbaf3f6d7a.mp3","Wir trinken das Wasser.":"a71ca14255bb.mp3","das Kind → die Kinder":"afdce331ea82.mp3","der Tisch, das Buch, die Tasche":"020cf9cd5464.mp3","Das sind meine Freunde.":"b9e309709328.mp3","Ich schreibe den Satz.":"478aa8a07fd5.mp3","das Papier → die Papiere":"dc1274c2e026.mp3","Ich trinke gern Kaffee.":"6048c91e4d5b.mp3","ihr wohnt":"1ba43fedb902.mp3","Nein, ich wohne in Weinheim.":"1961ad087d7f.mp3","Wohnst du hier in Mannheim?":"d07cf6075272.mp3","der Computer → die Computer":"974f731183dc.mp3","das Brötchen":"f4c18b44f5fb.mp3","Und ihr, wo wohnt ihr?":"50946196971e.mp3","der Radiergummi":"ab7bb040556d.mp3","du sprichst":"579b96678418.mp3","Das ist ein Tisch.":"c3d732a98adf.mp3","du wohnst":"fe41649dab00.mp3","Entschuldigung, ist hier noch frei?":"73f4d3a30a1a.mp3","sie / Sie schreiben":"d383fd26301a.mp3"}};
+var PASS_HASH = 'fc1e4ec93c5818727b0ebdcabe7d7ae673ccbd78690a624767780e87f23586f4';
+var KEY = 'stu_unlock_liaoxin';
+var SAVE = 'liaoxin1106_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length';
+  var i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k[lengthProperty];
+  var isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength);
+  for (j = 0; j < words[lengthProperty];){
+    var w = words.slice(j, j += 16);
+    var oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0
+        );
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++){ hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+state.ans = state.ans || {};
+state.solved = state.solved || {};
+state.checked = state.checked || {};
+state.revealed = state.revealed || {};
+state.order = state.order || {};
+state.cb = state.cb || {};
+state.read = state.read || {};
+state.shuf = state.shuf || {};
+state.bad = state.bad || {};
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+var audioEl = null;
+function speak(text){
+  if (!text) return;
+  if (audioEl){ try { audioEl.pause(); } catch(e){} audioEl = null; }
+  var f = (DATA.audio || {})[text];
+  if (f){
+    try {
+      audioEl = new Audio('audio/liaoxin-1106/' + f);
+      var p = audioEl.play();
+      if (p && p.catch) p.catch(function(){ audioEl = null; speakTTS(text); });
+      return;
+    } catch(e){}
+  }
+  speakTTS(text);
+}
+function speakTTS(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    var synth = window.speechSynthesis;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .85; u.volume = 1;
+    var vs = synth.getVoices() || [];
+    for (var i = 0; i < vs.length; i++){
+      if (/^de([-_]|$)/i.test(vs[i].lang) || /german|deutsch/i.test(vs[i].name)){
+        u.voice = vs[i]; break;
+      }
+    }
+    setTimeout(function(){ synth.speak(u); }, 60);
+  } catch(e){}
+}
+if ('speechSynthesis' in window){
+  try { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){}; } catch(e){}
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+
+function fullSentence(ex, i){
+  var it = ex.items[i];
+  if (ex.type === 'fill' || ex.type === 'choice') return it.q.replace(/\s*\([^)]*\)\s*$/, '').replace('___', it.a);
+  if (ex.type === 'order') return it.words.join(' ');
+  return it.a;
+}
+
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+}
+
+function renderCombos(){
+  var order = [], groups = {};
+  DATA.combos.forEach(function(c){
+    var g = c.g || '拼读';
+    if (!groups[g]){ groups[g] = []; order.push(g); }
+    groups[g].push(c);
+  });
+  document.getElementById('combos').innerHTML = order.map(function(g){
+    return '<div class="cgroup"><div class="cgroup-title">' + esc(g) + '</div><div class="cgrid">'
+      + groups[g].map(function(c){
+          return '<div class="combo"><div class="ct">' + esc(c.t) + (c.s ? '<span class="cs">' + esc(c.s) + '</span>' : '') + '</div>'
+            + '<div class="cw">' + c.words.map(function(w){
+                return '<button type="button" class="cword" data-say="' + esc(w) + '">' + esc(w) + ' 🔊</button>';
+              }).join('') + '</div>'
+            + '<div class="cn">' + esc(c.note) + '</div></div>';
+        }).join('')
+      + '</div></div>';
+  }).join('');
+}
+
+function renderRead(){
+  document.getElementById('read').innerHTML = DATA.read.map(function(r, i){
+    var on = !!state.read[i];
+    return '<div class="rcard" data-r="' + i + '">'
+      + '<div class="rsrc">' + esc(r.src || '11/06 板书') + '</div>'
+      + '<div class="rde">' + esc(r.de) + ' <button class="spk" type="button" data-say="' + esc(r.de) + '" title="朗读">🔊</button></div>'
+      + '<button class="rbtn" type="button" data-rv="' + i + '">读完了 · 看意思和规则</button>'
+      + '<div class="rmore" id="rmore-' + i + '" hidden>'
+      + '<div class="rzh">' + esc(r.zh) + '</div>'
+      + '<div class="rrule">语法：' + esc(r.rule) + '</div>'
+      + '<div class="rhint">发音：' + esc(r.hint) + '</div></div>'
+      + '<label class="rdone"><input type="checkbox" data-rd="' + i + '"' + (on ? ' checked' : '') + '> 我读了三遍</label>'
+      + '</div>';
+  }).join('');
+  updateReadCount();
+}
+
+function updateReadCount(){
+  var n = Object.keys(state.read).filter(function(k){ return state.read[k]; }).length;
+  var el = document.getElementById('readcount');
+  if (el) el.textContent = '（已读三遍 ' + n + ' / ' + DATA.read.length + '）';
+}
+
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var parts = it.q.split('___');
+    var v = (state.ans[ex.id] && state.ans[ex.id][i]) || '';
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
+      + esc(parts[1] || '')
+      + (it.hint ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button>'
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.ans[ex.id] && state.ans[ex.id][i];
+    var parts = it.q.split('___');
+    var qhtml = parts.length > 1
+      ? esc(parts[0]) + '<b style="color:var(--gold)">___</b>' + esc(parts.slice(1).join('___'))
+      : esc(it.q);
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + qhtml
+      + '<button class="spk" type="button" data-say="' + esc(fullSentence(ex, i)) + '" title="朗读">🔊</button></div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button type="button" class="opt' + (cur === o ? ' sel' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-opt="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+
+function renderMatch(ex){
+  var solved = state.solved[ex.id] || [];
+  var order = state.order[ex.id];
+  if (!order){
+    order = ex.pairs.map(function(_, i){ return i; });
+    for (var k = order.length - 1; k > 0; k--){
+      var r = Math.floor(Math.random() * (k + 1)), t = order[k]; order[k] = order[r]; order[r] = t;
+    }
+    state.order[ex.id] = order; save();
+  }
+  var left = ex.pairs.map(function(p, i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="l" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>'
+      + '<span>' + esc(p[0]) + '</span><span class="spk" role="button" tabindex="0" data-say="' + esc(p[0]) + '" title="朗读" style="margin-left:auto">🔊</span></button>';
+  }).join('');
+  var right = order.map(function(i){
+    return '<button type="button" class="mbtn' + (solved.indexOf(i) >= 0 ? ' ok' : '') + '" data-ex="' + ex.id + '" data-side="r" data-pair="' + i + '"' + (solved.indexOf(i) >= 0 ? ' disabled' : '') + '>' + esc(ex.pairs[i][1]) + '</button>';
+  }).join('');
+  return '<div class="items"><div class="match"><div class="mcol">' + left + '</div><div class="mcol">' + right + '</div></div></div>';
+}
+
+function renderOrder(ex){
+  var ans = state.ans[ex.id] || {};
+  var shuf = state.shuf[ex.id] || (state.shuf[ex.id] = {});
+  var bad = state.bad[ex.id] || {};
+  var solved = state.solved[ex.id] || [];
+  var out = '<div class="items">';
+  ex.items.forEach(function(it, i){
+    if (!shuf[i]){
+      var idx = it.words.map(function(_, k){ return k; });
+      for (var k = idx.length - 1; k > 0; k--){
+        var r = Math.floor(Math.random() * (k + 1)), t = idx[k]; idx[k] = idx[r]; idx[r] = t;
+      }
+      shuf[i] = idx;
+    }
+    var chosen = ans[i] || [];
+    var isDone = solved.indexOf(i) >= 0;
+    var ansHTML = '';
+    it.words.forEach(function(w, pos){
+      var k = chosen[pos];
+      ansHTML += '<span class="ord-slot' + (k != null ? ' filled' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-pos="' + pos + '">'
+        + (k != null ? esc(it.words[k]) : '·') + '</span>';
+    });
+    var poolHTML = '';
+    shuf[i].forEach(function(k){
+      if (chosen.indexOf(k) < 0){
+        poolHTML += '<button type="button" class="ord-chip' + (it.long ? ' long' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-k="' + k + '">' + esc(it.words[k]) + '</button>';
+      }
+    });
+    out += '<div class="item' + (isDone ? ' ok' : (bad[i] ? ' bad' : '')) + '" data-i="' + i + '">'
+      + '<div class="q">' + (it.hint ? esc(it.hint) : '') + '<button class="spk" type="button" data-say="' + esc(it.words.join(' ')) + '" title="朗读">🔊</button></div>'
+      + '<div class="ord-ans">' + ansHTML + '</div>'
+      + '<div class="ord-pool">' + poolHTML + '</div>'
+      + '<div class="why' + (bad[i] ? ' show bad' : '') + '" data-why="' + i + '">' + esc(it.why) + '</div>'
+      + '</div>';
+  });
+  return out + '</div>';
+}
+
+function renderGroup(ex, idx){
+  var body = ex.type === 'fill' ? renderFill(ex)
+    : ex.type === 'choice' ? renderChoice(ex)
+    : ex.type === 'match' ? renderMatch(ex)
+    : renderOrder(ex);
+  var btnCheck = (ex.type === 'match' || ex.type === 'order') ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>';
+  return '<section class="ex" id="ex-' + ex.id + '">'
+    + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+    + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+    + (ex.link ? '<a class="ex-link" href="' + esc(ex.link.href) + '">' + esc(ex.link.text) + '</a>' : '')
+    + body
+    + '<div class="ex-foot">' + btnCheck
+    + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+    + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+    + '<span class="score" id="score-' + ex.id + '"></span></div>'
+    + '</section>';
+}
+
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(renderGroup).join('');
+  DATA.exercises.forEach(function(ex){
+    if (ex.type === 'match' || ex.type === 'order'){
+      if (ex.type === 'match') updateMatchScore(ex); else updateOrderScore(ex);
+      if (state.checked[ex.id]) checkGroup(ex, true);
+    } else {
+      if (state.checked[ex.id]) checkGroup(ex, true);
+      else updateScore(ex, null);
+    }
+  });
+}
+
+function markItem(itemEl, good, whyEl){
+  itemEl.classList.remove('ok','bad');
+  itemEl.classList.add(good ? 'ok' : 'bad');
+  if (whyEl){
+    if (good){ whyEl.classList.remove('show','bad'); }
+    else { whyEl.classList.add('show','bad'); }
+  }
+}
+
+function checkGroup(ex, silent){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  var good = 0, total = 0;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    ex.items.forEach(function(it, i){
+      var itemEl = root.querySelector('.item[data-i="' + i + '"]');
+      if (!itemEl) return;
+      total++;
+      var val = state.ans[ex.id] && state.ans[ex.id][i];
+      var ok = isCorrect(it, val);
+      if (ok) good++;
+      if (ex.type === 'fill'){
+        var inp = itemEl.querySelector('.blank');
+        if (inp){ inp.classList.remove('ok','bad'); inp.classList.add(ok ? 'ok' : 'bad'); }
+        if (state.revealed[ex.id]) inp.value = it.a;
+      } else {
+        var opts = itemEl.querySelectorAll('.opt');
+        for (var j = 0; j < opts.length; j++){
+          var o = opts[j];
+          o.classList.remove('ok','bad');
+          if (o.dataset.opt === it.a) o.classList.add('ok');
+          else if (o.dataset.opt === val) o.classList.add('bad');
+        }
+      }
+      var why = itemEl.querySelector('.why');
+      markItem(itemEl, ok, why);
+    });
+    state.checked[ex.id] = true;
+    updateScore(ex, good + '/' + total);
+  } else if (ex.type === 'match'){
+    var solved = state.solved[ex.id] || [];
+    total = ex.pairs.length; good = solved.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateMatchScore(ex);
+  } else {
+    var s2 = state.solved[ex.id] || [];
+    total = ex.items.length; good = s2.length;
+    if (good === total) state.checked[ex.id] = true;
+    updateOrderScore(ex);
+  }
+  save(); updateProgress();
+}
+
+function updateScore(ex, text){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  if (text == null){
+    el.textContent = '';
+    return;
+  }
+  var parts = text.split('/');
+  var all = parts.length === 2 && parts[0] === parts[1];
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全对 <b>' + text + '</b>' : '答对 <b>' + text + '</b>';
+}
+
+function updateMatchScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.pairs.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部配对 <b>' + solved + '/' + total + '</b>' : '已配对 <b>' + solved + '/' + total + '</b>';
+}
+
+function updateOrderScore(ex){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var solved = (state.solved[ex.id] || []).length, total = ex.items.length;
+  var all = solved === total;
+  el.className = 'score' + (all ? ' all' : '');
+  el.innerHTML = all ? '全部排对 <b>' + solved + '/' + total + '</b>' : '已排对 <b>' + solved + '/' + total + '</b>';
+}
+
+function revealGroup(ex){
+  var root = document.getElementById('ex-' + ex.id);
+  if (!root) return;
+  state.revealed[ex.id] = true;
+  state.checked[ex.id] = true;
+  if (ex.type === 'fill' || ex.type === 'choice'){
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.a;
+      if (ex.type === 'fill'){
+        var inp = root.querySelector('.blank[data-i="' + i + '"]');
+        if (inp) inp.value = it.a;
+      }
+    });
+    checkGroup(ex);
+    root.querySelectorAll('.why').forEach(function(w){ w.classList.add('show'); w.classList.remove('bad'); });
+  } else if (ex.type === 'match'){
+    state.solved[ex.id] = ex.pairs.map(function(_, i){ return i; });
+    save(); renderExercises();
+  } else {
+    state.ans[ex.id] = state.ans[ex.id] || {};
+    ex.items.forEach(function(it, i){
+      state.ans[ex.id][i] = it.words.map(function(_, k){ return k; });
+    });
+    state.solved[ex.id] = ex.items.map(function(_, i){ return i; });
+    state.bad[ex.id] = {};
+    save(); renderExercises();
+  }
+  updateProgress();
+}
+
+function redoGroup(ex){
+  delete state.ans[ex.id];
+  delete state.solved[ex.id];
+  delete state.checked[ex.id];
+  delete state.revealed[ex.id];
+  delete state.order[ex.id];
+  delete state.shuf[ex.id];
+  delete state.bad[ex.id];
+  save();
+  renderExercises();
+  updateProgress();
+}
+
+function updateProgress(){
+  var done = DATA.exercises.filter(function(ex){
+    if (ex.type === 'match') return (state.solved[ex.id] || []).length === ex.pairs.length;
+    if (ex.type === 'order') return (state.solved[ex.id] || []).length === ex.items.length;
+    return !!state.checked[ex.id];
+  }).length;
+  document.getElementById('pct').textContent = '已完成 ' + done + ' / ' + DATA.exercises.length;
+  document.getElementById('pbar').style.width = (done / DATA.exercises.length * 100) + '%';
+}
+
+/* 事件 */
+document.addEventListener('input', function(e){
+  var inp = e.target.closest('.blank');
+  if (!inp) return;
+  var ex = inp.dataset.ex, i = inp.dataset.i;
+  state.ans[ex] = state.ans[ex] || {};
+  state.ans[ex][i] = inp.value;
+  save();
+  var itemEl = inp.closest('.item');
+  if (itemEl){
+    inp.classList.remove('ok','bad');
+    var why = itemEl.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    itemEl.classList.remove('ok','bad');
+  }
+});
+
+document.addEventListener('click', function(e){
+  var sayEl = e.target.closest('[data-say]');
+  if (sayEl){
+    e.preventDefault(); e.stopPropagation();
+    if (sayEl.dataset.say) speak(sayEl.dataset.say);
+    return;
+  }
+  var rbtn = e.target.closest('[data-rv]');
+  if (rbtn){
+    var i2 = rbtn.dataset.rv;
+    var box = document.getElementById('rmore-' + i2);
+    if (box){
+      box.hidden = !box.hidden;
+      rbtn.textContent = box.hidden ? '读完了 · 看意思和规则' : '收起意思和规则';
+    }
+    return;
+  }
+  var opt = e.target.closest('.opt');
+  if (opt){
+    var exId = opt.dataset.ex, idx = opt.dataset.i;
+    state.ans[exId] = state.ans[exId] || {};
+    state.ans[exId][idx] = opt.dataset.opt;
+    save();
+    var item = opt.closest('.item');
+    item.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel','bad'); });
+    opt.classList.add('sel');
+    var why = item.querySelector('.why');
+    if (why){ why.classList.remove('show','bad'); }
+    item.classList.remove('ok','bad');
+    var ex = DATA.exercises.filter(function(x){ return x.id === exId; })[0];
+    if (ex && state.checked[exId]) checkGroup(ex);
+    return;
+  }
+  var m = e.target.closest('.mbtn');
+  if (m){
+    if (m.disabled) return;
+    var mex = m.dataset.ex, side = m.dataset.side, pair = m.dataset.pair;
+    var ex = DATA.exercises.filter(function(x){ return x.id === mex; })[0];
+    if (!ex) return;
+    var root = document.getElementById('ex-' + mex);
+    if (side === 'l'){
+      root.querySelectorAll('.mbtn[data-side="l"]').forEach(function(b){ b.classList.remove('sel'); });
+      m.classList.add('sel');
+      return;
+    }
+    var sel = root.querySelector('.mbtn[data-side="l"].sel');
+    if (!sel) return;
+    if (sel.dataset.pair === pair){
+      state.solved[mex] = state.solved[mex] || [];
+      if (state.solved[mex].indexOf(Number(pair)) < 0) state.solved[mex].push(Number(pair));
+      save();
+      renderExercises();
+      var s = state.solved[mex].length;
+      if (s === ex.pairs.length){ state.checked[mex] = true; save(); updateProgress(); }
+    } else {
+      m.classList.add('boom'); sel.classList.add('boom');
+      setTimeout(function(){ m.classList.remove('boom'); sel.classList.remove('boom'); sel.classList.remove('sel'); }, 340);
+    }
+    return;
+  }
+  var chip = e.target.closest('.ord-chip');
+  if (chip){
+    var oex = chip.dataset.ex, oi = Number(chip.dataset.i), ok = Number(chip.dataset.k);
+    var exo = DATA.exercises.filter(function(x){ return x.id === oex; })[0];
+    if (!exo) return;
+    state.ans[oex] = state.ans[oex] || {};
+    var arr = state.ans[oex][oi] || [];
+    if (arr.indexOf(ok) < 0) arr.push(ok);
+    state.ans[oex][oi] = arr;
+    delete (state.bad[oex] || {})[oi];
+    save();
+    if (arr.length === exo.items[oi].words.length){
+      var good = arr.every(function(k, pos){ return k === pos; });
+      if (good){
+        state.solved[oex] = state.solved[oex] || [];
+        if (state.solved[oex].indexOf(oi) < 0) state.solved[oex].push(oi);
+        if (state.solved[oex].length === exo.items.length) state.checked[oex] = true;
+        delete (state.bad[oex] || {})[oi];
+      } else {
+        state.bad[oex] = state.bad[oex] || {};
+        state.bad[oex][oi] = true;
+      }
+      save();
+    }
+    renderExercises(); updateProgress();
+    return;
+  }
+  var slot = e.target.closest('.ord-slot');
+  if (slot){
+    if (!slot.classList.contains('filled')) return;
+    var sex = slot.dataset.ex, si = Number(slot.dataset.i), pos = Number(slot.dataset.pos);
+    state.ans[sex] = state.ans[sex] || {};
+    var sa = state.ans[sex][si] || [];
+    sa = sa.filter(function(_, k){ return k !== pos; });
+    state.ans[sex][si] = sa;
+    if (state.bad[sex]) delete state.bad[sex][si];
+    state.solved[sex] = (state.solved[sex] || []).filter(function(x){ return x !== si; });
+    save();
+    renderExercises(); updateProgress();
+    return;
+  }
+  var act = e.target.closest('[data-act]');
+  if (act){
+    var a = act.dataset.act;
+    var ex = DATA.exercises.filter(function(x){ return x.id === act.dataset.ex; })[0];
+    if (!ex) return;
+    if (a === 'check') checkGroup(ex);
+    else if (a === 'reveal') revealGroup(ex);
+    else if (a === 'redo') redoGroup(ex);
+    return;
+  }
+  var cb = e.target.closest('[data-ci]');
+  if (cb){
+    state.cb[cb.dataset.ci] = cb.checked;
+    cb.closest('label').classList.toggle('done', cb.checked);
+    save();
+    return;
+  }
+  var rd = e.target.closest('[data-rd]');
+  if (rd){
+    state.read[rd.dataset.rd] = rd.checked;
+    save(); updateReadCount();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  var tot = 0;
+  DATA.exercises.forEach(function(e){ tot += (e.items || e.pairs || []).length; });
+  document.getElementById('chip-count').textContent = DATA.exercises.length + ' 组 · ' + tot + ' 题';
+  renderChecklist();
+  renderCombos();
+  renderRead();
+  renderExercises();
+  updateProgress();
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
