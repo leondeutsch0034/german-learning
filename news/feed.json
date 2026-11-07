@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 44,
+   "title": "德国要选第一位女总统？艾格纳获联盟党推举",
+   "de_title": "Ilse Aigner soll Deutschlands erste Bundespräsidentin werden",
+   "hook": "第一位女总统|要来了吗",
+   "sub": "德国联邦总统 2027 年 1 月 30 日改选 · 由 1260 人选出",
+   "date": "2026-11-06",
+   "photo": "news/og/src/44.jpg",
+   "de_hook": "Eine Frau als|Staatsoberhaupt –|wer entscheidet das?",
+   "zh_intro": "德国将在 2027 年 1 月 30 日选出新一任联邦总统。联盟党（CDU/CSU）推举巴伐利亚州议会议长伊尔泽·艾格纳；据多家德国媒体 11 月 6 日报道，联盟党与社民党已就她的提名达成一致，但联盟党内部程序尚未完全走完。德国总统不由全民直选，而是由联邦大会选出：联邦议院 630 名议员加各州议会选出的 630 名代表，共 1260 人。现任总统施泰因迈尔已完成两届任期，按宪法必须卸任。若艾格纳当选，她将是德国历史上第一位女性国家元首。",
+   "words": [
+    [
+     "der Bundespräsident / die Bundespräsidentin",
+     "联邦总统"
+    ],
+    [
+     "das Staatsoberhaupt",
+     "国家元首"
+    ],
+    [
+     "die Bundesversammlung",
+     "联邦大会"
+    ]
+   ]
+  },
+  {
    "id": 43,
    "title": "白蜡树当选 2027 年度树：一种真菌正把它逼退",
    "de_title": "Gemeine Esche ist Baum des Jahres 2027 – bedroht von einem Pilz",
@@ -173,31 +198,6 @@
     [
      "das Zwischenlager",
      "中间贮存设施"
-    ]
-   ]
-  },
-  {
-   "id": 36,
-   "title": "金球奖第一次给凯恩：61 球赛季，和德国的足球土壤",
-   "de_title": "Ballon d'Or: Kane und Putellas ausgezeichnet",
-   "hook": "61 个球|换来一座金球",
-   "sub": "凯恩第一次，普特拉斯第三次",
-   "date": "2026-10-27",
-   "photo": "news/og/src/36.jpg",
-   "de_hook": "61 Tore –|und endlich|der Ballon d'Or?",
-   "zh_intro": "金球奖在伦敦颁出。英格兰前锋凯恩第一次获奖，上赛季他为拜仁在 51 场正式比赛里打进 61 球；西班牙中场普特拉斯第三次获奖，2026 年 7 月刚从巴萨转到伦敦城雌狮。今年是第 70 届。",
-   "words": [
-    [
-     "der Ballon d'Or",
-     "金球奖"
-    ],
-    [
-     "der Fußballer, -",
-     "足球运动员"
-    ],
-    [
-     "die Fußballerin, -nen",
-     "女足运动员"
     ]
    ]
   }
