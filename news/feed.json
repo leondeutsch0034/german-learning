@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 45,
+   "title": "阿尔卑斯最后一座冰川「降级」：它已经不流动了",
+   "de_title": "Schwarzmilzferner: Der letzte Gletscher der Allgäuer Alpen ist keiner mehr",
+   "hook": "最后一座冰川|也没了",
+   "sub": "阿尔高阿尔卑斯：热夏之后，它不再流动",
+   "date": "2026-11-07",
+   "photo": "news/og/src/45.jpg",
+   "de_hook": "Ein Gletscher,|der nicht mehr fließt –|ist das noch einer?",
+   "zh_intro": "阿尔高阿尔卑斯（Allgäuer Alpen）的最后一座冰川 Schwarzmilzferner 被研究者正式「除名」：经过 2026 年酷热的夏天，它损失了超过 4 米冰厚和约一半体积，冰体也不再流动。按冰川的定义，只有仍在流动的冰体才算冰川，所以它现在只是一块残存的冰面。冰川学家 Christoph Mayer 观测它已 26 年；他说，再经历一个这样的夏天，它大概率会完全消失。研究者预测，东阿尔卑斯可能在 2060 到 2070 年间彻底无冰。",
+   "words": [
+    [
+     "der Gletscher, -",
+     "冰川"
+    ],
+    [
+     "das Eis",
+     "冰"
+    ],
+    [
+     "die Eisdicke",
+     "冰层厚度"
+    ]
+   ]
+  },
+  {
    "id": 44,
    "title": "德国要选第一位女总统？艾格纳获联盟党推举",
    "de_title": "Ilse Aigner soll Deutschlands erste Bundespräsidentin werden",
@@ -173,31 +198,6 @@
     [
      "der Euroraum",
      "欧元区"
-    ]
-   ]
-  },
-  {
-   "id": 37,
-   "title": "德国核废料找家：搜索范围缩到国土 5% 以下",
-   "de_title": "Endlagersuche für Atommüll: BGE grenzt Suche auf unter fünf Prozent der Fläche ein",
-   "hook": "核废料|要埋一百万年",
-   "sub": "德国只剩不到 5% 国土在找",
-   "date": "2026-10-28",
-   "photo": "news/og/src/37.jpg",
-   "de_hook": "Wohin mit dem|Atommüll – für|eine Million Jahre?",
-   "zh_intro": "德国的核电站已经关闭，但高放射性废料还在，眼下存放在各地的中间贮存设施里。负责选址的联邦机构 BGE 在 10 月 27 日公布新进展：搜索范围从约 25% 的国土缩到不足 5%，待查子区域从 90 个减到 36 个，五个联邦州不再参与。这个地下处置库要能挡住辐射一百万年，目标是最迟 2050 年定址。",
-   "words": [
-    [
-     "der Atommüll",
-     "核废料"
-    ],
-    [
-     "das Endlager",
-     "最终处置库"
-    ],
-    [
-     "das Zwischenlager",
-     "中间贮存设施"
     ]
    ]
   }
