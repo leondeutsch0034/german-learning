@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 46,
+   "title": "欧盟盯上 TikTok：算法可能让青少年越刷越难过",
+   "de_title": "EU-Kommission prüft TikTok: Schutz für Kinder und Jugendliche",
+   "hook": "刷不完的短视频|谁在保护孩子",
+   "sub": "欧盟委员会审查 TikTok 算法 · 不改就罚款",
+   "date": "2026-11-06",
+   "photo": "news/og/src/46.jpg",
+   "de_hook": "Macht TikTok|Kinder wirklich|unglücklich?",
+   "zh_intro": "欧盟委员会正在审查短视频应用 TikTok。委员会的担忧是：它可能让人上瘾，对儿童和青少年尤其不友好。TikTok 会记住一个人爱看什么，然后不断推送类似的视频——比如关于悲伤、孤独、外貌的内容。委员会认为，这类视频看多了，人可能变得更难过，或者觉得自己的身体不好看。布鲁塞尔要求 TikTok 加强未成年人保护，让用户能自己决定看什么；如果不改，就面临高额罚款。",
+   "words": [
+    [
+     "die Video-App, -s",
+     "视频应用"
+    ],
+    [
+     "süchtig machen",
+     "让人上瘾"
+    ],
+    [
+     "die EU-Kommission",
+     "欧盟委员会"
+    ]
+   ]
+  },
+  {
    "id": 45,
    "title": "阿尔卑斯最后一座冰川「降级」：它已经不流动了",
    "de_title": "Schwarzmilzferner: Der letzte Gletscher der Allgäuer Alpen ist keiner mehr",
@@ -173,31 +198,6 @@
     [
      "die Initiative",
      "倡议、发起团体"
-    ]
-   ]
-  },
-  {
-   "id": 38,
-   "title": "欧洲央行行长拉加德提前卸任：欧元的下一位掌门人是谁",
-   "de_title": "EZB-Chefin Lagarde tritt im Februar 2027 vorzeitig zurück",
-   "hook": "欧元换掌门|提前八个月",
-   "sub": "拉加德 2027 年 2 月卸任，欧盟忙着找接班人",
-   "date": "2026-10-29",
-   "photo": "news/og/src/38.jpg",
-   "de_hook": "Wer führt bald|die EZB – und|unser Geld?",
-   "zh_intro": "欧洲央行（EZB）管着 21 个国家的货币，首要任务是让欧元区物价保持稳定。10 月 29 日，行长克里斯蒂娜·拉加德宣布提前卸任：2027 年 2 月 7 日就走，而她的任期本来要到 2027 年 10 月底。欧盟必须尽快定下继任者，德国财政部长克林拜尔表示，德国要在这次人事决定中发挥重要作用。",
-   "words": [
-    [
-     "die Europäische Zentralbank (EZB)",
-     "欧洲中央银行"
-    ],
-    [
-     "der Euro",
-     "欧元"
-    ],
-    [
-     "der Euroraum",
-     "欧元区"
     ]
    ]
   }
