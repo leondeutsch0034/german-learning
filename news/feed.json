@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 47,
+   "title": "德国大公司董事会：女性人数创纪录，首次超过 100",
+   "de_title": "So viele Frauen in Vorständen wie noch nie: erstmals über 100",
+   "hook": "董事会里的|女人越来越多了",
+   "sub": "EY 研究：2025 年德国三大股指共 101 位女高管，创历史新高",
+   "date": "2026-11-08",
+   "photo": "news/og/src/47.jpg",
+   "de_hook": "Frauen im Vorstand –|nur noch eine|Seltenheit?",
+   "zh_intro": "德国大公司的董事会里，女性从来没有这么多过。安永咨询公司统计：2025 年全年，DAX、MDAX、SDAX 三大股指的公司里一共有 101 位女性担任董事，这是第一次超过 100 人。2013 年只有 33 位。在最重要的 DAX 公司里，女性现在占大约 30%。男女高管的薪酬差距也在缩小。不过研究也指出，小公司里的女性管理者仍然偏少。",
+   "words": [
+    [
+     "die Beratungsfirma, -firmen",
+     "咨询公司"
+    ],
+    [
+     "der Vorstand, Vorstände",
+     "董事会"
+    ],
+    [
+     "das Unternehmen, -",
+     "企业、公司"
+    ]
+   ]
+  },
+  {
    "id": 46,
    "title": "欧盟盯上 TikTok：算法可能让青少年越刷越难过",
    "de_title": "EU-Kommission prüft TikTok: Schutz für Kinder und Jugendliche",
@@ -173,31 +198,6 @@
     [
      "der Zoll",
      "海关；关税"
-    ]
-   ]
-  },
-  {
-   "id": 39,
-   "title": "德国 30 多城青年示威：要学校经费，不要兵役",
-   "de_title": "Zehntausende junge Menschen demonstrieren in über 30 Städten",
-   "hook": "30 多座城市|年轻人上街了",
-   "sub": "要学校经费、要气候保护、不要兵役 · 多数和平",
-   "date": "2026-10-31",
-   "photo": "news/og/src/39.jpg",
-   "de_hook": "Mehr Geld für Schulen –|und wer bezahlt|das?",
-   "zh_intro": "10 月 31 日星期六，德国 30 多个城市同时出现青年示威。发起方是几周前才靠 TikTok 趋势凑到一起的新团体„Gen Z regelt“（Z 世代搞定）。他们要更多学校经费、更多气候保护、心理治疗与成瘾援助，并要求减轻生活成本压力；同时明确反对恢复义务兵役。埃尔福特的牌子上写着 „Bilden statt Ballern“——要教育，不要炮火。多数集会和平，科隆、法兰克福、斯图加特的游行队伍因蒙面和燃放烟火被警方中断。",
-   "words": [
-    [
-     "die Demonstration / die Demo",
-     "示威、游行"
-    ],
-    [
-     "demonstrieren",
-     "游行示威"
-    ],
-    [
-     "die Initiative",
-     "倡议、发起团体"
     ]
    ]
   }
