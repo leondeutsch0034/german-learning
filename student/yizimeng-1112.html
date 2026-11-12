@@ -60,7 +60,7 @@ body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%)
 .item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07);position:relative}
 .item:last-child{border-bottom:0}
 .q{font-size:.92rem;color:#e8eef7;line-height:1.9}
-.blank{display:inline-block;min-width:74px;max-width:160px;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank{display:inline-block;min-width:74px;max-width:100%;width:90px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
 .blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
 .blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
 .blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
@@ -299,9 +299,10 @@ function renderFill(ex){
     var parts = it.q.split('___');
     var v = (state.ans[ex.id] && state.ans[ex.id][i]) || '';
     var say = fullSentence(ex, i);
+    var w = Math.max(90, String(it.a || '').length * 10 + 28);
     return '<div class="item" data-i="' + i + '">'
       + '<div class="q">' + esc(parts[0])
-      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
+      + '<input class="blank" style="width:' + w + 'px" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第 ' + (i + 1) + ' 题">'
       + esc(parts[1] || '')
       + (it.hint ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
       + (say && !hasCJK(say) ? '<button class="spk" type="button" data-say="' + esc(say) + '" title="朗读">🔊</button>' : '')
