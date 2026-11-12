@@ -4,8 +4,8 @@ window.STUDENT_LINKS = [
     "slug": "liaoxin",
     "name": "廖同学",
     "level": "A1",
-    "tagline": "动词变位 + 名词的性 + 一格/四格 + 10/30 作业复盘",
-    "updated": "2026-11-06"
+    "tagline": "朗读专项：把一整句读顺 + 冠词、kein、九组变位",
+    "updated": "2026-11-12"
   },
   {
     "slug": "yizimeng",

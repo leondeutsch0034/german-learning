@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>廖同学 · 11/12 朗读专项 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.82rem;line-height:1.75}
+.notice b{color:#fde68a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.step{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px}
+.step b{display:block;font-size:.8rem;color:#ffe088;margin-bottom:3px}
+.step span{font-size:.72rem;color:var(--muted);line-height:1.55}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:28px 0 12px}
+.sec-title small{font-size:.66rem;font-weight:500;letter-spacing:0;color:rgba(148,163,184,.7)}
+.checklist{display:grid;gap:7px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;font-size:.82rem;cursor:pointer;line-height:1.6}
+.checklist label.done{opacity:.55;text-decoration:line-through}
+.checklist input{margin-top:4px;accent-color:#f6d365}
+.card{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:15px 16px;margin-bottom:10px}
+.card h3{margin:0 0 8px;font-size:.88rem;color:#ffe088}
+.card p{margin:6px 0;font-size:.82rem;color:#cbd5e1;line-height:1.75}
+.tipbox{font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.03);border-left:2px solid rgba(246,211,101,.4);padding:8px 11px;border-radius:0 8px 8px 0;line-height:1.7;margin-bottom:10px}
+.tipbox b{color:#fde68a}
+.grid-alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:7px}
+.acard{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 9px;cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:.15s}
+.acard:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.acard .al{font-size:1.2rem;font-weight:800;color:#fff8e8}
+.acard .an{font-size:.72rem;color:#ffe088;margin-left:5px;font-weight:600}
+.acard .ac{font-size:.66rem;color:var(--muted);display:block;margin-top:2px}
+.acard .ae{font-size:.7rem;color:#7dd3fc;display:block;margin-top:2px}
+.listen{display:grid;gap:9px;margin-top:6px}
+.litem{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:10px 12px}
+.litem .lhead{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+.litem .lhead .play{background:rgba(246,211,101,.15);border:1px solid rgba(246,211,101,.4);color:#ffe088;border-radius:8px;padding:4px 10px;font-size:.76rem;cursor:pointer;font-family:inherit}
+.lopts{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.lopt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 14px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}
+.lopt:hover{border-color:rgba(246,211,101,.5)}
+.lopt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5}
+.lopt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.lwhy{display:none;font-size:.74rem;color:#a7f3d0;margin-top:6px}
+.lwhy.show{display:block}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rex{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.rex button{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:4px 9px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.rex button:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.rex span{font-size:.7rem;color:var(--muted);align-self:center}
+.stress{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.scard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 12px}
+.scard.ok{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.scard .shead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scard .sw{font-size:.95rem;font-weight:700;color:#fff8e8}
+.scard .szh{font-size:.7rem;color:var(--muted)}
+.syls{display:flex;gap:6px;margin:8px 0 6px;flex-wrap:wrap}
+.syl{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:5px 12px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.syl:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.syl.bad{border-color:var(--bad);color:#fecaca;animation:shake .32s}
+.syl.hit{border-color:var(--ok);background:rgba(52,211,153,.16);color:#d1fae5;font-weight:800}
+@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.mini{background:none;border:1px solid rgba(255,255,255,.16);color:var(--muted);border-radius:7px;padding:3px 9px;font-size:.7rem;cursor:pointer;font-family:inherit}
+.mini:hover{color:#ffe088;border-color:rgba(246,211,101,.5)}
+.snote{font-size:.72rem;color:var(--muted);margin-top:7px;line-height:1.6}
+.scard.ok .snote{color:#a7f3d0}
+.sent{display:grid;gap:9px}
+.sentcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 12px}
+.sentcard.ok{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.swords{display:flex;gap:5px;flex-wrap:wrap;margin:7px 0}
+.sword{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.sword:hover{border-color:rgba(246,211,101,.55)}
+.sword.bad{border-color:var(--bad);color:#fecaca;animation:shake .32s}
+.sword.hit{border-color:var(--ok);background:rgba(52,211,153,.18);color:#d1fae5;font-weight:800}
+.sword.hit::after{content:' ●';font-size:.6rem;color:var(--ok)}
+.sentzh{font-size:.72rem;color:var(--muted)}
+.sentwhy{font-size:.72rem;color:#a7f3d0;margin-top:6px;display:none;line-height:1.65}
+.sentcard.ok .sentwhy{display:block}
+.read{display:grid;gap:10px}
+.rcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 14px}
+.rcard .rchunks{font-size:.98rem;line-height:2.1;color:#e8eef7}
+.rchunk{cursor:pointer;border-bottom:1px dashed rgba(246,211,101,.45);padding:1px 2px;border-radius:4px}
+.rchunk:hover{background:rgba(246,211,101,.14);color:#ffe088}
+.rbar{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.rzh{display:none;font-size:.76rem;color:var(--muted);margin-top:7px;line-height:1.7}
+.rzh.show{display:block}
+.rnote{font-size:.72rem;color:rgba(148,163,184,.8);margin-top:5px}
+.rdone{font-size:.72rem;color:var(--muted);display:inline-flex;align-items:center;gap:5px;margin-left:auto;cursor:pointer}
+.rdone input{accent-color:#f6d365}
+.textcard .tline{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.textcard .tline:last-child{border-bottom:0}
+.vocab{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.vocab button{background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.25);color:#bae6fd;border-radius:999px;padding:3px 10px;font-size:.74rem;cursor:pointer;font-family:inherit}
+.vocab button:hover{background:rgba(125,211,252,.16)}
+.vocab span{font-size:.7rem;color:var(--muted)}
+.numtable{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px;margin:6px 0 12px}
+.nbtn{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 8px;cursor:pointer;color:inherit;font-family:inherit;text-align:left}
+.nbtn:hover{border-color:rgba(246,211,101,.5)}
+.nbtn b{color:#fff8e8;font-size:.86rem}
+.nbtn span{display:block;font-size:.7rem;color:#7dd3fc;margin-top:1px}
+.npractice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.np{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.np b{font-size:1.05rem;color:#fff8e8;min-width:54px}
+.np .ans{font-size:.8rem;color:#a7f3d0;visibility:hidden}
+.np.show .ans{visibility:visible}
+.np .mini{margin-left:auto}
+.diag{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.dcard{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:10px 12px}
+.dcard b{display:block;font-size:.78rem;color:#fde68a;margin-bottom:3px}
+.dcard span{font-size:.72rem;color:var(--muted);line-height:1.6}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:16px;padding:17px 18px;margin-bottom:12px}
+.ex-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ex-num{width:24px;height:24px;border-radius:50%;background:rgba(246,211,101,.15);border:1px solid rgba(246,211,101,.45);color:#ffe088;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ex-head h2{margin:0;font-size:.96rem;color:#fff3c4;flex:1}
+.ex-tag{font-size:.66rem;color:var(--muted);border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:2px 9px}
+.ex-tip{font-size:.76rem;color:var(--muted);margin:8px 0 4px;line-height:1.7}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;display:inline-block;margin-bottom:6px}
+.ex-link:hover{text-decoration:underline}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:180px;width:100px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.ord-ans{display:flex;flex-wrap:wrap;gap:6px;min-height:36px;margin-top:8px;padding:7px;border-radius:9px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12)}
+.ord-slot{display:inline-flex;align-items:center;min-width:52px;min-height:28px;padding:2px 9px;border-radius:7px;border:1px solid rgba(246,211,101,.2);background:rgba(246,211,101,.06);font-size:.84rem;color:#fff8e8}
+.ord-slot.filled{border-color:rgba(246,211,101,.5);cursor:pointer}
+.ord-slot.filled:hover{border-color:var(--bad);color:#fecaca}
+.ord-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.ord-chip{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.84rem;cursor:pointer;font-family:inherit}
+.ord-chip:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.item.ok .ord-ans{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.06)}
+.item.bad .ord-ans{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.06)}
+.recbox{display:grid;gap:10px}
+.rec-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.rec-dot{width:10px;height:10px;border-radius:50%;background:var(--bad);display:inline-block}
+.rec-msg{font-size:.76rem;color:var(--muted);min-height:20px}
+.rec-msg.bad{color:#fca5a5}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:680px){.rules,.stress,.diag{grid-template-columns:1fr}.npractice{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="liaoxin.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>廖同学的 11/12 朗读专项</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-11-12 · 朗读专项 + 课后练习</div>
+      <h1>廖欣 · 把一整句读对</h1>
+      <div class="sub">字母拼读（站内）· 句重音 · 断句跟读 · 课文朗读 · 冠词与变位</div>
+      <div class="meta">
+        <span class="chip" id="chip-count">练习</span>
+        <span class="chip">每句都能点 🔊 听</span>
+        <span class="chip">每天 10 分钟</span>
+      </div>
+      <div class="notice">
+        老师说：你现在最大的问题不是「不认识」，是<b>读不顺</b>——一个词一个词往外蹦，重音落不对，一整句撑不下来。<br>
+        这一页只练一件事：<b>把一句话完整、准确地读出来</b>。顺序是 字母 → 音节 → 词重音 → 句重音 → 断句 → 整篇。
+      </div>
+      <div class="diag">
+        <div class="dcard"><b>卡点一 · 字母拼读</b><span>看到单词先想拼写，字母和音对不上，尤其是 V / W / Z / J 和 ie / ei。</span></div>
+        <div class="dcard"><b>卡点二 · 词重音</b><span>汉语习惯每个字一样重，德语一个词只有一个音节重，其余要弱下去。</span></div>
+        <div class="dcard"><b>卡点三 · 断句</b><span>不会用意群换气，一句话读到底就散架了；句尾也不会降调。</span></div>
+      </div>
+      <div class="steps">
+        <div class="step"><b>① 听</b><span>先点 🔊 听整句，只听，不跟。</span></div>
+        <div class="step"><b>② 跟</b><span>按「块」跟读，一次 3–5 个词，块内不停。</span></div>
+        <div class="step"><b>③ 合</b><span>整句连读三遍，再录音回听，和老师的声音比。</span></div>
+      </div>
+      <div class="progress"><span id="pct">昨天的任务 0 / 0</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的任务清单 <small>勾一个算一个</small></div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">第一步 · 字母与拼读 <small>去站内拼读页，跟老师的读音</small></div>
+    <div class="card">
+      <p style="margin-top:0">字母名、长短元音、ch / sch / sp / st、词重音，这些直接在站内的拼读教程里练——页面里的录音是老师的示范，比网页合成的语音准。</p>
+      <div class="rec-row" style="margin:10px 0">
+        <a class="btn" href="../?p=phonetik#phonetik">打开：字母拼读教程</a>
+        <a class="btn ghost" href="../?p=pronunciation#pronunciation">打开：德语发音器</a>
+      </div>
+      <div class="tipbox" style="margin-bottom:0">
+        练的时候只盯三件事：① 一个词只有一个重音节，其余要弱下去；② <b>V</b> 读「fau」、<b>W</b> 读「维」、<b>Z</b> 读「采特」、<b>J</b> 读「约特」；③ <b>ie</b> 读「衣」，<b>ei</b> 读「爱」，别反过来。
+      </div>
+    </div>
+
+    <div class="sec-title">第二步 · 句重音 <small>一句话只有一个主重音</small></div>
+    <div class="tipbox">默认规则：<b>句子最后一个实词重读</b>，其他词轻。否定词 <b>kein / nicht</b> 一定重读。要对比、要纠错时，才把重音移到你要强调的那个词。</div>
+    <div class="sent" id="sentstress"></div>
+
+    <div class="sec-title">第三步 · 断句跟读 <small>先读块，再读整句</small></div>
+    <div class="tipbox">竖线 <b>│</b> 是换气点。点每一块单独听，读顺了再把整句连起来，最后勾「读三遍」。竖线处可以停半拍，但块里面不要停。</div>
+    <div class="read" id="chunks"></div>
+
+    <div class="sec-title">第四步 · 课文朗读 <small>教材三篇人物小传</small></div>
+    <div class="tipbox">先只读德文，不看中文。每行读完三遍再勾；读不出来的词点上面的蓝色词卡。</div>
+    <div id="texts"></div>
+
+    <div class="sec-title">第五步 · 录下来，自己听 <small>和老师的声音对比</small></div>
+    <div class="card recbox">
+      <p style="margin-top:0">读下面任意一句，点「开始录音」→ 读 → 点「停止」→ 点「回放」。先听自己的，再点 🔊 听老师的，比较：<b>重音对不对、块内有没有停、句尾有没有降下来</b>。</p>
+      <div class="rec-row" id="recmodels"></div>
+      <div class="rec-row">
+        <button class="btn" id="recBtn">● 开始录音</button>
+        <button class="btn ghost" id="playRec" disabled>▶ 回放我的录音</button>
+        <span class="rec-msg" id="recMsg"><span class="rec-dot"></span> 微信里可能不给麦克风权限，用 Safari / Chrome 打开最稳。</span>
+      </div>
+    </div>
+
+    <div class="sec-title">第六步 · 语法练习 <small>11/12 板书</small></div>
+    <div id="exercises"></div>
+
+    <div class="sec-title">第七步 · 数字朗读 <small>先读顺，再记规则</small></div>
+    <div class="card">
+      <h3>① 0–20 和整十</h3>
+      <div class="numtable" id="numSmall"></div>
+      <h3>② 两位以上的数：个位先说，再 und，再十位</h3>
+      <p style="margin-top:0">21 = <b>ein</b>und<b>zwanzig</b>（一和二十），44 = vierundvierzig。三位数先说百：123 = hundertdreiundzwanzig。</p>
+      <div class="numtable" id="numMix"></div>
+      <h3>③ 自己读：先读数字，再点开对答案</h3>
+      <div class="npractice" id="numPractice"></div>
+    </div>
+
+    <div class="foot">
+      这是廖欣的专属练习页 · 只有口令可以打开<br>
+      <a href="liaoxin.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["站内拼读页 · 字母名 + 长/短元音 + ch / sch / sp / st，跟着读一遍","站内发音器 · 随便读三句，看看识别成什么","句重音 · 10 句话，点出最该重读的词","断句跟读 · 12 句，每句按「块」读，再整句读三遍","课文朗读 · 三篇人物小传，每段读三遍（先读，后看中文）","录音 · 录一句课文，和老师的声音比一比","语法 · 冠词 der / das / die（12 题）","语法 · ein / eine / kein / keine（12 题）","语法 · 九组动词变位（54 题）","数字 · 0–1000 读一遍 + 10 个数字自己读"],"sentstress":[{"de":"Ich trinke Kaffee.","words":["Ich","trinke","Kaffee."],"stress":2,"zh":"我喝咖啡。","why":"默认重音落在最后一个实词 Kaffee 上。"},{"de":"Das ist ein Handy.","words":["Das","ist","ein","Handy."],"stress":3,"zh":"这是一部手机。","why":"最后的名词 Handy 重读；ist 和 ein 都很轻。"},{"de":"Er hat ein Auto.","words":["Er","hat","ein","Auto."],"stress":3,"zh":"他有一辆车。","why":"句末名词 Auto 重读。"},{"de":"Sie lernt Deutsch.","words":["Sie","lernt","Deutsch."],"stress":2,"zh":"她学德语。","why":"Deutsch 在句末，是信息重点。"},{"de":"Ich komme aus Jiangxi.","words":["Ich","komme","aus","Jiangxi."],"stress":3,"zh":"我来自江西。","why":"回答「从哪来」时，地名重读。"},{"de":"Das ist kein Problem.","words":["Das","ist","kein","Problem."],"stress":2,"zh":"这不是问题。","why":"否定词 kein 必须重读，否定才听得出来。"},{"de":"Sie möchte Deutsch lernen.","words":["Sie","möchte","Deutsch","lernen."],"stress":3,"zh":"她想学德语。","why":"句末的 lernen 是默认重音；想强调「德语」而不是别的语言时，才把重音移到 Deutsch。"},{"de":"Wir lernen jeden Tag zwei Stunden.","words":["Wir","lernen","jeden","Tag","zwei","Stunden."],"stress":5,"zh":"我们每天学两小时。","why":"最后一个实词 Stunden 重读，前面的 jeden Tag 提一下就带过。"},{"de":"Ich heiße Anna Kant.","words":["Ich","heiße","Anna","Kant."],"stress":3,"zh":"我叫安娜·康德。","why":"姓名里姓氏最重：Anna 轻，Kant 重。"},{"de":"Deutschland ist unsere neue Heimat.","words":["Deutschland","ist","unsere","neue","Heimat."],"stress":4,"zh":"德国是我们的新家乡。","why":"句末的 Heimat 重读；neue 跟着抬一点，但主重音在最后。"}],"chunks":[{"chunks":["Nein,","das ist kein Handy,","das ist ein iPod."],"zh":"不，这不是手机，这是 iPod。","note":"逗号处换气：先否定，再更正。"},{"chunks":["Ist das ein Handy?","Ja, das ist ein Handy."],"zh":"这是手机吗？——是的，这是手机。","note":"问句句尾往上抬，答句句尾往下落。"},{"chunks":["Das sind Hefte.","Sind das Fahrräder?","Nein, das sind keine Fahrräder."],"zh":"这些是练习本。这些是自行车吗？不，这些不是自行车。","note":"问句上扬，否定句 kein- 重读。"},{"chunks":["Ich heiße Anna Kant.","Ich komme aus Berlin","und wohne jetzt in Berlin."],"zh":"我叫安娜·康德。我来自柏林，现在住在柏林。","note":"一句话说完再换气，不要在 aus 前面断。"},{"chunks":["Sie ist Lehrerin.","Das ist Herr Ma.","Er lernt Deutsch."],"zh":"她是老师。这位是马先生。他学德语。","note":"三个短句，每句一口气；句号处停半拍。"},{"chunks":["Deutsch ist nicht schwer.","Wir lernen jeden Tag","zwei Stunden."],"zh":"德语不难。我们每天学两个小时。","note":"nicht 重读；zwei Stunden 连在一起读。"},{"chunks":["Das ist kein Vater.","Das ist eine Mutter."],"zh":"这不是爸爸。这是一位妈妈。","note":"对比句：kein 和 eine 都重读。"},{"chunks":["Ich bin Lehrer.","Ich bin der Lehrer."],"zh":"我是老师。我是那位老师。","note":"第二句 der 重读，指「那一位」。"},{"chunks":["Er hat ein Auto.","Sie lernt Deutsch."],"zh":"他有一辆车。她学德语。","note":"短句也要读完整：词尾的 -t 和 -t 都要出来。"},{"chunks":["Ich möchte einen Kaffee","mit Zucker."],"zh":"我想要一杯加糖的咖啡。","note":"长宾语在介词前断开：einen Kaffee | mit Zucker。"},{"chunks":["Zaira möchte Deutsch lernen.","Sie sagt:","Deutsch ist wichtig für meine Arbeit."],"zh":"扎伊拉想学德语。她说：德语对我的工作很重要。","note":"引号前停一下，引号里重新起调。"},{"chunks":["Die Arslans wohnen seit 2009 in Köln.","Sie sprechen Türkisch und Deutsch."],"zh":"阿尔斯兰一家从 2009 年起住在科隆。他们说土耳其语和德语。","note":"数字 2009 要读成「zweitausendneun」，不要一个数字一个数字念。"}],"texts":[{"title":"Zaira Franca","src":"教材 · 人物小传 1","vocab":[["leben","生活"],["arbeiten","工作"],["allein","独自"],["wichtig","重要"],["Spaß","乐趣"]],"lines":[{"chunks":["Zaira Franca lebt in São Paulo."],"zh":"扎伊拉·弗兰卡住在圣保罗。"},{"chunks":["Sie arbeitet bei BASF."],"zh":"她在巴斯夫工作。"},{"chunks":["Sie lernt Deutsch","im Goethe-Institut,","im A1-Kurs."],"zh":"她在歌德学院学德语，在 A1 班。"},{"chunks":["Sie lebt allein","und hat ein Kind."],"zh":"她一个人住，有一个孩子。"},{"chunks":["Luisa ist 12","und geht in das Colégio Visconde","in Porto Seguro."],"zh":"路易莎 12 岁，在 Porto Seguro 的 Visconde 学校上学。"},{"chunks":["Zaira möchte Deutsch lernen."],"zh":"扎伊拉想学德语。"},{"chunks":["Sie sagt:","Deutsch ist wichtig für meine Arbeit","und die Kurse im Goethe-Institut machen Spaß."],"zh":"她说：德语对我的工作很重要，歌德学院的课很有意思。"}]},{"title":"Vedat Arslan","src":"教材 · 人物小传 2","vocab":[["verheiratet","已婚的"],["Arbeit","工作"],["seit","自从"],["Heimat","家乡"],["sprechen","说"]],"lines":[{"chunks":["Vedat Arslan kommt aus der Türkei,","aus Erzurum."],"zh":"韦达特·阿尔斯兰来自土耳其的埃尔祖鲁姆。"},{"chunks":["Er lernt Deutsch","an der Volkshochschule in Köln."],"zh":"他在科隆的成人夜校学德语。"},{"chunks":["Er ist verheiratet mit Seval."],"zh":"他和塞瓦尔结婚了。"},{"chunks":["Sie haben zwei Kinder,","Yasemin und Volkan."],"zh":"他们有两个孩子，亚塞明和沃尔坎。"},{"chunks":["Vedat hat im Moment keine Arbeit."],"zh":"韦达特现在没有工作。"},{"chunks":["Seval arbeitet bei der Telekom."],"zh":"塞瓦尔在德国电信工作。"},{"chunks":["Die Arslans wohnen seit 2009 in Köln."],"zh":"阿尔斯兰一家从 2009 年起住在科隆。"},{"chunks":["Sie sprechen Türkisch und Deutsch."],"zh":"他们说土耳其语和德语。"},{"chunks":["Yasemin und Volkan lernen Englisch","in der Schule."],"zh":"亚塞明和沃尔坎在学校学英语。"},{"chunks":["Die Arslans sagen:","Deutschland ist unsere neue Heimat."],"zh":"阿尔斯兰一家说：德国是我们的新家乡。"}]},{"title":"Hong Cai","src":"教材 · 人物小传 3","vocab":[["Studentin","女大学生"],["studieren","上大学"],["Hobby","爱好"],["Gitarre","吉他"],["lieben","爱"]],"lines":[{"chunks":["Hong Cai ist Studentin."],"zh":"洪彩是女大学生。"},{"chunks":["Sie lebt in Shanghai","und studiert an der Tongji Universität."],"zh":"她住在上海，在同济大学读书。"},{"chunks":["Sie ist 21","und möchte in Deutschland Biologie oder Chemie studieren."],"zh":"她 21 岁，想去德国学生物或化学。"},{"chunks":["Ihre Hobbys sind Musik und Sport."],"zh":"她的爱好是音乐和运动。"},{"chunks":["Sie spielt Gitarre."],"zh":"她弹吉他。"},{"chunks":["Ihre Freundin Jin studiert Englisch."],"zh":"她的朋友金学英语。"},{"chunks":["Sie möchte nach Kanada."],"zh":"她想去加拿大。"},{"chunks":["Deutsch ist für Hong Cai Musik."],"zh":"对洪彩来说，德语就是音乐。"},{"chunks":["Sie sagt:","Ich liebe Beethoven und Schubert."],"zh":"她说：我爱贝多芬和舒伯特。"}]}],"numbers":{"small":[["0","null"],["1","eins"],["2","zwei"],["3","drei"],["4","vier"],["5","fünf"],["6","sechs"],["7","sieben"],["8","acht"],["9","neun"],["10","zehn"],["11","elf"],["12","zwölf"],["13","dreizehn"],["14","vierzehn"],["15","fünfzehn"],["16","sechzehn"],["17","siebzehn"],["18","achtzehn"],["19","neunzehn"],["20","zwanzig"]],"tens":[["30","dreißig"],["40","vierzig"],["50","fünfzig"],["60","sechzig"],["70","siebzig"],["80","achtzig"],["90","neunzig"],["100","hundert"],["1000","tausend"]],"mix":[["21","einundzwanzig"],["29","neunundzwanzig"],["31","einunddreißig"],["44","vierundvierzig"],["56","sechsundfünfzig"],["67","siebenundsechzig"],["88","achtundachtzig"],["99","neunundneunzig"],["123","hundertdreiundzwanzig"],["234","zweihundertvierunddreißig"],["678","sechshundertachtundsiebzig"],["2345","zweitausenddreihundertfünfundvierzig"]],"practice":[["14","vierzehn"],["21","einundzwanzig"],["37","siebenunddreißig"],["44","vierundvierzig"],["56","sechsundfünfzig"],["67","siebenundsechzig"],["88","achtundachtzig"],["123","hundertdreiundzwanzig"],["234","zweihundertvierunddreißig"],["1000","tausend"]]},"exercises":[{"id":"art","type":"choice","tag":"12 题","title":"冠词 · der / das / die","tip":"先读名词，选冠词。背名词一定连冠词一起背：der Vater、das Handy、die Mutter。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"___ Vater","opts":["der","das","die"],"a":"der","why":"Vater 阳性 → der Vater。"},{"q":"___ Mutter","opts":["der","das","die"],"a":"die","why":"Mutter 阴性 → die Mutter。"},{"q":"___ Handy","opts":["der","das","die"],"a":"das","why":"Handy 中性 → das Handy。"},{"q":"___ Problem","opts":["der","das","die"],"a":"das","why":"Problem 中性 → das Problem。"},{"q":"___ Kaffee","opts":["der","das","die"],"a":"der","why":"Kaffee 阳性 → der Kaffee。"},{"q":"___ Frau","opts":["der","das","die"],"a":"die","why":"Frau 阴性 → die Frau。"},{"q":"___ Mann","opts":["der","das","die"],"a":"der","why":"Mann 阳性 → der Mann。"},{"q":"___ Buch","opts":["der","das","die"],"a":"das","why":"Buch 中性 → das Buch。"},{"q":"___ Tisch","opts":["der","das","die"],"a":"der","why":"Tisch 阳性 → der Tisch。"},{"q":"___ Tasche","opts":["der","das","die"],"a":"die","why":"Tasche 阴性 → die Tasche。"},{"q":"___ Kind","opts":["der","das","die"],"a":"das","why":"Kind 中性 → das Kind。"},{"q":"___ Lehrer","opts":["der","das","die"],"a":"der","why":"Lehrer 阳性 → der Lehrer。"}]},{"id":"ein","type":"choice","tag":"12 题","title":"不定冠词 / 否定冠词 · ein / eine / kein / keine","tip":"先看名词词性：阳性中性用 ein / kein，阴性用 eine / keine。句子里有「不」的意思才用 kein。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"Das ist ___ Vater.","opts":["ein","eine","kein","keine"],"a":"ein","why":"阳性单数，肯定 → ein Vater。"},{"q":"Das ist ___ Mutter.","opts":["ein","eine","kein","keine"],"a":"eine","why":"阴性单数，肯定 → eine Mutter。"},{"q":"Das ist ___ Handy.","opts":["ein","eine","kein","keine"],"a":"ein","why":"中性单数，肯定 → ein Handy。"},{"q":"Das ist ___ Problem. （这不是问题。）","opts":["ein","eine","kein","keine"],"a":"kein","why":"中性 + 否定 → kein Problem。"},{"q":"Das ist ___ Vater. （这不是爸爸。）","opts":["ein","eine","kein","keine"],"a":"kein","why":"阳性 + 否定 → kein Vater。"},{"q":"Das ist ___ Mutter. （这不是妈妈。）","opts":["ein","eine","kein","keine"],"a":"keine","why":"阴性 + 否定 → keine Mutter。"},{"q":"Das sind ___ Hefte.","opts":["ein","eine","kein","keine"],"a":"keine","why":"复数没有 ein；否定用 keine → keine Hefte。"},{"q":"Das sind ___ Fahrräder. （这些不是自行车。）","opts":["ein","eine","kein","keine"],"a":"keine","why":"复数否定 → keine Fahrräder。"},{"q":"Ist das ___ Handy?","opts":["ein","eine","kein","keine"],"a":"ein","why":"疑问句还是肯定意思 → ein Handy。"},{"q":"Sind das ___ Bücher? （这些不是书吗？）","opts":["ein","eine","kein","keine"],"a":"keine","why":"复数 + 否定 → keine Bücher。"},{"q":"Das ist ___ Lehrerin.","opts":["ein","eine","kein","keine"],"a":"eine","why":"阴性单数 → eine Lehrerin。"},{"q":"Das ist ___ Lehrer. （这不是老师。）","opts":["ein","eine","kein","keine"],"a":"kein","why":"阳性 + 否定 → kein Lehrer。"}]},{"id":"dassind","type":"choice","tag":"6 题","title":"Das ist / Das sind","tip":"一个东西用 ist，几个东西用 sind。注意：Das sind 后面跟复数名词。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s4#grammar","linkText":"复习：A1 语法 · sein","items":[{"q":"Das ___ ein Handy.","opts":["ist","sind"],"a":"ist","why":"ein Handy 是单数 → ist。"},{"q":"Das ___ Hefte.","opts":["ist","sind"],"a":"sind","why":"Hefte 是复数 → sind。"},{"q":"Das ___ ein Problem.","opts":["ist","sind"],"a":"ist","why":"ein Problem 单数 → ist。"},{"q":"Das ___ keine Fahrräder.","opts":["ist","sind"],"a":"sind","why":"Fahrräder 复数 → sind。"},{"q":"Das ___ Herr Ma.","opts":["ist","sind"],"a":"ist","why":"一个人 → ist。"},{"q":"Das ___ zwei Bücher.","opts":["ist","sind"],"a":"sind","why":"zwei Bücher 复数 → sind。"}]},{"id":"plural","type":"fill","tag":"12 题","title":"复数 · 单数 → 复数","tip":"箭头左边单数，右边填复数（连冠词一起填）。所有复数冠词都是 die。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s8#grammar","linkText":"复习：A1 语法 · 名词复数","items":[{"q":"der Vater → ___","a":"die Väter","hint":"复数","why":"变音 + 不加词尾：Väter。"},{"q":"die Mutter → ___","a":"die Mütter","hint":"复数","why":"变音 + 不加词尾：Mütter。"},{"q":"das Handy → ___","a":"die Handys","hint":"复数","why":"外来词加 -s：Handys。"},{"q":"das Problem → ___","a":"die Probleme","hint":"复数","why":"外来词加 -e：Probleme。"},{"q":"das Buch → ___","a":"die Bücher","hint":"复数","why":"变音 + -er：Bücher。"},{"q":"der Tisch → ___","a":"die Tische","hint":"复数","why":"加 -e：Tische。"},{"q":"die Frau → ___","a":"die Frauen","hint":"复数","why":"加 -en：Frauen。"},{"q":"das Kind → ___","a":"die Kinder","hint":"复数","why":"加 -er：Kinder。"},{"q":"der Mann → ___","a":"die Männer","hint":"复数","why":"变音 + -er：Männer。"},{"q":"die Tasche → ___","a":"die Taschen","hint":"复数","why":"加 -n：Taschen。"},{"q":"der Lehrer → ___","a":"die Lehrer","hint":"复数","why":"以 -er 结尾，复数不变：Lehrer。"},{"q":"die Lehrerin → ___","a":"die Lehrerinnen","hint":"复数","why":"加 -nen：Lehrerinnen。"}]},{"id":"v_arbeiten","type":"fill","tag":"6 题","title":"变位 · arbeiten（词干以 -t 结尾）","tip":"词干 arbeit- 以 t 结尾，du / er / ihr 要先加一个 -e-，不然读不出来：arbeitest、arbeitet。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s3#grammar","linkText":"复习：A1 语法 · 动词现在时","items":[{"q":"ich ___","a":"arbeite","hint":"arbeiten","why":"arbeit- + e → arbeite。"},{"q":"du ___","a":"arbeitest","hint":"arbeiten","why":"词干以 -t 结尾，加 -est：arbeitest。"},{"q":"er / sie / es ___","a":"arbeitet","hint":"arbeiten","why":"加 -et：arbeitet。"},{"q":"wir ___","a":"arbeiten","hint":"arbeiten","why":"wir 用原形：arbeiten。"},{"q":"ihr ___","a":"arbeitet","hint":"arbeiten","why":"ihr 也加 -et：arbeitet。"},{"q":"sie / Sie ___","a":"arbeiten","hint":"arbeiten","why":"sie / Sie 用原形：arbeiten。"}]},{"id":"v_moechten","type":"fill","tag":"6 题","title":"变位 · möchten（想要）","tip":"möchten 是情态动词：ich 和 er/sie/es 都不加词尾，都是 möchte。ö 记得撅嘴。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s5#grammar","linkText":"复习：A1 语法 · 情态动词","items":[{"q":"ich ___","a":"möchte","hint":"möchten","why":"ich + möchte，不加词尾。"},{"q":"du ___","a":"möchtest","hint":"möchten","why":"du + möchtest。"},{"q":"er / sie / es ___","a":"möchte","hint":"möchten","why":"er 和 ich 同形：möchte。"},{"q":"wir ___","a":"möchten","hint":"möchten","why":"wir 用原形：möchten。"},{"q":"ihr ___","a":"möchtet","hint":"möchten","why":"ihr + möchtet。"},{"q":"sie / Sie ___","a":"möchten","hint":"möchten","why":"sie / Sie 用原形：möchten。"}]},{"id":"v_reg","type":"fill","tag":"18 题","title":"变位 · lernen / sagen / machen（规则动词）","tip":"规则动词 = 词干 + 词尾（-e, -st, -t, -en, -t, -en）。先读整组，再填。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s3#grammar","linkText":"复习：A1 语法 · 动词现在时","items":[{"q":"ich ___ (lernen)","a":"lerne","hint":"lernen","why":"lern- + e → lerne。"},{"q":"du ___ (lernen)","a":"lernst","hint":"lernen","why":"lern- + st → lernst。"},{"q":"er / sie / es ___ (lernen)","a":"lernt","hint":"lernen","why":"lern- + t → lernt。"},{"q":"wir ___ (lernen)","a":"lernen","hint":"lernen","why":"wir 用原形：lernen。"},{"q":"ihr ___ (lernen)","a":"lernt","hint":"lernen","why":"ihr 和 er 一样：lernt。"},{"q":"sie / Sie ___ (lernen)","a":"lernen","hint":"lernen","why":"sie / Sie 用原形：lernen。"},{"q":"ich ___ (sagen)","a":"sage","hint":"sagen","why":"sag- + e → sage。"},{"q":"du ___ (sagen)","a":"sagst","hint":"sagen","why":"sag- + st → sagst。"},{"q":"er / sie / es ___ (sagen)","a":"sagt","hint":"sagen","why":"sag- + t → sagt。"},{"q":"wir ___ (sagen)","a":"sagen","hint":"sagen","why":"wir 用原形：sagen。"},{"q":"ihr ___ (sagen)","a":"sagt","hint":"sagen","why":"ihr 和 er 一样：sagt。"},{"q":"sie / Sie ___ (sagen)","a":"sagen","hint":"sagen","why":"sie / Sie 用原形：sagen。"},{"q":"ich ___ (machen)","a":"mache","hint":"machen","why":"mach- + e → mache。"},{"q":"du ___ (machen)","a":"machst","hint":"machen","why":"mach- + st → machst。"},{"q":"er / sie / es ___ (machen)","a":"macht","hint":"machen","why":"mach- + t → macht。"},{"q":"wir ___ (machen)","a":"machen","hint":"machen","why":"wir 用原形：machen。"},{"q":"ihr ___ (machen)","a":"macht","hint":"machen","why":"ihr 和 er 一样：macht。"},{"q":"sie / Sie ___ (machen)","a":"machen","hint":"machen","why":"sie / Sie 用原形：machen。"}]},{"id":"v_gehen_sprechen","type":"fill","tag":"12 题","title":"变位 · gehen / sprechen","tip":"gehen 是规则动词；sprechen 只有 du 和 er/sie/es 变音：e → i（sprichst / spricht）。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s3#grammar","linkText":"复习：A1 语法 · 动词现在时","items":[{"q":"ich ___ (gehen)","a":"gehe","hint":"gehen","why":"geh- + e → gehe。"},{"q":"du ___ (gehen)","a":"gehst","hint":"gehen","why":"geh- + st → gehst。"},{"q":"er / sie / es ___ (gehen)","a":"geht","hint":"gehen","why":"geh- + t → geht。"},{"q":"wir ___ (gehen)","a":"gehen","hint":"gehen","why":"wir 用原形：gehen。"},{"q":"ihr ___ (gehen)","a":"geht","hint":"gehen","why":"ihr 和 er 一样：geht。"},{"q":"sie / Sie ___ (gehen)","a":"gehen","hint":"gehen","why":"sie / Sie 用原形：gehen。"},{"q":"ich ___ (sprechen)","a":"spreche","hint":"sprechen","why":"sprech- + e → spreche，ich 不变音。"},{"q":"du ___ (sprechen)","a":"sprichst","hint":"sprechen","why":"du 变音：e → i，sprichst。"},{"q":"er / sie / es ___ (sprechen)","a":"spricht","hint":"sprechen","why":"er 也变音：spricht。"},{"q":"wir ___ (sprechen)","a":"sprechen","hint":"sprechen","why":"wir 不变音：sprechen。"},{"q":"ihr ___ (sprechen)","a":"sprecht","hint":"sprechen","why":"ihr 不变音：sprecht。"},{"q":"sie / Sie ___ (sprechen)","a":"sprechen","hint":"sprechen","why":"sie / Sie 用原形：sprechen。"}]},{"id":"v_haben_sein","type":"fill","tag":"12 题","title":"变位 · haben / sein","tip":"这两个最常用：haben（有）和 sein（是）。先读整组三遍，再填。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s4#grammar","linkText":"复习：A1 语法 · sein 和 haben","items":[{"q":"ich ___ (haben)","a":"habe","hint":"haben","why":"ich + haben → habe。"},{"q":"du ___ (haben)","a":"hast","hint":"haben","why":"du + haben → hast。"},{"q":"er / sie / es ___ (haben)","a":"hat","hint":"haben","why":"er + haben → hat。"},{"q":"wir ___ (haben)","a":"haben","hint":"haben","why":"wir 用原形：haben。"},{"q":"ihr ___ (haben)","a":"habt","hint":"haben","why":"ihr + haben → habt。"},{"q":"sie / Sie ___ (haben)","a":"haben","hint":"haben","why":"sie / Sie 用原形：haben。"},{"q":"ich ___ (sein)","a":"bin","hint":"sein","why":"ich + sein → bin。"},{"q":"du ___ (sein)","a":"bist","hint":"sein","why":"du + sein → bist。"},{"q":"er / sie / es ___ (sein)","a":"ist","hint":"sein","why":"er + sein → ist。"},{"q":"wir ___ (sein)","a":"sind","hint":"sein","why":"wir + sein → sind。"},{"q":"ihr ___ (sein)","a":"seid","hint":"sein","why":"ihr + sein → seid，别写成 sind。"},{"q":"sie / Sie ___ (sein)","a":"sind","hint":"sein","why":"sie / Sie 都用 sind。"}]},{"id":"order","type":"order","tag":"6 句","title":"语序 · 点单词排句子","tip":"陈述句：主语第一位，变位动词第二位。排好以后整句读三遍。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s12#grammar","linkText":"复习：A1 语法 · 句子结构","items":[{"words":["Das","ist","ein","Handy."],"hint":"这是一部手机。","why":"Das ist + 单数名词。"},{"words":["Das","ist","kein","Problem."],"hint":"这不是问题。","why":"否定用 kein + 中性名词 Problem。"},{"words":["Er","hat","ein","Auto."],"hint":"他有一辆车。","why":"haben 变位 hat 放第二位。"},{"words":["Ich","komme","aus","Jiangxi."],"hint":"我来自江西。","why":"kommen + aus + 地点。"},{"words":["Sie","lernt","Deutsch."],"hint":"她学德语。","why":"主语 + 变位动词 + 宾语。"},{"words":["Das","sind","keine","Bücher."],"hint":"这些不是书。","why":"复数名词用 sind；否定用 keine。"}]}],"recmodels":["Guten Tag! Ich heiße Anna Kant.","Ich komme aus Jiangxi.","Deutsch ist nicht schwer. Wir lernen jeden Tag zwei Stunden."],"read_total":38,"audio":{"Arbeit":"5b8dd05c2cb3.mp3","Das ist Herr Ma.":"cfa96ea3a9c9.mp3","Das ist ein Handy.":"df0aff4ca3fa.mp3","Das ist ein Problem.":"c1a9cca9ad5c.mp3","Das ist ein Vater.":"5971f710652c.mp3","Das ist eine Lehrerin.":"93bb28098996.mp3","Das ist eine Mutter.":"b5171c73be44.mp3","Das ist kein Lehrer.":"7f055f95ee0f.mp3","Das ist kein Problem.":"1f857bbb884d.mp3","Das ist kein Vater.":"f6a2efc3cc50.mp3","Das ist kein Vater. Das ist eine Mutter.":"fc9f1b842a1d.mp3","Das ist keine Mutter.":"69475e36fa77.mp3","Das sind Hefte.":"aa1c88fa07ef.mp3","Das sind Hefte. Sind das Fahrräder? Nein, das sind keine Fahrräder.":"de550ba2c541.mp3","Das sind keine Bücher.":"f7bd9f061bd4.mp3","Das sind keine Fahrräder.":"2ec3ab56df16.mp3","Das sind keine Hefte.":"fa2cd8346b38.mp3","Das sind zwei Bücher.":"96672b3c8fce.mp3","Deutsch ist für Hong Cai Musik.":"3fef437f5dab.mp3","Deutsch ist nicht schwer.":"7c9147a2b62f.mp3","Deutsch ist nicht schwer. Wir lernen jeden Tag zwei Stunden.":"2a131b1acff9.mp3","Deutsch ist wichtig für meine Arbeit":"67f427f0e115.mp3","Deutsch ist wichtig für meine Arbeit.":"ecda27b68a90.mp3","Deutschland ist unsere neue Heimat.":"4b6782161361.mp3","Die Arslans sagen:":"343befff46b8.mp3","Die Arslans sagen: Deutschland ist unsere neue Heimat.":"985018130aba.mp3","Die Arslans wohnen seit 2009 in Köln.":"e0b2017d5de5.mp3","Die Arslans wohnen seit 2009 in Köln. Sie sprechen Türkisch und Deutsch.":"d8893ea8d848.mp3","Er hat ein Auto.":"94bcf2f6c78b.mp3","Er hat ein Auto. Sie lernt Deutsch.":"131122e68007.mp3","Er ist verheiratet mit Seval.":"69f555117b59.mp3","Er lernt Deutsch":"b4d56804983a.mp3","Er lernt Deutsch an der Volkshochschule in Köln.":"7dca4459d3a1.mp3","Er lernt Deutsch.":"027061521aad.mp3","Gitarre":"ced3c07f7657.mp3","Guten Tag! Ich heiße Anna Kant.":"190c2c9b7f97.mp3","Heimat":"1f493dfce367.mp3","Hobby":"48859a31b96b.mp3","Hong Cai ist Studentin.":"e185ab10ee21.mp3","Ich bin Lehrer.":"d866eb0fdca1.mp3","Ich bin Lehrer. Ich bin der Lehrer.":"6bd816fd5f3c.mp3","Ich bin der Lehrer.":"2342c7770d4e.mp3","Ich heiße Anna Kant.":"ece40d2def45.mp3","Ich heiße Anna Kant. Ich komme aus Berlin und wohne jetzt in Berlin.":"bbb92d3ac152.mp3","Ich komme aus Berlin":"7fd299e4d9db.mp3","Ich komme aus Jiangxi.":"516ce2d1187c.mp3","Ich liebe Beethoven und Schubert.":"d9fdac4413ff.mp3","Ich möchte einen Kaffee":"f92dd7d589b5.mp3","Ich möchte einen Kaffee mit Zucker.":"6ab15f44116d.mp3","Ich trinke Kaffee.":"eeaa6996e9a0.mp3","Ihre Freundin Jin studiert Englisch.":"6b9171c8bd6a.mp3","Ihre Hobbys sind Musik und Sport.":"9bae24701c24.mp3","Ist das ein Handy?":"ca45072b811c.mp3","Ist das ein Handy? Ja, das ist ein Handy.":"50ec76c301e2.mp3","Ja, das ist ein Handy.":"e863d5a75046.mp3","Luisa ist 12":"63d4640788cb.mp3","Luisa ist 12 und geht in das Colégio Visconde in Porto Seguro.":"90e0f5d0a970.mp3","Nein,":"2dfac8443c00.mp3","Nein, das ist kein Handy, das ist ein iPod.":"16db0483adf2.mp3","Nein, das sind keine Fahrräder.":"8a109430bdab.mp3","Seval arbeitet bei der Telekom.":"f15b86372d03.mp3","Sie arbeitet bei BASF.":"dd6b02ae9ebc.mp3","Sie haben zwei Kinder,":"e231d2c3be22.mp3","Sie haben zwei Kinder, Yasemin und Volkan.":"e00ef8e06a27.mp3","Sie ist 21":"a9e0dea89bc3.mp3","Sie ist 21 und möchte in Deutschland Biologie oder Chemie studieren.":"ec26c799227a.mp3","Sie ist Lehrerin.":"a6609e906f68.mp3","Sie ist Lehrerin. Das ist Herr Ma. Er lernt Deutsch.":"98f812fb39c8.mp3","Sie lebt allein":"3b7ecb8bffb2.mp3","Sie lebt allein und hat ein Kind.":"1886a4ed6867.mp3","Sie lebt in Shanghai":"5c58fe06f1fd.mp3","Sie lebt in Shanghai und studiert an der Tongji Universität.":"2a61e2a76f58.mp3","Sie lernt Deutsch":"bb70f6719594.mp3","Sie lernt Deutsch im Goethe-Institut, im A1-Kurs.":"2808a299019b.mp3","Sie lernt Deutsch.":"3edd36de36d3.mp3","Sie möchte Deutsch lernen.":"262ed8c32d72.mp3","Sie möchte nach Kanada.":"1c5ec1b7ebb9.mp3","Sie sagt:":"9c5f03a67156.mp3","Sie sagt: Deutsch ist wichtig für meine Arbeit und die Kurse im Goethe-Institut machen Spaß.":"1c5a638508c3.mp3","Sie sagt: Ich liebe Beethoven und Schubert.":"1c518c545976.mp3","Sie spielt Gitarre.":"d43c5a9ca7fd.mp3","Sie sprechen Türkisch und Deutsch.":"b801c732faed.mp3","Sind das Fahrräder?":"f35032d5c809.mp3","Sind das keine Bücher?":"ba4914d20be1.mp3","Spaß":"9b26bbdb5f3b.mp3","Studentin":"81ec9fb11bce.mp3","Vedat Arslan kommt aus der Türkei,":"92888c372ba9.mp3","Vedat Arslan kommt aus der Türkei, aus Erzurum.":"831c6908245c.mp3","Vedat hat im Moment keine Arbeit.":"1c5cb1deac36.mp3","Wir lernen jeden Tag":"57a28f03a76f.mp3","Wir lernen jeden Tag zwei Stunden.":"3eeec7443433.mp3","Yasemin und Volkan lernen Englisch":"5362e66b9975.mp3","Yasemin und Volkan lernen Englisch in der Schule.":"6fafb6324620.mp3","Yasemin und Volkan.":"2017720dd9f1.mp3","Zaira Franca lebt in São Paulo.":"ef05d0b72995.mp3","Zaira möchte Deutsch lernen.":"b1e821edc2c0.mp3","Zaira möchte Deutsch lernen. Sie sagt: Deutsch ist wichtig für meine Arbeit.":"e6aa31073b2b.mp3","acht":"a673c13c9670.mp3","achtundachtzig":"eafb6004ea61.mp3","achtzehn":"f5c64c5b3745.mp3","achtzig":"0b2656025023.mp3","allein":"dc56aa1f450d.mp3","an der Volkshochschule in Köln.":"dcc4ef72c750.mp3","arbeiten":"a4d48f1fb2cb.mp3","aus Erzurum.":"be85f0f04fea.mp3","das Buch":"08ebc48d5279.mp3","das Buch → die Bücher":"509d33b41022.mp3","das Handy":"c7ddac2473b1.mp3","das Handy → die Handys":"76893ebd1888.mp3","das Kind":"c4d762fc70f9.mp3","das Kind → die Kinder":"afdce331ea82.mp3","das Problem":"bf057418e133.mp3","das Problem → die Probleme":"7fb059d87f1a.mp3","das ist ein iPod.":"7e307c4d067d.mp3","das ist kein Handy,":"d79b94843257.mp3","der Kaffee":"97aa100d293b.mp3","der Lehrer":"c33adad85352.mp3","der Lehrer → die Lehrer":"7cd52d50f76c.mp3","der Mann":"31a15affc3ee.mp3","der Mann → die Männer":"02e9e0f3b1a4.mp3","der Tisch":"2715b44ea5b3.mp3","der Tisch → die Tische":"8b9c8da24f5b.mp3","der Vater":"1fea34e177ab.mp3","der Vater → die Väter":"06c94320db54.mp3","die Frau":"8d187e194aec.mp3","die Frau → die Frauen":"7b326bc100af.mp3","die Lehrerin → die Lehrerinnen":"f114eee5e43d.mp3","die Mutter":"5f17c0b2968f.mp3","die Mutter → die Mütter":"ffd37393325f.mp3","die Tasche":"867f02b2644a.mp3","die Tasche → die Taschen":"4ee7b3517ad1.mp3","drei":"7782517f7a79.mp3","dreizehn":"420e1402ace5.mp3","dreißig":"33e73143bf40.mp3","du arbeitest":"d90e2ea663c9.mp3","du bist":"4c1565f04777.mp3","du gehst":"4cb4ea0d1992.mp3","du hast":"0c030919e957.mp3","du lernst":"a9b617d7f30c.mp3","du machst":"d533b281cda4.mp3","du möchtest":"40e024177650.mp3","du sagst":"6697926438db.mp3","du sprichst":"579b96678418.mp3","eins":"d79914a27101.mp3","einunddreißig":"7ebf1ceb125f.mp3","einundzwanzig":"068ad393cdda.mp3","elf":"0761330c0681.mp3","er / sie / es arbeitet":"c83e7dcad038.mp3","er / sie / es geht":"99ad7e688311.mp3","er / sie / es hat":"8170e4068332.mp3","er / sie / es ist":"e148f701c71a.mp3","er / sie / es lernt":"26dc950695d4.mp3","er / sie / es macht":"0a7b1f2a94fa.mp3","er / sie / es möchte":"34c4459127f6.mp3","er / sie / es sagt":"04345f0838ea.mp3","er / sie / es spricht":"6da71c880b18.mp3","fünf":"5b3d49a2cd1e.mp3","fünfzehn":"536b7745d18d.mp3","fünfzig":"fcd181affe15.mp3","hundert":"21fdc3f8d358.mp3","hundertdreiundzwanzig":"f21a9dd01961.mp3","ich arbeite":"c9180089dea1.mp3","ich bin":"f2cdd3d4cdc2.mp3","ich gehe":"c98cff87e1f5.mp3","ich habe":"f3fccf259fc3.mp3","ich lerne":"7753e3aa81ac.mp3","ich mache":"abc722dfc2a3.mp3","ich möchte":"43e73b172d3c.mp3","ich sage":"5301beb888a7.mp3","ich spreche":"6ad41a4a3b8d.mp3","ihr arbeitet":"b95cdc0372ff.mp3","ihr geht":"d9f553b78c65.mp3","ihr habt":"8566c832b5c3.mp3","ihr lernt":"a2601817f49a.mp3","ihr macht":"dea0c42a521c.mp3","ihr möchtet":"92c9441ce597.mp3","ihr sagt":"f2877b872b3e.mp3","ihr seid":"83615abbad84.mp3","ihr sprecht":"65979df3b8d8.mp3","im A1-Kurs.":"71d7e55c6aff.mp3","im Goethe-Institut,":"b5d9df7f7271.mp3","in Porto Seguro.":"d2d7e8e2d172.mp3","in der Schule.":"df2d4bc38ec3.mp3","leben":"572201efbee2.mp3","lieben":"5b196d7fd908.mp3","mit Zucker.":"c692a941500d.mp3","neun":"dab3bab179ec.mp3","neunundneunzig":"f11c6d5af4bc.mp3","neunundzwanzig":"5969019a8da4.mp3","neunzehn":"ec3f20d60dcb.mp3","neunzig":"7f4f9004e3cf.mp3","null":"2be88ca4242c.mp3","sechs":"4dea3e5f654b.mp3","sechshundertachtundsiebzig":"aee6e7583965.mp3","sechsundfünfzig":"7e8d7fc82e50.mp3","sechzehn":"0dca419bd185.mp3","sechzig":"05b42623c779.mp3","seit":"af1b4714651b.mp3","sie / Sie arbeiten":"bf44f6802707.mp3","sie / Sie gehen":"c1cc1197e540.mp3","sie / Sie haben":"19153bbe034f.mp3","sie / Sie lernen":"c7cae3fd9c5b.mp3","sie / Sie machen":"313c11c4250a.mp3","sie / Sie möchten":"058aa267153c.mp3","sie / Sie sagen":"6c1e66d450e0.mp3","sie / Sie sind":"4d6664b25ec3.mp3","sie / Sie sprechen":"e5f5ae863d62.mp3","sieben":"7f3e71cc099e.mp3","siebenunddreißig":"d06a17738343.mp3","siebenundsechzig":"af3499f894ad.mp3","siebzehn":"7ad6a607cf15.mp3","siebzig":"f54a714b494b.mp3","sprechen":"6f43892e78f0.mp3","studieren":"c430fdf421c0.mp3","tausend":"9a8a3441fc6b.mp3","und die Kurse im Goethe-Institut machen Spaß.":"46a9d1c291fd.mp3","und geht in das Colégio Visconde":"522ae67732b5.mp3","und hat ein Kind.":"18d5ce05dad6.mp3","und möchte in Deutschland Biologie oder Chemie studieren.":"c70d28e481bd.mp3","und studiert an der Tongji Universität.":"a7ca87d094c5.mp3","und wohne jetzt in Berlin.":"9c299024a76b.mp3","verheiratet":"88396723ffef.mp3","vier":"76549157ec67.mp3","vierundvierzig":"46b334045d7d.mp3","vierzehn":"ada1e0e0aefa.mp3","vierzig":"03e3417ddc18.mp3","wichtig":"d6e6b4a2a3e9.mp3","wir arbeiten":"65023e679056.mp3","wir gehen":"2e73b481b3ca.mp3","wir haben":"87f535ad2ef9.mp3","wir lernen":"a2210727d5e1.mp3","wir machen":"951f3ef499e6.mp3","wir möchten":"5fc8d846124f.mp3","wir sagen":"f8443a37f92f.mp3","wir sind":"7d431b75aecc.mp3","wir sprechen":"2dd08a82868d.mp3","zehn":"b884c2537d55.mp3","zwanzig":"1b3d70eda83d.mp3","zwei":"89f7b2e913c4.mp3","zwei Stunden.":"5ed1e791184d.mp3","zweihundertvierunddreißig":"389ab0fa5f1f.mp3","zweitausenddreihundertfünfundvierzig":"978316fc062e.mp3","zwölf":"873ef02fbb67.mp3"}};
+var PASS_HASH = 'fc1e4ec93c5818727b0ebdcabe7d7ae673ccbd78690a624767780e87f23586f4';
+var KEY = 'stu_unlock_liaoxin';
+var SAVE = 'liaoxin1112_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), i, j, result = '', words = [];
+  var asciiBitLength = ascii.length * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k.length, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii.length % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii.length; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = ((asciiBitLength / maxWord) | 0);
+  words[words.length] = (asciiBitLength);
+  for (j = 0; j < words.length;){
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7] + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6])) + k[i]
+        + (w[i] = (i < 16) ? w[i] : (w[i - 16] + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+          + w[i - 7] + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+['cb','listen','stress','sent','read','gramsolved','gramans'].forEach(function(k){ state[k] = state[k] || (k === 'gramans' ? {} : {}); });
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+var curAudio = null;
+function speak(text){
+  if (!text) return;
+  if (curAudio){ try { curAudio.pause(); } catch(e){} curAudio = null; }
+  var f = (DATA.audio || {})[text];
+  if (f){
+    try {
+      curAudio = new Audio('audio/liaoxin-1112/' + f);
+      var p = curAudio.play();
+      if (p && p.catch) p.catch(function(){ curAudio = null; speakTTS(text); });
+      return;
+    } catch(e){}
+  }
+  speakTTS(text);
+}
+function speakTTS(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    var synth = window.speechSynthesis;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .82; u.volume = 1;
+    var vs = synth.getVoices() || [];
+    for (var i = 0; i < vs.length; i++){
+      if (/^de([-_]|$)/i.test(vs[i].lang) || /german|deutsch/i.test(vs[i].name)){ u.voice = vs[i]; break; }
+    }
+    setTimeout(function(){ synth.speak(u); }, 60);
+  } catch(e){}
+}
+function speakSeq(list){
+  var i = 0;
+  function step(){
+    if (i >= list.length) return;
+    var t = list[i++];
+    var f = (DATA.audio || {})[t];
+    if (!f){ speakTTS(t); setTimeout(step, 950); return; }
+    try {
+      var a = new Audio('audio/liaoxin-1112/' + f);
+      a.onended = function(){ setTimeout(step, 280); };
+      a.play().catch(function(){ speakTTS(t); setTimeout(step, 950); });
+    } catch(e){ speakTTS(t); setTimeout(step, 950); }
+  }
+  step();
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+function fullText(q, a){
+  return String(q).replace(/\s*（[^）]*）\s*$/, '').replace(/\s*\([^)]*\)\s*$/, '').replace('___', a);
+}
+
+/* 清单 */
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+  updateProgress();
+}
+function updateProgress(){
+  var n = Object.keys(state.cb).filter(function(k){ return state.cb[k]; }).length;
+  var tot = DATA.checklist.length;
+  document.getElementById('pct').textContent = '今天的任务 ' + n + ' / ' + tot;
+  document.getElementById('pbar').style.width = (tot ? n / tot * 100 : 0) + '%';
+}
+
+/* 句重音 */
+function renderSentStress(){
+  document.getElementById('sentstress').innerHTML = DATA.sentstress.map(function(s, i){
+    var done = !!state.sent[i];
+    return '<div class="sentcard' + (done ? ' ok' : '') + '" data-i="' + i + '">'
+      + '<div class="swords">' + s.words.map(function(w, k){
+          return '<button class="sword' + (done && k === s.stress ? ' hit' : '') + '" data-i="' + i + '" data-k="' + k + '">' + esc(w) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="rbar"><button class="mini" data-say="' + esc(s.de) + '">整句 🔊</button>'
+      + '<span class="sentzh">' + esc(s.zh) + '</span></div>'
+      + '<div class="sentwhy">' + esc(s.why) + '</div></div>';
+  }).join('');
+}
+
+/* 断句卡 */
+function readCard(id, chunks, zh, note, extra){
+  var done = !!state.read[id];
+  return '<div class="rcard" data-rid="' + esc(id) + '">' + (extra || '')
+    + '<div class="rchunks">' + chunks.map(function(c){
+        return '<span class="rchunk" data-say="' + esc(c) + '" title="点这一块听">' + esc(c) + '</span>';
+      }).join('<span style="color:rgba(246,211,101,.55);padding:0 4px">│</span>') + '</div>'
+    + '<div class="rbar"><button class="mini" data-say="' + esc(chunks.join(' ')) + '">整句 🔊</button>'
+    + '<button class="mini" data-seq-join="' + esc(id) + '">按块读</button>'
+    + (zh ? '<button class="mini" data-zh="' + esc(id) + '">看中文</button>' : '')
+    + '<label class="rdone"><input type="checkbox" data-rd="' + esc(id) + '"' + (done ? ' checked' : '') + '> 读了三遍</label></div>'
+    + (zh ? '<div class="rzh" id="zh-' + esc(id) + '">' + esc(zh) + '</div>' : '')
+    + (note ? '<div class="rnote">' + esc(note) + '</div>' : '')
+    + '</div>';
+}
+function renderChunks(){
+  document.getElementById('chunks').innerHTML = DATA.chunks.map(function(c, i){
+    return readCard('c' + i, c.chunks, c.zh, c.note);
+  }).join('');
+}
+function renderTexts(){
+  document.getElementById('texts').innerHTML = DATA.texts.map(function(t, ti){
+    var lines = t.lines.map(function(ln, li){
+      return readCard('t' + ti + '-' + li, ln.chunks, ln.zh, '');
+    }).join('');
+    var vocab = '<div class="vocab">' + t.vocab.map(function(v){
+      return '<button data-say="' + esc(v[0]) + '">' + esc(v[0]) + ' ' + esc(v[1]) + ' 🔊</button>';
+    }).join('') + '</div>';
+    return '<div class="card textcard"><h3>' + esc(t.title) + ' <span style="font-size:.68rem;color:var(--muted);font-weight:500">' + esc(t.src) + '</span></h3>' + vocab + lines + '</div>';
+  }).join('');
+}
+
+/* 数字 */
+function renderNumbers(){
+  function grid(arr, el){
+    document.getElementById(el).innerHTML = arr.map(function(n){
+      return '<button class="nbtn" data-say="' + esc(n[1]) + '"><b>' + esc(n[0]) + '</b><span>' + esc(n[1]) + '</span></button>';
+    }).join('');
+  }
+  grid(DATA.numbers.small, 'numSmall');
+  grid(DATA.numbers.mix, 'numMix');
+  document.getElementById('numPractice').innerHTML = DATA.numbers.practice.map(function(n, i){
+    return '<div class="np" id="np-' + i + '"><b>' + esc(n[0]) + '</b><span class="ans">' + esc(n[1]) + '</span>'
+      + '<button class="mini" data-np="' + i + '">对答案</button></div>';
+  }).join('');
+}
+
+/* 语法练习 */
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var v = (state.gramans[ex.id] && state.gramans[ex.id][i]) || '';
+    var parts = it.q.split('___');
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false">'
+      + esc(parts[1] || '')
+      + (it.hint && it.q.indexOf('(') < 0 ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + '<button class="spk" data-say="' + esc(fullText(it.q, it.a)) + '">🔊</button>'
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.gramans[ex.id] && state.gramans[ex.id][i];
+    var parts = it.q.split('___');
+    var qhtml = parts.length > 1 ? esc(parts[0]) + '<b style="color:var(--gold)">___</b>' + esc(parts.slice(1).join('___')) : esc(it.q);
+    return '<div class="item" data-i="' + i + '"><div class="q">' + qhtml
+      + '<button class="spk" data-say="' + esc(fullText(it.q, it.a)) + '">🔊</button></div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button class="opt" data-ex="' + ex.id + '" data-i="' + i + '" data-o="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderOrder(ex){
+  var ans = state.gramans[ex.id] || {};
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var chosen = ans[i] || [];
+    var pool = it.words.map(function(w, k){ return k; }).filter(function(k){ return chosen.indexOf(k) < 0; });
+    var done = chosen.length === it.words.length;
+    var good = done && chosen.every(function(k, pos){ return it.words[k] === it.words[pos]; });
+    var ansHTML = it.words.map(function(w, pos){
+      var k = chosen[pos];
+      return '<span class="ord-slot' + (k != null ? ' filled' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-pos="' + pos + '">' + (k != null ? esc(it.words[k]) : '·') + '</span>';
+    }).join('');
+    return '<div class="item' + (good ? ' ok' : (done ? ' bad' : '')) + '" data-i="' + i + '">'
+      + '<div class="q">' + esc(it.hint) + ' <button class="spk" data-say="' + esc(it.words.join(' ')) + '">🔊</button></div>'
+      + '<div class="ord-ans">' + ansHTML + '</div>'
+      + '<div class="ord-pool">' + pool.map(function(k){
+          return '<button class="ord-chip" data-ex="' + ex.id + '" data-i="' + i + '" data-k="' + k + '">' + esc(it.words[k]) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why' + (good ? ' show' : '') + '" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(function(ex, idx){
+    var body = ex.type === 'fill' ? renderFill(ex) : ex.type === 'choice' ? renderChoice(ex) : renderOrder(ex);
+    return '<section class="ex" id="ex-' + ex.id + '">'
+      + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+      + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+      + (ex.link ? '<a class="ex-link" href="' + esc(ex.link) + '">' + esc(ex.linkText) + '</a>' : '')
+      + body
+      + '<div class="ex-foot">'
+      + (ex.type === 'order' ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>')
+      + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+      + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+      + '<span class="score" id="score-' + ex.id + '"></span></div></section>';
+  }).join('');
+  DATA.exercises.forEach(function(ex){ updateScore(ex, state.gramsolved[ex.id]); });
+}
+function updateScore(ex, good){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var n = good == null ? 0 : good;
+  var tot = ex.items.length;
+  el.innerHTML = '已对 <b>' + n + '</b> / ' + tot;
+  el.className = 'score' + (n === tot ? ' all' : '');
+}
+function checkGroup(ex, silent){
+  var good = 0;
+  var sec = document.getElementById('ex-' + ex.id);
+  ex.items.forEach(function(it, i){
+    var itemEl = sec.querySelector('.item[data-i="' + i + '"]');
+    var whyEl = sec.querySelector('.why[data-why="' + i + '"]');
+    var ok = false;
+    if (ex.type === 'fill'){
+      var inp = itemEl.querySelector('.blank');
+      ok = isCorrect(it, inp.value);
+      inp.classList.remove('ok','bad');
+      inp.classList.add(ok ? 'ok' : 'bad');
+    } else if (ex.type === 'choice'){
+      var val = state.gramans[ex.id] && state.gramans[ex.id][i];
+      ok = val === it.a;
+      itemEl.querySelectorAll('.opt').forEach(function(b){
+        b.classList.remove('sel','ok','bad');
+        if (b.dataset.o === it.a) b.classList.add('ok');
+        if (b.dataset.o === val && val !== it.a) b.classList.add('bad');
+      });
+    } else {
+      var chosen = (state.gramans[ex.id] || {})[i] || [];
+      ok = chosen.length === it.words.length && chosen.every(function(k, pos){ return it.words[k] === it.words[pos]; });
+      itemEl.classList.remove('ok','bad');
+      itemEl.classList.add(ok ? 'ok' : 'bad');
+    }
+    if (whyEl){
+      whyEl.classList.remove('show','bad');
+      if (!ok) whyEl.classList.add('show','bad');
+    }
+    if (itemEl) itemEl.classList.remove('ok','bad'), itemEl.classList.add(ok ? 'ok' : 'bad');
+    if (ok) good++;
+  });
+  state.gramsolved[ex.id] = good;
+  save();
+  updateScore(ex, good);
+}
+function revealGroup(ex){
+  var sec = document.getElementById('ex-' + ex.id);
+  ex.items.forEach(function(it, i){
+    var itemEl = sec.querySelector('.item[data-i="' + i + '"]');
+    var whyEl = sec.querySelector('.why[data-why="' + i + '"]');
+    if (ex.type === 'fill'){
+      var inp = itemEl.querySelector('.blank');
+      inp.value = it.a;
+    } else if (ex.type === 'choice'){
+      state.gramans[ex.id] = state.gramans[ex.id] || {};
+      state.gramans[ex.id][i] = it.a;
+      itemEl.querySelectorAll('.opt').forEach(function(b){
+        b.classList.remove('sel','ok','bad');
+        if (b.dataset.o === it.a) b.classList.add('ok');
+      });
+    } else {
+      state.gramans[ex.id] = state.gramans[ex.id] || {};
+      state.gramans[ex.id][i] = it.words.map(function(_, k){ return k; });
+      renderExercises();
+    }
+    if (whyEl) whyEl.classList.add('show');
+  });
+  save();
+}
+function redoGroup(ex){
+  delete state.gramsolved[ex.id];
+  delete state.gramans[ex.id];
+  save();
+  renderExercises();
+}
+
+/* 录音 */
+var mediaRec = null, recChunks = [], recUrl = null;
+function recSetup(){
+  document.getElementById('recmodels').innerHTML = DATA.recmodels.map(function(s){
+    return '<button class="mini" data-say="' + esc(s) + '">🔊 ' + esc(s) + '</button>';
+  }).join('');
+}
+function recMsg(t, bad){
+  var el = document.getElementById('recMsg');
+  el.className = 'rec-msg' + (bad ? ' bad' : '');
+  el.innerHTML = (bad ? '' : '<span class="rec-dot"></span> ') + esc(t);
+}
+function recToggle(){
+  var btn = document.getElementById('recBtn');
+  if (mediaRec && mediaRec.state === 'recording'){
+    mediaRec.stop();
+    return;
+  }
+  if (!navigator.mediaDevices || !window.MediaRecorder){
+    recMsg('这个浏览器不支持录音。用 Safari / Chrome 打开，并且需要 https 或本地文件。', true);
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
+    recChunks = [];
+    mediaRec = new MediaRecorder(stream);
+    mediaRec.ondataavailable = function(e){ if (e.data.size) recChunks.push(e.data); };
+    mediaRec.onstop = function(){
+      stream.getTracks().forEach(function(t){ t.stop(); });
+      var blob = new Blob(recChunks, {type: recChunks[0] ? recChunks[0].type : 'audio/webm'});
+      if (recUrl) URL.revokeObjectURL(recUrl);
+      recUrl = URL.createObjectURL(blob);
+      var p = document.getElementById('playRec');
+      p.disabled = false;
+      btn.textContent = '● 开始录音';
+      recMsg('录好了，点「回放我的录音」听一听。');
+    };
+    mediaRec.start();
+    btn.textContent = '■ 停止录音';
+    recMsg('正在录音……读一句完整的话，读完点「停止录音」。');
+  }).catch(function(){
+    recMsg('没有拿到麦克风权限。用 Safari / Chrome 打开，允许麦克风；微信内置浏览器不支持。', true);
+  });
+}
+
+/* 事件委托 */
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-say],[data-s],.syl,.sword,.lopt,.play,.opt,.ord-chip,.ord-slot,[data-seq],[data-mini],[data-zh],[data-np],[data-act],[data-seq-join]');
+  if (!t) return;
+
+  if (t.dataset.say){ speak(t.dataset.say); return; }
+
+  if (t.classList.contains('play')){
+    var i = +t.dataset.l;
+    speak(DATA.listen[i].a);
+    return;
+  }
+  if (t.classList.contains('lopt')){
+    var li = +t.dataset.i, lo = t.dataset.o, lit = DATA.listen[li];
+    if (lo === lit.a){
+      state.listen[li] = 1; save();
+      t.classList.add('ok');
+      var why = t.closest('.litem').querySelector('.lwhy');
+      if (why) why.classList.add('show');
+    } else {
+      t.classList.add('bad');
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.classList.contains('syl')){
+    var si = +t.dataset.i, sk = +t.dataset.k, sw = DATA.stress[si];
+    if (state.stress[si]) return;
+    if (sk === sw.stress){
+      state.stress[si] = 1; save();
+      t.classList.add('hit');
+      t.closest('.scard').classList.add('ok');
+      t.closest('.scard').querySelector('.snote').textContent = sw.note;
+      speak(sw.w);
+    } else {
+      t.classList.add('bad');
+      speak(sw.syl[sk]);
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.dataset.seq){
+    var sq = DATA.stress[+t.dataset.seq];
+    speakSeq(sq.syl);
+    return;
+  }
+  if (t.classList.contains('sword')){
+    var qi = +t.dataset.i, qk = +t.dataset.k, ss = DATA.sentstress[qi];
+    if (state.sent[qi]) return;
+    if (qk === ss.stress){
+      state.sent[qi] = 1; save();
+      t.classList.add('hit');
+      t.closest('.sentcard').classList.add('ok');
+      speak(ss.de);
+    } else {
+      t.classList.add('bad');
+      speak(ss.words[qk]);
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.dataset.zh){
+    var box = document.getElementById('zh-' + t.dataset.zh);
+    if (box){ box.classList.toggle('show'); }
+    return;
+  }
+  if (t.dataset.seqJoin){
+    var id = t.dataset.seqJoin;
+    var card = t.closest('.rcard');
+    var chunks = Array.prototype.map.call(card.querySelectorAll('.rchunk'), function(x){ return x.textContent; });
+    speakSeq(chunks);
+    return;
+  }
+  if (t.dataset.np){
+    var np = document.getElementById('np-' + t.dataset.np);
+    np.classList.toggle('show');
+    return;
+  }
+  if (t.classList.contains('opt')){
+    var oex = t.dataset.ex, oi = +t.dataset.i;
+    state.gramans[oex] = state.gramans[oex] || {};
+    state.gramans[oex][oi] = t.dataset.o;
+    save();
+    t.closest('.opts').querySelectorAll('.opt').forEach(function(b){ b.classList.remove('sel'); });
+    t.classList.add('sel');
+    return;
+  }
+  if (t.classList.contains('ord-chip')){
+    var dexx = t.dataset.ex, di = +t.dataset.i, dk = +t.dataset.k;
+    state.gramans[dexx] = state.gramans[dexx] || {};
+    state.gramans[dexx][di] = state.gramans[dexx][di] || [];
+    state.gramans[dexx][di].push(dk);
+    save();
+    var exo = DATA.exercises.find(function(x){ return x.id === dexx; });
+    var itx = exo.items[di], ch = state.gramans[dexx][di];
+    if (ch.length === itx.words.length){
+      var okk = ch.every(function(k, p){ return itx.words[k] === itx.words[p]; });
+      if (okk){
+        speak(itx.words.join(' '));
+      } else {
+        setTimeout(function(){ state.gramans[dexx][di] = []; save(); renderExercises(); }, 900);
+      }
+    }
+    var goodCount = 0;
+    exo.items.forEach(function(itm, ii){
+      var cc = (state.gramans[dexx] || {})[ii] || [];
+      if (cc.length === itm.words.length && cc.every(function(k, p){ return itm.words[k] === itm.words[p]; })) goodCount++;
+    });
+    state.gramsolved[dexx] = goodCount; save();
+    renderExercises();
+    return;
+  }
+  if (t.classList.contains('ord-slot') && t.classList.contains('filled')){
+    var sex = t.dataset.ex, si2 = +t.dataset.i, spos = +t.dataset.pos;
+    if (state.gramans[sex] && state.gramans[sex][si2]){
+      state.gramans[sex][si2].splice(spos, 1);
+      save();
+      renderExercises();
+    }
+    return;
+  }
+  if (t.dataset.act){
+    var aex = DATA.exercises.find(function(x){ return x.id === t.dataset.ex; });
+    if (t.dataset.act === 'check') checkGroup(aex);
+    else if (t.dataset.act === 'reveal') revealGroup(aex);
+    else if (t.dataset.act === 'redo') redoGroup(aex);
+    return;
+  }
+});
+
+document.addEventListener('change', function(e){
+  if (e.target.dataset.ci != null){
+    state.cb[e.target.dataset.ci] = e.target.checked; save();
+    e.target.closest('label').classList.toggle('done', e.target.checked);
+    updateProgress();
+  }
+  if (e.target.dataset.rd != null){
+    state.read[e.target.dataset.rd] = e.target.checked; save();
+  }
+});
+document.addEventListener('input', function(e){
+  if (e.target.classList.contains('blank')){
+    state.gramans[e.target.dataset.ex] = state.gramans[e.target.dataset.ex] || {};
+    state.gramans[e.target.dataset.ex][e.target.dataset.i] = e.target.value;
+    save();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderChecklist();
+  renderSentStress();
+  renderChunks();
+  renderTexts();
+  renderNumbers();
+  renderExercises();
+  recSetup();
+  document.getElementById('chip-count').textContent =
+    DATA.exercises.reduce(function(n, x){ return n + x.items.length; }, 0) + ' 道语法题 · ' + DATA.read_total + ' 处朗读';
+  DATA.exercises.forEach(function(ex){ if (state.gramsolved[ex.id] != null) checkGroup(ex, true); });
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+document.getElementById('recBtn').addEventListener('click', recToggle);
+document.getElementById('playRec').addEventListener('click', function(){
+  if (!recUrl) return;
+  var a = new Audio(recUrl); a.play();
+});
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
