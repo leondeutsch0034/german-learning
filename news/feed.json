@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 48,
+   "title": "科隆狂欢节开锣：手语翻译站上舞台",
+   "de_title": "Karneval in Köln beginnt – Lieder werden in Gebärdensprache übersetzt",
+   "hook": "11·11|科隆开锣|手语也上场",
+   "sub": "听障观众免费 · 高潮在 2 月 8 日",
+   "date": "2026-11-11",
+   "photo": "news/og/src/48.jpg",
+   "de_hook": "Wie singt man|Karnevalslieder|ohne Stimme?",
+   "zh_intro": "11 月 11 日 11 点 11 分，莱茵兰的狂欢节正式开锣。科隆街头数万人穿上扮装，乐队在舞台上开唱；这一次，手语翻译也站上了舞台，把歌词同步「唱」成手语。听障观众免费进场，和所有人一起过节。",
+   "words": [
+    [
+     "der Karneval",
+     "狂欢节"
+    ],
+    [
+     "die Session",
+     "狂欢季"
+    ],
+    [
+     "das Kostüm / die Kostüme",
+     "扮装、戏服"
+    ]
+   ]
+  },
+  {
    "id": 47,
    "title": "德国大公司董事会：女性人数创纪录，首次超过 100",
    "de_title": "So viele Frauen in Vorständen wie noch nie: erstmals über 100",
@@ -173,31 +198,6 @@
     [
      "die Kundgebung",
      "集会"
-    ]
-   ]
-  },
-  {
-   "id": 40,
-   "title": "欧盟加收包裹费：一个箱子按类别收，不按件",
-   "de_title": "EU: 2 Euro Bearbeitungsgebühr pro Warenkategorie für Pakete aus Drittstaaten",
-   "hook": "跨境包裹|每类加 2 欧",
-   "sub": "欧盟 11 月起执行 · 另加 3 欧固定关税",
-   "date": "2026-11-01",
-   "photo": "news/og/src/40.jpg",
-   "de_hook": "2 Euro pro Kategorie –|lohnt sich|Shein noch?",
-   "zh_intro": "11 月 1 日起，欧盟对来自非欧盟国家的网购包裹加收每类商品 2 欧元的处理费，不论包裹价值多少，也不论对方国家有没有自贸协定。此前 7 月已有一笔每类至少 3 欧元的固定关税，两项相加，每类商品至少贵 5 欧元。收费对象是商家和平台，但成本大概率会进到售价里。",
-   "words": [
-    [
-     "die Gebühr / die Bearbeitungsgebühr",
-     "费用 / 处理费"
-    ],
-    [
-     "das Paket / die Sendung",
-     "包裹 / 寄件"
-    ],
-    [
-     "der Zoll",
-     "海关；关税"
     ]
    ]
   }
