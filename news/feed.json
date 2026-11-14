@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 49,
+   "title": "德国 2027 预算：花 5600 亿，每三块里有一块是借的",
+   "de_title": "Bundeshaushalt 2027: Rekordausgaben von 560,9 Milliarden Euro",
+   "hook": "5600 亿预算|三块里一块是借的",
+   "sub": "2027 联邦预算：支出创纪录，新增债务超 2000 亿欧元",
+   "date": "2026-11-13",
+   "photo": "news/og/src/49.jpg",
+   "de_hook": "560 Milliarden –|und jeder dritte|Euro geliehen?",
+   "zh_intro": "德国联邦议院预算委员会经过十几个小时的马拉松式会议，通过了 2027 年联邦预算：支出约 5609 亿欧元，是德国历史上最高的一年，比政府最初的草案还多 55 亿。钱不够的部分靠借：核心预算新增借款约 1230 亿，加上基础设施和联邦国防军两项特别基金，新增债务合计超过 2000 亿欧元——也就是说，预算里大约每三欧元就有一欧元是借来的。争议还在：计划中的电力税减免还没找到钱，全院最终表决定在 11 月 24 到 27 日那一周。",
+   "words": [
+    [
+     "der Haushalt, -e",
+     "预算"
+    ],
+    [
+     "der Etat, -s",
+     "预算（同 Haushalt）"
+    ],
+    [
+     "die Ausgaben",
+     "支出"
+    ]
+   ]
+  },
+  {
    "id": 48,
    "title": "科隆狂欢节开锣：手语翻译站上舞台",
    "de_title": "Karneval in Köln beginnt – Lieder werden in Gebärdensprache übersetzt",
@@ -173,31 +198,6 @@
     [
      "die Kühlanlage, -n",
      "冷柜设备、制冷装置"
-    ]
-   ]
-  },
-  {
-   "id": 41,
-   "title": "法兰克福骚乱：54 人被捕，官方为什么不报国籍？",
-   "de_title": "Krawalle in Frankfurt: 54 Festnahmen – warum keine Nationalitäten genannt werden",
-   "hook": "54 人被捕|多数是德国籍|却扯到移民背景",
-   "sub": "国籍 ≠ 移民背景 · 官方没给逐国名单",
-   "date": "2026-11-01",
-   "photo": "news/og/src/41.jpg",
-   "de_hook": "54 Festnahmen –|warum heißt es nur|„migrantisches Milieu“?",
-   "zh_intro": "10 月 31 日的青年示威多数和平，但法兰克福和科隆在夜间演变成骚乱：橱窗被砸、商店被抢、警察被袭。法兰克福警方逮捕 54 人，年龄 13 到 29 岁。黑森州内政部长说，被捕者「多数拥有德国国籍」，同时又说施暴群体「以移民背景为主」——这两句话并不矛盾，但常被混为一谈。官方至今没有公布按国籍分列的名单。",
-   "words": [
-    [
-     "die Ausschreitung / die Krawalle",
-     "骚乱、暴力冲突"
-    ],
-    [
-     "die Demonstration / die Demo",
-     "游行、示威"
-    ],
-    [
-     "die Kundgebung",
-     "集会"
     ]
    ]
   }
