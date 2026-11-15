@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 50,
+   "title": "德国情报机构权限扩大：可以入室，也可以在国外搞破坏",
+   "de_title": "Bundestag erweitert die Befugnisse der Geheimdienste",
+   "hook": "情报机构|能进你家门吗",
+   "sub": "联邦议院扩权：BND 与宪法保卫局多了一把钥匙",
+   "date": "2026-11-13",
+   "photo": "news/og/src/50.jpg",
+   "de_hook": "in deine Wohnung|einbrechen –|und das legal?",
+   "zh_intro": "德国联邦议院通过表决，扩大了两个情报机构的权限：联邦情报局（BND）与宪法保卫局。今后它们可以更主动地应对网络间谍和网络攻击，可以在国外实施破坏行动，也可以进入住宅获取信息。不过这些手段不能自己说了算——必须由一个成员包括前法官的机构批准。左翼党（Die Linke）和德国选择党（AfD）的政界人士批评说，现在的权限太大了，这很危险。",
+   "words": [
+    [
+     "der Geheimdienst, -e",
+     "情报机构"
+    ],
+    [
+     "der Bundesnachrichtendienst (BND)",
+     "联邦情报局"
+    ],
+    [
+     "der Verfassungsschutz",
+     "宪法保卫局"
+    ]
+   ]
+  },
+  {
    "id": 49,
    "title": "德国 2027 预算：花 5600 亿，每三块里有一块是借的",
    "de_title": "Bundeshaushalt 2027: Rekordausgaben von 560,9 Milliarden Euro",
@@ -173,31 +198,6 @@
     [
      "die Auszeichnung, -en",
      "荣誉、奖项"
-    ]
-   ]
-  },
-  {
-   "id": 42,
-   "title": "超市冷柜被人远程调温：36 万欧元食品报废",
-   "de_title": "Cyberangriff auf Kühlanlagen: Supermärkte werfen Lebensmittel weg",
-   "hook": "冷柜变暖气|36万欧元扔了",
-   "sub": "德国多地超市中招 · 警方怀疑黑客远程攻击",
-   "date": "2026-11-03",
-   "photo": "news/og/src/42.jpg",
-   "de_hook": "Wer dreht nachts|die Kühlregale|auf 30 Grad?",
-   "zh_intro": "在德国北威州和下萨克森州，多家超市的冷柜被人从远处把温度调高。香肠、奶酪和冷冻食品全部变质，其中一家店扔掉的东西价值超过 36 万欧元。警方怀疑这是一次黑客攻击。",
-   "words": [
-    [
-     "der Supermarkt / die Supermärkte",
-     "超市"
-    ],
-    [
-     "der Kühlschrank / das Kühlregal",
-     "冰箱 / 冷藏货架"
-    ],
-    [
-     "die Kühlanlage, -n",
-     "冷柜设备、制冷装置"
     ]
    ]
   }
