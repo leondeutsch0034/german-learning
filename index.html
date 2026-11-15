@@ -17,16 +17,16 @@
   <meta name="keywords" content="德语学习,德语A1,德语A2,德语B1,德语B2,德语入门,歌德学院,Goethe Zertifikat,德语发音,德语语法,德语词汇,德语听力,德语网课,大学德语,Leon德语,德国文化,德语连续剧,林夏在德国,德语零基础,德语进阶"/>
   <meta name="author" content="Leon"/>
   <meta name="robots" content="index,follow"/>
-  <link rel="canonical" href="https://leonsdeutschzentrum.com/"/>
+  <link rel="canonical" href="https://leondeutsch.cn/"/>
 
   <!-- Open Graph (微信/Facebook/LinkedIn 分享卡片) -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Leon 德语学习中心 | A1-B2 歌德备考 · 德国文化 · 德语连续剧"/>
   <meta property="og:description" content="对标歌德学院 A1-B2 的系统德语学习平台。德国文化冷知识、林夏在德国连续剧追更、发音语法词汇听力全技能训练。十年教学沉淀，零基础到进阶一站式学习。"/>
-  <meta property="og:url" content="https://leonsdeutschzentrum.com/"/>
+  <meta property="og:url" content="https://leondeutsch.cn/"/>
   <meta property="og:locale" content="zh_CN"/>
   <meta property="og:site_name" content="Leon 德语学习中心"/>
-  <meta property="og:image" content="https://leonsdeutschzentrum.com/images/share-og-image.png"/>
+  <meta property="og:image" content="https://leondeutsch.cn/images/share-og-image.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta property="og:image:alt" content="Leon 德语学习中心 - A1到B2歌德考试系统备考，德语连续剧追更"/>
@@ -36,7 +36,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Leon 德语学习中心 | A1-B2 歌德备考 · 德国文化 · 德语连续剧"/>
   <meta name="twitter:description" content="A1-B2 歌德考试系统备考，德国文化冷知识，林夏在德国连续剧追更。十年教学沉淀，零基础到进阶一站式德语学习。"/>
-  <meta name="twitter:image" content="https://leonsdeutschzentrum.com/images/share-og-image.png"/>
+  <meta name="twitter:image" content="https://leondeutsch.cn/images/share-og-image.png"/>
 
   <!-- 百度/360 适配 -->
   <meta name="applicable-device" content="pc,mobile"/>
@@ -49,7 +49,7 @@
     "@type": "EducationalOrganization",
     "name": "Leon 德语学习中心",
     "alternateName": "Leons Deutschzentrum",
-    "url": "https://leonsdeutschzentrum.com/",
+    "url": "https://leondeutsch.cn/",
     "description": "对标歌德学院 A1-B2 考试的系统德语学习平台",
     "inLanguage": ["zh-CN", "de"],
     "teaches": ["德语 A1", "德语 A2", "德语 B1", "德语 B2", "Goethe Zertifikat A1", "Goethe Zertifikat A2", "Goethe Zertifikat B1", "Goethe Zertifikat B2"]
@@ -109,6 +109,29 @@
 }
 </style>
 <!-- kd-audio-css-v1 END -->
+<style id="a1lp-css">
+.a1lp{background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px;margin-top:1rem}
+.a1lp-bar{display:flex;align-items:center;gap:10px}
+.a1lp-btn{border:0;border-radius:8px;background:#d97706;color:#fff;padding:8px 12px;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.a1lp-btn.a1lp-spd{background:#f5efe4;color:#7c2d12;min-width:48px}
+.a1lp-btn:active{opacity:.82}
+.a1lp-prog{flex:1;height:6px;background:#efe6d6;border-radius:99px;overflow:hidden;cursor:pointer}
+.a1lp-prog i{display:block;height:100%;width:0;background:#d97706;border-radius:99px}
+.a1lp-time{font-size:.78rem;color:#a16207;min-width:74px;text-align:right;font-variant-numeric:tabular-nums}
+.a1lp-hint{font-size:.78rem;color:#a16207;margin-top:8px;line-height:1.5}
+.a1s{border-radius:3px;cursor:pointer;touch-action:manipulation;transition:background .15s,color .15s}
+.a1s.a1sel{background:#fde68a;box-shadow:0 0 0 2px #fde68a}
+.a1s.a1on{background:#fef3c7;color:#92400e;box-shadow:0 0 0 2px #fef3c7}
+.a1s.a1sel.a1on{background:#fcd34d;box-shadow:0 0 0 2px #fcd34d}
+#a1lp-sheet{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));max-width:820px;margin:0 auto;
+  background:#fff;border:1px solid #fde68a;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:12px 14px;display:none;z-index:9999}
+#a1lp-sheet .a1lp-q{font-size:.8rem;color:#a16207;margin-bottom:8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#a1lp-sheet .a1lp-acts{display:flex;gap:8px}
+#a1lp-sheet .a1lp-acts .a1lp-btn{flex:1;font-size:.88rem;padding:11px 8px}
+#a1lp-sheet .a1lp-loop{background:#f5efe4;color:#7c2d12}
+#a1lp-sheet .a1lp-loop.on{background:#b45309;color:#fff}
+#a1lp-sheet .a1lp-x{margin-left:auto;background:transparent;color:#a16207;font-size:1.05rem;padding:6px 10px}
+</style>
 </head>
 <body>
 
@@ -538,38 +561,10 @@ window.instantiateLazyPage = function(pageId, cb) {
       <div style="font-size:.7rem;color:rgba(203,213,225,.6);line-height:1.6">
         10+年教学经验 · 985 高校采纳 · 实测提升 30-60% 解题速度与得分
       </div>
-      <div id="login-price-list" style="display:none;margin-top:16px">
-        <!-- 价格表 -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px">
-          <div style="background:rgba(246,211,101,.06);border:1px solid rgba(246,211,101,.15);border-radius:10px;padding:10px 8px;text-align:center">
-            <div style="font-size:.68rem;color:#94a3b8;margin-bottom:3px">🎯 A1 方法论</div>
-            <strong style="color:#fde68a;font-size:.82rem">¥499<span style="font-size:.6rem">/年</span></strong>
-          </div>
-          <div style="background:rgba(246,211,101,.1);border:2px solid rgba(246,211,101,.35);border-radius:10px;padding:10px 8px;text-align:center;position:relative">
-            <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#f6d365;color:#0a1428;font-size:.55rem;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap">🔥 推荐</div>
-            <div style="font-size:.68rem;color:#fde68a;margin-bottom:3px">⭐ A1+A2 全站</div>
-            <strong style="color:#fde68a;font-size:.82rem">¥899<span style="font-size:.6rem">/年</span></strong>
-          </div>
-          <div style="background:rgba(246,211,101,.04);border:1px solid rgba(246,211,101,.1);border-radius:10px;padding:10px 8px;text-align:center">
-            <div style="font-size:.68rem;color:#94a3b8;margin-bottom:3px">💎 1v1 定制</div>
-            <strong style="color:#fde68a;font-size:.82rem">¥1680<span style="font-size:.6rem">/年起</span></strong>
-          </div>
-        </div>
-        <!-- 付款方式 -->
-        <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.18);border-radius:12px;padding:12px 14px;text-align:center">
-          <div style="font-size:.78rem;font-weight:700;color:#6ee7b7;margin-bottom:10px">📱 扫码付款 · 自动开通</div>
-          <!-- 收款码占位 —— 替换为你的微信/支付宝收款码截图 -->
-          <img id="pay-qr-real" style="display:block;width:90px;height:90px;margin:0 auto 8px;border-radius:10px;border:1px solid rgba(52,211,153,.2);object-fit:contain" src="images/b64-5da333b375bb3bea1ae72fd6442a4dbf.png" alt="收款码" style="display:none;width:160px;height:160px;margin:0 auto 12px;border-radius:12px;border:2px solid rgba(52,211,153,.25);object-fit:contain" loading="lazy">
-          <div style="font-size:.7rem;color:rgba(203,213,225,.6);line-height:1.6">
-            ① 扫码付款 → ② 截图发给 <strong style="color:#fde68a">LeonDeutsch</strong><br>
-            ③ 24 小时内开通账号 · 即可登录
-          </div>
-        </div>
-      </div>
     </div>
 
     <p style="font-size:.7rem;color:rgba(255,255,255,.25);margin-top:14px;margin-bottom:0;text-align:center">
-      已购买用户请使用账号登录 · 忘记密码联系开发者
+      已有账号请登录 · 忘记密码联系开发者
     </p>
   </div>
 </div>
@@ -694,7 +689,6 @@ function logout() {
   document.getElementById('login-err').textContent = '已退出登录';
   document.getElementById('login-user').value = '';
   document.getElementById('login-pass').value = '';
-  document.getElementById('login-price-list').style.display = 'none';
   // 切回首页
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
   var idxPage = document.getElementById('page-index');
@@ -704,7 +698,6 @@ function logout() {
 function showMain(user) {
   currentUser = user || 'guest'; if (user && user !== 'guest' && USERS[user]) currentTier = USERS[user].tier;
   document.getElementById('login-overlay').style.display = 'none';
-  document.getElementById('login-price-list').style.display = 'none';
   updateUserStatus();
   // DOM可能未就绪，延迟到DOMContentLoaded后执行
   if (document.readyState === 'loading') {
@@ -790,21 +783,20 @@ function applyGuestLocks() {
     var priceHint = '', upgradeHint = '';
     var sidIn = function(arr){ return arr.indexOf(sid) >= 0; };
     if (sidIn(LOCKED_SECTIONS_CUSTOM)) {
-      priceHint = '\u00a51680 \u5b9a\u5236\u4e13\u5c5e\u9875';
+      priceHint = '\u5b9a\u5236\u4e13\u5c5e\u9875';
       upgradeHint = '\u5347\u7ea7\u5168\u7ad9\u5b9a\u5236\u4f1a\u5458\u89e3\u9501';
     } else if (sidIn(LOCKED_SECTIONS_FULL)) {
-      priceHint = currentUser === 'guest' ? '\u00a5899 A1+A2 \u5168\u7ad9' : '\u5347\u7ea7 \u00a5899 A1+A2 \u5168\u7ad9';
+      priceHint = currentUser === 'guest' ? 'A1+A2 \u5168\u7ad9' : '\u5347\u7ea7 A1+A2 \u5168\u7ad9';
       upgradeHint = '\u5347\u7ea7\u89e3\u9501';
     } else {
-      priceHint = currentUser === 'guest' ? '\u00a5499 A1 \u65b9\u6cd5\u8bba' : '\u5347\u7ea7 \u00a5499 A1 \u65b9\u6cd5\u8bba';
+      priceHint = currentUser === 'guest' ? 'A1 \u65b9\u6cd5\u8bba' : '\u5347\u7ea7 A1 \u65b9\u6cd5\u8bba';
       upgradeHint = '\u5347\u7ea7\u89e3\u9501';
     }
 
     overlay.innerHTML = '<div style=\"font-size:2rem\">\ud83d\udd12</div>'
       + '<div style=\"color:#fde68a;font-weight:700;font-size:1.05rem;text-align:center\">' + priceHint + '</div>'
       + '<div style=\"color:#cbd5e1;font-size:.82rem;text-align:center;line-height:1.5;max-width:340px\">10+\u5e74\u6559\u5b66\u7ecf\u9a8c \u00b7 985\u9ad8\u6821\u91c7\u7eb3<br>\u5b9e\u6d4b\u63d0\u5347\u89e3\u9898\u901f\u5ea6\u4e0e\u5f97\u5206\u51c6\u786e\u5ea6 30-60%</div>'
-      + '<div style=\"background:rgba(246,211,101,.08);border:1px solid rgba(246,211,101,.22);border-radius:10px;padding:8px 14px;color:#fde68a;font-size:.8rem;text-align:center;margin-top:4px\">\ud83d\udcac \u5fae\u4fe1 <strong style=\"color:#f6d365\">LeonDeutsch</strong> ' + upgradeHint + '</div>'
-      + '<button onclick=\"event.stopPropagation();showLoginFromLock()\" style=\"background:linear-gradient(90deg,#1e3a5f,#2e527c);color:#fde68a;border:1px solid rgba(246,211,101,.35);border-radius:20px;padding:8px 24px;font-size:.88rem;font-weight:700;cursor:pointer;margin-top:4px;\">\u5df2\u8d2d\u4e70 \u00b7 \u767b\u5f55\u89e3\u9501</button>';
+      + '<button onclick=\"event.stopPropagation();showLoginFromLock()\" style=\"background:linear-gradient(90deg,#1e3a5f,#2e527c);color:#fde68a;border:1px solid rgba(246,211,101,.35);border-radius:20px;padding:8px 24px;font-size:.88rem;font-weight:700;cursor:pointer;margin-top:4px;\">\u767b\u5f55\u540e\u89e3\u9501</button>';
     sec.appendChild(overlay);
   });
 
@@ -867,7 +859,7 @@ function createLoginPromptCard() {
   card.style.cssText = 'position:relative;z-index:20;';
   card.innerHTML = ''
     + '<div class="lp-msg">🔒 更多精彩内容需登录解锁</div>'
-    + '<button class="lp-btn" onclick="event.stopPropagation();showLoginFromLock()">已购买 · 登录解锁</button>';
+    + '<button class="lp-btn" onclick="event.stopPropagation();showLoginFromLock()">登录后解锁</button>';
   return card;
 }
 
@@ -1683,7 +1675,6 @@ document.addEventListener('keydown', function(e) {
   <div class="hero-flag"><span class="hf-black"></span><span class="hf-red"></span><span class="hf-gold"></span></div>
   <div class="hero-links">
   <a href="about.html" class="hero-btn">📘 了解本站与教学理念 →</a>
-  <a href="preise.html" class="hero-btn">📋 了解完整价格体系 →</a>
   <a href="#" onclick="showPage('wissensgraph');return false" class="hero-btn">🌐 3D 知识图谱 →</a>
   <a href="#" onclick="showPage('vocab-index');return false" class="hero-btn">🔗 单词关联索引 →</a>
   <a href="#" onclick="showPage('newslesen');return false" class="hero-btn">📰 德语新闻 · 分级阅读 →</a></div>
@@ -1967,6 +1958,7 @@ document.addEventListener('keydown', function(e) {
 <footer>
   🇩🇪 Viel Erfolg bei der Prüfung! &nbsp; 祝考试顺利！<br>
   Leons Deutschzentrum · Goethe-Zertifikat A1 / A2 / B1 备考 · 语法 · 听力 · 写作 · 发音 · 文化
+  <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
 </footer>
 
 </div>
@@ -2003,6 +1995,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 Viel Erfolg bei der A1-Prüfung! &nbsp; 祝 A1 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A1 · 语法 · 听力 · 阅朗读 · 写作 · 综合
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -2034,6 +2027,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 Viel Erfolg bei der A2-Prüfung! &nbsp; 祝 A2 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat A2 · 语法 · 听力 · 阅读 · 写作 · 单元综合
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -2065,6 +2059,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 Viel Erfolg bei der B1-Prüfung! &nbsp; 祝 B1 考试顺利！<br>
     Leons Deutschzentrum · Goethe-Zertifikat B1 · 语法 · 语法抄写 · 听力 · 阅读 · 写作
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -2126,6 +2121,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 B2 — Die Mittelstufe! &nbsp; 中高级内容
     <br>Leons Deutschzentrum · Goethe-Zertifikat B2
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -2171,6 +2167,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🇩🇪 C1 — Fortgeschrittenes Deutsch! &nbsp; 高级内容
     <br>Leons Deutschzentrum · Goethe-Zertifikat C1
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -2275,6 +2272,7 @@ document.addEventListener('keydown', function(e) {
     <footer style="text-align:center;color:rgba(255,245,230,.3);font-size:.72rem;padding:20px 0;border-top:1px solid rgba(45,212,191,.12);margin-top:10px">
       🌐 只收录高质量免费/部分免费资源 · 持续更新 · 欢迎推荐补充<br>
       Leons Deutschzentrum · 独立精选，非商业推广
+      <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
     </footer>
 
   </div>
@@ -2314,6 +2312,7 @@ document.addEventListener('keydown', function(e) {
   <footer>
     🔤 字母拼读 · 五步走完见到生词就能读<br>
     Leons Deutschzentrum · 字母拼读 · 德语发音器 · 英语发音器 · 对照辨析
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 </div>
@@ -9980,7 +9979,6 @@ document.addEventListener('keydown', function(e) {
 function showLoginFromLock() {
   document.getElementById('login-overlay').style.display = 'flex';
   document.getElementById('login-err').innerHTML = '';
-  document.getElementById('login-price-list').style.display = 'block';
 }
 
 function showPage(id) {
@@ -12582,12 +12580,12 @@ function brToggleSample4() {
 
 <header>
   <h1>📖 阅读朗读</h1>
-  <p>Lesen &amp; Vorlesen · A1 短文精读 · 点词朗读 · 理解练习</p>
+  <p>Lesen &amp; Vorlesen · A1 短文精读 · 点句朗读 · 理解练习</p>
 </header>
 
 <div class="ls-info-bar">
   <span>🎯 <strong>目标：</strong>训练朗读语感，同步提升阅读理解</span>
-  <span>🔊 <strong>用法：</strong>点击"朗读全文"或单击任意单词单独发音</span>
+  <span>🔊 <strong>用法：</strong>双击任意一句，可从该句起读或循环；长按可复制原文、查词</span>
   <span>📌 <strong>考点：</strong>Goethe A1 阅读部分 Teil 1–3</span>
 </div>
 
@@ -12646,16 +12644,10 @@ function brToggleSample4() {
   <div class="ls-section-header">① 阅读理解 · Zaira Franca</div>
   <div class="ls-section-body">
 
-    <div class="ls-passage">
-      <strong>Zaira Franca</strong><br><br>
-      Zaira Franca lebt in Sao Paulo. Sie arbeitet bei BASF. Sie lernt Deutsch im Goethe-Institut, im A1-Kurs. Sie lebt allein und hat ein Kind. Luisa ist 12 und geht in das Colégio Visconde in Porto Seguro. Zaira möchte Deutsch lernen. Sie sagt: „Deutsch ist wichtig für meine Arbeit und die Kurse im Goethe-Institut machen Spaß."
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s1-zaira-franca.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage"><strong>Zaira Franca</strong><br><br>
+      <span class="a1s" data-i="0">Zaira Franca lebt in Sao Paulo.</span><span class="a1s" data-i="1"> Sie arbeitet bei BASF.</span><span class="a1s" data-i="2"> Sie lernt Deutsch im Goethe-Institut, im A1-Kurs.</span><span class="a1s" data-i="3"> Sie lebt allein und hat ein Kind.</span><span class="a1s" data-i="4"> Luisa ist 12 und geht in das Colégio Visconde in Porto Seguro.</span><span class="a1s" data-i="5"> Zaira möchte Deutsch lernen.</span><span class="a1s" data-i="6"> Sie sagt: „Deutsch ist wichtig für meine Arbeit und die Kurse im Goethe-Institut machen Spaß."
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s1-zaira-franca.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.312],[3.312,6.187],[6.187,11.062],[11.062,14.112],[14.112,19.525],[19.525,22.312],[22.312,28.937]]</script></div>
 
     <button class="ls-btn ls-btn-show" onclick="lsToggle('zaira-trans')">显示/隐藏 中文翻译</button>
     <div class="ls-answer-box" id="zaira-trans">
@@ -12743,16 +12735,10 @@ function brToggleSample4() {
   <div class="ls-section-header">② 阅读理解 · Vedat Arslan</div>
   <div class="ls-section-body">
 
-    <div class="ls-passage">
-      <strong>Vedat Arslan</strong><br><br>
-      Vedat Arslan kommt aus der Türkei, aus Erzurum. Er lernt Deutsch an der Volkshochschule in Köln. Er ist verheiratet mit Seval. Sie haben zwei Kinder, Yasemin und Volkan. Vedat hat im Moment keine Arbeit. Seval arbeitet bei der Telekom. Die Arslans wohnen seit 2009 in Köln. Sie sprechen Türkisch und Deutsch. Yasemin und Volkan lernen Englisch in der Schule. Die Arslans sagen: „Deutschland ist unsere neue Heimat."
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s1-vedat-arslan.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage"><strong>Vedat Arslan</strong><br><br>
+      <span class="a1s" data-i="0">Vedat Arslan kommt aus der Türkei, aus Erzurum.</span><span class="a1s" data-i="1"> Er lernt Deutsch an der Volkshochschule in Köln.</span><span class="a1s" data-i="2"> Er ist verheiratet mit Seval.</span><span class="a1s" data-i="3"> Sie haben zwei Kinder, Yasemin und Volkan.</span><span class="a1s" data-i="4"> Vedat hat im Moment keine Arbeit.</span><span class="a1s" data-i="5"> Seval arbeitet bei der Telekom.</span><span class="a1s" data-i="6"> Die Arslans wohnen seit 2009 in Köln.</span><span class="a1s" data-i="7"> Sie sprechen Türkisch und Deutsch.</span><span class="a1s" data-i="8"> Yasemin und Volkan lernen Englisch in der Schule.</span><span class="a1s" data-i="9"> Die Arslans sagen: „Deutschland ist unsere neue Heimat."
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s1-vedat-arslan.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,4.512],[4.512,8.487],[8.487,11.3],[11.3,15.537],[15.537,18.687],[18.687,21.775],[21.775,25.912],[25.912,28.85],[28.85,33.05],[33.05,37.8]]</script></div>
 
 
     
@@ -12840,16 +12826,10 @@ function brToggleSample4() {
   <div class="ls-section-header">③ 阅读理解 · Hong Cai</div>
   <div class="ls-section-body">
 
-    <div class="ls-passage">
-      <strong>Hong Cai</strong><br><br>
-      Hong Cai ist Studentin. Sie lebt in Shanghai und studiert an der Tongji Universität. Sie ist 21 und möchte in Deutschland Biologie oder Chemie studieren. Ihre Hobbys sind Musik und Sport. Sie spielt Gitarre. Ihre Freundin Jin studiert Englisch. Sie möchte nach Kanada. Deutsch ist für Hong Cai Musik. Sie sagt: „Ich liebe Beethoven und Schubert."
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s1-hong-cai.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage"><strong>Hong Cai</strong><br><br>
+      <span class="a1s" data-i="0">Hong Cai ist Studentin.</span><span class="a1s" data-i="1"> Sie lebt in Shanghai und studiert an der Tongji Universität.</span><span class="a1s" data-i="2"> Sie ist 21 und möchte in Deutschland Biologie oder Chemie studieren.</span><span class="a1s" data-i="3"> Ihre Hobbys sind Musik und Sport.</span><span class="a1s" data-i="4"> Sie spielt Gitarre.</span><span class="a1s" data-i="5"> Ihre Freundin Jin studiert Englisch.</span><span class="a1s" data-i="6"> Sie möchte nach Kanada.</span><span class="a1s" data-i="7"> Deutsch ist für Hong Cai Musik.</span><span class="a1s" data-i="8"> Sie sagt: „Ich liebe Beethoven und Schubert."
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s1-hong-cai.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,2.537],[2.537,7.175],[7.175,13.225],[13.225,16.562],[16.562,18.737],[18.737,21.887],[21.887,24.312],[24.312,27.162],[27.162,31.125]]</script></div>
 
     <button class="ls-btn ls-btn-show" onclick="lsToggle('hong-trans')">显示/隐藏 中文翻译</button>
     <div class="ls-answer-box" id="hong-trans">
@@ -12938,20 +12918,14 @@ function brToggleSample4() {
   <div class="ls-section">
     <div class="ls-section-header">④ 阅读理解 · Zahlen im Alltag</div>
     <div class="ls-section-body">
-      <div class="ls-passage">
-        <strong>Zahlen im Alltag</strong><br><br>
-        Ich bin zwanzig Jahre alt und wohne in einer Stadt mit dreihundert Einwohnern. Mein Freund ist vierundzwanzig und arbeitet seit zwei Jahren in einem Büro.<br><br>
-        Im Supermarkt kostet das Brot einundzwanzig Cent. Die Milch kostet neunundneunzig Cent. Ich bezahle mit einem Fünfzig-Euro-Schein und bekomme achtundzwanzig Euro zurück.<br><br>
-        Meine Mutter kauft jeden Monat für zweihundert Euro ein. Mein Vater verdient dreitausend Euro im Monat und zahlt achthundert Euro Miete. Wir sparen jeden Monat dreihundert Euro.<br><br>
-        Der Bus kommt um achtzehn Uhr fünfundvierzig. Der Zug fährt um neunzehn Uhr dreißig ab. Ich warte fünfzehn Minuten am Bahnhof und lese ein Buch.<br><br>
-        In meiner Klasse lernen zweiundzwanzig Schüler Deutsch. Unser Lehrer unterrichtet seit dreißig Jahren. Er kennt hundert deutsche Lieder und singt sie gern.
-      </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s2-zahlen-im-alltag.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+      <div class="ls-passage"><strong>Zahlen im Alltag</strong><br><br>
+        <span class="a1s" data-i="0">Ich bin zwanzig Jahre alt und wohne in einer Stadt mit dreihundert Einwohnern.</span><span class="a1s" data-i="1"> Mein Freund ist vierundzwanzig und arbeitet seit zwei Jahren in einem Büro.<br><br></span><span class="a1s" data-i="2">
+        Im Supermarkt kostet das Brot einundzwanzig Cent.</span><span class="a1s" data-i="3"> Die Milch kostet neunundneunzig Cent.</span><span class="a1s" data-i="4"> Ich bezahle mit einem Fünfzig-Euro-Schein und bekomme achtundzwanzig Euro zurück.<br><br></span><span class="a1s" data-i="5">
+        Meine Mutter kauft jeden Monat für zweihundert Euro ein.</span><span class="a1s" data-i="6"> Mein Vater verdient dreitausend Euro im Monat und zahlt achthundert Euro Miete.</span><span class="a1s" data-i="7"> Wir sparen jeden Monat dreihundert Euro.<br><br></span><span class="a1s" data-i="8">
+        Der Bus kommt um achtzehn Uhr fünfundvierzig.</span><span class="a1s" data-i="9"> Der Zug fährt um neunzehn Uhr dreißig ab.</span><span class="a1s" data-i="10"> Ich warte fünfzehn Minuten am Bahnhof und lese ein Buch.<br><br></span><span class="a1s" data-i="11">
+        In meiner Klasse lernen zweiundzwanzig Schüler Deutsch.</span><span class="a1s" data-i="12"> Unser Lehrer unterrichtet seit dreißig Jahren.</span><span class="a1s" data-i="13"> Er kennt hundert deutsche Lieder und singt sie gern.
+      </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s2-zahlen-im-alltag.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,5.625],[5.625,11.225],[11.225,15.362],[15.362,18.762],[18.762,24.55],[24.55,29.325],[29.325,35.25],[35.25,38.8],[38.8,42.65],[42.65,46.875],[46.875,52.175],[52.175,56.375],[56.375,60.062],[60.062,63.8]]</script></div>
 
       
       <button class="ls-btn ls-btn-show" onclick="lsToggle('zahlen-trans')">显示/隐藏 中文翻译</button>
@@ -13047,35 +13021,30 @@ function brToggleSample4() {
       <!-- Dialog 1 -->
       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2">
         <div style="font-weight:700;color:#b45309;margin-bottom:.6rem;font-size:1rem">Dialog 1</div>
-        <p>🟠 Entschuldigung, ist hier noch frei?</p>
-        <p>🔵 Ja klar, bitte. Sind Sie auch im Deutschkurs?</p>
-        <p>🟠 Ja. Ich heiße Astrud Jobim. Ich komme aus Brasilien. Und Sie?</p>
-        <p>🔵 Ich bin Katja Borovska. Ich komme aus der Slowakei. Ich wohne jetzt in Berlin.</p>
-        <p>🟠 Was trinken Sie?</p>
-        <p>🔵 Ehmmm, Tee.</p>
-        <p>🟠 Zwei Tee, bitte.</p>
+        <p><span class="a1s" data-i="0">🟠 Entschuldigung, ist hier noch frei?</span></p>
+        <p><span class="a1s" data-i="1">🔵 Ja klar, bitte.</span><span class="a1s" data-i="2"> Sind Sie auch im Deutschkurs?</span></p>
+        <p><span class="a1s" data-i="3">🟠 Ja. Ich heiße Astrud Jobim.</span><span class="a1s" data-i="4"> Ich komme aus Brasilien.</span><span class="a1s" data-i="5"> Und Sie?</span></p>
+        <p><span class="a1s" data-i="6">🔵 Ich bin Katja Borovska.</span><span class="a1s" data-i="7"> Ich komme aus der Slowakei.</span><span class="a1s" data-i="8"> Ich wohne jetzt in Berlin.</span></p>
+        <p><span class="a1s" data-i="9">🟠 Was trinken Sie?</span></p>
+        <p><span class="a1s" data-i="10">🔵 Ehmmm, Tee.</span></p>
+        <p><span class="a1s" data-i="11">🟠 Zwei Tee, bitte.</span></p>
       </div>
 
       <!-- Dialog 2 -->
       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2">
         <div style="font-weight:700;color:#b45309;margin-bottom:.6rem;font-size:1rem">Dialog 2</div>
-        <p>🟠 Grüß dich, Julian. Das sind Emir und Alida.</p>
-        <p>🔵 Hi! Woher kommt ihr?</p>
-        <p>📘 Wir kommen aus Indien. Und du? Woher kommst du?</p>
-        <p>🔵 Aus Berlin.</p>
-        <p>🟠 Was möchtest du trinken? Kaffee oder Tee?</p>
-        <p>📘 Lieber Latte macchiato.</p>
-        <p>📘 Ich auch!</p>
-        <p>🟠 Zwei Kaffee und zwei Latte macchiato, bitte.</p>
+        <p><span class="a1s" data-i="12">🟠 Grüß dich, Julian.</span><span class="a1s" data-i="13"> Das sind Emir und Alida.</span></p>
+        <p><span class="a1s" data-i="14">🔵 Hi! Woher kommt ihr?</span></p>
+        <p><span class="a1s" data-i="15">📘 Wir kommen aus Indien.</span><span class="a1s" data-i="16"> Und du?</span><span class="a1s" data-i="17"> Woher kommst du?</span></p>
+        <p><span class="a1s" data-i="18">🔵 Aus Berlin.</span></p>
+        <p><span class="a1s" data-i="19">🟠 Was möchtest du trinken?</span><span class="a1s" data-i="20"> Kaffee oder Tee?</span></p>
+        <p><span class="a1s" data-i="21">📘 Lieber Latte macchiato.</span></p>
+        <p><span class="a1s" data-i="22">📘 Ich auch!</span></p>
+        <p><span class="a1s" data-i="23">🟠 Zwei Kaffee und zwei Latte macchiato, bitte.</span></p>
       </div>
 
     </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s3-gespraeche-im-cafe.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s3-gespraeche-im-cafe.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.025],[3.025,5.35],[5.35,7.975],[7.975,11.8],[11.8,14.312],[14.312,15.725],[15.725,18.25],[18.25,20.75],[20.75,23.337],[23.337,25.3],[25.3,27.012],[27.012,29.275],[29.275,31.712],[31.712,34.4],[34.4,37.675],[37.675,40.212],[40.212,41.575],[41.575,43.525],[43.525,45.25],[45.25,47.75],[47.75,49.712],[49.712,52.075],[52.075,53.637],[53.637,57.712]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13100,16 +13069,10 @@ function brToggleSample4() {
       🌍 <strong>Thema:</strong> Deutschlands Nachbarländer und ihre Sprachen
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Deutschland liegt im Zentrum von (West-)Europa. Es hat <strong>neun Nachbarländer</strong>. Im Osten liegt <strong>Polen</strong>, hier spricht man Polnisch. Südlich von Polen liegt <strong>Tschechien</strong>, dort spricht man Tschechisch. Südlich von Deutschland liegen <strong>Österreich</strong> und die <strong>Schweiz</strong>. In Österreich spricht man Deutsch und Slowenisch. Westlich von Österreich liegt die Schweiz. Hier spricht man vier Sprachen: Deutsch, Italienisch, Französisch und Rätoromanisch. Französisch spricht man in <strong>Frankreich</strong>. Das liegt südwestlich von Deutschland. Im Westen und Nordwesten sind <strong>Luxemburg</strong>, <strong>Belgien</strong> und die <strong>Niederlande</strong>. In Luxemburg spricht man drei Sprachen: Deutsch, Französisch und Luxemburgisch. Das ist die Nationalsprache in Luxemburg. In Belgien spricht man auch drei Sprachen: Niederländisch, Deutsch und Französisch. In den Niederlanden spricht man Niederländisch und Friesisch. Nördlich von Deutschland liegt <strong>Dänemark</strong>. In Dänemark spricht man Dänisch und Deutsch.
-    </div>
-
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s4-nachbarn.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Deutschland liegt im Zentrum von (West-)Europa.</span><span class="a1s" data-i="1"> Es hat <strong>neun Nachbarländer</strong>.</span><span class="a1s" data-i="2"> Im Osten liegt <strong>Polen</strong>, hier spricht man Polnisch.</span><span class="a1s" data-i="3"> Südlich von Polen liegt <strong>Tschechien</strong>, dort spricht man Tschechisch.</span><span class="a1s" data-i="4"> Südlich von Deutschland liegen <strong>Österreich</strong> und die <strong>Schweiz</strong>.</span><span class="a1s" data-i="5"> In Österreich spricht man Deutsch und Slowenisch.</span><span class="a1s" data-i="6"> Westlich von Österreich liegt die Schweiz.</span><span class="a1s" data-i="7"> Hier spricht man vier Sprachen: Deutsch, Italienisch, Französisch und Rätoromanisch.</span><span class="a1s" data-i="8"> Französisch spricht man in <strong>Frankreich</strong>.</span><span class="a1s" data-i="9"> Das liegt südwestlich von Deutschland.</span><span class="a1s" data-i="10"> Im Westen und Nordwesten sind <strong>Luxemburg</strong>, <strong>Belgien</strong> und die <strong>Niederlande</strong>.</span><span class="a1s" data-i="11"> In Luxemburg spricht man drei Sprachen: Deutsch, Französisch und Luxemburgisch.</span><span class="a1s" data-i="12"> Das ist die Nationalsprache in Luxemburg.</span><span class="a1s" data-i="13"> In Belgien spricht man auch drei Sprachen: Niederländisch, Deutsch und Französisch.</span><span class="a1s" data-i="14"> In den Niederlanden spricht man Niederländisch und Friesisch.</span><span class="a1s" data-i="15"> Nördlich von Deutschland liegt <strong>Dänemark</strong>.</span><span class="a1s" data-i="16"> In Dänemark spricht man Dänisch und Deutsch.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s4-nachbarn.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,4.3],[4.3,6.825],[6.825,10.85],[10.85,15.687],[15.687,20.05],[20.05,24.012],[24.012,27.45],[27.45,34.45],[34.45,37.662],[37.662,40.837],[40.837,46.837],[46.837,53.312],[53.312,57.012],[57.012,63.237],[63.237,67.525],[67.525,70.912],[70.912,74.562]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter 关键词：</strong><br>
@@ -13130,15 +13093,10 @@ function brToggleSample4() {
       ⏰ <strong>Thema:</strong> Tagesablauf — 日常作息
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Ich heiße <strong>Laura</strong> und bin Studentin in München. Ich stehe jeden Tag um <strong>sieben Uhr</strong> auf. Zuerst dusche ich und dann frühstücke ich. Zum Frühstück esse ich Brot mit Käse und trinke Kaffee. Um <strong>halb neun</strong> fahre ich mit der U-Bahn zur Universität. Der Unterricht beginnt um <strong>neun Uhr</strong>. Mittags esse ich in der <strong>Mensa</strong>. Das Essen ist günstig und schmeckt gut. Am Nachmittag lerne ich in der <strong>Bibliothek</strong>. Um <strong>fünf Uhr</strong> gehe ich nach Hause. Abends koche ich oder bestelle Pizza. Manchmal treffe ich Freunde im Café. Um <strong>elf Uhr</strong> gehe ich ins Bett. Am Wochenende schlafe ich lange und gehe gern spazieren.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s5-mein-tag.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Ich heiße <strong>Laura</strong> und bin Studentin in München.</span><span class="a1s" data-i="1"> Ich stehe jeden Tag um <strong>sieben Uhr</strong> auf.</span><span class="a1s" data-i="2"> Zuerst dusche ich und dann frühstücke ich.</span><span class="a1s" data-i="3"> Zum Frühstück esse ich Brot mit Käse und trinke Kaffee.</span><span class="a1s" data-i="4"> Um <strong>halb neun</strong> fahre ich mit der U-Bahn zur Universität.</span><span class="a1s" data-i="5"> Der Unterricht beginnt um <strong>neun Uhr</strong>.</span><span class="a1s" data-i="6"> Mittags esse ich in der <strong>Mensa</strong>.</span><span class="a1s" data-i="7"> Das Essen ist günstig und schmeckt gut.</span><span class="a1s" data-i="8"> Am Nachmittag lerne ich in der <strong>Bibliothek</strong>.</span><span class="a1s" data-i="9"> Um <strong>fünf Uhr</strong> gehe ich nach Hause.</span><span class="a1s" data-i="10"> Abends koche ich oder bestelle Pizza.</span><span class="a1s" data-i="11"> Manchmal treffe ich Freunde im Café.</span><span class="a1s" data-i="12"> Um <strong>elf Uhr</strong> gehe ich ins Bett.</span><span class="a1s" data-i="13"> Am Wochenende schlafe ich lange und gehe gern spazieren.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s5-mein-tag.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.837],[3.837,7.225],[7.225,10.775],[10.775,15.037],[15.037,19.275],[19.275,22.675],[22.675,25.5],[25.5,29.15],[29.15,32.7],[32.7,35.587],[35.587,38.912],[38.912,41.937],[41.937,44.862],[44.862,49.137]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13160,15 +13118,10 @@ function brToggleSample4() {
       🛒 <strong>Thema:</strong> Auf dem Markt einkaufen — 市场购物
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Jeden Samstag gehe ich auf den <strong>Wochenmarkt</strong>. Der Markt ist in der Stadtmitte, direkt am <strong>Marktplatz</strong>. Dort kaufe ich frisches Obst und Gemüse. Heute brauche ich <strong>Tomaten</strong>, <strong>Kartoffeln</strong>, <strong>Äpfel</strong> und <strong>Brot</strong>. Ein Kilo Tomaten kostet <strong>zwei Euro fünfzig</strong>. Die Kartoffeln kosten <strong>einen Euro neunzig</strong> pro Kilo. Die Äpfel sind heute im Angebot: ein Kilo für <strong>einen Euro fünfundsiebzig</strong>. Das Brot kaufe ich beim <strong>Bäcker</strong>. Ein Vollkornbrot kostet <strong>drei Euro zwanzig</strong>. Ich bezahle zusammen <strong>neun Euro fünfunddreißig</strong>. Der Verkäufer sagt: „Danke, und schönes Wochenende!" Ich sage: „Danke, Ihnen auch!"
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s6-einkaufen-auf-dem-markt.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Jeden Samstag gehe ich auf den <strong>Wochenmarkt</strong>.</span><span class="a1s" data-i="1"> Der Markt ist in der Stadtmitte, direkt am <strong>Marktplatz</strong>.</span><span class="a1s" data-i="2"> Dort kaufe ich frisches Obst und Gemüse.</span><span class="a1s" data-i="3"> Heute brauche ich <strong>Tomaten</strong>, <strong>Kartoffeln</strong>, <strong>Äpfel</strong> und <strong>Brot</strong>.</span><span class="a1s" data-i="4"> Ein Kilo Tomaten kostet <strong>zwei Euro fünfzig</strong>.</span><span class="a1s" data-i="5"> Die Kartoffeln kosten <strong>einen Euro neunzig</strong> pro Kilo.</span><span class="a1s" data-i="6"> Die Äpfel sind heute im Angebot: ein Kilo für <strong>einen Euro fünfundsiebzig</strong>.</span><span class="a1s" data-i="7"> Das Brot kaufe ich beim <strong>Bäcker</strong>.</span><span class="a1s" data-i="8"> Ein Vollkornbrot kostet <strong>drei Euro zwanzig</strong>.</span><span class="a1s" data-i="9"> Ich bezahle zusammen <strong>neun Euro fünfunddreißig</strong>.</span><span class="a1s" data-i="10"> Der Verkäufer sagt: „Danke, und schönes Wochenende!"</span><span class="a1s" data-i="11"> Ich sage: „Danke, Ihnen auch!"
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s6-einkaufen-auf-dem-markt.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.65],[3.65,8.075],[8.075,11.562],[11.562,16.487],[16.487,20.712],[20.712,25.025],[25.025,31.237],[31.237,33.9],[33.9,37.925],[37.925,42.0],[42.0,46.6],[46.6,49.675]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13190,15 +13143,10 @@ function brToggleSample4() {
       🏠 <strong>Thema:</strong> Wohnung beschreiben — 描述住所
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Ich wohne in einer <strong>Zweizimmerwohnung</strong> in Berlin-Kreuzberg. Die Wohnung ist nicht groß, aber gemütlich. Sie hat ein <strong>Wohnzimmer</strong>, ein <strong>Schlafzimmer</strong>, eine <strong>Küche</strong> und ein <strong>Bad</strong>. Das Wohnzimmer ist hell. Dort stehen ein <strong>Sofa</strong>, ein <strong>Tisch</strong> und ein <strong>Regal</strong> mit vielen Büchern. Im Schlafzimmer steht ein <strong>Bett</strong> und ein <strong>Schrank</strong>. Die Küche ist klein, aber ich koche gern. Im Bad gibt es eine <strong>Dusche</strong> und ein <strong>Waschbecken</strong>. Die Wohnung kostet <strong>650 Euro</strong> Miete pro Monat. Das ist für Berlin nicht billig, aber die Lage ist super: der Supermarkt ist um die Ecke und die U-Bahn-Station ist nur <strong>fünf Minuten</strong> zu Fuß.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s7-meine-wohnung.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Ich wohne in einer <strong>Zweizimmerwohnung</strong> in Berlin-Kreuzberg.</span><span class="a1s" data-i="1"> Die Wohnung ist nicht groß, aber gemütlich.</span><span class="a1s" data-i="2"> Sie hat ein <strong>Wohnzimmer</strong>, ein <strong>Schlafzimmer</strong>, eine <strong>Küche</strong> und ein <strong>Bad</strong>.</span><span class="a1s" data-i="3"> Das Wohnzimmer ist hell.</span><span class="a1s" data-i="4"> Dort stehen ein <strong>Sofa</strong>, ein <strong>Tisch</strong> und ein <strong>Regal</strong> mit vielen Büchern.</span><span class="a1s" data-i="5"> Im Schlafzimmer steht ein <strong>Bett</strong> und ein <strong>Schrank</strong>.</span><span class="a1s" data-i="6"> Die Küche ist klein, aber ich koche gern.</span><span class="a1s" data-i="7"> Im Bad gibt es eine <strong>Dusche</strong> und ein <strong>Waschbecken</strong>.</span><span class="a1s" data-i="8"> Die Wohnung kostet <strong>650 Euro</strong> Miete pro Monat.</span><span class="a1s" data-i="9"> Das ist für Berlin nicht billig, aber die Lage ist super: der Supermarkt ist um die Ecke und die U-Bahn-Station ist nur <strong>fünf Minuten</strong> zu Fuß.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s7-meine-wohnung.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,4.587],[4.587,8.65],[8.65,14.05],[14.05,16.45],[16.45,21.687],[21.687,25.425],[25.425,29.15],[29.15,32.812],[32.812,37.762],[37.762,47.512]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13216,12 +13164,7 @@ function brToggleSample4() {
 <div class="ls-section">
   <div class="ls-section-header">⑩ 对话朗读 · Beim Arzt</div>
   <div class="ls-section-body">
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s8-beim-arzt.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s8-beim-arzt.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.337],[3.337,6.8],[6.8,9.187],[9.187,12.162],[12.162,14.25],[14.25,15.65],[15.65,18.762],[18.762,21.425],[21.425,23.375],[23.375,28.1],[28.1,30.287],[30.287,33.025],[33.025,35.787],[35.787,38.7],[38.7,41.975],[41.975,44.362],[44.362,47.2],[47.2,51.337],[51.337,53.312],[53.312,56.05]]</script></div>
 
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -13229,20 +13172,20 @@ function brToggleSample4() {
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2;margin-bottom:1rem">
-      <p>🔵 <strong>Rezeption:</strong> Guten Tag, haben Sie einen Termin?</p>
-      <p>🟠 <strong>Patient:</strong> Ja, um zehn Uhr bei Doktor Müller. Mein Name ist Weber.</p>
-      <p>🔵 Haben Sie Ihre <strong>Versicherungskarte</strong>?</p>
-      <p>🟠 Ja, hier bitte.</p>
-      <p>🔵 Danke. Bitte nehmen Sie im <strong>Wartezimmer</strong> Platz.</p>
+      <p><span class="a1s" data-i="0">🔵 <strong>Rezeption:</strong> Guten Tag, haben Sie einen Termin?</span></p>
+      <p><span class="a1s" data-i="1">🟠 <strong>Patient:</strong> Ja, um zehn Uhr bei Doktor Müller.</span><span class="a1s" data-i="2"> Mein Name ist Weber.</span></p>
+      <p><span class="a1s" data-i="3">🔵 Haben Sie Ihre <strong>Versicherungskarte</strong>?</span></p>
+      <p><span class="a1s" data-i="4">🟠 Ja, hier bitte.</span></p>
+      <p><span class="a1s" data-i="5">🔵 Danke.</span><span class="a1s" data-i="6"> Bitte nehmen Sie im <strong>Wartezimmer</strong> Platz.</span></p>
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2;margin-bottom:1rem">
-      <p>📘 <strong>Arzt:</strong> Guten Tag, Herr Weber. Was fehlt Ihnen?</p>
-      <p>🟠 Ich habe seit drei Tagen <strong>Kopfschmerzen</strong> und <strong>Halsschmerzen</strong>. Und ich habe <strong>Fieber</strong>.</p>
-      <p>📘 Machen Sie bitte den Mund auf. … Ja, der Hals ist rot. Ich schreibe Ihnen ein <strong>Rezept</strong>. Nehmen Sie die Tabletten <strong>dreimal am Tag</strong>. Und trinken Sie viel Tee!</p>
-      <p>🟠 Brauche ich eine <strong>Krankschreibung</strong>?</p>
-      <p>📘 Ja, ich schreibe Sie für <strong>drei Tage</strong> krank. Gute Besserung!</p>
-      <p>🟠 Vielen Dank, Herr Doktor!</p>
+      <p><span class="a1s" data-i="7">📘 <strong>Arzt:</strong> Guten Tag, Herr Weber.</span><span class="a1s" data-i="8"> Was fehlt Ihnen?</span></p>
+      <p><span class="a1s" data-i="9">🟠 Ich habe seit drei Tagen <strong>Kopfschmerzen</strong> und <strong>Halsschmerzen</strong>.</span><span class="a1s" data-i="10"> Und ich habe <strong>Fieber</strong>.</span></p>
+      <p><span class="a1s" data-i="11">📘 Machen Sie bitte den Mund auf. …</span><span class="a1s" data-i="12"> Ja, der Hals ist rot.</span><span class="a1s" data-i="13"> Ich schreibe Ihnen ein <strong>Rezept</strong>.</span><span class="a1s" data-i="14"> Nehmen Sie die Tabletten <strong>dreimal am Tag</strong>.</span><span class="a1s" data-i="15"> Und trinken Sie viel Tee!</span></p>
+      <p><span class="a1s" data-i="16">🟠 Brauche ich eine <strong>Krankschreibung</strong>?</span></p>
+      <p><span class="a1s" data-i="17">📘 Ja, ich schreibe Sie für <strong>drei Tage</strong> krank.</span><span class="a1s" data-i="18"> Gute Besserung!</span></p>
+      <p><span class="a1s" data-i="19">🟠 Vielen Dank, Herr Doktor!</span></p>
     </div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13265,15 +13208,10 @@ function brToggleSample4() {
       👩‍🏫 <strong>Thema:</strong> Berufe — 大学里的职业
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      <strong>Regina Werner</strong> ist Deutschlehrerin. Sie hat in Jena <strong>Germanistik</strong> und <strong>Anglistik</strong> studiert. Seit 20 Jahren arbeitet sie als Deutschlehrerin. Sie hat Kurse an der <strong>Universität</strong> und in einem <strong>Sprachinstitut</strong>. Im Sprachinstitut hat sie vier Kolleginnen. „Viele Stunden Unterricht, abends korrigieren, und kein fester Job. Aber der Beruf macht Spaß", sagt sie. Sie arbeitet gern mit Menschen und mag fremde Kulturen. Ihre Studenten kommen aus <strong>China</strong>, <strong>Russland</strong>, aus der <strong>Türkei</strong> und <strong>Südamerika</strong>. Sie arbeitet mit Lehrbüchern, Wörterbüchern, mit Video, dem Whiteboard und dem Internet. Frau Werner und die Studenten machen oft <strong>Projekte</strong>. Sie besuchen den Bahnhof, ein Kaufhaus, das Theater – dort kann man Deutsch lernen. Die Studenten finden die Projekte gut.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s9-regina-werner.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      <strong>Regina Werner</strong> ist Deutschlehrerin.</span><span class="a1s" data-i="1"> Sie hat in Jena <strong>Germanistik</strong> und <strong>Anglistik</strong> studiert.</span><span class="a1s" data-i="2"> Seit 20 Jahren arbeitet sie als Deutschlehrerin.</span><span class="a1s" data-i="3"> Sie hat Kurse an der <strong>Universität</strong> und in einem <strong>Sprachinstitut</strong>.</span><span class="a1s" data-i="4"> Im Sprachinstitut hat sie vier Kolleginnen.</span><span class="a1s" data-i="5"> „Viele Stunden Unterricht, abends korrigieren, und kein fester Job.</span><span class="a1s" data-i="6"> Aber der Beruf macht Spaß", sagt sie.</span><span class="a1s" data-i="7"> Sie arbeitet gern mit Menschen und mag fremde Kulturen.</span><span class="a1s" data-i="8"> Ihre Studenten kommen aus <strong>China</strong>, <strong>Russland</strong>, aus der <strong>Türkei</strong> und <strong>Südamerika</strong>.</span><span class="a1s" data-i="9"> Sie arbeitet mit Lehrbüchern, Wörterbüchern, mit Video, dem Whiteboard und dem Internet.</span><span class="a1s" data-i="10"> Frau Werner und die Studenten machen oft <strong>Projekte</strong>.</span><span class="a1s" data-i="11"> Sie besuchen den Bahnhof, ein Kaufhaus, das Theater – dort kann man Deutsch lernen.</span><span class="a1s" data-i="12"> Die Studenten finden die Projekte gut.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s9-regina-werner.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.337],[3.337,7.5],[7.5,11.575],[11.575,16.125],[16.125,19.712],[19.712,25.712],[25.712,29.375],[29.375,33.875],[33.875,40.15],[40.15,47.2],[47.2,51.375],[51.375,57.525],[57.525,61.0]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13295,15 +13233,10 @@ function brToggleSample4() {
       🎓 <strong>Thema:</strong> Internationales Studium — 国际化的大学生活
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Das ist <strong>Andrick Razandry</strong>. Er kommt aus <strong>Madagaskar</strong>, aus Tamatave. Das ist im Osten von Madagaskar, am <strong>Indischen Ozean</strong>. Er hat dort an der Universität studiert. Seit zwei Jahren lebt er in Deutschland. Er studiert <strong>Deutsch als Fremdsprache</strong> an der <strong>Friedrich-Schiller-Universität</strong> in Jena. Andrick hat 18 Stunden Unterricht pro Woche. Er arbeitet gern in der <strong>Bibliothek</strong>. Er sagt: „In der Bibliothek kann ich meine E-Mails lesen und gut arbeiten. Abends ist es dort sehr ruhig." Er kennt viele Studenten und Studentinnen. Die Universität ist international. In den <strong>Seminaren</strong> sind Studenten und Studentinnen aus vielen Ländern, aus Indien, Brasilien und dem Iran. „Am Anfang war für mich alles sehr fremd hier. Jetzt ist es okay. Ich habe viele Freunde und wir lernen oft zusammen." Andrick spricht vier Sprachen: <strong>Madagassisch</strong>, <strong>Französisch</strong>, <strong>Deutsch</strong> und <strong>Englisch</strong>.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s10-andrick-razandry.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Das ist <strong>Andrick Razandry</strong>.</span><span class="a1s" data-i="1"> Er kommt aus <strong>Madagaskar</strong>, aus Tamatave.</span><span class="a1s" data-i="2"> Das ist im Osten von Madagaskar, am <strong>Indischen Ozean</strong>.</span><span class="a1s" data-i="3"> Er hat dort an der Universität studiert.</span><span class="a1s" data-i="4"> Seit zwei Jahren lebt er in Deutschland.</span><span class="a1s" data-i="5"> Er studiert <strong>Deutsch als Fremdsprache</strong> an der <strong>Friedrich-Schiller-Universität</strong> in Jena.</span><span class="a1s" data-i="6"> Andrick hat 18 Stunden Unterricht pro Woche.</span><span class="a1s" data-i="7"> Er arbeitet gern in der <strong>Bibliothek</strong>.</span><span class="a1s" data-i="8"> Er sagt: „In der Bibliothek kann ich meine E-Mails lesen und gut arbeiten.</span><span class="a1s" data-i="9"> Abends ist es dort sehr ruhig."</span><span class="a1s" data-i="10"> Er kennt viele Studenten und Studentinnen.</span><span class="a1s" data-i="11"> Die Universität ist international.</span><span class="a1s" data-i="12"> In den <strong>Seminaren</strong> sind Studenten und Studentinnen aus vielen Ländern, aus Indien, Brasilien und dem Iran.</span><span class="a1s" data-i="13"> „Am Anfang war für mich alles sehr fremd hier.</span><span class="a1s" data-i="14"> Jetzt ist es okay.</span><span class="a1s" data-i="15"> Ich habe viele Freunde und wir lernen oft zusammen."</span><span class="a1s" data-i="16"> Andrick spricht vier Sprachen: <strong>Madagassisch</strong>, <strong>Französisch</strong>, <strong>Deutsch</strong> und <strong>Englisch</strong>.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s10-andrick-razandry.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,2.6],[2.6,6.512],[6.512,11.325],[11.325,14.55],[14.55,18.062],[18.062,23.5],[23.5,27.425],[27.425,30.612],[30.612,36.437],[36.437,39.387],[39.387,42.787],[42.787,45.962],[45.962,53.8],[53.8,57.787],[57.787,59.987],[59.987,64.1],[64.1,70.837]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13327,32 +13260,27 @@ function brToggleSample4() {
 
     <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1rem">
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #d97706;padding-left:14px">
-        <strong>1.</strong> <strong>Petra Galle</strong> (39) und ihr Mann <strong>Guido</strong> (41) wohnen in Olpe. Sie haben zwei Kinder: Mia (9) und Annika (5). Sie haben ein <strong>Haus mit Garten</strong>. Petra findet den Garten zu groß.
-      </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s11-wer-wohnt-wo.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #d97706;padding-left:14px"><span class="a1s" data-i="0">
+        <strong>1.</strong> <strong>Petra Galle</strong> (39) und ihr Mann <strong>Guido</strong> (41) wohnen in Olpe.</span><span class="a1s" data-i="1"> Sie haben zwei Kinder: Mia (9) und Annika (5).</span><span class="a1s" data-i="2"> Sie haben ein <strong>Haus mit Garten</strong>.</span><span class="a1s" data-i="3"> Petra findet den Garten zu groß.
+      </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s11-wer-wohnt-wo.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,7.237],[7.237,12.525],[12.525,15.55],[15.55,18.812],[18.812,30.862],[30.862,33.462],[33.462,41.437],[41.437,45.487],[45.487,49.262],[49.262,54.15],[54.15,59.775],[59.775,63.525],[63.525,68.3],[68.3,76.687],[76.687,79.212],[79.212,83.1],[83.1,85.775]]</script></div>
 
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px">
-        <strong>2.</strong> <strong>Uli Venitzelos</strong> (49) und seine Kinder David (22) und Lena (17) haben eine <strong>Altbauwohnung</strong> in der Goethestraße in Kassel. Sie leben gerne in der Stadt.
-      </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px"><span class="a1s" data-i="4">
+        <strong>2.</strong> <strong>Uli Venitzelos</strong> (49) und seine Kinder David (22) und Lena (17) haben eine <strong>Altbauwohnung</strong> in der Goethestraße in Kassel.</span><span class="a1s" data-i="5"> Sie leben gerne in der Stadt.
+      </span></div>
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px">
-        <strong>3.</strong> <strong>Hans-Jürgen</strong> und <strong>Eva Prohaska</strong> (beide 72) wohnen <strong>auf dem Land</strong> in der Nähe von Puchberg. Ihr Haus ist ziemlich alt, aber sehr groß. Sie sagen: „Unser Haus liegt sehr ruhig."
-      </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px"><span class="a1s" data-i="6">
+        <strong>3.</strong> <strong>Hans-Jürgen</strong> und <strong>Eva Prohaska</strong> (beide 72) wohnen <strong>auf dem Land</strong> in der Nähe von Puchberg.</span><span class="a1s" data-i="7"> Ihr Haus ist ziemlich alt, aber sehr groß.</span><span class="a1s" data-i="8"> Sie sagen: „Unser Haus liegt sehr ruhig."
+      </span></div>
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px">
-        <strong>4.</strong> <strong>Anja Jungblut</strong> (24) studiert in Dresden. Sie hat ein Zimmer im <strong>Studentenwohnheim</strong> im Hochhaus in der Petersburger Straße. Ihr Zimmer ist <strong>14 qm</strong> groß. Anja findet das Zimmer sehr klein und das Wohnheim zu laut.
-      </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px"><span class="a1s" data-i="9">
+        <strong>4.</strong> <strong>Anja Jungblut</strong> (24) studiert in Dresden.</span><span class="a1s" data-i="10"> Sie hat ein Zimmer im <strong>Studentenwohnheim</strong> im Hochhaus in der Petersburger Straße.</span><span class="a1s" data-i="11"> Ihr Zimmer ist <strong>14 qm</strong> groß.</span><span class="a1s" data-i="12"> Anja findet das Zimmer sehr klein und das Wohnheim zu laut.
+      </span></div>
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px">
-        <strong>5.</strong> <strong>Paolo Monetti</strong> (55) und <strong>Kateryna Guzieva</strong> (54) leben in Mainz. Sie haben ein <strong>Reihenhaus</strong>. Sie finden das Haus klein, aber gemütlich. Und die Nachbarn sind nett.
-      </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px"><span class="a1s" data-i="13">
+        <strong>5.</strong> <strong>Paolo Monetti</strong> (55) und <strong>Kateryna Guzieva</strong> (54) leben in Mainz.</span><span class="a1s" data-i="14"> Sie haben ein <strong>Reihenhaus</strong>.</span><span class="a1s" data-i="15"> Sie finden das Haus klein, aber gemütlich.</span><span class="a1s" data-i="16"> Und die Nachbarn sind nett.
+      </span></div>
 
     </div>
 
@@ -13376,15 +13304,10 @@ function brToggleSample4() {
       🏠 <strong>Thema:</strong> Wohnungsbeschreibung — 描述公寓布局
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Unsere Wohnung hat <strong>vier Zimmer</strong>, eine <strong>Küche</strong>, ein <strong>Bad</strong> und einen <strong>Balkon</strong>. Hier links ist das Zimmer von David. Sein Zimmer ist groß, aber was für ein Chaos! Rechts ist die Küche. Unsere Küche ist wirklich schön – groß und hell. Das Bad hat kein Fenster und ist <strong>klein und dunkel</strong>. Unser Wohnzimmer hat nur <strong>17 qm</strong>, aber es hat einen Balkon! Der Balkon ist groß. Hier rechts ist das Zimmer von Lena. Ihr Zimmer ist auch groß und hell! Mein Zimmer ist sehr klein. Der <strong>Flur</strong> ist lang und meine <strong>Bücherregale</strong> haben hier viel Platz! Unsere Wohnung kostet <strong>750 Euro</strong>, das ist billig!
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s12-unsere-wohnung.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Unsere Wohnung hat <strong>vier Zimmer</strong>, eine <strong>Küche</strong>, ein <strong>Bad</strong> und einen <strong>Balkon</strong>.</span><span class="a1s" data-i="1"> Hier links ist das Zimmer von David.</span><span class="a1s" data-i="2"> Sein Zimmer ist groß, aber was für ein Chaos!</span><span class="a1s" data-i="3"> Rechts ist die Küche.</span><span class="a1s" data-i="4"> Unsere Küche ist wirklich schön – groß und hell.</span><span class="a1s" data-i="5"> Das Bad hat kein Fenster und ist <strong>klein und dunkel</strong>.</span><span class="a1s" data-i="6"> Unser Wohnzimmer hat nur <strong>17 qm</strong>, aber es hat einen Balkon!</span><span class="a1s" data-i="7"> Der Balkon ist groß.</span><span class="a1s" data-i="8"> Hier rechts ist das Zimmer von Lena.</span><span class="a1s" data-i="9"> Ihr Zimmer ist auch groß und hell!</span><span class="a1s" data-i="10"> Mein Zimmer ist sehr klein.</span><span class="a1s" data-i="11"> Der <strong>Flur</strong> ist lang und meine <strong>Bücherregale</strong> haben hier viel Platz!</span><span class="a1s" data-i="12"> Unsere Wohnung kostet <strong>750 Euro</strong>, das ist billig!
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s12-unsere-wohnung.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,5.962],[5.962,9.275],[9.275,13.512],[13.512,15.7],[15.7,19.437],[19.437,23.462],[23.462,29.175],[29.175,31.65],[31.65,34.937],[34.937,38.087],[38.087,40.537],[40.537,45.475],[45.475,50.75]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13407,24 +13330,19 @@ function brToggleSample4() {
       👩‍👩‍👩 <strong>Thema:</strong> Wohngemeinschaft — 合租生活
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Das ist Julia. Sie lebt mit Paula und Viola zusammen in einer Wohnung. Sie sind Studentinnen und Freundinnen. Die Wohnung ist in der Nähe von der Universität. Sie ist <strong>120 qm</strong> groß und hat vier Zimmer: die Zimmer von Julia, Paula und Viola, eine <strong>Küche</strong>, ein <strong>Wohnzimmer</strong>, ein <strong>Bad</strong> und eine extra <strong>Toilette</strong>. Die Küche ist groß – eine <strong>Wohnküche</strong>. Hier kochen Julia, Paula und Viola gerne. Sie essen sehr gerne zusammen.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s13-wohngemeinschaft.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Das ist Julia.</span><span class="a1s" data-i="1"> Sie lebt mit Paula und Viola zusammen in einer Wohnung.</span><span class="a1s" data-i="2"> Sie sind Studentinnen und Freundinnen.</span><span class="a1s" data-i="3"> Die Wohnung ist in der Nähe von der Universität.</span><span class="a1s" data-i="4"> Sie ist <strong>120 qm</strong> groß und hat vier Zimmer: die Zimmer von Julia, Paula und Viola, eine <strong>Küche</strong>, ein <strong>Wohnzimmer</strong>, ein <strong>Bad</strong> und eine extra <strong>Toilette</strong>.</span><span class="a1s" data-i="5"> Die Küche ist groß – eine <strong>Wohnküche</strong>.</span><span class="a1s" data-i="6"> Hier kochen Julia, Paula und Viola gerne.</span><span class="a1s" data-i="7"> Sie essen sehr gerne zusammen.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s13-wohngemeinschaft.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,2.0],[2.0,6.5],[6.5,9.65],[9.65,13.55],[13.55,26.237],[26.237,29.487],[29.487,33.612],[33.612,36.5],[36.5,40.387],[40.387,43.587],[43.587,50.487],[50.487,55.637],[55.637,61.6]]</script></div>
 
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
-      Die Wohnung kostet <strong>850 Euro</strong>. Für eine Studentin ist das zu teuer. Für drei Studentinnen ist es o.k. Die drei Freundinnen finden die WG super!
-    </div>
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="8">
+      Die Wohnung kostet <strong>850 Euro</strong>.</span><span class="a1s" data-i="9"> Für eine Studentin ist das zu teuer.</span><span class="a1s" data-i="10"> Für drei Studentinnen ist es o.k. Die drei Freundinnen finden die WG super!
+    </span></div>
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
-      In Deutschland leben Studenten oft in einer <strong>Wohngemeinschaft (WG)</strong>. Eine Wohngemeinschaft hat zwei oder mehr Personen, man nennt sie <strong>Mitbewohner</strong>.
-    </div>
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="11">
+      In Deutschland leben Studenten oft in einer <strong>Wohngemeinschaft (WG)</strong>.</span><span class="a1s" data-i="12"> Eine Wohngemeinschaft hat zwei oder mehr Personen, man nennt sie <strong>Mitbewohner</strong>.
+    </span></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13445,15 +13363,10 @@ function brToggleSample4() {
       ⏰ <strong>Thema:</strong> Pünktlichkeit — 德国人真的那么准时吗？
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Alle sagen, die Deutschen sind sehr <strong>pünktlich</strong>. Aber ich glaube das nicht. Ich fahre oft Bahn. Die Züge sind modern und meistens pünktlich, aber manchmal haben sie auch zwanzig Minuten <strong>Verspätung</strong>. In Frankreich sind die Züge nicht so modern, aber sie sind pünktlich. In Deutschland hast du um zwei einen <strong>Termin</strong> beim Zahnarzt und du wartest bis drei. Viele Partys beginnen um acht, aber die Leute kommen erst um halb neun oder neun. Ich glaube, die Deutschen sind genauso pünktlich oder <strong>unpünktlich</strong> wie die anderen Europäer auch.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s14-sind-die-deutschen-puenktlich.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Alle sagen, die Deutschen sind sehr <strong>pünktlich</strong>.</span><span class="a1s" data-i="1"> Aber ich glaube das nicht.</span><span class="a1s" data-i="2"> Ich fahre oft Bahn.</span><span class="a1s" data-i="3"> Die Züge sind modern und meistens pünktlich, aber manchmal haben sie auch zwanzig Minuten <strong>Verspätung</strong>.</span><span class="a1s" data-i="4"> In Frankreich sind die Züge nicht so modern, aber sie sind pünktlich.</span><span class="a1s" data-i="5"> In Deutschland hast du um zwei einen <strong>Termin</strong> beim Zahnarzt und du wartest bis drei.</span><span class="a1s" data-i="6"> Viele Partys beginnen um acht, aber die Leute kommen erst um halb neun oder neun.</span><span class="a1s" data-i="7"> Ich glaube, die Deutschen sind genauso pünktlich oder <strong>unpünktlich</strong> wie die anderen Europäer auch.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s14-sind-die-deutschen-puenktlich.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.962],[3.962,6.287],[6.287,8.487],[8.487,16.075],[16.075,21.137],[21.137,27.087],[27.087,33.25],[33.25,40.2]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13475,32 +13388,27 @@ function brToggleSample4() {
       🎵 <strong>Thema:</strong> Stadtporträt Leipzig — 莱比锡城市介绍
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Leipzig ist eine <strong>Großstadt mit Tradition</strong>. Seit 1497 finden hier <strong>Messen</strong> statt und seit 1409 gibt es die <strong>Leipziger Universität</strong>. Viele berühmte Leute waren in Leipzig: <strong>Johann Wolfgang von Goethe</strong> war hier Student. Der Komponist <strong>Richard Wagner</strong> war Schüler in der Nikolaischule. <strong>Johann Sebastian Bach</strong> war Kantor an der <strong>Thomaskirche</strong> und war Leiter vom <strong>Thomanerchor</strong>. Der Chor existiert auch heute noch und gibt international Konzerte.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s15-leipzig.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Leipzig ist eine <strong>Großstadt mit Tradition</strong>.</span><span class="a1s" data-i="1"> Seit 1497 finden hier <strong>Messen</strong> statt und seit 1409 gibt es die <strong>Leipziger Universität</strong>.</span><span class="a1s" data-i="2"> Viele berühmte Leute waren in Leipzig: <strong>Johann Wolfgang von Goethe</strong> war hier Student.</span><span class="a1s" data-i="3"> Der Komponist <strong>Richard Wagner</strong> war Schüler in der Nikolaischule.</span><span class="a1s" data-i="4"> <strong>Johann Sebastian Bach</strong> war Kantor an der <strong>Thomaskirche</strong> und war Leiter vom <strong>Thomanerchor</strong>.</span><span class="a1s" data-i="5"> Der Chor existiert auch heute noch und gibt international Konzerte.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s15-leipzig.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.55],[3.55,12.987],[12.987,19.325],[19.325,23.812],[23.812,30.075],[30.075,34.987],[34.987,38.312],[38.312,42.212],[42.212,46.512],[46.512,54.175],[54.175,60.237],[60.237,65.1],[65.1,69.225],[69.225,72.937]]</script></div>
 
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
-      Leipzig ist auch eine <strong>Industriestadt</strong>. Porsche und BMW produzieren hier Autos. An der Universität studieren Studenten aus der ganzen Welt. Das Stadtzentrum mit <strong>Einkaufspassagen</strong>, alten Häusern und vielen Restaurants ist für Touristen attraktiv.
-    </div>
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="6">
+      Leipzig ist auch eine <strong>Industriestadt</strong>.</span><span class="a1s" data-i="7"> Porsche und BMW produzieren hier Autos.</span><span class="a1s" data-i="8"> An der Universität studieren Studenten aus der ganzen Welt.</span><span class="a1s" data-i="9"> Das Stadtzentrum mit <strong>Einkaufspassagen</strong>, alten Häusern und vielen Restaurants ist für Touristen attraktiv.
+    </span></div>
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="10">
       Musikfans besuchen die <strong>Oper</strong> und das <strong>Gewandhaus</strong> oder ein Konzert von den Prinzen.
-    </div>
+    </span></div>
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="11">
       Bücherfreunde kommen jedes Jahr im März zur <strong>Leipziger Buchmesse</strong>.
-    </div>
+    </span></div>
 
-    <div class="ls-passage" style="line-height:2;margin-top:.8rem">
-      Und noch ein Tipp: Kommen Sie nach Leipzig mit der Bahn. Der <strong>Hauptbahnhof</strong> ist ein Shopping-Paradies!
-    </div>
+    <div class="ls-passage" style="line-height:2;margin-top:.8rem"><span class="a1s" data-i="12">
+      Und noch ein Tipp: Kommen Sie nach Leipzig mit der Bahn.</span><span class="a1s" data-i="13"> Der <strong>Hauptbahnhof</strong> ist ein Shopping-Paradies!
+    </span></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13521,15 +13429,10 @@ function brToggleSample4() {
       💼 <strong>Thema:</strong> Berufe — 秘书的工作日常
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      Ich bin <strong>Sarah Herbst</strong>. Ich arbeite als <strong>Sekretärin</strong> bei der Firma <strong>Steiff</strong> in Giengen. Steiff produziert <strong>Teddybären</strong> und <strong>Stofftiere</strong>. Meine Arbeit ist sehr interessant und ich habe immer viel zu tun. Ich mache alle typischen <strong>Büroarbeiten</strong>: Texte am Computer schreiben, Telefonate führen, E-Mails schreiben und beantworten, Faxe senden, für meinen Chef Termine machen und viel organisieren. Unsere Firma kooperiert mit vielen nationalen und internationalen Partnern. Für die <strong>Geschäftsreisen</strong> muss ich Termine koordinieren und Flüge und Hotelzimmer buchen. Oft kommen die Geschäftspartner auch in unsere Firma. Ich organisiere dann die <strong>Besprechungen</strong> mit meinem Chef, begrüße und betreue die Gäste und schreibe die <strong>Protokolle</strong>. Kommunikation, Organisation und <strong>Fremdsprachenkenntnisse</strong> sind wichtig für die Karriere.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s16-sarah-herbst.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Ich bin <strong>Sarah Herbst</strong>.</span><span class="a1s" data-i="1"> Ich arbeite als <strong>Sekretärin</strong> bei der Firma <strong>Steiff</strong> in Giengen.</span><span class="a1s" data-i="2"> Steiff produziert <strong>Teddybären</strong> und <strong>Stofftiere</strong>.</span><span class="a1s" data-i="3"> Meine Arbeit ist sehr interessant und ich habe immer viel zu tun.</span><span class="a1s" data-i="4"> Ich mache alle typischen <strong>Büroarbeiten</strong>: Texte am Computer schreiben, Telefonate führen, E-Mails schreiben und beantworten, Faxe senden, für meinen Chef Termine machen und viel organisieren.</span><span class="a1s" data-i="5"> Unsere Firma kooperiert mit vielen nationalen und internationalen Partnern.</span><span class="a1s" data-i="6"> Für die <strong>Geschäftsreisen</strong> muss ich Termine koordinieren und Flüge und Hotelzimmer buchen.</span><span class="a1s" data-i="7"> Oft kommen die Geschäftspartner auch in unsere Firma.</span><span class="a1s" data-i="8"> Ich organisiere dann die <strong>Besprechungen</strong> mit meinem Chef, begrüße und betreue die Gäste und schreibe die <strong>Protokolle</strong>.</span><span class="a1s" data-i="9"> Kommunikation, Organisation und <strong>Fremdsprachenkenntnisse</strong> sind wichtig für die Karriere.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s16-sarah-herbst.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,2.412],[2.412,6.987],[6.987,10.737],[10.737,15.7],[15.7,29.525],[29.525,35.162],[35.162,41.287],[41.287,45.075],[45.075,52.825],[52.825,59.312]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13555,23 +13458,18 @@ function brToggleSample4() {
 
       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2">
         <div style="font-weight:700;color:#b45309;margin-bottom:.6rem;font-size:1rem">Text A</div>
-        <p>Mein Name ist <strong>Klaus Stephan</strong>. Ich arbeite als <strong>Mechatroniker</strong> in einer Autowerkstatt in Emden. Wir sind fünf Kollegen: ein Meister, drei Azubis und ich. Unsere Arbeitszeit ist von 7.30 bis 17 Uhr. Mittagspause machen wir von 12 bis 13 Uhr. Oft arbeiten wir bis 18 Uhr. Am Samstag müssen drei Kollegen bis zum Mittag arbeiten. Wir können wechseln.</p>
-        <p>Wir machen den <strong>Service</strong> für alle Audi-Modelle. Meine Aufgaben sind: Diagnose, Termine machen, reparieren und Kunden beraten. Der Service ist wichtig! Die Kunden bringen am Morgen ihre Autos und am Abend können sie sie oft schon abholen. Aber: Guter Service ist <strong>nicht billig</strong>. Manchmal gibt es <strong>Diskussionen</strong> mit den Kunden über die Kosten.</p>
+        <p><span class="a1s" data-i="0">Mein Name ist <strong>Klaus Stephan</strong>.</span><span class="a1s" data-i="1"> Ich arbeite als <strong>Mechatroniker</strong> in einer Autowerkstatt in Emden.</span><span class="a1s" data-i="2"> Wir sind fünf Kollegen: ein Meister, drei Azubis und ich.</span><span class="a1s" data-i="3"> Unsere Arbeitszeit ist von 7.30 bis 17 Uhr.</span><span class="a1s" data-i="4"> Mittagspause machen wir von 12 bis 13 Uhr.</span><span class="a1s" data-i="5"> Oft arbeiten wir bis 18 Uhr.</span><span class="a1s" data-i="6"> Am Samstag müssen drei Kollegen bis zum Mittag arbeiten.</span><span class="a1s" data-i="7"> Wir können wechseln.</span></p>
+        <p><span class="a1s" data-i="8">Wir machen den <strong>Service</strong> für alle Audi-Modelle.</span><span class="a1s" data-i="9"> Meine Aufgaben sind: Diagnose, Termine machen, reparieren und Kunden beraten.</span><span class="a1s" data-i="10"> Der Service ist wichtig!</span><span class="a1s" data-i="11"> Die Kunden bringen am Morgen ihre Autos und am Abend können sie sie oft schon abholen.</span><span class="a1s" data-i="12"> Aber: Guter Service ist <strong>nicht billig</strong>.</span><span class="a1s" data-i="13"> Manchmal gibt es <strong>Diskussionen</strong> mit den Kunden über die Kosten.</span></p>
       </div>
 
       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2">
         <div style="font-weight:700;color:#2b6cb0;margin-bottom:.6rem;font-size:1rem">Text B（改动版）</div>
-        <p>Ich bin Klaus Stephan und arbeite als Mechatroniker <strong>bei Audi</strong>. Wir sind fünf Kollegen: <strong>zwei Meister</strong> und drei Azubis. Wir arbeiten von Montag bis Freitag von 7.30 bis 17 Uhr mit einer Pause von 12 bis 13 Uhr. <strong>Der Samstag ist frei.</strong></p>
-        <p>Wir machen den Service für alle Audi-Modelle. Meine Aufgaben sind: Diagnose, Termine machen, reparieren und Kunden beraten. Der Service ist wichtig! Die Kunden bringen am Morgen ihre Autos und am Abend können sie sie oft schon abholen. Aber: Guter Service ist <strong>teuer</strong>. Doch es gibt <strong>keine Diskussionen</strong> mit den Kunden über die Kosten.</p>
+        <p><span class="a1s" data-i="14">Ich bin Klaus Stephan und arbeite als Mechatroniker <strong>bei Audi</strong>.</span><span class="a1s" data-i="15"> Wir sind fünf Kollegen: <strong>zwei Meister</strong> und drei Azubis.</span><span class="a1s" data-i="16"> Wir arbeiten von Montag bis Freitag von 7.30 bis 17 Uhr mit einer Pause von 12 bis 13 Uhr.</span><span class="a1s" data-i="17"> <strong>Der Samstag ist frei.</strong></span></p>
+        <p><span class="a1s" data-i="18">Wir machen den Service für alle Audi-Modelle.</span><span class="a1s" data-i="19"> Meine Aufgaben sind: Diagnose, Termine machen, reparieren und Kunden beraten.</span><span class="a1s" data-i="20"> Der Service ist wichtig!</span><span class="a1s" data-i="21"> Die Kunden bringen am Morgen ihre Autos und am Abend können sie sie oft schon abholen.</span><span class="a1s" data-i="22"> Aber: Guter Service ist <strong>teuer</strong>.</span><span class="a1s" data-i="23"> Doch es gibt <strong>keine Diskussionen</strong> mit den Kunden über die Kosten.</span></p>
       </div>
 
     </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s17-klaus-stephan.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s17-klaus-stephan.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.025],[3.025,8.112],[8.112,13.325],[13.325,18.437],[18.437,22.687],[22.687,25.85],[25.85,30.525],[30.525,32.712],[32.712,36.412],[36.412,43.55],[43.55,46.112],[46.112,52.1],[52.1,55.712],[55.712,60.475],[60.475,65.537],[65.537,70.462],[70.462,79.162],[79.162,81.712],[81.712,85.4],[85.4,92.537],[92.537,95.1],[95.1,101.087],[101.087,104.425],[104.425,109.162]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13591,15 +13489,10 @@ function brToggleSample4() {
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       📞 <strong>Thema:</strong> Berufe — 呼叫中心客服
     </div>
-    <div class="ls-passage" style="line-height:2">
-      Ich arbeite im <strong>Lufthansa-Call-Center</strong> in Brünn (Brno) in der Tschechischen Republik. Ich muss beruflich viel telefonieren. Ich kann Tschechisch, Deutsch und Englisch sprechen, also bekomme ich die Anrufe aus Großbritannien, den USA und Deutschland. Meine Kolleginnen und ich sitzen zusammen in einem Büro. Wir <strong>beraten</strong> unsere Kunden am Telefon, informieren sie über <strong>Flugzeiten</strong> und reservieren <strong>Flugtickets</strong>. Wir müssen am Telefon immer <strong>freundlich</strong> sein, das ist nicht leicht. Unsere Arbeitszeit ist <strong>flexibel</strong> und wir müssen manchmal auch am Wochenende arbeiten. Ich habe dann wenig Zeit für meine Familie. Meine Tochter ist leider keine Hilfe im <strong>Haushalt</strong>, sie kann stundenlang telefonieren, aber sie kann nicht kochen!
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s18-call-center-agentin.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Ich arbeite im <strong>Lufthansa-Call-Center</strong> in Brünn (Brno) in der Tschechischen Republik.</span><span class="a1s" data-i="1"> Ich muss beruflich viel telefonieren.</span><span class="a1s" data-i="2"> Ich kann Tschechisch, Deutsch und Englisch sprechen, also bekomme ich die Anrufe aus Großbritannien, den USA und Deutschland.</span><span class="a1s" data-i="3"> Meine Kolleginnen und ich sitzen zusammen in einem Büro.</span><span class="a1s" data-i="4"> Wir <strong>beraten</strong> unsere Kunden am Telefon, informieren sie über <strong>Flugzeiten</strong> und reservieren <strong>Flugtickets</strong>.</span><span class="a1s" data-i="5"> Wir müssen am Telefon immer <strong>freundlich</strong> sein, das ist nicht leicht.</span><span class="a1s" data-i="6"> Unsere Arbeitszeit ist <strong>flexibel</strong> und wir müssen manchmal auch am Wochenende arbeiten.</span><span class="a1s" data-i="7"> Ich habe dann wenig Zeit für meine Familie.</span><span class="a1s" data-i="8"> Meine Tochter ist leider keine Hilfe im <strong>Haushalt</strong>, sie kann stundenlang telefonieren, aber sie kann nicht kochen!
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s18-call-center-agentin.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,6.05],[6.05,9.237],[9.237,18.3],[18.3,22.525],[22.525,30.262],[30.262,35.275],[35.275,41.35],[41.35,45.0],[45.0,52.675]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13617,15 +13510,10 @@ function brToggleSample4() {
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🏋️ <strong>Thema:</strong> Berufe — 健身行业
     </div>
-    <div class="ls-passage" style="line-height:2">
-      Ich arbeite in einem <strong>Fitness-Studio</strong> in Berlin. Mein Beruf ist interessant. Ich bin <strong>Trainer</strong> und leite <strong>Aerobic-Kurse</strong>. Ich muss die <strong>Sportgeräte</strong> kontrollieren und unsere <strong>Mitglieder</strong> beraten. Ich plane die Sportkurse und organisiere Partys. Meine Arbeitszeit ist von 10 bis 20 Uhr mit zwei Stunden Mittagspause. Ich arbeite oft am Samstag, aber am Sonntag muss ich nicht arbeiten. Leider kann ich meine Freundin nicht oft treffen. Sie ist auch Aerobic-Trainerin. Im nächsten Jahr können wir zusammen als <strong>Animateure</strong> in einem Sportclub in Spanien arbeiten.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s19-fitnesskaufmann.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Ich arbeite in einem <strong>Fitness-Studio</strong> in Berlin.</span><span class="a1s" data-i="1"> Mein Beruf ist interessant.</span><span class="a1s" data-i="2"> Ich bin <strong>Trainer</strong> und leite <strong>Aerobic-Kurse</strong>.</span><span class="a1s" data-i="3"> Ich muss die <strong>Sportgeräte</strong> kontrollieren und unsere <strong>Mitglieder</strong> beraten.</span><span class="a1s" data-i="4"> Ich plane die Sportkurse und organisiere Partys.</span><span class="a1s" data-i="5"> Meine Arbeitszeit ist von 10 bis 20 Uhr mit zwei Stunden Mittagspause.</span><span class="a1s" data-i="6"> Ich arbeite oft am Samstag, aber am Sonntag muss ich nicht arbeiten.</span><span class="a1s" data-i="7"> Leider kann ich meine Freundin nicht oft treffen.</span><span class="a1s" data-i="8"> Sie ist auch Aerobic-Trainerin.</span><span class="a1s" data-i="9"> Im nächsten Jahr können wir zusammen als <strong>Animateure</strong> in einem Sportclub in Spanien arbeiten.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s19-fitnesskaufmann.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.925],[3.925,6.75],[6.75,10.325],[10.325,15.412],[15.412,19.6],[19.6,26.525],[26.525,32.4],[32.4,36.175],[36.175,39.037],[39.037,45.6]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13640,29 +13528,24 @@ function brToggleSample4() {
 <div class="ls-section">
   <div class="ls-section-header">㉒ 对话朗读 · Nach dem Weg fragen</div>
   <div class="ls-section-body">
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s20-nach-dem-weg-fragen.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s20-nach-dem-weg-fragen.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.587],[3.587,5.512],[5.512,7.837],[7.837,12.8],[12.8,17.337],[17.337,18.612],[18.612,22.85],[22.85,26.225],[26.225,30.612],[30.612,32.475],[32.475,34.975],[34.975,39.537],[39.537,47.837],[47.837,50.45],[50.45,52.425],[52.425,54.212],[54.212,55.637]]</script></div>
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🗺️ <strong>Thema:</strong> Wegbeschreibung — 问路与指路
     </div>
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
-      <p>◇ Entschuldigung, wie komme ich zum <strong>Bahnhof</strong>?</p>
-      <p>◆ Zum Bahnhof? Das ist ganz einfach. Gehen Sie hier <strong>geradeaus</strong>, die Kaiserstraße entlang und ...</p>
-      <p>◇ Moment, geradeaus, die Kaiserstraße entlang. Ja?</p>
-      <p>◆ Ja, und dann an der vierten <strong>Kreuzung</strong> rechts ...</p>
-      <p>◇ Also, an der vierten Kreuzung rechts?</p>
-      <p>◆ Genau, und dann bis zur <strong>Ampel</strong> geradeaus.</p>
-      <p>◇ Bis zur Ampel?</p>
-      <p>◆ Ja, bis zur Ampel. Links sehen Sie die Bahnhofstraße und den Bahnhof.</p>
-      <p>◇ Also, Moment ... ich gehe hier die Kaiserstraße entlang und dann an der vierten Kreuzung rechts bis zur Ampel. Dann komme ich zum Bahnhof.</p>
-      <p>◆ Ja, genau.</p>
-      <p>◇ Vielen Dank!</p>
-      <p>◆ Gerne!</p>
+      <p><span class="a1s" data-i="0">◇ Entschuldigung, wie komme ich zum <strong>Bahnhof</strong>?</span></p>
+      <p><span class="a1s" data-i="1">◆ Zum Bahnhof?</span><span class="a1s" data-i="2"> Das ist ganz einfach.</span><span class="a1s" data-i="3"> Gehen Sie hier <strong>geradeaus</strong>, die Kaiserstraße entlang und ...</span></p>
+      <p><span class="a1s" data-i="4">◇ Moment, geradeaus, die Kaiserstraße entlang.</span><span class="a1s" data-i="5"> Ja?</span></p>
+      <p><span class="a1s" data-i="6">◆ Ja, und dann an der vierten <strong>Kreuzung</strong> rechts ...</span></p>
+      <p><span class="a1s" data-i="7">◇ Also, an der vierten Kreuzung rechts?</span></p>
+      <p><span class="a1s" data-i="8">◆ Genau, und dann bis zur <strong>Ampel</strong> geradeaus.</span></p>
+      <p><span class="a1s" data-i="9">◇ Bis zur Ampel?</span></p>
+      <p><span class="a1s" data-i="10">◆ Ja, bis zur Ampel.</span><span class="a1s" data-i="11"> Links sehen Sie die Bahnhofstraße und den Bahnhof.</span></p>
+      <p><span class="a1s" data-i="12">◇ Also, Moment ... ich gehe hier die Kaiserstraße entlang und dann an der vierten Kreuzung rechts bis zur Ampel.</span><span class="a1s" data-i="13"> Dann komme ich zum Bahnhof.</span></p>
+      <p><span class="a1s" data-i="14">◆ Ja, genau.</span></p>
+      <p><span class="a1s" data-i="15">◇ Vielen Dank!</span></p>
+      <p><span class="a1s" data-i="16">◆ Gerne!</span></p>
     </div>
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13681,31 +13564,26 @@ function brToggleSample4() {
       🚴 <strong>Thema:</strong> Urlaub &amp; Reisetagebuch — 多瑙河骑行日记
     </div>
     <div style="display:flex;flex-direction:column;gap:.8rem;margin-bottom:1rem">
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #d97706;padding-left:14px">
-        <strong>1. Tag: 29. Juni</strong><br>Vormittags Ankunft in <strong>Passau</strong>. Unsere <strong>Radtour</strong> beginnt. Die erste Etappe ist kurz, 27 km.
-      </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s21-familie-mertens.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #d97706;padding-left:14px"><span class="a1s" data-i="0">
+        <strong>1. Tag: 29. Juni</strong><br>Vormittags Ankunft in <strong>Passau</strong>.</span><span class="a1s" data-i="1"> Unsere <strong>Radtour</strong> beginnt.</span><span class="a1s" data-i="2"> Die erste Etappe ist kurz, 27 km.
+      </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s21-familie-mertens.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,5.537],[5.537,8.1],[8.1,13.725],[13.725,22.15],[22.15,27.562],[27.562,31.637],[31.637,34.65],[34.65,40.087],[40.087,43.962],[43.962,47.05],[47.05,50.025],[50.025,55.175],[55.175,58.5],[58.5,62.962],[62.962,70.525],[70.525,73.7],[73.7,78.45],[78.45,82.587],[82.587,85.425],[85.425,88.837],[88.837,94.912],[94.912,99.987],[99.987,104.425],[104.425,112.562],[112.562,114.562],[114.562,116.837]]</script></div>
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px">
-        <strong>2. Tag: 30. Juni</strong><br>Heute haben wir 71,5 km geschafft – von Engelhartszell nach <strong>Linz</strong>. Mittags haben wir eingekauft und dann an der <strong>Donau</strong> ein Picknick gemacht. In Linz haben wir in einer <strong>Pension</strong> übernachtet. Meine Eltern waren sehr müde!
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px">
-        <strong>3. Tag: 1. Juli</strong><br>Vormittags haben wir einen <strong>Bummel</strong> durch Linz gemacht. Ich habe <strong>Linzer Torte</strong> probiert, sehr gut! Mittags Weiterfahrt Richtung <strong>Melk</strong>. Dort haben wir das <strong>Kloster</strong> besucht.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px">
-        <strong>6. Tag: 4. Juli</strong> <em>(Silvia Mertens)</em><br>Was für ein Tag! Heute ist meine Mutter vom Rad <strong>gefallen</strong>. Kurz vor Wien haben Kinder auf der Straße Ball gespielt. Plötzlich ist der Ball in ihr Rad geflogen, aber es ist nicht viel passiert und sie ist gleich wieder <strong>aufgestanden</strong>. Mein Vater hat die <strong>Polizei</strong> angerufen. Sie ist schnell gekommen, wir haben also nicht viel Zeit verloren. Sie haben ein Protokoll geschrieben und uns geholfen. Dann haben wir eine Pause gemacht. Nach einer Stunde sind wir weitergefahren.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px">
-        <strong>7. Tag: 5. Juli</strong><br>Nach 326 km: <strong>Wien</strong>! Das <strong>Riesenrad</strong> im Prater haben wir schon angeschaut und fotografiert. Morgen machen wir einen Tag Pause und besichtigen die Stadt.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #b45309;padding-left:14px">
-        <strong>20. Tag: 18. Juli</strong><br>660 km: Wir haben <strong>Budapest</strong> erreicht und die Stadt besichtigt. Die Tour war toll! Budapest ist super!
-      </div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px"><span class="a1s" data-i="3">
+        <strong>2. Tag: 30. Juni</strong><br>Heute haben wir 71,5 km geschafft – von Engelhartszell nach <strong>Linz</strong>.</span><span class="a1s" data-i="4"> Mittags haben wir eingekauft und dann an der <strong>Donau</strong> ein Picknick gemacht.</span><span class="a1s" data-i="5"> In Linz haben wir in einer <strong>Pension</strong> übernachtet.</span><span class="a1s" data-i="6"> Meine Eltern waren sehr müde!
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px"><span class="a1s" data-i="7">
+        <strong>3. Tag: 1. Juli</strong><br>Vormittags haben wir einen <strong>Bummel</strong> durch Linz gemacht.</span><span class="a1s" data-i="8"> Ich habe <strong>Linzer Torte</strong> probiert, sehr gut!</span><span class="a1s" data-i="9"> Mittags Weiterfahrt Richtung <strong>Melk</strong>.</span><span class="a1s" data-i="10"> Dort haben wir das <strong>Kloster</strong> besucht.
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px"><span class="a1s" data-i="11">
+        <strong>6. Tag: 4. Juli</strong> <em>(Silvia Mertens)</em><br>Was für ein Tag!</span><span class="a1s" data-i="12"> Heute ist meine Mutter vom Rad <strong>gefallen</strong>.</span><span class="a1s" data-i="13"> Kurz vor Wien haben Kinder auf der Straße Ball gespielt.</span><span class="a1s" data-i="14"> Plötzlich ist der Ball in ihr Rad geflogen, aber es ist nicht viel passiert und sie ist gleich wieder <strong>aufgestanden</strong>.</span><span class="a1s" data-i="15"> Mein Vater hat die <strong>Polizei</strong> angerufen.</span><span class="a1s" data-i="16"> Sie ist schnell gekommen, wir haben also nicht viel Zeit verloren.</span><span class="a1s" data-i="17"> Sie haben ein Protokoll geschrieben und uns geholfen.</span><span class="a1s" data-i="18"> Dann haben wir eine Pause gemacht.</span><span class="a1s" data-i="19"> Nach einer Stunde sind wir weitergefahren.
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px"><span class="a1s" data-i="20">
+        <strong>7. Tag: 5. Juli</strong><br>Nach 326 km: <strong>Wien</strong>!</span><span class="a1s" data-i="21"> Das <strong>Riesenrad</strong> im Prater haben wir schon angeschaut und fotografiert.</span><span class="a1s" data-i="22"> Morgen machen wir einen Tag Pause und besichtigen die Stadt.
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #b45309;padding-left:14px"><span class="a1s" data-i="23">
+        <strong>20. Tag: 18. Juli</strong><br>660 km: Wir haben <strong>Budapest</strong> erreicht und die Stadt besichtigt.</span><span class="a1s" data-i="24"> Die Tour war toll!</span><span class="a1s" data-i="25"> Budapest ist super!
+      </span></div>
     </div>
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13723,15 +13601,10 @@ function brToggleSample4() {
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       ✈️ <strong>Thema:</strong> Berufe — 旅行社职员
     </div>
-    <div class="ls-passage" style="line-height:2">
-      <strong>Jenny Manteufel</strong> arbeitet im Reisebüro Ikarus in Kassel. Sie ist <strong>Reiseverkehrskauffrau</strong> und organisiert Urlaubs- und Geschäftsreisen. Reiseverkehrskaufleute reservieren Zimmer in Hotels und informieren Kunden über <strong>Reiseziele</strong>. Frau Manteufel muss viele Länder sehr gut kennen. Sie ist Spezialistin für Reisen nach <strong>Kanada</strong>. Mit dem Computer recherchiert sie Reiseziele, Preise oder <strong>Fahrpläne</strong>. Sie muss viel organisieren, z. B. <strong>Exkursionen</strong> planen und dann die Hotels buchen. Manchmal macht sie auch eine <strong>Qualitätskontrolle</strong> in Hotels oder sie informiert sich über neue Reisetrends auf einer <strong>Messe</strong>. Letzte Woche war sie in Friedrichshafen zur Internationalen Touristikmesse „Reisen und Freizeit". Im Trend sind <strong>Trekking-Touren</strong> und <strong>Städte-Trips</strong>.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s22-jenny-manteufel.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      <strong>Jenny Manteufel</strong> arbeitet im Reisebüro Ikarus in Kassel.</span><span class="a1s" data-i="1"> Sie ist <strong>Reiseverkehrskauffrau</strong> und organisiert Urlaubs- und Geschäftsreisen.</span><span class="a1s" data-i="2"> Reiseverkehrskaufleute reservieren Zimmer in Hotels und informieren Kunden über <strong>Reiseziele</strong>.</span><span class="a1s" data-i="3"> Frau Manteufel muss viele Länder sehr gut kennen.</span><span class="a1s" data-i="4"> Sie ist Spezialistin für Reisen nach <strong>Kanada</strong>.</span><span class="a1s" data-i="5"> Mit dem Computer recherchiert sie Reiseziele, Preise oder <strong>Fahrpläne</strong>.</span><span class="a1s" data-i="6"> Sie muss viel organisieren, z. B. <strong>Exkursionen</strong> planen und dann die Hotels buchen.</span><span class="a1s" data-i="7"> Manchmal macht sie auch eine <strong>Qualitätskontrolle</strong> in Hotels oder sie informiert sich über neue Reisetrends auf einer <strong>Messe</strong>.</span><span class="a1s" data-i="8"> Letzte Woche war sie in Friedrichshafen zur Internationalen Touristikmesse „Reisen und Freizeit".</span><span class="a1s" data-i="9"> Im Trend sind <strong>Trekking-Touren</strong> und <strong>Städte-Trips</strong>.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s22-jenny-manteufel.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,4.887],[4.887,10.462],[10.462,17.025],[17.025,21.125],[21.125,24.85],[24.85,30.25],[30.25,36.875],[36.875,44.7],[44.7,51.837],[51.837,55.7]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13749,15 +13622,10 @@ function brToggleSample4() {
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🏊 <strong>Thema:</strong> Berufe — 游泳池管理员
     </div>
-    <div class="ls-passage" style="line-height:2">
-      Sie arbeiten, wo andere ihre Freizeit verbringen. Badegäste nennen die „<strong>Fachangestellten für Bäderbetriebe</strong>" meistens „Schwimmmeister" oder „<strong>Bademeister</strong>". Bademeister/innen stehen nicht nur cool am <strong>Beckenrand</strong>, sie haben auch viele Aufgaben. Sie kontrollieren die <strong>Wasserqualität</strong>, betreuen die Badegäste, geben <strong>Schwimmunterricht</strong> und überwachen die Technik und die Sauberkeit in Schwimmbädern. Sie haben eine Ausbildung in <strong>Erste Hilfe</strong> und als <strong>Rettungsschwimmer</strong>. Bademeister/innen arbeiten oft in Frei- und Hallenbädern, an Seen und am Strand, in Fitnesszentren oder in Wellness-Hotels.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s23-bademeister.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Sie arbeiten, wo andere ihre Freizeit verbringen.</span><span class="a1s" data-i="1"> Badegäste nennen die „<strong>Fachangestellten für Bäderbetriebe</strong>" meistens „Schwimmmeister" oder „<strong>Bademeister</strong>".</span><span class="a1s" data-i="2"> Bademeister/innen stehen nicht nur cool am <strong>Beckenrand</strong>, sie haben auch viele Aufgaben.</span><span class="a1s" data-i="3"> Sie kontrollieren die <strong>Wasserqualität</strong>, betreuen die Badegäste, geben <strong>Schwimmunterricht</strong> und überwachen die Technik und die Sauberkeit in Schwimmbädern.</span><span class="a1s" data-i="4"> Sie haben eine Ausbildung in <strong>Erste Hilfe</strong> und als <strong>Rettungsschwimmer</strong>.</span><span class="a1s" data-i="5"> Bademeister/innen arbeiten oft in Frei- und Hallenbädern, an Seen und am Strand, in Fitnesszentren oder in Wellness-Hotels.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s23-bademeister.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,4.325],[4.325,11.65],[11.65,17.687],[17.687,27.937],[27.937,32.875],[32.875,42.462]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13775,15 +13643,10 @@ function brToggleSample4() {
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
       🍽️ <strong>Thema:</strong> Essen in der Kantine — 食堂最受欢迎的菜
     </div>
-    <div class="ls-passage" style="line-height:2">
-      Jeden Tag essen ca. 6 Mio. Deutsche in einer <strong>Kantine</strong> zu Mittag. Markt-Info hat 1000 Gäste in einer Kantine in Frankfurt/Main gefragt: Was ist Ihr <strong>Lieblingsessen</strong>? Das Ergebnis überrascht nicht: Pizza, Nudeln und Fleischgerichte sind sehr beliebt. 29 Prozent erklären die <strong>Currywurst</strong> zu ihrem Lieblingsessen. <strong>Spaghetti</strong> mit Tomatensoße landen mit 22 Prozent auf dem zweiten Platz. Danach folgt <strong>Pizza</strong> mit 16 Prozent. Mit 13 Prozent ist das <strong>Schnitzel mit Pommes</strong> nicht mehr so beliebt wie früher (2007: 20 Prozent). Kalorien sind beim Lieblingsessen nicht wichtig: Kantinenbesucher essen lieber <strong>Hamburger</strong> (9 Prozent) als <strong>Fisch</strong> (7 Prozent). Gemüse und Salat sind auch nicht sehr beliebt. Nur 4 Prozent essen mittags am liebsten einen Salat. Das Umfrage-Ergebnis: Kantinenessen muss <strong>lecker</strong>, aber nicht gesund sein.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s24-currywurst-oder-schnitzel.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      Jeden Tag essen ca. 6 Mio. Deutsche in einer <strong>Kantine</strong> zu Mittag.</span><span class="a1s" data-i="1"> Markt-Info hat 1000 Gäste in einer Kantine in Frankfurt/Main gefragt: Was ist Ihr <strong>Lieblingsessen</strong>?</span><span class="a1s" data-i="2"> Das Ergebnis überrascht nicht: Pizza, Nudeln und Fleischgerichte sind sehr beliebt.</span><span class="a1s" data-i="3"> 29 Prozent erklären die <strong>Currywurst</strong> zu ihrem Lieblingsessen.</span><span class="a1s" data-i="4"> <strong>Spaghetti</strong> mit Tomatensoße landen mit 22 Prozent auf dem zweiten Platz.</span><span class="a1s" data-i="5"> Danach folgt <strong>Pizza</strong> mit 16 Prozent.</span><span class="a1s" data-i="6"> Mit 13 Prozent ist das <strong>Schnitzel mit Pommes</strong> nicht mehr so beliebt wie früher (2007: 20 Prozent).</span><span class="a1s" data-i="7"> Kalorien sind beim Lieblingsessen nicht wichtig: Kantinenbesucher essen lieber <strong>Hamburger</strong> (9 Prozent) als <strong>Fisch</strong> (7 Prozent).</span><span class="a1s" data-i="8"> Gemüse und Salat sind auch nicht sehr beliebt.</span><span class="a1s" data-i="9"> Nur 4 Prozent essen mittags am liebsten einen Salat.</span><span class="a1s" data-i="10"> Das Umfrage-Ergebnis: Kantinenessen muss <strong>lecker</strong>, aber nicht gesund sein.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s24-currywurst-oder-schnitzel.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,5.35],[5.35,12.912],[12.912,19.575],[19.575,24.937],[24.937,30.875],[30.875,34.462],[34.462,42.875],[42.875,52.5],[52.5,56.35],[56.35,60.837],[60.837,66.95]]</script></div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
       <strong>📌 Schlüsselwörter：</strong><br>
@@ -13803,15 +13666,10 @@ function brToggleSample4() {
       🍝 <strong>Thema:</strong> Kochen &amp; Rezept — 烹饪食谱
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      <strong>Nudeln</strong> kochen. <strong>Schinken</strong> in Streifen schneiden, <strong>Zwiebeln</strong> und <strong>Tomaten</strong> in Würfel schneiden. Zwiebeln in einer <strong>Pfanne</strong> anbraten. Drei Viertel (3/4) der Nudeln in eine <strong>Form</strong> geben, dann Schinken, Zwiebeln und Tomaten dazu geben (ohne Schinken ist es vegetarisch). Mit etwas <strong>Käse</strong> bestreuen. Den Rest Nudeln darauf geben. <strong>Sahne</strong>, Salz und Pfeffer und den Käse verrühren und auf den Auflauf geben. Im <strong>Backofen</strong> bei 200 Grad ca. 30 Minuten backen.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s25-nudelauflauf.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      <strong>Nudeln</strong> kochen.</span><span class="a1s" data-i="1"> <strong>Schinken</strong> in Streifen schneiden, <strong>Zwiebeln</strong> und <strong>Tomaten</strong> in Würfel schneiden.</span><span class="a1s" data-i="2"> Zwiebeln in einer <strong>Pfanne</strong> anbraten.</span><span class="a1s" data-i="3"> Drei Viertel (3/4) der Nudeln in eine <strong>Form</strong> geben, dann Schinken, Zwiebeln und Tomaten dazu geben (ohne Schinken ist es vegetarisch).</span><span class="a1s" data-i="4"> Mit etwas <strong>Käse</strong> bestreuen.</span><span class="a1s" data-i="5"> Den Rest Nudeln darauf geben.</span><span class="a1s" data-i="6"> <strong>Sahne</strong>, Salz und Pfeffer und den Käse verrühren und auf den Auflauf geben.</span><span class="a1s" data-i="7"> Im <strong>Backofen</strong> bei 200 Grad ca. 30 Minuten backen.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s25-nudelauflauf.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,1.825],[1.825,7.362],[7.362,10.55],[10.55,20.75],[20.75,23.362],[23.362,26.025],[26.025,31.912],[31.912,37.075]]</script></div>
 
 
     <div style="text-align:center;font-size:1.1rem;font-weight:700;color:#b45309;margin-top:1rem">Guten Appetit!</div>
@@ -13836,15 +13694,10 @@ function brToggleSample4() {
       🍽️ <strong>Thema:</strong> Essen &amp; Kultur — 德国人的三餐习惯
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      In Deutschland gibt es drei <strong>Hauptmahlzeiten</strong>: das <strong>Frühstück</strong> zwischen 6 und 10 Uhr, das <strong>Mittagessen</strong> zwischen 12 und 14 Uhr und das <strong>Abendessen</strong> zwischen 18 und 20 Uhr. Zum Frühstück gibt es Kaffee oder Tee, <strong>Müsli</strong>, Brot oder <strong>Brötchen</strong>, Butter, Marmelade, Käse und Wurst. Wer früh aufsteht und zur Arbeit geht, macht oft ein <strong>zweites Frühstück</strong> zwischen 9 und 10 Uhr am Arbeitsplatz. Mittags isst man gern <strong>warm</strong>, zum Beispiel Fleisch mit Kartoffeln und Gemüse. Abends essen viele lieber <strong>kalt</strong>. Dann gibt es Brot, Butter, Käse oder Wurst und Tee, Saft oder ein Bier. In vielen Familien gibt es am Sonntag zwischen 15 und 17 Uhr Kaffee oder Tee und <strong>Kuchen</strong>. Zum Essen in einem Restaurant oder bei Freunden zu Hause trifft man sich meistens zwischen 19 und 20 Uhr.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s26-essenszeiten-in-deutschland.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      In Deutschland gibt es drei <strong>Hauptmahlzeiten</strong>: das <strong>Frühstück</strong> zwischen 6 und 10 Uhr, das <strong>Mittagessen</strong> zwischen 12 und 14 Uhr und das <strong>Abendessen</strong> zwischen 18 und 20 Uhr.</span><span class="a1s" data-i="1"> Zum Frühstück gibt es Kaffee oder Tee, <strong>Müsli</strong>, Brot oder <strong>Brötchen</strong>, Butter, Marmelade, Käse und Wurst.</span><span class="a1s" data-i="2"> Wer früh aufsteht und zur Arbeit geht, macht oft ein <strong>zweites Frühstück</strong> zwischen 9 und 10 Uhr am Arbeitsplatz.</span><span class="a1s" data-i="3"> Mittags isst man gern <strong>warm</strong>, zum Beispiel Fleisch mit Kartoffeln und Gemüse.</span><span class="a1s" data-i="4"> Abends essen viele lieber <strong>kalt</strong>.</span><span class="a1s" data-i="5"> Dann gibt es Brot, Butter, Käse oder Wurst und Tee, Saft oder ein Bier.</span><span class="a1s" data-i="6"> In vielen Familien gibt es am Sonntag zwischen 15 und 17 Uhr Kaffee oder Tee und <strong>Kuchen</strong>.</span><span class="a1s" data-i="7"> Zum Essen in einem Restaurant oder bei Freunden zu Hause trifft man sich meistens zwischen 19 und 20 Uhr.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s26-essenszeiten-in-deutschland.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,12.725],[12.725,21.925],[21.925,30.85],[30.85,36.687],[36.687,39.6],[39.6,46.462],[46.462,54.162],[54.162,61.737]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -13862,12 +13715,7 @@ function brToggleSample4() {
 <div class="ls-section">
   <div class="ls-section-header">㉙ 对话朗读 · Shoppen gehen</div>
   <div class="ls-section-body">
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s27-shoppen-gehen.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s27-shoppen-gehen.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.237],[3.237,6.675],[6.675,8.95],[8.95,12.3],[12.3,14.462],[14.462,19.75],[19.75,23.962],[23.962,27.7],[27.7,30.762],[30.762,35.287],[35.287,37.087],[37.087,39.25],[39.25,41.975],[41.975,44.287],[44.287,46.012]]</script></div>
 
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -13875,18 +13723,18 @@ function brToggleSample4() {
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
-      <p>🔵 <strong>Verkäufer/in:</strong> Guten Tag, kann ich Ihnen helfen?</p>
-      <p>🟠 <strong>Kunde/in:</strong> Ja, ich suche eine <strong>schwarze Jeans</strong>.</p>
-      <p>🔵 Eine bestimmte <strong>Marke</strong>?</p>
-      <p>🟠 Das ist egal, aber nicht so teuer.</p>
-      <p>🔵 Welche <strong>Größe</strong> denn?</p>
-      <p>🟠 Diese hier ist 34/32.</p>
-      <p>🔵 Gut. Wie <strong>gefällt</strong> Ihnen diese Jeans?</p>
-      <p>🟠 Die ist aber <strong>dunkelgrau</strong>, nicht schwarz.</p>
-      <p>🔵 Ja, aber die ist im <strong>Angebot</strong>. Nur 19,99 €!</p>
-      <p>🟠 Oh, super! Ich <strong>probiere</strong> sie an.</p>
-      <p>🔵 Die Jeans <strong>passt</strong>, oder?</p>
-      <p>🟠 Ja, sehr gut. Die <strong>nehme</strong> ich.</p>
+      <p><span class="a1s" data-i="0">🔵 <strong>Verkäufer/in:</strong> Guten Tag, kann ich Ihnen helfen?</span></p>
+      <p><span class="a1s" data-i="1">🟠 <strong>Kunde/in:</strong> Ja, ich suche eine <strong>schwarze Jeans</strong>.</span></p>
+      <p><span class="a1s" data-i="2">🔵 Eine bestimmte <strong>Marke</strong>?</span></p>
+      <p><span class="a1s" data-i="3">🟠 Das ist egal, aber nicht so teuer.</span></p>
+      <p><span class="a1s" data-i="4">🔵 Welche <strong>Größe</strong> denn?</span></p>
+      <p><span class="a1s" data-i="5">🟠 Diese hier ist 34/32.</span></p>
+      <p><span class="a1s" data-i="6">🔵 Gut. Wie <strong>gefällt</strong> Ihnen diese Jeans?</span></p>
+      <p><span class="a1s" data-i="7">🟠 Die ist aber <strong>dunkelgrau</strong>, nicht schwarz.</span></p>
+      <p><span class="a1s" data-i="8">🔵 Ja, aber die ist im <strong>Angebot</strong>.</span><span class="a1s" data-i="9"> Nur 19,99 €!</span></p>
+      <p><span class="a1s" data-i="10">🟠 Oh, super!</span><span class="a1s" data-i="11"> Ich <strong>probiere</strong> sie an.</span></p>
+      <p><span class="a1s" data-i="12">🔵 Die Jeans <strong>passt</strong>, oder?</span></p>
+      <p><span class="a1s" data-i="13">🟠 Ja, sehr gut.</span><span class="a1s" data-i="14"> Die <strong>nehme</strong> ich.</span></p>
     </div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13903,12 +13751,7 @@ function brToggleSample4() {
 <div class="ls-section">
   <div class="ls-section-header">㉚ 对话朗读 · Anmeldung in der Arztpraxis</div>
   <div class="ls-section-body">
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s28-anmeldung-in-der-arztpraxis.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s28-anmeldung-in-der-arztpraxis.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,3.65],[3.65,6.087],[6.087,8.612],[8.612,12.275],[12.275,15.437],[15.437,18.612],[18.612,20.525],[20.525,22.437],[22.437,24.887],[24.887,28.237],[28.237,30.812]]</script></div>
 
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -13916,12 +13759,12 @@ function brToggleSample4() {
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
-      <p>🟠 <strong>Patient:</strong> Guten Morgen, mein Name ist Aigner. Ich habe einen <strong>Termin</strong>.</p>
-      <p>🔵 <strong>Rezeption:</strong> Morgen, Herr Aigner. Waren Sie in diesem <strong>Quartal</strong> schon mal bei uns?</p>
-      <p>🟠 Nein, in diesem Quartal noch nicht.</p>
-      <p>🔵 Dann brauche ich Ihre <strong>Versichertenkarte</strong>.</p>
-      <p>🟠 Hier, bitte. Muss ich warten?</p>
-      <p>🔵 Ja, aber nicht lange. Sie können im <strong>Wartezimmer</strong> Platz nehmen. Die Ärztin kommt gleich.</p>
+      <p><span class="a1s" data-i="0">🟠 <strong>Patient:</strong> Guten Morgen, mein Name ist Aigner.</span><span class="a1s" data-i="1"> Ich habe einen <strong>Termin</strong>.</span></p>
+      <p><span class="a1s" data-i="2">🔵 <strong>Rezeption:</strong> Morgen, Herr Aigner.</span><span class="a1s" data-i="3"> Waren Sie in diesem <strong>Quartal</strong> schon mal bei uns?</span></p>
+      <p><span class="a1s" data-i="4">🟠 Nein, in diesem Quartal noch nicht.</span></p>
+      <p><span class="a1s" data-i="5">🔵 Dann brauche ich Ihre <strong>Versichertenkarte</strong>.</span></p>
+      <p><span class="a1s" data-i="6">🟠 Hier, bitte.</span><span class="a1s" data-i="7"> Muss ich warten?</span></p>
+      <p><span class="a1s" data-i="8">🔵 Ja, aber nicht lange.</span><span class="a1s" data-i="9"> Sie können im <strong>Wartezimmer</strong> Platz nehmen.</span><span class="a1s" data-i="10"> Die Ärztin kommt gleich.</span></p>
     </div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13944,36 +13787,31 @@ function brToggleSample4() {
     </div>
 
     <div style="display:flex;flex-direction:column;gap:.8rem;margin-bottom:1rem">
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #f59e0b;padding-left:14px">
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #f59e0b;padding-left:14px"><span class="a1s" data-i="0">
         <strong>Denise</strong> kombiniert eine <strong>gelbe Jacke</strong>, ein <strong>weißes T-Shirt</strong> und eine enge, <strong>dunkelblaue Jeans</strong>.
-      </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s29-jeans-mode.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+      </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s29-jeans-mode.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,6.85],[6.85,13.45],[13.45,19.437],[19.437,23.112],[23.112,27.362],[27.362,33.687],[33.687,38.175],[38.175,45.287],[45.287,57.437]]</script></div>
 
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px">
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2b6cb0;padding-left:14px"><span class="a1s" data-i="1">
         <strong>Jöran</strong> trägt eine <strong>blaue Jeans</strong>, eine dunkelblaue <strong>Kapuzenjacke</strong> und einen <strong>bunten Schal</strong>.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px">
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #c62828;padding-left:14px"><span class="a1s" data-i="2">
         <strong>Paula</strong> mag den <strong>Lagen-Look</strong> und trägt zur Jeans ein weißes und ein <strong>rotes T-Shirt</strong>.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px">
-        Mut zum <strong>Hut</strong> haben <strong>Doria</strong> und <strong>Chantal</strong>.<br>
-        Chantal mag <strong>hellblaue Jeans</strong> und <strong>pinke T-Shirts</strong>.<br>
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #7b2d8b;padding-left:14px"><span class="a1s" data-i="3">
+        Mut zum <strong>Hut</strong> haben <strong>Doria</strong> und <strong>Chantal</strong>.<br></span><span class="a1s" data-i="4">
+        Chantal mag <strong>hellblaue Jeans</strong> und <strong>pinke T-Shirts</strong>.<br></span><span class="a1s" data-i="5">
         Doria kombiniert zum Hut <strong>braune Stiefel</strong>, dunkelblaue Jeans und einen <strong>grauen Mantel</strong>.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #e65100;padding-left:14px">
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #e65100;padding-left:14px"><span class="a1s" data-i="6">
         <strong>Omar</strong> mag <strong>beige Hosen</strong> und <strong>Kapuzenpullover</strong> in Orange.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px">
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #2e7d32;padding-left:14px"><span class="a1s" data-i="7">
         Grün ist die Hoffnung – <strong>Sarah</strong> hofft auf gutes Wetter und trägt einen <strong>grünen Rock</strong> und eine <strong>graue Bluse</strong>.
-      </div>
-      <div class="ls-passage" style="line-height:2;border-left:4px solid #1a1a2e;padding-left:14px">
+      </span></div>
+      <div class="ls-passage" style="line-height:2;border-left:4px solid #1a1a2e;padding-left:14px"><span class="a1s" data-i="8">
         Die Mode in der Arbeitswelt bleibt klassisch: <strong>Jan</strong> trägt einen <strong>dunklen Anzug</strong> und ein <strong>blaues Hemd</strong>, <strong>Natalia</strong> ein <strong>weißes Kleid</strong> und eine <strong>schwarze Jacke</strong> – Schwarz und Weiß kommen nie aus der Mode!
-      </div>
+      </span></div>
     </div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -13991,12 +13829,7 @@ function brToggleSample4() {
 <div class="ls-section">
   <div class="ls-section-header">㉜ 对话朗读 · Im Sprechzimmer</div>
   <div class="ls-section-body">
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s30-im-sprechzimmer.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s30-im-sprechzimmer.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,2.6],[2.6,4.762],[4.762,11.225],[11.225,13.45],[13.45,15.312],[15.312,17.075],[17.075,19.5],[19.5,21.1],[21.1,23.8],[23.8,26.425],[26.425,30.25],[30.25,34.537],[34.537,36.275],[36.275,38.687],[38.687,41.862],[41.862,45.412],[45.412,49.925],[49.925,53.675],[53.675,55.65],[55.65,58.012],[58.012,61.037]]</script></div>
 
 
     <div style="font-size:.88rem;color:#805ad5;background:#f5f0ff;border-radius:8px;padding:10px 14px;margin-bottom:1rem">
@@ -14004,14 +13837,14 @@ function brToggleSample4() {
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
-      <p>📘 <strong>Ärztin:</strong> Guten Tag, Herr Aigner. Was <strong>fehlt</strong> Ihnen denn?</p>
-      <p>🟠 <strong>Herr Aigner:</strong> Ich habe seit drei Tagen <strong>Fieber</strong>, mein Hals tut weh und ich habe <strong>Kopfschmerzen</strong>.</p>
-      <p>📘 Sagen Sie mal „Aaaah"! Husten Sie mal! Alles rot. Sie haben eine <strong>Angina</strong>.</p>
-      <p>🟠 Wie bitte?</p>
-      <p>📘 Eine schwere <strong>Halsentzündung</strong>. Sie sind stark <strong>erkältet</strong>. Ich <strong>verschreibe</strong> Ihnen <strong>Tabletten</strong> und <strong>Hustensaft</strong>. Bitte nehmen Sie die am Morgen, Mittag und Abend. Rauchen Sie?</p>
-      <p>🟠 Ja, aber nicht viel. So 20 Zigaretten am Tag.</p>
-      <p>📘 Aha, ich schreibe Sie eine Woche <strong>krank</strong>. Sie müssen viel trinken und Sie dürfen natürlich nicht rauchen. Bitte machen Sie einen <strong>Termin</strong> für nächste Woche. <strong>Gute Besserung!</strong></p>
-      <p>🟠 Dann bis nächste Woche. Auf Wiedersehen, Frau Doktor.</p>
+      <p><span class="a1s" data-i="0">📘 <strong>Ärztin:</strong> Guten Tag, Herr Aigner.</span><span class="a1s" data-i="1"> Was <strong>fehlt</strong> Ihnen denn?</span></p>
+      <p><span class="a1s" data-i="2">🟠 <strong>Herr Aigner:</strong> Ich habe seit drei Tagen <strong>Fieber</strong>, mein Hals tut weh und ich habe <strong>Kopfschmerzen</strong>.</span></p>
+      <p><span class="a1s" data-i="3">📘 Sagen Sie mal „Aaaah"!</span><span class="a1s" data-i="4"> Husten Sie mal!</span><span class="a1s" data-i="5"> Alles rot.</span><span class="a1s" data-i="6"> Sie haben eine <strong>Angina</strong>.</span></p>
+      <p><span class="a1s" data-i="7">🟠 Wie bitte?</span></p>
+      <p><span class="a1s" data-i="8">📘 Eine schwere <strong>Halsentzündung</strong>.</span><span class="a1s" data-i="9"> Sie sind stark <strong>erkältet</strong>.</span><span class="a1s" data-i="10"> Ich <strong>verschreibe</strong> Ihnen <strong>Tabletten</strong> und <strong>Hustensaft</strong>.</span><span class="a1s" data-i="11"> Bitte nehmen Sie die am Morgen, Mittag und Abend.</span><span class="a1s" data-i="12"> Rauchen Sie?</span></p>
+      <p><span class="a1s" data-i="13">🟠 Ja, aber nicht viel.</span><span class="a1s" data-i="14"> So 20 Zigaretten am Tag.</span></p>
+      <p><span class="a1s" data-i="15">📘 Aha, ich schreibe Sie eine Woche <strong>krank</strong>.</span><span class="a1s" data-i="16"> Sie müssen viel trinken und Sie dürfen natürlich nicht rauchen.</span><span class="a1s" data-i="17"> Bitte machen Sie einen <strong>Termin</strong> für nächste Woche.</span><span class="a1s" data-i="18"> <strong>Gute Besserung!</strong></span></p>
+      <p><span class="a1s" data-i="19">🟠 Dann bis nächste Woche.</span><span class="a1s" data-i="20"> Auf Wiedersehen, Frau Doktor.</span></p>
     </div>
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7">
@@ -14034,15 +13867,10 @@ function brToggleSample4() {
       🏥 <strong>Thema:</strong> Berufe — 医疗护理员
     </div>
 
-    <div class="ls-passage" style="line-height:2">
-      <strong>Gesundheits- und Krankenpfleger</strong> pflegen, versorgen und beraten Patientinnen und Patienten. Wir müssen z. B. die Patienten <strong>waschen</strong> oder Essen und <strong>Medikamente</strong> verteilen. Wir helfen den Ärzten auch bei <strong>Untersuchungen</strong>. Bei <strong>Operationen</strong> kontrollieren wir medizinische Apparate und Instrumente. Meistens arbeiten wir in <strong>Krankenhäusern</strong>, aber auch in <strong>ambulanten Stationen</strong>, dann pflegen wir die Patienten zu Hause. Meine <strong>Ausbildung</strong> hat drei Jahre gedauert. Im Moment arbeite ich im <strong>Schichtbetrieb</strong> im Krankenhaus. Meine Arbeit beginnt mal um sechs Uhr morgens, mal um zwei Uhr mittags oder um zehn Uhr abends.
-    </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s31-krankenpfleger.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="ls-passage" style="line-height:2"><span class="a1s" data-i="0">
+      <strong>Gesundheits- und Krankenpfleger</strong> pflegen, versorgen und beraten Patientinnen und Patienten.</span><span class="a1s" data-i="1"> Wir müssen z. B. die Patienten <strong>waschen</strong> oder Essen und <strong>Medikamente</strong> verteilen.</span><span class="a1s" data-i="2"> Wir helfen den Ärzten auch bei <strong>Untersuchungen</strong>.</span><span class="a1s" data-i="3"> Bei <strong>Operationen</strong> kontrollieren wir medizinische Apparate und Instrumente.</span><span class="a1s" data-i="4"> Meistens arbeiten wir in <strong>Krankenhäusern</strong>, aber auch in <strong>ambulanten Stationen</strong>, dann pflegen wir die Patienten zu Hause.</span><span class="a1s" data-i="5"> Meine <strong>Ausbildung</strong> hat drei Jahre gedauert.</span><span class="a1s" data-i="6"> Im Moment arbeite ich im <strong>Schichtbetrieb</strong> im Krankenhaus.</span><span class="a1s" data-i="7"> Meine Arbeit beginnt mal um sechs Uhr morgens, mal um zwei Uhr mittags oder um zehn Uhr abends.
+    </span></div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s31-krankenpfleger.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,7.1],[7.1,13.012],[13.012,16.512],[16.512,22.137],[22.137,30.225],[30.225,33.9],[33.9,38.162],[38.162,45.837]]</script></div>
 
 
     <div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:12px 16px;font-size:.88rem;line-height:1.7;margin-top:1rem">
@@ -14070,26 +13898,26 @@ function brToggleSample4() {
     </div>
 
     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;line-height:2.2;margin-bottom:1rem">
-      <p>🔵 <strong>Barbier:</strong> Hallo! Komm rein. Was möchtest du?</p>
-      <p>🟠 <strong>Kunde:</strong> Hallo. Ich möchte <strong>Haare schneiden</strong>, bitte.</p>
-      <p>🔵 Okay. Wie <strong>kurz</strong>?</p>
-      <p>🟠 Äh… nicht zu kurz. <strong>Ein bisschen</strong> kurz. <span style="color:#94a3b8;font-size:.82rem">（用手比划长度）</span></p>
-      <p>🔵 Ah, okay. Die <strong>Seiten</strong> kurz? Mit <strong>Maschine</strong>?</p>
-      <p>🟠 Ja, Seiten kurz. Maschine… <strong>Nummer 3</strong>? <span style="color:#94a3b8;font-size:.82rem">（不确定地说）</span></p>
-      <p>🔵 Nummer 3, okay. Und <strong>oben</strong>?</p>
-      <p>🟠 Oben… etwas <strong>länger</strong>, bitte. Nur ein bisschen schneiden. Mit <strong>Schere</strong>.</p>
-      <p>🔵 Verstehe. Seiten Maschine, oben Schere. Und <strong>vorne</strong>?</p>
-      <p>🟠 Vorne… auch ein bisschen <strong>kürzer</strong>, aber nicht zu viel.</p>
-      <p>🔵 Alles klar!</p>
+      <p><span class="a1s" data-i="0">🔵 <strong>Barbier:</strong> Hallo!</span><span class="a1s" data-i="1"> Komm rein.</span><span class="a1s" data-i="2"> Was möchtest du?</span></p>
+      <p><span class="a1s" data-i="3">🟠 <strong>Kunde:</strong> Hallo.</span><span class="a1s" data-i="4"> Ich möchte <strong>Haare schneiden</strong>, bitte.</span></p>
+      <p><span class="a1s" data-i="5">🔵 Okay.</span><span class="a1s" data-i="6"> Wie <strong>kurz</strong>?</span></p>
+      <p><span class="a1s" data-i="7">🟠 Äh… nicht zu kurz.</span><span class="a1s" data-i="8"> <strong>Ein bisschen</strong> kurz. <span style="color:#94a3b8;font-size:.82rem">（用手比划长度）</span></span></p>
+      <p><span class="a1s" data-i="9">🔵 Ah, okay.</span><span class="a1s" data-i="10"> Die <strong>Seiten</strong> kurz?</span><span class="a1s" data-i="11"> Mit <strong>Maschine</strong>?</span></p>
+      <p><span class="a1s" data-i="12">🟠 Ja, Seiten kurz.</span><span class="a1s" data-i="13"> Maschine…</span><span class="a1s" data-i="14"> <strong>Nummer 3</strong>? <span style="color:#94a3b8;font-size:.82rem">（不确定地说）</span></span></p>
+      <p><span class="a1s" data-i="15">🔵 Nummer 3, okay.</span><span class="a1s" data-i="16"> Und <strong>oben</strong>?</span></p>
+      <p><span class="a1s" data-i="17">🟠 Oben… etwas <strong>länger</strong>, bitte.</span><span class="a1s" data-i="18"> Nur ein bisschen schneiden.</span><span class="a1s" data-i="19"> Mit <strong>Schere</strong>.</span></p>
+      <p><span class="a1s" data-i="20">🔵 Verstehe.</span><span class="a1s" data-i="21"> Seiten Maschine, oben Schere.</span><span class="a1s" data-i="22"> Und <strong>vorne</strong>?</span></p>
+      <p><span class="a1s" data-i="23">🟠 Vorne… auch ein bisschen <strong>kürzer</strong>, aber nicht zu viel.</span></p>
+      <p><span class="a1s" data-i="24">🔵 Alles klar!</span></p>
       <p style="color:#94a3b8;font-style:italic;margin:.4rem 0">（理发中… nach 15 Minuten）</p>
-      <p>🔵 So, <strong>fertig</strong>! <strong>Gefällt</strong> es dir?</p>
-      <p>🟠 Ja, <strong>super</strong>! Sehr gut. Danke!</p>
-      <p>🔵 Noch <strong>waschen</strong>?</p>
-      <p>🟠 Nein, danke. Nur schneiden. <strong>Was kostet</strong> das?</p>
-      <p>🔵 <strong>15 Euro</strong>.</p>
-      <p>🟠 Hier, 15 Euro. <strong>Stimmt so</strong>.</p>
-      <p>🔵 Danke! Tschüss, <strong>bis zum nächsten Mal</strong>!</p>
-      <p>🟠 Tschüss! Auf Wiedersehen!</p>
+      <p><span class="a1s" data-i="25">🔵 So, <strong>fertig</strong>!</span><span class="a1s" data-i="26"> <strong>Gefällt</strong> es dir?</span></p>
+      <p><span class="a1s" data-i="27">🟠 Ja, <strong>super</strong>!</span><span class="a1s" data-i="28"> Sehr gut.</span><span class="a1s" data-i="29"> Danke!</span></p>
+      <p><span class="a1s" data-i="30">🔵 Noch <strong>waschen</strong>?</span></p>
+      <p><span class="a1s" data-i="31">🟠 Nein, danke.</span><span class="a1s" data-i="32"> Nur schneiden.</span><span class="a1s" data-i="33"> <strong>Was kostet</strong> das?</span></p>
+      <p><span class="a1s" data-i="34">🔵 <strong>15 Euro</strong>.</span></p>
+      <p><span class="a1s" data-i="35">🟠 Hier, 15 Euro.</span><span class="a1s" data-i="36"> <strong>Stimmt so</strong>.</span></p>
+      <p><span class="a1s" data-i="37">🔵 Danke!</span><span class="a1s" data-i="38"> Tschüss, <strong>bis zum nächsten Mal</strong>!</span></p>
+      <p><span class="a1s" data-i="39">🟠 Tschüss!</span><span class="a1s" data-i="40"> Auf Wiedersehen!</span></p>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
@@ -14123,12 +13951,7 @@ function brToggleSample4() {
       </div>
 
     </div>
-    <div style="margin-top:1rem;background:#f8f4f0;border:1px solid #e2d5c5;border-radius:10px;padding:12px 16px">
-      <div style="font-size:.82rem;font-weight:700;color:#b45309;margin-bottom:8px">🎧 朗读音频</div>
-      <audio controls style="width:100%" preload="none">
-        <source src="audio/a1-lesen-s32-beim-tuerkischen-friseur.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+<div class="a1lp"><div class="a1lp-bar"><button class="a1lp-btn a1lp-play" type="button">▶ 从头播放</button><div class="a1lp-prog" role="slider" aria-label="播放进度"><i></i></div><span class="a1lp-time">0:00 / 0:00</span><button class="a1lp-btn a1lp-spd" type="button">1×</button></div><div class="a1lp-hint">双击任意一句 → 从这句读 / 循环这句 · 长按可复制原文、查词</div><audio preload="metadata" src="audio/a1-lesen-s32-beim-tuerkischen-friseur.mp3"></audio><script type="application/json" class="a1lp-s">[[0.05,1.412],[1.412,2.95],[2.95,4.875],[4.875,6.275],[6.275,9.375],[9.375,10.687],[10.687,12.312],[12.312,14.762],[14.762,16.9],[16.9,18.625],[18.625,20.637],[20.637,22.387],[22.387,24.937],[24.937,26.512],[26.512,28.237],[28.237,30.6],[30.6,32.275],[32.275,35.375],[35.375,37.812],[37.812,39.475],[39.475,40.962],[40.962,43.85],[43.85,45.525],[45.525,50.062],[50.062,51.837],[51.837,54.025],[54.025,55.975],[55.975,58.012],[58.012,59.7],[59.7,61.1],[61.1,62.837],[62.837,64.837],[64.837,66.662],[66.662,68.6],[68.6,70.65],[70.65,73.3],[73.3,74.9],[74.9,76.3],[76.3,79.175],[79.175,80.512],[80.512,82.45]]</script></div>
 
 
     <div style="background:#f5f0ff;border:1px solid #ddd6fe;border-radius:10px;padding:12px 16px;font-size:.85rem;line-height:1.7;margin-top:.5rem">
@@ -22276,6 +22099,7 @@ if (typeof window.showPage === 'function' && !window.showPage._kdInitWrapped) {
   <footer style="text-align:center;color:rgba(255,245,230,.5);font-size:.82rem;padding:20px 0">
     🎧 B1 听力练习 · Goethe-Zertifikat B1 · Zertifikatstraining<br>
     Leons Deutschzentrum · 内容陆续更新
+    <div style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></div>
   </footer>
 
 <a href="#b1hoer-toc" class="b1h-backtotoc" title="回到目录">📋</a>
@@ -22658,5 +22482,197 @@ window.jumpKulturEp = function(n) {
 })();
 </script>
 <!-- student-portal-v1 END -->
+<script id="a1lp-js">
+(function(){
+  function closest(el, sel){
+    while(el && el !== document){
+      if(el.nodeType===1 && el.matches && el.matches(sel)) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+  function fmt(x){ x=Math.max(0, Math.floor(x||0)); var m=Math.floor(x/60), s=x%60; return m+':'+(s<10?'0':'')+s; }
+  function init(){
+    var players = [];
+    var sheet = document.createElement('div');
+    sheet.id = 'a1lp-sheet';
+    sheet.innerHTML = '<div class="a1lp-q" id="a1lp-q"></div>' +
+      '<div class="a1lp-acts">' +
+      '<button type="button" class="a1lp-btn" id="a1lp-from">▶ 从这句读</button>' +
+      '<button type="button" class="a1lp-btn a1lp-loop" id="a1lp-loop">🔁 循环这句</button>' +
+      '<button type="button" class="a1lp-btn a1lp-x" id="a1lp-x">✕</button>' +
+      '</div>';
+    document.body.appendChild(sheet);
+    var qEl = document.getElementById('a1lp-q');
+    var fromBtn = document.getElementById('a1lp-from');
+    var loopBtn = document.getElementById('a1lp-loop');
+    var xBtn = document.getElementById('a1lp-x');
+    var selP = null, selI = -1, loopOn = -1;
+
+    function pauseOthers(cur){
+      players.forEach(function(p){ if(p !== cur && !p.audio.paused) p.audio.pause(); });
+    }
+    function closeSheet(){
+      if(selP && selP.spans[selI]) selP.spans[selI].classList.remove('a1sel');
+      selP = null; selI = -1; loopOn = -1;
+      sheet.style.display = 'none';
+      loopBtn.classList.remove('on');
+    }
+    function openSheet(p, i){
+      if(selP && selP.spans[selI]) selP.spans[selI].classList.remove('a1sel');
+      selP = p; selI = i;
+      loopOn = (p.loop === i) ? i : -1;
+      if(p.spans[i]) p.spans[i].classList.add('a1sel');
+      var sp = p.spans[i];
+      qEl.textContent = sp ? sp.textContent.replace(/\s+/g,' ').trim() : '';
+      loopBtn.classList.toggle('on', loopOn === i);
+      sheet.style.display = 'block';
+    }
+    function mark(p, i){
+      if(p.cur === i) return;
+      if(p.cur >= 0 && p.spans[p.cur]) p.spans[p.cur].classList.remove('a1on');
+      p.cur = i;
+      if(i >= 0 && p.spans[i]) p.spans[i].classList.add('a1on');
+    }
+    function playFrom(p, i, asLoop){
+      pauseOthers(p);
+      p.loop = asLoop ? i : -1;
+      if(p.audio.preload !== 'auto') p.audio.preload = 'auto';
+      var target = p.S[i][0] + 0.02;
+      function go(){
+        try{ p.audio.currentTime = target; }catch(e){}
+        var pr = p.audio.play();
+        if(pr && pr.catch) pr.catch(function(){});
+      }
+      if(p.audio.readyState >= 1) go();
+      else {
+        var once = function(){ p.audio.removeEventListener('loadedmetadata', once); go(); };
+        p.audio.addEventListener('loadedmetadata', once);
+        try{ p.audio.load(); }catch(e){}
+      }
+      mark(p, i);
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('.a1lp'), function(root){
+      var sec = closest(root, '.ls-section');
+      if(!sec) return;
+      var p = { root: root, sec: sec, audio: root.querySelector('audio'), cur: -1, loop: -1,
+                spans: {}, rateI: 0, rates: [1, 0.8], sel: -1 };
+      p.S = JSON.parse(root.querySelector('.a1lp-s').textContent);
+      Array.prototype.forEach.call(sec.querySelectorAll('.a1s'), function(sp){
+        p.spans[+sp.getAttribute('data-i')] = sp;
+      });
+      players.push(p);
+      var playBtn = root.querySelector('.a1lp-play');
+      var prog = root.querySelector('.a1lp-prog');
+      var fill = prog.querySelector('i');
+      var timeEl = root.querySelector('.a1lp-time');
+      var spdBtn = root.querySelector('.a1lp-spd');
+
+      playBtn.addEventListener('click', function(){
+        if(p.audio.paused){
+          pauseOthers(p);
+          if(!isFinite(p.audio.duration) || p.audio.currentTime >= (p.audio.duration||0) - 0.2){
+            try{ p.audio.currentTime = 0; }catch(e){}
+          }
+          p.loop = -1;
+          var pr = p.audio.play(); if(pr && pr.catch) pr.catch(function(){});
+        } else {
+          p.audio.pause();
+        }
+      });
+      spdBtn.addEventListener('click', function(){
+        p.rateI = (p.rateI + 1) % p.rates.length;
+        p.audio.playbackRate = p.rates[p.rateI];
+        spdBtn.textContent = p.rates[p.rateI] + '×';
+      });
+      prog.addEventListener('click', function(e){
+        if(!isFinite(p.audio.duration) || p.audio.duration <= 0) return;
+        var r = prog.getBoundingClientRect();
+        var ratio = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+        try{ p.audio.currentTime = ratio * p.audio.duration; }catch(err){}
+        if(p.audio.paused){ var pr = p.audio.play(); if(pr && pr.catch) pr.catch(function(){}); }
+      });
+      p.audio.addEventListener('timeupdate', function(){
+        var t = p.audio.currentTime || 0, i = -1;
+        for(var k=0;k<p.S.length;k++){ if(t >= p.S[k][0] && t < p.S[k][1]){ i = k; break; } }
+        if(p.S.length && t >= p.S[p.S.length-1][1]) i = -1;
+        mark(p, i);
+        fill.style.width = (p.audio.duration ? Math.min(100, t / p.audio.duration * 100) : 0) + '%';
+        timeEl.textContent = fmt(t) + ' / ' + fmt(p.audio.duration || 0);
+        if(p.loop >= 0 && t >= p.S[p.loop][1] - 0.03){
+          try{ p.audio.currentTime = p.S[p.loop][0] + 0.02; }catch(e){}
+        }
+      });
+      p.audio.addEventListener('ended', function(){
+        mark(p, -1); p.loop = -1; playBtn.textContent = '▶ 从头播放';
+        if(selP === p) loopBtn.classList.remove('on');
+      });
+      p.audio.addEventListener('play', function(){
+        playBtn.textContent = '⏸ 暂停';
+        pauseOthers(p);
+      });
+      p.audio.addEventListener('pause', function(){ playBtn.textContent = '▶ 继续'; });
+      p.audio.addEventListener('loadedmetadata', function(){
+        timeEl.textContent = '0:00 / ' + fmt(p.audio.duration);
+      });
+
+      var tap = { i: -1, t: 0 }, downX = 0, downY = 0, moved = false;
+      sec.addEventListener('pointerdown', function(e){
+        moved = false; downX = e.clientX; downY = e.clientY;
+      });
+      sec.addEventListener('pointermove', function(e){
+        if(Math.abs(e.clientX - downX) > 10 || Math.abs(e.clientY - downY) > 10) moved = true;
+      });
+      sec.addEventListener('pointerup', function(e){
+        if(e.button !== undefined && e.button !== 0) return;
+        if(moved) return;
+        var sp = closest(e.target, '.a1s');
+        if(!sp) return;
+        var i = +sp.getAttribute('data-i'), now = Date.now();
+        if(tap.i === i && now - tap.t < 340){
+          tap.i = -1; tap.t = 0;
+          if(window.getSelection) window.getSelection().removeAllRanges();
+          openSheet(p, i);
+        } else {
+          tap.i = i; tap.t = now;
+        }
+      });
+    });
+
+    fromBtn.addEventListener('click', function(){
+      if(!selP) return;
+      playFrom(selP, selI, false);
+      loopBtn.classList.remove('on');
+    });
+    loopBtn.addEventListener('click', function(){
+      if(!selP) return;
+      if(selP.loop === selI){ selP.loop = -1; loopBtn.classList.remove('on'); loopOn = -1; return; }
+      playFrom(selP, selI, true); loopBtn.classList.add('on'); loopOn = selI;
+    });
+    xBtn.addEventListener('click', closeSheet);
+    document.addEventListener('click', function(e){
+      if(sheet.style.display !== 'block') return;
+      if(e.target === sheet || (e.target && sheet.contains && sheet.contains(e.target))) return;
+      if(closest(e.target, '.a1s') || closest(e.target, '.a1lp')) return;
+      closeSheet();
+    });
+    var selEl = document.getElementById('lesen-article-select');
+    if(selEl) selEl.addEventListener('change', function(){
+      players.forEach(function(p){ p.audio.pause(); });
+      closeSheet();
+    });
+    var page = document.getElementById('page-lesen');
+    if(page && window.MutationObserver){
+      new MutationObserver(function(){
+        if(getComputedStyle(page).display === 'none'){
+          players.forEach(function(p){ p.audio.pause(); });
+        }
+      }).observe(page, { attributes: true, attributeFilter: ['style','class'] });
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
