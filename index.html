@@ -22537,17 +22537,15 @@ window.jumpKulturEp = function(n) {
     function playFrom(p, i, asLoop){
       pauseOthers(p);
       p.loop = asLoop ? i : -1;
+      p.pendingSeek = p.S[i][0] + 0.02;
       if(p.audio.preload !== 'auto') p.audio.preload = 'auto';
-      var target = p.S[i][0] + 0.02;
-      function go(){
-        try{ p.audio.currentTime = target; }catch(e){}
-        var pr = p.audio.play();
-        if(pr && pr.catch) pr.catch(function(){});
-      }
-      if(p.audio.readyState >= 1) go();
-      else {
-        var once = function(){ p.audio.removeEventListener('loadedmetadata', once); go(); };
-        p.audio.addEventListener('loadedmetadata', once);
+      // 必须在点击手势内同步 play()，否则 iOS 会拦截
+      var pr = p.audio.play();
+      if(pr && pr.catch) pr.catch(function(){});
+      if(p.audio.readyState >= 1){
+        try{ p.audio.currentTime = p.pendingSeek; }catch(e){}
+        p.pendingSeek = null;
+      } else {
         try{ p.audio.load(); }catch(e){}
       }
       mark(p, i);
@@ -22614,6 +22612,10 @@ window.jumpKulturEp = function(n) {
       p.audio.addEventListener('pause', function(){ playBtn.textContent = '▶ 继续'; });
       p.audio.addEventListener('loadedmetadata', function(){
         timeEl.textContent = '0:00 / ' + fmt(p.audio.duration);
+        if(p.pendingSeek != null){
+          try{ p.audio.currentTime = p.pendingSeek; }catch(e){}
+          p.pendingSeek = null;
+        }
       });
 
       var tap = { i: -1, t: 0 }, downX = 0, downY = 0, moved = false;
