@@ -3506,6 +3506,7 @@
 }
 .pw-relock:hover{background:rgba(246,211,101,.14)}
 .section-header.has-pw-pill{flex-wrap:wrap;row-gap:6px}
+.pw-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:6px 0 8px}
 
 /* 目录里的锁定条目 */
 .toc-item.toc-locked,.toc-grid a.toc-locked{

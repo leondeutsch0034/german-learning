@@ -386,9 +386,14 @@ window.enhancePwGates = function(root) {
   for (var i = 0; i < gates.length; i++) {
     (function(g) {
       var sec = g.closest ? g.closest('.section') : null;
-      if (!sec) return;
-      var head = sec.querySelector('.section-header');
-      if (!head || head.querySelector('.pw-pill')) return;
+      var head = sec ? sec.querySelector('.section-header') : null;
+      if (head && head.querySelector('.pw-pill')) return;
+      var actions = null;
+      if (!head) {
+        actions = document.createElement('div');
+        actions.className = 'pw-actions';
+        if (g.parentNode) g.parentNode.insertBefore(actions, g);
+      }
       var pill = document.createElement('span');
       pill.className = 'pw-pill';
       var relock = document.createElement('button');
@@ -421,9 +426,14 @@ window.enhancePwGates = function(root) {
         relock.style.display = open ? '' : 'none';
       };
       sync();
-      head.appendChild(pill);
-      head.appendChild(relock);
-      head.classList.add('has-pw-pill');
+      if (head) {
+        head.appendChild(pill);
+        head.appendChild(relock);
+        head.classList.add('has-pw-pill');
+      } else if (actions) {
+        actions.appendChild(pill);
+        actions.appendChild(relock);
+      }
       try {
         new MutationObserver(sync).observe(g, { attributes: true, attributeFilter: ['hidden', 'style'] });
       } catch (e) {}
