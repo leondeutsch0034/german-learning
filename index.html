@@ -773,6 +773,7 @@ function applyGuestLocks() {
   toLockSections.forEach(function(sid){
     var sec = document.getElementById(sid);
     if (!sec) return;
+    if (sec.querySelector('.pw-gate')) return;   // 本节自带口令门：不再压一层模糊锁定页
     if (sec.querySelector('.section-lock-overlay')) return;
     sec.style.position = 'relative';
     var overlay = document.createElement('div');
@@ -840,9 +841,10 @@ function injectLoginPrompts(lockedSections) {
   // 每隔 step 个 section 插入一个卡片
   for (var i = 0; i < lockedEls.length; i++) {
     if (i % step === 0) {
+      var sec = lockedEls[i];
+      if (sec.querySelector('.pw-gate')) continue;   // 有口令门的小节不插登录提示卡
       var card = createLoginPromptCard();
       // 插入到 section 内部最前面（lock overlay 是 absolute 定位不受影响）
-      var sec = lockedEls[i];
       if (sec.firstChild) {
         sec.insertBefore(card, sec.firstChild);
       } else {
