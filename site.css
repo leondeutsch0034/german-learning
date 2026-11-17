@@ -3433,56 +3433,57 @@
 /* ── 邮件/信件范文正文：*{margin:0} 重置清掉了 p 的默认段距，这里按标准信件格式补回段间空行 ── */
 .mail-body>p+p{margin-top:1em}
 
-/* ═══ 内部讲义口令门（A1/A2/B1 语法页共用）═══ */
+/* ═══ 内部讲义口令门（A1/A2/B1 语法页共用 · 暗金版）═══ */
 .pw-gate{
   position:relative;
-  border:2px solid #f0d68a;
-  background:linear-gradient(165deg,#fffdf6 0%,#fff6e0 100%);
-  border-radius:16px;
-  padding:26px 22px 20px;
-  margin:6px 0 18px;
+  border:1.5px solid rgba(230,190,90,.55);
+  background:linear-gradient(180deg,#0c0b09 0%,#080807 100%);
+  border-radius:18px;
+  padding:30px 22px 22px;
+  margin:10px 0 20px;
   text-align:center;
-  box-shadow:0 8px 24px rgba(184,134,11,.16);
+  box-shadow:0 10px 28px rgba(0,0,0,.45),inset 0 1px 0 rgba(246,211,101,.06);
 }
 .pw-gate::before{
   content:'INTERNES MATERIAL';
   position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
-  background:linear-gradient(135deg,#b8860b,#d9a520);
-  color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.14em;
-  padding:3px 12px;border-radius:999px;white-space:nowrap;
+  background:linear-gradient(135deg,#f6d365,#c99b1f);
+  color:#2a1e00;font-size:.64rem;font-weight:900;letter-spacing:.16em;
+  padding:4px 16px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 .pw-gate .pw-ico{
-  width:54px;height:54px;margin:2px auto 12px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:1.55rem;
-  background:linear-gradient(135deg,#f6d365,#d9a520);
-  box-shadow:0 5px 14px rgba(184,134,11,.32);
+  width:64px;height:64px;margin:6px auto 14px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:1.9rem;
+  background:radial-gradient(circle at 35% 30%,#f7dd86,#d9a520 70%);
+  box-shadow:0 0 0 6px rgba(246,211,101,.08),0 6px 16px rgba(217,165,32,.35);
 }
 .pw-gate h3{
-  font-size:1.16rem;font-weight:800;color:#7a4a00;
-  margin:0 0 7px;letter-spacing:.01em;
+  font-size:1.3rem;font-weight:900;color:#f2c94c;
+  margin:0 0 8px;letter-spacing:.02em;
 }
-.pw-gate p{font-size:.88rem;color:#8a6a2f;margin:0 0 16px;line-height:1.8}
-.pw-row{display:flex;justify-content:center;align-items:stretch;gap:10px;flex-wrap:wrap;margin:0 auto;max-width:460px}
+.pw-gate p{font-size:.9rem;color:#c8cdd6;margin:0 0 18px;line-height:1.85}
+.pw-row{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:0 auto;max-width:520px}
 .pw-row input{
-  flex:1 1 220px;max-width:300px;min-width:0;
-  padding:12px 16px;font-size:1rem;letter-spacing:.06em;text-align:center;
-  color:#4a3506;background:#fff;
-  border:2px solid #e0c169;border-radius:12px;outline:none;
+  width:100%;box-sizing:border-box;
+  padding:14px 18px;font-size:1rem;letter-spacing:.04em;text-align:center;
+  color:#f6e7b6;background:#0a0c10;
+  border:1.5px solid rgba(246,211,101,.6);border-radius:14px;outline:none;
   transition:border-color .18s,box-shadow .18s;
 }
-.pw-row input::placeholder{color:#b9a67c;letter-spacing:0}
-.pw-row input:focus{border-color:#b8860b;box-shadow:0 0 0 4px rgba(246,211,101,.38)}
+.pw-row input::placeholder{color:#8b8f99;letter-spacing:0}
+.pw-row input:focus{border-color:#f6d365;box-shadow:0 0 0 4px rgba(246,211,101,.18)}
 .pw-row button{
-  flex:0 0 auto;padding:12px 28px;font-size:1rem;font-weight:800;color:#fff;
-  background:linear-gradient(135deg,#b8860b,#d9a520);
-  border:none;border-radius:12px;cursor:pointer;
-  box-shadow:0 4px 12px rgba(184,134,11,.32);
+  width:100%;padding:14px 28px;font-size:1.05rem;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#e8bb3f,#c99b1f);
+  border:none;border-radius:14px;cursor:pointer;
+  box-shadow:0 6px 16px rgba(201,155,31,.35);
   transition:filter .15s,transform .1s;
 }
 .pw-row button:hover{filter:brightness(1.07)}
 .pw-row button:active{transform:translateY(1px)}
-.pw-err{min-height:20px;margin-top:9px;font-size:.84rem;font-weight:700;color:#c53030}
-.pw-foot{font-size:.76rem;color:#a08a5e;margin:6px 0 0;line-height:1.75}
+.pw-err{min-height:20px;margin-top:9px;font-size:.84rem;font-weight:700;color:#ff7a7a}
+.pw-foot{font-size:.78rem;color:#9aa0aa;margin:8px 0 0;line-height:1.8}
 /* 注意：解锁脚本只摘 hidden 属性，别给 .pw-hide 写 display:none，否则内容永远打不开 */
 
 /* 章节标题右侧的「需口令 / 已解锁」标签（由 enhancePwGates 自动注入）*/
@@ -3491,36 +3492,35 @@
   margin-left:auto;flex-shrink:0;
   padding:3px 11px;border-radius:999px;
   font-size:.74rem;font-weight:800;white-space:nowrap;
-  background:rgba(184,134,11,.13);color:#8a5a00;
-  border:1px solid rgba(184,134,11,.38);
+  background:rgba(246,211,101,.1);color:#f6d365;
+  border:1px solid rgba(246,211,101,.4);
 }
-.pw-pill.is-open{background:rgba(39,103,73,.1);color:#276749;border-color:rgba(39,103,73,.32)}
+.pw-pill.is-open{background:rgba(73,160,120,.15);color:#7fd3a7;border-color:rgba(73,160,120,.45)}
 .section-header.has-pw-pill{flex-wrap:wrap;row-gap:6px}
 
 /* 目录里的锁定条目 */
 .toc-item.toc-locked,.toc-grid a.toc-locked{
-  background:#fff8e6 !important;color:#8a5a00 !important;
-  border:1px dashed #e0c169;
+  background:rgba(246,211,101,.1) !important;color:#f6d365 !important;
+  border:1px dashed rgba(246,211,101,.45);
 }
 .toc-item.toc-locked::before,.toc-grid a.toc-locked::before{content:'🔒 '}
 .toc-item.toc-locked:hover,.toc-grid a.toc-locked:hover{
-  background:#f6d365 !important;color:#5c3a00 !important;
+  background:rgba(246,211,101,.22) !important;color:#ffe58a !important;
 }
 
 /* 目录顶部的口令说明条 */
 .pw-notice{
   display:flex;gap:12px;align-items:flex-start;
-  background:linear-gradient(135deg,#fff8e6,#fffdf7);
-  border:1px solid #f0d68a;border-left:4px solid #d9a520;
+  background:linear-gradient(135deg,rgba(246,211,101,.1),rgba(246,211,101,.04));
+  border:1px solid rgba(246,211,101,.35);border-left:4px solid #d9a520;
   border-radius:12px;padding:13px 16px;margin:16px 0 0;
-  font-size:.86rem;color:#6b5321;line-height:1.75;
+  font-size:.86rem;color:#d9d3c4;line-height:1.75;
 }
 .pw-notice .pw-notice-ico{font-size:1.2rem;line-height:1.25;flex-shrink:0}
-.pw-notice b{color:#7a4a00}
-.pw-notice a{color:#8a5a00;font-weight:800;text-decoration:underline;white-space:nowrap}
+.pw-notice b{color:#f6d365}
+.pw-notice a{color:#f6d365;font-weight:800;text-decoration:underline;white-space:nowrap}
 @media(max-width:600px){
-  .pw-gate{padding:24px 14px 18px}
-  .pw-row input{flex:1 1 100%;max-width:none}
-  .pw-row button{flex:1 1 100%}
+  .pw-gate{padding:26px 14px 20px}
+  .pw-row input,.pw-row button{width:100%}
   .pw-notice{flex-wrap:wrap;font-size:.82rem}
 }
