@@ -3633,7 +3633,7 @@
     }
     function init(){
       var gate=document.getElementById('adjGate'); if(!gate || gate.dataset.bound==='1') return;
-      gate.dataset.bound='1';
+      gate.dataset.bound='1'; gate.dataset.unlockKey=KEY;
       try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
       var inp=document.getElementById('adjPw'), btn=document.getElementById('adjGo'), err=document.getElementById('adjErr');
       function go(){
@@ -3812,7 +3812,7 @@
   }
   function init(){
     var gate=document.getElementById('g16Gate'); if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
+    gate.dataset.bound='1'; gate.dataset.unlockKey=KEY;
     try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
     var inp=document.getElementById('g16Pw'), btn=document.getElementById('g16Go'), err=document.getElementById('g16Err');
     function go(){

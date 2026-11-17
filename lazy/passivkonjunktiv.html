@@ -1366,7 +1366,7 @@
   }
   function init(){
     var gate=document.getElementById('pkGate'); if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
+    gate.dataset.bound='1'; gate.dataset.unlockKey=KEY;
     try{ if(localStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
     var inp=document.getElementById('pkPw'), btn=document.getElementById('pkGo'), err=document.getElementById('pkErr');
     if(!inp||!btn) return;

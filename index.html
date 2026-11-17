@@ -391,13 +391,38 @@ window.enhancePwGates = function(root) {
       if (!head || head.querySelector('.pw-pill')) return;
       var pill = document.createElement('span');
       pill.className = 'pw-pill';
+      var relock = document.createElement('button');
+      relock.type = 'button';
+      relock.className = 'pw-relock';
+      relock.textContent = '退出解锁';
+      relock.title = '退出后本节重新上锁';
+      relock.onclick = function() {
+        var k = g.dataset.unlockKey;
+        try {
+          if (k) {
+            localStorage.removeItem(k);
+          } else {
+            Object.keys(localStorage).forEach(function(x) {
+              if (/_unlocked$/.test(x)) localStorage.removeItem(x);
+            });
+          }
+        } catch (e) {}
+        var body = document.getElementById(g.id.replace(/Gate$/, 'Body'));
+        if (body) body.hidden = true;
+        g.hidden = false;
+        var inp = g.querySelector('input');
+        if (inp) inp.value = '';
+        sync();
+      };
       var sync = function() {
         var open = g.hidden || g.style.display === 'none';
         pill.textContent = open ? '🔓 已解锁' : '🔒 需口令';
         pill.classList.toggle('is-open', !!open);
+        relock.style.display = open ? '' : 'none';
       };
       sync();
       head.appendChild(pill);
+      head.appendChild(relock);
       head.classList.add('has-pw-pill');
       try {
         new MutationObserver(sync).observe(g, { attributes: true, attributeFilter: ['hidden', 'style'] });
@@ -3585,7 +3610,7 @@ document.addEventListener('keydown', function(e) {
   function makeGate(gateId,bodyId,inpId,btnId,errId,key){
     var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
     if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
+    gate.dataset.bound='1'; gate.dataset.unlockKey=key;
     function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
     try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
     var inp=document.getElementById(inpId), btn=document.getElementById(btnId), err=document.getElementById(errId);

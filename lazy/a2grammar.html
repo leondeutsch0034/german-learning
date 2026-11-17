@@ -3111,7 +3111,7 @@
   function makeGate(prefix,key){
     var gate=document.getElementById(prefix+'Gate'), body=document.getElementById(prefix+'Body');
     if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
+    gate.dataset.bound='1'; gate.dataset.unlockKey=key;
     function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
     try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
     var inp=document.getElementById(prefix+'Pw'), btn=document.getElementById(prefix+'Go'), err=document.getElementById(prefix+'Err');

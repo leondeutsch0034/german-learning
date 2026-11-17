@@ -3496,6 +3496,15 @@
   border:1px solid rgba(246,211,101,.4);
 }
 .pw-pill.is-open{background:rgba(73,160,120,.15);color:#7fd3a7;border-color:rgba(73,160,120,.45)}
+.pw-relock{
+  display:inline-flex;align-items:center;
+  margin-left:8px;padding:3px 10px;border-radius:999px;
+  background:transparent;color:#f6d365;
+  border:1px solid rgba(246,211,101,.45);
+  font:inherit;font-size:.72rem;font-weight:700;line-height:1.2;
+  cursor:pointer;white-space:nowrap;transition:background .15s;
+}
+.pw-relock:hover{background:rgba(246,211,101,.14)}
 .section-header.has-pw-pill{flex-wrap:wrap;row-gap:6px}
 
 /* 目录里的锁定条目 */

@@ -697,7 +697,7 @@
   function makeGate(gateId,bodyId,inpId,btnId,errId,key){
     var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
     if(!gate || gate.dataset.bound==='1') return;
-    gate.dataset.bound='1';
+    gate.dataset.bound='1'; gate.dataset.unlockKey=key;
     function unlock(){ gate.hidden=true; if(body) body.hidden=false; }
     try{ if(localStorage.getItem(key)==='1'){ unlock(); return; } }catch(e){}
     var inp=document.getElementById(inpId), btn=document.getElementById(btnId), err=document.getElementById(errId);
