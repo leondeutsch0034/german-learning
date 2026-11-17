@@ -620,6 +620,9 @@ var USERS = {
   'yezhihao':    { password: 'yzh2026de', tier: 'custom' },
   'dongzelin':   { password: 'dzl2026de', tier: 'custom' },
   'zhouyuhang':  { password: 'zyh2026de', tier: 'custom' },
+  'yizimeng':    { password: 'yzm2026de', tier: 'custom' },
+  'liaoxin':     { password: 'lx2026de',  tier: 'custom' },
+  'liuyakui':    { password: 'lyk2026de', tier: 'custom' },
   'sophie':      { password: 'sop2026de', tier: 'full' },
   'lukas':       { password: 'luk2026de', tier: 'full' },
   'emilia':      { password: 'emi2026de', tier: 'full' },
@@ -3616,7 +3619,7 @@ document.addEventListener('keydown', function(e) {
 
 <script>
 (function(){
-  var PASS = ['zhouyuhang','yizimeng'];
+  var PASS = ['zhouyuhang','yizimeng','liaoxin','dongzelin','liuyakui'];
   function makeGate(gateId,bodyId,inpId,btnId,errId,key){
     var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
     if(!gate || gate.dataset.bound==='1') return;
