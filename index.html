@@ -527,18 +527,12 @@ window.instantiateLazyPage = function(pageId, cb) {
       background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
       background-clip:text;animation:shimmer 4s linear infinite;
       margin-bottom:4px;">Leons Deutschzentrum</h2>
-    <p style="font-size:.82rem;color:rgba(203,213,225,.55);margin-bottom:24px">请输入账号和密码登录</p>
+    <p style="font-size:.82rem;color:rgba(203,213,225,.55);margin-bottom:24px">请输入老师发给你的口令</p>
 
-    <input id="login-user" type="text" placeholder="用户名" autocomplete="username"
+    <input id="login-key" type="password" placeholder="请输入口令" autocomplete="off"
       style="width:100%;background:rgba(246,211,101,.05);border:1px solid rgba(246,211,101,.2);
-             color:#e2e8f0;border-radius:10px;padding:10px 14px;
-             font-size:.95rem;outline:none;margin-bottom:12px;box-sizing:border-box;
-             transition:.2s" onfocus="this.style.borderColor='#f6d365'" onblur="this.style.borderColor='rgba(246,211,101,.2)'">
-
-    <input id="login-pass" type="password" placeholder="密码" autocomplete="current-password"
-      style="width:100%;background:rgba(246,211,101,.05);border:1px solid rgba(246,211,101,.2);
-             color:#e2e8f0;border-radius:10px;padding:10px 14px;
-             font-size:.95rem;outline:none;margin-bottom:8px;box-sizing:border-box;
+             color:#e2e8f0;border-radius:10px;padding:12px 14px;text-align:center;letter-spacing:.05em;
+             font-size:.98rem;outline:none;margin-bottom:8px;box-sizing:border-box;
              transition:.2s" onfocus="this.style.borderColor='#f6d365'" onblur="this.style.borderColor='rgba(246,211,101,.2)'"
       onkeydown="if(event.key==='Enter')doLogin()">
 
@@ -564,15 +558,16 @@ window.instantiateLazyPage = function(pageId, cb) {
     </div>
 
     <p style="font-size:.7rem;color:rgba(255,255,255,.25);margin-top:14px;margin-bottom:0;text-align:center">
-      已有账号请登录 · 忘记密码联系开发者
+      口令只发给学员本人，请不要外传 · 忘记口令请联系老师
     </p>
   </div>
 </div>
 
 <script>
 // ══════════════════════════════════════════
-//  用户名 & 密码表（在此处维护）
-//  格式：'用户名': '密码'
+//  学员账号表（在此处维护）
+//  登录时只需输入 password 那一栏（口令）；username 只用于内部区分身份和等级
+//  格式：'用户名': { password: '口令', tier: '等级' }
 // ══════════════════════════════════════════
 var USERS = {
   'leon':        { password: 'leon2026de', tier: 'custom' },
@@ -619,7 +614,7 @@ var USERS = {
   // ── 新增 A1（basic）会员 ──
   'tobias':      { password: 'tob2026de', tier: 'basic' },
   'lena':        { password: 'len2026de', tier: 'basic' },
-  'paul':        { password: 'pau2026de', tier: 'basic' },
+  'paul':        { password: 'paul2026de', tier: 'basic' },
   'mila':        { password: 'mil2026de', tier: 'basic' },
   'johanna':     { password: 'joh2026de', tier: 'full' },
   'leonard':     { password: 'lrd2026de', tier: 'full' },
@@ -649,18 +644,22 @@ var LOCKED_PAGES = [].concat(LOCKED_PAGES_BASIC, LOCKED_PAGES_FULL, LOCKED_PAGES
 var LOCKED_SECTIONS = [].concat(LOCKED_SECTIONS_BASIC, LOCKED_SECTIONS_FULL, LOCKED_SECTIONS_CUSTOM);
 
 function doLogin() {
-  var u = document.getElementById('login-user').value.trim().toLowerCase();
-  var p = document.getElementById('login-pass').value;
+  var key = (document.getElementById('login-key').value || '').trim().toLowerCase();
   var err = document.getElementById('login-err');
-  if (!u || !p) { err.textContent = '请填写用户名和密码'; return; }
-  var rec = USERS[u];
-  if (rec && rec.password === p) {
-    localStorage.setItem(SESSION_KEY, JSON.stringify({user: u, tier: rec.tier, ts: Date.now()}));
+  if (!key) { err.textContent = '请输入口令'; return; }
+  var hits = [];
+  Object.keys(USERS).forEach(function(u) {
+    if (String(USERS[u].password || '').toLowerCase() === key) hits.push(u);
+  });
+  if (hits.length === 1) {
+    var u = hits[0];
+    localStorage.setItem(SESSION_KEY, JSON.stringify({user: u, tier: USERS[u].tier, ts: Date.now()}));
     showMain(u);
-  } else {
-    err.textContent = '用户名或密码错误，请重试';
-    document.getElementById('login-pass').value = '';
+    return;
   }
+  err.textContent = hits.length ? '这个口令对应多个账号，请联系老师' : '口令不对，请联系老师';
+  var inp = document.getElementById('login-key');
+  if (inp) inp.select();
 }
 
 function enterGuest() {
@@ -687,8 +686,8 @@ function logout() {
   updateUserStatus();
   document.getElementById('login-overlay').style.display = 'flex';
   document.getElementById('login-err').textContent = '已退出登录';
-  document.getElementById('login-user').value = '';
-  document.getElementById('login-pass').value = '';
+  var _k = document.getElementById('login-key');
+  if (_k) { _k.value = ''; }
   // 切回首页
   document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
   var idxPage = document.getElementById('page-index');
