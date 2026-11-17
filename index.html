@@ -616,17 +616,17 @@ var USERS = {
   'petra':       { password: 'pet2026de', tier: 'custom' },
   'christian':   { password: 'chr2026de', tier: 'custom' },
   'monika':      { password: 'mon2026de', tier: 'custom' },
-  'maoziying':   { password: 'mzy2026de', tier: 'full' },
-  'yezhihao':    { password: 'yzh2026de', tier: 'custom' },
-  'dongzelin':   { password: 'dzl2026de', tier: 'custom' },
-  'zhouyuhang':  { password: 'zyh2026de', tier: 'custom' },
-  'yizimeng':    { password: 'yzm2026de', tier: 'custom' },
-  'liaoxin':     { password: 'lx2026de',  tier: 'custom' },
-  'liuyakui':    { password: 'lyk2026de', tier: 'custom' },
-  'gaoyuan':     { password: 'gy2026de',  tier: 'custom' },
-  'fangjiayu':   { password: 'fjy2026de', tier: 'custom' },
-  'zhaoyulong':  { password: 'zyl2026de', tier: 'custom' },
-  'chenwulong':  { password: 'cwl2026de', tier: 'custom' },
+  'maoziying':   { password: 'maoziying', tier: 'full' },
+  'yezhihao':    { password: 'yezhihao', tier: 'custom' },
+  'dongzelin':   { password: 'dongzelin', tier: 'custom' },
+  'zhouyuhang':  { password: 'zhouyuhang', tier: 'custom' },
+  'yizimeng':    { password: 'yizimeng', tier: 'custom' },
+  'liaoxin':     { password: 'liaoxin',  tier: 'custom' },
+  'liuyakui':    { password: 'liuyakui', tier: 'custom' },
+  'gaoyuan':     { password: 'gaoyuan',  tier: 'custom' },
+  'fangjiayu':   { password: 'fangjiayu', tier: 'custom' },
+  'zhaoyulong':  { password: 'zhaoyulong', tier: 'custom' },
+  'chenwulong':  { password: 'chenwulong', tier: 'custom' },
   'sophie':      { password: 'sop2026de', tier: 'full' },
   'lukas':       { password: 'luk2026de', tier: 'full' },
   'emilia':      { password: 'emi2026de', tier: 'full' },
@@ -3623,7 +3623,7 @@ document.addEventListener('keydown', function(e) {
 
 <script>
 (function(){
-  var PASS = ['zhouyuhang','yizimeng','liaoxin','dongzelin','liuyakui','gaoyuan','fangjiayu','zhaoyulong','chenwulong','zyh2026de','yzm2026de','lx2026de','dzl2026de','lyk2026de','gy2026de','fjy2026de','zyl2026de','cwl2026de'];
+  var PASS = ['zhouyuhang','yizimeng','liaoxin','dongzelin','liuyakui','gaoyuan','fangjiayu','zhaoyulong','chenwulong'];
   function makeGate(gateId,bodyId,inpId,btnId,errId,key){
     var gate=document.getElementById(gateId), body=document.getElementById(bodyId);
     if(!gate || gate.dataset.bound==='1') return;
