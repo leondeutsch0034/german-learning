@@ -4,8 +4,8 @@ window.STUDENT_LINKS = [
     "slug": "liaoxin",
     "name": "廖同学",
     "level": "A1",
-    "tagline": "朗读专项：把一整句读顺 + 冠词、kein、九组变位",
-    "updated": "2026-11-12"
+    "tagline": "城市·国家·格：旅行对话 + 一格/三格/四格 + war/waren",
+    "updated": "2026-11-18"
   },
   {
     "slug": "yizimeng",

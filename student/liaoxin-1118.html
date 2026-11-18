@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>廖同学 · 11/18 城市·国家·格 | Leons Deutschzentrum</title>
+<style>
+:root{--gold:#f6d365;--gold2:#b8860b;--bg:#0a1428;--card:#0f1c33;--line:rgba(246,211,101,.2);--text:#e2e8f0;--muted:#94a3b8;--ok:#34d399;--bad:#f87171}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 50% -10%,#12264a 0%,#0a1428 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:940px;margin:0 auto;padding:24px 16px 70px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:22px;flex-wrap:wrap}
+.brand a{color:var(--gold);text-decoration:none}
+.gate{max-width:420px;margin:7vh auto 0;background:linear-gradient(160deg,#0f1e3a,#0a1428);border:1px solid var(--line);border-radius:20px;padding:34px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(246,211,101,.08)}
+.gate .icon{font-size:2.2rem}
+.gate h1{font-size:1.3rem;margin:8px 0 6px;color:#fff8e8}
+.gate p{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.gate input{width:100%;background:rgba(246,211,101,.05);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font-size:1rem;outline:none;margin-bottom:10px}
+.gate input:focus{border-color:var(--gold)}
+.btn{background:linear-gradient(100deg,var(--gold2),var(--gold));color:#1a202c;border:0;border-radius:10px;padding:11px 16px;font-size:.92rem;font-weight:800;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.92}
+.gate .btn{width:100%;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:600}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold)}
+.err{color:#fca5a5;font-size:.82rem;min-height:20px;margin-top:8px}
+.hint{font-size:.72rem;color:rgba(148,163,184,.65);margin-top:14px;line-height:1.7}
+#app{display:none}
+.hero{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 70% at 100% 0,rgba(246,211,101,.12),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.hero h1{margin:6px 0 4px;font-size:1.65rem;color:#fff8e8}
+.hero .sub{color:var(--muted);font-size:.84rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;background:rgba(246,211,101,.1);border:1px solid rgba(246,211,101,.25);color:#ffe088;border-radius:999px;padding:3px 11px;font-size:.74rem;font-weight:700}
+.notice{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.22);color:#cbd5e1;font-size:.82rem;line-height:1.75}
+.notice b{color:#fde68a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.step{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px}
+.step b{display:block;font-size:.8rem;color:#ffe088;margin-bottom:3px}
+.step span{font-size:.72rem;color:var(--muted);line-height:1.55}
+.progress{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.8rem;color:var(--muted)}
+.pbar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:99px;transition:width .3s}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:rgba(246,211,101,.75);margin:28px 0 12px}
+.sec-title small{font-size:.66rem;font-weight:500;letter-spacing:0;color:rgba(148,163,184,.7)}
+.checklist{display:grid;gap:7px}
+.checklist label{display:flex;align-items:flex-start;gap:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;font-size:.82rem;cursor:pointer;line-height:1.6}
+.checklist label.done{opacity:.55;text-decoration:line-through}
+.checklist input{margin-top:4px;accent-color:#f6d365}
+.card{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:14px;padding:15px 16px;margin-bottom:10px}
+.card h3{margin:0 0 8px;font-size:.88rem;color:#ffe088}
+.card p{margin:6px 0;font-size:.82rem;color:#cbd5e1;line-height:1.75}
+.tipbox{font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.03);border-left:2px solid rgba(246,211,101,.4);padding:8px 11px;border-radius:0 8px 8px 0;line-height:1.7;margin-bottom:10px}
+.tipbox b{color:#fde68a}
+.grid-alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:7px}
+.acard{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 9px;cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:.15s}
+.acard:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.acard .al{font-size:1.2rem;font-weight:800;color:#fff8e8}
+.acard .an{font-size:.72rem;color:#ffe088;margin-left:5px;font-weight:600}
+.acard .ac{font-size:.66rem;color:var(--muted);display:block;margin-top:2px}
+.acard .ae{font-size:.7rem;color:#7dd3fc;display:block;margin-top:2px}
+.listen{display:grid;gap:9px;margin-top:6px}
+.litem{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:10px 12px}
+.litem .lhead{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+.litem .lhead .play{background:rgba(246,211,101,.15);border:1px solid rgba(246,211,101,.4);color:#ffe088;border-radius:8px;padding:4px 10px;font-size:.76rem;cursor:pointer;font-family:inherit}
+.lopts{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.lopt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 14px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}
+.lopt:hover{border-color:rgba(246,211,101,.5)}
+.lopt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5}
+.lopt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.lwhy{display:none;font-size:.74rem;color:#a7f3d0;margin-top:6px}
+.lwhy.show{display:block}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rex{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.rex button{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:4px 9px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.rex button:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.rex span{font-size:.7rem;color:var(--muted);align-self:center}
+.stress{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.scard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 12px}
+.scard.ok{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.scard .shead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scard .sw{font-size:.95rem;font-weight:700;color:#fff8e8}
+.scard .szh{font-size:.7rem;color:var(--muted)}
+.syls{display:flex;gap:6px;margin:8px 0 6px;flex-wrap:wrap}
+.syl{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:5px 12px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.syl:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.syl.bad{border-color:var(--bad);color:#fecaca;animation:shake .32s}
+.syl.hit{border-color:var(--ok);background:rgba(52,211,153,.16);color:#d1fae5;font-weight:800}
+@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-3px)}70%{transform:translateX(3px)}}
+.mini{background:none;border:1px solid rgba(255,255,255,.16);color:var(--muted);border-radius:7px;padding:3px 9px;font-size:.7rem;cursor:pointer;font-family:inherit}
+.mini:hover{color:#ffe088;border-color:rgba(246,211,101,.5)}
+.snote{font-size:.72rem;color:var(--muted);margin-top:7px;line-height:1.6}
+.scard.ok .snote{color:#a7f3d0}
+.sent{display:grid;gap:9px}
+.sentcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 12px}
+.sentcard.ok{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.swords{display:flex;gap:5px;flex-wrap:wrap;margin:7px 0}
+.sword{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.sword:hover{border-color:rgba(246,211,101,.55)}
+.sword.bad{border-color:var(--bad);color:#fecaca;animation:shake .32s}
+.sword.hit{border-color:var(--ok);background:rgba(52,211,153,.18);color:#d1fae5;font-weight:800}
+.sword.hit::after{content:' ●';font-size:.6rem;color:var(--ok)}
+.sentzh{font-size:.72rem;color:var(--muted)}
+.sentwhy{font-size:.72rem;color:#a7f3d0;margin-top:6px;display:none;line-height:1.65}
+.sentcard.ok .sentwhy{display:block}
+.read{display:grid;gap:10px}
+.rcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 14px}
+.rcard .rchunks{font-size:.98rem;line-height:2.1;color:#e8eef7}
+.rchunk{cursor:pointer;border-bottom:1px dashed rgba(246,211,101,.45);padding:1px 2px;border-radius:4px}
+.rchunk:hover{background:rgba(246,211,101,.14);color:#ffe088}
+.rbar{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.rzh{display:none;font-size:.76rem;color:var(--muted);margin-top:7px;line-height:1.7}
+.rzh.show{display:block}
+.rnote{font-size:.72rem;color:rgba(148,163,184,.8);margin-top:5px}
+.rdone{font-size:.72rem;color:var(--muted);display:inline-flex;align-items:center;gap:5px;margin-left:auto;cursor:pointer}
+.rdone input{accent-color:#f6d365}
+.textcard .tline{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.textcard .tline:last-child{border-bottom:0}
+.vocab{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.vocab button{background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.25);color:#bae6fd;border-radius:999px;padding:3px 10px;font-size:.74rem;cursor:pointer;font-family:inherit}
+.vocab button:hover{background:rgba(125,211,252,.16)}
+.vocab span{font-size:.7rem;color:var(--muted)}
+.numtable{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px;margin:6px 0 12px}
+.nbtn{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 8px;cursor:pointer;color:inherit;font-family:inherit;text-align:left}
+.nbtn:hover{border-color:rgba(246,211,101,.5)}
+.nbtn b{color:#fff8e8;font-size:.86rem}
+.nbtn span{display:block;font-size:.7rem;color:#7dd3fc;margin-top:1px}
+.npractice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.np{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.np b{font-size:1.05rem;color:#fff8e8;min-width:54px}
+.np .ans{font-size:.8rem;color:#a7f3d0;visibility:hidden}
+.np.show .ans{visibility:visible}
+.np .mini{margin-left:auto;white-space:nowrap}
+.diag{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.dcard{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:10px 12px}
+.dcard b{display:block;font-size:.78rem;color:#fde68a;margin-bottom:3px}
+.dcard span{font-size:.72rem;color:var(--muted);line-height:1.6}
+.ex{background:linear-gradient(150deg,#13243f,var(--card));border:1px solid rgba(246,211,101,.15);border-radius:16px;padding:17px 18px;margin-bottom:12px}
+.ex-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ex-num{width:24px;height:24px;border-radius:50%;background:rgba(246,211,101,.15);border:1px solid rgba(246,211,101,.45);color:#ffe088;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ex-head h2{margin:0;font-size:.96rem;color:#fff3c4;flex:1}
+.ex-tag{font-size:.66rem;color:var(--muted);border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:2px 9px}
+.ex-tip{font-size:.76rem;color:var(--muted);margin:8px 0 4px;line-height:1.7}
+.ex-link{font-size:.72rem;color:#7dd3fc;text-decoration:none;display:inline-block;margin-bottom:6px}
+.ex-link:hover{text-decoration:underline}
+.item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.item:last-child{border-bottom:0}
+.q{font-size:.92rem;color:#e8eef7;line-height:1.9}
+.blank{display:inline-block;min-width:74px;max-width:180px;width:100px;background:rgba(246,211,101,.07);border:1px solid rgba(246,211,101,.28);border-bottom:2px solid var(--gold2);color:#fff8e8;border-radius:6px;padding:1px 7px;font-size:.9rem;font-family:inherit;outline:none;text-align:center}
+.blank:focus{border-color:var(--gold);background:rgba(246,211,101,.12)}
+.blank.ok{border-color:var(--ok);background:rgba(52,211,153,.12);color:#d1fae5}
+.blank.bad{border-color:var(--bad);background:rgba(248,113,113,.12);color:#fee2e2}
+.blank-hint{font-size:.68rem;color:rgba(148,163,184,.75);margin-left:6px;white-space:nowrap}
+.opts{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);color:#dbe4f0;border-radius:8px;padding:6px 13px;font-size:.86rem;cursor:pointer;font-family:inherit}
+.opt:hover{border-color:rgba(246,211,101,.5);background:rgba(246,211,101,.07)}
+.opt.sel{border-color:var(--gold);background:rgba(246,211,101,.16);color:#fff3c4;font-weight:700}
+.opt.ok{border-color:var(--ok);background:rgba(52,211,153,.14);color:#d1fae5;font-weight:700}
+.opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:#fee2e2}
+.why{display:none;font-size:.76rem;color:#a7f3d0;background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.5);border-radius:0 8px 8px 0;padding:6px 10px;margin-top:6px;line-height:1.65}
+.why.show{display:block}
+.why.bad{color:#fecaca;background:rgba(248,113,113,.07);border-left-color:rgba(248,113,113,.6)}
+.spk{background:none;border:0;color:#7dd3fc;cursor:pointer;font-size:.9rem;padding:0 4px;vertical-align:middle}
+.spk:hover{color:#bae6fd}
+.ex-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+.ex-foot .btn{padding:8px 14px;font-size:.8rem}
+.score{font-size:.78rem;color:var(--muted);margin-left:auto}
+.score b{color:var(--gold)}
+.score.all b{color:var(--ok)}
+.ord-ans{display:flex;flex-wrap:wrap;gap:6px;min-height:36px;margin-top:8px;padding:7px;border-radius:9px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12)}
+.ord-slot{display:inline-flex;align-items:center;min-width:52px;min-height:28px;padding:2px 9px;border-radius:7px;border:1px solid rgba(246,211,101,.2);background:rgba(246,211,101,.06);font-size:.84rem;color:#fff8e8}
+.ord-slot.filled{border-color:rgba(246,211,101,.5);cursor:pointer}
+.ord-slot.filled:hover{border-color:var(--bad);color:#fecaca}
+.ord-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.ord-chip{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;border-radius:8px;padding:5px 10px;font-size:.84rem;cursor:pointer;font-family:inherit}
+.ord-chip:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.item.ok .ord-ans{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.06)}
+.item.bad .ord-ans{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.06)}
+.recbox{display:grid;gap:10px}
+.rec-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.rec-dot{width:10px;height:10px;border-radius:50%;background:var(--bad);display:inline-block}
+.rec-msg{font-size:.76rem;color:var(--muted);min-height:20px}
+.rec-msg.bad{color:#fca5a5}
+.inton{display:grid;gap:9px}
+.icard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 13px}
+.icard.ok{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.icard .ide{font-size:.95rem;font-weight:700;color:#fff8e8}
+.irow{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.ibtn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;border-radius:8px;padding:6px 14px;font-size:.84rem;cursor:pointer;font-family:inherit}
+.ibtn:hover{border-color:rgba(246,211,101,.55);color:#ffe088}
+.ibtn.bad{border-color:var(--bad);color:#fecaca;animation:shake .32s}
+.ibtn.hit{border-color:var(--ok);background:rgba(52,211,153,.16);color:#d1fae5;font-weight:800}
+.iwhy{display:none;font-size:.74rem;color:#a7f3d0;margin-top:7px;line-height:1.65}
+.icard.ok .iwhy{display:block}
+.mapimg{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.1);margin:6px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.chips span{background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.25);color:#bae6fd;border-radius:999px;padding:3px 10px;font-size:.74rem}
+.trip{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.07);font-size:.86rem}
+.trip:last-child{border-bottom:0}
+.trip .tzh{font-size:.72rem;color:var(--muted);margin-left:auto}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,211,101,.12);text-align:center;color:rgba(148,163,184,.55);font-size:.74rem;line-height:1.9}
+.foot a{color:var(--gold);text-decoration:none}
+.lockbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lockbtn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 12px;font-size:.72rem;cursor:pointer}
+.lockbtn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:680px){.rules,.stress,.diag{grid-template-columns:1fr}.npractice{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span>🎓 Leons Deutschzentrum</span>
+    <span><a href="liaoxin.html">← 我的专属练习</a> · <a href="../">主站</a></span>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="icon">🔐</div>
+    <h1>廖同学的 11/18 练习</h1>
+    <p>请输入老师发给你的口令</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="请输入口令" aria-label="口令">
+    <button class="btn" id="go">进入</button>
+    <div class="err" id="err"></div>
+    <div class="hint">口令只发给你本人，请不要转发。<br>忘记口令请联系老师。</div>
+  </div>
+
+  <div id="app">
+    <div class="lockbar"><button class="lockbtn" id="lock">🔒 锁定并退出</button></div>
+    <div class="hero">
+      <div class="eyebrow">2026-11-18 · 教材 S.48 / S.50 + 板书</div>
+      <h1>廖欣 · 城市、国家、格</h1>
+      <div class="sub">咖啡馆对话 · 问句语调 · 名胜与地图 · 一格/三格/四格 · 人三物四 · war / waren</div>
+      <div class="meta">
+        <span class="chip" id="chip-count">练习</span>
+        <span class="chip">每句都能点 🔊 听</span>
+        <span class="chip">每天 10 分钟</span>
+      </div>
+      <div class="notice">
+        今天的两条主线：<b>① 会聊旅行</b>——你去过哪儿？那到底在哪儿？<b>② 认识「格」</b>——一格是「谁在做」，四格是「做什么」，三格是「给谁」。<br>
+        老师板书的口诀是 <b>1 是 1，1 做 4</b>；有人的时候是 <b>人三物四</b>：Ich kaufe <b>dem Kind</b> <b>eine Tasche</b>。
+      </div>
+      <div class="diag">
+        <div class="dcard"><b>卡点一 · 格</b><span>只看句子里的位置，不看名词本身：主语用一格，直接宾语用四格。</span></div>
+        <div class="dcard"><b>卡点二 · 人三物四</b><span>一个人、一个东西同时出现时：人拿三格（dem/der），物拿四格（den/das/die）。</span></div>
+        <div class="dcard"><b>卡点三 · 问句语调</b><span>W-Frage 句尾往下落，Ja/Nein-Frage 句尾往上抬；过去时用 war / waren。</span></div>
+      </div>
+      <div class="steps">
+        <div class="step"><b>① 听</b><span>先点 🔊 听对话，只听，不跟。</span></div>
+        <div class="step"><b>② 跟</b><span>按「块」跟读，注意句尾是升还是降。</span></div>
+        <div class="step"><b>③ 做</b><span>先读完整句，再做题；做错就看下面的讲解。</span></div>
+      </div>
+      <div class="progress"><span id="pct">今天的任务 0 / 0</span><div class="pbar"><i id="pbar"></i></div></div>
+    </div>
+
+    <div class="sec-title">今天的任务清单 <small>勾一个算一个</small></div>
+    <div class="checklist" id="checklist"></div>
+
+    <div class="sec-title">第一步 · 今日对话 <small>教材 S.50</small></div>
+    <div class="tipbox">先整段听一遍，再按「块」跟读。读的时候注意：<b>Wie geht's?</b> 连读成一个词；<b>denn</b> 读轻，意思是「到底」；句尾是升还是降，听音频模仿。</div>
+    <div id="texts-dialog"></div>
+    <div class="sec-title">断句跟读 <small>先读块，再读整句</small></div>
+    <div class="tipbox">竖线也是换气点。点每一块单独听，读顺了再把整句连起来，最后勾「读了三遍」。</div>
+    <div class="read" id="chunks"></div>
+
+    <div class="sec-title">第二步 · 句重音与问句语调 <small>教材 S.50 · 2</small></div>
+    <div class="tipbox">默认重音在<b>句末最后一个实词</b>；教材 2a 特意对比了 <b>Woher 'kommen Sie?</b> 和 <b>Und woher kommen 'Sie?</b>——重音位置不同，强调的东西就不同。<br>语调规则：<b>W-Frage 降调 ↘</b>，<b>Ja/Nein-Frage 升调 ↗</b>，陈述句降调。</div>
+    <div class="sent" id="sentstress"></div>
+    <div style="height:12px"></div>
+    <div class="inton" id="intonation"></div>
+
+    <div class="sec-title">第三步 · 名胜 · 城市 · 国家 <small>教材 S.48</small></div>
+    <div class="card">
+      <img class="mapimg" src="img/liaoxin-1118-sehen.jpg" alt="Europa 名胜：卫城、大本钟、埃菲尔铁塔、比萨斜塔">
+      <div class="tipbox" style="margin-bottom:0">四个名胜都用 <b>der / die</b> 记：<b>der</b> Eiffelturm、<b>der</b> Big Ben、<b>der</b> Schiefe Turm、<b>die</b> Akropolis。Prater 也在这组：<b>der</b> Prater 在 Wien。</div>
+    </div>
+    <div id="texts-sehen"></div>
+
+    <div class="sec-title">第四步 · 地图：德国 · 奥地利 · 瑞士 <small>教材背面地图</small></div>
+    <div class="card">
+      <img class="mapimg" src="img/liaoxin-1118-map.jpg" alt="Deutschland, Österreich und die Schweiz 地图">
+      <h3>国家名 · 大部分不加冠词</h3>
+      <div class="chips" id="mapCountries"></div>
+      <h3>德国 16 个联邦州</h3>
+      <div class="chips" id="mapDE"></div>
+      <h3>奥地利 9 个州</h3>
+      <div class="chips" id="mapAT"></div>
+      <h3>瑞士（26 个州，先认这几个）</h3>
+      <div class="chips" id="mapCH"></div>
+      <h3>用 war / waren 说旅行</h3>
+      <div id="mapTrips"></div>
+    </div>
+
+    <div class="sec-title">第五步 · 语法练习 <small>11/18 板书</small></div>
+    <div class="tipbox" style="margin-bottom:10px">
+      <b>一格</b> der / das / die　<b>四格</b> den / das / die　<b>三格</b> dem / dem / der（复数 den）<br>
+      口诀：<b>1 是 1</b>（主语用一格）；<b>1 做 4</b>（直接宾语用四格）；<b>人三物四</b>（人用三格，物用四格）。
+    </div>
+    <div id="exercises"></div>
+
+    <div class="sec-title">第六步 · 录下来，自己听 <small>和老师的声音对比</small></div>
+    <div class="card recbox">
+      <p style="margin-top:0">读下面任意一句，点「开始录音」→ 读 → 点「停止」→ 点「回放」。先听自己的，再点 🔊 听老师的，比较：<b>重音对不对、块内有没有停、句尾有没有降下来</b>。</p>
+      <div class="rec-row" id="recmodels"></div>
+      <div class="rec-row">
+        <button class="btn" id="recBtn">● 开始录音</button>
+        <button class="btn ghost" id="playRec" disabled>▶ 回放我的录音</button>
+        <span class="rec-msg" id="recMsg"><span class="rec-dot"></span> 微信里可能不给麦克风权限，用 Safari / Chrome 打开最稳。</span>
+      </div>
+    </div>
+
+    <div class="sec-title">第七步 · 数字复习 <small>板书里的三位数和大数</small></div>
+    <div class="card">
+      <h3>① 0–20 和整十</h3>
+      <div class="numtable" id="numSmall"></div>
+      <h3>② 三位数：先说百，再说个位 + und + 十位</h3>
+      <p style="margin-top:0">123 = <b>hundert</b>dreiundzwanzig，678 = <b>sechshundert</b>achtundsiebzig。<b>dreißig</b> 是 30，别写成 dreizig。</p>
+      <div class="numtable" id="numMix"></div>
+      <h3>③ 大数：tausend / Million / Milliarde</h3>
+      <p style="margin-top:0">1 234 = (ein)tausendzweihundertvierunddreißig；1 000 000 = eine <b>Million</b>；1 000 000 000 = eine <b>Milliarde</b>。</p>
+      <h3>④ 自己读：先读数字，再点开对答案</h3>
+      <div class="npractice" id="numPractice"></div>
+    </div>
+
+    <div class="foot">
+      这是廖欣的专属练习页 · 只有口令可以打开<br>
+      <a href="liaoxin.html">← 返回我的专属练习</a> · <a href="../">返回 Leons Deutschzentrum</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA = {"checklist":["对话 · 跟着音频把 S.50 对话读三遍（先读，再看中文）","对话 · 换名字、换城市，把 1b 的替换对话说出来","语调 · 8 句：W-Frage 降调、Ja/Nein-Frage 升调，点一遍","名胜 · 四个名胜 + Prater 读顺，知道在哪个城市、哪个国家","地图 · 德国 16 个州 / 奥地利 9 个州 / 瑞士，跟着读一遍","语法 · 定冠词一格/四格（12 题）","语法 · 不定冠词四格（12 题）","语法 · 三格：给谁、为谁、向谁（10 题）","语法 · 人三物四（9 题）","语法 · 形容词词尾 -er/-es/-e/-e（8 题）","语法 · sein 过去时 war / waren（12 题）","做题 · 对话理解 + 名胜配对 + 国家冠词 + 语序","数字 · 大数复习：hundert / tausend / Million"],"sentstress":[{"de":"Woher kommen Sie?","words":["Woher","kommen","Sie?"],"stress":1,"zh":"您从哪儿来？","why":"教材 2a 标的就是 kommen 重读：问「从哪儿」时，kommen 是信息核心。"},{"de":"Und woher kommen Sie?","words":["Und","woher","kommen","Sie?"],"stress":3,"zh":"那您又是从哪儿来？","why":"教材 2a 第二句把重音移到 Sie：强调「您」而不是别人。"},{"de":"Trinken Sie auch einen Kaffee?","words":["Trinken","Sie","auch","einen","Kaffee?"],"stress":4,"zh":"您也喝杯咖啡吗？","why":"最后一个实词 Kaffee 重读；auch 轻带过。"},{"de":"Ich komme aus Milano.","words":["Ich","komme","aus","Milano."],"stress":3,"zh":"我来自米兰。","why":"回答「从哪儿来」，地名重读。"},{"de":"Ich war in Rom und in Neapel.","words":["Ich","war","in","Rom","und","in","Neapel."],"stress":6,"zh":"我去了罗马和那不勒斯。","why":"最后的地名 Neapel 主重音；Rom 次重音，und 轻轻带过。"},{"de":"Das ist in Italien.","words":["Das","ist","in","Italien."],"stress":3,"zh":"那在意大利。","why":"句末地名 Italien 重读。"},{"de":"Wir waren schon mal in Wien.","words":["Wir","waren","schon","mal","in","Wien."],"stress":5,"zh":"我们曾经去过维也纳。","why":"地名 Wien 在句末，重读；schon mal 连读带过。"},{"de":"Ich kaufe dem Kind eine Tasche.","words":["Ich","kaufe","dem","Kind","eine","Tasche."],"stress":5,"zh":"我给孩子买一个包。","why":"「买的东西」是句子的重点，Tasche 重读；dem Kind 是三格，轻轻带过。"}],"chunks":[{"chunks":["Hallo, Silva!","Hallo, Carol-Ann!","Wie geht's?"],"zh":"你好，席尔瓦！你好，卡罗尔-安！你好吗？","note":"一问一答各一口气；Wie geht's 连读成一个词。"},{"chunks":["Danke, gut.","Trinken Sie auch einen Kaffee?"],"zh":"谢谢，很好。您也喝杯咖啡吗？","note":"是非问句：句尾往上抬。"},{"chunks":["Ja, gern.","Und sag doch „du\"!"],"zh":"好啊，乐意。你就说「你」吧！","note":"gern 重读；du 是引号里的词，单独重读。"},{"chunks":["O.k.!","Und woher kommst du?","Ich komme aus Milano."],"zh":"好！你从哪儿来？我来自米兰。","note":"W-Frage 句尾往下落；答句地名重读。"},{"chunks":["Warst du schon mal in Milano?","Nein.","Wo ist denn das?"],"zh":"你去过米兰吗？没去过。那到底在哪儿？","note":"前一句是非问句升调；后一句 W-Frage 降调。denn 是「到底」。"},{"chunks":["Das ist in Italien.","Ach, Mailand!"],"zh":"那在意大利。哦，米兰！","note":"Ach 是短叹词，单独一口气。"},{"chunks":["Ja, genau.","Warst du schon mal in Italien?","Ja, ich war in Rom","und in Neapel."],"zh":"对，正是。你去过意大利吗？去过，我去了罗马和那不勒斯。","note":"最后一句两口气：in Rom │ und in Neapel。"},{"chunks":["Ich kaufe dem Kind","eine Tasche."],"zh":"我给孩子买一个包。","note":"人三物四：dem Kind 在读的时候连成一块，eine Tasche 一块。"},{"chunks":["Ich kaufe der Mutter","eine Tasche."],"zh":"我给妈妈买一个包。","note":"der Mutter 是三格（阴性三格 der），不要读成 die Mutter。"},{"chunks":["Wir waren schon mal in Wien.","Waren Sie schon mal in Österreich?"],"zh":"我们曾经去过维也纳。您去过奥地利吗？","note":"前一句陈述句降调；后一句是非问句升调。"},{"chunks":["Der Eiffelturm ist in Paris.","Paris ist in Frankreich."],"zh":"埃菲尔铁塔在巴黎。巴黎在法国。","note":"两个短句，句号处停半拍，句尾都往下落。"}],"texts":[{"title":"Ein Treffen im Café","src":"教材 S.50 · 1a 对话","vocab":[["Wie geht's?","你好吗"],["gern","乐意"],["woher","从哪儿"],["schon mal","曾经"],["denn","到底 / 究竟"],["genau","正是"],["Mailand","米兰"],["Kaffee","咖啡"]],"lines":[{"chunks":["Hallo, Silva!"],"zh":"你好，席尔瓦！"},{"chunks":["Hallo, Carol-Ann!","Wie geht's?"],"zh":"你好，卡罗尔-安！你好吗？"},{"chunks":["Danke, gut.","Trinken Sie auch einen Kaffee?"],"zh":"谢谢，很好。您也喝杯咖啡吗？"},{"chunks":["Ja, gern.","Und sag doch „du\"!"],"zh":"好啊，乐意。你就说「你」吧！"},{"chunks":["O.k.!","Und woher kommst du?"],"zh":"好！你从哪儿来？"},{"chunks":["Ich komme aus Milano."],"zh":"我来自米兰。"},{"chunks":["Warst du schon mal in Milano?"],"zh":"你去过米兰吗？"},{"chunks":["Nein.","Wo ist denn das?"],"zh":"没去过。那到底在哪儿？"},{"chunks":["Das ist in Italien."],"zh":"那在意大利。"},{"chunks":["Ach, Mailand!"],"zh":"哦，米兰！"},{"chunks":["Ja, genau.","Warst du schon mal in Italien?"],"zh":"对，正是。你去过意大利吗？"},{"chunks":["Ja, ich war in Rom","und in Neapel."],"zh":"去过，我去了罗马和那不勒斯。"}]},{"title":"Dialog üben","src":"教材 S.50 · 1b 换名字换城市","vocab":[["andere Namen","别的名字"],["andere Städte","别的城市"],["sagen","说"]],"lines":[{"chunks":["Hallo, …!"],"zh":"你好，……！"},{"chunks":["Hallo, …!","Wie geht's?"],"zh":"你好，……！你好吗？"},{"chunks":["Danke, …!","Trinken Sie auch …?"],"zh":"谢谢，……！您也……吗？"},{"chunks":["Ja, gern.","Und sag doch „du\"!"],"zh":"好啊，乐意。你就说「你」吧！"},{"chunks":["O.k.!","Und woher kommst du?"],"zh":"好！你从哪儿来？"},{"chunks":["Ich komme aus …"],"zh":"我来自……"},{"chunks":["Warst du schon mal in …?"],"zh":"你去过……吗？"},{"chunks":["Nein,","wo ist denn das?"],"zh":"没去过，那到底在哪儿？"},{"chunks":["Das ist in …"],"zh":"那在……"},{"chunks":["Ach, so!"],"zh":"哦，原来如此！"}]},{"title":"Warst du schon in …?","src":"教材 S.50 · 3 Üben","vocab":[["schon mal","曾经"],["da war ich schon","我去过那儿"],["Bremen","不来梅"]],"lines":[{"chunks":["Warst du schon mal in Bremen?"],"zh":"你去过不来梅吗？"},{"chunks":["Nein,","wo ist denn das?"],"zh":"没去过，那到底在哪儿？"},{"chunks":["Ja, da war ich schon."],"zh":"去过，那儿我去过。"},{"chunks":["In Deutschland."],"zh":"在德国。"},{"chunks":["Waren Sie schon mal in …?"],"zh":"您去过……吗？"}]},{"title":"Sehenswürdigkeiten in Europa","src":"教材 S.48","vocab":[["die Sehenswürdigkeit","名胜"],["der Eiffelturm","埃菲尔铁塔"],["die Akropolis","卫城"],["der Big Ben","大本钟"],["der Schiefe Turm","比萨斜塔"],["der Prater","普拉特（维也纳）"]],"lines":[{"chunks":["Die Akropolis ist in Athen.","Sie ist in Griechenland."],"zh":"卫城在雅典。它在希腊。"},{"chunks":["Der Big Ben ist in London.","Er ist in England."],"zh":"大本钟在伦敦。它在英国。"},{"chunks":["Der Eiffelturm ist in Paris.","Er ist in Frankreich."],"zh":"埃菲尔铁塔在巴黎。它在法国。"},{"chunks":["Der Schiefe Turm ist in Pisa.","Er ist in Italien."],"zh":"比萨斜塔在比萨。它在意大利。"},{"chunks":["Der Prater ist in Wien.","Er ist in Österreich."],"zh":"普拉特在维也纳。它在奥地利。"}]}],"intonation":[{"de":"Woher kommen Sie?","a":"fallend","why":"W-Frage（疑问词开头）→ 句尾往下落。"},{"de":"Woher kommst du?","a":"fallend","why":"W-Frage → 降调。"},{"de":"Waren Sie schon mal in Italien?","a":"steigend","why":"Ja/Nein-Frage（是非问句）→ 句尾往上抬。"},{"de":"Warst du schon in Innsbruck?","a":"steigend","why":"Ja/Nein-Frage → 升调。"},{"de":"Trinken Sie auch einen Kaffee?","a":"steigend","why":"Ja/Nein-Frage → 升调。"},{"de":"Wo ist denn das?","a":"fallend","why":"W-Frage → 降调；denn 要读轻。"},{"de":"Ist das in Italien?","a":"steigend","why":"Ja/Nein-Frage → 升调。"},{"de":"Das ist in Italien.","a":"fallend","why":"陈述句 → 句尾降调。"}],"map":{"img":"img/liaoxin-1118-map.jpg","countries":[["Deutschland","德国 · 不加冠词"],["Österreich","奥地利 · 不加冠词"],["die Schweiz","瑞士 · 阴性，必须带 die"],["Frankreich","法国 · 不加冠词"],["Italien","意大利 · 不加冠词"],["Griechenland","希腊 · 不加冠词"],["England","英国 · 不加冠词"],["die Türkei","土耳其 · 阴性"],["der Iran","伊朗 · 阳性"],["die Niederlande","荷兰 · 复数"]],"bundeslaender":["Baden-Württemberg","Bayern","Berlin","Brandenburg","Bremen","Hamburg","Hessen","Mecklenburg-Vorpommern","Niedersachsen","Nordrhein-Westfalen","Rheinland-Pfalz","Saarland","Sachsen","Sachsen-Anhalt","Schleswig-Holstein","Thüringen"],"oesterreich":["Burgenland","Kärnten","Niederösterreich","Oberösterreich","Salzburg","Steiermark","Tirol","Vorarlberg","Wien"],"schweiz":["Zürich","Bern","Basel-Stadt","Basel-Landschaft","Genf","Luzern","St. Gallen","Waadt","Tessin","Graubünden"],"trips":[{"de":"Ich war schon mal in Bayern.","zh":"我曾经去过巴伐利亚。"},{"de":"Wir waren schon mal in Wien.","zh":"我们曾经去过维也纳。"},{"de":"Warst du schon mal in der Schweiz?","zh":"你去过瑞士吗？"},{"de":"Ich war noch nie in Österreich.","zh":"我还从没去过奥地利。"},{"de":"Sie war schon mal in Berlin.","zh":"她曾经去过柏林。"},{"de":"Waren Sie schon mal in München?","zh":"您去过慕尼黑吗？"}]},"numbers":{"small":[["0","null"],["1","eins"],["2","zwei"],["3","drei"],["4","vier"],["5","fünf"],["6","sechs"],["7","sieben"],["8","acht"],["9","neun"],["10","zehn"],["11","elf"],["12","zwölf"],["13","dreizehn"],["14","vierzehn"],["15","fünfzehn"],["16","sechzehn"],["17","siebzehn"],["18","achtzehn"],["19","neunzehn"],["20","zwanzig"]],"tens":[["30","dreißig"],["40","vierzig"],["50","fünfzig"],["60","sechzig"],["70","siebzig"],["80","achtzig"],["90","neunzig"],["100","hundert"],["1000","tausend"]],"mix":[["21","einundzwanzig"],["32","zweiunddreißig"],["44","vierundvierzig"],["56","sechsundfünfzig"],["67","siebenundsechzig"],["76","sechsundsiebzig"],["123","hundertdreiundzwanzig"],["234","zweihundertvierunddreißig"],["345","dreihundertfünfundvierzig"],["678","sechshundertachtundsiebzig"],["696","sechshundertsechsundneunzig"],["669","sechshundertneunundsechzig"]],"practice":[["537","fünfhundertsiebenunddreißig"],["874","achthundertvierundsiebzig"],["941","neunhunderteinundvierzig"],["768","siebenhundertachtundsechzig"],["1234","eintausendzweihundertvierunddreißig"],["2345","zweitausenddreihundertfünfundvierzig"],["5678","fünftausendsechshundertachtundsiebzig"],["23456","dreiundzwanzigtausendvierhundertsechsundfünfzig"],["2345678","zwei Millionen dreihundertfünfundvierzigtausendsechshundertachtundsiebzig"],["1000000000","eine Milliarde"]]},"exercises":[{"id":"k1","type":"choice","tag":"12 题","title":"定冠词 · 一格还是四格","tip":"一格 = 谁在做（主语）；四格 = 做什么（直接宾语）。阳性 der 变 den，中性和阴性不变。口诀：1 是 1，1 做 4。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"___ Tisch ist neu.","opts":["der","den","das","die"],"a":"der","why":"Tisch 是主语（一格，阳性）→ der。"},{"q":"Ich kaufe ___ Tisch.","opts":["der","den","das","die"],"a":"den","why":"Tisch 是买的东西（四格，阳性）→ den。"},{"q":"___ Tasche ist neu.","opts":["der","den","das","die"],"a":"die","why":"Tasche 是主语（一格，阴性）→ die。"},{"q":"Ich kaufe ___ Tasche.","opts":["der","den","das","die"],"a":"die","why":"阴性四格和一词同形 → die。"},{"q":"___ Auto ist neu.","opts":["der","den","das","die"],"a":"das","why":"Auto 是主语（一格，中性）→ das。"},{"q":"Ich kaufe ___ Auto.","opts":["der","den","das","die"],"a":"das","why":"中性四格和一词同形 → das。"},{"q":"___ Mann kommt aus Berlin.","opts":["der","den","das","die"],"a":"der","why":"Mann 是主语（一格）→ der。"},{"q":"Ich sehe ___ Mann.","opts":["der","den","das","die"],"a":"den","why":"Mann 是看见的人（四格，阳性）→ den。"},{"q":"___ Frau ist Lehrerin.","opts":["der","den","das","die"],"a":"die","why":"Frau 是主语（一格，阴性）→ die。"},{"q":"Ich sehe ___ Frau.","opts":["der","den","das","die"],"a":"die","why":"阴性四格 → die。"},{"q":"___ Kind spielt.","opts":["der","den","das","die"],"a":"das","why":"Kind 是主语（一格，中性）→ das。"},{"q":"Ich sehe ___ Kind.","opts":["der","den","das","die"],"a":"das","why":"中性四格 → das。"}]},{"id":"k2","type":"choice","tag":"12 题","title":"不定冠词 / 否定冠词 · 四格","tip":"阳性四格 ein → einen，否定 kein → keinen；中性和阴性四格不变（ein / eine, kein / keine）。复数否定还是 keine。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"Ich kaufe ___ Tasche.","opts":["einen","ein","eine","keine"],"a":"eine","why":"阴性四格 → eine Tasche。"},{"q":"Ich kaufe ___ Tisch.","opts":["einen","ein","eine","keine"],"a":"einen","why":"阳性四格 → einen Tisch。"},{"q":"Ich kaufe ___ Auto.","opts":["einen","ein","eine","keine"],"a":"ein","why":"中性四格 → ein Auto。"},{"q":"Ich habe ___ Bruder. （我没有兄弟）","opts":["einen","ein","eine","keinen"],"a":"keinen","why":"阳性四格 + 否定 → keinen Bruder。"},{"q":"Ich habe ___ Schwester. （我没有姐妹）","opts":["einen","kein","eine","keine"],"a":"keine","why":"阴性四格 + 否定 → keine Schwester。"},{"q":"Ich habe ___ Kind. （我没有孩子）","opts":["ein","kein","eine","keine"],"a":"kein","why":"中性四格 + 否定 → kein Kind。"},{"q":"Hast du ___ Stift?","opts":["einen","ein","eine","keine"],"a":"einen","why":"Stift 阳性四格 → einen。"},{"q":"Hast du ___ Tasche?","opts":["einen","ein","eine","keine"],"a":"eine","why":"Tasche 阴性四格 → eine。"},{"q":"Ich sehe ___ Hund.","opts":["einen","ein","eine","keine"],"a":"einen","why":"Hund 阳性四格 → einen。"},{"q":"Ich sehe ___ Katze.","opts":["einen","ein","eine","keine"],"a":"eine","why":"Katze 阴性四格 → eine。"},{"q":"Ich sehe ___ Pferd.","opts":["einen","ein","eine","keine"],"a":"ein","why":"Pferd 中性四格 → ein。"},{"q":"Ich habe ___ Zeit. （我没有时间）","opts":["einen","kein","eine","keine"],"a":"keine","why":"Zeit 阴性、不可数，否定用 keine。"}]},{"id":"k3","type":"choice","tag":"10 题","title":"三格 · 给谁 / 为谁 / 向谁","tip":"人做「接受者」时用三格：给、为、向、帮、谢、借给。阳性/中性 dem，阴性 der，复数 den（名词还要加 -n）。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"Ich kaufe ___ Kind eine Tasche.","opts":["der","dem","den","das"],"a":"dem","why":"Kind 是中性、接受者 → 三格 dem。"},{"q":"Ich kaufe ___ Mutter eine Tasche.","opts":["der","dem","den","die"],"a":"der","why":"Mutter 是阴性、接受者 → 三格 der。"},{"q":"Ich kaufe ___ Vater ein Auto.","opts":["der","dem","den","das"],"a":"dem","why":"Vater 阳性 → 三格 dem。"},{"q":"Ich gebe ___ Frau das Buch.","opts":["der","dem","den","die"],"a":"der","why":"Frau 阴性 → 三格 der。"},{"q":"Ich gebe ___ Mann den Schlüssel.","opts":["der","dem","den","das"],"a":"dem","why":"Mann 阳性 → 三格 dem。"},{"q":"Ich schenke ___ Kindern Spielzeug.","opts":["der","dem","den","die"],"a":"den","why":"复数三格 → den（Kindern 词尾加 -n）。"},{"q":"Ich zeige ___ Lehrer die Hausaufgabe.","opts":["der","dem","den","das"],"a":"dem","why":"Lehrer 阳性 → 三格 dem。"},{"q":"Ich bringe ___ Freundin einen Kaffee.","opts":["der","dem","den","die"],"a":"der","why":"Freundin 阴性 → 三格 der。"},{"q":"Ich leihe ___ Bruder mein Fahrrad.","opts":["der","dem","den","das"],"a":"dem","why":"Bruder 阳性 → 三格 dem。"},{"q":"Ich kaufe ___ Lehrern Blumen.","opts":["der","dem","den","die"],"a":"den","why":"复数三格 → den。"}]},{"id":"person","type":"choice","tag":"9 题","title":"人三物四 · 人用三格，物用四格","tip":"一个句子里同时有「人」和「物」：人拿三格（给谁），物拿四格（给什么）。Ich kaufe dem Kind eine Tasche.","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"Ich kaufe dem Kind ___ Tasche.","opts":["eine","einen","ein","der"],"a":"eine","why":"物（Tasche，阴性四格）→ eine。"},{"q":"Ich kaufe der Mutter ___ Tisch.","opts":["eine","einen","ein","dem"],"a":"einen","why":"物（Tisch，阳性四格）→ einen。"},{"q":"Ich kaufe dem Vater ___ Auto.","opts":["eine","einen","ein","das"],"a":"ein","why":"物（Auto，中性四格）→ ein。"},{"q":"Ich gebe ___ Frau das Buch.","opts":["der","die","den","dem"],"a":"der","why":"人（Frau，阴性三格）→ der。"},{"q":"Ich gebe dem Mann ___ Schlüssel.","opts":["der","dem","den","die"],"a":"den","why":"物（Schlüssel，阳性四格）→ den。"},{"q":"Ich schenke ___ Kindern Spielzeug.","opts":["der","die","den","dem"],"a":"den","why":"人（复数三格）→ den。"},{"q":"Ich zeige dem Lehrer ___ Hausaufgabe.","opts":["der","die","den","das"],"a":"die","why":"物（Hausaufgabe，阴性四格）→ die。"},{"q":"Ich bringe der Freundin ___ Kaffee.","opts":["eine","einen","ein","der"],"a":"einen","why":"物（Kaffee，阳性四格）→ einen。"},{"q":"Ich leihe ___ Bruder mein Fahrrad.","opts":["der","dem","den","die"],"a":"dem","why":"人（Bruder，阳性三格）→ dem。"}]},{"id":"adj","type":"fill","tag":"8 题","title":"形容词词尾 · ein / eine 后面（一格）","tip":"板书那一行 -er / -es / -e / -e：阳性 -er、中性 -es、阴性 -e、复数 -e。填完整形容词，例如 neuer。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s7#grammar","linkText":"复习：A1 语法 · 冠词","items":[{"q":"ein neu___ Tisch","a":"neuer","hint":"neu + 词尾","why":"阳性一格 → neuer。"},{"q":"ein alt___ Auto","a":"altes","hint":"alt + 词尾","why":"中性一格 → altes。"},{"q":"eine neu___ Tasche","a":"neue","hint":"neu + 词尾","why":"阴性一格 → neue。"},{"q":"ein klein___ Kind","a":"kleines","hint":"klein + 词尾","why":"中性一格 → kleines。"},{"q":"eine groß___ Stadt","a":"große","hint":"groß + 词尾","why":"阴性一格 → große。"},{"q":"ein gut___ Freund","a":"guter","hint":"gut + 词尾","why":"阳性一格 → guter。"},{"q":"ein kalt___ Tag","a":"kalter","hint":"kalt + 词尾","why":"阳性一格 → kalter。"},{"q":"eine schön___ Stadt","a":"schöne","hint":"schön + 词尾","why":"阴性一格 → schöne。"}]},{"id":"praet","type":"fill","tag":"12 题","title":"sein 过去时 · war / waren","tip":"sein 的过去时：ich war、du warst、er war、wir waren、ihr wart、sie/Sie waren。问「你以前去过吗」就用 Warst du schon mal in …?","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s4#grammar","linkText":"复习：A1 语法 · sein","items":[{"q":"ich ___ (sein · 过去时)","a":"war","hint":"sein","why":"ich + war。"},{"q":"du ___ (sein · 过去时)","a":"warst","hint":"sein","why":"du + warst。"},{"q":"er / sie / es ___ (sein · 过去时)","a":"war","hint":"sein","why":"er/sie/es + war。"},{"q":"wir ___ (sein · 过去时)","a":"waren","hint":"sein","why":"wir + waren。"},{"q":"ihr ___ (sein · 过去时)","a":"wart","hint":"sein","why":"ihr + wart（不是 war）。"},{"q":"sie / Sie ___ (sein · 过去时)","a":"waren","hint":"sein","why":"sie / Sie + waren。"},{"q":"Ich ___ schon mal in Berlin.","a":"war","hint":"sein","why":"ich → war。"},{"q":"Wir ___ schon mal in Wien.","a":"waren","hint":"sein","why":"wir → waren。"},{"q":"___ du schon mal in Italien?","a":"Warst","hint":"sein","why":"du → Warst（开头大写）。"},{"q":"___ Sie schon mal in China?","a":"Waren","hint":"sein","why":"Sie → Waren（开头大写）。"},{"q":"Er ___ noch nie in Deutschland.","a":"war","hint":"sein","why":"er → war。"},{"q":"Maria ___ letztes Jahr in Rom.","a":"war","hint":"sein","why":"Maria 是第三人称单数 → war。"}]},{"id":"dialog","type":"choice","tag":"8 题","title":"对话理解 · Ein Treffen im Café","tip":"先读上面的对话，再做题；不确定就回到课文找原句。","link":"","linkText":"","items":[{"q":"Wer kommt aus Milano?","opts":["Silva","Carol-Ann","Beide"],"a":"Silva","why":"Carol-Ann 问 Woher kommst du?，Silva 回答 Ich komme aus Milano。"},{"q":"Wo liegt Milano?","opts":["in Italien","in Deutschland","in Österreich"],"a":"in Italien","why":"Das ist in Italien。"},{"q":"War Silva schon mal in Milano?","opts":["Nein","Ja","Nur einmal"],"a":"Nein","why":"Silva 说 Nein. Wo ist denn das?——她不知道米兰在哪。"},{"q":"Wo war Silva schon?","opts":["in Rom und in Neapel","in Mailand und in Rom","in Wien"],"a":"in Rom und in Neapel","why":"Ja, ich war in Rom und in Neapel。"},{"q":"„Wie geht's?\" 是什么意思？","opts":["你好吗？","你去哪儿？","你叫什么？"],"a":"你好吗？","why":"Wie geht's? = Wie geht es dir? 你好吗。"},{"q":"„Wo ist denn das?\" 里的 denn 是什么意思？","opts":["到底 / 究竟","因为","然后"],"a":"到底 / 究竟","why":"denn 在这里加强语气：那到底在哪儿。"},{"q":"„genau\" 是什么意思？","opts":["正是 / 准确","也许","太快了"],"a":"正是 / 准确","why":"Ja, genau. = 对，正是。"},{"q":"„Und sag doch du!\" 是什么意思？","opts":["你就用「你」称呼吧","你再说一遍","你说得对"],"a":"你就用「你」称呼吧","why":"sagen = 说；du = 你（非正式称呼）。"}]},{"id":"sehen","type":"choice","tag":"9 题","title":"名胜 · 城市 · 国家（S.48）","tip":"先读 S.48 的五个句子，再做；名胜和城市、国家要连起来记。","link":"","linkText":"","items":[{"q":"Der Eiffelturm ist in …","opts":["Paris","Athen","London","Pisa"],"a":"Paris","why":"der Eiffelturm, Paris。"},{"q":"Die Akropolis ist in …","opts":["Paris","Athen","London","Pisa"],"a":"Athen","why":"die Akropolis, Athen。"},{"q":"Der Big Ben ist in …","opts":["Paris","Athen","London","Pisa"],"a":"London","why":"der Big Ben, London。"},{"q":"Der Schiefe Turm ist in …","opts":["Paris","Athen","London","Pisa"],"a":"Pisa","why":"der Schiefe Turm, Pisa。"},{"q":"Der Prater ist in …","opts":["Wien","Berlin","Rom","Paris"],"a":"Wien","why":"der Prater, Wien。"},{"q":"Paris liegt in …","opts":["Frankreich","Italien","Griechenland","Österreich"],"a":"Frankreich","why":"Paris → Frankreich。"},{"q":"Athen liegt in …","opts":["Frankreich","Italien","Griechenland","Österreich"],"a":"Griechenland","why":"Athen → Griechenland。"},{"q":"Pisa liegt in …","opts":["Frankreich","Italien","Griechenland","Österreich"],"a":"Italien","why":"Pisa → Italien。"},{"q":"Wien liegt in …","opts":["Frankreich","Italien","Griechenland","Österreich"],"a":"Österreich","why":"Wien → Österreich。"}]},{"id":"laender","type":"choice","tag":"8 题","title":"国家名的冠词","tip":"大多数国家不加冠词：Deutschland、Österreich、Frankreich、Italien、Griechenland。只有少数要带：die Schweiz、die Türkei、der Iran、die Niederlande、die USA。","link":"","linkText":"","items":[{"q":"___ Schweiz","opts":["der","die","das","— 不加冠词"],"a":"die","why":"die Schweiz（阴性，固定要带冠词）。"},{"q":"___ Türkei","opts":["der","die","das","— 不加冠词"],"a":"die","why":"die Türkei。"},{"q":"___ Iran","opts":["der","die","das","— 不加冠词"],"a":"der","why":"der Iran。"},{"q":"___ Niederlande","opts":["der","die","das","— 不加冠词"],"a":"die","why":"die Niederlande（复数）。"},{"q":"___ USA","opts":["der","die","das","— 不加冠词"],"a":"die","why":"die USA（复数）。"},{"q":"___ Deutschland","opts":["der","die","das","— 不加冠词"],"a":"— 不加冠词","why":"Deutschland 不加冠词：Ich wohne in Deutschland。"},{"q":"___ Österreich","opts":["der","die","das","— 不加冠词"],"a":"— 不加冠词","why":"Österreich 不加冠词。"},{"q":"___ Frankreich","opts":["der","die","das","— 不加冠词"],"a":"— 不加冠词","why":"Frankreich 不加冠词。"}]},{"id":"order","type":"order","tag":"6 句","title":"语序 · 点单词排句子","tip":"陈述句：主语第一位，变位动词第二位。问句：W-Frage 疑问词第一位，动词第二位；是非问句动词第一位。","link":"https://leonsdeutschzentrum.com/?p=grammar&to=s12#grammar","linkText":"复习：A1 语法 · 句子结构","items":[{"words":["Ich","komme","aus","Milano."],"hint":"我来自米兰。","why":"主语 + 变位动词 + aus + 地名。"},{"words":["Warst","du","schon","mal","in","Italien?"],"hint":"你去过意大利吗？","why":"是非问句：动词 Warst 放第一位。"},{"words":["Wo","ist","denn","das?"],"hint":"那到底在哪儿？","why":"W-Frage：Wo 第一位，ist 第二位。"},{"words":["Ich","war","in","Rom","und","in","Neapel."],"hint":"我去了罗马和那不勒斯。","why":"war 是 sein 的过去时，放第二位。"},{"words":["Ich","kaufe","dem","Kind","eine","Tasche."],"hint":"我给孩子买一个包。","why":"人三物四：dem Kind 在前，eine Tasche 在后。"},{"words":["Wir","waren","schon","mal","in","Wien."],"hint":"我们曾经去过维也纳。","why":"waren 第二位；schon mal 放中间。"}]}],"recmodels":["Warst du schon mal in Milano?","Ich komme aus Milano.","Ich kaufe dem Kind eine Tasche.","Wir waren schon mal in Wien."],"read_total":43,"audio":{"Ach, Mailand!":"4ee6cec5f075.mp3","Ach, so!":"3d44c371786d.mp3","Athen liegt in …":"d75ad25101e6.mp3","Bremen":"20b942da0bdd.mp3","Danke, gut.":"23876f7fbec7.mp3","Danke, gut. Trinken Sie auch einen Kaffee?":"7c0d79444f9b.mp3","Danke, …!":"d83ef9af04a2.mp3","Danke, …! Trinken Sie auch …?":"8f38cec25605.mp3","Das ist in Italien.":"fb38a6942c31.mp3","Das ist in Italien. Ach, Mailand!":"6d9fa616453d.mp3","Das ist in …":"b63a9020d5d9.mp3","Der Big Ben ist in London.":"e42e34756624.mp3","Der Big Ben ist in London. Er ist in England.":"cf7c891a4bb1.mp3","Der Big Ben ist in …":"cbab1951aac8.mp3","Der Eiffelturm ist in Paris.":"2b50fbe10646.mp3","Der Eiffelturm ist in Paris. Er ist in Frankreich.":"8a293bdfc077.mp3","Der Eiffelturm ist in Paris. Paris ist in Frankreich.":"72f70eae0a4d.mp3","Der Eiffelturm ist in …":"29c6321b4a15.mp3","Der Prater ist in Wien.":"ba4bcc43ddba.mp3","Der Prater ist in Wien. Er ist in Österreich.":"0524bccd8e7b.mp3","Der Prater ist in …":"f72c9317b6c4.mp3","Der Schiefe Turm ist in Pisa.":"d0349a8019a4.mp3","Der Schiefe Turm ist in Pisa. Er ist in Italien.":"addbfd525558.mp3","Der Schiefe Turm ist in …":"b37a2458584e.mp3","Die Akropolis ist in Athen.":"7110bec1e1eb.mp3","Die Akropolis ist in Athen. Sie ist in Griechenland.":"1add1e77629f.mp3","Die Akropolis ist in …":"625efa81bc26.mp3","Er ist in England.":"e7d026dee6f5.mp3","Er ist in Frankreich.":"ce234bf864b9.mp3","Er ist in Italien.":"c2eadb417d3c.mp3","Er ist in Österreich.":"42baa270a91c.mp3","Er war noch nie in Deutschland.":"233da35e7610.mp3","Hallo, Carol-Ann!":"25cf2eb8b7d9.mp3","Hallo, Carol-Ann! Wie geht's?":"0961466b70b3.mp3","Hallo, Silva!":"946539232322.mp3","Hallo, Silva! Hallo, Carol-Ann! Wie geht's?":"925f52b7e35a.mp3","Hallo, …!":"9ca6b89d4955.mp3","Hallo, …! Wie geht's?":"f8b593907d2b.mp3","Hast du eine Tasche?":"0412b7f19072.mp3","Hast du einen Stift?":"b6280eb1cceb.mp3","Ich bringe der Freundin einen Kaffee.":"32e58bdd4114.mp3","Ich gebe dem Mann den Schlüssel.":"f43ab9cd772e.mp3","Ich gebe der Frau das Buch.":"caa16f0383a4.mp3","Ich habe kein Kind.":"909b510e4b12.mp3","Ich habe keine Schwester.":"de04faa2ffed.mp3","Ich habe keine Zeit.":"7c9adf3929e0.mp3","Ich habe keinen Bruder.":"f878e276c9f5.mp3","Ich kaufe das Auto.":"2dbc4302938e.mp3","Ich kaufe dem Kind":"13b44cff0bba.mp3","Ich kaufe dem Kind eine Tasche.":"ecac70b1f024.mp3","Ich kaufe dem Vater ein Auto.":"34aafe3c4d05.mp3","Ich kaufe den Lehrern Blumen.":"b72df5e3ce2d.mp3","Ich kaufe den Tisch.":"41ebca4203fe.mp3","Ich kaufe der Mutter":"f9e4b19620c4.mp3","Ich kaufe der Mutter eine Tasche.":"db77ba5e200e.mp3","Ich kaufe der Mutter einen Tisch.":"205ed7fb7365.mp3","Ich kaufe die Tasche.":"e429fa76d64a.mp3","Ich kaufe ein Auto.":"8abe4bf2183a.mp3","Ich kaufe eine Tasche.":"a04270ac59e4.mp3","Ich kaufe einen Tisch.":"bea252669da2.mp3","Ich komme aus Milano.":"3ec1f2380269.mp3","Ich komme aus …":"0b4079c127f2.mp3","Ich leihe dem Bruder mein Fahrrad.":"224b230a2394.mp3","Ich schenke den Kindern Spielzeug.":"2aa45fbd5a47.mp3","Ich sehe das Kind.":"ff39a4883228.mp3","Ich sehe den Mann.":"4e8339a94b35.mp3","Ich sehe die Frau.":"db0760d6e77c.mp3","Ich sehe ein Pferd.":"2f2f3ebb618d.mp3","Ich sehe eine Katze.":"341c86369797.mp3","Ich sehe einen Hund.":"8aed2a5d81f9.mp3","Ich war in Rom und in Neapel.":"ec3664e64d2d.mp3","Ich war noch nie in Österreich.":"726ca0bce365.mp3","Ich war schon mal in Bayern.":"38d4e169b51c.mp3","Ich war schon mal in Berlin.":"88d34b5c38ef.mp3","Ich zeige dem Lehrer die Hausaufgabe.":"3dbfd18649fc.mp3","In Deutschland.":"98b63690031d.mp3","Ist das in Italien?":"c1900024babf.mp3","Ja, da war ich schon.":"eb5528e0aa58.mp3","Ja, genau.":"b99cc44e790f.mp3","Ja, genau. Warst du schon mal in Italien?":"6f3bd98b3c5d.mp3","Ja, genau. Warst du schon mal in Italien? Ja, ich war in Rom und in Neapel.":"a271ef562bc0.mp3","Ja, gern.":"d0bba1ff574b.mp3","Ja, gern. Und sag doch „du\"!":"488edaeded2d.mp3","Ja, ich war in Rom":"4053f9060b92.mp3","Ja, ich war in Rom und in Neapel.":"2d41c1cb433a.mp3","Kaffee":"7d86f6bfe3d9.mp3","Mailand":"efb9124c849d.mp3","Maria war letztes Jahr in Rom.":"b47e49bcbbe0.mp3","Nein,":"2dfac8443c00.mp3","Nein, wo ist denn das?":"f21fef283d0f.mp3","Nein.":"50c3135aa942.mp3","Nein. Wo ist denn das?":"affc2ea98880.mp3","O.k.!":"15473b406b63.mp3","O.k.! Und woher kommst du?":"c107f57a64e4.mp3","O.k.! Und woher kommst du? Ich komme aus Milano.":"c7124570d3f9.mp3","Paris ist in Frankreich.":"444dbbb2d7c3.mp3","Paris liegt in …":"ae241162bd5d.mp3","Pisa liegt in …":"6b34b3f58c3e.mp3","Sie ist in Griechenland.":"5715fc2cd679.mp3","Sie war schon mal in Berlin.":"c4928512f41b.mp3","Trinken Sie auch einen Kaffee?":"f44cce7506ae.mp3","Trinken Sie auch …?":"c8b7eb2f87f2.mp3","Und sag doch „du\"!":"b77232d1e402.mp3","Und woher kommen Sie?":"0733b5e693f8.mp3","Und woher kommst du?":"38ef4d52cad2.mp3","War Silva schon mal in Milano?":"fece6e7ba5aa.mp3","Waren Sie schon mal in China?":"4093c6c7d5ea.mp3","Waren Sie schon mal in Italien?":"1828bc0700db.mp3","Waren Sie schon mal in München?":"061ebe9493ca.mp3","Waren Sie schon mal in Österreich?":"7d27f0490601.mp3","Waren Sie schon mal in …?":"834d69220a9f.mp3","Warst du schon in Innsbruck?":"467af08a785a.mp3","Warst du schon mal in Bremen?":"db2df98946aa.mp3","Warst du schon mal in Italien?":"5672e921c104.mp3","Warst du schon mal in Milano?":"1257c27d696b.mp3","Warst du schon mal in Milano? Nein. Wo ist denn das?":"2fbc3609bdcd.mp3","Warst du schon mal in der Schweiz?":"a5d29baa1559.mp3","Warst du schon mal in …?":"89da2ba01c79.mp3","Wer kommt aus Milano?":"79e4ac32d8cb.mp3","Wie geht's?":"893032370562.mp3","Wien liegt in …":"0c405bcac805.mp3","Wir waren schon mal in Wien.":"0857e256a75a.mp3","Wir waren schon mal in Wien. Waren Sie schon mal in Österreich?":"3e8a4434ec03.mp3","Wo ist denn das?":"36bb4f62ac91.mp3","Wo liegt Milano?":"d39e09765ebb.mp3","Wo war Silva schon?":"5c48d82695bd.mp3","Woher kommen Sie?":"abec54ddf8d2.mp3","Woher kommst du?":"84072b16bad9.mp3","acht":"a673c13c9670.mp3","achthundertvierundsiebzig":"e51ab9de3a3e.mp3","achtzehn":"f5c64c5b3745.mp3","achtzig":"0b2656025023.mp3","andere Namen":"7c453058d418.mp3","andere Städte":"68f901a9306d.mp3","da war ich schon":"021e22878cc0.mp3","das Auto ist neu.":"90ff55bf20d4.mp3","das Kind spielt.":"93e611ee6547.mp3","denn":"f2c3f7ec506d.mp3","der Big Ben":"391ad3f1bb12.mp3","der Eiffelturm":"8ef40a5c900d.mp3","der Iran":"303dabaff0d5.mp3","der Mann kommt aus Berlin.":"7799e4a113f2.mp3","der Prater":"42923660b516.mp3","der Schiefe Turm":"56e5d8bc8173.mp3","der Tisch ist neu.":"ffbacb7e6850.mp3","die Akropolis":"c36c66fdc1ad.mp3","die Frau ist Lehrerin.":"6cda66dcfe6e.mp3","die Niederlande":"986aef01f86a.mp3","die Schweiz":"ce9b569709f4.mp3","die Sehenswürdigkeit":"cdafcf7171c2.mp3","die Tasche ist neu.":"bf9190634144.mp3","die Türkei":"805aa7142a61.mp3","die USA":"0728ddcf8a77.mp3","drei":"7782517f7a79.mp3","dreihundertfünfundvierzig":"858f4e0ea5a9.mp3","dreiundzwanzigtausendvierhundertsechsundfünfzig":"11b82c37c198.mp3","dreizehn":"420e1402ace5.mp3","dreißig":"33e73143bf40.mp3","du warst":"2e7d31402695.mp3","ein altaltes Auto":"dde29931ed92.mp3","ein gutguter Freund":"4197e523577d.mp3","ein kaltkalter Tag":"747225c7dca7.mp3","ein kleinkleines Kind":"5c9dc8c57e5c.mp3","ein neuneuer Tisch":"66151ac9a801.mp3","eine Milliarde":"b2b43bdb87ec.mp3","eine Tasche.":"0f6540d2d0bd.mp3","eine großgroße Stadt":"516d3f6ed985.mp3","eine neuneue Tasche":"dab0c8042f7a.mp3","eine schönschöne Stadt":"2e2acb1c33a2.mp3","eins":"d79914a27101.mp3","eintausendzweihundertvierunddreißig":"cda2c28a7281.mp3","einundzwanzig":"068ad393cdda.mp3","elf":"0761330c0681.mp3","er / sie / es war":"5608ddfb38db.mp3","fünf":"5b3d49a2cd1e.mp3","fünfhundertsiebenunddreißig":"64bd73309f63.mp3","fünftausendsechshundertachtundsiebzig":"e3e83db62070.mp3","fünfzehn":"536b7745d18d.mp3","fünfzig":"fcd181affe15.mp3","genau":"d8a5b5bc96ba.mp3","gern":"55a4067cc36d.mp3","hundert":"21fdc3f8d358.mp3","hundertdreiundzwanzig":"f21a9dd01961.mp3","ich war":"d939b129f6f2.mp3","ihr wart":"3263d32d4cbc.mp3","neun":"dab3bab179ec.mp3","neunhunderteinundvierzig":"2b1960a23761.mp3","neunzehn":"ec3f20d60dcb.mp3","neunzig":"7f4f9004e3cf.mp3","null":"2be88ca4242c.mp3","sagen":"a646c46e6b21.mp3","schon mal":"d848af72b068.mp3","sechs":"4dea3e5f654b.mp3","sechshundertachtundsiebzig":"aee6e7583965.mp3","sechshundertneunundsechzig":"8b6b5595a170.mp3","sechshundertsechsundneunzig":"2d596c17457c.mp3","sechsundfünfzig":"7e8d7fc82e50.mp3","sechsundsiebzig":"db1f8e5564fc.mp3","sechzehn":"0dca419bd185.mp3","sechzig":"05b42623c779.mp3","sie / Sie waren":"578fb524c862.mp3","sieben":"7f3e71cc099e.mp3","siebenhundertachtundsechzig":"98d155563d70.mp3","siebenundsechzig":"af3499f894ad.mp3","siebzehn":"7ad6a607cf15.mp3","siebzig":"f54a714b494b.mp3","tausend":"9a8a3441fc6b.mp3","und in Neapel.":"644dc8c9d0fa.mp3","vier":"76549157ec67.mp3","vierundvierzig":"46b334045d7d.mp3","vierzehn":"ada1e0e0aefa.mp3","vierzig":"03e3417ddc18.mp3","wir waren":"9daff93a86aa.mp3","wo ist denn das?":"ca53f72a9e1a.mp3","woher":"01323f88e8ec.mp3","zehn":"b884c2537d55.mp3","zwanzig":"1b3d70eda83d.mp3","zwei":"89f7b2e913c4.mp3","zwei Millionen dreihundertfünfundvierzigtausendsechshundertachtundsiebzig":"b5c58e1aa423.mp3","zweihundertvierunddreißig":"389ab0fa5f1f.mp3","zweitausenddreihundertfünfundvierzig":"978316fc062e.mp3","zweiunddreißig":"7bada2d2bd65.mp3","zwölf":"873ef02fbb67.mp3","— 不加冠词 Deutschland":"ce0e4b7e761f.mp3","— 不加冠词 Frankreich":"730f893a28ba.mp3","— 不加冠词 Österreich":"940e4950b7ae.mp3","„Und sag doch du!\" 是什么意思？":"f0754fac395e.mp3","„Wie geht's?\" 是什么意思？":"771909633a5b.mp3","„Wo ist denn das?\" 里的 denn 是什么意思？":"4ed59b063a3c.mp3","„genau\" 是什么意思？":"ac98c07f73e1.mp3"}};
+var PASS_HASH = 'fc1e4ec93c5818727b0ebdcabe7d7ae673ccbd78690a624767780e87f23586f4';
+var KEY = 'stu_unlock_liaoxin';
+var SAVE = 'liaoxin1118_v1';
+
+/* SHA-256（与专属练习页同款；只用于比对口令，不是加密） */
+function sha256(ascii){
+  function rightRotate(value, amount){ return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), i, j, result = '', words = [];
+  var asciiBitLength = ascii.length * 8;
+  var hash = sha256.h = sha256.h || [];
+  var k = sha256.k = sha256.k || [];
+  var primeCounter = k.length, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii.length % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii.length; i++){
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = ((asciiBitLength / maxWord) | 0);
+  words[words.length] = (asciiBitLength);
+  for (j = 0; j < words.length;){
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++){
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7] + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6])) + k[i]
+        + (w[i] = (i < 16) ? w[i] : (w[i - 16] + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+          + w[i - 7] + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+  for (i = 0; i < 8; i++){
+    for (j = 3; j + 1; j--){
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(SAVE) || '{}') || {}; } catch(e){ return {}; }
+}
+var state = loadState();
+['cb','listen','stress','sent','read','inton','gramsolved','gramans'].forEach(function(k){ state[k] = state[k] || (k === 'gramans' ? {} : {}); });
+function save(){ try { localStorage.setItem(SAVE, JSON.stringify(state)); } catch(e){} }
+
+var curAudio = null;
+function speak(text){
+  if (!text) return;
+  if (curAudio){ try { curAudio.pause(); } catch(e){} curAudio = null; }
+  var f = (DATA.audio || {})[text];
+  if (f){
+    try {
+      curAudio = new Audio('audio/liaoxin-1118/' + f);
+      var p = curAudio.play();
+      if (p && p.catch) p.catch(function(){ curAudio = null; speakTTS(text); });
+      return;
+    } catch(e){}
+  }
+  speakTTS(text);
+}
+function speakTTS(text){
+  if (!('speechSynthesis' in window)) return;
+  try {
+    var synth = window.speechSynthesis;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'de-DE'; u.rate = .82; u.volume = 1;
+    var vs = synth.getVoices() || [];
+    for (var i = 0; i < vs.length; i++){
+      if (/^de([-_]|$)/i.test(vs[i].lang) || /german|deutsch/i.test(vs[i].name)){ u.voice = vs[i]; break; }
+    }
+    setTimeout(function(){ synth.speak(u); }, 60);
+  } catch(e){}
+}
+function speakSeq(list){
+  var i = 0;
+  function step(){
+    if (i >= list.length) return;
+    var t = list[i++];
+    var f = (DATA.audio || {})[t];
+    if (!f){ speakTTS(t); setTimeout(step, 950); return; }
+    try {
+      var a = new Audio('audio/liaoxin-1118/' + f);
+      a.onended = function(){ setTimeout(step, 280); };
+      a.play().catch(function(){ speakTTS(t); setTimeout(step, 950); });
+    } catch(e){ speakTTS(t); setTimeout(step, 950); }
+  }
+  step();
+}
+
+function norm(s){
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/\s+/g,' ');
+}
+function isCorrect(item, val){
+  if (val == null) return false;
+  if (item.cs) return String(val).trim() === item.a;
+  return norm(val) === norm(item.a);
+}
+function fullText(q, a){
+  return String(q).replace(/\s*（[^）]*）\s*$/, '').replace(/\s*\([^)]*\)\s*$/, '').replace('___', a);
+}
+
+/* 清单 */
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML = DATA.checklist.map(function(t, i){
+    var on = !!state.cb[i];
+    return '<label class="' + (on ? 'done' : '') + '"><input type="checkbox" data-ci="' + i + '"' + (on ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
+  }).join('');
+  updateProgress();
+}
+function updateProgress(){
+  var n = Object.keys(state.cb).filter(function(k){ return state.cb[k]; }).length;
+  var tot = DATA.checklist.length;
+  document.getElementById('pct').textContent = '今天的任务 ' + n + ' / ' + tot;
+  document.getElementById('pbar').style.width = (tot ? n / tot * 100 : 0) + '%';
+}
+
+/* 句重音 */
+function renderSentStress(){
+  document.getElementById('sentstress').innerHTML = DATA.sentstress.map(function(s, i){
+    var done = !!state.sent[i];
+    return '<div class="sentcard' + (done ? ' ok' : '') + '" data-i="' + i + '">'
+      + '<div class="swords">' + s.words.map(function(w, k){
+          return '<button class="sword' + (done && k === s.stress ? ' hit' : '') + '" data-i="' + i + '" data-k="' + k + '">' + esc(w) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="rbar"><button class="mini" data-say="' + esc(s.de) + '">整句 🔊</button>'
+      + '<span class="sentzh">' + esc(s.zh) + '</span></div>'
+      + '<div class="sentwhy">' + esc(s.why) + '</div></div>';
+  }).join('');
+}
+
+/* 断句卡 */
+function readCard(id, chunks, zh, note, extra){
+  var done = !!state.read[id];
+  return '<div class="rcard" data-rid="' + esc(id) + '">' + (extra || '')
+    + '<div class="rchunks">' + chunks.map(function(c){
+        return '<span class="rchunk" data-say="' + esc(c) + '" title="点这一块听">' + esc(c) + '</span>';
+      }).join('<span style="color:rgba(246,211,101,.55);padding:0 4px">│</span>') + '</div>'
+    + '<div class="rbar"><button class="mini" data-say="' + esc(chunks.join(' ')) + '">整句 🔊</button>'
+    + '<button class="mini" data-seq-join="' + esc(id) + '">按块读</button>'
+    + (zh ? '<button class="mini" data-zh="' + esc(id) + '">看中文</button>' : '')
+    + '<label class="rdone"><input type="checkbox" data-rd="' + esc(id) + '"' + (done ? ' checked' : '') + '> 读了三遍</label></div>'
+    + (zh ? '<div class="rzh" id="zh-' + esc(id) + '">' + esc(zh) + '</div>' : '')
+    + (note ? '<div class="rnote">' + esc(note) + '</div>' : '')
+    + '</div>';
+}
+function renderChunks(){
+  document.getElementById('chunks').innerHTML = DATA.chunks.map(function(c, i){
+    return readCard('c' + i, c.chunks, c.zh, c.note);
+  }).join('');
+}
+function renderTexts(elId, from, to){
+  document.getElementById(elId).innerHTML = DATA.texts.slice(from, to).map(function(t, k){
+    var ti = from + k;
+    var lines = t.lines.map(function(ln, li){
+      return readCard('t' + ti + '-' + li, ln.chunks, ln.zh, '');
+    }).join('');
+    var vocab = '<div class="vocab">' + t.vocab.map(function(v){
+      return '<button data-say="' + esc(v[0]) + '">' + esc(v[0]) + ' ' + esc(v[1]) + ' 🔊</button>';
+    }).join('') + '</div>';
+    return '<div class="card textcard"><h3>' + esc(t.title) + ' <span style="font-size:.68rem;color:var(--muted);font-weight:500">' + esc(t.src) + '</span></h3>' + vocab + lines + '</div>';
+  }).join('');
+}
+
+/* 问句语调 */
+function renderIntonation(){
+  document.getElementById('intonation').innerHTML = DATA.intonation.map(function(s, i){
+    var done = !!state.inton[i];
+    return '<div class="icard' + (done ? ' ok' : '') + '" data-i="' + i + '">'
+      + '<div class="ide">' + esc(s.de) + ' <button class="mini" data-say="' + esc(s.de) + '">🔊</button></div>'
+      + '<div class="irow">'
+      + '<button class="ibtn' + (done && s.a === 'fallend' ? ' hit' : '') + '" data-i="' + i + '" data-a="fallend">↘ 降调</button>'
+      + '<button class="ibtn' + (done && s.a === 'steigend' ? ' hit' : '') + '" data-i="' + i + '" data-a="steigend">↗ 升调</button>'
+      + '</div><div class="iwhy">' + esc(s.why) + '</div></div>';
+  }).join('');
+}
+
+/* 地图 */
+function renderMap(){
+  function chips(arr, el, plain){
+    document.getElementById(el).innerHTML = arr.map(function(x){
+      if (plain) return '<span>' + esc(x) + '</span>';
+      return '<span>' + esc(x[0]) + ' · ' + esc(x[1]) + '</span>';
+    }).join('');
+  }
+  chips(DATA.map.countries, 'mapCountries');
+  chips(DATA.map.bundeslaender, 'mapDE', true);
+  chips(DATA.map.oesterreich, 'mapAT', true);
+  chips(DATA.map.schweiz, 'mapCH', true);
+  document.getElementById('mapTrips').innerHTML = DATA.map.trips.map(function(t){
+    return '<div class="trip"><button class="mini" data-say="' + esc(t.de) + '">🔊</button><span>' + esc(t.de) + '</span><span class="tzh">' + esc(t.zh) + '</span></div>';
+  }).join('');
+}
+
+/* 数字 */
+function renderNumbers(){
+  function grid(arr, el){
+    document.getElementById(el).innerHTML = arr.map(function(n){
+      return '<button class="nbtn" data-say="' + esc(n[1]) + '"><b>' + esc(n[0]) + '</b><span>' + esc(n[1]) + '</span></button>';
+    }).join('');
+  }
+  grid(DATA.numbers.small, 'numSmall');
+  grid(DATA.numbers.mix, 'numMix');
+  document.getElementById('numPractice').innerHTML = DATA.numbers.practice.map(function(n, i){
+    return '<div class="np" id="np-' + i + '"><b>' + esc(n[0]) + '</b><span class="ans">' + esc(n[1]) + '</span>'
+      + '<button class="mini" data-np="' + i + '">对答案</button></div>';
+  }).join('');
+}
+
+/* 语法练习 */
+function renderFill(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var v = (state.gramans[ex.id] && state.gramans[ex.id][i]) || '';
+    var parts = it.q.split('___');
+    return '<div class="item" data-i="' + i + '">'
+      + '<div class="q">' + esc(parts[0])
+      + '<input class="blank" data-ex="' + ex.id + '" data-i="' + i + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false">'
+      + esc(parts[1] || '')
+      + (it.hint && it.q.indexOf('(') < 0 ? '<span class="blank-hint">(' + esc(it.hint) + ')</span>' : '')
+      + '<button class="spk" data-say="' + esc(fullText(it.q, it.a)) + '">🔊</button>'
+      + '</div><div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderChoice(ex){
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var cur = state.gramans[ex.id] && state.gramans[ex.id][i];
+    var parts = it.q.split('___');
+    var qhtml = parts.length > 1 ? esc(parts[0]) + '<b style="color:var(--gold)">___</b>' + esc(parts.slice(1).join('___')) : esc(it.q);
+    return '<div class="item" data-i="' + i + '"><div class="q">' + qhtml
+      + '<button class="spk" data-say="' + esc(fullText(it.q, it.a)) + '">🔊</button></div>'
+      + '<div class="opts">' + it.opts.map(function(o){
+          return '<button class="opt" data-ex="' + ex.id + '" data-i="' + i + '" data-o="' + esc(o) + '">' + esc(o) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderOrder(ex){
+  var ans = state.gramans[ex.id] || {};
+  return '<div class="items">' + ex.items.map(function(it, i){
+    var chosen = ans[i] || [];
+    var pool = it.words.map(function(w, k){ return k; }).filter(function(k){ return chosen.indexOf(k) < 0; });
+    var done = chosen.length === it.words.length;
+    var good = done && chosen.every(function(k, pos){ return it.words[k] === it.words[pos]; });
+    var ansHTML = it.words.map(function(w, pos){
+      var k = chosen[pos];
+      return '<span class="ord-slot' + (k != null ? ' filled' : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-pos="' + pos + '">' + (k != null ? esc(it.words[k]) : '·') + '</span>';
+    }).join('');
+    return '<div class="item' + (good ? ' ok' : (done ? ' bad' : '')) + '" data-i="' + i + '">'
+      + '<div class="q">' + esc(it.hint) + ' <button class="spk" data-say="' + esc(it.words.join(' ')) + '">🔊</button></div>'
+      + '<div class="ord-ans">' + ansHTML + '</div>'
+      + '<div class="ord-pool">' + pool.map(function(k){
+          return '<button class="ord-chip" data-ex="' + ex.id + '" data-i="' + i + '" data-k="' + k + '">' + esc(it.words[k]) + '</button>';
+        }).join('') + '</div>'
+      + '<div class="why' + (good ? ' show' : '') + '" data-why="' + i + '">' + esc(it.why) + '</div></div>';
+  }).join('') + '</div>';
+}
+function renderExercises(){
+  document.getElementById('exercises').innerHTML = DATA.exercises.map(function(ex, idx){
+    var body = ex.type === 'fill' ? renderFill(ex) : ex.type === 'choice' ? renderChoice(ex) : renderOrder(ex);
+    return '<section class="ex" id="ex-' + ex.id + '">'
+      + '<div class="ex-head"><div class="ex-num">' + (idx + 1) + '</div><h2>' + esc(ex.title) + '</h2><span class="ex-tag">' + esc(ex.tag) + '</span></div>'
+      + '<div class="ex-tip">' + esc(ex.tip) + '</div>'
+      + (ex.link ? '<a class="ex-link" href="' + esc(ex.link) + '">' + esc(ex.linkText) + '</a>' : '')
+      + body
+      + '<div class="ex-foot">'
+      + (ex.type === 'order' ? '' : '<button class="btn" data-act="check" data-ex="' + ex.id + '">检查本组</button>')
+      + '<button class="btn ghost" data-act="reveal" data-ex="' + ex.id + '">显示答案</button>'
+      + '<button class="btn ghost" data-act="redo" data-ex="' + ex.id + '">重做</button>'
+      + '<span class="score" id="score-' + ex.id + '"></span></div></section>';
+  }).join('');
+  DATA.exercises.forEach(function(ex){ updateScore(ex, state.gramsolved[ex.id]); });
+}
+function updateScore(ex, good){
+  var el = document.getElementById('score-' + ex.id);
+  if (!el) return;
+  var n = good == null ? 0 : good;
+  var tot = ex.items.length;
+  el.innerHTML = '已对 <b>' + n + '</b> / ' + tot;
+  el.className = 'score' + (n === tot ? ' all' : '');
+}
+function checkGroup(ex, silent){
+  var good = 0;
+  var sec = document.getElementById('ex-' + ex.id);
+  ex.items.forEach(function(it, i){
+    var itemEl = sec.querySelector('.item[data-i="' + i + '"]');
+    var whyEl = sec.querySelector('.why[data-why="' + i + '"]');
+    var ok = false;
+    if (ex.type === 'fill'){
+      var inp = itemEl.querySelector('.blank');
+      ok = isCorrect(it, inp.value);
+      inp.classList.remove('ok','bad');
+      inp.classList.add(ok ? 'ok' : 'bad');
+    } else if (ex.type === 'choice'){
+      var val = state.gramans[ex.id] && state.gramans[ex.id][i];
+      ok = val === it.a;
+      itemEl.querySelectorAll('.opt').forEach(function(b){
+        b.classList.remove('sel','ok','bad');
+        if (b.dataset.o === it.a) b.classList.add('ok');
+        if (b.dataset.o === val && val !== it.a) b.classList.add('bad');
+      });
+    } else {
+      var chosen = (state.gramans[ex.id] || {})[i] || [];
+      ok = chosen.length === it.words.length && chosen.every(function(k, pos){ return it.words[k] === it.words[pos]; });
+      itemEl.classList.remove('ok','bad');
+      itemEl.classList.add(ok ? 'ok' : 'bad');
+    }
+    if (whyEl){
+      whyEl.classList.remove('show','bad');
+      if (!ok) whyEl.classList.add('show','bad');
+    }
+    if (itemEl) itemEl.classList.remove('ok','bad'), itemEl.classList.add(ok ? 'ok' : 'bad');
+    if (ok) good++;
+  });
+  state.gramsolved[ex.id] = good;
+  save();
+  updateScore(ex, good);
+}
+function revealGroup(ex){
+  var sec = document.getElementById('ex-' + ex.id);
+  ex.items.forEach(function(it, i){
+    var itemEl = sec.querySelector('.item[data-i="' + i + '"]');
+    var whyEl = sec.querySelector('.why[data-why="' + i + '"]');
+    if (ex.type === 'fill'){
+      var inp = itemEl.querySelector('.blank');
+      inp.value = it.a;
+    } else if (ex.type === 'choice'){
+      state.gramans[ex.id] = state.gramans[ex.id] || {};
+      state.gramans[ex.id][i] = it.a;
+      itemEl.querySelectorAll('.opt').forEach(function(b){
+        b.classList.remove('sel','ok','bad');
+        if (b.dataset.o === it.a) b.classList.add('ok');
+      });
+    } else {
+      state.gramans[ex.id] = state.gramans[ex.id] || {};
+      state.gramans[ex.id][i] = it.words.map(function(_, k){ return k; });
+      renderExercises();
+    }
+    if (whyEl) whyEl.classList.add('show');
+  });
+  save();
+}
+function redoGroup(ex){
+  delete state.gramsolved[ex.id];
+  delete state.gramans[ex.id];
+  save();
+  renderExercises();
+}
+
+/* 录音 */
+var mediaRec = null, recChunks = [], recUrl = null;
+function recSetup(){
+  document.getElementById('recmodels').innerHTML = DATA.recmodels.map(function(s){
+    return '<button class="mini" data-say="' + esc(s) + '">🔊 ' + esc(s) + '</button>';
+  }).join('');
+}
+function recMsg(t, bad){
+  var el = document.getElementById('recMsg');
+  el.className = 'rec-msg' + (bad ? ' bad' : '');
+  el.innerHTML = (bad ? '' : '<span class="rec-dot"></span> ') + esc(t);
+}
+function recToggle(){
+  var btn = document.getElementById('recBtn');
+  if (mediaRec && mediaRec.state === 'recording'){
+    mediaRec.stop();
+    return;
+  }
+  if (!navigator.mediaDevices || !window.MediaRecorder){
+    recMsg('这个浏览器不支持录音。用 Safari / Chrome 打开，并且需要 https 或本地文件。', true);
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
+    recChunks = [];
+    mediaRec = new MediaRecorder(stream);
+    mediaRec.ondataavailable = function(e){ if (e.data.size) recChunks.push(e.data); };
+    mediaRec.onstop = function(){
+      stream.getTracks().forEach(function(t){ t.stop(); });
+      var blob = new Blob(recChunks, {type: recChunks[0] ? recChunks[0].type : 'audio/webm'});
+      if (recUrl) URL.revokeObjectURL(recUrl);
+      recUrl = URL.createObjectURL(blob);
+      var p = document.getElementById('playRec');
+      p.disabled = false;
+      btn.textContent = '● 开始录音';
+      recMsg('录好了，点「回放我的录音」听一听。');
+    };
+    mediaRec.start();
+    btn.textContent = '■ 停止录音';
+    recMsg('正在录音……读一句完整的话，读完点「停止录音」。');
+  }).catch(function(){
+    recMsg('没有拿到麦克风权限。用 Safari / Chrome 打开，允许麦克风；微信内置浏览器不支持。', true);
+  });
+}
+
+/* 事件委托 */
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-say],[data-s],.syl,.sword,.ibtn,.lopt,.play,.opt,.ord-chip,.ord-slot,[data-seq],[data-mini],[data-zh],[data-np],[data-act],[data-seq-join]');
+  if (!t) return;
+
+  if (t.dataset.say){ speak(t.dataset.say); return; }
+
+  if (t.classList.contains('play')){
+    var i = +t.dataset.l;
+    speak(DATA.listen[i].a);
+    return;
+  }
+  if (t.classList.contains('lopt')){
+    var li = +t.dataset.i, lo = t.dataset.o, lit = DATA.listen[li];
+    if (lo === lit.a){
+      state.listen[li] = 1; save();
+      t.classList.add('ok');
+      var why = t.closest('.litem').querySelector('.lwhy');
+      if (why) why.classList.add('show');
+    } else {
+      t.classList.add('bad');
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.classList.contains('syl')){
+    var si = +t.dataset.i, sk = +t.dataset.k, sw = DATA.stress[si];
+    if (state.stress[si]) return;
+    if (sk === sw.stress){
+      state.stress[si] = 1; save();
+      t.classList.add('hit');
+      t.closest('.scard').classList.add('ok');
+      t.closest('.scard').querySelector('.snote').textContent = sw.note;
+      speak(sw.w);
+    } else {
+      t.classList.add('bad');
+      speak(sw.syl[sk]);
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.dataset.seq){
+    var sq = DATA.stress[+t.dataset.seq];
+    speakSeq(sq.syl);
+    return;
+  }
+  if (t.classList.contains('ibtn')){
+    var ii = +t.dataset.i, ia = t.dataset.a, is = DATA.intonation[ii];
+    if (state.inton[ii]) return;
+    if (ia === is.a){
+      state.inton[ii] = 1; save();
+      t.classList.add('hit');
+      t.closest('.icard').classList.add('ok');
+      speak(is.de);
+    } else {
+      t.classList.add('bad');
+      speak(is.de);
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.classList.contains('sword')){
+    var qi = +t.dataset.i, qk = +t.dataset.k, ss = DATA.sentstress[qi];
+    if (state.sent[qi]) return;
+    if (qk === ss.stress){
+      state.sent[qi] = 1; save();
+      t.classList.add('hit');
+      t.closest('.sentcard').classList.add('ok');
+      speak(ss.de);
+    } else {
+      t.classList.add('bad');
+      speak(ss.words[qk]);
+      setTimeout(function(){ t.classList.remove('bad'); }, 700);
+    }
+    return;
+  }
+  if (t.dataset.zh){
+    var box = document.getElementById('zh-' + t.dataset.zh);
+    if (box){ box.classList.toggle('show'); }
+    return;
+  }
+  if (t.dataset.seqJoin){
+    var id = t.dataset.seqJoin;
+    var card = t.closest('.rcard');
+    var chunks = Array.prototype.map.call(card.querySelectorAll('.rchunk'), function(x){ return x.textContent; });
+    speakSeq(chunks);
+    return;
+  }
+  if (t.dataset.np){
+    var np = document.getElementById('np-' + t.dataset.np);
+    np.classList.toggle('show');
+    return;
+  }
+  if (t.classList.contains('opt')){
+    var oex = t.dataset.ex, oi = +t.dataset.i;
+    state.gramans[oex] = state.gramans[oex] || {};
+    state.gramans[oex][oi] = t.dataset.o;
+    save();
+    t.closest('.opts').querySelectorAll('.opt').forEach(function(b){ b.classList.remove('sel'); });
+    t.classList.add('sel');
+    return;
+  }
+  if (t.classList.contains('ord-chip')){
+    var dexx = t.dataset.ex, di = +t.dataset.i, dk = +t.dataset.k;
+    state.gramans[dexx] = state.gramans[dexx] || {};
+    state.gramans[dexx][di] = state.gramans[dexx][di] || [];
+    state.gramans[dexx][di].push(dk);
+    save();
+    var exo = DATA.exercises.find(function(x){ return x.id === dexx; });
+    var itx = exo.items[di], ch = state.gramans[dexx][di];
+    if (ch.length === itx.words.length){
+      var okk = ch.every(function(k, p){ return itx.words[k] === itx.words[p]; });
+      if (okk){
+        speak(itx.words.join(' '));
+      } else {
+        setTimeout(function(){ state.gramans[dexx][di] = []; save(); renderExercises(); }, 900);
+      }
+    }
+    var goodCount = 0;
+    exo.items.forEach(function(itm, ii){
+      var cc = (state.gramans[dexx] || {})[ii] || [];
+      if (cc.length === itm.words.length && cc.every(function(k, p){ return itm.words[k] === itm.words[p]; })) goodCount++;
+    });
+    state.gramsolved[dexx] = goodCount; save();
+    renderExercises();
+    return;
+  }
+  if (t.classList.contains('ord-slot') && t.classList.contains('filled')){
+    var sex = t.dataset.ex, si2 = +t.dataset.i, spos = +t.dataset.pos;
+    if (state.gramans[sex] && state.gramans[sex][si2]){
+      state.gramans[sex][si2].splice(spos, 1);
+      save();
+      renderExercises();
+    }
+    return;
+  }
+  if (t.dataset.act){
+    var aex = DATA.exercises.find(function(x){ return x.id === t.dataset.ex; });
+    if (t.dataset.act === 'check') checkGroup(aex);
+    else if (t.dataset.act === 'reveal') revealGroup(aex);
+    else if (t.dataset.act === 'redo') redoGroup(aex);
+    return;
+  }
+});
+
+document.addEventListener('change', function(e){
+  if (e.target.dataset.ci != null){
+    state.cb[e.target.dataset.ci] = e.target.checked; save();
+    e.target.closest('label').classList.toggle('done', e.target.checked);
+    updateProgress();
+  }
+  if (e.target.dataset.rd != null){
+    state.read[e.target.dataset.rd] = e.target.checked; save();
+  }
+});
+document.addEventListener('input', function(e){
+  if (e.target.classList.contains('blank')){
+    state.gramans[e.target.dataset.ex] = state.gramans[e.target.dataset.ex] || {};
+    state.gramans[e.target.dataset.ex][e.target.dataset.i] = e.target.value;
+    save();
+  }
+});
+
+/* 口令门 */
+function showApp(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderChecklist();
+  renderSentStress();
+  renderChunks();
+  renderTexts('texts-dialog', 0, 3);
+  renderTexts('texts-sehen', 3, 4);
+  renderIntonation();
+  renderMap();
+  renderNumbers();
+  renderExercises();
+  recSetup();
+  document.getElementById('chip-count').textContent =
+    DATA.exercises.reduce(function(n, x){ return n + x.items.length; }, 0) + ' 道语法题 · ' + DATA.read_total + ' 处朗读';
+  DATA.exercises.forEach(function(ex){ if (state.gramsolved[ex.id] != null) checkGroup(ex, true); });
+}
+var input = document.getElementById('pw');
+var err = document.getElementById('err');
+function tryUnlock(){
+  var v = (input.value || '').trim().toLowerCase();
+  if (!v){ err.textContent = '请输入口令'; return; }
+  if (sha256(unescape(encodeURIComponent(v))) === PASS_HASH){
+    try { localStorage.setItem(KEY, JSON.stringify({ts: Date.now()})); } catch(e){}
+    err.textContent = '';
+    showApp();
+  } else {
+    err.textContent = '口令不对，请向老师确认。';
+    input.value = ''; input.focus();
+  }
+}
+document.getElementById('go').addEventListener('click', tryUnlock);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+document.getElementById('lock').addEventListener('click', function(){
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+});
+document.getElementById('recBtn').addEventListener('click', recToggle);
+document.getElementById('playRec').addEventListener('click', function(){
+  if (!recUrl) return;
+  var a = new Audio(recUrl); a.play();
+});
+(function(){
+  try {
+    var r = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (r && Date.now() - r.ts < 30 * 864e5) showApp();
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
