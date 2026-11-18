@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 55,
+   "title": "英国首相：脱欧不成功，想跟欧盟重新谈",
+   "de_title": "Britischer Regierungschef Burnham: Der Brexit war kein Erfolg",
+   "hook": "脱欧六年|后悔了吗",
+   "sub": "英国首相说：我们失去的比得到的多",
+   "date": "2026-11-16",
+   "photo": "news/og/src/55.jpg",
+   "de_hook": "Sechs Jahre Brexit –|hat sich das|überhaupt gelohnt?",
+   "zh_intro": "英国六年前退出欧盟，也就是「脱欧」。现在，英国新任首相安迪·伯纳姆说：脱欧没有成功，英国失去的比得到的多，对移民的控制也变少了，经济还受了损。他想和欧盟重新谈判，把贸易重新变简单，也让年轻人在欧盟和英国之间读书、工作更方便。",
+   "words": [
+    [
+     "der Brexit, -s",
+     "英国脱欧"
+    ],
+    [
+     "der EU-Austritt, -e",
+     "退出欧盟"
+    ],
+    [
+     "die Europäische Union (EU)",
+     "欧盟"
+    ]
+   ]
+  },
+  {
    "id": 54,
    "title": "德国调查：有心理疾病的人，近四成在职场被歧视",
    "de_title": "Diskriminierung am Arbeitsplatz: Fast 40 Prozent der psychisch Erkrankten betroffen",
@@ -173,31 +198,6 @@
     [
      "das Kostüm / die Kostüme",
      "扮装、戏服"
-    ]
-   ]
-  },
-  {
-   "id": 47,
-   "title": "德国大公司董事会：女性人数创纪录，首次超过 100",
-   "de_title": "So viele Frauen in Vorständen wie noch nie: erstmals über 100",
-   "hook": "董事会里的|女人越来越多了",
-   "sub": "EY 研究：2025 年德国三大股指共 101 位女高管，创历史新高",
-   "date": "2026-11-08",
-   "photo": "news/og/src/47.jpg",
-   "de_hook": "Frauen im Vorstand –|nur noch eine|Seltenheit?",
-   "zh_intro": "德国大公司的董事会里，女性从来没有这么多过。安永咨询公司统计：2025 年全年，DAX、MDAX、SDAX 三大股指的公司里一共有 101 位女性担任董事，这是第一次超过 100 人。2013 年只有 33 位。在最重要的 DAX 公司里，女性现在占大约 30%。男女高管的薪酬差距也在缩小。不过研究也指出，小公司里的女性管理者仍然偏少。",
-   "words": [
-    [
-     "die Beratungsfirma, -firmen",
-     "咨询公司"
-    ],
-    [
-     "der Vorstand, Vorstände",
-     "董事会"
-    ],
-    [
-     "das Unternehmen, -",
-     "企业、公司"
     ]
    ]
   }
