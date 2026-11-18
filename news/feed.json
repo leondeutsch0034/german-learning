@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 54,
+   "title": "德国调查：有心理疾病的人，近四成在职场被歧视",
+   "de_title": "Diskriminierung am Arbeitsplatz: Fast 40 Prozent der psychisch Erkrankten betroffen",
+   "hook": "生病了|却不敢说",
+   "sub": "近 40% 有心理疾病的员工说：在职场上被歧视过",
+   "date": "2026-11-17",
+   "photo": "news/og/src/54.jpg",
+   "de_hook": "Psychisch krank –|und im Job plötzlich|ein Problem?",
+   "zh_intro": "德国联邦反歧视机构做了一项代表性调查，询问了约 8.000 名在职人员。结果：有心理疾病的人当中，将近 40% 说自己在职场上因为生病被歧视过——比如被告知「你因为生病，工作做不好」，或者被人拿病情开玩笑。很多人因此把病藏起来，但这样有时反而让病情更重。",
+   "words": [
+    [
+     "die psychische Erkrankung, -en",
+     "心理疾病"
+    ],
+    [
+     "die Depression, -en",
+     "抑郁症"
+    ],
+    [
+     "die Angst-Störung, -en",
+     "焦虑障碍"
+    ]
+   ]
+  },
+  {
    "id": 53,
    "title": "德国等五国：2027 年在卢旺达建「遣返中心」",
    "de_title": "Fünf EU-Staaten planen Rückkehrzentrum in Ruanda",
@@ -173,31 +198,6 @@
     [
      "das Unternehmen, -",
      "企业、公司"
-    ]
-   ]
-  },
-  {
-   "id": 46,
-   "title": "欧盟盯上 TikTok：算法可能让青少年越刷越难过",
-   "de_title": "EU-Kommission prüft TikTok: Schutz für Kinder und Jugendliche",
-   "hook": "刷不完的短视频|谁在保护孩子",
-   "sub": "欧盟委员会审查 TikTok 算法 · 不改就罚款",
-   "date": "2026-11-06",
-   "photo": "news/og/src/46.jpg",
-   "de_hook": "Macht TikTok|Kinder wirklich|unglücklich?",
-   "zh_intro": "欧盟委员会正在审查短视频应用 TikTok。委员会的担忧是：它可能让人上瘾，对儿童和青少年尤其不友好。TikTok 会记住一个人爱看什么，然后不断推送类似的视频——比如关于悲伤、孤独、外貌的内容。委员会认为，这类视频看多了，人可能变得更难过，或者觉得自己的身体不好看。布鲁塞尔要求 TikTok 加强未成年人保护，让用户能自己决定看什么；如果不改，就面临高额罚款。",
-   "words": [
-    [
-     "die Video-App, -s",
-     "视频应用"
-    ],
-    [
-     "süchtig machen",
-     "让人上瘾"
-    ],
-    [
-     "die EU-Kommission",
-     "欧盟委员会"
     ]
    ]
   }
