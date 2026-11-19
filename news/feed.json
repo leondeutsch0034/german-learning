@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 56,
+   "title": "德国电税下调：2027 年起，三口之家每月省 8 欧",
+   "de_title": "Stromsteuer sinkt: Haushalte sparen knapp 8 Euro im Monat",
+   "hook": "电费降了|三口之家省 8 欧",
+   "sub": "电力税下调，先只降一年",
+   "date": "2026-11-18",
+   "photo": "news/og/src/56.jpg",
+   "de_hook": "Kaum 8 Euro im Monat –|ist das|eine Entlastung?",
+   "zh_intro": "从 2027 年 1 月起，德国所有家庭和公司的电力税下调。执政三党——基民盟、基社盟和社民党——已经谈妥：以前只有部分行业享受低税率，现在人人有份。省多少看用电量：三口之家平均每月省近 8 欧元，独居的人每月省近 3 欧元。不过这笔钱对国家不小：一年少收几十亿欧元，所以先只实行一年。",
+   "words": [
+    [
+     "der Strom",
+     "电"
+    ],
+    [
+     "die Stromsteuer, -n",
+     "电力税"
+    ],
+    [
+     "die Steuer, -n",
+     "税"
+    ]
+   ]
+  },
+  {
    "id": 55,
    "title": "英国首相：脱欧不成功，想跟欧盟重新谈",
    "de_title": "Britischer Regierungschef Burnham: Der Brexit war kein Erfolg",
@@ -173,31 +198,6 @@
     [
      "die Ausgaben",
      "支出"
-    ]
-   ]
-  },
-  {
-   "id": 48,
-   "title": "科隆狂欢节开锣：手语翻译站上舞台",
-   "de_title": "Karneval in Köln beginnt – Lieder werden in Gebärdensprache übersetzt",
-   "hook": "11·11|科隆开锣|手语也上场",
-   "sub": "听障观众免费 · 高潮在 2 月 8 日",
-   "date": "2026-11-11",
-   "photo": "news/og/src/48.jpg",
-   "de_hook": "Wie singt man|Karnevalslieder|ohne Stimme?",
-   "zh_intro": "11 月 11 日 11 点 11 分，莱茵兰的狂欢节正式开锣。科隆街头数万人穿上扮装，乐队在舞台上开唱；这一次，手语翻译也站上了舞台，把歌词同步「唱」成手语。听障观众免费进场，和所有人一起过节。",
-   "words": [
-    [
-     "der Karneval",
-     "狂欢节"
-    ],
-    [
-     "die Session",
-     "狂欢季"
-    ],
-    [
-     "das Kostüm / die Kostüme",
-     "扮装、戏服"
     ]
    ]
   }
