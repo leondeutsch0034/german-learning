@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 57,
+   "title": "图林根州要让手语当第一外语",
+   "de_title": "Thüringen will Gebärdensprache als erste Fremdsprache anerkennen",
+   "hook": "手语要进|德国学校的|第一外语",
+   "sub": "图林根州 · 听障孩子 · 不用出声的语言",
+   "date": "2026-11-17",
+   "photo": "news/og/src/57.jpg",
+   "de_hook": "Kann man mit Händen|eine Fremdsprache|lernen?",
+   "zh_intro": "德国图林根州计划让有听力障碍的孩子，把手语当作第一外语来学。手语不用声音，而是用手和手臂的动作表达；嘴也会参与，但几乎没有声响。目前，当地学校通常以英语作为第一外语。",
+   "words": [
+    [
+     "die Gebärdensprache / die Gebärdensprachen",
+     "手语"
+    ],
+    [
+     "gebärden",
+     "打手语、用手语表达"
+    ],
+    [
+     "die Hörbehinderung",
+     "听力障碍"
+    ]
+   ]
+  },
+  {
    "id": 56,
    "title": "德国电税下调：2027 年起，三口之家每月省 8 欧",
    "de_title": "Stromsteuer sinkt: Haushalte sparen knapp 8 Euro im Monat",
@@ -173,31 +198,6 @@
     [
      "der Verfassungsschutz",
      "宪法保卫局"
-    ]
-   ]
-  },
-  {
-   "id": 49,
-   "title": "德国 2027 预算：花 5600 亿，每三块里有一块是借的",
-   "de_title": "Bundeshaushalt 2027: Rekordausgaben von 560,9 Milliarden Euro",
-   "hook": "5600 亿预算|三块里一块是借的",
-   "sub": "2027 联邦预算：支出创纪录，新增债务超 2000 亿欧元",
-   "date": "2026-11-13",
-   "photo": "news/og/src/49.jpg",
-   "de_hook": "560 Milliarden –|und jeder dritte|Euro geliehen?",
-   "zh_intro": "德国联邦议院预算委员会经过十几个小时的马拉松式会议，通过了 2027 年联邦预算：支出约 5609 亿欧元，是德国历史上最高的一年，比政府最初的草案还多 55 亿。钱不够的部分靠借：核心预算新增借款约 1230 亿，加上基础设施和联邦国防军两项特别基金，新增债务合计超过 2000 亿欧元——也就是说，预算里大约每三欧元就有一欧元是借来的。争议还在：计划中的电力税减免还没找到钱，全院最终表决定在 11 月 24 到 27 日那一周。",
-   "words": [
-    [
-     "der Haushalt, -e",
-     "预算"
-    ],
-    [
-     "der Etat, -s",
-     "预算（同 Haushalt）"
-    ],
-    [
-     "die Ausgaben",
-     "支出"
     ]
    ]
   }
