@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>用光控制脑细胞：今年的诺贝尔医学奖 | Leon 德语</title>
+<meta name="description" content="林夏在实验室走廊看到同学盯着一台显微镜发呆。屏幕上，一束蓝光扫过，神经细胞亮了一下。同学说：你看，它刚刚「开」了。">
+<meta property="og:title" content="用光控制脑细胞：今年的诺贝尔医学奖">
+<meta property="og:description" content="三位研究光遗传学的学者获奖，其中两位来自德国。用不同颜色的光照神经细胞，就能让它们开或关——这项技术怎么来的，又为什么重要？">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leonsdeutschzentrum.com/images/og/t-nobel_medizin.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leonsdeutschzentrum.com/theme/nobel_medizin.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leonsdeutschzentrum.com/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leonsdeutschzentrum.com/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">🏅 Nobelpreis · Optogenetik · Forschung</div>
+  <h1>🧠 用一束光<br>开关脑细胞</h1>
+  <p class="sub">今年的诺贝尔医学奖，让神经科学多了一个「开关」</p>
+  <p class="lead">林夏在实验室走廊看到同学盯着一台显微镜发呆。屏幕上，一束蓝光扫过，神经细胞亮了一下。同学说：你看，它刚刚「开」了。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 为本期新写</span></div>
+  <p class="act-lead">海德堡的实验室里，林夏第一次看到「用光控制细胞」。她以为听错了——光怎么能当开关？直到屏幕上那条曲线跳了一下。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">💡 一束光，按下了开关</div>
+    <div class="line">
+      <div class="who">Jonas</div>
+      <div class="de">Schau mal: Wenn ich das blaue Licht einschalte, feuert die Zelle.</div>
+      <div class="zh">你看：我一开蓝光，这个细胞就放电。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Mit Licht? Das ist doch kein Schalter.</div>
+      <div class="zh">用光？这又不是开关。</div>
+    </div>
+    <div class="line">
+      <div class="who">Jonas</div>
+      <div class="de">Genau das ist der Trick. Wir haben ein Protein eingebaut, das auf Licht reagiert.</div>
+      <div class="zh">妙就妙在这里。我们植入了一种对光有反应的蛋白。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und dann kann man die Zelle an- und ausschalten?</div>
+      <div class="zh">然后就能把细胞打开、关上？</div>
+    </div>
+    <div class="line">
+      <div class="who">Jonas</div>
+      <div class="de">Ja. Mit blauem Licht an, mit gelbem Licht wieder aus.</div>
+      <div class="zh">对。蓝光打开，黄光再关上。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Wer hat das erfunden?</div>
+      <div class="zh">这是谁发明的？</div>
+    </div>
+    <div class="line">
+      <div class="who">Jonas</div>
+      <div class="de">Drei Forscher. Zwei davon aus Deutschland.</div>
+      <div class="zh">三位研究者。其中两位来自德国。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und wofür braucht man das?</div>
+      <div class="zh">那这有什么用？</div>
+    </div>
+    <div class="line">
+      <div class="who">Jonas</div>
+      <div class="de">Um zu verstehen, wie das Gehirn funktioniert. Und vielleicht, um später Krankheiten zu behandeln.</div>
+      <div class="zh">用来理解大脑怎么工作。也许以后还能治疗疾病。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">光遗传学（Optogenetik）最关键的一步是什么？</div>
+      <button onclick="themeQuiz(this,true,'nobel_medizin-exp')">让神经细胞对光产生反应，从而能用光控制它</button>
+      <button onclick="themeQuiz(this,false,'nobel_medizin-exp')">用强光照亮整个大脑</button>
+      <button onclick="themeQuiz(this,false,'nobel_medizin-exp')">把脑细胞换成灯泡</button>
+    <div class="exp" id="nobel_medizin-exp">关键在于先让细胞带上一种<b>对光敏感的蛋白</b>。有了它，光就不只是照明，而成了一个开关：蓝光让它放电，黄光让它安静。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">听起来像科幻，但它已经拿了诺贝尔奖。故事里的「开关」，就是光遗传学（Optogenetik）的核心。</p>
+  <div class="fact">
+    <h3>🏅 今年奖给了谁</h3>
+    <p>2026 年诺贝尔医学奖颁给三位研究者：<b>Peter Hegemann</b> 和 <b>Georg Nagel</b> 来自德国，<b>Karl Deisseroth</b> 来自美国。他们研究的是大脑里的神经细胞。</p>
+    <div class="fun">💡 诺贝尔奖表彰的往往不是一台机器，而是一种「让问题变得可以研究」的方法。</div>
+  </div>
+  <div class="fact">
+    <h3>🔦 光怎么变成开关</h3>
+    <p>神经细胞靠电信号传递信息。研究者把一种<b>对光敏感的蛋白</b>放进细胞里，再用光去照：某种颜色的光让它放电，另一种颜色的光让它停下。</p>
+    <div class="fun">💡 关键是「靶向」：只让想研究的细胞对光有反应，而不是把整个大脑照亮。</div>
+  </div>
+  <div class="fact">
+    <h3>🧠 为什么重要</h3>
+    <p>以前研究大脑，常常只能「看」；光遗传学让研究者可以「按一下」——把某类细胞打开或关掉，看行为怎么变。这帮助理解大脑，也为未来的疾病治疗提供了工具。</p>
+    <div class="fun">💡 从「观察」到「控制」，是一大步。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">同一个意思，实验室里这么说，新闻里那么写。对照着看，表达就活了。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Kannst du das Licht einschalten?</td><td class="write">Mithilfe von Licht lassen sich die Zellen steuern.</td><td class="zh">你能把灯打开吗？／借助光可以控制这些细胞。</td></tr>
+    <tr><td class="say">Die Zelle feuert.</td><td class="write">Die Nervenzelle leitet Signale weiter.</td><td class="zh">细胞放电了。／神经细胞传递信号。</td></tr>
+    <tr><td class="say">Das ist ein Schalter.</td><td class="write">Das Protein reagiert auf Licht.</td><td class="zh">这是个开关。／这种蛋白对光有反应。</td></tr>
+    <tr><td class="say">Wer hat das erfunden?</td><td class="write">Für diese Forschung wurde der Nobelpreis vergeben.</td><td class="zh">这是谁发明的？／这项研究获得了诺贝尔奖。</td></tr>
+    <tr><td class="say">Wofür ist das gut?</td><td class="write">Die Methode hilft, das Gehirn besser zu verstehen.</td><td class="zh">这有什么用？／这种方法有助于更好地理解大脑。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：sich lassen + 动词原形</h3>
+    <p>新闻里写 <i>Mithilfe von Lichtstrahlen <b>lassen sich</b> diese Zellen gezielt <b>steuern</b>.</i> 这里的 <b>sich lassen + 动词原形</b> 表示「可以被……」，意思接近被动语态，但更简洁。</p>
+    <div class="fun">✍️ 记住公式：<b>etwas lässt sich machen</b> = 某事可以做。例：<i>Das lässt sich erklären.</i>（这可以解释。）</div>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/37.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 37 集</div>
+      <div class="t">🎓 毕设选题</div>
+      <div class="note">研究是怎么开始的：从选题到实验室</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/serie/38.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 38 集</div>
+      <div class="t">🔬 学术德语初体验</div>
+      <div class="note">听懂实验室里的德语，从这些词开始</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leonsdeutschzentrum.com/#kultur-reader&ep=21">
+      <div class="kind">KULTUR · 你不知道的德国 · 第 21 期</div>
+      <div class="t">Uni vs FH：两种大学，两种人生</div>
+      <div class="note">德国的研究型大学长什么样</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leonsdeutschzentrum.com/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leonsdeutschzentrum.com/k-list.html">你不知道的德国</a> ·
+     <a href="https://leonsdeutschzentrum.com/">返回首页</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+
+(function(){
+  var hs = document.querySelectorAll('h2');
+  if (!hs.length) return;
+  var t = null;
+  window.addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){
+      t = null;
+      var i = -1;
+      for (var k = 0; k < hs.length; k++) {
+        if (hs[k].getBoundingClientRect().top <= 120) i = k;
+      }
+      var h = i < 0 ? '' : ('#a=' + i);
+      if (location.hash === h) return;
+      try { history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {}
+    }, 350);
+  }, { passive: true });
+  var m = (location.hash || '').match(/^#a=(\d+)$/);
+  if (m) {
+    var n = parseInt(m[1], 10);
+    setTimeout(function(){ if (hs[n]) hs[n].scrollIntoView(); }, 250);
+  }
+})();
+</script>
+</body>
+</html>
