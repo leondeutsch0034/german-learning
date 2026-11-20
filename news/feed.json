@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 59,
+   "title": "GTA 6 在德国开卖：开发 8 年，很多人请假在家玩",
+   "de_title": "GTA 6 ist in Deutschland da: Viele Fans nehmen sich frei",
+   "hook": "今天全德国|请假打游戏",
+   "sub": "8 年开发 · 约 15 亿美元 · 先上 PS5 和 Xbox",
+   "date": "2026-11-19",
+   "photo": "news/og/src/59.jpg",
+   "de_hook": "Ist GTA 6 wirklich|1,5 Milliarden Dollar|wert?",
+   "zh_intro": "从今天零点起，德国的玩家可以玩 GTA 6 了。在别的国家，这款游戏更早就已经能玩。很多人在开卖当天就请了假，想第一时间试玩。开发团队做了 8 年；专家估计开发花了约 15 亿美元，比任何一部电影都贵。开卖之前，全球玩家已经在预购上花掉了 10 多亿美元。游戏是开放世界角色扮演：玩家扮演罪犯，偷窃、抢劫、做毒品交易。粉丝说，他们喜欢钻进另一个世界。",
+   "words": [
+    [
+     "das Computer-Spiel, die Computer-Spiele",
+     "电脑游戏"
+    ],
+    [
+     "der Fan, die Fans",
+     "粉丝"
+    ],
+    [
+     "der Urlaub",
+     "假期、休假"
+    ]
+   ]
+  },
+  {
    "id": 58,
    "title": "德国联邦宪法法院：差 9.529 票也不重新计票",
    "de_title": "Keine Neuauszählung: Verfassungsgericht weist BSW-Beschwerde ab",
@@ -173,31 +198,6 @@
     [
      "die Landtagswahl",
      "州议会选举"
-    ]
-   ]
-  },
-  {
-   "id": 51,
-   "title": "儿童兴奋剂：德国反兴奋剂机构要求追责成年人",
-   "de_title": "Kinder-Doping: Anti-Doping-Agentur fordert Strafen für Erwachsene",
-   "hook": "孩子吃下的|不是维生素",
-   "sub": "全球约 1000 万未成年人被卷入，孩子是受害者",
-   "date": "2026-11-13",
-   "photo": "news/og/src/51.jpg",
-   "de_hook": "10 Millionen Kinder|gedopt –|von wem?",
-   "zh_intro": "有些孩子从事竞技体育，其中一部分正在被使用兴奋剂：违禁药物来自父母、教练或医生，目的是让孩子在比赛中成绩更好。德国国家反兴奋剂机构（NADA）负责人拉斯·莫齐费尔要求追究这些成年人的责任——药物会让孩子身体或心理生病，有时一辈子都好不了。ARD 电视播出了一部关于儿童兴奋剂的系列报道，其中提到：全世界约有 1000 万儿童和青少年被卷入。",
-   "words": [
-    [
-     "das Doping",
-     "兴奋剂、使用兴奋剂"
-    ],
-    [
-     "das Medikament, -e",
-     "药物"
-    ],
-    [
-     "verboten",
-     "被禁止的"
     ]
    ]
   }
