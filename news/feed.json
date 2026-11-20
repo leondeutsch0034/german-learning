@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 58,
+   "title": "德国联邦宪法法院：差 9.529 票也不重新计票",
+   "de_title": "Keine Neuauszählung: Verfassungsgericht weist BSW-Beschwerde ab",
+   "hook": "差 9.529 票|德国不重数",
+   "sub": "5% 门槛差一点，申诉被驳回",
+   "date": "2026-11-18",
+   "photo": "news/og/src/58.jpg",
+   "de_hook": "9.529 Stimmen fehlen –|warum zählt man|nicht noch einmal?",
+   "zh_intro": "2025 年德国联邦议院选举，BSW 党得票 4.981%，离 5% 门槛只差 9.529 票，最终没能进入议会。该党认为计票有错，向联邦宪法法院提出申诉，要求全德重新计票。法院驳回了申诉：没有具体说清错在哪里，仅凭「结果太接近」不够。BSW 表示不服；联盟党则提议改革选举审查程序。",
+   "words": [
+    [
+     "die Wahl, die Wahlen",
+     "选举"
+    ],
+    [
+     "die Bundestagswahl",
+     "联邦议院选举"
+    ],
+    [
+     "die Stimme, die Stimmen",
+     "票、选票"
+    ]
+   ]
+  },
+  {
    "id": 57,
    "title": "图林根州要让手语当第一外语",
    "de_title": "Thüringen will Gebärdensprache als erste Fremdsprache anerkennen",
@@ -173,31 +198,6 @@
     [
      "verboten",
      "被禁止的"
-    ]
-   ]
-  },
-  {
-   "id": 50,
-   "title": "德国情报机构权限扩大：可以入室，也可以在国外搞破坏",
-   "de_title": "Bundestag erweitert die Befugnisse der Geheimdienste",
-   "hook": "情报机构|能进你家门吗",
-   "sub": "联邦议院扩权：BND 与宪法保卫局多了一把钥匙",
-   "date": "2026-11-13",
-   "photo": "news/og/src/50.jpg",
-   "de_hook": "in deine Wohnung|einbrechen –|und das legal?",
-   "zh_intro": "德国联邦议院通过表决，扩大了两个情报机构的权限：联邦情报局（BND）与宪法保卫局。今后它们可以更主动地应对网络间谍和网络攻击，可以在国外实施破坏行动，也可以进入住宅获取信息。不过这些手段不能自己说了算——必须由一个成员包括前法官的机构批准。左翼党（Die Linke）和德国选择党（AfD）的政界人士批评说，现在的权限太大了，这很危险。",
-   "words": [
-    [
-     "der Geheimdienst, -e",
-     "情报机构"
-    ],
-    [
-     "der Bundesnachrichtendienst (BND)",
-     "联邦情报局"
-    ],
-    [
-     "der Verfassungsschutz",
-     "宪法保卫局"
     ]
    ]
   }
