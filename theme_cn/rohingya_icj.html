@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>世界法院第一次判「种族灭绝」 | Leon 德语</title>
+<meta name="description" content="海牙的和平宫，11 月 19 日上午。法庭里坐满了人：记者、外交官，也有从孟加拉国营地赶来的罗兴亚人。院长用了将近三个小时，一条一条地读出判决。读到「种族灭绝」这个词时，旁听席上，几位罗兴亚人哭了。对他们来说，这一天等了很久。">
+<meta property="og:title" content="世界法院第一次判「种族灭绝」">
+<meta property="og:description" content="2026 年 11 月 19 日，国际法院（IGH）认定缅甸对罗兴亚人实施种族灭绝——世界法院首次判定一个国家犯下此罪。判决之后会发生什么？">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leondeutsch.cn/images/og/t-rohingya_icj.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leondeutsch.cn/theme/rohingya_icj.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leondeutsch.cn/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leondeutsch.cn/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">⚖️ IGH · Völkermord · Rohingya</div>
+  <h1>⚖️ 世界法院第一次：<br>一个国家被判「种族灭绝」</h1>
+  <p class="sub">法院说「是」，当事国说「不」——判决之后，谁来执行？</p>
+  <p class="lead">海牙的和平宫，11 月 19 日上午。法庭里坐满了人：记者、外交官，也有从孟加拉国营地赶来的罗兴亚人。院长用了将近三个小时，一条一条地读出判决。读到「种族灭绝」这个词时，旁听席上，几位罗兴亚人哭了。对他们来说，这一天等了很久。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 为本期新写</span></div>
+  <p class="act-lead">周六晚上，林夏和 Felix 坐在客厅里看新闻回放。屏幕上是海牙的法庭，院长一条一条地念判决书，Felix 越看越安静，手里那杯茶也忘了喝。林夏忍不住开口问：这到底是个什么法院？</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">⚖️ 海牙的那三个小时</div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Was ist das für ein Gericht? Das sieht anders aus als ein normales Gericht.</div>
+      <div class="zh">这是什么法院？看起来和普通法院不一样。</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Das ist der Internationale Gerichtshof in Den Haag. Er entscheidet nicht über eine Person, sondern über Staaten.</div>
+      <div class="zh">这是海牙的国际法院。它不判一个人，而是判国家。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und was hat Myanmar gemacht?</div>
+      <div class="zh">那缅甸做了什么？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Die Richter sagen: Das Militär wollte 2017 die Rohingya zerstören. Hunderttausende sind geflohen.</div>
+      <div class="zh">法官说：2017 年军方想消灭罗兴亚人。几十万人逃走了。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und jetzt? Kommt der Staat ins Gefängnis?</div>
+      <div class="zh">那现在呢？这个国家会进监狱吗？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Nein. Ein Staat kann nicht ins Gefängnis. Das Gericht sagt nur, was das Land tun muss: aufhören, die Täter bestrafen, den Opfern helfen.</div>
+      <div class="zh">不会。国家不能进监狱。法院只是说这个国家必须做什么：停手、惩罚肇事者、帮助受害者。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und wenn das Land einfach Nein sagt?</div>
+      <div class="zh">如果这个国家干脆说「不」呢？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Genau das passiert gerade. Myanmar sagt, das Urteil sei falsch. Deshalb fragen viele: Wer setzt das Urteil eigentlich durch?</div>
+      <div class="zh">现在正是这样。缅甸说判决是错的。所以很多人问：到底谁来执行判决？</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">国际法院的判决，直接让谁「负责」？</div>
+      <button onclick="themeQuiz(this,false,'rohingya_icj-exp')">一个具体的将军</button>
+      <button onclick="themeQuiz(this,true,'rohingya_icj-exp')">缅甸这个国家</button>
+      <button onclick="themeQuiz(this,false,'rohingya_icj-exp')">没有谁——只是建议</button>
+    <div class="exp" id="rohingya_icj-exp">国际法院判的是<b>国家</b>的责任，不是某个人。<b>个人</b>（比如将军）要由别的法院追责。所以判决之后，关键在于：<b>谁来执行</b>？</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">一个法院判了「种族灭绝」，可被告不是一个人，而是一个国家。这到底意味着什么？先说清楚：这个法院是干什么的，它又能做什么、不能做什么。</p>
+  <div class="fact">
+    <h3>⚖️ 「世界法院」的第一次</h3>
+    <p>2026 年 11 月 19 日，海牙的<b>国际法院（IGH）</b>在「冈比亚诉缅甸」案中认定：缅甸对罗兴亚人实施了<b>种族灭绝</b>。这是联合国最高司法机构第一次判定一个国家犯下种族灭绝；15 名法官中 9 人支持。</p>
+    <div class="fun">💡 这里判的是<b>国家</b>，不是某个将军个人——两件事别混。</div>
+  </div>
+  <div class="fact">
+    <h3>📅 2017 年，若开邦发生了什么</h3>
+    <p>2017 年，缅甸军方在若开邦（Rakhine）发动所谓「清剿行动」。法院认定军方杀害平民、实施性暴力、烧毁约 <b>400 个村庄</b>；估计约 <b>1 万人</b>死亡，约 <b>75 万</b>罗兴亚人逃往邻国孟加拉国。</p>
+    <div class="fun">💡 「种族灭绝」在法律上很严格：光有暴力不够，还要证明「意图消灭某个群体」。</div>
+  </div>
+  <div class="fact">
+    <h3>🤔 判了之后，谁来执行？</h3>
+    <p>法院命令缅甸停止侵害、惩罚责任人、赔偿受害者，并在两年内提交报告。判决<b>终审、有约束力、不可上诉</b>。但缅甸拒绝接受，称行动是「反恐」；联合国秘书长表示欢迎，孟加拉国呼吁落实。</p>
+    <div class="fun">💡 国际法院没有警察。判决有多大分量，很大程度上取决于国际社会的压力。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">同一条新闻，报纸标题、法院文书、日常聊天，说法完全不同。两边都对，区别只在语体和场合。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Das Gericht sagt: Das war Völkermord.</td><td class="write">Der Gerichtshof stellt fest, dass ein Völkermord begangen wurde.</td><td class="zh">法院说：那是种族灭绝。／法院认定发生了种族灭绝。</td></tr>
+    <tr><td class="say">Das Land muss jetzt aufhören.</td><td class="write">Der Staat ist verpflichtet, die Verstöße einzustellen.</td><td class="zh">这个国家现在必须停手。／该国有义务停止侵害行为。</td></tr>
+    <tr><td class="say">Wer bestraft die Täter?</td><td class="write">Die Täter sind strafrechtlich zu verfolgen und zu bestrafen.</td><td class="zh">谁来惩罚肇事者？／应对犯罪人进行刑事追诉和处罚。</td></tr>
+    <tr><td class="say">Die Leute sind geflohen.</td><td class="write">Rund 750.000 Menschen wurden vertrieben und flohen ins Ausland.</td><td class="zh">人们逃走了。／约 75 万人被迫流离失所，逃往国外。</td></tr>
+    <tr><td class="say">Das Urteil gilt für immer.</td><td class="write">Das Urteil ist endgültig, bindend und nicht anfechtbar.</td><td class="zh">判决永远有效。／该判决为终审、具有约束力且不可上诉。</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：Konjunktiv I（间接引语）</h3>
+    <p>新闻里转述别人的话，常用 <b>Konjunktiv I</b>：<br>例：<i>Myanmar erklärt, das Urteil <b>sei</b> falsch.</i>（缅甸表示，判决是错的。）<br>例：<i>Die Richter sagen, das Militär <b>habe</b> die Dörfer zerstört.</i>（法官说，军方毁坏了村庄。）</p>
+    <div class="fun">✍️ 这样写，等于告诉读者「这是对方说的，不是本报的立场」。本期缅甸的「不接受」，正好用得上这个句型。</div>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leondeutsch.cn/news/58.html">
+      <div class="kind">NEWS · 德语新闻 · 第 58 期</div>
+      <div class="t">德国联邦宪法法院：差 9.529 票也不重新计票</div>
+      <div class="note">同样是法院判决：为什么判决一经作出就是终局、有约束力，德国宪法法院这期讲了另一面。</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leondeutsch.cn/news/29.html">
+      <div class="kind">NEWS · 德语新闻 · 第 29 期</div>
+      <div class="t">近 200 国开会：2030 年前保护近 30% 的地球</div>
+      <div class="note">国际规则怎么谈成、又怎么落地——从联合国大会看多边机制的力气和边界。</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leondeutsch.cn/news/20.html">
+      <div class="kind">NEWS · 德语新闻 · 第 20 期</div>
+      <div class="t">特朗普要求泽连斯基下台，欧盟说继续支持乌克兰</div>
+      <div class="note">国际冲突里各方怎么表态、怎么被追责，和本期「法院判决 vs 政治现实」互为参照。</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leondeutsch.cn/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leondeutsch.cn/k-list.html">你不知道的德国</a> ·
+     <a href="https://leondeutsch.cn/">返回首页</a></p>
+  <p style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+
+(function(){
+  var hs = document.querySelectorAll('h2');
+  if (!hs.length) return;
+  var t = null;
+  window.addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){
+      t = null;
+      var i = -1;
+      for (var k = 0; k < hs.length; k++) {
+        if (hs[k].getBoundingClientRect().top <= 120) i = k;
+      }
+      var h = i < 0 ? '' : ('#a=' + i);
+      if (location.hash === h) return;
+      try { history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {}
+    }, 350);
+  }, { passive: true });
+  var m = (location.hash || '').match(/^#a=(\d+)$/);
+  if (m) {
+    var n = parseInt(m[1], 10);
+    setTimeout(function(){ if (hs[n]) hs[n].scrollIntoView(); }, 250);
+  }
+})();
+</script>
+</body>
+</html>

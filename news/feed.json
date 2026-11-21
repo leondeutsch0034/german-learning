@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 61,
+   "title": "世界法院首次判定「种族灭绝」：缅甸被判，表示不接受",
+   "de_title": "Internationaler Gerichtshof: Myanmar wegen Völkermords an den Rohingya verurteilt",
+   "hook": "判了一个国家|「种族灭绝」",
+   "sub": "世界法院的第一次",
+   "date": "2026-11-19",
+   "photo": "news/og/src/61.jpg",
+   "de_hook": "Ein Gericht sagt:|„Völkermord“ – und wer|setzt das durch?",
+   "zh_intro": "2026 年 11 月 19 日，海牙的国际法院（IGH）在「冈比亚诉缅甸」案中认定：缅甸军方 2017 年对罗兴亚人实施了种族灭绝。这是联合国最高司法机构第一次判定一个国家犯下种族灭绝。法院命令缅甸停止侵害、惩罚责任人、赔偿受害者；缅甸则表示不接受这一判决。2017 年约有 75 万罗兴亚人逃往邻国孟加拉国，至今仍住在营地里。",
+   "words": [
+    [
+     "der Völkermord",
+     "种族灭绝"
+    ],
+    [
+     "die Minderheit, die Minderheiten",
+     "少数群体、少数族群"
+    ],
+    [
+     "die Rohingya (Pl.)",
+     "罗兴亚人"
+    ]
+   ]
+  },
+  {
    "id": 60,
    "title": "德国全国朗读日：18 个火车站变身朗读角",
    "de_title": "Bundesweiter Vorlesetag: An 18 Bahnhöfen wird vorgelesen",
@@ -173,31 +198,6 @@
     [
      "die Angst-Störung, -en",
      "焦虑障碍"
-    ]
-   ]
-  },
-  {
-   "id": 53,
-   "title": "德国等五国：2027 年在卢旺达建「遣返中心」",
-   "de_title": "Fünf EU-Staaten planen Rückkehrzentrum in Ruanda",
-   "hook": "五国联手|把遣返中心|建到卢旺达",
-   "sub": "德国 + 4 国 · 2027 年起 · 首批约 100 人",
-   "date": "2026-11-16",
-   "photo": "news/og/src/53.jpg",
-   "de_hook": "Zentrum in Afrika:|Eine zweite Chance –|oder Abschreckung?",
-   "zh_intro": "德国、丹麦、荷兰、希腊和奥地利打算从 2027 年起，在卢旺达共同运营一个遣返中心。送到那里的，是在欧盟已经走完庇护程序、必须离境、却回不了原籍国的人——例如没有护照，或者原籍国不接收。计划先送约 100 人；援助组织以及德国绿党、左翼党批评这个计划。",
-   "words": [
-    [
-     "die Abschiebung",
-     "遣返、驱逐出境"
-    ],
-    [
-     "abschieben",
-     "遣送出境"
-    ],
-    [
-     "das Rückkehrzentrum",
-     "遣返中心（回返中心）"
     ]
    ]
   }
