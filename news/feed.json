@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 60,
+   "title": "德国全国朗读日：18 个火车站变身朗读角",
+   "de_title": "Bundesweiter Vorlesetag: An 18 Bahnhöfen wird vorgelesen",
+   "hook": "火车站里|有人讲故事",
+   "sub": "德国第 23 届全国朗读日，约一百万人参加",
+   "date": "2026-11-20",
+   "photo": "news/og/src/60.jpg",
+   "de_hook": "Warum wird ein|Bahnhof plötzlich|zum Kinderzimmer?",
+   "zh_intro": "11 月 20 日是德国第 23 届全国朗读日。从幼儿园、学校、图书馆到火车站，到处都有人给孩子读书，18 个火车站还专门布置成了朗读角。今年的口号是「我读给你听——你呢？」。政界人物也来参加：联邦议院议长克勒克纳在汉堡一所小学朗读，孩子们提了一堆问题。主办方说，现在每年约有上百万人参与。对德国家庭来说，睡前故事不只是哄睡，也是在练语言、长知识、拉近关系。",
+   "words": [
+    [
+     "der Vorlesetag, die Vorlesetage",
+     "朗读日"
+    ],
+    [
+     "das Vorlesen",
+     "朗读（读给别人听）"
+    ],
+    [
+     "vorlesen",
+     "朗读、念给别人听"
+    ]
+   ]
+  },
+  {
    "id": 59,
    "title": "GTA 6 在德国开卖：开发 8 年，很多人请假在家玩",
    "de_title": "GTA 6 ist in Deutschland da: Viele Fans nehmen sich frei",
@@ -173,31 +198,6 @@
     [
      "das Rückkehrzentrum",
      "遣返中心（回返中心）"
-    ]
-   ]
-  },
-  {
-   "id": 52,
-   "title": "施韦西希第三次当选梅前州州长",
-   "de_title": "Schwesig zum dritten Mal zur Ministerpräsidentin gewählt",
-   "hook": "39 票|第 3 次|当选州长",
-   "sub": "梅前州 · 红红绿三党联合 · 选择党成唯一反对党",
-   "date": "2026-11-16",
-   "photo": "news/og/src/52.jpg",
-   "de_hook": "Stärkste Partei –|und trotzdem|ohne Macht?",
-   "zh_intro": "梅克伦堡-前波美拉尼亚州（梅前州）州议会 11 月 16 日在什未林选出新任州长：社民党的曼努埃拉·施韦西希在首轮投票中获得 39 票，第三次当选。新政府由社民党、左翼党和绿党组成；在 9 月的州选中得票最多的选择党，成为议会里唯一的反对党。",
-   "words": [
-    [
-     "die Ministerpräsidentin",
-     "州长（女性）"
-    ],
-    [
-     "der Landtag",
-     "州议会"
-    ],
-    [
-     "die Landtagswahl",
-     "州议会选举"
     ]
    ]
   }
