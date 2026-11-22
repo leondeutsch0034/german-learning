@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 63,
+   "title": "抗生素越吃越不灵：欧洲用量降了，抗药菌却更多",
+   "de_title": "Weniger Antibiotika in Europa – aber mehr resistente Keime",
+   "hook": "抗生素|越吃越不灵",
+   "sub": "欧洲用量降了，抗药菌还在涨",
+   "date": "2026-11-19",
+   "photo": "news/og/src/63.jpg",
+   "de_hook": "Weniger Antibiotika –|warum steigt trotzdem|die Gefahr?",
+   "zh_intro": "欧洲人吃抗生素药片比以前少了，但医生说还是开得太多。按欧盟卫生机构 ECDC 的数字，2025 年的用量比 2019 年低约 5%，而欧盟的目标是到 2030 年减少 20%——现在还差得远。与此同时，抗药菌继续扩散。抗生素只对细菌有效，对病毒没用；世界卫生组织的发言人也提醒：尤其别给孩子吃太多。",
+   "words": [
+    [
+     "das Antibiotikum, die Antibiotika",
+     "抗生素"
+    ],
+    [
+     "das Medikament, die Medikamente",
+     "药物"
+    ],
+    [
+     "die Tablette, die Tabletten",
+     "药片"
+    ]
+   ]
+  },
+  {
    "id": 62,
    "title": "德国百货 Galeria 再关三家店：约 400 人失业，83 家待定",
    "de_title": "Galeria schließt drei Filialen – rund 400 Beschäftigte betroffen",
@@ -173,31 +198,6 @@
     [
      "die Steuer, -n",
      "税"
-    ]
-   ]
-  },
-  {
-   "id": 55,
-   "title": "英国首相：脱欧不成功，想跟欧盟重新谈",
-   "de_title": "Britischer Regierungschef Burnham: Der Brexit war kein Erfolg",
-   "hook": "脱欧六年|后悔了吗",
-   "sub": "英国首相说：我们失去的比得到的多",
-   "date": "2026-11-16",
-   "photo": "news/og/src/55.jpg",
-   "de_hook": "Sechs Jahre Brexit –|hat sich das|überhaupt gelohnt?",
-   "zh_intro": "英国六年前退出欧盟，也就是「脱欧」。现在，英国新任首相安迪·伯纳姆说：脱欧没有成功，英国失去的比得到的多，对移民的控制也变少了，经济还受了损。他想和欧盟重新谈判，把贸易重新变简单，也让年轻人在欧盟和英国之间读书、工作更方便。",
-   "words": [
-    [
-     "der Brexit, -s",
-     "英国脱欧"
-    ],
-    [
-     "der EU-Austritt, -e",
-     "退出欧盟"
-    ],
-    [
-     "die Europäische Union (EU)",
-     "欧盟"
     ]
    ]
   }
