@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 62,
+   "title": "德国百货 Galeria 再关三家店：约 400 人失业，83 家待定",
+   "de_title": "Galeria schließt drei Filialen – rund 400 Beschäftigte betroffen",
+   "hook": "百货商店|一家家关门",
+   "sub": "德国 Galeria 再关三家，约 400 人失业",
+   "date": "2026-11-20",
+   "photo": "news/og/src/62.jpg",
+   "de_hook": "Warum schließt|Galeria schon wieder|drei Filialen?",
+   "zh_intro": "德国的老牌百货连锁 Galeria 又要关店了。这次关的是柏林、科隆、慕尼黑各一家，约 400 名员工会失去工作。这是它六年来第四次申请破产。目前德国还有 83 家店，公司说都在重新审查；按 dpa 通讯社引述业内的说法，可能有一半以上都会关，只留 30 到 40 家。新的买家最晚要在 12 月底定下来。",
+   "words": [
+    [
+     "das Warenhaus, die Warenhäuser",
+     "百货商店"
+    ],
+    [
+     "die Kette, die Ketten",
+     "连锁"
+    ],
+    [
+     "die Filiale, die Filialen",
+     "分店、门店"
+    ]
+   ]
+  },
+  {
    "id": 61,
    "title": "世界法院首次判定「种族灭绝」：缅甸被判，表示不接受",
    "de_title": "Internationaler Gerichtshof: Myanmar wegen Völkermords an den Rohingya verurteilt",
@@ -173,31 +198,6 @@
     [
      "die Europäische Union (EU)",
      "欧盟"
-    ]
-   ]
-  },
-  {
-   "id": 54,
-   "title": "德国调查：有心理疾病的人，近四成在职场被歧视",
-   "de_title": "Diskriminierung am Arbeitsplatz: Fast 40 Prozent der psychisch Erkrankten betroffen",
-   "hook": "生病了|却不敢说",
-   "sub": "近 40% 有心理疾病的员工说：在职场上被歧视过",
-   "date": "2026-11-17",
-   "photo": "news/og/src/54.jpg",
-   "de_hook": "Psychisch krank –|und im Job plötzlich|ein Problem?",
-   "zh_intro": "德国联邦反歧视机构做了一项代表性调查，询问了约 8.000 名在职人员。结果：有心理疾病的人当中，将近 40% 说自己在职场上因为生病被歧视过——比如被告知「你因为生病，工作做不好」，或者被人拿病情开玩笑。很多人因此把病藏起来，但这样有时反而让病情更重。",
-   "words": [
-    [
-     "die psychische Erkrankung, -en",
-     "心理疾病"
-    ],
-    [
-     "die Depression, -en",
-     "抑郁症"
-    ],
-    [
-     "die Angst-Störung, -en",
-     "焦虑障碍"
     ]
    ]
   }
