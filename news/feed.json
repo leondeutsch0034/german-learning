@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 64,
+   "title": "凯恩左踝韧带撕裂：拜仁前锋缺阵数月",
+   "de_title": "Syndesmosebandriss bei Harry Kane: Der FC Bayern fehlt seinen Torjäger mehrere Monate",
+   "hook": "凯恩倒了|拜仁缺阵数月",
+   "sub": "金球先生刚封王，就先伤停数月",
+   "date": "2026-11-21",
+   "photo": "news/og/src/64.jpg",
+   "de_hook": "Monatelang ohne|Harry Kane – was|macht Bayern jetzt?",
+   "zh_intro": "拜仁慕尼黑的当家射手哈里·凯恩在对阵科隆的比赛里受了重伤：脚踝的韧带联合（Syndesmose）撕裂，要缺阵好几个月。他 33 岁，来自英格兰，2023 年夏天加盟拜仁，近几年一直是德甲进球最多的球员之一；今年还拿到了金球奖，被看作当今世界最好的球员之一。对拜仁来说，这是最不想听到的消息。",
+   "words": [
+    [
+     "der Fußballspieler, die Fußballspieler",
+     "足球运动员"
+    ],
+    [
+     "der Stürmer, die Stürmer",
+     "前锋"
+    ],
+    [
+     "der Verein, die Vereine",
+     "俱乐部"
+    ]
+   ]
+  },
+  {
    "id": 63,
    "title": "抗生素越吃越不灵：欧洲用量降了，抗药菌却更多",
    "de_title": "Weniger Antibiotika in Europa – aber mehr resistente Keime",
@@ -173,31 +198,6 @@
     [
      "die Hörbehinderung",
      "听力障碍"
-    ]
-   ]
-  },
-  {
-   "id": 56,
-   "title": "德国电税下调：2027 年起，三口之家每月省 8 欧",
-   "de_title": "Stromsteuer sinkt: Haushalte sparen knapp 8 Euro im Monat",
-   "hook": "电费降了|三口之家省 8 欧",
-   "sub": "电力税下调，先只降一年",
-   "date": "2026-11-18",
-   "photo": "news/og/src/56.jpg",
-   "de_hook": "Kaum 8 Euro im Monat –|ist das|eine Entlastung?",
-   "zh_intro": "从 2027 年 1 月起，德国所有家庭和公司的电力税下调。执政三党——基民盟、基社盟和社民党——已经谈妥：以前只有部分行业享受低税率，现在人人有份。省多少看用电量：三口之家平均每月省近 8 欧元，独居的人每月省近 3 欧元。不过这笔钱对国家不小：一年少收几十亿欧元，所以先只实行一年。",
-   "words": [
-    [
-     "der Strom",
-     "电"
-    ],
-    [
-     "die Stromsteuer, -n",
-     "电力税"
-    ],
-    [
-     "die Steuer, -n",
-     "税"
     ]
    ]
   }
