@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 65,
+   "title": "世界气候大会谈崩：近 200 国卡在化石燃料",
+   "de_title": "Welt-Klima-Konferenz endet ohne Einigung im Streit um Kohle, Öl und Gas",
+   "hook": "近 200 个国家|没谈拢",
+   "sub": "两周期会，卡在「化石燃料」四个字上",
+   "date": "2026-11-22",
+   "photo": "news/og/src/65.jpg",
+   "de_hook": "Fast 200 Länder,|zwei Wochen –|und kein Ergebnis?",
+   "zh_intro": "这届世界气候大会在土耳其的安塔利亚开了两周，近 200 个国家参加。会议原本想谈出一份所有国家都同意的共同声明，写下世界接下来怎么一起应对气候变化。但这一次，声明没谈成。分歧集中在一个核心问题上：煤炭、石油和天然气。很多国家要求减少使用这些化石燃料，并写进文件；另一些国家的经济高度依赖出口这些能源，不肯松口。会议最终在 11 月 22 日无协议收场。",
+   "words": [
+    [
+     "die Welt-Klima-Konferenz, -en",
+     "世界气候大会"
+    ],
+    [
+     "der Klima-Wandel (der Klimawandel)",
+     "气候变化"
+    ],
+    [
+     "die Abschluss-Erklärung, -en",
+     "最终声明、闭幕声明"
+    ]
+   ]
+  },
+  {
    "id": 64,
    "title": "凯恩左踝韧带撕裂：拜仁前锋缺阵数月",
    "de_title": "Syndesmosebandriss bei Harry Kane: Der FC Bayern fehlt seinen Torjäger mehrere Monate",
@@ -173,31 +198,6 @@
     [
      "die Stimme, die Stimmen",
      "票、选票"
-    ]
-   ]
-  },
-  {
-   "id": 57,
-   "title": "图林根州要让手语当第一外语",
-   "de_title": "Thüringen will Gebärdensprache als erste Fremdsprache anerkennen",
-   "hook": "手语要进|德国学校的|第一外语",
-   "sub": "图林根州 · 听障孩子 · 不用出声的语言",
-   "date": "2026-11-17",
-   "photo": "news/og/src/57.jpg",
-   "de_hook": "Kann man mit Händen|eine Fremdsprache|lernen?",
-   "zh_intro": "德国图林根州计划让有听力障碍的孩子，把手语当作第一外语来学。手语不用声音，而是用手和手臂的动作表达；嘴也会参与，但几乎没有声响。目前，当地学校通常以英语作为第一外语。",
-   "words": [
-    [
-     "die Gebärdensprache / die Gebärdensprachen",
-     "手语"
-    ],
-    [
-     "gebärden",
-     "打手语、用手语表达"
-    ],
-    [
-     "die Hörbehinderung",
-     "听力障碍"
     ]
    ]
   }
