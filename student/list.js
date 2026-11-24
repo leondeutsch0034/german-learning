@@ -4,8 +4,8 @@ window.STUDENT_LINKS = [
     "slug": "liaoxin",
     "name": "廖同学",
     "level": "A1",
-    "tagline": "城市·国家·格：旅行对话 + 一格/三格/四格 + war/waren",
-    "updated": "2026-11-18"
+    "tagline": "介词 + 第三格：来处、住处、方位 + 练习册 9 组作业",
+    "updated": "2026-11-24"
   },
   {
     "slug": "yizimeng",
