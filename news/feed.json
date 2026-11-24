@@ -2,6 +2,56 @@
  "count": 8,
  "items": [
   {
+   "id": 67,
+   "title": "英伟达请回创始人：11 天，股价一天涨 31.5%",
+   "de_title": "Nvidia holt Jensen Huang zurück: Elf Tage nach dem Rücktritt wieder Chef",
+   "hook": "请回创始人|股价一天涨三成",
+   "sub": "美国总统公开建议，董事会一致同意",
+   "date": "2026-11-23",
+   "photo": "news/og/src/67.jpg",
+   "de_hook": "Ein Präsident|mischt sich ein –|ist das noch normal?",
+   "zh_intro": "美国芯片公司英伟达（Nvidia）的创始人黄仁勋，11 月 12 日辞去 CEO。据媒体报道，导火索是关于他私生活的报道。仅仅 11 天后，公司董事会在 11 月 23 日一致决定请他回来；美国总统特朗普此前公开表示支持。消息公布当天，英伟达股价上涨 31,5%，是 2003 年以来最大的单日涨幅。芯片对人工智能至关重要，而这家公司正处在风口上。",
+   "words": [
+    [
+     "der Chip, die Chips",
+     "芯片"
+    ],
+    [
+     "das Unternehmen, die Unternehmen",
+     "企业、公司"
+    ],
+    [
+     "der Verwaltungsrat",
+     "董事会（美式公司中的董事会）"
+    ]
+   ]
+  },
+  {
+   "id": 66,
+   "title": "天生没有双臂：德国选手跆拳道世锦赛摘银",
+   "de_title": "Ohne Arme geboren: Aziz Hanefi gewinnt WM-Silber im Para-Taekwondo",
+   "hook": "没有双臂|踢进世界决赛",
+   "sub": "德国选手的世锦赛银牌",
+   "date": "2026-11-23",
+   "photo": "news/og/src/66.jpg",
+   "de_hook": "Wie kämpft man|Taekwondo|ganz ohne Arme?",
+   "zh_intro": "德国运动员阿齐兹·哈内菲（Aziz Hanefi）天生没有双臂。近日在韩国茂朱举行的残疾人跆拳道世锦赛上，他一路打进决赛，最终获得银牌。今年 5 月，他第一次参加国际大赛，就在欧锦赛上拿到金牌。哈内菲出生在阿富汗，一岁时随父母来到德国，如今住在巴伐利亚。",
+   "words": [
+    [
+     "der Sportler, die Sportler",
+     "运动员"
+    ],
+    [
+     "der Arm, die Arme",
+     "手臂"
+    ],
+    [
+     "der Fuß, die Füße",
+     "脚"
+    ]
+   ]
+  },
+  {
    "id": 65,
    "title": "世界气候大会谈崩：近 200 国卡在化石燃料",
    "de_title": "Welt-Klima-Konferenz endet ohne Einigung im Streit um Kohle, Öl und Gas",
@@ -148,56 +198,6 @@
     [
      "vorlesen",
      "朗读、念给别人听"
-    ]
-   ]
-  },
-  {
-   "id": 59,
-   "title": "GTA 6 在德国开卖：开发 8 年，很多人请假在家玩",
-   "de_title": "GTA 6 ist in Deutschland da: Viele Fans nehmen sich frei",
-   "hook": "今天全德国|请假打游戏",
-   "sub": "8 年开发 · 约 15 亿美元 · 先上 PS5 和 Xbox",
-   "date": "2026-11-19",
-   "photo": "news/og/src/59.jpg",
-   "de_hook": "Ist GTA 6 wirklich|1,5 Milliarden Dollar|wert?",
-   "zh_intro": "从今天零点起，德国的玩家可以玩 GTA 6 了。在别的国家，这款游戏更早就已经能玩。很多人在开卖当天就请了假，想第一时间试玩。开发团队做了 8 年；专家估计开发花了约 15 亿美元，比任何一部电影都贵。开卖之前，全球玩家已经在预购上花掉了 10 多亿美元。游戏是开放世界角色扮演：玩家扮演罪犯，偷窃、抢劫、做毒品交易。粉丝说，他们喜欢钻进另一个世界。",
-   "words": [
-    [
-     "das Computer-Spiel, die Computer-Spiele",
-     "电脑游戏"
-    ],
-    [
-     "der Fan, die Fans",
-     "粉丝"
-    ],
-    [
-     "der Urlaub",
-     "假期、休假"
-    ]
-   ]
-  },
-  {
-   "id": 58,
-   "title": "德国联邦宪法法院：差 9.529 票也不重新计票",
-   "de_title": "Keine Neuauszählung: Verfassungsgericht weist BSW-Beschwerde ab",
-   "hook": "差 9.529 票|德国不重数",
-   "sub": "5% 门槛差一点，申诉被驳回",
-   "date": "2026-11-18",
-   "photo": "news/og/src/58.jpg",
-   "de_hook": "9.529 Stimmen fehlen –|warum zählt man|nicht noch einmal?",
-   "zh_intro": "2025 年德国联邦议院选举，BSW 党得票 4.981%，离 5% 门槛只差 9.529 票，最终没能进入议会。该党认为计票有错，向联邦宪法法院提出申诉，要求全德重新计票。法院驳回了申诉：没有具体说清错在哪里，仅凭「结果太接近」不够。BSW 表示不服；联盟党则提议改革选举审查程序。",
-   "words": [
-    [
-     "die Wahl, die Wahlen",
-     "选举"
-    ],
-    [
-     "die Bundestagswahl",
-     "联邦议院选举"
-    ],
-    [
-     "die Stimme, die Stimmen",
-     "票、选票"
     ]
    ]
   }
