@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 68,
+   "title": "德国圣诞市场：3250 个里，无障碍的不到 1%",
+   "de_title": "Weihnachtsmärkte: Weniger als ein Prozent ist barrierefrei",
+   "hook": "推着轮椅|进不去圣诞市场",
+   "sub": "德国约 3250 个圣诞市场，无障碍的不到 1%",
+   "date": "2026-11-23",
+   "photo": "news/og/src/68.jpg",
+   "de_hook": "Rollstuhl, Rollator –|kommt man hier|überhaupt durch?",
+   "zh_intro": "十二月还没到，德国的圣诞市场已经陆续开门。社会协会 VdK 在 11 月 23 日批评说：绝大多数圣诞市场对残障人士并不友好。德国约有 3250 个圣诞市场；据 VdK 的说法，真正达到无障碍标准的只有约 19 个，不到 1%。窄通道、台阶、不平整的石板路，让轮椅和助行器很难通过；无障碍厕所、残疾人停车位和足够的座椅也常常缺位。VdK 主席 Verena Bentele 要求把无障碍变成有约束力的规定，而不是可做可不做的「加分项」。",
+   "words": [
+    [
+     "der Weihnachtsmarkt, die Weihnachtsmärkte",
+     "圣诞市场"
+    ],
+    [
+     "die Barrierefreiheit",
+     "无障碍"
+    ],
+    [
+     "die Barriere, die Barrieren",
+     "障碍"
+    ]
+   ]
+  },
+  {
    "id": 67,
    "title": "英伟达请回创始人：11 天，股价一天涨 31.5%",
    "de_title": "Nvidia holt Jensen Huang zurück: Elf Tage nach dem Rücktritt wieder Chef",
@@ -173,31 +198,6 @@
     [
      "die Rohingya (Pl.)",
      "罗兴亚人"
-    ]
-   ]
-  },
-  {
-   "id": 60,
-   "title": "德国全国朗读日：18 个火车站变身朗读角",
-   "de_title": "Bundesweiter Vorlesetag: An 18 Bahnhöfen wird vorgelesen",
-   "hook": "火车站里|有人讲故事",
-   "sub": "德国第 23 届全国朗读日，约一百万人参加",
-   "date": "2026-11-20",
-   "photo": "news/og/src/60.jpg",
-   "de_hook": "Warum wird ein|Bahnhof plötzlich|zum Kinderzimmer?",
-   "zh_intro": "11 月 20 日是德国第 23 届全国朗读日。从幼儿园、学校、图书馆到火车站，到处都有人给孩子读书，18 个火车站还专门布置成了朗读角。今年的口号是「我读给你听——你呢？」。政界人物也来参加：联邦议院议长克勒克纳在汉堡一所小学朗读，孩子们提了一堆问题。主办方说，现在每年约有上百万人参与。对德国家庭来说，睡前故事不只是哄睡，也是在练语言、长知识、拉近关系。",
-   "words": [
-    [
-     "der Vorlesetag, die Vorlesetage",
-     "朗读日"
-    ],
-    [
-     "das Vorlesen",
-     "朗读（读给别人听）"
-    ],
-    [
-     "vorlesen",
-     "朗读、念给别人听"
     ]
    ]
   }
