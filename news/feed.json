@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 69,
+   "title": "德国人怎么看军援乌克兰：53% 反对，一年前还有六成支持",
+   "de_title": "Umfrage: 53 Prozent der Deutschen gegen weitere Militärhilfe für die Ukraine",
+   "hook": "军援乌克兰|德国人|开始说不",
+   "sub": "一年之间，支持的人从六成降到不到一半",
+   "date": "2026-11-24",
+   "photo": "news/og/src/69.jpg",
+   "de_hook": "53 Prozent dagegen –|kippt die Stimmung|in Deutschland?",
+   "zh_intro": "德国一项最新全国民调显示，反对继续向乌克兰提供军事援助的人已经过半：53% 反对，46% 支持。一年前正好相反——当时 59% 支持、39% 反对。这项调查 2026 年 9 月由科尔伯基金会（Körber-Stiftung）委托 Forsa 研究所进行，样本为 1501 名有选举权的德国人。耐人寻味的是，同一份调查里，82% 的人仍把俄罗斯视为军事威胁，61% 认为德国和欧洲为促成和谈做得不够。",
+   "words": [
+    [
+     "die Umfrage, die Umfragen",
+     "调查、民调"
+    ],
+    [
+     "die Militärhilfe",
+     "军事援助"
+    ],
+    [
+     "die Waffenlieferung, die Waffenlieferungen",
+     "武器交付"
+    ]
+   ]
+  },
+  {
    "id": 68,
    "title": "德国圣诞市场：3250 个里，无障碍的不到 1%",
    "de_title": "Weihnachtsmärkte: Weniger als ein Prozent ist barrierefrei",
@@ -173,31 +198,6 @@
     [
      "die Filiale, die Filialen",
      "分店、门店"
-    ]
-   ]
-  },
-  {
-   "id": 61,
-   "title": "世界法院首次判定「种族灭绝」：缅甸被判，表示不接受",
-   "de_title": "Internationaler Gerichtshof: Myanmar wegen Völkermords an den Rohingya verurteilt",
-   "hook": "判了一个国家|「种族灭绝」",
-   "sub": "世界法院的第一次",
-   "date": "2026-11-19",
-   "photo": "news/og/src/61.jpg",
-   "de_hook": "Ein Gericht sagt:|„Völkermord“ – und wer|setzt das durch?",
-   "zh_intro": "2026 年 11 月 19 日，海牙的国际法院（IGH）在「冈比亚诉缅甸」案中认定：缅甸军方 2017 年对罗兴亚人实施了种族灭绝。这是联合国最高司法机构第一次判定一个国家犯下种族灭绝。法院命令缅甸停止侵害、惩罚责任人、赔偿受害者；缅甸则表示不接受这一判决。2017 年约有 75 万罗兴亚人逃往邻国孟加拉国，至今仍住在营地里。",
-   "words": [
-    [
-     "der Völkermord",
-     "种族灭绝"
-    ],
-    [
-     "die Minderheit, die Minderheiten",
-     "少数群体、少数族群"
-    ],
-    [
-     "die Rohingya (Pl.)",
-     "罗兴亚人"
     ]
    ]
   }
