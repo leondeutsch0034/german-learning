@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>刘晏 · 唐代理财第一人（详版）</title>
+<meta name="theme-color" content="#f4efe4">
+<style>
+  :root{
+    --paper:#f4efe4; --paper-2:#efe8da;
+    --ink:#26221d; --ink-2:#4a443b; --ink-3:#7a7264;
+    --line:#d9cfba; --red:#9c2b1f; --red-soft:#c4553f;
+    --green:#3f5d4a; --gold:#a8843c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #fbf7ee 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, #efe7d6 0%, transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC","STSong",serif;
+    line-height:1.9;font-size:17px;padding:0 0 80px;overflow-x:hidden;
+  }
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--gold));z-index:99;transition:width .1s}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+  header{padding:64px 0 8px;position:relative}
+  .topbar{max-width:680px;margin:0 auto;padding:18px 22px 0;font-family:"PingFang SC","Hiragino Sans GB",sans-serif;font-size:13px;letter-spacing:.05em}
+  .topbar a{color:var(--ink-3);text-decoration:none}
+  .topbar a:active{color:var(--red)}
+  .dynasty{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.28em;color:var(--red);border:1px solid rgba(156,43,31,.35);padding:5px 12px 5px 14px;border-radius:2px;font-family:"PingFang SC","Hiragino Sans GB",sans-serif;margin-bottom:26px}
+  h1{font-size:clamp(44px,13vw,64px);line-height:1.15;font-weight:700;letter-spacing:.06em}
+  .sub{margin-top:18px;font-size:18px;color:var(--ink-2);line-height:1.8;letter-spacing:.03em}
+  .meta{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 22px;font-family:"PingFang SC","Hiragino Sans GB",sans-serif;font-size:13px;color:var(--ink-3);letter-spacing:.05em}
+  .meta b{color:var(--ink-2);font-weight:500}
+
+  section{margin-top:56px}
+  .sec-num{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .sec-num .seal{width:34px;height:34px;flex:0 0 34px;border-radius:3px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-family:"Kaiti SC","STKaiti",serif;box-shadow:0 2px 0 rgba(80,20,12,.25)}
+  .sec-num h2{font-size:21px;font-weight:700;letter-spacing:.08em;color:var(--ink)}
+  h3.inline{font-size:18px;margin:30px 0 6px;letter-spacing:.05em;color:var(--ink)}
+  p{margin:14px 0;color:var(--ink-2);text-align:justify}
+  strong{color:var(--ink);font-weight:700}
+  em{font-style:normal;color:var(--red);font-weight:700}
+
+  .position{background:linear-gradient(160deg,#fdfaf3,#f2ead9);border:1px solid var(--line);border-left:4px solid var(--red);padding:20px;border-radius:4px;margin-top:26px;font-size:17px;color:var(--ink);line-height:1.95}
+  .position .tag{display:block;font-family:"PingFang SC",sans-serif;font-size:12px;color:var(--red);letter-spacing:.2em;margin-bottom:8px}
+
+  .quote{margin:30px 0;padding:22px 24px;background:#fffdf7;border:1px solid var(--line);border-radius:4px;position:relative}
+  .quote::before{content:"“";position:absolute;top:-6px;left:14px;font-size:56px;color:var(--gold);opacity:.45;line-height:1;font-family:Georgia,serif}
+  .quote p{margin:0;padding-left:6px;font-size:19px;line-height:2;color:var(--ink);letter-spacing:.04em;text-align:left}
+  .quote cite{display:block;margin-top:10px;padding-left:6px;font-style:normal;font-size:12.5px;color:var(--ink-3);font-family:"PingFang SC",sans-serif;letter-spacing:.08em}
+  .quote.big p{font-size:21px;color:var(--red);font-weight:700}
+
+  /* 年表 */
+  .timeline{margin:24px 0 0;border-left:2px solid var(--line);padding-left:20px}
+  .tl{position:relative;margin-bottom:20px}
+  .tl::before{content:"";position:absolute;left:-26px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px var(--paper)}
+  .tl .yr{font-family:Georgia,serif;font-size:14px;color:var(--red);letter-spacing:.05em}
+  .tl .ev{font-size:15.5px;color:var(--ink-2);line-height:1.8;margin-top:2px}
+
+  /* 数字 */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
+  .stat{background:#fffdf7;border:1px solid var(--line);border-radius:5px;padding:14px 14px 12px;text-align:center}
+  .stat .v{font-family:Georgia,serif;font-size:26px;color:var(--red);line-height:1.2}
+  .stat .l{font-size:12px;color:var(--ink-3);font-family:"PingFang SC",sans-serif;margin-top:4px;line-height:1.6}
+
+  /* 三张卡 */
+  .cards3{display:grid;gap:12px;margin-top:22px}
+  @media(min-width:560px){.cards3{grid-template-columns:1fr 1fr 1fr}}
+  .mini{background:#fffdf7;border:1px solid var(--line);border-radius:4px;padding:16px 16px 14px}
+  .mini .k{font-size:16px;font-weight:700;color:var(--red);letter-spacing:.06em;margin-bottom:6px}
+  .mini p{margin:0;font-size:14.5px;line-height:1.8;color:var(--ink-2)}
+
+  /* 改革块 */
+  .reform{margin-top:18px;background:#fffdf7;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .reform-h{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--paper-2);border-bottom:1px solid var(--line)}
+  .reform-h .no{font-family:Georgia,serif;font-size:13px;color:#fff;background:var(--green);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 24px}
+  .reform-h h3{font-size:18px;font-weight:700;letter-spacing:.06em;color:var(--ink)}
+  .reform-b{padding:16px 18px 14px}
+  .row{display:flex;gap:10px;margin:9px 0;font-size:15.5px;line-height:1.85}
+  .row .lbl{flex:0 0 66px;font-family:"PingFang SC",sans-serif;font-size:12px;color:var(--ink-3);letter-spacing:.06em;padding-top:3px}
+  .row .txt{color:var(--ink-2);flex:1}
+  .row.res .txt{color:var(--red);font-weight:700}
+  .row.res .lbl{color:var(--red-soft)}
+
+  /* 流程 */
+  .flow{display:flex;flex-direction:column;gap:8px;margin:20px 0}
+  .flow .step{background:#fffdf7;border:1px solid var(--line);border-radius:5px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+  .flow .s-n{font-family:Georgia,serif;color:var(--gold);font-size:18px;line-height:1.5;flex:0 0 auto}
+  .flow .s-t{font-size:15px;color:var(--ink-2);line-height:1.8}
+  .flow .s-t b{color:var(--ink)}
+  .flow .arrow{text-align:center;color:var(--gold);font-size:14px;line-height:1;margin:-2px 0}
+
+  /* 对比 */
+  .cmp{margin:22px 0}
+  .cmp .c{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .cmp .c:last-child{border-bottom:none}
+  .cmp .nm{font-size:15px;color:var(--red);font-weight:700;letter-spacing:.05em}
+  .cmp .ds{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin-top:3px}
+
+  /* 结局 */
+  .ending{margin-top:22px;padding:30px 22px;background:linear-gradient(170deg,#2b2620,#1d1915);color:#e8dfcc;border-radius:6px;text-align:center}
+  .ending .k{font-family:"PingFang SC",sans-serif;font-size:12px;letter-spacing:.3em;color:#b99d6b}
+  .ending .big{font-size:clamp(24px,7vw,32px);line-height:1.7;margin:16px 0 10px;color:#f2e6cf;letter-spacing:.08em;font-weight:700}
+  .ending .note{font-size:13.5px;color:#9d9282;font-family:"PingFang SC",sans-serif;line-height:1.9}
+
+  /* 三句话 */
+  .three{margin-top:22px}
+  .three .item{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .three .item:last-child{border-bottom:none}
+  .three .n{font-family:Georgia,serif;font-size:26px;color:var(--gold);line-height:1;flex:0 0 auto;opacity:.85}
+  .three .t{font-size:16px;line-height:1.9;color:var(--ink-2)}
+  .three .t b{color:var(--ink)}
+
+  .warn{margin-top:26px;padding:16px 18px;background:#fbf6e9;border:1px dashed var(--gold);border-radius:4px;font-size:14.5px;line-height:1.9;color:var(--ink-2)}
+  .warn b{color:var(--gold);font-family:"PingFang SC",sans-serif;font-size:13px;letter-spacing:.1em}
+
+  .aside{margin:22px 0;padding:14px 16px;border-left:3px solid var(--green);background:#f3f2ea;font-size:14.5px;line-height:1.9;color:var(--ink-2);border-radius:0 4px 4px 0}
+  .aside b{color:var(--green)}
+
+  /* 古文选读 */
+  .classic{background:#fffdf7;border:1px solid var(--line);border-radius:5px;padding:18px 18px 16px;margin:16px 0}
+  .classic .src{font-family:"PingFang SC",sans-serif;font-size:11.5px;letter-spacing:.18em;color:var(--green);margin-bottom:10px}
+  .classic .orig{font-size:18.5px;line-height:2.05;color:var(--ink);letter-spacing:.05em;padding:2px 0 8px;border-bottom:1px dotted var(--line)}
+  .classic .tr{font-size:13.5px;line-height:1.9;color:var(--ink-3);font-family:"PingFang SC",sans-serif;margin-top:10px}
+  .classic .cmt{font-size:14.5px;line-height:1.9;color:var(--red);margin-top:10px;padding-left:12px;border-left:2px solid var(--red-soft)}
+
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);text-align:center;color:var(--ink-3);font-family:"PingFang SC",sans-serif;font-size:12.5px;letter-spacing:.1em}
+  footer .seal-f{display:inline-block;margin-bottom:12px;padding:6px 10px;border:1.5px solid rgba(156,43,31,.5);color:var(--red);border-radius:3px;letter-spacing:.2em;font-size:11.5px}
+
+  #top{position:fixed;right:18px;bottom:calc(22px + env(safe-area-inset-bottom));width:42px;height:42px;border-radius:50%;background:rgba(38,34,29,.82);color:#efe6d4;border:none;font-size:16px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;z-index:98;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  #top.on{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="topbar"><a href="https://leonsdeutschzentrum.com/">← Leon 德语学习中心</a></div>
+
+<div class="wrap">
+
+  <header>
+    <div class="dynasty">唐 · 公元 716 — 780 · 详版</div>
+    <h1>刘晏</h1>
+    <div class="sub">把一个快倒闭的唐朝，<br>从账本上救回来的人。</div>
+    <div class="meta">
+      <span>字 <b>士安</b></span>
+      <span>曹州南华（今山东东明）</span>
+      <span>官至 <b>同中书门下平章事</b></span>
+      <span>掌管天下钱粮 <b>约二十年</b></span>
+    </div>
+    <div class="position">
+      <span class="tag">一句话</span>
+      安史之乱后唐朝财政基本崩盘，刘晏用漕运、盐政、物价情报三件事把它重新撑起来。他是中国历史上少见的、被后世公认「既会赚钱又不招人恨」的理财官——但最后死于政治，抄家只有两车书。
+    </div>
+  </header>
+
+  <!-- ===== 壹 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">壹</div><h2>七岁神童，四朝老臣</h2></div>
+    <div class="quote">
+      <p>唐刘晏，方七岁，举神童，作正字。</p>
+      <cite>——《三字经》</cite>
+    </div>
+    <p>这两句是很多中国人对他的全部印象。七岁被举为神童，授秘书省正字——国家图书馆的校对员。一个小孩子坐在藏书阁里校正错字，这个画面被写进蒙学课本，一传就是一千年。</p>
+    <p>但《三字经》只讲了他的开头。真正让他进《旧唐书》《新唐书》两篇正传的，是四十多年后在废墟上重建国家财政。他一生活了六十五岁，横跨玄宗、肃宗、代宗、德宗四朝，完整经历了唐朝由盛转衰的那个断口。</p>
+
+    <div class="timeline">
+      <div class="tl"><div class="yr">716</div><div class="ev">生于曹州南华。少年以神童闻名，授秘书省正字。</div></div>
+      <div class="tl"><div class="yr">755</div><div class="ev">安史之乱爆发。唐朝的财政、户口、漕运体系同时开始瓦解。</div></div>
+      <div class="tl"><div class="yr">756 前后</div><div class="ev">出任度支郎中一类职务，掌管江淮财赋，为平叛前线筹措军需——这是他第一次真正摸到国家的钱袋。</div></div>
+      <div class="tl"><div class="yr">758</div><div class="ev">第五琦推行榷盐法，把盐收归官营，盐价由每斗十文提到一百一十文。这是唐代盐专卖的开局，也是刘晏后来改革的起点。</div></div>
+      <div class="tl"><div class="yr">762 后</div><div class="ev">代宗即位，命刘晏主持漕运整顿。数年后，岁运粮达到约一百一十万石，关中粮价回落。</div></div>
+      <div class="tl"><div class="yr">763</div><div class="ev">以吏部尚书、同中书门下平章事（宰相）身份，兼领度支、盐铁、转运、常平、铸钱等使——财政大权集于一身。</div></div>
+      <div class="tl"><div class="yr">大历年间（766—779）</div><div class="ev">盐法、常平、巡院情报体系全面成型。盐利增至约六百万缗，史称占国家岁入之半。</div></div>
+      <div class="tl"><div class="yr">777</div><div class="ev">权相元载被诛，刘晏参与审理。这件事给他埋下了杀身之祸。</div></div>
+      <div class="tl"><div class="yr">780</div><div class="ev">德宗即位，杨炎为相。刘晏先贬忠州刺史，随即被赐死，年六十五。同年，杨炎推行两税法。</div></div>
+      <div class="tl"><div class="yr">781</div><div class="ev">杨炎被贬死。人已经回不来了。</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 贰 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">贰</div><h2>他接手的是什么局面</h2></div>
+    <p>安史之乱打了八年（755—763）。它不只是打仗，是把唐朝赖以运转的三根柱子一起打断了：</p>
+    <div class="cards3">
+      <div class="mini"><div class="k">人没了</div><p>户口散失。大量人口被藩镇、豪强、寺院藏起来，国家册子上的人越来越少，税基像漏水的桶。</p></div>
+      <div class="mini"><div class="k">路断了</div><p>运河淤塞、漕运中断。关中的粮食运不进来，长安米价飞涨，连禁军吃饭都成问题。</p></div>
+      <div class="mini"><div class="k">钱跑了</div><p>盐铁收入被地方截留，中央没有稳定税源，只能加派杂税，越加民越逃，越逃越加。</p></div>
+    </div>
+    <p style="margin-top:20px">这是一个典型的死循环：<strong>加税 → 流民 → 税基更小 → 再加税</strong>。多数官僚的本能是继续在这个循环里加码。刘晏的做法是跳出来，先把循环反过来。</p>
+    <div class="quote big">
+      <p>「户口滋多，则赋税自广，故其理财常以养民为先。」</p>
+      <cite>——《资治通鉴》</cite>
+    </div>
+    <p>这句话看着像道德文章，其实是财政技术判断：<em>人回来了，税自然就有了。</em>所以他的每一招都不是「多收一点」，而是「让钱和人重新流动起来」。</p>
+  </section>
+
+  <!-- ===== 叁 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">叁</div><h2>第一仗：漕运，把粮道接上</h2></div>
+    <p>长安在关中，粮食靠江南。运河一断，首都就得饿肚子。这是唐朝的命门，也是刘晏最先动刀的地方。</p>
+
+    <div class="reform">
+      <div class="reform-h"><div class="no">1</div><h3>分段接力，不搞一船到底</h3></div>
+      <div class="reform-b">
+        <div class="row"><div class="lbl">老毛病</div><div class="txt">一船粮从江南直运长安，要走几千里，过江、过汴、过河、过渭，每段水情不同，滩险、淤浅、风浪全碰上。船坏、粮沉、人被拖死在路上，损耗极大。</div></div>
+        <div class="row"><div class="lbl">他怎么改</div><div class="txt">分四段：江船不入汴、汴船不入河、河船不入渭。各段用熟悉本段水性的船工专运，在扬州、河阴、渭口一带设转运仓交接。粮袋装、不散装，减少途中散失。</div></div>
+        <div class="row res"><div class="lbl">结果</div><div class="txt">年运粮由二十万石级增至约一百一十万石。史载「三秦之人，待此而饱；六军之众，待此而强」。</div></div>
+      </div>
+    </div>
+
+    <div class="aside"><b>这不是他首创。</b>开元年间裴耀卿就做过分段转运的尝试。刘晏的贡献是把这件事<b>做成了一套能长期运转的系统</b>：疏浚汴渠、沿河设仓、造船、定发运节奏、培训船工，一样都不能少。制度史上很多「发明」，真正的价值不在点子，而在把它跑通二十年。</div>
+
+    <div class="reform">
+      <div class="reform-h"><div class="no">1b</div><h3>把徭役改成雇工</h3></div>
+      <div class="reform-b">
+        <div class="row"><div class="lbl">老毛病</div><div class="txt">漕运靠征发民夫，白干活，没积极性，逃役成风，来了也磨洋工。</div></div>
+        <div class="row"><div class="lbl">他怎么改</div><div class="txt">改用雇工，给工钱。钱从哪来？从盐利里出——先用新赚的钱养新制度，这是很现代的做法。</div></div>
+        <div class="row res"><div class="lbl">结果</div><div class="txt">船工有了稳定收入，技术能积累，队伍能稳定，运力才上得去。</div></div>
+      </div>
+    </div>
+
+    <p>另外他在扬子一带设造船场，出钱造漕船，还特意把船价定得偏高——他的逻辑是：<em>给工匠留足利润，船才造得结实；抠得太狠，船就会越造越薄。</em>这个细节很能说明他懂「制度成本」：省在明面上的钱，最后都会在水里赔回去。</p>
+  </section>
+
+  <!-- ===== 肆 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">肆</div><h2>第二仗：盐政，他一生最大的发明</h2></div>
+    <p>先说清楚前情。758 年，第五琦开始榷盐：盐由官府统购统销，盐价从每斗十文一口气提到一百一十文。这一刀很狠，短期内国库确实有钱了，但官营的毛病也全出来了——机构臃肿、效率低下、私盐泛滥、边远地区根本买不到盐。</p>
+    <p>刘晏接手后，没有把价格降回去，而是<strong>把整个结构改掉了</strong>。</p>
+
+    <div class="flow">
+      <div class="step"><div class="s-n">壹</div><div class="s-t"><b>民制</b>——盐户（亭户）自行生产，官府给政策、免部分徭役，让他们愿意干。</div></div>
+      <div class="arrow">▼</div>
+      <div class="step"><div class="s-n">贰</div><div class="s-t"><b>官收</b>——官府在盐场就地收购，统一加价，这一步把利润锁在朝廷手里。</div></div>
+      <div class="arrow">▼</div>
+      <div class="step"><div class="s-n">叁</div><div class="s-t"><b>商运商销</b>——商人交钱买盐，自己运、自己卖，沿途设卡查私盐。</div></div>
+      <div class="arrow">▼</div>
+      <div class="step"><div class="s-n">肆</div><div class="s-t"><b>常平盐</b>——在离产地远的地区设官仓囤盐，盐价被商人炒高时平价抛售，压住价格。</div></div>
+    </div>
+
+    <p>这套设计的精妙在于：<strong>朝廷只控制批发这一个环节</strong>，零售交给市场。官府不用养几万人去卖盐，商人有利润可赚，百姓不用直接交一笔新税——税负藏在盐价里，但流通是顺的。</p>
+
+    <div class="stats">
+      <div class="stat"><div class="v">40万</div><div class="l">缗 / 年<br>刘晏接手时盐利</div></div>
+      <div class="stat"><div class="v">600万</div><div class="l">缗 / 年<br>大历末年盐利</div></div>
+      <div class="stat"><div class="v">约一半</div><div class="l">盐利占国家岁入比重<br>「天下之赋，盐利居半」</div></div>
+      <div class="stat"><div class="v">×15</div><div class="l">二十年间盐利增长倍数</div></div>
+    </div>
+
+    <p>十五倍的增量，没有靠向农民加一分田赋。这就是间接税的力量：<em>它把纳税动作藏进了每一笔日常消费里，痛感低，总量大，征收成本小。</em>欧洲要到近代才系统化地玩这套东西。</p>
+
+    <div class="aside"><b>但代价也埋在这里。</b>盐是刚需，价格再高老百姓也得吃。第五琦把盐价提到十倍，刘晏维持高价、改进流通，后世接着涨。到唐末，盐价与私盐问题已经成了社会火药桶——一百多年后起兵反唐的黄巢，就出自贩私盐的家族。同一套制度，前面是救命的钱，后面是要命的账。</div>
+  </section>
+
+  <!-- ===== 伍 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">伍</div><h2>第三仗：物价情报网，唐代的大数据</h2></div>
+    <p>古代政府最吃亏的地方是「不知道」：不知道哪里丰收、哪里歉收、哪里米贵、哪里米贱。等到消息传到长安，商人早就把差价赚完了。</p>
+    <p>刘晏在各道设巡院，本来是为盐政服务的，他把它改成了一个<strong>全国行情网络</strong>：招募跑得快的人，把各地物价、丰歉、灾情一站一站接力传回京师，几天之内就能掌握四方动静。</p>
+    <p>有了信息，他才敢做「常平」：<em>丰则贵籴，饥则贱粜</em>——丰收年政府高价收粮，防止谷贱伤农；歉收年政府低价放粮，防止米贵伤民。</p>
+    <p>这件事的妙处是双赢：政府低买高卖本身能赚钱，同时又平抑了物价。<strong>他不是靠权力收钱，是靠信息差和库存赚钱</strong>——政府亲自下场做了一回商人，而且做得比商人更专业。</p>
+    <p>顺带说一句，这套情报网还兼着监测地方官的作用：哪里的数据长期不对劲，往往就是哪里出了贪墨或瞒报。</p>
+  </section>
+
+  <!-- ===== 陆 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">陆</div><h2>第四仗：赈灾，治在未病</h2></div>
+    <p>古代救灾的默认做法是：灾来了，开仓放粮。问题是粮食调运要时间，等粮到了，人已经饿死或逃荒了。刘晏反对这种「事后慈善」，留下一句很硬的话：</p>
+    <div class="quote">
+      <p>「善治病者不使至危惫，<br>善救灾者勿使至赈给。」</p>
+      <cite>——《新唐书·刘晏传》大意</cite>
+    </div>
+    <p>翻成大白话：好医生不等人病危才下手，好政府不等灾民伸手才发粮。他的做法是把救灾拆成三件事：</p>
+    <p><strong>一是提前知道。</strong>靠巡院情报网，灾情刚露头就上报，不等饿殍遍野。</p>
+    <p><strong>二是平价售粮，不是白送。</strong>白送会让人产生依赖，也会让粮商退出市场；平价卖，市场不塌，穷人买得起，政府还能回本。</p>
+    <p><strong>三是以工代赈。</strong>让灾民去修水利、疏河道、建仓储，用劳动换口粮。既救了人，又留下了资产。这套逻辑今天还在用。</p>
+  </section>
+
+  <!-- ===== 柒 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">柒</div><h2>他真正厉害的地方：管人，不管账</h2></div>
+    <p>讲刘晏的人大多只讲制度。其实他最深的一手，是对人性的判断。</p>
+    <div class="quote">
+      <p>「士有爵禄，则名重于利；<br>吏无荣进，则利重于名。」</p>
+      <cite>——《资治通鉴》</cite>
+    </div>
+    <p>意思很直白：读书人做官有升迁的前途，所以更在乎名声，不太敢贪；底层的胥吏没有上升通道，除了捞钱没有别的出路。</p>
+    <p>所以他把钱粮大权交给<strong>有科举出身的士人</strong>，而不是交给经验丰富但无路可走的老吏。同时配套三件事：</p>
+    <p><strong>厚俸。</strong>钱给够，不给贪的理由。</p>
+    <p><strong>久任。</strong>属吏长期专管一道，熟悉地方、责任清楚，不频繁调动——频繁调动是腐败的温床，因为「捞一把就走」最划算。</p>
+    <p><strong>明赏罚。</strong>干得好升，干得差罚，规则写在明处。</p>
+    <p>结果是他手下出了不少能吏，后来唐朝掌财计的人里，很多是他的旧部。<em>一个制度能不能活过设计者，看的不是条文，是它有没有培养出会用它的人。</em></p>
+  </section>
+
+  <!-- ===== 捌 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">捌</div><h2>政治：从元载案到一杯毒酒</h2></div>
+    <p>刘晏一生最大的失误不在财政，在政治——他站进了不该站的局。</p>
+    <p>777 年，权相元载被诛，刘晏参与审理。元载的旧党里有一个叫杨炎的人，把这笔账记在了刘晏头上。三年后德宗即位，杨炎拜相，机会来了。</p>
+    <p>史书对这段的记载是：杨炎罗织罪名，德宗下诏贬刘晏为忠州刺史，旋即赐死。年六十五。</p>
+    <p>新皇帝为什么点头？这里有两层：一层是杨炎的私怨，一层是德宗刚即位，要立威、要换血、要把前朝的老人清出去。<strong>所谓「忠奸戏」，背后往往是权力交接的结构性清洗。</strong>把刘晏之死写成单纯的忠臣被害，是把历史看薄了。</p>
+    <div class="ending">
+      <div class="k">抄 家 所 得</div>
+      <div class="big">唯杂书两乘<br>米麦数斛</div>
+      <div class="note">两车书，几斛米麦。<br>管了二十年天下钱粮的人，家里就这些。<br>《旧唐书》记：天下以为冤。</div>
+    </div>
+    <p>一年后，杨炎也因罪被贬死。但制度留了下来：盐法与转运的基本框架，后来的朝代一路沿用；同一年杨炎推行两税法，中国税制从「按人丁」转向「按资产」，进入下一个阶段。<strong>刘晏搭的地基还在，名字却留在了冤案里。</strong></p>
+  </section>
+
+  <!-- ===== 玖 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">玖</div><h2>怎么评价他：三种读法</h2></div>
+    <div class="cmp">
+      <div class="c"><div class="nm">财政史读法 · 制度创新者</div><div class="ds">他把「直接向农民收税」改成「向流通环节收税」，把官营改成「官控批发 + 商营零售」，把行政摊派改成雇工和市场。这三步在财政史上都是分水岭。常与桑弘羊、王安石并称古代三大理财家。</div></div>
+      <div class="c"><div class="nm">思想史读法 · 「养民」路线</div><div class="ds">桑弘羊的逻辑是「取」，国家直接下场经营；刘晏的逻辑是「养」，先把税基养大再收。前者强国，后者可持续。这条线后来影响了中国两千年的财政辩论。</div></div>
+      <div class="c"><div class="nm">批判读法 · 专卖的代价</div><div class="ds">也有论者指出：盐利十五倍增长的背后，是盐价长期高企、百姓负担加重、私盐泛滥。刘晏的「善政」在结构上仍是专卖，只是比前任更高效。把他说成毫无代价的圣人，是另一种失真。</div></div>
+    </div>
+    <p>三种读法不冲突：<strong>他确实是制度天才，也确实在替一个不得不靠专卖续命的王朝打工。</strong>评价一个人，最好同时握住这两只手。</p>
+  </section>
+
+  <!-- ===== 拾 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">拾</div><h2>古文里的刘晏</h2></div>
+    <p>没有一篇像《岳阳楼记》那样以他为主角的传世名篇，中学课本里也没有他的篇目。他的「古文形象」散在四处，叠起来，正好是三个不同的刘晏。</p>
+
+    <div class="classic">
+      <div class="src">蒙学 · 《三字经》</div>
+      <div class="orig">唐刘晏，方七岁。<br>举神童，作正字。<br>彼虽幼，身已仕。<br>尔幼学，勉而致。<br>有为者，亦若是。</div>
+      <div class="tr">唐代的刘晏，才七岁就被举为神童，做了校正文字的官。他年纪虽小，已经出仕；你们小孩子读书，也该勉力做到——有作为的人，就是这样起步的。</div>
+      <div class="cmt">注意它讲了什么、没讲什么：只讲七岁做官，一个字没提漕运、盐法和六百万缗。中国人集体记忆里的刘晏，是个神童标本，不是财政家。</div>
+    </div>
+
+    <div class="classic">
+      <div class="src">正史 · 《新唐书·食货志》</div>
+      <div class="orig">江船不入汴，汴船不入河，<br>河船不入渭。江南之运积扬州，<br>汴河之运积河阴，<br>河船之运积渭口，<br>渭船之运入太仓。</div>
+      <div class="tr">长江船不驶入汴水，汴水船不驶入黄河，黄河船不驶入渭水。江南来的粮食积存在扬州，汴河运来的积存在河阴，黄河船运来的积在渭口，最后由渭水船转运进太仓。</div>
+      <div class="cmt">二十八个字，写完了分段转运的全部设计。制度史引用刘晏，多半引这一段。</div>
+    </div>
+
+    <div class="classic">
+      <div class="src">正史 · 《新唐书》记漕运成效</div>
+      <div class="orig">三秦之人，待此而饱；<br>六军之众，待此而强。</div>
+      <div class="tr">关中的百姓，靠这条粮道吃饭；朝廷的六军，靠这条粮道撑着。</div>
+      <div class="cmt">十个字讲清漕运的分量，是后世最常单独摘出来的一句话。</div>
+    </div>
+
+    <div class="classic">
+      <div class="src">《资治通鉴》· 记他赐死时追述其法</div>
+      <div class="orig">户口滋多，则赋税自广，<br>故其理财常以养民为先。</div>
+      <div class="tr">人口繁衍多了，赋税自然就广；所以他理财，总是把养活百姓放在第一位。</div>
+      <div class="orig" style="border-bottom:none;padding-top:6px">士有爵禄，则名重于利；<br>吏无荣进，则利重于名。</div>
+      <div class="tr">读书人做官有爵位俸禄、有升迁前途，所以更看重名声，不太敢贪；底层胥吏没有进身之阶，就只剩下逐利一条路。</div>
+      <div class="cmt">司马光写到他被赐死，没有只写冤案，而是附了一整段追述他的理财方法。后世引用刘晏，大多出自这里。第二句尤其狠：它把「用读书人管钱」讲成了一个激励结构问题，不是道德问题。</div>
+    </div>
+
+    <div class="classic">
+      <div class="src">正史 · 《旧唐书·刘晏传》</div>
+      <div class="orig">唯杂书两乘，米麦数斛。<br>天下以为冤。</div>
+      <div class="tr">抄家时只有两车杂书、几斛米麦。天下人都认为他冤枉。</div>
+      <div class="cmt">「天下以为冤」四个字，比任何评论都重。</div>
+    </div>
+
+    <div class="classic">
+      <div class="src">唐诗 · 白居易《盐商妇》（节选）</div>
+      <div class="orig">婿作盐商十五年，<br>不属州县属天子。<br>每年盐利入官时，<br>少入官家多入私。<br>官家利薄私家厚，<br>盐铁尚书远不知。<br>……<br>好衣美食来何处，<br>亦应得愧桑弘羊。</div>
+      <div class="tr">丈夫做了十五年盐商，不归州县管、只归天子管。每年该入官府的盐利，少部分进了官家、大部分进了私囊。官家得利薄、私人得利厚，管盐铁的尚书却远在朝中不知道。……你们的好衣美食从哪来？也该愧对桑弘羊吧。</div>
+      <div class="cmt">写的是元和年间盐法跑坏之后的样子：该进国库的盐利被商人截走，管盐铁的官员还蒙在鼓里。结尾点名桑弘羊——盐铁官营的老祖师。它提醒你：刘晏的设计里天生埋着「商人做大、官府失察」这个风险。</div>
+    </div>
+
+    <p style="margin-top:24px">把这几段摞在一起看，他的古文形象是分裂的：</p>
+    <p><strong>蒙学里是神童，正史里是能臣，诗歌里是缺席的制度背景。</strong></p>
+    <p>三层记忆叠在一起，本身就是个好选题——<em>为什么全中国都记得他七岁，却没人记得他救过唐朝的账本。</em></p>
+  </section>
+
+  <!-- ===== 拾壹 ===== -->
+  <section>
+    <div class="sec-num"><div class="seal">拾壹</div><h2>三句话收口</h2></div>
+    <div class="three">
+      <div class="item"><div class="n">1</div><div class="t">他的理财逻辑是<b>养税基，不是榨税源</b>——民富了税自然多。这和他之前之后的多数理财官，是两条完全不同的路。</div></div>
+      <div class="item"><div class="n">2</div><div class="t">他赚钱靠的是<b>效率和信息</b>，不是加税——分段漕运是供应链，巡院报物价是数据，盐法专卖是渠道分层。三样都是现代词，做法是一千二百年前的。</div></div>
+      <div class="item"><div class="n">3</div><div class="t">他很懂激励：<b>钱给到位、路留给有前途的人、岗位给能长期干的人</b>，制度就能自己运转。这一点比任何一条具体政策都值得记。</div></div>
+    </div>
+    <div class="warn">
+      <b>史料提醒</b><br>
+      ① 盐利六百万缗、漕粮百一十万石均出自《新唐书·食货志》一系，不同史源数字略有出入，引用时最好带「约」。<br>
+      ② 刘晏七岁举神童的说法出自《三字经》与旧史，具体年份与官职细节诸书记载不一。<br>
+      ③ 「抄家只有两车书」是极有修辞力量的记载，但史书塑造清官形象时有选择性书写的传统，读的时候留一分清醒。<br>
+      ④ 刘晏之死不宜写成单纯忠奸戏——里面混着德宗初立的政治清算。
+    </div>
+  </section>
+
+  <footer>
+    <div class="seal-f">唐 代 财 政</div><br>
+    聊史 · 讲机制 · 不造神
+  </footer>
+</div>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  var bar = document.getElementById('bar'), top = document.getElementById('top');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY || document.documentElement.scrollTop;
+    bar.style.width = (h > 0 ? (y / h * 100) : 0) + '%';
+    top.classList.toggle('on', y > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  top.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
+</body>
+</html>
