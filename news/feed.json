@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 70,
+   "title": "德铁开卖 Flixtrain 车票：拼成一张票，误车却要重买",
+   "de_title": "Deutsche Bahn verkauft ab Dezember auch Flixtrain-Tickets",
+   "hook": "一张票|坐两种火车",
+   "sub": "从 12 月起，德铁 App 也能买 Flixtrain",
+   "date": "2026-11-25",
+   "photo": "news/og/src/70.jpg",
+   "de_hook": "Bahn und Flix|auf einem Ticket –|geht das gut?",
+   "zh_intro": "德国的长途火车，基本是两家在跑：国有的德铁（Deutsche Bahn）和私营的 Flixtrain。过去两家各卖各的票；从 2026 年 12 月 7 日起，Flixtrain 的车票也能在 bahn.de 和 德铁 App（DB Navigator）里买到，适用于 12 月 13 日起的行程。乘客可以把德铁和 Flixtrain 的线路拼成一次行程、一次下单。但方便背后有个坑：系统会出两张分开的车票、两份独立的合同——如果德铁晚点、乘客错过了 Flixtrain 的衔接车，通常得重新买一张票。这项合作是两家自愿签的，德铁每卖一张 Flixtrain 票还能拿佣金。",
+   "words": [
+    [
+     "die Deutsche Bahn",
+     "德国铁路（德铁）"
+    ],
+    [
+     "der Fahrgast, die Fahrgäste",
+     "乘客"
+    ],
+    [
+     "das Ticket, die Tickets",
+     "车票"
+    ]
+   ]
+  },
+  {
    "id": 69,
    "title": "德国人怎么看军援乌克兰：53% 反对，一年前还有六成支持",
    "de_title": "Umfrage: 53 Prozent der Deutschen gegen weitere Militärhilfe für die Ukraine",
@@ -173,31 +198,6 @@
     [
      "die Tablette, die Tabletten",
      "药片"
-    ]
-   ]
-  },
-  {
-   "id": 62,
-   "title": "德国百货 Galeria 再关三家店：约 400 人失业，83 家待定",
-   "de_title": "Galeria schließt drei Filialen – rund 400 Beschäftigte betroffen",
-   "hook": "百货商店|一家家关门",
-   "sub": "德国 Galeria 再关三家，约 400 人失业",
-   "date": "2026-11-20",
-   "photo": "news/og/src/62.jpg",
-   "de_hook": "Warum schließt|Galeria schon wieder|drei Filialen?",
-   "zh_intro": "德国的老牌百货连锁 Galeria 又要关店了。这次关的是柏林、科隆、慕尼黑各一家，约 400 名员工会失去工作。这是它六年来第四次申请破产。目前德国还有 83 家店，公司说都在重新审查；按 dpa 通讯社引述业内的说法，可能有一半以上都会关，只留 30 到 40 家。新的买家最晚要在 12 月底定下来。",
-   "words": [
-    [
-     "das Warenhaus, die Warenhäuser",
-     "百货商店"
-    ],
-    [
-     "die Kette, die Ketten",
-     "连锁"
-    ],
-    [
-     "die Filiale, die Filialen",
-     "分店、门店"
     ]
    ]
   }

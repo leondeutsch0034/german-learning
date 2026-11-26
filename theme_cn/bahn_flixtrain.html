@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>德铁开卖 Flixtrain：一张票两趟车 | Leon 德语</title>
+<meta name="description" content="十二月初，林夏要从柏林去科隆看朋友。德铁的直达票太贵，她在 App 里翻着翻着，看到一条新选项：前半段坐德铁，后半段换 Flixtrain，一次下单、一张订单，便宜不少。她点了确认，心想这下省事了。她没想到，真正的考试在换乘那一站。">
+<meta property="og:title" content="德铁开卖 Flixtrain：一张票两趟车">
+<meta property="og:description" content="从 12 月 7 日起，德铁 App 也能买 Flixtrain 车票，两家公司的火车能拼成一次行程。方便背后有个坑：出的是两张票，德铁晚点误了 Flixtrain，乘客得自己再买一张。看懂德国铁路的售票合作，顺带学几句出行德语。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leondeutsch.cn/images/og/t-bahn_flixtrain.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://leondeutsch.cn/theme/bahn_flixtrain.html">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#0a1428; --card:#0f1e3a; --gold:#f6d365; --gold-dim:#b8860b; --gold-light:#fde68a;
+          --text:#e2e8f0; --dim:#94a3b8; --muted:#64748b; --blue:#60a5fa; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+         background:var(--bg); color:var(--text); line-height:1.8;
+         background-image:radial-gradient(circle at 20% 0%,rgba(246,211,101,.06),transparent 45%),
+                          radial-gradient(circle at 85% 15%,rgba(96,165,250,.06),transparent 40%); }
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,20,40,0.92);
+            backdrop-filter:blur(12px); border-bottom:1px solid rgba(246,211,101,0.12);
+            padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; }
+  .topbar .logo { color:var(--gold); font-weight:700; text-decoration:none; }
+  .topbar .logo span { color:var(--dim); font-weight:400; }
+  .page { max-width:760px; margin:0 auto; padding:0 20px 56px; }
+
+  .cover { margin:0 -20px 0; padding:104px 24px 44px; text-align:center;
+           background:linear-gradient(165deg,#16304f 0%,#0f1e3a 45%,#0a1428 100%);
+           border-bottom:1px solid rgba(246,211,101,.14); }
+  .cover .badge { display:inline-block; background:var(--gold); color:var(--bg); padding:5px 16px;
+                  border-radius:14px; font-size:0.76rem; font-weight:800; letter-spacing:.05em; margin-bottom:16px; }
+  .cover h1 { font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:900; color:#fff; line-height:1.18; margin-bottom:12px; }
+  .cover .sub { color:var(--gold-light); font-size:0.98rem; }
+  .cover .lead { color:var(--dim); font-size:0.9rem; margin-top:14px; max-width:560px; margin-left:auto; margin-right:auto; }
+
+  .act { margin:52px 0; }
+  .act-h { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .act-n { flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--bg);
+           font-weight:900; display:flex; align-items:center; justify-content:center; font-size:0.95rem; }
+  .act-h h2 { font-size:1.24rem; font-weight:800; color:var(--gold); }
+  .act-h .from { margin-left:auto; font-size:0.74rem; color:var(--muted); }
+  .act-lead { color:var(--dim); font-size:0.92rem; margin-bottom:16px; }
+
+  .dlg { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:20px; }
+  .dlg .who { font-size:0.78rem; font-weight:800; color:var(--gold); margin-bottom:6px; }
+  .dlg .de { font-size:0.95rem; color:#bfdbfe; line-height:1.85; }
+  .dlg .zh { font-size:0.82rem; color:var(--dim); margin-top:4px; }
+  .dlg .line + .line { margin-top:18px; padding-top:18px; border-top:1px dashed rgba(148,163,184,.22); }
+
+  /* 故事里的示意小图（可选 hook_figure；手势/动作类主题用） */
+  .fig { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+         padding:18px 20px 14px; margin-top:22px; }
+  .fig svg { display:block; width:100%; height:auto; }
+  .fig .cap { font-size:0.82rem; color:var(--dim); margin-top:12px; line-height:1.75; }
+  .fig .cap b { color:var(--gold-light); }
+  @media (max-width:560px) { .fig { padding:14px 8px 12px; } }
+
+  .quiz { background:rgba(246,211,101,.05); border:1px solid rgba(246,211,101,.22);
+          border-radius:14px; padding:20px; margin-top:22px; }
+  .quiz .q { font-weight:700; color:var(--gold-light); margin-bottom:12px; font-size:0.95rem; }
+  .quiz button { display:block; width:100%; text-align:left; background:rgba(15,30,58,.9); color:var(--text);
+                 border:1px solid rgba(148,163,184,.25); border-radius:10px; padding:12px 16px;
+                 font-size:0.9rem; font-family:inherit; cursor:pointer; margin-bottom:9px; transition:.18s; }
+  .quiz button:hover { border-color:var(--gold); }
+  .quiz button.ok { background:rgba(34,197,94,.14); border-color:#22c55e; color:#bbf7d0; }
+  .quiz button.no { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fecaca; }
+  .quiz .exp { display:none; font-size:0.86rem; color:var(--gold-light); background:rgba(10,20,40,.6);
+               border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; }
+
+  .fact { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px;
+          padding:22px; margin-bottom:14px; }
+  .fact h3 { font-size:1.04rem; color:var(--gold); margin-bottom:8px; }
+  .fact p { font-size:0.92rem; margin-bottom:10px; }
+  .fact .fun { background:rgba(246,211,101,.06); border-left:3px solid var(--gold);
+               border-radius:0 8px 8px 0; padding:10px 16px; font-size:0.85rem; color:var(--gold-light); }
+
+  table.pairs { width:100%; border-collapse:collapse; background:var(--card);
+                border:1px solid rgba(246,211,101,.12); border-radius:14px; overflow:hidden; }
+  table.pairs th { background:rgba(246,211,101,.09); color:var(--gold); font-size:0.8rem;
+                   font-weight:800; padding:12px 14px; text-align:left; }
+  table.pairs td { padding:13px 14px; font-size:0.87rem; border-top:1px solid rgba(148,163,184,.14);
+                   vertical-align:top; }
+  table.pairs td.say { color:#fde68a; }
+  table.pairs td.write { color:#93c5fd; }
+  table.pairs td.zh { color:var(--dim); font-size:0.8rem; }
+
+  .gram { background:rgba(59,130,246,.07); border-left:3px solid rgba(96,165,250,.55);
+          border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px; }
+  .gram h3 { font-size:0.98rem; color:var(--blue); margin-bottom:8px; }
+  .gram p { font-size:0.88rem; color:rgba(191,219,254,.92); }
+  .gram .fun { font-size:0.84rem; color:var(--gold-light); margin-top:10px; }
+
+  .refs { display:grid; gap:12px; }
+  .ref { display:block; text-decoration:none; background:var(--card); border:1px solid rgba(246,211,101,.16);
+         border-radius:14px; padding:18px 20px; transition:.2s; }
+  .ref:hover { border-color:rgba(246,211,101,.5); transform:translateY(-2px); }
+  .ref .kind { font-size:0.72rem; font-weight:800; letter-spacing:.05em; color:var(--muted); }
+  .ref .t { font-size:1.02rem; font-weight:700; color:var(--text); margin:5px 0 4px; }
+  .ref .note { font-size:0.8rem; color:var(--dim); }
+  .ref .go { font-size:0.8rem; color:var(--gold-dim); margin-top:8px; }
+
+  /* ── 日常怎么说（主题包带来的 ECHT 对照）── */
+  .echt-teaser { display:grid; gap:12px; }
+  .et-card { background:var(--card); border:1px solid rgba(246,211,101,.12); border-radius:14px; padding:18px 20px; }
+  .et-cat { font-size:0.74rem; font-weight:800; letter-spacing:.06em; color:var(--gold); margin-bottom:10px; }
+  .et-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; }
+  .et-tag { flex:0 0 auto; font-size:0.72rem; font-weight:800; border-radius:6px; padding:2px 9px; white-space:nowrap; }
+  .et-tag.book { background:rgba(148,163,184,.16); color:#cbd5e1; }
+  .et-tag.real { background:rgba(34,197,94,.16); color:#86efac; }
+  .et-txt { font-size:0.92rem; line-height:1.7; }
+  .et-txt.book { color:#cbd5e1; }
+  .et-txt.real { color:#eafff2; }
+  .et-note { font-size:0.83rem; color:var(--dim); margin-top:4px; }
+  .et-note b { color:var(--gold-light); }
+  .et-more { display:inline-block; margin-top:2px; font-size:0.84rem; color:var(--gold-dim); text-decoration:none; }
+  .et-more:hover { color:var(--gold); }
+
+  .soft-cta { background:linear-gradient(135deg,rgba(246,211,101,0.08),rgba(184,134,11,0.05));
+              border:1px solid rgba(246,211,101,0.22); border-radius:14px; padding:28px;
+              margin:44px 0; text-align:center; }
+  .soft-cta h3 { color:var(--gold); font-size:1.1rem; margin-bottom:6px; }
+  .soft-cta p { color:var(--dim); font-size:0.9rem; margin-bottom:16px; }
+  .soft-cta a.cta-btn { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),var(--gold));
+                        color:var(--bg); font-weight:700; padding:11px 30px; border-radius:24px;
+                        text-decoration:none; font-size:0.92rem; transition:.2s; }
+  .soft-cta a.cta-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 4px 20px rgba(246,211,101,.3); }
+  .footer { text-align:center; padding:32px 0 20px; border-top:1px solid rgba(246,211,101,0.1); }
+  .footer p { color:var(--muted); font-size:0.78rem; }
+  .footer a { color:var(--gold-dim); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .page { padding:0 14px 40px; }
+    .cover { padding:92px 18px 34px; }
+    .act { margin:40px 0; }
+    table.pairs th, table.pairs td { padding:10px 10px; font-size:0.8rem; }
+    table.pairs th:nth-child(1), table.pairs td:nth-child(1) { display:none; }
+    .et-row { flex-wrap:wrap; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="https://leondeutsch.cn/" class="logo">Leon <span>德语学习中心</span></a>
+  <a href="https://leondeutsch.cn/k-list.html" class="logo" style="font-weight:400;font-size:.8rem">专栏目录 →</a>
+</div>
+<div class="page">
+
+<div class="cover">
+  <div class="badge">🚆 Deutsche Bahn · Flixtrain · 售票合作</div>
+  <h1>🚆 一张票，<br>两趟不同公司的火车</h1>
+  <p class="sub">方便是真的，误了车要重买也是真的</p>
+  <p class="lead">十二月初，林夏要从柏林去科隆看朋友。德铁的直达票太贵，她在 App 里翻着翻着，看到一条新选项：前半段坐德铁，后半段换 Flixtrain，一次下单、一张订单，便宜不少。她点了确认，心想这下省事了。她没想到，真正的考试在换乘那一站。</p>
+</div>
+
+<!-- ═══ 第一幕 · 故事 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">1</div><h2>先看故事</h2>
+    <span class="from">林夏在德国 · 本期新写</span></div>
+  <p class="act-lead">林夏在德铁 App 里输入柏林到科隆，系统给她拼了一条路线：先坐德铁的 ICE，再在汉诺威换 Flixtrain。一次下单，两段都在同一个订单里。她拖着行李箱跳下第一趟车，抬头看见站台大屏上，她要换的那趟车正在闪红色。</p>
+  <div class="dlg">
+    <div class="who" style="color:var(--gold-light);font-size:.95rem;margin-bottom:14px">🎫 一次下单，两趟火车</div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">So praktisch – ein Ticket für zwei Züge?</div>
+      <div class="zh">这么方便——一张票坐两趟车？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Genau. Du buchst alles auf einmal, mit der Bahn und mit Flix.</div>
+      <div class="zh">对。你一次全订好，德铁的和 Flix 的都在里面。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und wenn der erste Zug Verspätung hat?</div>
+      <div class="zh">那要是第一趟车晚点呢？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Dann wird es schwierig. Du hast nämlich zwei getrennte Tickets.</div>
+      <div class="zh">那就麻烦了。因为你其实是两张分开的票。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Das heißt, ich muss den Anschluss wirklich erwischen?</div>
+      <div class="zh">也就是说，我必须真赶上那趟衔接车？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Ja. Wenn du ihn verpasst, hilft dir das erste Ticket nicht mehr.</div>
+      <div class="zh">对。要是错过了，第一张票就帮不上忙了。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Und dann?</div>
+      <div class="zh">然后呢？</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Dann musst du ein neues Ticket kaufen. Fahrgastrechte gelten nur pro Ticket.</div>
+      <div class="zh">那你就得买张新票。乘客权益只按单张票算。</div>
+    </div>
+    <div class="line">
+      <div class="who">林夏</div>
+      <div class="de">Na super. Also besser genug Zeit einplanen.</div>
+      <div class="zh">好极了。那还是多留点时间吧。</div>
+    </div>
+    <div class="line">
+      <div class="who">Felix</div>
+      <div class="de">Genau. Der Vorteil ist der Preis – der Nachteil ist der Anschluss.</div>
+      <div class="zh">对。好处是价格，坏处是换乘。</div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="q">德铁晚点，林夏错过了 Flixtrain 的衔接车。为什么不能拿原来那张票去坐别的车？</div>
+      <button onclick="themeQuiz(this,true,'bahn_flixtrain-exp')">因为两张票是分开的，各自是独立的合同</button>
+      <button onclick="themeQuiz(this,false,'bahn_flixtrain-exp')">因为 Flixtrain 只在科隆一个城市发车</button>
+      <button onclick="themeQuiz(this,false,'bahn_flixtrain-exp')">因为她订的是最便宜的那种票</button>
+    <div class="exp" id="bahn_flixtrain-exp"><b>两张分开的票＝两份独立的运输合同。</b>晚点导致错过衔接时，乘客权益只对被「违约」的那张票有效，另一张通常得重新买。</div>
+  </div>
+</div>
+
+<!-- ═══ 第二幕 · 文化 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">2</div><h2>再看背后的规则</h2>
+    <span class="from">你不知道的德国</span></div>
+  <p class="act-lead">一张订单、两段火车，听上去像「一张通票」，其实是两笔生意。要理解这个坑，得先看清德国长途铁路的格局。</p>
+  <div class="fact">
+    <h3>🚄 长途铁路，基本是两家</h3>
+    <p>在德国的长途客运里，最大的两家是国有的 <b>Deutsche Bahn</b>（德铁）和私营的 <b>Flixtrain</b>。过去两家各卖各的票；从 <b>2026 年 12 月 7 日</b>起，Flixtrain 的车票也能在 <b>bahn.de</b> 和 <b>DB Navigator</b> 里买到。</p>
+    <div class="fun">💡 目前只单向：德铁卖 Flix 的票，反过来还不行——DB 的票暂时不能到 Flix 的平台买。</div>
+  </div>
+  <div class="fact">
+    <h3>🎫 一次预订，其实是两张票</h3>
+    <p>乘客可以把德铁和 Flixtrain 的线路拼成一次行程、一次下单，但系统会出<b>两张分开的车票、两份独立的运输合同</b>。如果德铁晚点、乘客错过 Flixtrain 的衔接车，<b>不能</b>随便改乘别的车：多数情况下要<b>重新买一张票</b>，赔偿也只能找对应那家公司。</p>
+    <div class="fun">💡 这叫「联程」，还不是真正的「一票到底」——差别就在「误了车谁负责」。</div>
+  </div>
+  <div class="fact">
+    <h3>⚖️ 不是新法律，是自愿合作</h3>
+    <p>这项合作<b>没有法律强制</b>：德铁和 Flixtrain 是自愿签的销售协议。背后有压力——联邦卡特尔局和欧盟委员会一直要求占主导的铁路公司向竞争对手开放售票。欧盟的「Passenger Package」提案还在谈，若通过会强化跨运营商的乘客权益。德铁每卖出一张 Flixtrain 票，还能拿到一笔<b>销售佣金</b>。</p>
+    <div class="fun">💡 所以这既是便民，也是生意：开放渠道，德铁也有钱赚。</div>
+  </div>
+</div>
+
+<!-- ═══ 第三幕 · 语言 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">3</div><h2>带走这些说法</h2>
+    <span class="from">口语 ↔ 书面</span></div>
+  <p class="act-lead">同一次出行，公告、条款和口头说法用的词完全不一样。两边都对，区别只在场合。</p>
+  <table class="pairs">
+    <tr><th>故事里怎么说（口语）</th><th>文化篇怎么写（书面）</th><th>中文</th></tr>
+    <tr><td class="say">Ich buche das auf einmal.</td><td class="write">Beide Verbindungen werden in einem Buchungsvorgang erfasst.</td><td class="zh">我一次就订好。／两段线路在同一订票流程中记录。</td></tr>
+    <tr><td class="say">Ich habe den Anschluss verpasst.</td><td class="write">Der Anschlusszug konnte wegen der Verspätung nicht erreicht werden.</td><td class="zh">我错过了衔接车。／因晚点未能赶上前接列车。</td></tr>
+    <tr><td class="say">Muss ich jetzt ein neues Ticket kaufen?</td><td class="write">Ist in diesem Fall ein neuer Fahrschein erforderlich?</td><td class="zh">我现在得买张新票吗？／此情况下是否需要新票？</td></tr>
+    <tr><td class="say">Gilt das Ticket für beide Züge?</td><td class="write">Berechtigt der Fahrschein zur Nutzung beider Züge?</td><td class="zh">这票两趟车都能用吗？／该票是否授权乘坐两趟列车？</td></tr>
+    <tr><td class="say">Hab ich Anspruch auf Entschädigung?</td><td class="write">Besteht ein Anspruch auf Fahrgastrechte-Entschädigung?</td><td class="zh">我有权索赔吗？／是否存在乘客权益赔偿请求权？</td></tr>
+  </table>
+  <div class="gram">
+    <h3>🔤 顺带一个语法点：被动态（Passiv）</h3>
+    <p>报道里常见「被……」，德语的被动态是 <b>werden + 过去分词</b>。<br>例：<i>Zwei getrennte Fahrscheine <b>werden</b> ausgestellt.</i>（会出两张分开的车票。）<br>例：<i>Beide Verbindungen <b>können</b> in einem Vorgang <b>kombiniert werden</b>.</i>（两段线路可以在一次流程中被组合。）<br>例：<i>Bei verpasstem Anschluss <b>muss</b> ein neues Ticket <b>gekauft werden</b>.</i>（错过衔接时，必须买一张新票。）</p>
+    <div class="fun">✍️ 记点：情态动词（können / müssen）＋……＋<b>werden</b> 放在句末，就是新闻里最常见的「被动 + 情态」结构。</div>
+  </div>
+</div>
+
+<!-- ═══ 日常怎么说（主题包 · 地道德语对照）═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">🗣️</div><h2>日常怎么说</h2>
+    <span class="from">课本 ↔ 日常</span></div>
+  <p class="act-lead">同一个意思，课本里一个说法、德国人日常另一个说法。下面是本站「地道德语」栏目的同款对照。</p>
+  <div class="echt-teaser">
+  <div class="et-card">
+    <div class="et-cat">订联程票</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Beide Verbindungen werden in einem Buchungsvorgang erfasst.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Ich buch das zusammen.</span></div>
+    <div class="et-note">书面/客服话术用 <b>Buchungsvorgang</b>（订票流程）；日常自己说一句 <b>Ich buch das zusammen</b>（我一起订了）就够。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">确认是不是两张票</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Es werden zwei separate Fahrscheine ausgestellt.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Sind das eigentlich zwei Tickets?</span></div>
+    <div class="et-note">条款里用被动态 <b>werden … ausgestellt</b>（会被出具）；口语直接问 <b>Sind das zwei Tickets?</b>，谁都听得懂。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">误了衔接</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Der Anschlusszug konnte nicht erreicht werden.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Ich hab den Anschluss verpasst.</span></div>
+    <div class="et-note"><b>den Anschluss verpassen</b> 是出行中最常用的一句；书面写成「未能赶上衔接车」的被动句，口语就一句话。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">问能不能改乘</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Ist eine Umbuchung auf einen anderen Zug möglich?</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Kann ich da noch irgendwie mit?</span></div>
+    <div class="et-note"><b>Umbuchung</b> 是「改签」，偏书面；口语里 <b>Kann ich da noch mit?</b>（我还能赶得上吗／能跟着走吗）更自然。</div>
+  </div>
+  <div class="et-card">
+    <div class="et-cat">索赔</div>
+    <div class="et-row"><span class="et-tag book">📘 课本这么教</span><span class="et-txt book">Ein Anspruch auf Entschädigung besteht nur gegenüber dem jeweiligen Anbieter.</span></div>
+    <div class="et-row"><span class="et-tag real">💬 日常更常说</span><span class="et-txt real">Krieg ich dafür was zurück?</span></div>
+    <div class="et-note"><b>Anspruch auf Entschädigung</b>＝赔偿请求权，是条款用语；口语就是 <b>Krieg ich was zurück?</b>（能退我点钱吗）。</div>
+  </div>
+    <a class="et-more" href="https://leondeutsch.cn/#echt">去「地道德语」看全部 →</a>
+  </div>
+</div>
+
+
+<!-- ═══ 延伸阅读 ═══ -->
+<div class="act">
+  <div class="act-h"><div class="act-n">📖</div><h2>去看原文</h2></div>
+  <div class="refs">
+    <a class="ref" href="https://leondeutsch.cn/news/70.html">
+      <div class="kind">NEWS · 德语新闻 · 第 70 期</div>
+      <div class="t">德铁开卖 Flixtrain 车票：拼成一张票，误车却要重买</div>
+      <div class="note">这一期的德语客观报道，A1–C2 六档 + 英语 A2–B2，附朗读音频</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leondeutsch.cn/serie/11.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 11 集</div>
+      <div class="t">🚆 德铁出行</div>
+      <div class="note">在德国坐火车的基础流程：买票、看站台、查晚点——本期是它的进阶版</div>
+      <div class="go">打开全文 →</div>
+    </a>
+    <a class="ref" href="https://leondeutsch.cn/serie/35.html">
+      <div class="kind">SERIE · 林夏在德国 · 第 35 集</div>
+      <div class="t">🌍 暑期欧铁游</div>
+      <div class="note">跨国长途坐火车的经验：换乘、衔接，以及误点了到底怎么办</div>
+      <div class="go">打开全文 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="soft-cta">
+  <h3>📚 想系统地学德语？</h3>
+  <p>A1–B2 全套课程 · 分级阅读 · 发音评测，都在 Leon 德语学习中心。</p>
+  <a class="cta-btn" href="https://leondeutsch.cn/" target="_blank" rel="noopener">进入网站</a>
+</div>
+
+<div class="footer">
+  <p>Leons Deutschzentrum · 通过故事讲文化，通过文化学语言</p>
+  <p style="margin-top:8px"><a href="https://leondeutsch.cn/k-list.html">你不知道的德国</a> ·
+     <a href="https://leondeutsch.cn/">返回首页</a></p>
+  <p style="margin-top:6px;font-size:.7rem;opacity:.65"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">赣ICP备2026022283号-1</a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=36012102000917" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-left:12px"><img src="/beian.png" alt="" style="height:13px;vertical-align:-2px;margin-right:4px">赣公网安备36012102000917号</a></p>
+</div>
+
+</div>
+<script>
+function themeQuiz(el, ok, expId) {
+  var box = el.parentNode, btns = box.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+  el.className = ok ? 'ok' : 'no';
+  var e = document.getElementById(expId);
+  if (e) { e.style.display = 'block'; }
+}
+
+(function(){
+  var hs = document.querySelectorAll('h2');
+  if (!hs.length) return;
+  var t = null;
+  window.addEventListener('scroll', function(){
+    if (t) return;
+    t = setTimeout(function(){
+      t = null;
+      var i = -1;
+      for (var k = 0; k < hs.length; k++) {
+        if (hs[k].getBoundingClientRect().top <= 120) i = k;
+      }
+      var h = i < 0 ? '' : ('#a=' + i);
+      if (location.hash === h) return;
+      try { history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {}
+    }, 350);
+  }, { passive: true });
+  var m = (location.hash || '').match(/^#a=(\d+)$/);
+  if (m) {
+    var n = parseInt(m[1], 10);
+    setTimeout(function(){ if (hs[n]) hs[n].scrollIntoView(); }, 250);
+  }
+})();
+</script>
+</body>
+</html>
