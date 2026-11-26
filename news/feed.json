@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 71,
+   "title": "德国纪录片获国际艾美奖：两个年轻人把「追贼」拍成了片",
+   "de_title": "Deutscher Dokumentarfilm „Der talentierte Mr. F.“ gewinnt Internationalen Emmy",
+   "hook": "自己的电影|被人偷去领奖",
+   "sub": "两个柏林年轻人，追到美国把贼拍成了纪录片",
+   "date": "2026-11-24",
+   "photo": "news/og/src/71.jpg",
+   "de_hook": "Gestohlen, umgetauft|und ausgezeichnet –|wie geht das?",
+   "zh_intro": "一部德国纪录片拿了国际艾美奖，它的故事本身就像电影：两个柏林年轻人做完短片，被一个美国人改名冒领、拿去电影节拿奖。他俩没有认栽，买了机票飞去美国找到那个人，把「追贼」的过程拍了下来。这部片叫《Der talentierte Mr. F.》，2025 年 10 月在 MDR 和 ARD 播出，2026 年 11 月获奖。",
+   "words": [
+    [
+     "der Film, die Filme",
+     "电影、影片"
+    ],
+    [
+     "der Dokumentarfilm",
+     "纪录片"
+    ],
+    [
+     "der Kurzfilm",
+     "短片"
+    ]
+   ]
+  },
+  {
    "id": 70,
    "title": "德铁开卖 Flixtrain 车票：拼成一张票，误车却要重买",
    "de_title": "Deutsche Bahn verkauft ab Dezember auch Flixtrain-Tickets",
@@ -173,31 +198,6 @@
     [
      "der Verein, die Vereine",
      "俱乐部"
-    ]
-   ]
-  },
-  {
-   "id": 63,
-   "title": "抗生素越吃越不灵：欧洲用量降了，抗药菌却更多",
-   "de_title": "Weniger Antibiotika in Europa – aber mehr resistente Keime",
-   "hook": "抗生素|越吃越不灵",
-   "sub": "欧洲用量降了，抗药菌还在涨",
-   "date": "2026-11-19",
-   "photo": "news/og/src/63.jpg",
-   "de_hook": "Weniger Antibiotika –|warum steigt trotzdem|die Gefahr?",
-   "zh_intro": "欧洲人吃抗生素药片比以前少了，但医生说还是开得太多。按欧盟卫生机构 ECDC 的数字，2025 年的用量比 2019 年低约 5%，而欧盟的目标是到 2030 年减少 20%——现在还差得远。与此同时，抗药菌继续扩散。抗生素只对细菌有效，对病毒没用；世界卫生组织的发言人也提醒：尤其别给孩子吃太多。",
-   "words": [
-    [
-     "das Antibiotikum, die Antibiotika",
-     "抗生素"
-    ],
-    [
-     "das Medikament, die Medikamente",
-     "药物"
-    ],
-    [
-     "die Tablette, die Tabletten",
-     "药片"
     ]
    ]
   }
