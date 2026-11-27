@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 72,
+   "title": "德国数字驾照 12 月中旬上线：手机里能出示，出国还得带卡",
+   "de_title": "Digitaler Führerschein kommt Mitte Dezember – im Ausland gilt weiter die Karte",
+   "hook": "驾照装进手机|出国还得带卡",
+   "sub": "12 月中旬起，德国驾照可以存进手机",
+   "date": "2026-11-26",
+   "photo": "news/og/src/72.jpg",
+   "de_hook": "Führerschein im Handy –|warum gilt er nicht|im Ausland?",
+   "zh_intro": "从 12 月中旬起，德国人可以把驾照存进手机：在 i-Kfz-App 里出示数字驾照，塑料卡片可以留在家里。不过有两个前提——过渡期内还得随身带身份证或护照，因为证件照还没并进 App；出了德国国境就只认卡片驾照。这项功能原定 11 月底上线，因技术原因推迟了几周。",
+   "words": [
+    [
+     "der Führerschein, die Führerscheine",
+     "驾照"
+    ],
+    [
+     "der Kartenführerschein",
+     "卡片驾照（实体驾照）"
+    ],
+    [
+     "die App, die Apps",
+     "应用程序"
+    ]
+   ]
+  },
+  {
    "id": 71,
    "title": "德国纪录片获国际艾美奖：两个年轻人把「追贼」拍成了片",
    "de_title": "Deutscher Dokumentarfilm „Der talentierte Mr. F.“ gewinnt Internationalen Emmy",
@@ -173,31 +198,6 @@
     [
      "die Abschluss-Erklärung, -en",
      "最终声明、闭幕声明"
-    ]
-   ]
-  },
-  {
-   "id": 64,
-   "title": "凯恩左踝韧带撕裂：拜仁前锋缺阵数月",
-   "de_title": "Syndesmosebandriss bei Harry Kane: Der FC Bayern fehlt seinen Torjäger mehrere Monate",
-   "hook": "凯恩倒了|拜仁缺阵数月",
-   "sub": "金球先生刚封王，就先伤停数月",
-   "date": "2026-11-21",
-   "photo": "news/og/src/64.jpg",
-   "de_hook": "Monatelang ohne|Harry Kane – was|macht Bayern jetzt?",
-   "zh_intro": "拜仁慕尼黑的当家射手哈里·凯恩在对阵科隆的比赛里受了重伤：脚踝的韧带联合（Syndesmose）撕裂，要缺阵好几个月。他 33 岁，来自英格兰，2023 年夏天加盟拜仁，近几年一直是德甲进球最多的球员之一；今年还拿到了金球奖，被看作当今世界最好的球员之一。对拜仁来说，这是最不想听到的消息。",
-   "words": [
-    [
-     "der Fußballspieler, die Fußballspieler",
-     "足球运动员"
-    ],
-    [
-     "der Stürmer, die Stürmer",
-     "前锋"
-    ],
-    [
-     "der Verein, die Vereine",
-     "俱乐部"
     ]
    ]
   }
