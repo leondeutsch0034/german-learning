@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 73,
+   "title": "教会赔 55 万欧：德国天主教会最高性侵赔偿纪录",
+   "de_title": "Erzbistum Köln muss 550.000 Euro Schmerzensgeld an Missbrauchs-Opfer zahlen",
+   "hook": "50 年后的判决|教会赔 55 万",
+   "sub": "科隆总教区 · 德国教会最高赔偿纪录",
+   "date": "2026-11-26",
+   "photo": "news/og/src/73.jpg",
+   "de_hook": "550.000 Euro –|zahlt die Kirche|jetzt dafür?",
+   "zh_intro": "科隆高等法院作出判决：科隆总教区要向一位现年 60 岁的女性支付 55 万欧元精神损害赔偿。她小时候是一名天主教神父的养女，约 50 年前在科隆一带多年遭到性侵；那名神父 2022 年被判 12 年监禁。这是德国天主教会迄今向性侵受害人支付的最高赔偿，此前纪录是 30 万欧元。法院认定，神父是利用神职身份取得信任，因此教会要负「职务责任」。",
+   "words": [
+    [
+     "das Gericht, die Gerichte",
+     "法院"
+    ],
+    [
+     "das Urteil, die Urteile",
+     "判决"
+    ],
+    [
+     "die katholische Kirche",
+     "天主教会"
+    ]
+   ]
+  },
+  {
    "id": 72,
    "title": "德国数字驾照 12 月中旬上线：手机里能出示，出国还得带卡",
    "de_title": "Digitaler Führerschein kommt Mitte Dezember – im Ausland gilt weiter die Karte",
@@ -173,31 +198,6 @@
     [
      "der Fuß, die Füße",
      "脚"
-    ]
-   ]
-  },
-  {
-   "id": 65,
-   "title": "世界气候大会谈崩：近 200 国卡在化石燃料",
-   "de_title": "Welt-Klima-Konferenz endet ohne Einigung im Streit um Kohle, Öl und Gas",
-   "hook": "近 200 个国家|没谈拢",
-   "sub": "两周期会，卡在「化石燃料」四个字上",
-   "date": "2026-11-22",
-   "photo": "news/og/src/65.jpg",
-   "de_hook": "Fast 200 Länder,|zwei Wochen –|und kein Ergebnis?",
-   "zh_intro": "这届世界气候大会在土耳其的安塔利亚开了两周，近 200 个国家参加。会议原本想谈出一份所有国家都同意的共同声明，写下世界接下来怎么一起应对气候变化。但这一次，声明没谈成。分歧集中在一个核心问题上：煤炭、石油和天然气。很多国家要求减少使用这些化石燃料，并写进文件；另一些国家的经济高度依赖出口这些能源，不肯松口。会议最终在 11 月 22 日无协议收场。",
-   "words": [
-    [
-     "die Welt-Klima-Konferenz, -en",
-     "世界气候大会"
-    ],
-    [
-     "der Klima-Wandel (der Klimawandel)",
-     "气候变化"
-    ],
-    [
-     "die Abschluss-Erklärung, -en",
-     "最终声明、闭幕声明"
     ]
    ]
   }
