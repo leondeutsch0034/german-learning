@@ -2,6 +2,31 @@
  "count": 8,
  "items": [
   {
+   "id": 74,
+   "title": "HPV 疫苗让宫颈癌减半：每 10 万女性 25 例对 53 例",
+   "de_title": "HPV-Impfung halbiert Gebärmutterhalskrebs bei jungen Frauen",
+   "hook": "一针疫苗|宫颈癌减半",
+   "sub": "德国从 2007 年起给女孩免费接种",
+   "date": "2026-11-27",
+   "photo": "news/og/src/74.jpg",
+   "de_hook": "Warum bekommen heute|halb so viele Frauen|Gebärmutterhalskrebs?",
+   "zh_intro": "德国从 2007 年起推荐女孩接种 HPV 疫苗，费用由医保承担；2018 年起也推荐男孩。现在第一批打了疫苗的女孩长大了：AOK 和德国肿瘤中心协会的数据显示，她们宫颈癌的发病率大约只有没打疫苗那一代的一半——每 10 万女性约 25 例，对 53 例。",
+   "words": [
+    [
+     "das Virus, die Viren",
+     "病毒"
+    ],
+    [
+     "die Impfung, die Impfungen",
+     "疫苗接种"
+    ],
+    [
+     "impfen",
+     "给……接种疫苗"
+    ]
+   ]
+  },
+  {
    "id": 73,
    "title": "教会赔 55 万欧：德国天主教会最高性侵赔偿纪录",
    "de_title": "Erzbistum Köln muss 550.000 Euro Schmerzensgeld an Missbrauchs-Opfer zahlen",
@@ -173,31 +198,6 @@
     [
      "der Verwaltungsrat",
      "董事会（美式公司中的董事会）"
-    ]
-   ]
-  },
-  {
-   "id": 66,
-   "title": "天生没有双臂：德国选手跆拳道世锦赛摘银",
-   "de_title": "Ohne Arme geboren: Aziz Hanefi gewinnt WM-Silber im Para-Taekwondo",
-   "hook": "没有双臂|踢进世界决赛",
-   "sub": "德国选手的世锦赛银牌",
-   "date": "2026-11-23",
-   "photo": "news/og/src/66.jpg",
-   "de_hook": "Wie kämpft man|Taekwondo|ganz ohne Arme?",
-   "zh_intro": "德国运动员阿齐兹·哈内菲（Aziz Hanefi）天生没有双臂。近日在韩国茂朱举行的残疾人跆拳道世锦赛上，他一路打进决赛，最终获得银牌。今年 5 月，他第一次参加国际大赛，就在欧锦赛上拿到金牌。哈内菲出生在阿富汗，一岁时随父母来到德国，如今住在巴伐利亚。",
-   "words": [
-    [
-     "der Sportler, die Sportler",
-     "运动员"
-    ],
-    [
-     "der Arm, die Arme",
-     "手臂"
-    ],
-    [
-     "der Fuß, die Füße",
-     "脚"
     ]
    ]
   }
